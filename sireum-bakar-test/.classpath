@@ -2,8 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src/test/scala"/>
 	<classpathentry kind="src" path="src/test/resources"/>
-  <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar"/>
-  <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-compiler"/>
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-jago"/> 
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-xml"/>
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-core-test"/>
