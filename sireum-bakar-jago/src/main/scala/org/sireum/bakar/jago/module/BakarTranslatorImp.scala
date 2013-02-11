@@ -10,7 +10,7 @@ import org.sireum.bakar.jago.util.TranslatorUtil
 /** 
   * The following class will be called reflectively in Bakar2CoqTranslatorModuleCore.  
   */
-class BakarTranslatorImp (val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
+class BakarTranslatorDef (val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
   // add implementation here
   // Here we implement the translation from SPARK XML AST tree to Coq value
   // - Bakar2CoqTranslatorConfig generate Bakar2CoqTranslatorModuleCore

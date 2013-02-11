@@ -14,6 +14,7 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.bakar.jago.module.BakarTranslatorModule
 import org.scalatest.junit.JUnitRunner
+import org.sireum.option.ProgramTarget
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorTest_Jago extends BakarTestFileFramework {
@@ -27,6 +28,7 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
   override def pre(c : Configuration) : Boolean = {
+    BakarTranslatorModule.setTranslationType(c.job.properties, ProgramTarget.Coq)
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
     return true;
