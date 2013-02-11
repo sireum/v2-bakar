@@ -1,0 +1,101 @@
+Require Export ZArith. 
+Require Export Coq.Lists.List.
+Require Export Coq.Bool.Bool.
+
+(* Module SPARK_Syntax. *)
+Inductive mode: Type := 
+      | In: mode
+      | Out: mode.
+
+Inductive ident: Type :=
+	| Aid: nat -> ident
+	| Bid: nat -> ident.
+
+Inductive value: Type := 
+    | Aval: nat -> value
+    | Bval: bool -> value.
+
+Inductive constant: Type := 
+	| Ointconst: nat -> constant.
+
+Inductive unary_operation: Type := 
+	| Onegint: unary_operation
+	| Oposint: unary_operation.
+
+Inductive binary_operation: Type := 
+	| Ceq: binary_operation
+	| Cge: binary_operation
+	| Cgt: binary_operation
+	| Cle: binary_operation
+	| Clt: binary_operation
+	| Cne: binary_operation
+	| Oadd: binary_operation
+	| Oand: binary_operation
+	| Odiv: binary_operation
+	| Omul: binary_operation
+	| Oor: binary_operation
+	| Osub: binary_operation
+	| Oxor: binary_operation.
+
+Inductive expr: Type := 
+	| Econst: constant -> expr
+	| Evar: ident -> expr
+	| Ebinop: binary_operation -> expr -> expr -> expr
+	| Eunop: unary_operation -> expr -> expr.
+
+Definition predicate := expr.
+
+Definition loopInvariant := option (predicate).
+
+Inductive stmt: Type := 
+	| Sassign: ident -> expr -> stmt
+	| Sifthen: expr -> stmt -> stmt
+	| Swhile: expr -> loopInvariant -> stmt -> stmt
+	| Sseq: stmt -> stmt -> stmt.
+
+Record param: Type := mkparam {
+	p_ident: ident;
+	p_mode: mode;
+	p_init: option (expr)
+}.
+
+Record subprog_aspect_specs: Type := mksubprog_aspect_specs {
+	pre: option (predicate);
+	post: option (predicate)
+}.
+
+(* Local variables declarations used in the procedure/function body *)
+Record defining_ident: Type := mkdefining_ident {
+	def_idents: list ident;
+	def_init: option (value)
+}.
+
+Record procedure_body: Type := mkprocedure_body {
+	proc_specs: option (subprog_aspect_specs);
+	proc_params: option (list param);
+	proc_defidents: option (list defining_ident);
+	proc_body: stmt
+}.
+
+Definition retT := value.
+
+Record function_body: Type := mkfunction_body {
+	fn_specs: option (subprog_aspect_specs);
+	fn_retT: retT;
+	fn_params: option (list param);
+	fn_defidents: option (list defining_ident);
+	fn_body: stmt
+}.
+
+Inductive subprogram: Type := 
+	| Sproc: procedure_body -> subprogram
+	| Sfunc: function_body -> subprogram.
+
+Definition pkgbody_aspect_specs := subprog_aspect_specs.
+
+Inductive package_body: Type := 
+	| Packagebody: option (pkgbody_aspect_specs) -> list subprogram -> package_body.
+
+(* End SPARK_Syntax. *)
+(* Extraction SPARK_Syntax. *)
+(* Recursive Extraction program. *)

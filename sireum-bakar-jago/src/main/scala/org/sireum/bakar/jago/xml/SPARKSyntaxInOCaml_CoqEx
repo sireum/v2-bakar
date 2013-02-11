@@ -1,0 +1,93 @@
+type bool =
+| True
+| False
+
+type nat =
+| O
+| S of nat
+
+type 'a option =
+| Some of 'a
+| None
+
+type 'a list =
+| Nil
+| Cons of 'a * 'a list
+
+type mode =
+| In
+| Out
+
+type ident =
+| Aid of nat
+| Bid of nat
+
+type value =
+| Aval of nat
+| Bval of bool
+
+type constant =
+  nat
+  (* singleton inductive, whose constructor was Ointconst *)
+
+type unary_operation =
+| Onegint
+| Oposint
+
+type binary_operation =
+| Ceq
+| Cge
+| Cgt
+| Cle
+| Clt
+| Cne
+| Oadd
+| Oand
+| Odiv
+| Omul
+| Oor
+| Osub
+| Oxor
+
+type expr =
+| Econst of constant
+| Evar of ident
+| Ebinop of binary_operation * expr * expr
+| Eunop of unary_operation * expr
+
+type predicate = expr
+
+type loopInvariant = predicate option
+
+type stmt =
+| Sassign of ident * expr
+| Sifthen of expr * stmt
+| Swhile of expr * loopInvariant * stmt
+| Sseq of stmt * stmt
+
+type param = { p_ident : ident; p_mode : mode; p_init : expr option }
+
+type subprog_aspect_specs = { pre : predicate option; post : predicate option }
+
+type defining_ident = { def_idents : ident list; def_init : value option }
+
+type procedure_body = { proc_specs : subprog_aspect_specs option;
+                        proc_params : param list option;
+                        proc_defidents : defining_ident list option;
+                        proc_body : stmt }
+
+type retT = value
+
+type function_body = { fn_specs : subprog_aspect_specs option;
+                       fn_retT : retT; fn_params : param list option;
+                       fn_defidents : defining_ident list option;
+                       fn_body : stmt }
+
+type subprogram =
+| Sproc of procedure_body
+| Sfunc of function_body
+
+type pkgbody_aspect_specs = subprog_aspect_specs
+
+type package_body =
+| Packagebody of pkgbody_aspect_specs option * subprogram list

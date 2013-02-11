@@ -1,0 +1,84 @@
+/************************************
+** Notes about XML To Coq Translation
+**           by Zhi Zhang
+*************************************/
+Refer the files in following fold for reference:
+ - sireum-bakar-compilar/org.sireum.bakar.compilar.module
+
+(1) BakarTranslatorConfig.scala
+ - @Input: specify the type of input file
+ - @Produce: specify the type of output file
+ - run "main" will generate 1) <BakarTranslatorModuleCore.scala>
+                            2) ask us to creat a Class BakarTranslatorDef(...)
+
+Class BakarTranslatorDef(...) is defined in <BakarTranslatorImpl.scala>, it's used to
+define the specific operation working on the input value of type tagged by @Input, and
+produce the output value of type tagged by @Produce.
+So what we need to do is to implement BakarTranslatorDef(...).
+
+/************************************
+** Modification to sireum-bakar-test
+*************************************/
+(1) its build path is modified to include sireum-bakar-jago
+(2) add a test file BakarTranslator_Jago.scala under sireum-bakar-test/src/test/scala/org.sireum.test.bakar.compiler
+
+
+/************************************
+**    BakarTranslator Test Cases
+*************************************/
+Run the BakarTranslator (from Bakar to Pillar) test :
+(1) it will call the gnat2xml module to generate xml ast tree from SPARK, so in terminal, use the following
+     command to let gnat2xml point to the gnat2xml application
+  >> cd ~
+  >> export gnat2xml=~/Programs/gnat/bin/
+(2) then invoke eclipse under the envirenment with new gnat2xml value,
+     the symbol '&' let the eclipse run in the backgroud
+  >> SireumV2/apps/eclipse/classic/eclipse &
+
+
+/************************************
+**    To Fix The Common Errors
+*************************************/
+(1)
+Eclipse > Preference ... > Java > Installed JREs > Add... > Standard Vm > Next > 
+change the default system JRE home to:
+  >> /Volumes/ssd2/Users/zhi/SireumV2/apps/platform/java
+Start the eclipse from terminal:
+  >> SireumV2/apps/eclipse/classic/eclipse -clean &
+
+(2)
+There are three repositories: 1) sireum-bakar; 2) sireum-core; 3) sireum-internal. 
+sireum-bakar may invoke some application or packages inside 2) and 3), so remember to 
+do the following actions on 2) and 3) before updates on 1):
+ >> Fetch from upstream > Pull
+
+(3)
+The classes defined in other projects maybe invisible for the current project.
+To use classes defined in other projects, we have to import these projects into current project:
+ >> write click the project > Build Path > Configure Build Path ... > Projects > Add ...
+
+(4)
+The third party packages are usually included in /Users/zhi/Documents/workspace/sireum-core/sireum-lib/lib/.
+If there is any problem with using classes inside these packages, fix it by:
+ >> Eclipse > Preferences > Java > Build Path > User Libraries > Import ... >
+    /Users/zhi/Documents/workspace/sireum-core/sireum-lib/lib/sireum.userlibraries
+    
+(5)
+bash-3.2$ cat eclipse 
+#!/bin/bash
+export SIREUM_HOME=$( cd "$( dirname "$0/../../../../../../../../" )" &> /dev/null && pwd )
+$SIREUM_HOME/sireum launch eclipse -j "-XX:MaxPermSize=256m,-Xms125m,-Xmx4000m" --args "$@"
+
+
+/************************************
+**          Git Repository
+*************************************/
+The git repository is:
+(1) Core:
+  >> https://git.assembla.com/sireum-core.git
+(2) Bakar (there are two versions, select the 'master' version without number)
+  >> ssh://zhangzhi@cislinux.cis.ksu.edu/research/plgroup/stash/Software/Research/repositories/sireum-bakar.git
+(3) Internal (there are two versions, select the 'master' version without number)
+  >> ssh://zhangzhi@cislinux.cis.ksu.edu/research/plgroup/stash/Software/Research/repositories/sireum-internal.git
+
+

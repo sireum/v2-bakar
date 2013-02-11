@@ -1,0 +1,101 @@
+// group SPARKTRANS_Coq_MODEL;
+
+optionVal(value) ::= <<
+$if(value)$Some ($value$) $else$None $endif$ 
+>>
+
+binaryExpr(op, loperand, roperand) ::= <<
+Ebinop $op$ ($loperand$) ($roperand$)
+>>
+
+unaryExpr(op, operand) ::= <<
+Eunop $op$ ($operand$)
+>>
+
+// identifier is either (1) Bid nat; or (2) Aid nat 
+varId(theType, id) ::= <<
+$theType$ $id$
+>>
+
+identifierExpr(id) ::= <<
+Evar ($id$)
+>>
+
+// Inductive constant: Type := 
+//     | Ointconst: nat -> constant
+// the type is "Ointconst", the value is of type nat
+constant(theType, constVal) ::= <<
+$theType$ $constVal$
+>>
+
+constantExpr(constVal) ::= <<
+Econst ($constVal$)
+>>
+
+procedureCall(procName, args) ::= <<
+$procName$($args; separator=", "$)
+>>
+
+seqStmt(stmt1, stmt2) ::= <<
+Sseq ($stmt1$) 
+  ($stmt2$)
+>>
+
+whileStmt(cond, loopInv, loopBody) ::= <<
+Swhile ($cond$) 
+  $if(loopInv)$($loopInv$) $else$None $endif$ 
+  ($loopBody$)
+>>
+
+ifStmt(cond, ifBody) ::= <<
+Sifthen ($cond$) 
+  ($ifBody$)
+>>
+
+assignStmt(lhs, rhs) ::= <<
+Sassign ($lhs$) ($rhs$)
+>>
+
+param(id, mode, initExp) ::= <<
+mkparam ($id$) $if(mode)$($mode$) $else$In $endif$ $if(initExp)$($initExp$) $else$None $endif$
+>>
+
+subprogAspectSpecs(pre, post) ::= <<
+mksubprog_aspect_specs $if(pre)$($pre$) $else$None $endif$ $if(post)$($post$) $else$None $endif$
+>>
+
+identiferDecl(ids, init) ::= <<
+mkdefining_ident ($ids; separator=" :: "$) $if(init)$ $init$ $else$None $endif$
+>>
+
+procedureBody(aspectSpecs, params, identDecls, procBody) ::= <<
+mkprocedure_body $if(aspectSpecs)$($aspectSpecs$) $else$None $endif$
+  ($if(params)$Some($params; separator=" :: \n"$) $else$None $endif$) 
+  ($if(identDecls)$Some($identDecls; separator=" :: \n"$) $else$None $endif$)
+  ($procBody$)
+>>
+
+functionBody(aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+mkfunction_body $if(aspectSpecs)$($aspectSpecs$) $else$None $endif$ ($returnT$) 
+  ($if(params)$Some($params; separator=" :: \n"$) $else$None $endif$)
+  ($if(identDecls)$Some($identDecls; separator=" :: \n"$) $else$None $endif$) 
+  ($funcBody$)
+>>
+
+// <Sproc procedure_body> or <Sfunc function_body>
+subProgram(kind, prog) ::= <<
+$kind$ 
+  ($prog$)
+>>
+
+packageBody(pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
+Definition $pkgBodyName$ := 
+  Packagebody 
+  $if(pkgBodyAspectSpecs)$ ($pkgBodyAspectSpecs$) $else$None $endif$
+  ($pkgBodyDeclItems; separator=" ::\n\n"$)
+>>
+
+
+
+
+

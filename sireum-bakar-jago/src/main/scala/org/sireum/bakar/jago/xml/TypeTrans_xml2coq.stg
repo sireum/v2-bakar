@@ -1,0 +1,72 @@
+
+typeDefinitions(typeDeclarations) ::= <<
+$importedLibs()$
+
+(* Module SPARK_Syntax. *)
+$basicTypes()$
+
+$typeDeclarations; separator="\n\n"$
+
+(* End SPARK_Syntax. *)
+(* Extraction SPARK_Syntax. *)
+(* Recursive Extraction program. *)
+>>
+
+importedLibs() ::= <<
+Require Export ZArith. 
+Require Export Coq.Lists.List.
+Require Export Coq.Bool.Bool.
+>>
+
+basicTypes() ::= <<
+Inductive mode: Type := 
+      | In: mode
+      | Out: mode.
+
+Inductive ident: Type :=
+	| Aid: nat -> ident
+	| Bid: nat -> ident.
+
+Inductive value: Type := 
+    | Aval: nat -> value
+    | Bval: bool -> value.
+>>
+
+typeDeclaration(typeName, constructorDecls, annotation) ::= <<
+$if(annotation)$(* $annotation$ *)$endif$
+Inductive $typeName$: Type := 
+	$constructorDecls; separator="\n"$.
+>>
+
+fieldDeclaration(fieldName, fieldType) ::= <<
+$fieldName$: $fieldType$
+>>
+
+recordDeclaration(recordName, constructorName, fields, annotation) ::= <<
+$if(annotation)$(* $annotation$ *)$endif$
+Record $recordName$: Type := $constructorName$ {
+	$fields; separator=";\n"$
+}.
+>>
+
+constructor(constructorName, constructorArgs) ::= <<
+| $constructorName$: $constructorArgs$
+>>
+
+constructorArguments(arguments) ::= <<
+$arguments; separator=" -> "$
+>>
+
+typeRename(newName, oldName) ::= <<
+Definition $newName$ := $oldName$.
+>>
+
+// In Coq, "option bool" should be written with "bool option" in OCaml
+// $if(switch)$ ($theType$) option $else$ option ($theType$) $endif$
+optionType(theType, switch) ::= <<
+option ($theType$)
+>>
+
+listType(elemType) ::= <<
+list $elemType$
+>>

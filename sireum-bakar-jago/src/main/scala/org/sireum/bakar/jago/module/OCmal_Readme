@@ -1,0 +1,23 @@
+/************************
+  ** OCaml Installation 
+  ***********************/
+For detail see the website: http://ocamldt.free.fr/spip.php?article5
+(1) Download and install ODT (OCaml Development Tools) for Mac
+    (download site: http://caml.inria.fr/download.en.html)
+(2) Install ODT
+    Help > Install New Software > Add ""http://odt.sf.net"" > Install ODT
+(3) Set the OCaml compiler
+    Eclipse > Preferences > OCaml > Compiler > compiler folder "/usr/local/bin"
+
+(4) Manage the builder profiles
+    Right click the OCaml project > Properties > OCaml > Executables, Libraries > Executables > 
+    Add > /- Target name: can be any name labeling the compiling resulting executable file
+          |- Target folder: denote where to put the compiling resulting file
+	  |- Source file: the OCaml file .ml to be compiled
+	  |- Builder profile: select the default one
+
+(5) print_string: to print an string
+    print_int: to print an int
+
+    for example: # print_string "Hello world!\n";; 
+
