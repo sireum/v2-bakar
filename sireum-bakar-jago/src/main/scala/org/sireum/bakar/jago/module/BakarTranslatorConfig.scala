@@ -6,10 +6,14 @@ import org.sireum.bakar.xml.CompilationUnit
 import org.sireum.util.FileResourceUri
 import org.sireum.pipeline.Produce
 import org.sireum.option.PipelineMode
+import org.sireum.option.ProgramTarget
 import org.sireum.pipeline.gen.ModuleGenerator
 
 case class BakarTranslator(
     title: String = "",
+    
+    @Input
+    translationType : ProgramTarget.Type,
     
     @Input
     parseGnat2XMLresults: MMap[FileResourceUri, CompilationUnit],

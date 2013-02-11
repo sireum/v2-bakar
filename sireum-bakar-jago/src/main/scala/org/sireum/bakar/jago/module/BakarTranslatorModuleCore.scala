@@ -4,6 +4,7 @@ import org.sireum.util._
 import org.sireum.pipeline._
 import java.lang.String
 import org.sireum.bakar.xml.CompilationUnit
+import org.sireum.option.ProgramTarget.Type
 import scala.collection.Seq
 import scala.collection.mutable.Map
 
@@ -11,13 +12,14 @@ object BakarTranslatorModule extends PipelineModule {
   def title = ""
   def origin = classOf[BakarTranslator]
 
+  val globalTranslationTypeKey = "Global.translationType"
   val globalParseGnat2XMLresultsKey = "Global.parseGnat2XMLresults"
   val resultsKey = "BakarTranslator.results"
 
   def compute(job : PipelineJob, info : PipelineJobModuleInfo) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
     try {
-      val module = Class.forName("org.sireum.bakar.jago.module.BakarTranslatorImp")
+      val module = Class.forName("org.sireum.bakar.jago.module.BakarTranslatorDef")
       val cons = module.getConstructors()(0)
       val params = Array[AnyRef](job, info)
       val inst = cons.newInstance(params : _*)
@@ -34,7 +36,7 @@ object BakarTranslatorModule extends PipelineModule {
 
   override def validPipeline(stage : PipelineStage, job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    val deps = ivector[PipelineModule]()
+    val deps = ilist[PipelineModule]()
     deps.foreach(d =>
       if(stage.modules.contains(d)){
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
@@ -47,6 +49,33 @@ object BakarTranslatorModule extends PipelineModule {
 
   def inputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
+    var _translationType : scala.Option[AnyRef] = None
+    var _translationTypeKey : scala.Option[String] = None
+
+    val keylisttranslationType = List(BakarTranslatorModule.globalTranslationTypeKey)
+    keylisttranslationType.foreach(key => 
+      if(job ? key) { 
+        if(_translationType.isEmpty) {
+          _translationType = Some(job(key))
+          _translationTypeKey = Some(key)
+        }
+        if(!(job(key).asInstanceOf[AnyRef] eq _translationType.get)) {
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': 'translationType' keys '" + _translationTypeKey.get + " and '" + key + "' point to different objects.")
+        }
+      }
+    )
+
+    _translationType match{
+      case Some(x) =>
+        if(!x.isInstanceOf[org.sireum.option.ProgramTarget.Type]){
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': Wrong type found for 'translationType'.  Expecting 'org.sireum.option.ProgramTarget.Type' but found '" + x.getClass.toString + "'")
+        }
+      case None =>
+        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+          "Input error for '" + this.title + "': No value found for 'translationType'")       
+    }
     var _parseGnat2XMLresults : scala.Option[AnyRef] = None
     var _parseGnat2XMLresultsKey : scala.Option[String] = None
 
@@ -92,6 +121,21 @@ object BakarTranslatorModule extends PipelineModule {
     return tags
   }
 
+  def modGetTranslationType (options : scala.collection.Map[Property.Key, Any]) : org.sireum.option.ProgramTarget.Type = {
+    if (options.contains(BakarTranslatorModule.globalTranslationTypeKey)) {
+       return options(BakarTranslatorModule.globalTranslationTypeKey).asInstanceOf[org.sireum.option.ProgramTarget.Type]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setTranslationType (options : MMap[Property.Key, Any], translationType : org.sireum.option.ProgramTarget.Type) : MMap[Property.Key, Any] = {
+
+    options(BakarTranslatorModule.globalTranslationTypeKey) = translationType
+
+    return options
+  }
+
   def modGetParseGnat2XMLresults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = {
     if (options.contains(BakarTranslatorModule.globalParseGnat2XMLresultsKey)) {
        return options(BakarTranslatorModule.globalParseGnat2XMLresultsKey).asInstanceOf[scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]
@@ -125,6 +169,8 @@ object BakarTranslatorModule extends PipelineModule {
 
 trait BakarTranslatorModule {
   def job : PipelineJob
+
+  def translationType : org.sireum.option.ProgramTarget.Type = BakarTranslatorModule.modGetTranslationType(job.properties)
 
   def parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.modGetParseGnat2XMLresults(job.properties)
 

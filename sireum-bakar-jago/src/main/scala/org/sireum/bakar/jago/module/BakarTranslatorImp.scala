@@ -415,6 +415,10 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         everythingElseH(ctx, theVisitor)
       )))
   
+  import org.sireum.option.ProgramTarget
+  val t = this.translationType
+  assert (t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
+  
   // print the test cases
   // var count = 0;
   // var suffix = 0;
