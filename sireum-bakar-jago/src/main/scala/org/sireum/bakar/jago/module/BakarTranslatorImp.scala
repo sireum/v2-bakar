@@ -130,6 +130,9 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val pack = buildPackageBody(pname, packElems:_*)
       ctx.pushResult(pack)
       
+      // TODO: store the program translation results as PipelineJob's properties
+      //       so the result can be used by the following pipeline modules
+      this.results_=(Seq[String](pack)) 
       println("(* # # # # # Begin ! # # # # # *)\n")  
       println(pack)
       println("\n(* # # # # # End ! # # # # # *)\n")  
