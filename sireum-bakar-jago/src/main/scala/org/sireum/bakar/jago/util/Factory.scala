@@ -2,19 +2,28 @@ package org.sireum.bakar.jago.util
 
 import org.stringtemplate.v4.STGroupFile
 import org.sireum.util._
+import org.sireum.option.ProgramTarget
 
 object Factory {
-  val option = "OCaml"
-  var url = option match {
-    case "OCaml" =>
+  // the default program translation option is Coq
+  var option: ProgramTarget.Type = ProgramTarget.Coq
+  var url = (option: @unchecked) match {
+    case ProgramTarget.Ocaml =>
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_OCaml)
-    case "Coq" =>
+    case ProgramTarget.Coq =>
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_Coq)
   }
   val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$')
   // use natural number to represent variable string: VarStr -> NatVal
   val identMap = mmapEmpty[String, String]
   var c = 0
+  
+  def setOption(theOption: ProgramTarget.Type) {
+    if(theOption != ProgramTarget.Coq && theOption != ProgramTarget.Ocaml){
+      println("program translator usage: target option can be either Coq or OCaml !")
+    }
+    option = theOption
+  }
   
   def buildOptionV(value: Option[String]) = {
     val result = stg.getInstanceOf("optionVal")
@@ -54,8 +63,8 @@ object Factory {
     result.render()
   }
   
-  def buildId(theType: String, id: String) = {
-    val value = identMap.get(id)
+  def buildId(theType: String, id_uri: String) = {
+    val value = identMap.get(id_uri)
     if(value.isDefined){
       value.get
     }else{
@@ -72,7 +81,7 @@ object Factory {
       if(o.isDefined)
         result.add("theType", o.get)
       result.add("id", c)
-      identMap += (id -> result.render())
+      identMap += (id_uri -> result.render())
       result.render()      
     }
   }
@@ -103,8 +112,8 @@ object Factory {
     }
     
     val result = stg.getInstanceOf("constant")
-//    if(o.isDefined)
-//      result.add("theType", o.get)
+    if(o.isDefined)
+      result.add("theType", o.get)
     result.add("constVal", constVal)
     result.render()
   }
@@ -170,10 +179,10 @@ object Factory {
   // + + + 
   def buildListAttributes(st: org.stringtemplate.v4.ST, 
       attributeName: String, attributeValues: String*) = {
-    option match {
-      case "Coq" =>
+    (option: @unchecked) match {
+      case ProgramTarget.Coq =>
         attributeValues.foreach(v => st.add(attributeName, v))
-      case "OCaml" =>
+      case ProgramTarget.Ocaml =>
         // st.add(attributeName, buildConstruct(attributeValues: _*))
         // drop the right most element "nil" in the list object
         val attVals = attributeValues.dropRight(1)
@@ -231,7 +240,11 @@ object Factory {
   }
   
   def buildPackageBody(pkgBodyName: String, pkgBodyDeclItems: String*) = {
-    println("\n(* " + "Translate SPARK Into: " + option + " ! *)\n\n")
+    val o: String = (option: @unchecked) match {
+      case ProgramTarget.Coq => "Coq"
+      case ProgramTarget.Ocaml => "OCaml"
+    }
+    println("\n(* " + "Translate SPARK Into: " + o + " ! *)\n\n")
     println("(****************************")
     println(" mapping from var string to nat value ")
     for(e <- identMap){

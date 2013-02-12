@@ -1,5 +1,4 @@
 package org.sireum.test.bakar.jago
-// BakarTranslatorTest_Jago
 
 import org.junit.runner.RunWith
 import java.io.Writer
@@ -16,7 +15,7 @@ import org.scalatest.junit.JUnitRunner
 import org.sireum.option.ProgramTarget
 
 @RunWith(classOf[JUnitRunner])
-class BakarTranslatorTest_Jago extends BakarTestFileFramework {
+class BakarTranslatorTest_OCaml extends BakarTestFileFramework {
 
   //this.includes += "case"
   //this.excludes += "function_simple"
@@ -27,7 +26,7 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
   override def pre(c : Configuration) : Boolean = {
-    BakarTranslatorModule.setTranslationType(c.job.properties, ProgramTarget.Coq)
+    BakarTranslatorModule.setTranslationType(c.job.properties, ProgramTarget.Ocaml)
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
     return true;
@@ -54,7 +53,7 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
     )
 
   override def generateExpected = false
-  override def outputSuffix = "jago"
+  override def outputSuffix = "ocaml"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
     val results = BakarTranslatorModule.getResults(job.properties)

@@ -184,8 +184,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
             
             pnames.getDefiningNames().foreach {
               case pname : DefiningIdentifier =>
-                val name = pname.getDefName()
-                val pnm = buildId(theType.get, name)
+                val name_uri = pname.getDef()
+                val pnm = buildId(theType.get, name_uri)
                 val paramDecl = buildParameter(pnm, buildMode(mode), initExp)
                 params += paramDecl
               case x =>
@@ -346,7 +346,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       false
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
       // identifier can be variable name or function name, <theType> is null if it's function name
-      ctx.pushResult(buildId(theType, refName))
+      ctx.pushResult(buildId(theType, ref))
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType) =>
       val plist = mlistEmpty[String]
@@ -377,10 +377,10 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      ctx.pushResult(buildId(theType, refName))
+      ctx.pushResult(buildId(theType, ref))
       false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-      ctx.pushResult(buildId(theType, defName))
+      ctx.pushResult(buildId(theType, theDef))
       false
 //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
 //
@@ -418,7 +418,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   import org.sireum.option.ProgramTarget
   val t = this.translationType
   assert (t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
-  
+  setOption(t)
   // print the test cases
   // var count = 0;
   // var suffix = 0;
@@ -433,7 +433,6 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
 
 }
 
-// (mname, specs, args, objDecls, mbody) returnType
 final case class MethodClass(
     mname: String, 
     aspectSpecs: Option[String], 

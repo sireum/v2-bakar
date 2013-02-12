@@ -1,20 +1,20 @@
 // group SPARKTRANS_OCaml_MODEL;
 
 optionVal(value) ::= <<
-$if(value)$Some ($value$)$else$None$endif$ 
+$if(value)$Some($value$)$else$None$endif$ 
 >>
 
 binaryExpr(op, loperand, roperand) ::= <<
-Ebinop ($op$, ($loperand$), ($roperand$))
+Ebinop ($op$, $loperand$, $roperand$)
 >>
 
 unaryExpr(op, operand) ::= <<
-Eunop ($op$, ($operand$))
+Eunop ($op$, $operand$)
 >>
 
 // identifier is either (1) Bid nat; or (2) Aid nat 
 varId(theType, id) ::= <<
-$theType$ ($id$)
+$theType$ $id$
 >>
 
 identifierExpr(id) ::= <<
@@ -24,12 +24,13 @@ Evar ($id$)
 // Inductive constant: Type := 
 //     | Ointconst: nat -> constant
 // the type is "Ointconst", the value is of type nat
+// $if(theType)$$theType$ $endif$$constVal$
 constant(theType, constVal) ::= <<
-$theType$ ($constVal$)
+$constVal$
 >>
 
 constantExpr(constVal) ::= <<
-Econst ($constVal$)
+Econst $constVal$
 >>
 
 // procedureCall(procName, args) ::= <<
@@ -37,8 +38,9 @@ Econst ($constVal$)
 // >>
 
 seqStmt(stmt1, stmt2) ::= <<
-Sseq (($stmt1$),
-  ($stmt2$))
+Sseq (
+  $stmt1$,
+  $stmt2$)
 >>
 
 whileStmt(cond, loopInv, loopBody) ::= <<
@@ -126,7 +128,7 @@ $kind$(
 
 // ++++++
 packageBody(pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
-let $pkgBodyName$ = 
+(* let $pkgBodyName$ = *)
   Packagebody (
     $if(pkgBodyAspectSpecs)$ ($pkgBodyAspectSpecs$)$else$None$endif$, 
     [

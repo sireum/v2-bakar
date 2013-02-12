@@ -1,7 +1,7 @@
 // group SPARKTRANS_Coq_MODEL;
 
 optionVal(value) ::= <<
-$if(value)$Some ($value$) $else$None $endif$ 
+$if(value)$Some($value$)$else$None$endif$ 
 >>
 
 binaryExpr(op, loperand, roperand) ::= <<
@@ -37,19 +37,21 @@ $procName$($args; separator=", "$)
 >>
 
 seqStmt(stmt1, stmt2) ::= <<
-Sseq ($stmt1$) 
-  ($stmt2$)
+Sseq (
+  $stmt1$) ( 
+  $stmt2$)
 >>
 
 whileStmt(cond, loopInv, loopBody) ::= <<
 Swhile ($cond$) 
-  $if(loopInv)$($loopInv$) $else$None $endif$ 
-  ($loopBody$)
+  $if(loopInv)$($loopInv$)$else$None$endif$(
+  $loopBody$)
 >>
 
 ifStmt(cond, ifBody) ::= <<
-Sifthen ($cond$) 
-  ($ifBody$)
+Sifthen ($cond$)(
+  $ifBody$
+)
 >>
 
 assignStmt(lhs, rhs) ::= <<
@@ -57,42 +59,58 @@ Sassign ($lhs$) ($rhs$)
 >>
 
 param(id, mode, initExp) ::= <<
-mkparam ($id$) $if(mode)$($mode$) $else$In $endif$ $if(initExp)$($initExp$) $else$None $endif$
+mkparam ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
 >>
 
 subprogAspectSpecs(pre, post) ::= <<
-mksubprog_aspect_specs $if(pre)$($pre$) $else$None $endif$ $if(post)$($post$) $else$None $endif$
+mksubprog_aspect_specs 
+  $if(pre)$($pre$)$else$None$endif$ 
+  $if(post)$($post$)$else$None$endif$
 >>
 
 identiferDecl(ids, init) ::= <<
-mkdefining_ident ($ids; separator=" :: "$) $if(init)$ $init$ $else$None $endif$
+mkdefining_ident ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$
 >>
 
 procedureBody(aspectSpecs, params, identDecls, procBody) ::= <<
-mkprocedure_body $if(aspectSpecs)$($aspectSpecs$) $else$None $endif$
-  ($if(params)$Some($params; separator=" :: \n"$) $else$None $endif$) 
-  ($if(identDecls)$Some($identDecls; separator=" :: \n"$) $else$None $endif$)
-  ($procBody$)
+mkprocedure_body 
+  $if(aspectSpecs)$($aspectSpecs$)$else$None$endif$
+  ($if(params)$Some(
+    $params; separator=" :: \n"$
+  )$else$None$endif$) 
+  ($if(identDecls)$Some(
+    $identDecls; separator=" :: \n"$
+  )$else$None$endif$)(
+    $procBody$
+  )
 >>
 
 functionBody(aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-mkfunction_body $if(aspectSpecs)$($aspectSpecs$) $else$None $endif$ ($returnT$) 
-  ($if(params)$Some($params; separator=" :: \n"$) $else$None $endif$)
-  ($if(identDecls)$Some($identDecls; separator=" :: \n"$) $else$None $endif$) 
-  ($funcBody$)
+mkfunction_body 
+  $if(aspectSpecs)$($aspectSpecs$)$else$None$endif$ 
+  ($returnT$) 
+  ($if(params)$Some(
+    $params; separator=" :: \n"$
+  )$else$None$endif$)
+  ($if(identDecls)$Some(
+    $identDecls; separator=" :: \n"$
+  )$else$None$endif$)(
+    $funcBody$
+  )
 >>
 
 // <Sproc procedure_body> or <Sfunc function_body>
 subProgram(kind, prog) ::= <<
-$kind$ 
-  ($prog$)
+$kind$(
+  $prog$
+)
 >>
 
 packageBody(pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 Definition $pkgBodyName$ := 
-  Packagebody 
-  $if(pkgBodyAspectSpecs)$ ($pkgBodyAspectSpecs$) $else$None $endif$
-  ($pkgBodyDeclItems; separator=" ::\n\n"$)
+  Packagebody $if(pkgBodyAspectSpecs)$ (
+    $pkgBodyAspectSpecs$)$else$None$endif$(
+    $pkgBodyDeclItems; separator=" ::\n\n"$)
 >>
 
 
