@@ -6,21 +6,10 @@ pygtk.require('2.0')
 import gtk
 import gobject
 import simplejson as json
-import unicodedata
-
-(
-COLUMN_PACKAGE,
-COLUMN_TOTAL,
-COLUMN_ERRORS,
-COLUMN_INSTRUCTION,
-COLUMN_BRANCH,
-COLUMN_TIME
-) = range(6)
-
-jsonFileDict = {}
-rowsExpanded = []
 
 def run_java_program():
+	""" This is temp function with reference to GPS function for fetching properties of project/code """
+	
 	os.system("java -cp /Users/jj/Programs/gnat/share/gps/plug-ins HelloJava "+GPS.current_context().file().name())
 	print "filename:", GPS.current_context().file().name()
 	print "dir:", GPS.current_context().directory()
@@ -35,165 +24,213 @@ def run_java_program():
 	
 
 
-"""Kiasan GUI"""
+"""Kiasan """
 
-class caseGUI:
-    pass
-
-class caseState:
-    #globals
-    #list of stackFrame
-    pass
-
-class  stackFrame:
-    #list of caseMethod's
-    pass
-
-class caseMethod:
-    #name
-    #line number
-    #Individual variable instances
-    #list of casePackage's
-    pass
-
-class casePackage:
-    #size
-    #list of variables, length of size
-    pass
-
-def deUnicode(uStr):
-    if not isinstance(uStr, unicode):
-        return uStr
-    return unicodedata.normalize('NFKD', uStr).encode('ascii', 'ignore') #http://stackoverflow.com/questions/1207457
-   
-class parsedReportInformation:
-    def convertToList(self, jsonDict):
-        retList = []
-        retList.append(self.name)
-        retList.append(self.branches)
-        retList.append(self.errors)
-        retList.append(self.inPerc)
-        retList.append(self.brPerc)
-        retList.append(self.time)
-        if jsonDict.has_key("theChildren"):
-            retList.append(retList)
-            return \
-                [retList]
-        else:
-            return retList
-            
-    def getChildren(self, jsonDict):
-        if jsonDict.has_key("theChildren"):
-            return jsonDict["theChildren"]
-            
-class KiasanNotebook:  
-    #Initializes all of the components of the GUI and displays them
-    def __init__(self):
-        reportWindow, reportLabel = self.initWindow()
-        caseGUIObj, notebook = self.initNotebook(reportWindow, reportLabel)
-        self.initTree(caseGUIObj, reportWindow, notebook)   
-        self.showEverything(reportWindow, reportLabel, notebook, caseGUIObj)
-   
-    #Initializes the main window, the report section of the window, and the label for the report section
-    def initWindow(self):
-        reportLabel = gtk.Label("Kiasan Report")
-        reportWindow = gtk.ScrolledWindow()
-        reportWindow.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        reportWindow.set_size_request(100, 75)
-        return reportWindow, reportLabel
+class KiasanLogic:
+    def run_kiasan(self):
+        raise NotImplemented
     
-    #Initializes the notebook tabbed layout of the window, and adds the report window as a tap, along with an empty case tab
-    def initNotebook(self, reportWindow, reportLabel):
-        notebook = gtk.Notebook()
-        notebook.set_tab_pos(gtk.POS_TOP)
-        self.show_tabs = True
-        self.show_border = True
-        notebook.set_current_page(0)
-        GPS.MDI.add(notebook, "Kiasan", "kiasan")
-        win = GPS.MDI.get('kiasan')
-        win.split(reuse="True")
-        notebook.append_page(reportWindow, reportLabel)
-        pageLabel = gtk.Label("Kiasan Cases")
-        caseGUIObj = self.createCasePage()
-        notebook.append_page(caseGUIObj.casesWindow, pageLabel)
-        return caseGUIObj, notebook
     
-    #Creates and displays a tree model for a given report file, connects event handlers to the tree
-    def initTree(self, caseGUIObj, reportWindow, notebook):
-        reports = []
-        for x in jsonFileDict:
-            reports.append(self.getReportInfo(x))
-          
-        reportModel = self.createModel(reports[0].convertToList(jsonFileDict[0]))
-        tree = gtk.TreeView(reportModel)
-        tree.set_rules_hint(False)
-        reportWindow.add(tree)
-        self.add_columns(tree)
-        for i in range(len(reports)):
-            if(i == 0):
-                continue
-            tempModel = tree.get_model()
-            tempModel.insertAfter(None, None, reports[i].convertToList(jsonFileDict[i]))
-             
-        tree.show()
-        tree.connect('test-expand-row', self.on_row_expanded, reports[0], jsonFileDict[0])
-        tree.connect('row-activated', self.signal_row_activated, caseGUIObj, notebook)
+    def extract_report_file(self, report_file_path):
+        """Open .json report file and extract content into Package list."""
         
-    def initCases(self, caseGUIObj, method, notebook):
-        methodName = str(method)
-            
-        caseGUIObj.label.set_label(methodName)
-        caseNames = self.getCaseNames(methodName)
-        comboText = self.getComboNames(caseNames)
-        for x in range(caseGUIObj.comboSize):
-            caseGUIObj.casesCombo.remove_text(0)
-        caseGUIObj.casesCombo.append_text("All")
-        caseGUIObj.comboSize = 1;
-        for text in comboText:
-            caseGUIObj.comboSize += 1
-            caseGUIObj.casesCombo.append_text(methodName + " " + text) 
-          
-        if(not caseGUIObj.casePre.get_child() == None):
-            child = caseGUIObj.casePre.get_child()
-            caseGUIObj.casePre.remove(child)    
-        if(not caseGUIObj.casePost.get_child() == None):
-            child = caseGUIObj.casePost.get_child()
-            caseGUIObj.casePost.remove(child)    
-        caseGUIObj.casesCombo.connect('changed', self.combo_changed, caseGUIObj.casesWindow, caseGUIObj.casesCombo, caseGUIObj.casePre, caseGUIObj.casePost, caseNames)   
-        caseGUIObj.label.show()
-        caseGUIObj.casesCombo.show()
-        caseGUIObj.casePre.show()
-        caseGUIObj.casePost.show()
-        caseGUIObj.casesWindow.show()
-        notebook.set_current_page(1)
-     
-    def parseCaseFile(self, casePath):
-        caseFileObj = open(casePath)
-        caseFileStr = caseFileObj.read()
-        caseDict = json.loads(caseFileStr)
-        preCase = self.getCase(caseDict, True)
-        postCase = self.getCase(caseDict, False)
-        return preCase, postCase
-       
-    def createCasePage(self):
-        caseGUIObj = caseGUI()
-        caseGUIObj.casesWindow = gtk.Table(10, 2, False)
-        caseGUIObj.casesCombo = gtk.combo_box_new_text()
-        caseGUIObj.casesCombo.append_text("")
-        caseGUIObj.comboSize = 1
-        caseGUIObj.label = gtk.Label("")
-        caseGUIObj.casesWindow.attach(caseGUIObj.label, 0, 1, 0, 1)
-        caseGUIObj.casesWindow.attach(caseGUIObj.casesCombo, 1, 2, 0, 1)
-        caseGUIObj.casePost = gtk.ScrolledWindow()
-        caseGUIObj.casePost.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        caseGUIObj.casesWindow.attach(caseGUIObj.casePost, 1, 2, 1, 10)
-        caseGUIObj.casePre = gtk.ScrolledWindow()
-        caseGUIObj.casePre.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        caseGUIObj.casesWindow.attach(caseGUIObj.casePre, 0, 1, 1, 10)
-        return caseGUIObj
+        json_obj = open(report_file_path)
+        json_str = json_obj.read()
+        json_dict = json.loads(json_str)
+        report = self.convert_dict_to_report(json_dict)
+        return report
     
-    def createModel(self, report):
-        treeStore = gtk.TreeStore(gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
+    
+    def convert_dict_to_report(self, json_dict):
+        """Fetching reports from json dictionary (with one child - rest will be fetched after row(report) expanded."""
+        
+        packages = []
+        for package in json_dict:
+            packages.append(Package(package))
+        return packages
+
+
+
+class Entity:
+    """ Base class for package or function rows """
+    
+    def __init__(self, report_dict):
+        self._name = report_dict["optLabel"]
+        self._branches = report_dict["numOfTests"]
+        self._errors = report_dict["numOfErrorTests"]
+        self._instr_coverage = self.convert_to_percentage(report_dict["numOfInstructions"], report_dict["numOfCoveredInstructions"])
+        self._branch_coverage = self.convert_to_percentage(report_dict["numOfBranches"], report_dict["numOfCoveredBranches"])
+        self._time = self.convert_to_time(report_dict["timeInMilliseconds"])
+
+
+    def convert_to_percentage(self, num, cov_nums):
+        if num == 0:
+            return "0%"
+        else:
+            return str(int((cov_nums / num) * 100)) + "%"
+
+
+    def convert_to_time(self, time):
+        return str(time / 1000) + "s"
+    
+    
+
+class Package(Entity):
+    """ Class represents package row (parent) """
+    
+    def __init__(self, report_dict):
+        Entity.__init__(self, report_dict)
+        self.extract_functions(report_dict)       
+
+
+    def extract_functions(self, report_dict):
+        self._functions = []
+        if report_dict.has_key("theChildren"):
+            for child in report_dict["theChildren"]:
+                self._functions.append(Function(child))
+
+
+
+class Function(Entity):
+    """ Class represents function row (child) """
+    
+    def __init__(self, report_dict):
+        Entity.__init__(self, report_dict) 
+        self.extract_cases(report_dict)
+        
+        
+    def extract_cases(self, report_dict):   
+        self._cases = []
+        if report_dict.has_key("cases"):
+            for case in report_dict["cases"]:
+                self._cases.append(case["filename"][5:].replace(".xml",".json")) #skip first 5 chars ('file:') and replace .xml with .json
+                
+                
+    def get_case(self, case_no):
+        """ Fetch case from json file """
+        
+        # get case dict
+        case_file = open(self._cases[case_no])
+        case_file_str = case_file.read()
+        case_dict = json.loads(case_file_str)
+                
+        case = Case()
+        # get pre state
+        case._pre_state = self.get_state(case_dict["preState"], True)
+        
+        # get post state
+        case._post_state = self.get_state(case_dict["postState"], False)
+        
+        return case
+
+
+    def get_state(self, case_state_dict, is_pre_state):
+        """ Get pre or post state from state_dict """
+        
+        case_state = CaseState()
+        case_state._name = case_state_dict["id"]["name"]
+        for variable_name in case_state_dict["optBaseElementMap"]:
+            variable_value = case_state_dict["optBaseElementMap"][variable_name]["theValue"]            
+            case_state._globals[variable_name] = variable_value
+        
+        for stack_frame_dict in case_state_dict["optCallFrames"]:
+            stack_frame = CaseStateFrame()
+            stack_frame._name = stack_frame_dict["location"]["name"]
+            stack_frame._line_num = stack_frame_dict["line"]
+            
+            #if not is_pre_state: - CHECK THIS
+            for variable_name in stack_frame_dict["optBaseElementMap"]:
+                variable_value = stack_frame_dict["optBaseElementMap"][variable_name]["theValue"]
+                stack_frame._variables[variable_name] = variable_value
+            case_state._frames.append(stack_frame)
+        return case_state
+
+
+class Case:
+    """ class represents case with pre and post state """
+    
+    pass
+
+
+
+class CaseState:
+    """ Class represents pre/post state of specific case """
+    
+    def __init__(self):
+        self._name = ""
+        self._globals = {}
+        self._frames = []
+    
+        
+        
+class CaseStateFrame:
+    """ Class represents pre/post state frames of specific case """
+    
+    def __init__(self):
+        self._variables = {}
+        
+
+
+class CaseFunction:
+    """ Class represents function in CaseStateFrame """
+    
+    def __init__(self):
+        self._name = ""
+        self._lineNum = 0
+        
+                
+
+class KiasanGUI:
+    def __init__(self, report):
+        self._report = report
+        
+        # create pane for split window in two parts: reports and cases
+        self._pane = gtk.VPaned()
+        
+        # init report window
+        self._report_window = gtk.ScrolledWindow()
+        self._report_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        #self._report_window.set_size_request(600, 200)        
+        
+        # init report window tree view
+        self.init_report_treeview()
+        
+        self._report_window.add(self._treeview)
+        
+        # cases pane
+        self._cases_pane = gtk.VPaned()
+        
+        # cases pane init
+        self.init_cases_window()
+        
+        self._pane.add1(self._report_window)
+        self._pane.add2(self._cases_pane)
+        
+        self._pane.show_all()
+        
+        
+    def init_report_treeview(self):
+        """ Initialize tree view with packages/functions """
+        
+        # create report model
+        report_model = self.create_report_treeview_model(self._report)
+        
+        # initialize tree view based on tree model
+        self._treeview = gtk.TreeView(report_model)
+        
+        self._treeview.set_rules_hint(False)
+        
+        self.add_columns_to_report_treeview()
+        self._treeview.show()
+        
+        # double click
+        self._treeview.connect('row-activated', self.get_cases)
+        
+        
+    def create_report_treeview_model(self, report):
+        """ Create TreeStore object - model for treeview with columns """
+        
+        tree_store = gtk.TreeStore(gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_INT, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_INT, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
@@ -201,265 +238,198 @@ class KiasanNotebook:
                                   gobject.TYPE_STRING) #@UndefinedVariable-is not a problem
             
         for package in report:
-            iteration = treeStore.append(None)
-            treeStore.set(iteration,
-                          COLUMN_PACKAGE, package[COLUMN_PACKAGE],
-                          COLUMN_TOTAL, package[COLUMN_TOTAL],
-                          COLUMN_ERRORS, package[COLUMN_ERRORS],
-                          COLUMN_INSTRUCTION, str(package[COLUMN_INSTRUCTION]),
-                          COLUMN_BRANCH, str(package[COLUMN_BRANCH]),
-                          COLUMN_TIME, str(package[COLUMN_TIME]))
+            iteration = tree_store.append(None)
+            tree_store.set(iteration,
+                          TreeViewColumns.COLUMN_PACKAGE, package._name,
+                          TreeViewColumns.COLUMN_TOTAL, package._branches,
+                          TreeViewColumns.COLUMN_ERRORS, package._errors,
+                          TreeViewColumns.COLUMN_INSTRUCTION, package._instr_coverage,
+                          TreeViewColumns.COLUMN_BRANCH, package._branch_coverage,
+                          TreeViewColumns.COLUMN_TIME, package._time)
             
-            for method in package[-1]:
-                if(type(method) == list):
-                    iterateChildren = treeStore.append(iteration)
-                    treeStore.set(iterateChildren,
-                                  COLUMN_PACKAGE, str(method[COLUMN_PACKAGE]),
-                                  COLUMN_TOTAL, method[COLUMN_TOTAL],
-                                  COLUMN_ERRORS, method[COLUMN_ERRORS],
-                                  COLUMN_INSTRUCTION, str(method[COLUMN_INSTRUCTION]),
-                                  COLUMN_BRANCH, str(method[COLUMN_BRANCH]),
-                                  COLUMN_TIME, str(method[COLUMN_TIME]))
-        return treeStore
+            for function in package._functions:
+                iterate_children = tree_store.append(iteration)
+                tree_store.set(iterate_children,
+                               TreeViewColumns.COLUMN_PACKAGE, function._name,
+                               TreeViewColumns.COLUMN_TOTAL, function._branches,
+                               TreeViewColumns.COLUMN_ERRORS, function._errors,
+                               TreeViewColumns.COLUMN_INSTRUCTION, function._instr_coverage,
+                               TreeViewColumns.COLUMN_BRANCH, function._branch_coverage,
+                               TreeViewColumns.COLUMN_TIME, function._time)
+        return tree_store
         
-    def createCaseModel(self, case):
-        treeStore = gtk.TreeStore(gobject.TYPE_STRING)
-            
-        iteration = treeStore.append(None)
-        treeStore.set(iteration,  COLUMN_PACKAGE, case.name)
-        iterateChild1 = treeStore.append(iteration)
-        treeStore.set(iterateChild1, COLUMN_PACKAGE, "Globals")
-        iterateChild2 = treeStore.append(iteration)
-        treeStore.set(iterateChild2, COLUMN_PACKAGE, "Call Stack Frames")
-        for stackFrame in case.frames:
-            callStackIter = treeStore.append(iterateChild2)
-            for method in stackFrame.methods:
-                if("post-state" in case.name):
-                    iIter = treeStore.append(callStackIter)
-                    treeStore.set(iIter, COLUMN_PACKAGE, "I = " + str(method.I))
-                    nIter = treeStore.append(callStackIter)
-                    treeStore.set(nIter, COLUMN_PACKAGE, "N = " + str(method.N))
-                    if hasattr(method, "swapped"):
-                        swappedIter = treeStore.append(callStackIter)
-                        treeStore.set(swappedIter, COLUMN_PACKAGE, "Swapped = " + str(method.swapped))
-                        if hasattr(method, "temp"):
-                            tempIter = treeStore.append(callStackIter)
-                            treeStore.set(tempIter, COLUMN_PACKAGE, "Temp = " + str(method.temp))
-                methodIter = treeStore.append(callStackIter)
-                treeStore.set(callStackIter, COLUMN_PACKAGE, str(method.lineNum) + ":" + method.name)
-                for package in method.packages:
-                    packIter1 = treeStore.append(methodIter)
-                    treeStore.set(methodIter, COLUMN_PACKAGE, package.letter + " = " + package.name)
-                    treeStore.set(packIter1, COLUMN_PACKAGE, "size = " + str(package.size))
-                    i = 1
-                    for var in package.vars:
-                        packIter2 = treeStore.append(methodIter)
-                        treeStore.set(packIter2, COLUMN_PACKAGE, str(i) + " = " + str(var))
-                        i += 1
-
-        return treeStore
-        
-    def add_caseColumns(self, tree): 
-        column = gtk.TreeViewColumn('', gtk.CellRendererText(), text=COLUMN_PACKAGE)
-        column.set_sort_column_id(COLUMN_PACKAGE)
-        column.set_resizable(True)
-        tree.append_column(column)
-   
-    def add_columns(self, tree): 
-        column = gtk.TreeViewColumn('Package/Unit', gtk.CellRendererText(), text=COLUMN_PACKAGE)
-        column.set_sort_column_id(COLUMN_PACKAGE)
-        column.set_resizable(True)
-        tree.append_column(column)
-        
-        column = gtk.TreeViewColumn('T#', gtk.CellRendererText(), text=COLUMN_TOTAL)
-        column.set_sort_column_id(COLUMN_TOTAL)
-        column.set_resizable(True)
-        tree.append_column(column)
-        
-        column = gtk.TreeViewColumn('E#', gtk.CellRendererText(), text=COLUMN_ERRORS)
-        column.set_sort_column_id(COLUMN_ERRORS)
-        column.set_resizable(True)
-        tree.append_column(column)
-        
-        column = gtk.TreeViewColumn('Instruction Coverage', gtk.CellRendererText(), text=COLUMN_INSTRUCTION)
-        column.set_sort_column_id(COLUMN_INSTRUCTION)
-        column.set_resizable(True)
-        tree.append_column(column)
-        
-        column = gtk.TreeViewColumn('Branch Coverage', gtk.CellRendererText(), text=COLUMN_BRANCH)
-        column.set_sort_column_id(COLUMN_BRANCH)
-        column.set_resizable(True)
-        tree.append_column(column)
-        
-        column = gtk.TreeViewColumn('Time', gtk.CellRendererText(), text=COLUMN_TIME)
-        column.set_sort_column_id(COLUMN_TIME)
-        column.set_resizable(True)
-        tree.append_column(column)
     
-    def getCaseNames(self, methodName):
-        caseFiles = {}
-        for x in jsonFileDict:
-            if x.has_key("theChildren"):
-                for child in x["theChildren"]:
-                    if not child["optLabel"] == methodName:
-                        continue
-                    caseFiles[child["optLabel"]] = []
-                    for case in child["cases"]: 
-                        caseFiles[child["optLabel"]].append(case["filename"])        
+    def add_columns_to_report_treeview(self):
+        """ Add columns to tree view """
         
-        caseNames = []
-        count = 0
-        for x in caseFiles:
-            for y in range(len(caseFiles[x])):
-                caseNames.append(caseFiles[x][y])
-                str(caseNames[count])
-                temp = caseNames[count].split(':')[1]
-                caseNames[count] = temp
-                caseNames[count] = caseNames[count].replace(".xml", ".json")
-                count = count + 1
+        column = gtk.TreeViewColumn('Package/Unit', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_PACKAGE)
+        column.set_sort_column_id(TreeViewColumns.COLUMN_PACKAGE)
+        column.set_resizable(True)
+        self._treeview.append_column(column)
+        
+        column = gtk.TreeViewColumn('T#', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_TOTAL)
+        column.set_sort_column_id(TreeViewColumns.COLUMN_TOTAL)
+        column.set_resizable(True)
+        self._treeview.append_column(column)
+        
+        column = gtk.TreeViewColumn('E#', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_ERRORS)
+        column.set_sort_column_id(TreeViewColumns.COLUMN_ERRORS)
+        column.set_resizable(True)
+        self._treeview.append_column(column)
+        
+        column = gtk.TreeViewColumn('Instruction Coverage', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_INSTRUCTION)
+        column.set_sort_column_id(TreeViewColumns.COLUMN_INSTRUCTION)
+        column.set_resizable(True)
+        self._treeview.append_column(column)
+        
+        column = gtk.TreeViewColumn('Branch Coverage', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_BRANCH)
+        column.set_sort_column_id(TreeViewColumns.COLUMN_BRANCH)
+        column.set_resizable(True)
+        self._treeview.append_column(column)
+        
+        column = gtk.TreeViewColumn('Time', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_TIME)
+        column.set_sort_column_id(TreeViewColumns.COLUMN_TIME)
+        column.set_resizable(True)
+        self._treeview.append_column(column)
+    
+        
+    def init_cases_window(self):
+        """ Initialize cases window: labels, combo and scrolled windows """
+        
+        # initialize top part: labels and combo box
+        self._cases_window_top = gtk.HBox()
+        self._cases_pane.add1(self._cases_window_top)
+        
+        self._cases_entity_label = gtk.Label("")
+        self._cases_window_top.pack_start(self._cases_entity_label, False, False, 0)
+        self._cases_label = gtk.Label(" Cases: ")
+        self._cases_window_top.pack_start(self._cases_label, False, False, 0)
+        
+        self._cases_combo = gtk.combo_box_new_text()
+        self._cases_window_top.pack_start(self._cases_combo, True, True, 0)
+        self._cases_combo.connect("changed", self.cases_combo_changed)
+        
+        #initialize bottom part: pre and post state tree views
+        self._cases_window_bottom = gtk.HBox()
+        self._cases_pane.add2(self._cases_window_bottom)
+        
+        # pre-state window
+        self._cases_pre_window = gtk.ScrolledWindow()
+        self._cases_pre_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self._cases_window_bottom.pack_start(self._cases_pre_window)
+        self._cases_pre_treeview = gtk.TreeView(gtk.TreeStore(str))
+        self._cases_pre_window.add(self._cases_pre_treeview)
+        pre_tvcolumn = gtk.TreeViewColumn('')
+        self._cases_pre_treeview.append_column(pre_tvcolumn)
+        pre_cell = gtk.CellRendererText()
+        pre_tvcolumn.pack_start(pre_cell, True)
+        pre_tvcolumn.add_attribute(pre_cell, 'text', 0)
+        self._cases_pre_treeview.set_headers_visible(False) #hide column header
+        
+        # separator
+        self._cases_window_bottom_separator = gtk.VSeparator()
+        self._cases_window_bottom.pack_start(self._cases_window_bottom_separator, False, False) 
+        
+        # post-state window
+        self._cases_post_window = gtk.ScrolledWindow()
+        self._cases_post_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self._cases_window_bottom.pack_start(self._cases_post_window)
+        self._cases_post_treeview = gtk.TreeView(gtk.TreeStore(str))
+        self._cases_post_window.add(self._cases_post_treeview)
+        post_tvcolumn = gtk.TreeViewColumn('')
+        self._cases_post_treeview.append_column(post_tvcolumn)
+        post_cell = gtk.CellRendererText()
+        post_tvcolumn.pack_start(post_cell, True)
+        post_tvcolumn.add_attribute(post_cell, 'text', 0)
+        self._cases_post_treeview.set_headers_visible(False) #hide column header
+        
+    
+    def get_cases(self, treeview, path, view_column):
+        """ Callback function: get cases for entity(function) """
+        
+        """ 
+        check if method was clicked (then path contains index of package and method)
+        if package clicked path contains only package index
+        """ 
+        if len(path) > 1:
+        
+            # get function name
+            package_index = path[0]
+            fun_index = path[1] 
+            
+            fun_name = self._report[path[0]]._functions[path[1]]._name
+        
+            # set label to method name            
+            self._cases_entity_label.set_label(" " + fun_name + " ")
+            
+            # clean combo
+            self._cases_combo.get_model().clear()
+            
+            # add cases to combo
+            for case_no in range(len(self._report[package_index]._functions[fun_index]._cases)):
+                self._cases_combo.append_text(fun_name + ":" + str(case_no))                
+            
+            #save current selection
+            self._current_package_index = package_index
+            self._current_fun_index = fun_index
+            
+    
+    def cases_combo_changed(self, cases_combo):
+        """ Callback function: cases combo changed """  
+        
+        selected_case_no = cases_combo.get_active()
+        
+        # check if any item is selected (-1: no active item selected)
+        if selected_case_no != -1: 
+            case = self._report[self._current_package_index]._functions[self._current_fun_index].get_case(selected_case_no)
+            
+            # load pre state
+            case_pre_state_treeview_model = self.create_case_state_treeview_model(case._pre_state)
+            self._cases_pre_treeview.set_model(case_pre_state_treeview_model)
+            self._cases_pre_treeview.expand_all()
+            
+            # load post state
+            case_post_state_treeview_model = self.create_case_state_treeview_model(case._post_state)
+            self._cases_post_treeview.set_model(case_post_state_treeview_model)
+            self._cases_post_treeview.expand_all()            
+            
+            
+    def create_case_state_treeview_model(self, case_state):
+        """ Create treeview model for case (pre/post state) """
+        
+        tree_store = gtk.TreeStore(str)
+        parent = tree_store.append(None, [case_state._name])
+        
+        # add globals
+        globals = tree_store.append(parent, ["Globals"])
+        for global_var in case_state._globals:
+            row = global_var + " = " + str(case_state._globals[global_var])
+            tree_store.append(globals, [row])
+        
+        # add call stack frames
+        stack_frames = tree_store.append(parent, ["Call Stack Frames"])
+        for frame in case_state._frames:
+            stack_frame = tree_store.append(stack_frames, [str(frame._line_num) + ":" + frame._name])
+            for variable_name in frame._variables:
+                row = variable_name + " = " + str(frame._variables[variable_name])
+                tree_store.append(stack_frame, [row])
+        
+        
+        return tree_store    
                 
-        for x in range(len(caseNames)):
-            caseNames[x] = deUnicode(caseNames[x])
-        
-        return caseNames
-    
-    def getComboNames(self, fileNames):
-        comboNames = []
-        for fileName in fileNames:
-            caseFileObj = open(fileName)
-            caseFileStr = caseFileObj.read()
-            caseDict = json.loads(caseFileStr)
-            comboNames.append(caseDict["postState"]["id"]["name"])
-        return comboNames
-    
-    def getCase(self, caseDict, isPreState):
-        case = caseState()
-        if(isPreState):
-            name = "preState"
-        else:
-            name = "postState"
-        case.name = caseDict[name]["id"]["name"]
-        caseState.frames = []
-        for frame in caseDict[name]["optCallFrames"]:
-            theStackFrame = stackFrame()
-            theStackFrame.methods = []
-            theMethod = caseMethod()
-            theMethod.name = frame["location"]["name"]
-            theMethod.lineNum = frame["line"]
-            if not isPreState:
-                i = -1
-                for x in frame["optBaseElementMap"]:
-                    """TODO: FIX THIS SECTION"""
-                    i += 1
-                    if(i == 0):
-                        theMethod.I = 2#frame["optBaseElementMap"][x]["theValue"]
-                    elif(i == 1):
-                        theMethod.N = 2#frame["optBaseElementMap"][x]["theValue"]
-                    elif(i == 2):
-                        theMethod.swapped = "false"#frame["optBaseElementMap"][x]["theValue"]
-                    elif(i == 3):
-                        theMethod.temp = 0#frame["optBaseElementMap"][x]["theValue"]
-            theMethod.packages = []
-            for x in frame["optRefElementMap"]:
-                thePackage = casePackage()
-                thePackage.name = frame["optRefElementMap"][x]["id"]["name"]
-                thePackage.letter = "A"
-                thePackage.size = len(frame["optRefElementMap"][x]["values"])
-                thePackage.vars = []
-                for i in range(thePackage.size):
-                    thePackage.vars.append(frame["optRefElementMap"][x]["values"][i]["theValue"])
                 
-                theMethod.packages.append(thePackage)
-            
-            theStackFrame.methods.append(theMethod)
-            caseState.frames.append(theStackFrame)
-        
-        return case
- 
-    def getReportInfo(self, jsonDict):
-        retVal = parsedReportInformation()
-        retVal.name = jsonDict["optLabel"]
-        retVal.branches = jsonDict["numOfTests"]
-        retVal.errors = jsonDict["numOfErrorTests"]
-        retVal.inPerc = self.convertPercent(jsonDict["numOfInstructions"], jsonDict["numOfCoveredInstructions"])
-        retVal.brPerc = self.convertPercent(jsonDict["numOfBranches"], jsonDict["numOfCoveredBranches"])
-        retVal.time = self.convertTime(jsonDict["timeInMilliseconds"])
-        return retVal
- 
-    def convertPercent(self, num, covNums):
-        if num == 0:
-            return "0%"
-        else:
-            return str(int((covNums / num) * 100)) + "%"
-    
-    def convertTime(self, time):
-        return str(time / 1000) + "s" 
- 
-    def signal_row_activated(self, theTree, path, column, caseGUIObj, notebook):
-        mod = theTree.get_model()
-        modIter = mod.get_iter(path)
-        if(len(path) == 1):
-            return
-        self.initCases(caseGUIObj, mod.get_value(modIter, 0), notebook)
 
-    def on_row_expanded(self, theTree, theIter, rowTuple, curReport, jsonDictionary):
-        if(rowsExpanded.__contains__(curReport.name)):
-            return
-        else:
-            rowsExpanded.append(curReport.name)
-            kids = curReport.getChildren(jsonDictionary)
-            mod = theTree.get_model()
-            i = 0
-            for x in kids:
-                i += 1
-                newInfo = self.getReportInfo(x)
-                mod.insert_after(theIter, None, newInfo.convertToList(x))
-            removeIter = mod.iter_nth_child(theIter, i)
-            mod.remove(removeIter)
-        
-    def combo_changed(self, foo, casesWindow, casesCombo, casePre, casePost, caseNames):
-        curIndex = casesCombo.get_active() - 1
-        if not casesCombo.get_active_text() == None and not casesCombo.get_active_text() == "All":
-            curText = caseNames[curIndex]
-            preCase, postCase = self.parseCaseFile(curText)
-            preModel = self.createCaseModel(preCase)
-            preTree = gtk.TreeView(preModel)
-            preTree.set_rules_hint(False)
-            if(casePre.get_child() == None):
-                casePre.add(preTree)
-            else:
-                child = casePre.get_child()
-                casePre.remove(child)
-                casePre.add(preTree)
-            self.add_caseColumns(preTree)         
-            preTree.show()
-            postModel = self.createCaseModel(postCase)
-            postTree = gtk.TreeView(postModel)
-            postTree.set_rules_hint(False)
-            if(casePost.get_child() == None):
-                casePost.add(postTree)
-            else:
-                child = casePost.get_child()
-                casePost.remove(child)
-                casePost.add(postTree)
-            self.add_caseColumns(postTree)         
-            postTree.show()
-            
-    def showEverything(self, reportWindow, reportLabel, notebook, caseGUIObj):
-        reportLabel.show()
-        notebook.show()
-        reportWindow.show()
-        caseGUIObj.label.show()
-        caseGUIObj.casesCombo.show()
-        caseGUIObj.casePre.show()
-        caseGUIObj.casePost.show()
-        caseGUIObj.casesWindow.show()  
 
+class TreeViewColumns:
+    COLUMN_PACKAGE, COLUMN_TOTAL, COLUMN_ERRORS, COLUMN_INSTRUCTION, COLUMN_BRANCH, COLUMN_TIME = range(6)
+ 
+
+""" End of Kiasan code """
 
 def run_kiasan_and_read_json():
 	#run kiasan
 	
-	if GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running"):
+	if GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get():
 		os.system("rm -rf " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
 		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
 		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan/xml")
@@ -495,14 +465,16 @@ def run_kiasan_and_read_json():
 	os.system(runKiasanCommand)	
 	
 	#read generated json
+	kiasan_logic = KiasanLogic()
+	report = kiasan_logic.extract_report_file(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan/kiasan_sireum_report.json")
 	
-	#jsonFileObj = open("/Users/jj/SAnToS/KiasanGUI/test/sireum/kiasan/kiasan_sireum_report.json")
-	#jsonFileObj = open("/Users/jj/SAnToS/KiasanGUI/test2/kiasan_sireum_report.json")
-	jsonFileObj = open(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan/kiasan_sireum_report.json")
-	jsonFileStr = jsonFileObj.read()
-	global jsonFileDict
-	jsonFileDict = json.loads(jsonFileStr)
-	KiasanNotebook()
+	# load data into GUI
+	gui = KiasanGUI(report)
+	
+	# attach GUI to GPS
+	GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
+	win = GPS.MDI.get('kiasan')
+	win.split(reuse="True")
     
 """End of Kiasan GUI"""
 

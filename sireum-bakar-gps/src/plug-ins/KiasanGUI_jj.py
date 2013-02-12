@@ -132,6 +132,7 @@ class Case:
     pass
 
 
+
 class CaseState:
     """ Class represents pre/post state of specific case """
     
