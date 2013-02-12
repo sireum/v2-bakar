@@ -8,7 +8,7 @@ import gobject
 
 class KiasanLogic:
     def run_kiasan(self):
-        pass
+        raise NotImplemented
     
     
     def extract_report_file(self, report_file_path):
@@ -41,7 +41,6 @@ class Entity:
         self._instr_coverage = self.convert_to_percentage(report_dict["numOfInstructions"], report_dict["numOfCoveredInstructions"])
         self._branch_coverage = self.convert_to_percentage(report_dict["numOfBranches"], report_dict["numOfCoveredBranches"])
         self._time = self.convert_to_time(report_dict["timeInMilliseconds"])
-        #self._dict = report_dict    #TODO: refactor - probably wont be needed in the future (can fetch data from class directly)
 
 
     def convert_to_percentage(self, num, cov_nums):
@@ -84,7 +83,7 @@ class Function(Entity):
         self._cases = []
         if report_dict.has_key("cases"):
             for case in report_dict["cases"]:
-                self._cases.append(case["filename"][5:]) #skip first 5 chars ('file:')
+                self._cases.append(case["filename"][5:].replace(".xml",".json")) #skip first 5 chars ('file:') and replace .xml with .json
                 
                 
     def get_case(self, case_no):
@@ -95,11 +94,14 @@ class Function(Entity):
         case_file_str = case_file.read()
         case_dict = json.loads(case_file_str)
                 
+        case = Case()
         # get pre state
-        self.get_state(case_dict["preState"], True)
+        case._pre_state = self.get_state(case_dict["preState"], True)
         
         # get post state
-        self.get_state(case_dict["postState"], False)
+        case._post_state = self.get_state(case_dict["postState"], False)
+        
+        return case
 
 
     def get_state(self, case_state_dict, is_pre_state):
@@ -107,9 +109,27 @@ class Function(Entity):
         
         case_state = CaseState()
         case_state._name = case_state_dict["id"]["name"]
-        for frame in case_state_dict["optCallFrames"]:
+        for variable_name in case_state_dict["optBaseElementMap"]:
+            variable_value = case_state_dict["optBaseElementMap"][variable_name]["theValue"]            
+            case_state._globals[variable_name] = variable_value
+        
+        for stack_frame_dict in case_state_dict["optCallFrames"]:
             stack_frame = CaseStateFrame()
+            stack_frame._name = stack_frame_dict["location"]["name"]
+            stack_frame._line_num = stack_frame_dict["line"]
+            
+            #if not is_pre_state: - CHECK THIS
+            for variable_name in stack_frame_dict["optBaseElementMap"]:
+                variable_value = stack_frame_dict["optBaseElementMap"][variable_name]["theValue"]
+                stack_frame._variables[variable_name] = variable_value
+            case_state._frames.append(stack_frame)
+        return case_state
 
+
+class Case:
+    """ class represents case with pre and post state """
+    
+    pass
 
 
 class CaseState:
@@ -117,14 +137,25 @@ class CaseState:
     
     def __init__(self):
         self._name = ""
+        self._globals = {}
         self._frames = []
     
+        
         
 class CaseStateFrame:
     """ Class represents pre/post state frames of specific case """
     
     def __init__(self):
-        self._functions = []
+        self._variables = {}
+        
+
+
+class CaseFunction:
+    """ Class represents function in CaseStateFrame """
+    
+    def __init__(self):
+        self._name = ""
+        self._lineNum = 0
         
                 
 
@@ -261,7 +292,6 @@ class KiasanGUI:
         self._cases_window_top.pack_start(self._cases_label, False, False, 0)
         
         self._cases_combo = gtk.combo_box_new_text()
-        #self._cases_combo.append_text("")
         self._cases_window_top.pack_start(self._cases_combo, True, True, 0)
         self._cases_combo.connect("changed", self.cases_combo_changed)
         
@@ -275,6 +305,16 @@ class KiasanGUI:
         self._cases_window_bottom.pack_start(self._cases_pre_window)
         self._cases_pre_treeview = gtk.TreeView(gtk.TreeStore(str))
         self._cases_pre_window.add(self._cases_pre_treeview)
+        pre_tvcolumn = gtk.TreeViewColumn('')
+        self._cases_pre_treeview.append_column(pre_tvcolumn)
+        pre_cell = gtk.CellRendererText()
+        pre_tvcolumn.pack_start(pre_cell, True)
+        pre_tvcolumn.add_attribute(pre_cell, 'text', 0)
+        self._cases_pre_treeview.set_headers_visible(False) #hide column header
+        
+        # separator
+        self._cases_window_bottom_separator = gtk.VSeparator()
+        self._cases_window_bottom.pack_start(self._cases_window_bottom_separator, False, False) 
         
         # post-state window
         self._cases_post_window = gtk.ScrolledWindow()
@@ -282,6 +322,12 @@ class KiasanGUI:
         self._cases_window_bottom.pack_start(self._cases_post_window)
         self._cases_post_treeview = gtk.TreeView(gtk.TreeStore(str))
         self._cases_post_window.add(self._cases_post_treeview)
+        post_tvcolumn = gtk.TreeViewColumn('')
+        self._cases_post_treeview.append_column(post_tvcolumn)
+        post_cell = gtk.CellRendererText()
+        post_tvcolumn.pack_start(post_cell, True)
+        post_tvcolumn.add_attribute(post_cell, 'text', 0)
+        self._cases_post_treeview.set_headers_visible(False) #hide column header
         
     
     def get_cases(self, treeview, path, view_column):
@@ -291,7 +337,7 @@ class KiasanGUI:
         check if method was clicked (then path contains index of package and method)
         if package clicked path contains only package index
         """ 
-        if len(path)>1:
+        if len(path) > 1:
         
             # get function name
             package_index = path[0]
@@ -322,8 +368,40 @@ class KiasanGUI:
         # check if any item is selected (-1: no active item selected)
         if selected_case_no != -1: 
             case = self._report[self._current_package_index]._functions[self._current_fun_index].get_case(selected_case_no)
-    
             
+            # load pre state
+            case_pre_state_treeview_model = self.create_case_state_treeview_model(case._pre_state)
+            self._cases_pre_treeview.set_model(case_pre_state_treeview_model)
+            self._cases_pre_treeview.expand_all()
+            
+            # load post state
+            case_post_state_treeview_model = self.create_case_state_treeview_model(case._post_state)
+            self._cases_post_treeview.set_model(case_post_state_treeview_model)
+            self._cases_post_treeview.expand_all()            
+            
+            
+    def create_case_state_treeview_model(self, case_state):
+        """ Create treeview model for case (pre/post state) """
+        
+        tree_store = gtk.TreeStore(str)
+        parent = tree_store.append(None, [case_state._name])
+        
+        # add globals
+        globals = tree_store.append(parent, ["Globals"])
+        for global_var in case_state._globals:
+            row = global_var + " = " + str(case_state._globals[global_var])
+            tree_store.append(globals, [row])
+        
+        # add call stack frames
+        stack_frames = tree_store.append(parent, ["Call Stack Frames"])
+        for frame in case_state._frames:
+            stack_frame = tree_store.append(stack_frames, [str(frame._line_num) + ":" + frame._name])
+            for variable_name in frame._variables:
+                row = variable_name + " = " + str(frame._variables[variable_name])
+                tree_store.append(stack_frame, [row])
+        
+        
+        return tree_store    
                 
         
     def main(self):
@@ -338,7 +416,7 @@ class TreeViewColumns:
 if __name__=="__main__":
     logic = KiasanLogic()
     # 1 - run kiasan
-    logic.run_kiasan() #TODO: run Kiasan
+    #logic.run_kiasan()
         
     # 2 - parse report
     #reports = logic.extract_report_file("/Users/jj/Documents/workspace/test/.sireum/kiasan/kiasan_sireum_report.json")
