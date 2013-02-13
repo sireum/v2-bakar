@@ -57,7 +57,8 @@ class BakarTranslatorTest_OCaml extends BakarTestFileFramework {
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
     val results = BakarTranslatorModule.getResults(job.properties)
-    results.foreach(f => 
-      println(f))
+    results.foreach{f => 
+      w.write(f)
+      println(f)}
   }
 }

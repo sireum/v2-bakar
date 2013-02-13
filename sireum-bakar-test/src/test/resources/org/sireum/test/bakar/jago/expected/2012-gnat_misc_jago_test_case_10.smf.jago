@@ -1,0 +1,59 @@
+(* Package Body Declaration *)
+Packagebody 
+  (* Package Body - Name *)
+  ( 9 (*Jago_Test_Case_10*))
+  (* Package Body - Specification *)
+  (None)    
+  (* Package Body - Declared Items *) (
+    (* Procedure Body Declaration *)
+    Sproc(
+      mkprocedure_body 
+        (* Procedure Body - Name *)
+        ( 1 (*P1*))
+        (* Procedure Body - Specification *)
+        (
+        None)
+        (* Procedure Body - Parameters *)
+        (Some(
+          mkparam (Aid 2 (*I1*)) (In) None :: 
+          mkparam (Aid 3 (*I2*)) (In) None :: 
+          mkparam (Aid 4 (*I3*)) (In) None :: 
+          mkparam (Aid 5 (*O1*)) (Out) None :: 
+          mkparam (Aid 6 (*O2*)) (Out) None :: 
+          nil
+        )) 
+        (* Procedure Body - Locally Defined Variables *)
+        (Some(
+          mkdefining_ident (Aid 7 (*L1*) :: Aid 8 (*L2*) :: nil) None :: 
+          nil
+        ))
+        (* Procedure Body - Body *) (
+          Sseq (
+            Sassign (Aid 8 (*L2*)) (Econst (Ointconst 5)) ) ( 
+            Sseq (
+              Sassign (Aid 7 (*L1*)) (Evar (Aid 4 (*I3*))) ) ( 
+              Sseq (
+                Sassign (Aid 6 (*O2*)) (Evar (Aid 7 (*L1*))) ) ( 
+                Sseq (
+                  Sassign (Aid 7 (*L1*)) (Evar (Aid 3 (*I2*))) ) ( 
+                  Sseq (
+                    Sassign (Aid 7 (*L1*)) (Ebinop Oadd (Evar (Aid 2 (*I1*))) (Evar (Aid 3 (*I2*)))) ) ( 
+                    Sseq (
+                      Sifthen (Ebinop Cgt (Evar (Aid 7 (*L1*))) (Econst (Ointconst 5))) (
+                        Sifthen (Ebinop Clt (Evar (Aid 2 (*I1*))) (Econst (Ointconst 0))) (
+                          Sassign (Aid 8 (*L2*)) (Econst (Ointconst 8))
+                        )
+                      ) ) ( 
+                      Sseq (
+                        Swhile (Ebinop Cgt (Evar (Aid 7 (*L1*))) (Econst (Ointconst 0))) (
+                            None  ) (
+                            Sseq (
+                              Sassign (Aid 8 (*L2*)) (Ebinop Oadd (Evar (Aid 8 (*L2*))) (Econst (Ointconst 1))) ) ( 
+                              Sassign (Aid 7 (*L1*)) (Ebinop Osub (Evar (Aid 7 (*L1*))) (Econst (Ointconst 1))) )
+                          ) ) ( 
+                        Sassign (Aid 5 (*O1*)) (Evar (Aid 8 (*L2*))) ) ) ) ) ) ) )
+        )
+    ) ::
+
+    nil
+  )

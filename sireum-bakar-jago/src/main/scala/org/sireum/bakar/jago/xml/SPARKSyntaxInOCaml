@@ -11,7 +11,7 @@ type value =
     | Bval of bool
 
 type constant = 
-	int 
+	int
 
 type unary_operation = 
 	| Onegint 
@@ -33,59 +33,64 @@ type binary_operation =
 	| Oxor 
 
 type expr = 
-	| Econst of constant 
-	| Evar of ident 
-	| Ebinop of binary_operation * expr * expr 
-	| Eunop of unary_operation * expr 
+	| Econst of constant
+	| Evar of ident
+	| Ebinop of binary_operation * expr * expr
+	| Eunop of unary_operation * expr
 
 type predicate = expr
 
 type loopInvariant = (predicate) option
 
 type stmt = 
-	| Sassign of ident * expr 
-	| Sifthen of expr * stmt 
-	| Swhile of expr * loopInvariant * stmt 
-	| Sseq of stmt * stmt 
+	| Sassign of ident * expr
+	| Sifthen of expr * stmt
+	| Swhile of expr * loopInvariant * stmt
+	| Sseq of stmt * stmt
 
-type param =  {
+type param = {
 	p_ident: ident;
 	p_mode: mode;
-	p_init: (expr) option }
+	p_init: (expr) option 
+}
 
-type subprog_aspect_specs =  {
+type subprog_aspect_specs = {
 	pre: (predicate) option;
-	post: (predicate) option }
+	post: (predicate) option 
+}
 
 (* Local variables declarations used in the procedure/function body *)
-type defining_ident =  {
+type defining_ident = {
 	def_idents: ident list;
-	def_init: (value) option }
+	def_init: (value) option 
+}
 
 type uri = int
 
-type procedure_body =  {
+type procedure_body = {
 	proc_name: uri;
 	proc_specs: (subprog_aspect_specs) option;
 	proc_params: (param list) option;
 	proc_defidents: (defining_ident list) option;
-	proc_body: stmt }
+	proc_body: stmt 
+}
 
 type retT = value
 
-type function_body =  {
+type function_body = {
 	fn_name: uri;
 	fn_specs: (subprog_aspect_specs) option;
 	fn_retT: retT;
 	fn_params: (param list) option;
 	fn_defidents: (defining_ident list) option;
-	fn_body: stmt }
+	fn_body: stmt 
+}
 
 type subprogram = 
-	| Sproc of procedure_body 
-	| Sfunc of function_body 
+	| Sproc of procedure_body
+	| Sfunc of function_body
 
 type pkgbody_aspect_specs = subprog_aspect_specs
 
 type package_body = 
-	| Packagebody of uri * (pkgbody_aspect_specs) option * subprogram list 
+	| Packagebody of uri * (pkgbody_aspect_specs) option * subprogram list

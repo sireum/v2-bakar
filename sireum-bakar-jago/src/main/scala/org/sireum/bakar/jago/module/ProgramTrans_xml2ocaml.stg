@@ -13,8 +13,8 @@ Eunop ($op$, $operand$)
 >>
 
 // identifier is either (1) Bid nat; or (2) Aid nat 
-varId(theType, id) ::= <<
-$theType$ $id$
+varId(theType, id, annotation) ::= <<
+$theType$ $id$ $if(annotation)$(*$annotation$*)$endif$
 >>
 
 identifierExpr(id) ::= <<
@@ -40,22 +40,26 @@ Econst $constVal$
 seqStmt(stmt1, stmt2) ::= <<
 Sseq (
   $stmt1$,
-  $stmt2$)
+  $stmt2$ )
 >>
 
 whileStmt(cond, loopInv, loopBody) ::= <<
-Swhile (($cond$), 
-  $if(loopInv)$($loopInv$)$else$None$endif$, (
-  $loopBody$))
+Swhile ($cond$, 
+  $if(loopInv)$
+  $loopInv$$else$
+  None$endif$,
+  $loopBody$
+)
 >>
 
 ifStmt(cond, ifBody) ::= <<
-Sifthen (($cond$), (
-  $ifBody$))
+Sifthen ($cond$,
+  $ifBody$
+)
 >>
 
 assignStmt(lhs, rhs) ::= <<
-Sassign (($lhs$), ($rhs$))
+Sassign ($lhs$, $rhs$)
 >>
 
 param(id, mode, initExp) ::= <<
@@ -63,12 +67,14 @@ param(id, mode, initExp) ::= <<
 >>
 
 subprogAspectSpecs(pre, post) ::= <<
-{ pre = $if(pre)$
-    $pre$
-  $else$None$endif$; 
-  post = $if(post)$
-    $post$
-  $else$None$endif$ 
+{ pre = 
+    (* Precondition *)
+    $if(pre)$
+    $pre$$else$None$endif$; 
+  post = 
+    (* Postcondition *)
+    $if(post)$
+    $post$$else$None$endif$ 
 }
 >>
 
@@ -78,49 +84,67 @@ identiferDecl(ids, init) ::= <<
 >>
 
 // ++++++
-procedureBody(aspectSpecs, params, identDecls, procBody) ::= <<
-{ proc_specs = $if(aspectSpecs)$(
-    $aspectSpecs$
-  )$else$None$endif$;
-  proc_params = $if(params)$
-    Some([
+procedureBody(procName, aspectSpecs, params, identDecls, procBody) ::= <<
+{ proc_name = 
+    (* Procedure Body - Name *)
+    $procName$;
+  proc_specs =
+    (* Procedure Body - Specification *)
+    $if(aspectSpecs)$
+    $aspectSpecs$$else$
+    None$endif$;
+  proc_params = 
+    (* Procedure Body - Parameters *)
+    $if(params)$Some([
       $params; separator="; \n"$
-    ])$else$None$endif$;
-  proc_defidents = $if(identDecls)$
-    Some([
+    ])$else$
+    None$endif$;
+  proc_defidents = 
+    (* Procedure Body - Locally Defined Variables *)
+    $if(identDecls)$Some([
       $identDecls; separator="; \n"$
-    ])$else$None$endif$;
-  proc_body = (
+    ])$else$
+    None$endif$;
+  proc_body =
+    (* Procedure Body - Body *)
     $procBody$
-  )
 }
 >>
 
 // ++++
-functionBody(aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-{
-  fn_specs = $if(aspectSpecs)$(
-    $aspectSpecs$
-  )$else$None$endif$;
-  fn_retT = (
-    $returnT$
-  );
-  fn_params = $if(params)$
-    Some([
+functionBody(funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+{ fn_name =
+    (* Function Body - Name *)
+    $funcName$;
+  fn_specs = 
+    (* Function Body - Specification *)
+    $if(aspectSpecs)$
+    $aspectSpecs$$else$
+    None$endif$;
+  fn_retT = 
+    (* Function Body - Return Type *)
+    $returnT$;
+  fn_params = 
+    (* Function Body - Parameters *)
+    $if(params)$Some([
       $params; separator="; \n"$
-    ])$else$None$endif$;
-  fn_defidents = $if(identDecls)$
-    Some([
+    ])$else$
+    None$endif$;
+  fn_defidents = 
+    (* Function Body - Locally Defined Variables *)
+    $if(identDecls)$Some([
       $identDecls; separator="; \n"$
-    ])$else$None$endif$;
-  fn_body = (
+    ])$else$
+    None$endif$;
+  fn_body = 
+    (* Function Body - Body *)
     $funcBody$
-  )
 }
 >>
 
 // <Sproc procedure_body> or <Sfunc function_body>
-subProgram(kind, prog) ::= <<
+subProgram(kind, prog, annotation) ::= <<
+(* $annotation$ Body Declaration *)
 $kind$(
   $prog$
 )
@@ -128,13 +152,19 @@ $kind$(
 
 // ++++++
 packageBody(pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
-(* let $pkgBodyName$ = *)
-  Packagebody (
-    $if(pkgBodyAspectSpecs)$ ($pkgBodyAspectSpecs$)$else$None$endif$, 
-    [
-      $pkgBodyDeclItems; separator="; \n"$
-    ] 
-  ) ;;
+(* Package Body Declaration *)
+Packagebody (
+  (* Package Body - Name *)
+  $pkgBodyName$,
+  (* Package Body - Specification *)
+  $if(pkgBodyAspectSpecs)$
+  $pkgBodyAspectSpecs$$else$
+  None$endif$, 
+  (* Package Body - Declared Items *)
+  [
+    $pkgBodyDeclItems; separator="; \n"$
+  ] 
+)
 >>
 
 

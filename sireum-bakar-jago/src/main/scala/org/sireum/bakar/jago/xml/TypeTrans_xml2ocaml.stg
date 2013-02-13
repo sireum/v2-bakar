@@ -32,13 +32,14 @@ $fieldName$: $fieldType$
 // to make it consistent with Coq StringTemplate, we keep the property "constructorName"
 recordDeclaration(recordName, constructorName, fields, annotation) ::= <<
 $if(annotation)$(* $annotation$ *)$endif$
-type $recordName$ = $if(constructorName)$ $endif${
-	$fields; separator=";\n"$ }
+type $recordName$ = $if(constructorName)$$endif${
+	$fields; separator=";\n"$ 
+}
 >>
 
 // constructorArgs is a typeExpression in form like: int * int 
 constructor(constructorName, constructorArgs) ::= <<
-| $constructorName$ $if(constructorArgs)$of $constructorArgs$ $endif$
+| $constructorName$ $if(constructorArgs)$of $constructorArgs$$endif$
 >>
 
 // construct type expression with form like: int * string 

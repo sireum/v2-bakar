@@ -6,6 +6,7 @@ import org.sireum.util._
 import scala.collection.JavaConversions.asScalaBuffer
 import org.sireum.bakar.jago.util.Factory._
 import org.sireum.bakar.jago.util.TranslatorUtil
+import org.sireum.bakar.jago.util.Factory
 
 /** 
   * The following class will be called reflectively in Bakar2CoqTranslatorModuleCore.  
@@ -109,7 +110,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
 
       assert(names.getDefiningNames().length == 1)
-      val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
+      // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
+      val pkgname = names.getDefiningNames.get(0)
       
       val packElems = mlistEmpty[String]
       TranslatorUtil.getTypeDeclarations(bodyDecItems)
@@ -127,15 +129,14 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       }
       packElems += "nil"
 
-      val pack = buildPackageBody(pname, packElems:_*)
+      v(pkgname)
+      val pack = factory.buildPackageBody(ctx.popResult, packElems:_*)
       ctx.pushResult(pack)
       
       // TODO: store the program translation results as PipelineJob's properties
       //       so the result can be used by the following pipeline modules
-      // this.results_=(Seq[String](pack)) 
-      println("(* # # # # # Begin ! # # # # # *)\n")  
-      println(pack)
-      println("\n(* # # # # # End ! # # # # # *)\n")  
+      this.results_=(Seq[String](pack)) 
+      //println(pack)
       false
   }
 
@@ -157,7 +158,9 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         
         assert(names.getDefiningNames().length == 1)
         // [1] method name
-        val mname = names.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDefName()
+        // val mname = names.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDefName()
+        v(names.getDefiningNames().get(0))
+        val mname = ctx.popResult
         // [2] method parameters
         val params = mlistEmpty[String]
         for(p <- paramProfile.getParameterSpecifications()) {
@@ -189,8 +192,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
               case pname : DefiningIdentifier =>
                 val name_uri = pname.getDef()
                 val name = pname.getDefName()
-                val pnm = buildId(theType.get, name_uri, name)
-                val paramDecl = buildParameter(pnm, buildMode(mode), initExp)
+                val pnm = factory.buildId(theType.get, name_uri, name)
+                val paramDecl = factory.buildParameter(pnm, factory.buildMode(mode), initExp)
                 params += paramDecl
               case x =>
                 println("Not expecting: " + x)
@@ -246,8 +249,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val procedureBody = buildProcedureBody(m.mname, m.aspectSpecs, m.params, m.definingIdents, m.mbody)
-        val result = buildSubProgram("Sproc", procedureBody, "Procedure")
+        val procedureBody = factory.buildProcedureBody(m.mname, m.aspectSpecs, m.params, m.definingIdents, m.mbody)
+        val result = factory.buildSubProgram("Sproc", procedureBody, "Procedure")
         ctx.pushResult(result)
 
         false
@@ -258,8 +261,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val functionBody = buildFunctionBody(m.mname, m.aspectSpecs, m.returnType.get, m.params, m.definingIdents, m.mbody)
-        val result = buildSubProgram("Sfunc", functionBody, "Function")
+        val functionBody = factory.buildFunctionBody(m.mname, m.aspectSpecs, m.returnType.get, m.params, m.definingIdents, m.mbody)
+        val result = factory.buildSubProgram("Sfunc", functionBody, "Function")
         ctx.pushResult(result)
 
         false
@@ -283,7 +286,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           Some(ctx.popResult)
         }
           
-      ctx.pushResult(buildIdentiferDecl(null, declItems, optionalInitExp))
+      ctx.pushResult(factory.buildIdentiferDecl(null, declItems, optionalInitExp))
       false
   }
   
@@ -294,7 +297,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         v(stmt)
         stmts += ctx.popResult
       }
-      val seq: String = buildSeqStmt(stmts: _*)
+      val seq: String = factory.buildSeqStmt(stmts: _*)
       ctx.pushResult(seq) 
       false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression) =>
@@ -302,7 +305,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val lhs = ctx.popResult.asInstanceOf[String]
       v(assignmentExpression)
       val rhs = ctx.popResult.asInstanceOf[String]
-      ctx.pushResult(buildAssignStmt(lhs, buildIdentifierExpr(rhs)))
+      ctx.pushResult(factory.buildAssignStmt(lhs, factory.buildIdentifierExpr(rhs)))
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
       v(calledName)
@@ -312,7 +315,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         v(param)
         params += ctx.popResult
       }
-      ctx.pushResult(buildProcedureCall(procName, params: _*)) 
+      ctx.pushResult(factory.buildProcedureCall(procName, params: _*)) 
       false
     case o @ IfStatementEx(sloc, labelNames, statementPaths) =>
       statementPaths.getPaths().foreach {
@@ -321,7 +324,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           val cond = ctx.popResult.asInstanceOf[String]
           v(statements)
           val thenBranch = ctx.popResult.asInstanceOf[String]
-          ctx.pushResult(buildIfStmt(cond, thenBranch))
+          ctx.pushResult(factory.buildIfStmt(cond, thenBranch))
         case x =>
           println("statementH: IfStatement need to be handled for " + x.getClass().getSimpleName())
       }
@@ -334,8 +337,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       v(loopStatements)
       val loopBody = ctx.popResult.asInstanceOf[String]
       // TODO: extract the loop invariant from the While Statement
-      val loopInv = buildOptionV(None) 
-      ctx.pushResult(buildWhileStmt(cond, loopInv, loopBody))
+      val loopInv = factory.buildOptionV(None) 
+      ctx.pushResult(factory.buildWhileStmt(cond, loopInv, loopBody))
       false
 //    case o =>
 //      println("statementH: need to handle " + o.getClass().getSimpleName())
@@ -346,11 +349,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IntegerLiteralEx(sloc, litVal, theType) =>
       // litval could look like 3_500
       val v = litVal.replaceAll("_", "")
-      ctx.pushResult(buildConstantExpr(theType, v))
+      ctx.pushResult(factory.buildConstantExpr(theType, v))
       false
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      // identifier can be variable name or function name, <theType> is null if it's function name
-      ctx.pushResult(buildId(theType, ref, refName))
+      // identifier can be variable name or package/procedure name, <theType> is null if it's function name
+      ctx.pushResult(factory.buildId(theType, ref, refName))
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType) =>
       val plist = mlistEmpty[String]
@@ -364,11 +367,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       
       if(ctx.isBinaryOp(prefixQ)) {
         assert(plist.length == 2)
-        val bexp = buildBinaryExpr(ctx.getBinaryOp(prefixQ).get, buildIdentifierExpr(plist(0)), buildIdentifierExpr(plist(1)))
+        val bexp = factory.buildBinaryExpr(ctx.getBinaryOp(prefixQ).get, factory.buildIdentifierExpr(plist(0)), factory.buildIdentifierExpr(plist(1)))
         ctx.pushResult(bexp)
       }else if(ctx.isUnaryOp(prefixQ)) {
         assert(plist.length == 1)
-        val uexp = buildUnaryExpr(ctx.getUnaryOp(prefixQ).get, buildIdentifierExpr(plist(0)))
+        val uexp = factory.buildUnaryExpr(ctx.getUnaryOp(prefixQ).get, factory.buildIdentifierExpr(plist(0)))
         ctx.pushResult(uexp)
       }else {
         println("expressionH: need to handle Function Call Expression !")
@@ -381,10 +384,10 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      ctx.pushResult(buildId(theType, ref, refName))
+      ctx.pushResult(factory.buildId(theType, ref, refName))
       false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-      ctx.pushResult(buildId(theType, theDef, defName))
+      ctx.pushResult(factory.buildId(theType, theDef, defName))
       false
 //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
 //
@@ -422,7 +425,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   import org.sireum.option.ProgramTarget
   val t = this.translationType
   assert (t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
-  setOption(t)
+  val factory = new Factory(t)
   // print the test cases
   // var count = 0;
   // var suffix = 0;

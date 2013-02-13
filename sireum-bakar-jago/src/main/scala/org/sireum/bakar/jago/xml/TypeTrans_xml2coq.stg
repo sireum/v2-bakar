@@ -44,7 +44,7 @@ $fieldName$: $fieldType$
 
 recordDeclaration(recordName, constructorName, fields, annotation) ::= <<
 $if(annotation)$(* $annotation$ *)$endif$
-Record $recordName$: Type := $constructorName$ {
+Record $recordName$: Type := $constructorName${
 	$fields; separator=";\n"$
 }.
 >>

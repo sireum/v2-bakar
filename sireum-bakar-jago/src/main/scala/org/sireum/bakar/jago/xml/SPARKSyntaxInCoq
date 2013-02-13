@@ -53,26 +53,26 @@ Inductive stmt: Type :=
 	| Swhile: expr -> loopInvariant -> stmt -> stmt
 	| Sseq: stmt -> stmt -> stmt.
 
-Record param: Type := mkparam {
+Record param: Type := mkparam{
 	p_ident: ident;
 	p_mode: mode;
 	p_init: option (expr)
 }.
 
-Record subprog_aspect_specs: Type := mksubprog_aspect_specs {
+Record subprog_aspect_specs: Type := mksubprog_aspect_specs{
 	pre: option (predicate);
 	post: option (predicate)
 }.
 
 (* Local variables declarations used in the procedure/function body *)
-Record defining_ident: Type := mkdefining_ident {
+Record defining_ident: Type := mkdefining_ident{
 	def_idents: list ident;
 	def_init: option (value)
 }.
 
 Definition uri := nat.
 
-Record procedure_body: Type := mkprocedure_body {
+Record procedure_body: Type := mkprocedure_body{
 	proc_name: uri;
 	proc_specs: option (subprog_aspect_specs);
 	proc_params: option (list param);
@@ -82,7 +82,7 @@ Record procedure_body: Type := mkprocedure_body {
 
 Definition retT := value.
 
-Record function_body: Type := mkfunction_body {
+Record function_body: Type := mkfunction_body{
 	fn_name: uri;
 	fn_specs: option (subprog_aspect_specs);
 	fn_retT: retT;

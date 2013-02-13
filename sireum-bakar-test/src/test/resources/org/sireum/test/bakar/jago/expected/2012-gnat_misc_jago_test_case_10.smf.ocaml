@@ -1,0 +1,60 @@
+(* Package Body Declaration *)
+Packagebody (
+  (* Package Body - Name *)
+   9 (*Jago_Test_Case_10*),
+  (* Package Body - Specification *)
+  None, 
+  (* Package Body - Declared Items *)
+  [
+    (* Procedure Body Declaration *)
+    Sproc(
+      { proc_name = 
+          (* Procedure Body - Name *)
+           1 (*P1*);
+        proc_specs =
+          (* Procedure Body - Specification *)
+          None;
+        proc_params = 
+          (* Procedure Body - Parameters *)
+          Some([
+                { p_ident = Aid 2 (*I1*); p_mode = In; p_init = None }; 
+                { p_ident = Aid 3 (*I2*); p_mode = In; p_init = None }; 
+                { p_ident = Aid 4 (*I3*); p_mode = In; p_init = None }; 
+                { p_ident = Aid 5 (*O1*); p_mode = Out; p_init = None }; 
+                { p_ident = Aid 6 (*O2*); p_mode = Out; p_init = None }
+              ]);
+        proc_defidents = 
+          (* Procedure Body - Locally Defined Variables *)
+          Some([
+                { def_idents = [Aid 7 (*L1*); Aid 8 (*L2*)]; def_init = None }
+              ]);
+        proc_body =
+          (* Procedure Body - Body *)
+          Sseq (
+            Sassign (Aid 8 (*L2*), Econst 5),
+            Sseq (
+              Sassign (Aid 7 (*L1*), Evar (Aid 4 (*I3*))),
+              Sseq (
+                Sassign (Aid 6 (*O2*), Evar (Aid 7 (*L1*))),
+                Sseq (
+                  Sassign (Aid 7 (*L1*), Evar (Aid 3 (*I2*))),
+                  Sseq (
+                    Sassign (Aid 7 (*L1*), Ebinop (Oadd, Evar (Aid 2 (*I1*)), Evar (Aid 3 (*I2*)))),
+                    Sseq (
+                      Sifthen (Ebinop (Cgt, Evar (Aid 7 (*L1*)), Econst 5),
+                        Sifthen (Ebinop (Clt, Evar (Aid 2 (*I1*)), Econst 0),
+                          Sassign (Aid 8 (*L2*), Econst 8)
+                        )
+                      ),
+                      Sseq (
+                        Swhile (Ebinop (Cgt, Evar (Aid 7 (*L1*)), Econst 0), 
+                          None ,
+                          Sseq (
+                            Sassign (Aid 8 (*L2*), Ebinop (Oadd, Evar (Aid 8 (*L2*)), Econst 1)),
+                            Sassign (Aid 7 (*L1*), Ebinop (Osub, Evar (Aid 7 (*L1*)), Econst 1)) )
+                        ),
+                        Sassign (Aid 5 (*O1*), Evar (Aid 8 (*L2*))) ) ) ) ) ) ) )
+      }
+    )
+  ] 
+)

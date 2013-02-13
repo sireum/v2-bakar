@@ -58,7 +58,8 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
     val results = BakarTranslatorModule.getResults(job.properties)
-    results.foreach(f => 
-      println(f))
+    results.foreach{f => 
+      w.write(f) 
+      println(f)}
   }
 }

@@ -4,9 +4,8 @@ import org.stringtemplate.v4.STGroupFile
 import org.sireum.util._
 import org.sireum.option.ProgramTarget
 
-object Factory {
+class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   // the default program translation option is Coq
-  var option: ProgramTarget.Type = ProgramTarget.Coq
   var url = (option: @unchecked) match {
     case ProgramTarget.Ocaml =>
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_OCaml)
@@ -14,16 +13,9 @@ object Factory {
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_Coq)
   }
   val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$')
-  // use natural number to represent variable string: VarStr -> NatVal
+  // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
   val identMap = mmapEmpty[String, String]
   var c = 0
-  
-  def setOption(theOption: ProgramTarget.Type) {
-    if(theOption != ProgramTarget.Coq && theOption != ProgramTarget.Ocaml){
-      println("program translator usage: target option can be either Coq or OCaml !")
-    }
-    option = theOption
-  }
   
   def buildOptionV(value: Option[String]) = {
     val result = stg.getInstanceOf("optionVal")
@@ -72,12 +64,12 @@ object Factory {
       val mTrans = Map[String, String]("Boolean" -> "Bid", "Integer" -> "Aid")
       var o: Option[String] = None
       
-      for(e <- mTrans if o.isEmpty) {
+      for(e <- mTrans if (o.isEmpty && theType != null)) {
         if(theType.contains(e._1))
           o = Some(e._2)
       }
       val result = stg.getInstanceOf("varId")
-      // the identifier can be either variable or function name. theType will be null if it's function name
+      // the identifier can be either variable or function name. theType will be null if it's package/procedure name
       if(o.isDefined)
         result.add("theType", o.get)
       result.add("id", c)
@@ -211,7 +203,7 @@ object Factory {
   def buildProcedureBody(procName: String, aspectSpecs: Option[String], params: MList[String], 
       identDecls: MList[String], procBody: String) = {
     val result = stg.getInstanceOf("procedureBody")
-    // result.add("procName", procName)
+    result.add("procName", procName)
     result.add("procBody", procBody)
     if(aspectSpecs.isDefined)
       result.add("aspectSpecs", aspectSpecs.get)
@@ -223,7 +215,7 @@ object Factory {
   def buildFunctionBody(funcName: String, aspectSpecs: Option[String], returnT: String, params: MList[String], 
       identDecls: MList[String], funcBody: String) = {
     val result = stg.getInstanceOf("functionBody")
-    // result.add("funcName", funcName)
+    result.add("funcName", funcName)
     result.add("returnT", returnT)
     result.add("funcBody", funcBody)
     if(aspectSpecs.isDefined)
@@ -242,6 +234,13 @@ object Factory {
   }
   
   def buildPackageBody(pkgBodyName: String, pkgBodyDeclItems: String*) = {
+	// outputSpecification()
+    val result = stg.getInstanceOf("packageBody")
+    result.add("pkgBodyName", pkgBodyName)
+    buildListAttributes(result, "pkgBodyDeclItems", pkgBodyDeclItems: _*).render()
+  }
+  
+  def outputSpecification() {
     val o: String = (option: @unchecked) match {
       case ProgramTarget.Coq => "Coq"
       case ProgramTarget.Ocaml => "OCaml"
@@ -253,11 +252,6 @@ object Factory {
       println("\t" + e._1 + " -> " + e._2 + ";")
     }
     println("****************************)")
-    
-    
-    val result = stg.getInstanceOf("packageBody")
-    result.add("pkgBodyName", pkgBodyName)
-    buildListAttributes(result, "pkgBodyDeclItems", pkgBodyDeclItems: _*).render()
   }
 }
 
