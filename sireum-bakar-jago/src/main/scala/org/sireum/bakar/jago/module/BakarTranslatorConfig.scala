@@ -30,6 +30,5 @@ object GenerateModuleCore{
     opt.genClassName = "BakarTranslatorModuleCore"
     
     ModuleGenerator.run(opt) 
-    println("++8888+")
   }
 }
