@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/scala"/>
-	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-jago"/>	
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-option"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-util"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-jago"/>
+  <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/StringTemplate v4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
