@@ -132,7 +132,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       
       // TODO: store the program translation results as PipelineJob's properties
       //       so the result can be used by the following pipeline modules
-      this.results_=(Seq[String](pack)) 
+      // this.results_=(Seq[String](pack)) 
       println("(* # # # # # Begin ! # # # # # *)\n")  
       println(pack)
       println("\n(* # # # # # End ! # # # # # *)\n")  
@@ -188,7 +188,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
             pnames.getDefiningNames().foreach {
               case pname : DefiningIdentifier =>
                 val name_uri = pname.getDef()
-                val pnm = buildId(theType.get, name_uri)
+                val name = pname.getDefName()
+                val pnm = buildId(theType.get, name_uri, name)
                 val paramDecl = buildParameter(pnm, buildMode(mode), initExp)
                 params += paramDecl
               case x =>
@@ -246,7 +247,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val procedureBody = buildProcedureBody(m.mname, m.aspectSpecs, m.params, m.definingIdents, m.mbody)
-        val result = buildSubProgram("Sproc", procedureBody)
+        val result = buildSubProgram("Sproc", procedureBody, "Procedure")
         ctx.pushResult(result)
 
         false
@@ -258,7 +259,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val functionBody = buildFunctionBody(m.mname, m.aspectSpecs, m.returnType.get, m.params, m.definingIdents, m.mbody)
-        val result = buildSubProgram("Sfunc", functionBody)
+        val result = buildSubProgram("Sfunc", functionBody, "Function")
         ctx.pushResult(result)
 
         false
@@ -349,7 +350,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       false
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
       // identifier can be variable name or function name, <theType> is null if it's function name
-      ctx.pushResult(buildId(theType, ref))
+      ctx.pushResult(buildId(theType, ref, refName))
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType) =>
       val plist = mlistEmpty[String]
@@ -380,10 +381,10 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      ctx.pushResult(buildId(theType, ref))
+      ctx.pushResult(buildId(theType, ref, refName))
       false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-      ctx.pushResult(buildId(theType, theDef))
+      ctx.pushResult(buildId(theType, theDef, defName))
       false
 //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
 //

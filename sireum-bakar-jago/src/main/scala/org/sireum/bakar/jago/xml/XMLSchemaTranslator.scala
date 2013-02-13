@@ -202,7 +202,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     this.createTypeRename(TypeNameSpace.PackageBodyAspectSpecs, TypeNameSpace.SubProgramAspectSpecs)
     val annotation: Option[String] = None
     val constructors = List(
-        List("Packagebody", getOptionType(TypeNameSpace.PackageBodyAspectSpecs), getListType(TypeNameSpace.SubProgramT), TypeNameSpace.PackageBodyT))
+        List("Packagebody", TypeNameSpace.Uri, 
+            getOptionType(TypeNameSpace.PackageBodyAspectSpecs), getListType(TypeNameSpace.SubProgramT), TypeNameSpace.PackageBodyT))
     this.createInductiveTypeV2(TypeNameSpace.PackageBodyT, annotation, constructors)
   }  
   
@@ -211,11 +212,11 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    * DeclarationClass /- VariableDeclaration
    *                  |- PackageBodyDeclaration
    *                  |- FunctionBodyDeclaration
-   * 	              |- ProcedureBodyDeclaration /- ParameterSpecificationList /- ParameterSpecification /- DefiningNameList namesQl (var name)
+   *                |- ProcedureBodyDeclaration /- ParameterSpecificationList /- ParameterSpecification /- DefiningNameList namesQl (var name)
    *                                              |                                                       |- String mode (in, out, in out)
    *                                              |                                                       |- DefinitionClass objectDeclarationViewQ (var type)
    *                                              |                                                       |- ExpressionClass initializationExpressionQ
-   * 	                                          |- ElementList bodyDeclarativeItemsQl (define temperate variables used in procedure body)
+   *                                            |- ElementList bodyDeclarativeItemsQl (define temperate variables used in procedure body)
    *                                              |- StatementList bodyStatementsQl (commands in procedure boy)
    * 
    */
@@ -271,8 +272,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   /**
    * procedure_annotation ::= [global_definition] 
    *                          [dependency_relation] 
-   * 				          [precondition]
-   * 					      [postcondition]
+   *                  [precondition]
+   *                [postcondition]
    */
   def trans_procedureAspectSpecs {
     val typeName = TypeNameSpace.SubProgramAspectSpecs
@@ -288,7 +289,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    *                          |                                                       |- DefinitionClass objectDeclarationViewQ (var type)
    *                          |                                                       |- ExpressionClass initializationExpressionQ
    *                          |- ElementList aspectSpecificationsQl (define global, pre, post ...)
-   * 	                      |- ElementList bodyDeclarativeItemsQl (define temperate variables used in procedure body)
+   *                        |- ElementList bodyDeclarativeItemsQl (define temperate variables used in procedure body)
    *                          |- StatementList bodyStatementsQl (commands in procedure boy)
    *
    * 
@@ -321,9 +322,12 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     }
     // create procedure annotations: Global, Pre, Post, ...
     
+    //
+    createTypeRename(TypeNameSpace.Uri, TypeNameSpace.Integer(option)) 
     // create the Coq type for procedure body declaration
     val typeName = TypeNameSpace.ProcedureBodyT
     val fields = List(
+        createFieldDecl("proc_name", TypeNameSpace.Uri, false),
         createFieldDecl("proc_specs", TypeNameSpace.SubProgramAspectSpecs, true),
         createFieldDecl("proc_params", getListType(TypeNameSpace.Parameter), true),
         createFieldDecl("proc_defidents", getListType(TypeNameSpace.Defining_Identifier), true),
@@ -359,6 +363,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     createTypeRename(TypeNameSpace.ReturnType, TypeNameSpace.ValT) 
     val typeName = TypeNameSpace.FunctionBodyT
     val fields = List(
+        createFieldDecl("fn_name", TypeNameSpace.Uri, false),
         createFieldDecl("fn_specs", TypeNameSpace.SubProgramAspectSpecs, true),
         createFieldDecl("fn_retT", TypeNameSpace.ReturnType, false),
         createFieldDecl("fn_params", getListType(TypeNameSpace.Parameter), true),
@@ -677,6 +682,8 @@ object TypeTranslator{
     //    val url = getClass.getResource("TypeTrans_xml2coq.stg")
   }
 }
+
+
 
 
 

@@ -62,7 +62,10 @@ type defining_ident =  {
 	def_idents: ident list;
 	def_init: (value) option }
 
+type uri = int
+
 type procedure_body =  {
+	proc_name: uri;
 	proc_specs: (subprog_aspect_specs) option;
 	proc_params: (param list) option;
 	proc_defidents: (defining_ident list) option;
@@ -71,6 +74,7 @@ type procedure_body =  {
 type retT = value
 
 type function_body =  {
+	fn_name: uri;
 	fn_specs: (subprog_aspect_specs) option;
 	fn_retT: retT;
 	fn_params: (param list) option;
@@ -84,4 +88,4 @@ type subprogram =
 type pkgbody_aspect_specs = subprog_aspect_specs
 
 type package_body = 
-	| Packagebody of (pkgbody_aspect_specs) option * subprogram list 
+	| Packagebody of uri * (pkgbody_aspect_specs) option * subprogram list 

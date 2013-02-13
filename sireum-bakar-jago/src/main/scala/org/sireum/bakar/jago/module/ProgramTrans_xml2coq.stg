@@ -13,8 +13,8 @@ Eunop $op$ ($operand$)
 >>
 
 // identifier is either (1) Bid nat; or (2) Aid nat 
-varId(theType, id) ::= <<
-$theType$ $id$
+varId(theType, id, annotation) ::= <<
+$theType$ $id$ $if(annotation)$(*$annotation$*)$endif$
 >>
 
 identifierExpr(id) ::= <<
@@ -64,8 +64,12 @@ mkparam ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$N
 
 subprogAspectSpecs(pre, post) ::= <<
 mksubprog_aspect_specs 
-  $if(pre)$($pre$)$else$None$endif$ 
-  $if(post)$($post$)$else$None$endif$
+  (* Precondition *)
+  ($if(pre)$
+  $pre$$else$None$endif$) 
+  (* Postcondition *)
+  ($if(post)$
+  $post$$else$None$endif$)
 >>
 
 identiferDecl(ids, init) ::= <<
@@ -74,33 +78,46 @@ mkdefining_ident ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$
 
 procedureBody(aspectSpecs, params, identDecls, procBody) ::= <<
 mkprocedure_body 
-  $if(aspectSpecs)$($aspectSpecs$)$else$None$endif$
+  (* Procedure Body - Specification *)
+  ($if(aspectSpecs)$
+  $aspectSpecs$$else$None$endif$)
+  (* Procedure Body - Parameters *)
   ($if(params)$Some(
     $params; separator=" :: \n"$
   )$else$None$endif$) 
+  (* Procedure Body - Locally Defined Variables *)
   ($if(identDecls)$Some(
     $identDecls; separator=" :: \n"$
-  )$else$None$endif$)(
+  )$else$None$endif$)
+  (* Procedure Body - Body *) (
     $procBody$
   )
 >>
 
 functionBody(aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
 mkfunction_body 
-  $if(aspectSpecs)$($aspectSpecs$)$else$None$endif$ 
+  (* Function Body - Specification *)
+  ($if(aspectSpecs)$
+  $aspectSpecs$$else$None$endif$)
+  (* Function Body - Return Type *) 
   ($returnT$) 
+  (* Function Body - Parameters *)
   ($if(params)$Some(
     $params; separator=" :: \n"$
   )$else$None$endif$)
+  (* Function Body - Locally Defined Variables *)
   ($if(identDecls)$Some(
     $identDecls; separator=" :: \n"$
-  )$else$None$endif$)(
+  )$else$None$endif$)
+  (* Function Body - Body *) (
     $funcBody$
   )
 >>
 
 // <Sproc procedure_body> or <Sfunc function_body>
-subProgram(kind, prog) ::= <<
+// <annotation> can be either "Procedure" or "Function"
+subProgram(kind, prog, annotation) ::= <<
+(* $annotation$ Body Definition *)
 $kind$(
   $prog$
 )
@@ -108,10 +125,15 @@ $kind$(
 
 packageBody(pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 Definition $pkgBodyName$ := 
-  Packagebody $if(pkgBodyAspectSpecs)$ (
-    $pkgBodyAspectSpecs$)$else$None$endif$(
+  (* Package Body Definition *)
+  Packagebody 
+    (* Package Body - Specification *)
+    ($if(pkgBodyAspectSpecs)$
+    $pkgBodyAspectSpecs$$else$None$endif$)    
+    (* Package Body - Declared Items *) (
     $pkgBodyDeclItems; separator=" ::\n\n"$)
 >>
+
 
 
 

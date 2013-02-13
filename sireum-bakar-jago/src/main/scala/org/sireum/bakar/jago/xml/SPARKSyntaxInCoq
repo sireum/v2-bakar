@@ -70,7 +70,10 @@ Record defining_ident: Type := mkdefining_ident {
 	def_init: option (value)
 }.
 
+Definition uri := nat.
+
 Record procedure_body: Type := mkprocedure_body {
+	proc_name: uri;
 	proc_specs: option (subprog_aspect_specs);
 	proc_params: option (list param);
 	proc_defidents: option (list defining_ident);
@@ -80,6 +83,7 @@ Record procedure_body: Type := mkprocedure_body {
 Definition retT := value.
 
 Record function_body: Type := mkfunction_body {
+	fn_name: uri;
 	fn_specs: option (subprog_aspect_specs);
 	fn_retT: retT;
 	fn_params: option (list param);
@@ -94,7 +98,7 @@ Inductive subprogram: Type :=
 Definition pkgbody_aspect_specs := subprog_aspect_specs.
 
 Inductive package_body: Type := 
-	| Packagebody: option (pkgbody_aspect_specs) -> list subprogram -> package_body.
+	| Packagebody: uri -> option (pkgbody_aspect_specs) -> list subprogram -> package_body.
 
 (* End SPARK_Syntax. *)
 (* Extraction SPARK_Syntax. *)

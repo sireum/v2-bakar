@@ -63,7 +63,7 @@ object Factory {
     result.render()
   }
   
-  def buildId(theType: String, id_uri: String) = {
+  def buildId(theType: String, id_uri: String, id: String) = {
     val value = identMap.get(id_uri)
     if(value.isDefined){
       value.get
@@ -81,6 +81,7 @@ object Factory {
       if(o.isDefined)
         result.add("theType", o.get)
       result.add("id", c)
+      result.add("annotation", id)
       identMap += (id_uri -> result.render())
       result.render()      
     }
@@ -232,8 +233,9 @@ object Factory {
     st2.render()
   }
   
-  def buildSubProgram(kind: String, prog: String) = {
+  def buildSubProgram(kind: String, prog: String, annotation: String) = {
     val result = stg.getInstanceOf("subProgram")
+    result.add("annotation", annotation)
     result.add("kind", kind)
     result.add("prog", prog)
     result.render()
@@ -258,6 +260,9 @@ object Factory {
     buildListAttributes(result, "pkgBodyDeclItems", pkgBodyDeclItems: _*).render()
   }
 }
+
+
+
 
 
 

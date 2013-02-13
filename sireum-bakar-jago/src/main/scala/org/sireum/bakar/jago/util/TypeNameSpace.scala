@@ -23,6 +23,7 @@ object TypeNameSpace {
   val VarT = "ident";
   val ValT = "value";
     
+  val Uri = "uri";
   val Bool = "bool";
   val Constant = "constant"
   val Predicate = "predicate"
@@ -48,7 +49,7 @@ object TypeNameSpace {
   val Pre = "pre";
   val Post = "post"
     
-//	val VarT = "id";
+//  val VarT = "id";
 //  val ValT = "Value";
 //  val OptionInteger = "option nat";
 //  val OptionBool = "option bool";
@@ -56,7 +57,7 @@ object TypeNameSpace {
 //  val OptionPredicate = "option Predicate";
 //  val InitializationExpression = "InitExp";
 //  val Predicate = "Predicate"
-//		  val ExpressionT = "Exp";
+//      val ExpressionT = "Exp";
 //  val OpT = "Op";
 //  val StatementListT = "Com";
 //  
@@ -75,3 +76,4 @@ object TypeNameSpace {
 //  val Pre = "Pre";
 //  val Post = "Post"
 }
+
