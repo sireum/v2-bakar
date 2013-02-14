@@ -1,8 +1,17 @@
 type mode = 
-      | In
-      | Out
+    | In
+    | Out
+
+type typ = 
+    | Tint
+    | Tbool
 
 type ident = int
+
+type uri = int
+
+type location = 
+    | Loc of (int * int) * (int * int)
 
 type value = 
     | Aval of int
@@ -31,62 +40,69 @@ type binary_operation =
 	| Oxor 
 
 type expr = 
-	| Econst of constant
-	| Evar of ident
-	| Ebinop of binary_operation * expr * expr
-	| Eunop of unary_operation * expr
+	| Econst of uri * constant
+	| Evar of uri * ident
+	| Ebinop of uri * binary_operation * expr * expr
+	| Eunop of uri * unary_operation * expr
 
 type predicate = expr
 
 type loopInvariant = (predicate) option
 
 type stmt = 
-	| Sassign of ident * expr
-	| Sifthen of expr * stmt
-	| Swhile of expr * loopInvariant * stmt
-	| Sseq of stmt * stmt
+	| Sassign of uri * ident * expr
+	| Sifthen of uri * expr * stmt
+	| Swhile of uri * expr * loopInvariant * stmt
+	| Sseq of uri * stmt * stmt
 
 type param = {
+	param_uri: uri;
 	param_ident: ident;
 	param_mode: mode;
 	param_init: (expr) option 
 }
 
 type subprog_aspect_specs = {
+	specs_uri: uri;
 	pre: (predicate) option;
 	post: (predicate) option 
 }
 
 (* Local variables declarations used in the procedure/function body *)
 type defining_ident = {
+	local_uri: uri;
 	local_idents: ident list;
 	local_init: (value) option 
 }
 
 type procedure_body = {
+	proc_uri: uri;
 	proc_name: ident;
 	proc_specs: (subprog_aspect_specs) option;
 	proc_params: (param list) option;
-	proc_defidents: (defining_ident list) option;
+	proc_loc_idents: (defining_ident list) option;
 	proc_body: stmt 
 }
 
-type retT = value
-
 type function_body = {
+	fn_uri: uri;
 	fn_name: ident;
 	fn_specs: (subprog_aspect_specs) option;
-	fn_retT: retT;
+	fn_ret_type: typ;
 	fn_params: (param list) option;
-	fn_defidents: (defining_ident list) option;
+	fn_loc_idents: (defining_ident list) option;
 	fn_body: stmt 
 }
 
 type subprogram = 
-	| Sproc of procedure_body
-	| Sfunc of function_body
+	| Sproc of uri * procedure_body
+	| Sfunc of uri * function_body
 
 type pkgbody_aspect_specs = subprog_aspect_specs
 
 type package_body = 
-	| Packagebody of ident * (pkgbody_aspect_specs) option * subprogram list
+	| Packagebody of uri * ident * (pkgbody_aspect_specs) option * subprogram list
+
+(* compilation unit can be either package_declaration or package_body_declaration *)
+type compilation_unit = 
+	| PkgBodyDecl of uri * ident * location * package_body

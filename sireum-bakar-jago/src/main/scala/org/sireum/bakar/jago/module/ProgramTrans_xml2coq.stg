@@ -12,9 +12,8 @@ unaryExpr(op, operand) ::= <<
 Eunop $op$ ($operand$)
 >>
 
-// identifier is either (1) Bid nat; or (2) Aid nat 
-varId(theType, id, annotation) ::= <<
-$theType$ $if(annotation)$(*$annotation$*)$endif$ $id$
+varId(id, annotation) ::= <<
+$if(annotation)$(*$annotation$*) $endif$$id$
 >>
 
 identifierExpr(id) ::= <<
@@ -74,12 +73,14 @@ mksubprog_aspect_specs
   $post$$else$None$endif$)
 >>
 
-identiferDecl(ids, init) ::= <<
-mkdefining_ident ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$
+identiferDecl(uri, ids, init) ::= <<
+mkdefining_ident $uri$ ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$
 >>
 
-procedureBody(procName, aspectSpecs, params, identDecls, procBody) ::= <<
+procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
 mkprocedure_body 
+  (* Procedure Body - URI *)
+  ($uri$)
   (* Procedure Body - Name *)
   ($procName$)
   (* Procedure Body - Specification *)
@@ -98,8 +99,10 @@ mkprocedure_body
   )
 >>
 
-functionBody(funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
 mkfunction_body 
+  (* Function Body - URI *)
+  ($uri$)
   (* Function Body - Name *)
   ($funcName$)
   (* Function Body - Specification *)
@@ -122,16 +125,18 @@ mkfunction_body
 
 // <Sproc procedure_body> or <Sfunc function_body>
 // <annotation> can be either "Procedure" or "Function"
-subProgram(kind, prog, annotation) ::= <<
+subProgram(uri, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
-$kind$(
+$kind$
+  $uri$
   $prog$
-)
 >>
 
-packageBody(pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
+packageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
 Packagebody 
+  (* Package Body - URI *)
+  ($pkgBodyUri$)
   (* Package Body - Name *)
   ($pkgBodyName$)
   (* Package Body - Specification *)
@@ -150,6 +155,9 @@ ComilationUnit
   ($unitUri$)
   (* Compilation Unit - Name *)
   ($unitName$)
+  (* Compilation Unit - Location *) (*
+    $unitLocation$
+  *)
   (* Compilation Unit - Unit Declaration *) (
     $unitDecl$
   )
@@ -161,9 +169,6 @@ ComilationUnit
   *)
   (* Compilation Unit - Global/Local Variable Mapping *) (*
     $unitIdentMap; separator="\n"$
-  *)
-  (* Compilation Unit - Location *) (*
-    $unitLocation$
   *)
 >>
 

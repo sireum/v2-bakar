@@ -36,7 +36,6 @@ object TypeNameSpace {
   
   val ModeT = "mode";
   val Defining_Identifier = "defining_ident";
-  val ReturnType = "retT";
   val SubProgramAspectSpecs = "subprog_aspect_specs";
   val Parameter = "param";
   val ProcedureBodyT = "procedure_body";

@@ -94,9 +94,9 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
       
-      val unitUri = null;
-      val unitName = unitFullName
-      val unitLocation = factory.buildLocation(sloc.getLine, sloc.getCol, sloc.getEndline, sloc.getEndcol)
+      val unitUri = factory.buildUriMappingTable(sloc, None);
+      val unitName = factory.buildId(None, unitFullName, unitFullName)
+      val unitLocation = factory.buildLocation(sloc) 
       v(unitDeclaration)
       val unitDecl = ctx.popResult
       val cu = factory.buildCompilationUnit(unitUri, unitName, unitDecl, unitLocation)  
@@ -115,8 +115,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       bodyDecItems, bodyStatements, bodyExceptionHandlers) =>
 
       assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
-
       assert(names.getDefiningNames().length == 1)
+      
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       
@@ -135,9 +135,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         pkgElems += pm
       }
       pkgElems += "nil"
-      val pkgBodyAspectSpecs: Option[String] = None
+      val pkgBodyUri = factory.buildUriMappingTable(sloc, None);
       v(pkgname)
-      val pkg = factory.buildPackageBody(ctx.popResult, pkgBodyAspectSpecs, pkgElems:_*)
+      val pkgBodyName = ctx.popResult
+      val pkgBodyAspectSpecs: Option[String] = None
+      val pkg = factory.buildPackageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
       ctx.pushResult(pkg)
 
       false
@@ -195,7 +197,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
               case pname : DefiningIdentifier =>
                 val name_uri = pname.getDef()
                 val name = pname.getDefName()
-                val pnm = factory.buildId(theType.get, name_uri, name)
+                val pnm = factory.buildId(theType, name_uri, name)
                 val paramDecl = factory.buildParameter(pnm, factory.buildMode(mode), initExp)
                 params += paramDecl
               case x =>
@@ -252,8 +254,10 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val procedureBody = factory.buildProcedureBody(m.mname, m.aspectSpecs, m.params, m.definingIdents, m.mbody)
-        val result = factory.buildSubProgram("Sproc", procedureBody, "Procedure")
+        val procUri = factory.buildUriMappingTable(sloc, None)  
+        val procedureBody = factory.buildProcedureBody(procUri, m.mname, m.aspectSpecs, m.params, m.definingIdents, m.mbody)
+        val subpUri = factory.buildUriMappingTable(sloc, None)
+        val result = factory.buildSubProgram(subpUri, "Sproc", procedureBody, "Procedure")
         ctx.pushResult(result)
 
         false
@@ -264,8 +268,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val functionBody = factory.buildFunctionBody(m.mname, m.aspectSpecs, m.returnType.get, m.params, m.definingIdents, m.mbody)
-        val result = factory.buildSubProgram("Sfunc", functionBody, "Function")
+        val funcUri = factory.buildUriMappingTable(sloc, None)
+        val functionBody = factory.buildFunctionBody(funcUri, m.mname, m.aspectSpecs, m.returnType.get, m.params, m.definingIdents, m.mbody)
+        // TODO: should use: factory.buildUriMappingTable(sloc, ReturnType)
+        val subpUri = factory.buildUriMappingTable(sloc, None)
+        val result = factory.buildSubProgram(subpUri, "Sfunc", functionBody, "Function")
         ctx.pushResult(result)
 
         false
@@ -288,8 +295,20 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           v(initExpQ.getExpression())
           Some(ctx.popResult)
         }
-          
-      ctx.pushResult(factory.buildIdentiferDecl(null, declItems, optionalInitExp))
+
+      val theType = objDeclViewQ.getDefinition() match {
+        case sti @ SubtypeIndicationEx(sloc, hasAliasedQ, hasNullExclusionQ, subtypeMarkQ, subtypeConstraintQ) =>
+          subtypeMarkQ.getExpression() match {
+            case id @ IdentifierEx(sloc, refName, ref, type_) =>
+              Some(refName)
+            case _ =>
+              None
+          }
+          case _ =>
+              None
+        }
+      val uri = factory.buildUriMappingTable(sloc, theType)    
+      ctx.pushResult(factory.buildIdentiferDecl(uri, declItems, optionalInitExp))
       false
   }
   
@@ -356,7 +375,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       false
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
       // identifier can be variable name or package/procedure name, <theType> is null if it's function name
-      ctx.pushResult(factory.buildId(theType, ref, refName))
+      assert(theType != null)
+      ctx.pushResult(factory.buildId(Some(theType), ref, refName))
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType) =>
       val plist = mlistEmpty[String]
@@ -387,10 +407,12 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      ctx.pushResult(factory.buildId(theType, ref, refName))
+      assert(theType != null)
+      ctx.pushResult(factory.buildId(Some(theType), ref, refName))
       false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-      ctx.pushResult(factory.buildId(theType, theDef, defName))
+      assert(theType != null)
+      ctx.pushResult(factory.buildId(Some(theType), theDef, defName))
       false
 //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
 //

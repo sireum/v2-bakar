@@ -4,12 +4,14 @@ Require Export Coq.Bool.Bool.
 
 (* Module SPARK_Syntax. *)
 Inductive mode: Type := 
-      | In: mode
-      | Out: mode.
+    | In: mode
+    | Out: mode.
+
+Inductive typ: Type := 
+    | Tint: typ
+    | Tbool: typ.
 
 Definition ident := nat.
-
-Definition typ := nat.
 
 Definition uri := nat.
 
@@ -83,19 +85,17 @@ Record procedure_body: Type := mkprocedure_body{
 	proc_name: ident;
 	proc_specs: option (subprog_aspect_specs);
 	proc_params: option (list param);
-	proc_defidents: option (list defining_ident);
+	proc_loc_idents: option (list defining_ident);
 	proc_body: stmt
 }.
-
-Definition retT := value.
 
 Record function_body: Type := mkfunction_body{
 	fn_uri: uri;
 	fn_name: ident;
 	fn_specs: option (subprog_aspect_specs);
-	fn_retT: retT;
+	fn_ret_type: typ;
 	fn_params: option (list param);
-	fn_defidents: option (list defining_ident);
+	fn_loc_idents: option (list defining_ident);
 	fn_body: stmt
 }.
 

@@ -3,10 +3,11 @@ package org.sireum.bakar.jago.util
 import org.stringtemplate.v4.STGroupFile
 import org.sireum.util._
 import org.sireum.option.ProgramTarget
+import org.sireum.bakar.xml.SourceLocation
 
 class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   // the default program translation option is Coq
-  var url = (option: @unchecked) match {
+  var url = (option: @unchecked) match { 
     case ProgramTarget.Ocaml =>
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_OCaml)
     case ProgramTarget.Coq =>
@@ -14,11 +15,12 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   }
   val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$')
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
-  val identMap = mmapEmpty[String, String]
-  val unitTypeMap = mmapEmpty[String, String] 
-  val unitNameMap = mmapEmpty[String, String] 
-  val unitIdentMap = mmapEmpty[String, String]  
-  var c = 0
+  val unitTypeMap = mmapEmpty[String, Int]  // from type name string to natural number
+  val unitNameMap = mmapEmpty[String, Int] 
+  val unitIdentMap = mmapEmpty[String, Int]  
+  val unitLocMap = mmapEmpty[Int, String] // from AST# uri to its location
+  val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# uri to its type number
+  var n = 0
   
   def buildOptionV(value: Option[String]) = {
     val result = stg.getInstanceOf("optionVal")
@@ -58,33 +60,56 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
 
-  def buildUri() = {
-    c = c + 1
-    c
+  // Map the AST# uri to Location and (option: to Type, when AST is an expression)
+  def buildUriMappingTable(sloc: SourceLocation, theType: Option[String]) = {
+    n = n + 1
+    // record the location for the current AST
+    unitLocMap += (n -> buildLocation(sloc))
+    // if the current AST is an expression, then we need to record its type
+    if(theType.isDefined){
+      val t = unitTypeMap.get(theType.get).get
+      unitExpTypeMap += (n -> t)
+    }
+    n
   }
   
-  def buildId(theType: String, id_uri: String, id: String) = {
-    val value = identMap.get(id_uri)
-    if(value.isDefined){
-      value.get
-    }else{
-      c = c + 1
-      val mTrans = Map[String, String]("Boolean" -> "Bid", "Integer" -> "Aid")
-      var o: Option[String] = None
-      
-      for(e <- mTrans if (o.isEmpty && theType != null)) {
-        if(theType.contains(e._1))
-          o = Some(e._2)
-      }
-      val result = stg.getInstanceOf("varId")
-      // the identifier can be either variable or function name. theType will be null if it's package/procedure name
-      if(o.isDefined)
-        result.add("theType", o.get)
-      result.add("id", c)
-      result.add("annotation", id)
-      identMap += (id_uri -> result.render())
-      result.render()      
+  /**
+   * the identifier can be either variable or package/procedure name. 
+   * theType will be null if it's package/procedure name
+   */
+  def buildId(theType: Option[String], id_uri: String, id: String) = {
+    // [1] Type Name Mapping
+    if(theType.isDefined && unitTypeMap.get(theType.get).isEmpty){
+      n = n + 1
+      unitTypeMap += (theType.get -> n)
     }
+    // [2] Package/Procedure Name Mapping
+    if(theType.isEmpty){
+      if(unitNameMap.get(id_uri).isEmpty){
+        n = n + 1
+        unitNameMap += (id_uri -> n)
+        buildIdV0(id, n)
+      }else{
+        buildIdV0(id, unitNameMap.get(id_uri).get)
+      }
+    }else{
+      // [3] Variable Name Mapping
+      if(unitIdentMap.get(id_uri).isEmpty){
+        n = n + 1
+        unitIdentMap += (id_uri -> n)
+        buildIdV0(id, n)
+      }else{
+        buildIdV0(id, unitIdentMap.get(id_uri).get)        
+      }
+    }
+  }
+  
+  def buildIdV0(id_str: String, id_nat: Int) = {
+    // mapping the id string id_str to a natural number id_nat
+    val result = stg.getInstanceOf("varId")
+    result.add("annotation", id_str)
+    result.add("id", id_nat)
+    result.render()       
   }
   
   /**
@@ -200,17 +225,19 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildIdentiferDecl(theType: String, ids: MList[String], optionalInit: Option[String]) = {
+  def buildIdentiferDecl(uri: Int, ids: MList[String], optionalInit: Option[String]) = {
     val result = stg.getInstanceOf("identiferDecl")
+    result.add("uri", uri)
     if(optionalInit.isDefined)
       result.add("optionalInit", optionalInit.get)
     buildListAttributes(result, "ids", ids: _*)
     result.render()
   }
   
-  def buildProcedureBody(procName: String, aspectSpecs: Option[String], params: MList[String], 
+  def buildProcedureBody(uri: Int, procName: String, aspectSpecs: Option[String], params: MList[String], 
       identDecls: MList[String], procBody: String) = {
     val result = stg.getInstanceOf("procedureBody")
+    result.add("uri", uri)
     result.add("procName", procName)
     result.add("procBody", procBody)
     if(aspectSpecs.isDefined)
@@ -220,9 +247,10 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildFunctionBody(funcName: String, aspectSpecs: Option[String], returnT: String, params: MList[String], 
+  def buildFunctionBody(uri: Int, funcName: String, aspectSpecs: Option[String], returnT: String, params: MList[String], 
       identDecls: MList[String], funcBody: String) = {
     val result = stg.getInstanceOf("functionBody")
+    result.add("uri", uri)
     result.add("funcName", funcName)
     result.add("returnT", returnT)
     result.add("funcBody", funcBody)
@@ -233,25 +261,30 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildSubProgram(kind: String, prog: String, annotation: String) = {
+  def buildSubProgram(uri: Int, kind: String, prog: String, annotation: String) = {
     val result = stg.getInstanceOf("subProgram")
+    result.add("uri", uri)
     result.add("annotation", annotation)
     result.add("kind", kind)
     result.add("prog", prog)
     result.render()
   }
   
-  def buildPackageBody(pkgBodyName: String, pkgBodyAspectSpecs: Option[String], pkgBodyDeclItems: String*) = {
-	 // outputSpecification()
+  def buildPackageBody(pkgBodyUri: Int, pkgBodyName: String, pkgBodyAspectSpecs: Option[String], pkgBodyDeclItems: String*) = {
+	 // outputSpecification() 
     val result = stg.getInstanceOf("packageBody")
-    result.add("pkgBodyName", pkgBodyName)
+    result.add("pkgBodyUri", pkgBodyUri)
+    result.add("pkgBodyName", pkgBodyName) 
     if(pkgBodyAspectSpecs.isDefined)
       result.add("pkgBodyAspectSpecs", pkgBodyAspectSpecs) 
     buildListAttributes(result, "pkgBodyDeclItems", pkgBodyDeclItems: _*)
     result.render()
   }
   
-  def buildCompilationUnit(unitUri: String, unitName: String, unitDecl: String, unitLocation: String) = {
+  /**
+   * unitName should be a natural number, but it's annotated with its actual name string, so it's a string
+   */
+  def buildCompilationUnit(unitUri: Int, unitName: String, unitDecl: String, unitLocation: String) = {
     val result = stg.getInstanceOf("compilationUnit")
     result.add("unitUri", unitUri)
     result.add("unitUri", unitName)
@@ -267,7 +300,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
    * <mapping> is a map from string name to natural number 
    */
   def buildMappingTable(st: org.stringtemplate.v4.ST, 
-      attributeName: String, mapping: MMap[String, String]) {
+      attributeName: String, mapping: MMap[String, Int]) {
     // reverse the map, and then sort the mapping according to the natural number
     val reversedMapping = mapping.map(_.swap)
     val sortedSeq = reversedMapping.toSeq.sortBy(_._1) 
@@ -279,12 +312,12 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     }  
   }
   
-  def buildLocation(line: Int, col: Int, endline: Int, endcol: Int) = {
+  def buildLocation(sloc: SourceLocation) = {
     val result = stg.getInstanceOf("location")
-    result.add("line", line)
-    result.add("col", col)
-    result.add("endline", endline)
-    result.add("endcol", endcol)
+    result.add("line", sloc.getLine)
+    result.add("col", sloc.getCol)
+    result.add("endline", sloc.getEndline)
+    result.add("endcol", sloc.getEndcol)
     result.render()
   }
   
@@ -296,7 +329,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     println("\n(* " + "Translate SPARK Into: " + o + " ! *)\n\n")
     println("(****************************")
     println(" mapping from var string to nat value ")
-    for(e <- identMap){
+    for(e <- unitIdentMap){
       println("\t" + e._1 + " -> " + e._2 + ";")
     }
     println("****************************)")

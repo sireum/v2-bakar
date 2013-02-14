@@ -79,13 +79,16 @@ subprogAspectSpecs(pre, post) ::= <<
 >>
 
 // +++++++++
-identiferDecl(ids, init) ::= <<
-{ local_idents = [$ids; separator="; "$]; local_init = $if(init)$$init$$else$None$endif$ }
+identiferDecl(uri, ids, init) ::= <<
+{ local_uri = $uri$; local_idents = [$ids; separator="; "$]; local_init = $if(init)$$init$$else$None$endif$ }
 >>
 
 // ++++++
-procedureBody(procName, aspectSpecs, params, identDecls, procBody) ::= <<
-{ proc_name = 
+procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
+{ proc_uri = 
+    (* Procedure Body - URI *)
+    $uri$;
+  proc_name = 
     (* Procedure Body - Name *)
     $procName$;
   proc_specs =
@@ -112,8 +115,11 @@ procedureBody(procName, aspectSpecs, params, identDecls, procBody) ::= <<
 >>
 
 // ++++
-functionBody(funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-{ fn_name =
+functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+{ fn_uri =   
+    (* Function Body - URI *)
+    $uri$;
+  fn_name =
     (* Function Body - Name *)
     $funcName$;
   fn_specs = 
@@ -143,17 +149,20 @@ functionBody(funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <
 >>
 
 // <Sproc procedure_body> or <Sfunc function_body>
-subProgram(kind, prog, annotation) ::= <<
+subProgram(uri, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
-$kind$(
+$kind$( 
+  $uri$,
   $prog$
 )
 >>
 
 // ++++++
-packageBody(pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
+packageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
 Packagebody (
+  (* Package Body - URI *)
+  $pkgBodyUri$,
   (* Package Body - Name *)
   $pkgBodyName$,
   (* Package Body - Specification *)
@@ -175,6 +184,8 @@ ComilationUnit (
   $unitUri$,
   (* Compilation Unit - Name *)
   $unitName$,
+  (* Compilation Unit - Location *)
+  $unitScope$,
   (* Compilation Unit - Unit Declaration *)
   $unitDecl$,
   (* Compilation Unit - Type Mapping *) (*
@@ -186,8 +197,6 @@ ComilationUnit (
   (* Compilation Unit - Global/Local Variable Mapping *) (*
     $unitIdentMap$,
   *)
-  (* Compilation Unit - Scope (locations) *)
-  $unitScope$
 )
 >>
 

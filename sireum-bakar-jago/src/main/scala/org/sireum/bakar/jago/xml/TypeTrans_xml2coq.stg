@@ -24,12 +24,14 @@ Require Export Coq.Bool.Bool.
 
 basicTypes() ::= <<
 Inductive mode: Type := 
-      | In: mode
-      | Out: mode.
+    | In: mode
+    | Out: mode.
+
+Inductive typ: Type := 
+    | Tint: typ
+    | Tbool: typ.
 
 Definition ident := nat.
-
-Definition typ := nat.
 
 Definition uri := nat.
 

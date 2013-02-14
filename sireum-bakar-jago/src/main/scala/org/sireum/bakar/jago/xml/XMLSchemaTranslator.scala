@@ -248,9 +248,9 @@ class XMLSchemaTranslator(userOption: Option[String]) {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
               val cons = mtype.getSimpleName match {
                 case "ProcedureBodyDeclaration" =>
-                  trans_procedurebodydeclaration
+                  trans_procedurebody_declaration
                 case "FunctionBodyDeclaration" =>
-                  trans_functionbodydeclaration
+                  trans_functionbody_declaration
                 case _ =>
                   Unit
               }
@@ -268,7 +268,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   }
   
   
-  def trans_variabledeclaration {
+  def trans_variable_declaration {
     val typeName = TypeNameSpace.Defining_Identifier
     val annotation = Some("Local variables declarations used in the procedure/function body")
     val fields = List(
@@ -278,7 +278,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     createRecordType(typeName, annotation, typeName, fields: _*)
   }
   
-  def trans_parameterspecification {
+  def trans_parameter_specification {
     val typeName = TypeNameSpace.Parameter
     val fields = List(
         createFieldDecl("param_uri", TypeNameSpace.Uri, false),
@@ -294,7 +294,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    *                  [precondition]
    *                [postcondition]
    */
-  def trans_procedureAspectSpecs {
+  def trans_procedure_aspectspecs {
     val typeName = TypeNameSpace.SubProgramAspectSpecs
     val fields = List(
         createFieldDecl("specs_uri", TypeNameSpace.Uri, false),
@@ -316,7 +316,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    * Pay attention to the order of defined Coq types that have certain dependence relations
    * those types being depended by other types should be defined preceding them 
    */
-  def trans_procedurebodydeclaration {
+  def trans_procedurebody_declaration {
     val procBody = classOf[ProcedureBodyDeclaration]
     // define the type definition order in Coq
     var orders = List("bodyStatementsQl", "parameterProfileQl", "aspectSpecificationsQl", "bodyDeclarativeItemsQl")
@@ -333,11 +333,11 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         case "bodyStatementsQl" =>
           trans_statementlist  // expression needs to be defined first
         case "parameterProfileQl" =>
-          trans_parameterspecification
+          trans_parameter_specification
         case "aspectSpecificationsQl" =>
-          trans_procedureAspectSpecs
+          trans_procedure_aspectspecs
         case "bodyDeclarativeItemsQl" =>
-          trans_variabledeclaration
+          trans_variable_declaration
       }
     }
     // create procedure annotations: Global, Pre, Post, ...
@@ -349,7 +349,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         createFieldDecl("proc_name", TypeNameSpace.VarT, false),
         createFieldDecl("proc_specs", TypeNameSpace.SubProgramAspectSpecs, true),
         createFieldDecl("proc_params", getListType(TypeNameSpace.Parameter), true),
-        createFieldDecl("proc_defidents", getListType(TypeNameSpace.Defining_Identifier), true),
+        createFieldDecl("proc_loc_idents", getListType(TypeNameSpace.Defining_Identifier), true),
         createFieldDecl("proc_body", TypeNameSpace.StatementListT, false))
     createRecordType(typeName, None, typeName, fields: _*)
   }
@@ -360,7 +360,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    *                         |- ElementList bodyDeclarativeItemsQl
    *                         |- StatementList bodyStatementsQl
    */
-  def trans_functionbodydeclaration {
+  def trans_functionbody_declaration {
     val funcBody = classOf[FunctionBodyDeclaration]
     for(f <- funcBody.getDeclaredFields){
       val fieldName = f.getName()
@@ -379,15 +379,14 @@ class XMLSchemaTranslator(userOption: Option[String]) {
       
     }
     // create the Coq type for function body declaration
-    createTypeRename(TypeNameSpace.ReturnType, TypeNameSpace.ValT) 
     val typeName = TypeNameSpace.FunctionBodyT
     val fields = List(
         createFieldDecl("fn_uri", TypeNameSpace.Uri, false),
         createFieldDecl("fn_name", TypeNameSpace.VarT, false),
         createFieldDecl("fn_specs", TypeNameSpace.SubProgramAspectSpecs, true),
-        createFieldDecl("fn_retT", TypeNameSpace.ReturnType, false),
+        createFieldDecl("fn_ret_type", TypeNameSpace.Type, false),
         createFieldDecl("fn_params", getListType(TypeNameSpace.Parameter), true),
-        createFieldDecl("fn_defidents", getListType(TypeNameSpace.Defining_Identifier), true),
+        createFieldDecl("fn_loc_idents", getListType(TypeNameSpace.Defining_Identifier), true),
         createFieldDecl("fn_body", TypeNameSpace.StatementListT, false))
     createRecordType(typeName, None, typeName, fields: _*)
   }
@@ -459,8 +458,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         if (a.annotationType == classOf[XmlElements]){
           emptyTypeConstructors
           val xelems = a.asInstanceOf[XmlElements]
-          val mTrans = Map[String, Class[_] => Unit]("IntegerLiteral" -> transLiteral, "Identifier" -> transIdentifier, 
-              "FunctionCall" -> transFunctionCall)
+          val mTrans = Map[String, Class[_] => Unit]("IntegerLiteral" -> trans_literal, "Identifier" -> trans_identifier, 
+              "FunctionCall" -> trans_functioncall)
           for(elem <- xelems.value){
             for(m <- elem.getClass.getDeclaredMethods if (m.getName == "type")) {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
@@ -486,7 +485,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   /**
    * | Econst: nat -> expr
    */
-  def transLiteral(c: java.lang.Class[_]) = {
+  def trans_literal(c: java.lang.Class[_]) = {
 //    val index = c.toString().lastIndexOf(".")
 //    val head = c.toString().substring(index+1)
 //    val bodySmts = 
@@ -506,7 +505,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   /**
    * Evar: ident -> expr
    */
-  def transIdentifier(c: java.lang.Class[_])= {
+  def trans_identifier(c: java.lang.Class[_])= {
     val bodySmts = List(TypeNameSpace.Uri, TypeNameSpace.VarT, TypeNameSpace.ExpressionT)
     createAndPushConstructor("Evar", bodySmts: _*)
   }
@@ -519,11 +518,11 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    * class FunctionCall /- ExpressionClass prefixQ
    *                    |- AssociationList functionCallParametersQl
    */
-  def transFunctionCall(c: java.lang.Class[_]) = {
+  def trans_functioncall(c: java.lang.Class[_]) = {
     val cons = getTypeConstructors
     for(f <- c.getDeclaredFields if f.getName == "prefixQ") {
       val opT = f.getType()
-      transOperator(opT)
+      trans_operator(opT)
     }
     
     setTypeConstructors(cons)
@@ -533,7 +532,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         TypeNameSpace.ExpressionT, TypeNameSpace.ExpressionT)
   }
   
-  def transOperator(c: java.lang.Class[_]) = {
+  def trans_operator(c: java.lang.Class[_]) = {
     for(f <- c.getDeclaredFields) { 
       for(a <- f.getDeclaredAnnotations) { 
         if(a.annotationType() == classOf[XmlElements]) {

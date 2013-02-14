@@ -11,12 +11,14 @@ $typeDeclarations; separator="\n\n"$
 
 basicTypes() ::= <<
 type mode = 
-      | In
-      | Out
+    | In
+    | Out
+
+type typ = 
+    | Tint
+    | Tbool
 
 type ident = int
-
-type typ = int
 
 type uri = int
 
