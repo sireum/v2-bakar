@@ -7,9 +7,14 @@ Inductive mode: Type :=
       | In: mode
       | Out: mode.
 
-Inductive ident: Type :=
-	| Aid: nat -> ident
-	| Bid: nat -> ident.
+Definition ident := nat.
+
+Definition typ := nat.
+
+Definition uri := nat.
+
+Inductive location := 
+    | Loc: nat * nat -> nat * nat -> location.
 
 Inductive value: Type := 
     | Aval: nat -> value
@@ -38,42 +43,44 @@ Inductive binary_operation: Type :=
 	| Oxor: binary_operation.
 
 Inductive expr: Type := 
-	| Econst: constant -> expr
-	| Evar: ident -> expr
-	| Ebinop: binary_operation -> expr -> expr -> expr
-	| Eunop: unary_operation -> expr -> expr.
+	| Econst: uri -> constant -> expr
+	| Evar: uri -> ident -> expr
+	| Ebinop: uri -> binary_operation -> expr -> expr -> expr
+	| Eunop: uri -> unary_operation -> expr -> expr.
 
 Definition predicate := expr.
 
 Definition loopInvariant := option (predicate).
 
 Inductive stmt: Type := 
-	| Sassign: ident -> expr -> stmt
-	| Sifthen: expr -> stmt -> stmt
-	| Swhile: expr -> loopInvariant -> stmt -> stmt
-	| Sseq: stmt -> stmt -> stmt.
+	| Sassign: uri -> ident -> expr -> stmt
+	| Sifthen: uri -> expr -> stmt -> stmt
+	| Swhile: uri -> expr -> loopInvariant -> stmt -> stmt
+	| Sseq: uri -> stmt -> stmt -> stmt.
 
 Record param: Type := mkparam{
-	p_ident: ident;
-	p_mode: mode;
-	p_init: option (expr)
+	param_uri: uri;
+	param_ident: ident;
+	param_mode: mode;
+	param_init: option (expr)
 }.
 
 Record subprog_aspect_specs: Type := mksubprog_aspect_specs{
+	specs_uri: uri;
 	pre: option (predicate);
 	post: option (predicate)
 }.
 
 (* Local variables declarations used in the procedure/function body *)
 Record defining_ident: Type := mkdefining_ident{
-	def_idents: list ident;
-	def_init: option (value)
+	local_uri: uri;
+	local_idents: list ident;
+	local_init: option (value)
 }.
 
-Definition uri := nat.
-
 Record procedure_body: Type := mkprocedure_body{
-	proc_name: uri;
+	proc_uri: uri;
+	proc_name: ident;
 	proc_specs: option (subprog_aspect_specs);
 	proc_params: option (list param);
 	proc_defidents: option (list defining_ident);
@@ -83,7 +90,8 @@ Record procedure_body: Type := mkprocedure_body{
 Definition retT := value.
 
 Record function_body: Type := mkfunction_body{
-	fn_name: uri;
+	fn_uri: uri;
+	fn_name: ident;
 	fn_specs: option (subprog_aspect_specs);
 	fn_retT: retT;
 	fn_params: option (list param);
@@ -92,13 +100,17 @@ Record function_body: Type := mkfunction_body{
 }.
 
 Inductive subprogram: Type := 
-	| Sproc: procedure_body -> subprogram
-	| Sfunc: function_body -> subprogram.
+	| Sproc: uri -> procedure_body -> subprogram
+	| Sfunc: uri -> function_body -> subprogram.
 
 Definition pkgbody_aspect_specs := subprog_aspect_specs.
 
 Inductive package_body: Type := 
-	| Packagebody: uri -> option (pkgbody_aspect_specs) -> list subprogram -> package_body.
+	| Packagebody: uri -> ident -> option (pkgbody_aspect_specs) -> list subprogram -> package_body.
+
+(* compilation unit can be either package_declaration or package_body_declaration *)
+Inductive compilation_unit: Type := 
+	| PkgBodyDecl: uri -> ident -> location -> package_body -> compilation_unit.
 
 (* End SPARK_Syntax. *)
 (* Extraction SPARK_Syntax. *)

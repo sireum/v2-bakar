@@ -22,7 +22,9 @@ object TypeNameSpace {
   }
   val VarT = "ident";
   val ValT = "value";
-    
+  val Location = "location";
+  
+  val Type = "typ";
   val Uri = "uri";
   val Bool = "bool";
   val Constant = "constant"
@@ -41,39 +43,14 @@ object TypeNameSpace {
   val FunctionBodyT = "function_body"; // "function" is a reserved key word in OCaml
   val SubProgramT = "subprogram";
   val PackageBodyAspectSpecs = "pkgbody_aspect_specs";
-  val PackageBodyT = "package_body"
-  
+  val PackageBodyT = "package_body";
+  val PackageDeclaration = "package_declaration";
+  val CompilationUnit = "compilation_unit";
+   
   val Assert = "assert"; // LoopInvariant
   val LoopInvariant = "loopInvariant";
   val Check = "check";
   val Pre = "pre";
   val Post = "post"
-    
-//  val VarT = "id";
-//  val ValT = "Value";
-//  val OptionInteger = "option nat";
-//  val OptionBool = "option bool";
-//  val OptionInitialization = "option Exp";
-//  val OptionPredicate = "option Predicate";
-//  val InitializationExpression = "InitExp";
-//  val Predicate = "Predicate"
-//      val ExpressionT = "Exp";
-//  val OpT = "Op";
-//  val StatementListT = "Com";
-//  
-//  val ModeT = "Mode";
-//  val Defining_Identifier_List = "ObjDecls";
-//  val ReturnType = "RetT";
-//  val ProcedureAspectSpecs = "AspectSpecs";
-//  val ParameterList = "ParamList";
-//  val ProcedureT = "Procedure";
-//  val FunctionT = "Function";
-//  val SubProgramT = "Program";
-//  
-//  val Assert = "Assert"; // LoopInvariant
-//  val LoopInvariant = "LoopInvariant";
-//  val Check = "Check";
-//  val Pre = "Pre";
-//  val Post = "Post"
 }
 

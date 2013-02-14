@@ -14,11 +14,11 @@ Eunop $op$ ($operand$)
 
 // identifier is either (1) Bid nat; or (2) Aid nat 
 varId(theType, id, annotation) ::= <<
-$theType$ $id$ $if(annotation)$(*$annotation$*)$endif$
+$theType$ $if(annotation)$(*$annotation$*)$endif$ $id$
 >>
 
 identifierExpr(id) ::= <<
-Evar ($id$)
+Evar $id$
 >>
 
 // Inductive constant: Type := 
@@ -84,8 +84,7 @@ mkprocedure_body
   ($procName$)
   (* Procedure Body - Specification *)
   ($if(aspectSpecs)$
-  $aspectSpecs$$else$
-  None$endif$)
+  $aspectSpecs$$else$None$endif$)
   (* Procedure Body - Parameters *)
   ($if(params)$Some(
     $params; separator=" :: \n"$
@@ -105,8 +104,7 @@ mkfunction_body
   ($funcName$)
   (* Function Body - Specification *)
   ($if(aspectSpecs)$
-  $aspectSpecs$$else$
-  None$endif$)
+  $aspectSpecs$$else$None$endif$)
   (* Function Body - Return Type *) 
   ($returnT$) 
   (* Function Body - Parameters *)
@@ -144,8 +142,37 @@ Packagebody
   )
 >>
 
+compilationUnit(unitUri, unitName, unitDecl,
+  unitTypeMap, unitNameMap, unitIdentMap, unitLocation) ::= <<
+(* Compilation Unit Declaration *)
+ComilationUnit
+  (* Compilation Unit - URI *)
+  ($unitUri$)
+  (* Compilation Unit - Name *)
+  ($unitName$)
+  (* Compilation Unit - Unit Declaration *) (
+    $unitDecl$
+  )
+  (* Compilation Unit - Type Mapping *) (*
+    $unitTypeMap; separator="\n"$
+  *)
+  (* Compilation Unit - Package/Procedure Name Mapping *) (*
+    $unitNameMap; separator="\n"$
+  *)
+  (* Compilation Unit - Global/Local Variable Mapping *) (*
+    $unitIdentMap; separator="\n"$
+  *)
+  (* Compilation Unit - Location *) (*
+    $unitLocation$
+  *)
+>>
 
+mappingTable(key, value) ::= <<
+($key$) -> ($value$)
+>>
 
-
+location(line, col, endline, endcol) ::= <<
+(Loc $line$ $col$ $endline$ $endcol$)
+>>
 
 

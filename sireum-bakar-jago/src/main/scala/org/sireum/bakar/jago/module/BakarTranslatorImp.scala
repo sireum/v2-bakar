@@ -91,12 +91,19 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       unitFullName,
       defName,
       sourceFile) =>
-
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
-
-      v(unitDeclaration)
       
+      val unitUri = null;
+      val unitName = unitFullName
+      val unitLocation = factory.buildLocation(sloc.getLine, sloc.getCol, sloc.getEndline, sloc.getEndcol)
+      v(unitDeclaration)
+      val unitDecl = ctx.popResult
+      val cu = factory.buildCompilationUnit(unitUri, unitName, unitDecl, unitLocation)  
+        
+      // store the program translation results as PipelineJob's properties
+      // so the result can be used by the following pipeline modules
+      this.results_=(Seq[String](cu)) 
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
@@ -113,7 +120,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       
-      val packElems = mlistEmpty[String]
+      val pkgElems = mlistEmpty[String]
       TranslatorUtil.getTypeDeclarations(bodyDecItems)
       
       if (!aspectSpec.getElements().isEmpty())
@@ -125,18 +132,14 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       for (m <- TranslatorUtil.getMethodDeclarations(bodyDecItems)) {
         v(m)
         val pm = ctx.popResult
-        packElems += pm
+        pkgElems += pm
       }
-      packElems += "nil"
-
+      pkgElems += "nil"
+      val pkgBodyAspectSpecs: Option[String] = None
       v(pkgname)
-      val pack = factory.buildPackageBody(ctx.popResult, packElems:_*)
-      ctx.pushResult(pack)
-      
-      // TODO: store the program translation results as PipelineJob's properties
-      //       so the result can be used by the following pipeline modules
-      this.results_=(Seq[String](pack)) 
-      //println(pack)
+      val pkg = factory.buildPackageBody(ctx.popResult, pkgBodyAspectSpecs, pkgElems:_*)
+      ctx.pushResult(pkg)
+
       false
   }
 

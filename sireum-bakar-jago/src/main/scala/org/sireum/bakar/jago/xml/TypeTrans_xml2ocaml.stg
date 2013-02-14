@@ -5,14 +5,23 @@ $basicTypes()$
 $typeDeclarations; separator="\n\n"$
 >>
 
+//type ident =
+//	| Aid of int
+//	| Bid of int
+
 basicTypes() ::= <<
 type mode = 
       | In
       | Out
 
-type ident =
-	| Aid of int
-	| Bid of int
+type ident = int
+
+type typ = int
+
+type uri = int
+
+type location = 
+    | Loc of (int * int) * (int * int)
 
 type value = 
     | Aval of int

@@ -14,11 +14,11 @@ Eunop ($op$, $operand$)
 
 // identifier is either (1) Bid nat; or (2) Aid nat 
 varId(theType, id, annotation) ::= <<
-$theType$ $id$ $if(annotation)$(*$annotation$*)$endif$
+$theType$ $if(annotation)$(*$annotation$*)$endif$ $id$
 >>
 
 identifierExpr(id) ::= <<
-Evar ($id$)
+Evar $id$
 >>
 
 // Inductive constant: Type := 
@@ -63,7 +63,7 @@ Sassign ($lhs$, $rhs$)
 >>
 
 param(id, mode, initExp) ::= <<
-{ p_ident = $id$; p_mode = $mode$; p_init = $if(initExp)$$initExp$$else$None$endif$ }
+{ param_ident = $id$; param_mode = $mode$; param_init = $if(initExp)$$initExp$$else$None$endif$ }
 >>
 
 subprogAspectSpecs(pre, post) ::= <<
@@ -80,7 +80,7 @@ subprogAspectSpecs(pre, post) ::= <<
 
 // +++++++++
 identiferDecl(ids, init) ::= <<
-{ def_idents = [$ids; separator="; "$]; def_init = $if(init)$$init$$else$None$endif$ }
+{ local_idents = [$ids; separator="; "$]; local_init = $if(init)$$init$$else$None$endif$ }
 >>
 
 // ++++++
@@ -165,6 +165,38 @@ Packagebody (
     $pkgBodyDeclItems; separator="; \n"$
   ] 
 )
+>>
+
+compilationUnit(unitUri, unitName, unitDecl,
+  unitTypeMap, unitNameMap, unitIdentMap, unitScope) ::= <<
+(* Compilation Unit Declaration *)
+ComilationUnit (
+  (* Compilation Unit - URI *)
+  $unitUri$,
+  (* Compilation Unit - Name *)
+  $unitName$,
+  (* Compilation Unit - Unit Declaration *)
+  $unitDecl$,
+  (* Compilation Unit - Type Mapping *) (*
+    $unitTypeMap$,
+  *)
+  (* Compilation Unit - Package/Procedure Name Mapping *) (*
+    $unitNameMap$,
+  *)
+  (* Compilation Unit - Global/Local Variable Mapping *) (*
+    $unitIdentMap$,
+  *)
+  (* Compilation Unit - Scope (locations) *)
+  $unitScope$
+)
+>>
+
+mappingTable(key, value) ::= <<
+($key$) -> ($value$)
+>>
+
+location(line, col, endline, endcol) ::= <<
+Loc ($line$, $col$, $endline$, $endcol$)
 >>
 
 

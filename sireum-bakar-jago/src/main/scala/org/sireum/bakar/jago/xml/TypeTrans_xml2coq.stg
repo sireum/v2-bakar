@@ -18,14 +18,23 @@ Require Export Coq.Lists.List.
 Require Export Coq.Bool.Bool.
 >>
 
+//Inductive ident: Type :=
+//	| Aid: nat -> ident
+//	| Bid: nat -> ident.
+
 basicTypes() ::= <<
 Inductive mode: Type := 
       | In: mode
       | Out: mode.
 
-Inductive ident: Type :=
-	| Aid: nat -> ident
-	| Bid: nat -> ident.
+Definition ident := nat.
+
+Definition typ := nat.
+
+Definition uri := nat.
+
+Inductive location := 
+    | Loc: nat * nat -> nat * nat -> location.
 
 Inductive value: Type := 
     | Aval: nat -> value

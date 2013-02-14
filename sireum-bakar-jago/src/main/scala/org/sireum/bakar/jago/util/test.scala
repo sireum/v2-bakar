@@ -23,6 +23,11 @@ object obj {
 }
 
 object Test1{
+  def updateST(st: org.stringtemplate.v4.ST, 
+      attributeName: String, value: String){
+    st.add(attributeName, value)
+  }
+  
   def main(args: Array[String]){
     // @Switch(false)
         
@@ -34,11 +39,14 @@ object Test1{
     val ls = List("How")
     val res = ls.dropRight(1)
 
-//    val stg = new STGroupFile(getClass.getResource(TypeNameSpace.TypeTransTemplate_OCaml), "UTF-8", '$', '$')
-//    val result = stg.getInstanceOf("typeRename")
-//    result.add("newName", "new")
-//    result.add("oldName", "old")
-//    println(result.toString())
+    val stg = new STGroupFile(getClass.getResource("./../xml/" + TypeNameSpace.TypeTransTemplate_Coq).getPath(), "UTF-8", '$', '$')
+    val zz = stg.getInstanceOf("typeRename")
+    updateST(zz, "newName", "new")
+    println(zz.render())
+    updateST(zz, "oldName", "old")
+//    zz.add("newName", "new")
+//    zz.add("oldName", "old")
+    println(zz.render())
     
 //    val result = FileUtil.fileUri(this.getClass, "")
 //    println("The result is: \n" + result)
@@ -49,11 +57,18 @@ object Test1{
 //  // result.add("value", "V")
 //  println(result.render())
     
-    val str = "Some of ddd";
-    println(str)
-    val result = str.split(" of ")
-    println(result.apply(0))
-    println(result.apply(1))
+//    val str = "Some of ddd";
+//    println(str)
+//    val result = str.split(" of ")
+//    println(result.apply(0))
+//    println(result.apply(1))
+//    
+//    val map = Map[String, String]("xxx" -> "3", "yyy" -> "2", "zzz" -> "1")
+//    val reverse = map.map(_.swap)
+//    val fr = reverse.toSeq.sortBy(_._1)
+//    for(e <- fr)
+//      println(e._1 + "->" + e._2)
+    
   }
   
 }

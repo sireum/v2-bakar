@@ -15,6 +15,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$')
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
   val identMap = mmapEmpty[String, String]
+  val unitTypeMap = mmapEmpty[String, String] 
+  val unitNameMap = mmapEmpty[String, String] 
+  val unitIdentMap = mmapEmpty[String, String]  
   var c = 0
   
   def buildOptionV(value: Option[String]) = {
@@ -53,6 +56,11 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.add("op", op)
     result.add("operand", operand)
     result.render()
+  }
+
+  def buildUri() = {
+    c = c + 1
+    c
   }
   
   def buildId(theType: String, id_uri: String, id: String) = {
@@ -171,7 +179,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   
   // + + + 
   def buildListAttributes(st: org.stringtemplate.v4.ST, 
-      attributeName: String, attributeValues: String*) = {
+      attributeName: String, attributeValues: String*) {
     (option: @unchecked) match {
       case ProgramTarget.Coq =>
         attributeValues.foreach(v => st.add(attributeName, v))
@@ -181,7 +189,6 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
         val attVals = attributeValues.dropRight(1)
         attVals.foreach(v => st.add(attributeName, v))
     }
-    st
   }
   
   def buildSubprogAspectSpecs(pre: Option[String], post: Option[String]) = {
@@ -197,7 +204,8 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     val result = stg.getInstanceOf("identiferDecl")
     if(optionalInit.isDefined)
       result.add("optionalInit", optionalInit.get)
-    buildListAttributes(result, "ids", ids: _*).render()
+    buildListAttributes(result, "ids", ids: _*)
+    result.render()
   }
   
   def buildProcedureBody(procName: String, aspectSpecs: Option[String], params: MList[String], 
@@ -207,9 +215,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.add("procBody", procBody)
     if(aspectSpecs.isDefined)
       result.add("aspectSpecs", aspectSpecs.get)
-    val st1 = buildListAttributes(result, "params", params: _*)
-    val st2 = buildListAttributes(st1, "identDecls", identDecls: _*)
-    st2.render()
+    buildListAttributes(result, "params", params: _*)
+    buildListAttributes(result, "identDecls", identDecls: _*)
+    result.render()
   }
   
   def buildFunctionBody(funcName: String, aspectSpecs: Option[String], returnT: String, params: MList[String], 
@@ -220,9 +228,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.add("funcBody", funcBody)
     if(aspectSpecs.isDefined)
       result.add("aspectSpecs", aspectSpecs.get)
-    val st1 = buildListAttributes(result, "params", params: _*)
-    val st2 = buildListAttributes(st1, "identDecls", identDecls: _*)
-    st2.render()
+    buildListAttributes(result, "params", params: _*)
+    buildListAttributes(result, "identDecls", identDecls: _*)
+    result.render()
   }
   
   def buildSubProgram(kind: String, prog: String, annotation: String) = {
@@ -233,11 +241,51 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildPackageBody(pkgBodyName: String, pkgBodyDeclItems: String*) = {
-	// outputSpecification()
+  def buildPackageBody(pkgBodyName: String, pkgBodyAspectSpecs: Option[String], pkgBodyDeclItems: String*) = {
+	 // outputSpecification()
     val result = stg.getInstanceOf("packageBody")
     result.add("pkgBodyName", pkgBodyName)
-    buildListAttributes(result, "pkgBodyDeclItems", pkgBodyDeclItems: _*).render()
+    if(pkgBodyAspectSpecs.isDefined)
+      result.add("pkgBodyAspectSpecs", pkgBodyAspectSpecs) 
+    buildListAttributes(result, "pkgBodyDeclItems", pkgBodyDeclItems: _*)
+    result.render()
+  }
+  
+  def buildCompilationUnit(unitUri: String, unitName: String, unitDecl: String, unitLocation: String) = {
+    val result = stg.getInstanceOf("compilationUnit")
+    result.add("unitUri", unitUri)
+    result.add("unitUri", unitName)
+    result.add("unitDecl", unitDecl)
+    buildMappingTable(result, "unitTypeMap", unitTypeMap)
+    buildMappingTable(result, "unitNameMap", unitNameMap)
+    buildMappingTable(result, "unitIdentMap", unitIdentMap)
+    result.add("unitLocation", unitLocation)
+    result.render()
+  }
+  
+  /**
+   * <mapping> is a map from string name to natural number 
+   */
+  def buildMappingTable(st: org.stringtemplate.v4.ST, 
+      attributeName: String, mapping: MMap[String, String]) {
+    // reverse the map, and then sort the mapping according to the natural number
+    val reversedMapping = mapping.map(_.swap)
+    val sortedSeq = reversedMapping.toSeq.sortBy(_._1) 
+    for(e <- sortedSeq){
+      val m = stg.getInstanceOf("mappingTable")
+      m.add("key", e._2)
+      m.add("value", e._1)
+      st.add(attributeName, m)
+    }  
+  }
+  
+  def buildLocation(line: Int, col: Int, endline: Int, endcol: Int) = {
+    val result = stg.getInstanceOf("location")
+    result.add("line", line)
+    result.add("col", col)
+    result.add("endline", endline)
+    result.add("endcol", endcol)
+    result.render()
   }
   
   def outputSpecification() {

@@ -2,9 +2,7 @@ type mode =
       | In
       | Out
 
-type ident =
-	| Aid of int
-	| Bid of int
+type ident = int
 
 type value = 
     | Aval of int
@@ -49,9 +47,9 @@ type stmt =
 	| Sseq of stmt * stmt
 
 type param = {
-	p_ident: ident;
-	p_mode: mode;
-	p_init: (expr) option 
+	param_ident: ident;
+	param_mode: mode;
+	param_init: (expr) option 
 }
 
 type subprog_aspect_specs = {
@@ -61,14 +59,12 @@ type subprog_aspect_specs = {
 
 (* Local variables declarations used in the procedure/function body *)
 type defining_ident = {
-	def_idents: ident list;
-	def_init: (value) option 
+	local_idents: ident list;
+	local_init: (value) option 
 }
 
-type uri = int
-
 type procedure_body = {
-	proc_name: uri;
+	proc_name: ident;
 	proc_specs: (subprog_aspect_specs) option;
 	proc_params: (param list) option;
 	proc_defidents: (defining_ident list) option;
@@ -78,7 +74,7 @@ type procedure_body = {
 type retT = value
 
 type function_body = {
-	fn_name: uri;
+	fn_name: ident;
 	fn_specs: (subprog_aspect_specs) option;
 	fn_retT: retT;
 	fn_params: (param list) option;
@@ -93,4 +89,4 @@ type subprogram =
 type pkgbody_aspect_specs = subprog_aspect_specs
 
 type package_body = 
-	| Packagebody of uri * (pkgbody_aspect_specs) option * subprogram list
+	| Packagebody of ident * (pkgbody_aspect_specs) option * subprogram list
