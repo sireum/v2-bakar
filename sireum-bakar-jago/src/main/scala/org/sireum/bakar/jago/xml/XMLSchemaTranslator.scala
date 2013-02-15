@@ -168,8 +168,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     }
     val annotation: Option[String] = Some("compilation unit can be either package_declaration or package_body_declaration")
     val constructors = List(
-        List("PkgBodyDecl", TypeNameSpace.Uri, TypeNameSpace.VarT, TypeNameSpace.Location,
-            TypeNameSpace.PackageBodyT, TypeNameSpace.CompilationUnit))
+        List("PkgBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.ProcNum, 
+            TypeNameSpace.PackageBodyT, TypeNameSpace.TypeTable, TypeNameSpace.CompilationUnit))
     this.createInductiveTypeV2(TypeNameSpace.CompilationUnit, annotation, constructors)    
   }
   
@@ -219,8 +219,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     createTypeRename(TypeNameSpace.PackageBodyAspectSpecs, TypeNameSpace.SubProgramAspectSpecs)
     val annotation: Option[String] = None
     val constructors = List(
-        List("Packagebody", TypeNameSpace.Uri, TypeNameSpace.VarT, 
-            getOptionType(TypeNameSpace.PackageBodyAspectSpecs), getListType(TypeNameSpace.SubProgramT), TypeNameSpace.PackageBodyT))
+        List("Packagebody", TypeNameSpace.AstNum, TypeNameSpace.ProcNum, getOptionType(TypeNameSpace.PackageBodyAspectSpecs), 
+            getListType(TypeNameSpace.SubProgramT), TypeNameSpace.PackageBodyT))
     createInductiveTypeV2(TypeNameSpace.PackageBodyT, annotation, constructors)
   }  
   
@@ -259,8 +259,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
           // create a subprogram type for both procedure and functio
           val typeName = TypeNameSpace.SubProgramT
           val constructors = List(
-              List("Sproc", TypeNameSpace.Uri, TypeNameSpace.ProcedureBodyT, TypeNameSpace.SubProgramT),
-              List("Sfunc", TypeNameSpace.Uri, TypeNameSpace.FunctionBodyT, TypeNameSpace.SubProgramT))
+              List("Sproc", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBodyT, TypeNameSpace.SubProgramT),
+              List("Sfunc", TypeNameSpace.AstNum, TypeNameSpace.FunctionBodyT, TypeNameSpace.SubProgramT))
           createInductiveTypeV2(typeName, None, constructors)
         }
       }
@@ -272,8 +272,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     val typeName = TypeNameSpace.Defining_Identifier
     val annotation = Some("Local variables declarations used in the procedure/function body")
     val fields = List(
-        createFieldDecl("local_uri", TypeNameSpace.Uri, false),
-        createFieldDecl("local_idents", getListType(TypeNameSpace.VarT), false),
+        createFieldDecl("local_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("local_idents", getListType(TypeNameSpace.IdNum), false),
         createFieldDecl("local_init", TypeNameSpace.ValT, true))
     createRecordType(typeName, annotation, typeName, fields: _*)
   }
@@ -281,8 +281,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   def trans_parameter_specification {
     val typeName = TypeNameSpace.Parameter
     val fields = List(
-        createFieldDecl("param_uri", TypeNameSpace.Uri, false),
-        createFieldDecl("param_ident", TypeNameSpace.VarT, false),
+        createFieldDecl("param_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("param_ident", TypeNameSpace.IdNum, false),
         createFieldDecl("param_mode", TypeNameSpace.ModeT, false),
         createFieldDecl("param_init", TypeNameSpace.ExpressionT, true))
     createRecordType(typeName, None, typeName, fields: _*)
@@ -297,7 +297,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   def trans_procedure_aspectspecs {
     val typeName = TypeNameSpace.SubProgramAspectSpecs
     val fields = List(
-        createFieldDecl("specs_uri", TypeNameSpace.Uri, false),
+        createFieldDecl("specs_uri", TypeNameSpace.AstNum, false),
         createFieldDecl(TypeNameSpace.Pre, TypeNameSpace.Predicate, true),
         createFieldDecl(TypeNameSpace.Post, TypeNameSpace.Predicate, true))
     createRecordType(typeName, None, typeName, fields: _*)
@@ -345,8 +345,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     // create the Coq type for procedure body declaration
     val typeName = TypeNameSpace.ProcedureBodyT
     val fields = List(
-        createFieldDecl("proc_uri", TypeNameSpace.Uri, false),
-        createFieldDecl("proc_name", TypeNameSpace.VarT, false),
+        createFieldDecl("proc_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("proc_name", TypeNameSpace.ProcNum, false),
         createFieldDecl("proc_specs", TypeNameSpace.SubProgramAspectSpecs, true),
         createFieldDecl("proc_params", getListType(TypeNameSpace.Parameter), true),
         createFieldDecl("proc_loc_idents", getListType(TypeNameSpace.Defining_Identifier), true),
@@ -381,8 +381,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     // create the Coq type for function body declaration
     val typeName = TypeNameSpace.FunctionBodyT
     val fields = List(
-        createFieldDecl("fn_uri", TypeNameSpace.Uri, false),
-        createFieldDecl("fn_name", TypeNameSpace.VarT, false),
+        createFieldDecl("fn_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("fn_name", TypeNameSpace.ProcNum, false),
         createFieldDecl("fn_specs", TypeNameSpace.SubProgramAspectSpecs, true),
         createFieldDecl("fn_ret_type", TypeNameSpace.Type, false),
         createFieldDecl("fn_params", getListType(TypeNameSpace.Parameter), true),
@@ -413,19 +413,19 @@ class XMLSchemaTranslator(userOption: Option[String]) {
               mtype.getSimpleName() match {
                 case "AssignmentStatement" => 
                   trans_expression
-                  createAndPushConstructor("Sassign", TypeNameSpace.Uri, TypeNameSpace.VarT, 
+                  createAndPushConstructor("Sassign", TypeNameSpace.AstNum, TypeNameSpace.IdNum, 
                       TypeNameSpace.ExpressionT, TypeNameSpace.StatementListT)
                 case "IfStatement" =>
-                  createAndPushConstructor("Sifthen", TypeNameSpace.Uri, TypeNameSpace.ExpressionT, 
+                  createAndPushConstructor("Sifthen", TypeNameSpace.AstNum, TypeNameSpace.ExpressionT, 
                       TypeNameSpace.StatementListT, TypeNameSpace.StatementListT)
                 case "WhileLoopStatement" =>
                   // option: loop invariant (--# assert predicate) for while loop
                   createTypeRename(TypeNameSpace.Predicate, TypeNameSpace.ExpressionT)
                   createTypeRename(TypeNameSpace.LoopInvariant, getOptionType(TypeNameSpace.Predicate))
-                  createAndPushConstructor("Swhile", TypeNameSpace.Uri, TypeNameSpace.ExpressionT, 
+                  createAndPushConstructor("Swhile", TypeNameSpace.AstNum, TypeNameSpace.ExpressionT, 
                       TypeNameSpace.LoopInvariant, TypeNameSpace.StatementListT, TypeNameSpace.StatementListT)
                 case "BlockStatement" =>
-                  createAndPushConstructor("Sseq", TypeNameSpace.Uri, TypeNameSpace.StatementListT, 
+                  createAndPushConstructor("Sseq", TypeNameSpace.AstNum, TypeNameSpace.StatementListT, 
                       TypeNameSpace.StatementListT, TypeNameSpace.StatementListT)
 //                case "AssertPragma" => 
 //                  // loop invariant
@@ -498,7 +498,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         List("Ointconst", TypeNameSpace.Integer(option), TypeNameSpace.Constant))
     createInductiveTypeV2(TypeNameSpace.Constant, None, constCons)
     // [2] constant expression
-    val bodyStmts = List(TypeNameSpace.Uri, TypeNameSpace.Constant, TypeNameSpace.ExpressionT)
+    val bodyStmts = List(TypeNameSpace.AstNum, TypeNameSpace.Constant, TypeNameSpace.ExpressionT)
     createAndPushConstructor("Econst", bodyStmts:_*)
   }
   
@@ -506,7 +506,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    * Evar: ident -> expr
    */
   def trans_identifier(c: java.lang.Class[_])= {
-    val bodySmts = List(TypeNameSpace.Uri, TypeNameSpace.VarT, TypeNameSpace.ExpressionT)
+    val bodySmts = List(TypeNameSpace.AstNum, TypeNameSpace.IdNum, TypeNameSpace.ExpressionT)
     createAndPushConstructor("Evar", bodySmts: _*)
   }
   
@@ -526,9 +526,9 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     }
     
     setTypeConstructors(cons)
-    createAndPushConstructor("Ebinop", TypeNameSpace.Uri, TypeNameSpace.BinaryOpT, 
+    createAndPushConstructor("Ebinop", TypeNameSpace.AstNum, TypeNameSpace.BinaryOpT, 
         TypeNameSpace.ExpressionT, TypeNameSpace.ExpressionT, TypeNameSpace.ExpressionT)
-    createAndPushConstructor("Eunop", TypeNameSpace.Uri, TypeNameSpace.UnaryOpT, 
+    createAndPushConstructor("Eunop", TypeNameSpace.AstNum, TypeNameSpace.UnaryOpT, 
         TypeNameSpace.ExpressionT, TypeNameSpace.ExpressionT)
   }
   

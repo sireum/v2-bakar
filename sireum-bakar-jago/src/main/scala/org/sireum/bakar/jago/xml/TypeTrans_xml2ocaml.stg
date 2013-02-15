@@ -9,6 +9,9 @@ $typeDeclarations; separator="\n\n"$
 //	| Aid of int
 //	| Bid of int
 
+//type ident = int
+//type uri = int
+
 basicTypes() ::= <<
 type mode = 
     | In
@@ -18,9 +21,20 @@ type typ =
     | Tint
     | Tbool
 
-type ident = int
+type idnum = int
 
-type uri = int
+type astnum = int
+
+type procnum = int
+
+type typenum = int
+
+type typeuri = string
+
+type type_table = {
+    tt_ast_table: (int * int) list;
+    tt_typeuri_table: (int * string) list
+}
 
 type location = 
     | Loc of (int * int) * (int * int)

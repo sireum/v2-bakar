@@ -20,12 +20,19 @@ object TypeNameSpace {
         "int"
     }
   }
-  val VarT = "ident";
+//  val VarT = "ident";
+//  val Uri = "uri";
   val ValT = "value";
   val Location = "location";
   
+  val IdNum = "idnum";
+  val AstNum = "astnum";
+  val ProcNum = "procnum";
+  val TypeNum = "typenum";
+  val TypeUri = "typeuri";
+  val TypeTable = "type_table";
+  
   val Type = "typ";
-  val Uri = "uri";
   val Bool = "bool";
   val Constant = "constant"
   val Predicate = "predicate"
@@ -35,7 +42,7 @@ object TypeNameSpace {
   val StatementListT = "stmt";
   
   val ModeT = "mode";
-  val Defining_Identifier = "defining_ident";
+  val Defining_Identifier = "local_ident";
   val SubProgramAspectSpecs = "subprog_aspect_specs";
   val Parameter = "param";
   val ProcedureBodyT = "procedure_body";

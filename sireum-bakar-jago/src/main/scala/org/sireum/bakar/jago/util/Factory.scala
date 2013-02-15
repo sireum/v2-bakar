@@ -14,15 +14,42 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_Coq)
   }
   val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$')
+  
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
-  val unitTypeMap = mmapEmpty[String, Int]  // from type name string to natural number
-  val unitNameMap = mmapEmpty[String, Int] 
-  val unitIdentMap = mmapEmpty[String, Int]  
+  val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
+  val unitNameMap = mmapEmpty[String, Int] // from package/procedure name to natural number
+  val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
   val unitLocMap = mmapEmpty[Int, String] // from AST# uri to its location
   val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# uri to its type number
-  var n = 0
+
+  val ident2TypeMap = mmapEmpty[String, String] // int x; x --> int
+
+  var astnum = 0
+  var idnum = 0
+  var procnum = 0
+  var typenum = 0
   
-  def buildOptionV(value: Option[String]) = {
+  def next_astnum = {
+    astnum = astnum + 1
+    astnum
+  }
+  
+  def next_idnum = {
+    idnum = idnum + 1
+    idnum
+  }
+  
+  def next_procnum = {
+    procnum = procnum + 1
+    procnum
+  }
+  
+  def next_typenum = {
+    typenum = typenum + 1
+    typenum
+  }
+  
+  def buildOptionV(value: Option[String]) = { 
     val result = stg.getInstanceOf("optionVal")
     if(value.isDefined)
       result.add("value", value.get)
@@ -45,16 +72,18 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.get
   }
   
-  def buildBinaryExpr(op: String, loperand: String, roperand: String) = {
+  def buildBinaryExpr(uri: Int, op: String, loperand: String, roperand: String) = {
     val result = stg.getInstanceOf("binaryExpr") 
+    result.add("uri", uri)
     result.add("op", op)
     result.add("loperand", loperand)
     result.add("roperand", roperand)
     result.render()
   }
   
-  def buildUnaryExpr(op: String, operand: String) = {
+  def buildUnaryExpr(uri: Int, op: String, operand: String) = {
     val result = stg.getInstanceOf("unaryExpr")
+    result.add("uri", uri)
     result.add("op", op)
     result.add("operand", operand)
     result.render()
@@ -62,15 +91,22 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
 
   // Map the AST# uri to Location and (option: to Type, when AST is an expression)
   def buildUriMappingTable(sloc: SourceLocation, theType: Option[String]) = {
-    n = n + 1
     // record the location for the current AST
-    unitLocMap += (n -> buildLocation(sloc))
+    val astnum = next_astnum
+    unitLocMap += (astnum -> buildLocation(sloc))
     // if the current AST is an expression, then we need to record its type
     if(theType.isDefined){
-      val t = unitTypeMap.get(theType.get).get
-      unitExpTypeMap += (n -> t)
+      val typenum = 
+        if(unitTypeMap.get(theType.get).isDefined){
+          unitTypeMap.get(theType.get).get
+        }else{
+          val n = next_typenum
+          unitTypeMap += (theType.get -> n)
+          n
+        }
+      unitExpTypeMap += (astnum -> typenum)
     }
-    n
+    astnum
   }
   
   /**
@@ -80,27 +116,29 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   def buildId(theType: Option[String], id_uri: String, id: String) = {
     // [1] Type Name Mapping
     if(theType.isDefined && unitTypeMap.get(theType.get).isEmpty){
-      n = n + 1
-      unitTypeMap += (theType.get -> n)
+      unitTypeMap += (theType.get -> next_typenum)
     }
     // [2] Package/Procedure Name Mapping
     if(theType.isEmpty){
       if(unitNameMap.get(id_uri).isEmpty){
-        n = n + 1
-        unitNameMap += (id_uri -> n)
-        buildIdV0(id, n)
+        val procnum = next_procnum
+        unitNameMap += (id_uri -> procnum)
+        buildIdV0(id, procnum)
       }else{
         buildIdV0(id, unitNameMap.get(id_uri).get)
       }
     }else{
       // [3] Variable Name Mapping
-      if(unitIdentMap.get(id_uri).isEmpty){
-        n = n + 1
-        unitIdentMap += (id_uri -> n)
-        buildIdV0(id, n)
+      val result = if(unitIdentMap.get(id_uri).isEmpty){
+        val idnum = next_idnum
+        unitIdentMap += (id_uri -> idnum)
+        // ((*L1* 8))
+        buildIdV0(id, idnum)
       }else{
         buildIdV0(id, unitIdentMap.get(id_uri).get)        
       }
+      ident2TypeMap += (result -> theType.get)
+      result
     }
   }
   
@@ -117,13 +155,15 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
    * Its Coq representation is: Sassign x (Evar y), 
    * where the left-hand is an identifier, while its right-hand is an expression with prefix "Evar"
    */
-  def buildIdentifierExpr(varId: String) = {
+  def buildIdentifierExpr(sloc: SourceLocation, varId: String) = {
     if(varId.startsWith("Econst") || varId.startsWith("Evar") || 
         varId.startsWith("Ebinop") || varId.startsWith("Eunop")){
       varId
     }else{ 
       // val varId = buildId(theType, id)
+      val uri = buildUriMappingTable(sloc, ident2TypeMap.get(varId))
       val result = stg.getInstanceOf("identifierExpr")
+      result.add("uri", uri)
       result.add("id", varId)
       result.render()
     }
@@ -144,8 +184,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildConstantExpr(theType: String, constVal: String) = {
+  def buildConstantExpr(uri: Int, theType: String, constVal: String) = {
     val result = stg.getInstanceOf("constantExpr")
+    result.add("uri", uri)
     val o = buildConstant(theType, constVal)
     result.add("constVal", o)
     result.render()
@@ -158,6 +199,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
+  // TODO
   def buildSeqStmt(stmts: String*): String = {
     // use "Sseq" to make the statements in sequence
     assert(stmts.length > 0)
@@ -165,36 +207,42 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       stmts.head
     }else{
       val result = stg.getInstanceOf("seqStmt")
+      val uri = 1000
+      result.add("uri", uri)
       result.add("stmt1", stmts.head)
       result.add("stmt2", buildSeqStmt(stmts.tail: _*))
       result.render()
     }
   }
   
-  def buildWhileStmt(cond: String, loopInv: String, loopBody: String) = {
+  def buildWhileStmt(uri: Int, cond: String, loopInv: String, loopBody: String) = {
     val result = stg.getInstanceOf("whileStmt")
+    result.add("uri", uri)
     result.add("cond", cond)
     result.add("loopInv", loopInv)
     result.add("loopBody", loopBody)
     result.render()
   }
   
-  def buildIfStmt(cond: String, ifBody: String) = {
+  def buildIfStmt(uri: Int, cond: String, ifBody: String) = {
     val result = stg.getInstanceOf("ifStmt")
+    result.add("uri", uri)
     result.add("cond", cond)
     result.add("ifBody", ifBody)
     result.render()
   }
   
-  def buildAssignStmt(lhs: String, rhs: String) = {
+  def buildAssignStmt(uri: Int, lhs: String, rhs: String) = {
     val result = stg.getInstanceOf("assignStmt")
+    result.add("uri", uri)
     result.add("lhs", lhs)
     result.add("rhs", rhs)
     result.render()
   }
   
-  def buildParameter(id: String, mode: String, initExp: Option[String]) = {
+  def buildParameter(uri: Int, id: String, mode: String, initExp: Option[String]) = {
     val result = stg.getInstanceOf("param")
+    result.add("uri", uri)
     result.add("id", id)
     result.add("mode", mode)
     if(initExp.isDefined)
@@ -216,8 +264,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     }
   }
   
-  def buildSubprogAspectSpecs(pre: Option[String], post: Option[String]) = {
+  def buildSubprogAspectSpecs(uri: Int, pre: Option[String], post: Option[String]) = {
     val result = stg.getInstanceOf("subprogAspectSpecs")
+    result.add("uri", uri)
     if(pre.isDefined)
       result.add("pre", pre.get)
     if(post.isDefined)
@@ -284,15 +333,13 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   /**
    * unitName should be a natural number, but it's annotated with its actual name string, so it's a string
    */
-  def buildCompilationUnit(unitUri: Int, unitName: String, unitDecl: String, unitLocation: String) = {
+  def buildCompilationUnit(unitUri: Int, unitName: String, unitDecl: String) = {
     val result = stg.getInstanceOf("compilationUnit")
     result.add("unitUri", unitUri)
-    result.add("unitUri", unitName)
+    result.add("unitName", unitName)
     result.add("unitDecl", unitDecl)
-    buildMappingTable(result, "unitTypeMap", unitTypeMap)
-    buildMappingTable(result, "unitNameMap", unitNameMap)
-    buildMappingTable(result, "unitIdentMap", unitIdentMap)
-    result.add("unitLocation", unitLocation)
+    // buildMappingTable(result, "unitExpTypeTable", unitExpTypeMap)
+    buildMappingTable(result, "unitTypeUriTable", unitTypeMap)
     result.render()
   }
   

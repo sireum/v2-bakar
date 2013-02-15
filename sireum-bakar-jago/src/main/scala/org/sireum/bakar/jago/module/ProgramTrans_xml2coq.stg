@@ -4,20 +4,20 @@ optionVal(value) ::= <<
 $if(value)$Some($value$)$else$None$endif$ 
 >>
 
-binaryExpr(op, loperand, roperand) ::= <<
-Ebinop $op$ ($loperand$) ($roperand$)
+binaryExpr(uri, op, loperand, roperand) ::= <<
+Ebinop $op$ ($loperand$) ($roperand$) $uri$
 >>
 
-unaryExpr(op, operand) ::= <<
-Eunop $op$ ($operand$)
+unaryExpr(uri, op, operand) ::= <<
+Eunop $op$ ($operand$) $uri$
 >>
 
 varId(id, annotation) ::= <<
 $if(annotation)$(*$annotation$*) $endif$$id$
 >>
 
-identifierExpr(id) ::= <<
-Evar $id$
+identifierExpr(uri, id) ::= <<
+Evar $id$ $uri$
 >>
 
 // Inductive constant: Type := 
@@ -27,43 +27,46 @@ constant(theType, constVal) ::= <<
 $theType$ $constVal$
 >>
 
-constantExpr(constVal) ::= <<
-Econst ($constVal$)
+constantExpr(uri, constVal) ::= <<
+Econst ($constVal$) $uri$
 >>
 
 procedureCall(procName, args) ::= <<
 $procName$($args; separator=", "$)
 >>
 
-seqStmt(stmt1, stmt2) ::= <<
+seqStmt(uri, stmt1, stmt2) ::= <<
 Sseq (
   $stmt1$ ) ( 
   $stmt2$ )
+  $uri$
 >>
 
-whileStmt(cond, loopInv, loopBody) ::= <<
+whileStmt(uri, cond, loopInv, loopBody) ::= <<
 Swhile ($cond$) ($if(loopInv)$
     $loopInv$$else$
     None$endif$ ) (
     $loopBody$
   )
+  $uri$
 >>
 
-ifStmt(cond, ifBody) ::= <<
+ifStmt(uri, cond, ifBody) ::= <<
 Sifthen ($cond$) (
-  $ifBody$
-)
+    $ifBody$
+  )
+  $uri$
 >>
 
-assignStmt(lhs, rhs) ::= <<
-Sassign ($lhs$) ($rhs$)
+assignStmt(uri, lhs, rhs) ::= <<
+Sassign ($lhs$) ($rhs$) $uri$
 >>
 
-param(id, mode, initExp) ::= <<
-mkparam ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
+param(uri, id, mode, initExp) ::= <<
+mkparam ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$ $uri$
 >>
 
-subprogAspectSpecs(pre, post) ::= <<
+subprogAspectSpecs(uri, pre, post) ::= <<
 mksubprog_aspect_specs 
   (* Precondition *)
   ($if(pre)$
@@ -71,16 +74,16 @@ mksubprog_aspect_specs
   (* Postcondition *)
   ($if(post)$
   $post$$else$None$endif$)
+  (* URI *)
+  ($uri$)
 >>
 
 identiferDecl(uri, ids, init) ::= <<
-mkdefining_ident $uri$ ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$
+mklocal_ident ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$ $uri$
 >>
 
 procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
 mkprocedure_body 
-  (* Procedure Body - URI *)
-  ($uri$)
   (* Procedure Body - Name *)
   ($procName$)
   (* Procedure Body - Specification *)
@@ -97,12 +100,12 @@ mkprocedure_body
   (* Procedure Body - Body *) (
     $procBody$
   )
+  (* Procedure Body - URI *)
+  ($uri$)
 >>
 
 functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
 mkfunction_body 
-  (* Function Body - URI *)
-  ($uri$)
   (* Function Body - Name *)
   ($funcName$)
   (* Function Body - Specification *)
@@ -121,6 +124,8 @@ mkfunction_body
   (* Function Body - Body *) (
     $funcBody$
   )
+  (* Function Body - URI *)
+  ($uri$)
 >>
 
 // <Sproc procedure_body> or <Sfunc function_body>
@@ -128,15 +133,13 @@ mkfunction_body
 subProgram(uri, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
 $kind$
+  ($prog$)
   $uri$
-  $prog$
 >>
 
 packageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
 Packagebody 
-  (* Package Body - URI *)
-  ($pkgBodyUri$)
   (* Package Body - Name *)
   ($pkgBodyName$)
   (* Package Body - Specification *)
@@ -145,31 +148,31 @@ Packagebody
   (* Package Body - Declared Items *) (
     $pkgBodyDeclItems; separator=" ::\n\n"$
   )
+  (* Package Body - URI *)
+  ($pkgBodyUri$)
 >>
 
 compilationUnit(unitUri, unitName, unitDecl,
-  unitTypeMap, unitNameMap, unitIdentMap, unitLocation) ::= <<
+  unitExpTypeTable, unitTypeUriTable) ::= <<
 (* Compilation Unit Declaration *)
-ComilationUnit
+PkgBodyDecl
   (* Compilation Unit - URI *)
-  ($unitUri$)
+  $unitUri$
   (* Compilation Unit - Name *)
   ($unitName$)
-  (* Compilation Unit - Location *) (*
-    $unitLocation$
-  *)
   (* Compilation Unit - Unit Declaration *) (
     $unitDecl$
   )
-  (* Compilation Unit - Type Mapping *) (*
-    $unitTypeMap; separator="\n"$
-  *)
-  (* Compilation Unit - Package/Procedure Name Mapping *) (*
-    $unitNameMap; separator="\n"$
-  *)
-  (* Compilation Unit - Global/Local Variable Mapping *) (*
-    $unitIdentMap; separator="\n"$
-  *)
+  (* Compilation Unit - Type Table *) (
+    mktype_table (
+      (* Expression --> TypeNum *)
+      $unitExpTypeTable; separator=" ::\n"$
+    ) (
+      (* TypeNum --> Type Name *)
+      $unitTypeUriTable; separator=" ::\n"$
+    )
+    
+  )
 >>
 
 mappingTable(key, value) ::= <<
@@ -177,7 +180,7 @@ mappingTable(key, value) ::= <<
 >>
 
 location(line, col, endline, endcol) ::= <<
-(Loc $line$ $col$ $endline$ $endcol$)
+Loc ($line$, $col$) ($endline$, $endcol$)
 >>
 
 

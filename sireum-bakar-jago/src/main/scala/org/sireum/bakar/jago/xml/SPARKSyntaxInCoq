@@ -1,6 +1,7 @@
 Require Export ZArith. 
 Require Export Coq.Lists.List.
 Require Export Coq.Bool.Bool.
+Require Export Coq.Strings.String.
 
 (* Module SPARK_Syntax. *)
 Inductive mode: Type := 
@@ -11,9 +12,20 @@ Inductive typ: Type :=
     | Tint: typ
     | Tbool: typ.
 
-Definition ident := nat.
+Definition idnum := nat.
 
-Definition uri := nat.
+Definition astnum := nat.
+
+Definition procnum := nat.
+
+Definition typenum := nat.
+
+Definition typeuri := string.
+
+Record type_table: Type := mktype_table{
+    tt_ast_table: list (nat * nat);
+    tt_typeuri_table: list (nat * string)
+}.
 
 Inductive location := 
     | Loc: nat * nat -> nat * nat -> location.
@@ -45,72 +57,72 @@ Inductive binary_operation: Type :=
 	| Oxor: binary_operation.
 
 Inductive expr: Type := 
-	| Econst: uri -> constant -> expr
-	| Evar: uri -> ident -> expr
-	| Ebinop: uri -> binary_operation -> expr -> expr -> expr
-	| Eunop: uri -> unary_operation -> expr -> expr.
+	| Econst: astnum -> constant -> expr
+	| Evar: astnum -> idnum -> expr
+	| Ebinop: astnum -> binary_operation -> expr -> expr -> expr
+	| Eunop: astnum -> unary_operation -> expr -> expr.
 
 Definition predicate := expr.
 
 Definition loopInvariant := option (predicate).
 
 Inductive stmt: Type := 
-	| Sassign: uri -> ident -> expr -> stmt
-	| Sifthen: uri -> expr -> stmt -> stmt
-	| Swhile: uri -> expr -> loopInvariant -> stmt -> stmt
-	| Sseq: uri -> stmt -> stmt -> stmt.
+	| Sassign: astnum -> idnum -> expr -> stmt
+	| Sifthen: astnum -> expr -> stmt -> stmt
+	| Swhile: astnum -> expr -> loopInvariant -> stmt -> stmt
+	| Sseq: astnum -> stmt -> stmt -> stmt.
 
 Record param: Type := mkparam{
-	param_uri: uri;
-	param_ident: ident;
+	param_uri: astnum;
+	param_ident: idnum;
 	param_mode: mode;
 	param_init: option (expr)
 }.
 
 Record subprog_aspect_specs: Type := mksubprog_aspect_specs{
-	specs_uri: uri;
+	specs_uri: astnum;
 	pre: option (predicate);
 	post: option (predicate)
 }.
 
 (* Local variables declarations used in the procedure/function body *)
-Record defining_ident: Type := mkdefining_ident{
-	local_uri: uri;
-	local_idents: list ident;
+Record local_ident: Type := mklocal_ident{
+	local_uri: astnum;
+	local_idents: list idnum;
 	local_init: option (value)
 }.
 
 Record procedure_body: Type := mkprocedure_body{
-	proc_uri: uri;
-	proc_name: ident;
+	proc_uri: astnum;
+	proc_name: procnum;
 	proc_specs: option (subprog_aspect_specs);
 	proc_params: option (list param);
-	proc_loc_idents: option (list defining_ident);
+	proc_loc_idents: option (list local_ident);
 	proc_body: stmt
 }.
 
 Record function_body: Type := mkfunction_body{
-	fn_uri: uri;
-	fn_name: ident;
+	fn_uri: astnum;
+	fn_name: procnum;
 	fn_specs: option (subprog_aspect_specs);
 	fn_ret_type: typ;
 	fn_params: option (list param);
-	fn_loc_idents: option (list defining_ident);
+	fn_loc_idents: option (list local_ident);
 	fn_body: stmt
 }.
 
 Inductive subprogram: Type := 
-	| Sproc: uri -> procedure_body -> subprogram
-	| Sfunc: uri -> function_body -> subprogram.
+	| Sproc: astnum -> procedure_body -> subprogram
+	| Sfunc: astnum -> function_body -> subprogram.
 
 Definition pkgbody_aspect_specs := subprog_aspect_specs.
 
 Inductive package_body: Type := 
-	| Packagebody: uri -> ident -> option (pkgbody_aspect_specs) -> list subprogram -> package_body.
+	| Packagebody: astnum -> procnum -> option (pkgbody_aspect_specs) -> list subprogram -> package_body.
 
 (* compilation unit can be either package_declaration or package_body_declaration *)
 Inductive compilation_unit: Type := 
-	| PkgBodyDecl: uri -> ident -> location -> package_body -> compilation_unit.
+	| PkgBodyDecl: astnum -> procnum -> package_body -> type_table -> compilation_unit.
 
 (* End SPARK_Syntax. *)
 (* Extraction SPARK_Syntax. *)

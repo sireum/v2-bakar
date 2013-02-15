@@ -94,12 +94,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
       
-      val unitUri = factory.buildUriMappingTable(sloc, None);
+      val unitUri = factory.buildUriMappingTable(sloc, None); 
       val unitName = factory.buildId(None, unitFullName, unitFullName)
-      val unitLocation = factory.buildLocation(sloc) 
       v(unitDeclaration)
       val unitDecl = ctx.popResult
-      val cu = factory.buildCompilationUnit(unitUri, unitName, unitDecl, unitLocation)  
+      val cu = factory.buildCompilationUnit(unitUri, unitName, unitDecl)  
         
       // store the program translation results as PipelineJob's properties
       // so the result can be used by the following pipeline modules
@@ -198,7 +197,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
                 val name_uri = pname.getDef()
                 val name = pname.getDefName()
                 val pnm = factory.buildId(theType, name_uri, name)
-                val paramDecl = factory.buildParameter(pnm, factory.buildMode(mode), initExp)
+                val uri = factory.buildUriMappingTable(sloc, theType)
+                val paramDecl = factory.buildParameter(uri, pnm, factory.buildMode(mode), initExp)
                 params += paramDecl
               case x =>
                 println("Not expecting: " + x)
@@ -327,7 +327,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val lhs = ctx.popResult.asInstanceOf[String]
       v(assignmentExpression)
       val rhs = ctx.popResult.asInstanceOf[String]
-      ctx.pushResult(factory.buildAssignStmt(lhs, factory.buildIdentifierExpr(rhs)))
+      val uri = factory.buildUriMappingTable(sloc, None)
+      ctx.pushResult(factory.buildAssignStmt(uri, lhs, factory.buildIdentifierExpr(sloc, rhs)))
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
       v(calledName)
@@ -346,7 +347,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           val cond = ctx.popResult.asInstanceOf[String]
           v(statements)
           val thenBranch = ctx.popResult.asInstanceOf[String]
-          ctx.pushResult(factory.buildIfStmt(cond, thenBranch))
+          val uri = factory.buildUriMappingTable(sloc, None)
+          ctx.pushResult(factory.buildIfStmt(uri, cond, thenBranch))
         case x =>
           println("statementH: IfStatement need to be handled for " + x.getClass().getSimpleName())
       }
@@ -360,7 +362,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val loopBody = ctx.popResult.asInstanceOf[String]
       // TODO: extract the loop invariant from the While Statement
       val loopInv = factory.buildOptionV(None) 
-      ctx.pushResult(factory.buildWhileStmt(cond, loopInv, loopBody))
+      val uri = factory.buildUriMappingTable(sloc, None)
+      ctx.pushResult(factory.buildWhileStmt(uri, cond, loopInv, loopBody))
       false
 //    case o =>
 //      println("statementH: need to handle " + o.getClass().getSimpleName())
@@ -371,7 +374,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IntegerLiteralEx(sloc, litVal, theType) =>
       // litval could look like 3_500
       val v = litVal.replaceAll("_", "")
-      ctx.pushResult(factory.buildConstantExpr(theType, v))
+      val uri = factory.buildUriMappingTable(sloc, Some(theType))
+      ctx.pushResult(factory.buildConstantExpr(uri, theType, v))
       false
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
       // identifier can be variable name or package/procedure name, <theType> is null if it's function name
@@ -390,11 +394,13 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       
       if(ctx.isBinaryOp(prefixQ)) {
         assert(plist.length == 2)
-        val bexp = factory.buildBinaryExpr(ctx.getBinaryOp(prefixQ).get, factory.buildIdentifierExpr(plist(0)), factory.buildIdentifierExpr(plist(1)))
+        val uri = factory.buildUriMappingTable(sloc, Some(theType))
+        val bexp = factory.buildBinaryExpr(uri, ctx.getBinaryOp(prefixQ).get, factory.buildIdentifierExpr(sloc, plist(0)), factory.buildIdentifierExpr(sloc, plist(1)))
         ctx.pushResult(bexp)
       }else if(ctx.isUnaryOp(prefixQ)) {
         assert(plist.length == 1)
-        val uexp = factory.buildUnaryExpr(ctx.getUnaryOp(prefixQ).get, factory.buildIdentifierExpr(plist(0)))
+        val uri = factory.buildUriMappingTable(sloc, Some(theType))
+        val uexp = factory.buildUnaryExpr(uri, ctx.getUnaryOp(prefixQ).get, factory.buildIdentifierExpr(sloc, plist(0)))
         ctx.pushResult(uexp)
       }else {
         println("expressionH: need to handle Function Call Expression !")
