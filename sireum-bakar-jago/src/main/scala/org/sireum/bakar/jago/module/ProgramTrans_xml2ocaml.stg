@@ -5,11 +5,11 @@ $if(value)$Some($value$)$else$None$endif$
 >>
 
 binaryExpr(uri, op, loperand, roperand) ::= <<
-Ebinop ($op$, $loperand$, $roperand$, $uri$)
+Ebinop ($uri$, $op$, $loperand$, $roperand$)
 >>
 
 unaryExpr(uri, op, operand) ::= <<
-Eunop ($op$, $operand$, $uri$)
+Eunop ($uri$, $op$, $operand$)
 >>
 
 // identifier is either (1) Bid nat; or (2) Aid nat 
@@ -18,7 +18,7 @@ $theType$ $if(annotation)$(*$annotation$*)$endif$ $id$
 >>
 
 identifierExpr(uri, id) ::= <<
-Evar ($id$, $uri$)
+Evar ($uri$, $id$)
 >>
 
 // Inductive constant: Type := 
@@ -30,7 +30,7 @@ $constVal$
 >>
 
 constantExpr(uri, constVal) ::= <<
-Econst ($constVal$, $uri$)
+Econst ($uri$, $constVal$)
 >>
 
 // procedureCall(procName, args) ::= <<
@@ -38,60 +38,61 @@ Econst ($constVal$, $uri$)
 // >>
 
 seqStmt(uri, stmt1, stmt2) ::= <<
-Sseq (
+Sseq ($uri$,
   $stmt1$,
-  $stmt2$,
-  $uri$ )
+  $stmt2$ )
 >>
 
 whileStmt(uri, cond, loopInv, loopBody) ::= <<
-Swhile ($cond$, 
+Swhile ($uri$, $cond$, 
   $if(loopInv)$
   $loopInv$$else$
   None$endif$,
-  $loopBody$,
-  $uri$
+  $loopBody$
 )
 >>
 
 ifStmt(uri, cond, ifBody) ::= <<
-Sifthen ($cond$,
-  $ifBody$,
-  $uri$
+Sifthen ($uri$, $cond$,
+  $ifBody$
 )
 >>
 
 assignStmt(uri, lhs, rhs) ::= <<
-Sassign ($lhs$, $rhs$, $uri$)
+Sassign ($uri$, $lhs$, $rhs$)
 >>
 
 param(uri, id, mode, initExp) ::= <<
-{ param_ident = $id$; param_mode = $mode$; param_init = $if(initExp)$$initExp$$else$None$endif$; param_uri = $uri$ }
+{ param_uri = $uri$; param_ident = $id$; param_mode = $mode$; param_init = $if(initExp)$$initExp$$else$None$endif$ }
 >>
 
 subprogAspectSpecs(uri, pre, post) ::= <<
-{ pre = 
+{ 
+  specs_uri = 
+    (* URI *)
+    $uri$;
+  pre = 
     (* Precondition *)
     $if(pre)$
     $pre$$else$None$endif$; 
   post = 
     (* Postcondition *)
     $if(post)$
-    $post$$else$None$endif$;
-  specs_uri = 
-    (* URI *)
-    $uri$ 
+    $post$$else$None$endif$
 }
 >>
 
 // +++++++++
 identiferDecl(uri, ids, init) ::= <<
-{ local_idents = [$ids; separator="; "$]; local_init = $if(init)$$init$$else$None$endif$; local_uri = $uri$ }
+{ local_uri = $uri$; local_idents = [$ids; separator="; "$]; local_init = $if(init)$$init$$else$None$endif$ }
 >>
 
 // ++++++
 procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
 { 
+  proc_uri = 
+    (* Procedure Body - URI *)
+    $uri$;
   proc_name = 
     (* Procedure Body - Name *)
     $procName$;
@@ -114,16 +115,16 @@ procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
     None$endif$;
   proc_body =
     (* Procedure Body - Body *)
-    $procBody$;
-  proc_uri = 
-    (* Procedure Body - URI *)
-    $uri$;
+    $procBody$
 }
 >>
 
 // ++++
 functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-{ 
+{
+  fn_uri =   
+    (* Function Body - URI *)
+    $uri$; 
   fn_name =
     (* Function Body - Name *)
     $funcName$;
@@ -149,10 +150,7 @@ functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) 
     None$endif$;
   fn_body = 
     (* Function Body - Body *)
-    $funcBody$;
-  fn_uri =   
-    (* Function Body - URI *)
-    $uri$;
+    $funcBody$
 }
 >>
 
@@ -160,8 +158,8 @@ functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) 
 subProgram(uri, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
 $kind$( 
-  $prog$,
-  $uri$
+  $uri$,
+  $prog$
 )
 >>
 
@@ -169,6 +167,8 @@ $kind$(
 packageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
 Packagebody (
+  (* Package Body - URI *)
+  $pkgBodyUri$,
   (* Package Body - Name *)
   $pkgBodyName$,
   (* Package Body - Specification *)
@@ -178,9 +178,7 @@ Packagebody (
   (* Package Body - Declared Items *)
   [
     $pkgBodyDeclItems; separator="; \n"$
-  ],
-  (* Package Body - URI *)
-  $pkgBodyUri$
+  ]
 )
 >>
 
@@ -208,8 +206,8 @@ PkgBodyDecl (
 )
 >>
 
-mappingTable(key, value) ::= <<
-($key$) -> ($value$)
+mappingPair(key, value) ::= <<
+($key$, $value$)
 >>
 
 location(line, col, endline, endcol) ::= <<

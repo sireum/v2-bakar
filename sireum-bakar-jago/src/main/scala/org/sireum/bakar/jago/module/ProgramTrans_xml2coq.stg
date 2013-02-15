@@ -5,11 +5,11 @@ $if(value)$Some($value$)$else$None$endif$
 >>
 
 binaryExpr(uri, op, loperand, roperand) ::= <<
-Ebinop $op$ ($loperand$) ($roperand$) $uri$
+Ebinop $uri$ $op$ ($loperand$) ($roperand$)
 >>
 
 unaryExpr(uri, op, operand) ::= <<
-Eunop $op$ ($operand$) $uri$
+Eunop $uri$ $op$ ($operand$)
 >>
 
 varId(id, annotation) ::= <<
@@ -17,7 +17,7 @@ $if(annotation)$(*$annotation$*) $endif$$id$
 >>
 
 identifierExpr(uri, id) ::= <<
-Evar $id$ $uri$
+Evar $uri$ $id$
 >>
 
 // Inductive constant: Type := 
@@ -28,7 +28,7 @@ $theType$ $constVal$
 >>
 
 constantExpr(uri, constVal) ::= <<
-Econst ($constVal$) $uri$
+Econst $uri$ ($constVal$)
 >>
 
 procedureCall(procName, args) ::= <<
@@ -36,56 +36,55 @@ $procName$($args; separator=", "$)
 >>
 
 seqStmt(uri, stmt1, stmt2) ::= <<
-Sseq (
+Sseq ( $uri$
   $stmt1$ ) ( 
   $stmt2$ )
-  $uri$
 >>
 
 whileStmt(uri, cond, loopInv, loopBody) ::= <<
-Swhile ($cond$) ($if(loopInv)$
+Swhile ($uri$ $cond$) ($if(loopInv)$
     $loopInv$$else$
     None$endif$ ) (
     $loopBody$
   )
-  $uri$
 >>
 
 ifStmt(uri, cond, ifBody) ::= <<
-Sifthen ($cond$) (
+Sifthen $uri$ ($cond$) (
     $ifBody$
   )
-  $uri$
 >>
 
 assignStmt(uri, lhs, rhs) ::= <<
-Sassign ($lhs$) ($rhs$) $uri$
+Sassign $uri$ ($lhs$) ($rhs$)
 >>
 
 param(uri, id, mode, initExp) ::= <<
-mkparam ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$ $uri$
+mkparam $uri$ ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
 >>
 
 subprogAspectSpecs(uri, pre, post) ::= <<
 mksubprog_aspect_specs 
+  (* URI *)
+  $uri$
   (* Precondition *)
   ($if(pre)$
   $pre$$else$None$endif$) 
   (* Postcondition *)
   ($if(post)$
   $post$$else$None$endif$)
-  (* URI *)
-  ($uri$)
 >>
 
 identiferDecl(uri, ids, init) ::= <<
-mklocal_ident ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$ $uri$
+mklocal_ident $uri$ ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$
 >>
 
 procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
 mkprocedure_body 
+  (* Procedure Body - URI *)
+  $uri$
   (* Procedure Body - Name *)
-  ($procName$)
+  $procName$
   (* Procedure Body - Specification *)
   ($if(aspectSpecs)$
   $aspectSpecs$$else$None$endif$)
@@ -100,14 +99,14 @@ mkprocedure_body
   (* Procedure Body - Body *) (
     $procBody$
   )
-  (* Procedure Body - URI *)
-  ($uri$)
 >>
 
 functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
 mkfunction_body 
+  (* Function Body - URI *)
+  $uri$
   (* Function Body - Name *)
-  ($funcName$)
+  $funcName$
   (* Function Body - Specification *)
   ($if(aspectSpecs)$
   $aspectSpecs$$else$None$endif$)
@@ -124,8 +123,6 @@ mkfunction_body
   (* Function Body - Body *) (
     $funcBody$
   )
-  (* Function Body - URI *)
-  ($uri$)
 >>
 
 // <Sproc procedure_body> or <Sfunc function_body>
@@ -133,13 +130,15 @@ mkfunction_body
 subProgram(uri, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
 $kind$
-  ($prog$)
   $uri$
+  ($prog$)
 >>
 
 packageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
 Packagebody 
+  (* Package Body - URI *)
+  ($pkgBodyUri$)
   (* Package Body - Name *)
   ($pkgBodyName$)
   (* Package Body - Specification *)
@@ -148,8 +147,6 @@ Packagebody
   (* Package Body - Declared Items *) (
     $pkgBodyDeclItems; separator=" ::\n\n"$
   )
-  (* Package Body - URI *)
-  ($pkgBodyUri$)
 >>
 
 compilationUnit(unitUri, unitName, unitDecl,
@@ -175,8 +172,8 @@ PkgBodyDecl
   )
 >>
 
-mappingTable(key, value) ::= <<
-($key$) -> ($value$)
+mappingPair(key, value) ::= <<
+($key$, $value$)
 >>
 
 location(line, col, endline, endcol) ::= <<

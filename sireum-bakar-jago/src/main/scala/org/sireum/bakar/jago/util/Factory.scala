@@ -13,7 +13,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     case ProgramTarget.Coq =>
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_Coq)
   }
-  val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$')
+  val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$') 
   
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
   val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
@@ -338,25 +338,26 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.add("unitUri", unitUri)
     result.add("unitName", unitName)
     result.add("unitDecl", unitDecl)
-    // buildMappingTable(result, "unitExpTypeTable", unitExpTypeMap)
-    buildMappingTable(result, "unitTypeUriTable", unitTypeMap)
+    // [1]
+    val sortedSeq1 = unitExpTypeMap.toSeq.sortBy(_._1)
+    for(e <- sortedSeq1){
+      result.add("unitExpTypeTable", buildMappingItem(e._1.toString, e._2.toString))
+    }
+    // [2]
+    // reverse the map, and then sort the mapping according to the natural number
+    val reversedTypeMapping = unitTypeMap.map(_.swap)
+    val sortedSeq2 = reversedTypeMapping.toSeq.sortBy(_._1) 
+    for(e <- sortedSeq2){
+      result.add("unitTypeUriTable", buildMappingItem(e._2, e._1.toString)) 
+    }    
     result.render()
   }
   
-  /**
-   * <mapping> is a map from string name to natural number 
-   */
-  def buildMappingTable(st: org.stringtemplate.v4.ST, 
-      attributeName: String, mapping: MMap[String, Int]) {
-    // reverse the map, and then sort the mapping according to the natural number
-    val reversedMapping = mapping.map(_.swap)
-    val sortedSeq = reversedMapping.toSeq.sortBy(_._1) 
-    for(e <- sortedSeq){
-      val m = stg.getInstanceOf("mappingTable")
-      m.add("key", e._2)
-      m.add("value", e._1)
-      st.add(attributeName, m)
-    }  
+  def buildMappingItem(key: String, value: String) = {
+    val result = stg.getInstanceOf("mappingPair")
+    result.add("key", key)
+    result.add("value", value)
+    result.render()
   }
   
   def buildLocation(sloc: SourceLocation) = {
