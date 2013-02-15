@@ -6,6 +6,7 @@ pygtk.require('2.0')
 import gtk
 import gobject
 import simplejson as json
+import gps_utils.highlighter as highlighter
 
 def run_java_program():
 	""" This is temp function with reference to GPS function for fetching properties of project/code """
@@ -14,11 +15,29 @@ def run_java_program():
 	print "filename:", GPS.current_context().file().name()
 	print "dir:", GPS.current_context().directory()
 	print "entity:", GPS.current_context().entity().name()
+	print "entity category:", GPS.current_context().entity().category()
+	print "entity declaration:", GPS.current_context().entity().declaration()
+	#print "entity body:", GPS.current_context().entity().body()
+	print "entity methods:", GPS.current_context().entity().methods()
+	print "entity primitive_of:", GPS.current_context().entity().primitive_of()
+	print "entity references:", GPS.current_context().entity().references()
+	print "dir(entity)", dir(GPS.current_context().entity())
 	print "project filename:", GPS.current_context().project().file().name()
 	print "root project file/pathname:", GPS.Project.root().file().name()
 	print "source files:", GPS.current_context().project().sources()
 	print "source dirs:", GPS.current_context().project().source_dirs()
 	print "project dir:", os.path.dirname(GPS.current_context().project().file().name())
+	#highlighting
+#	buffer = GPS.EditorBuffer.get(GPS.File (GPS.current_context().file().name()))
+#	
+#	h = highlighter.Text_Highlighter("default", "bla")
+#	overlay = buffer.create_overlay("Overlay")
+#	h.do_highlight(buffer, overlay, 1, 10)
+	
+	#highlighter.Regexp_Highlighter (name="tabs style", regexp="begin(.*?)end", bg_color="#FF7979")
+	
+	#ed  = GPS.Editor.highlight_range("example.adb","General",4)
+	#print "Editor location: ", ed.line()
 	#print "column:", GPS.current_context().column()
 	#print "line:", GPS.current_context().line()
 	
@@ -428,11 +447,22 @@ class TreeViewColumns:
 
 def run_kiasan_and_read_json():
 	#run kiasan
+	run_java_program()
 	
 	if GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get():
 		os.system("rm -rf " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
 		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
 		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan/xml")
+	else:
+		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum"):
+			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum")	
+		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan"):
+			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
+	
+#	package/namespace
+#	subprogram
+#	print "entity:", GPS.current_context().entity().name()
+#	print "entity category:", GPS.current_context().entity().category()
 	
 	kiasanLibDir = "/Users/jj/Programs/Sireum/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201212051038/lib/"
 	
@@ -474,7 +504,8 @@ def run_kiasan_and_read_json():
 	# attach GUI to GPS
 	GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
 	win = GPS.MDI.get('kiasan')
-	win.split(reuse="True")
+	win.split(reuse="True") # reuse=True: bottom from code window, reuse=False: top from code window
+	win.float(float=False)	# float=True: popup, float=False: GPS integrated window
     
 """End of Kiasan GUI"""
 
@@ -482,10 +513,12 @@ GPS.parse_xml ("""
 	<filter_and name="Source editor in Ada" >
     	<filter language="ada" />
     	<filter id="Source editor" />
+    	<filter 
+    		shell_lang="python" 
+    		shell_cmd="GPS.current_context().entity().category() in ['subprogram', 'package/namespace'] " />
   	</filter_and>
     <action name="run Kiasan">
     	<filter id="Source editor in Ada" />
-    	<shell>echo "Procedure:" %e %attr(%e)</shell>
         <shell lang="python">sireum_jj.run_kiasan_and_read_json()</shell>
     </action>
     <submenu before="Window">
