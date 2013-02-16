@@ -24,7 +24,7 @@ Definition typeuri := string.
 
 Record type_table: Type := mktype_table{
     tt_ast_table: list (nat * nat);
-    tt_typeuri_table: list (nat * string)
+    tt_typeuri_table: list (nat * (string * option nat))
 }.
 
 Inductive location := 
@@ -73,27 +73,27 @@ Inductive stmt: Type :=
 	| Sseq: astnum -> stmt -> stmt -> stmt.
 
 Record param: Type := mkparam{
-	param_uri: astnum;
+	param_astnum: astnum;
 	param_ident: idnum;
 	param_mode: mode;
 	param_init: option (expr)
 }.
 
 Record subprog_aspect_specs: Type := mksubprog_aspect_specs{
-	specs_uri: astnum;
+	specs_astnum: astnum;
 	pre: option (predicate);
 	post: option (predicate)
 }.
 
 (* Local variables declarations used in the procedure/function body *)
 Record local_ident: Type := mklocal_ident{
-	local_uri: astnum;
+	local_astnum: astnum;
 	local_idents: list idnum;
 	local_init: option (value)
 }.
 
 Record procedure_body: Type := mkprocedure_body{
-	proc_uri: astnum;
+	proc_astnum: astnum;
 	proc_name: procnum;
 	proc_specs: option (subprog_aspect_specs);
 	proc_params: option (list param);
@@ -102,7 +102,7 @@ Record procedure_body: Type := mkprocedure_body{
 }.
 
 Record function_body: Type := mkfunction_body{
-	fn_uri: astnum;
+	fn_astnum: astnum;
 	fn_name: procnum;
 	fn_specs: option (subprog_aspect_specs);
 	fn_ret_type: typ;

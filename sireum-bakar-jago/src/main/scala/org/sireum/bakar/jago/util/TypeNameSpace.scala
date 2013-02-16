@@ -34,6 +34,7 @@ object TypeNameSpace {
   
   val Type = "typ";
   val Bool = "bool";
+  val String = "string";
   val Constant = "constant"
   val Predicate = "predicate"
   val ExpressionT = "expr";

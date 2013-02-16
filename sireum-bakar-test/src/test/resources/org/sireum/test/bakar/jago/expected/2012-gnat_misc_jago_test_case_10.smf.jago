@@ -1,59 +1,104 @@
-(* Package Body Declaration *)
-Packagebody 
-  (* Package Body - Name *)
-  ( 9 (*Jago_Test_Case_10*))
-  (* Package Body - Specification *)
-  (None)    
-  (* Package Body - Declared Items *) (
-    (* Procedure Body Declaration *)
-    Sproc(
-      mkprocedure_body 
-        (* Procedure Body - Name *)
-        ( 1 (*P1*))
-        (* Procedure Body - Specification *)
-        (
-        None)
-        (* Procedure Body - Parameters *)
-        (Some(
-          mkparam (Aid 2 (*I1*)) (In) None :: 
-          mkparam (Aid 3 (*I2*)) (In) None :: 
-          mkparam (Aid 4 (*I3*)) (In) None :: 
-          mkparam (Aid 5 (*O1*)) (Out) None :: 
-          mkparam (Aid 6 (*O2*)) (Out) None :: 
-          nil
-        )) 
-        (* Procedure Body - Locally Defined Variables *)
-        (Some(
-          mkdefining_ident (Aid 7 (*L1*) :: Aid 8 (*L2*) :: nil) None :: 
-          nil
-        ))
-        (* Procedure Body - Body *) (
-          Sseq (
-            Sassign (Aid 8 (*L2*)) (Econst (Ointconst 5)) ) ( 
-            Sseq (
-              Sassign (Aid 7 (*L1*)) (Evar (Aid 4 (*I3*))) ) ( 
-              Sseq (
-                Sassign (Aid 6 (*O2*)) (Evar (Aid 7 (*L1*))) ) ( 
-                Sseq (
-                  Sassign (Aid 7 (*L1*)) (Evar (Aid 3 (*I2*))) ) ( 
-                  Sseq (
-                    Sassign (Aid 7 (*L1*)) (Ebinop Oadd (Evar (Aid 2 (*I1*))) (Evar (Aid 3 (*I2*)))) ) ( 
-                    Sseq (
-                      Sifthen (Ebinop Cgt (Evar (Aid 7 (*L1*))) (Econst (Ointconst 5))) (
-                        Sifthen (Ebinop Clt (Evar (Aid 2 (*I1*))) (Econst (Ointconst 0))) (
-                          Sassign (Aid 8 (*L2*)) (Econst (Ointconst 8))
-                        )
-                      ) ) ( 
-                      Sseq (
-                        Swhile (Ebinop Cgt (Evar (Aid 7 (*L1*))) (Econst (Ointconst 0))) (
-                            None  ) (
-                            Sseq (
-                              Sassign (Aid 8 (*L2*)) (Ebinop Oadd (Evar (Aid 8 (*L2*))) (Econst (Ointconst 1))) ) ( 
-                              Sassign (Aid 7 (*L1*)) (Ebinop Osub (Evar (Aid 7 (*L1*))) (Econst (Ointconst 1))) )
+(* Compilation Unit Declaration *)
+PkgBodyDecl 2
+  (* Compilation Unit - Name *)
+  ((*Jago_Test_Case_10*) 1)
+  (* Compilation Unit - Unit Declaration *) (
+    (* Package Body Declaration *)
+    Packagebody 55
+      (* Package Body - Name *)
+      ((*Jago_Test_Case_10*) 3)
+      (* Package Body - Specification *)
+      (None)    
+      (* Package Body - Declared Items *) (
+        (* Procedure Body Declaration *)
+        Sproc 54
+          (mkprocedure_body 53
+          (* Procedure Body - Name *)
+          (*P1*) 2
+          (* Procedure Body - Specification *)
+          (None)
+          (* Procedure Body - Parameters *)
+          (Some(
+            mkparam 3 ((*I1*) 1) (In) None :: 
+            mkparam 4 ((*I2*) 2) (In) None :: 
+            mkparam 5 ((*I3*) 3) (In) None :: 
+            mkparam 6 ((*O1*) 4) (Out) None :: 
+            mkparam 7 ((*O2*) 5) (Out) None ::
+            nil
+          )) 
+          (* Procedure Body - Locally Defined Variables *)
+          (Some(
+            mklocal_ident 8 ((*L1*) 6 :: (*L2*) 7 :: nil) None ::
+            nil
+          ))
+          (* Procedure Body - Body *) (
+            Sseq 46 (
+              Sassign 10 ((*L2*) 7) (Econst 9 (Ointconst 5)) ) ( 
+              Sseq 47 (
+                Sassign 11 ((*L1*) 6) (Evar 12 (*I3*) 3) ) ( 
+                Sseq 48 (
+                  Sassign 13 ((*O2*) 5) (Evar 14 (*L1*) 6) ) ( 
+                  Sseq 49 (
+                    Sassign 15 ((*L1*) 6) (Evar 16 (*I2*) 2) ) ( 
+                    Sseq 50 (
+                      Sassign 20 ((*L1*) 6) (Ebinop 17 Oadd (Evar 18 (*I1*) 1) (Evar 19 (*I2*) 2)) ) ( 
+                      Sseq 51 (
+                        Sifthen 30 (Ebinop 22 Cgt (Evar 23 (*L1*) 6) (Econst 21 (Ointconst 5))) (
+                            Sifthen 29 (Ebinop 25 Clt (Evar 26 (*I1*) 1) (Econst 24 (Ointconst 0))) (
+                                Sassign 28 ((*L2*) 7) (Econst 27 (Ointconst 8))
+                              )
                           ) ) ( 
-                        Sassign (Aid 5 (*O1*)) (Evar (Aid 8 (*L2*))) ) ) ) ) ) ) )
-        )
-    ) ::
-
-    nil
+                        Sseq 52 (
+                          Swhile 43 (Ebinop 32 Cgt (Evar 33 (*L1*) 6) (Econst 31 (Ointconst 0))) (
+                              None  ) (
+                              Sseq 42 (
+                                Sassign 37 ((*L2*) 7) (Ebinop 35 Oadd (Evar 36 (*L2*) 7) (Econst 34 (Ointconst 1))) ) ( 
+                                Sassign 41 ((*L1*) 6) (Ebinop 39 Osub (Evar 40 (*L1*) 6) (Econst 38 (Ointconst 1))) )
+                            ) ) ( 
+                          Sassign 44 ((*O1*) 4) (Evar 45 (*L2*) 7) ) ) ) ) ) ) )
+          )) ::
+        nil
+      )
+  )
+  (* Compilation Unit - Type Table *) (
+    mktype_table (
+      (* Expression AstNum --> TypeNum *)
+      (3, 1) ::
+      (4, 1) ::
+      (5, 1) ::
+      (6, 1) ::
+      (7, 1) ::
+      (8, 1) ::
+      (9, 2) ::
+      (12, 1) ::
+      (14, 1) ::
+      (16, 1) ::
+      (17, 1) ::
+      (18, 1) ::
+      (19, 1) ::
+      (21, 2) ::
+      (22, 3) ::
+      (23, 1) ::
+      (24, 2) ::
+      (25, 3) ::
+      (26, 1) ::
+      (27, 2) ::
+      (31, 2) ::
+      (32, 3) ::
+      (33, 1) ::
+      (34, 2) ::
+      (35, 1) ::
+      (36, 1) ::
+      (38, 2) ::
+      (39, 1) ::
+      (40, 1) ::
+      (45, 1) ::
+      nil
+    ) (
+      (* TypeNum --> Type Name * Type Declaration AST Num *)
+      (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
+      (2, ("universal integer"%string, None)) ::
+      (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) ::
+      nil
+    )
   )

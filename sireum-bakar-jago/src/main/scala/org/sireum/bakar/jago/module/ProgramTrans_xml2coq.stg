@@ -36,13 +36,13 @@ $procName$($args; separator=", "$)
 >>
 
 seqStmt(uri, stmt1, stmt2) ::= <<
-Sseq ( $uri$
+Sseq $uri$ (
   $stmt1$ ) ( 
   $stmt2$ )
 >>
 
 whileStmt(uri, cond, loopInv, loopBody) ::= <<
-Swhile ($uri$ $cond$) ($if(loopInv)$
+Swhile $uri$ ($cond$) ($if(loopInv)$
     $loopInv$$else$
     None$endif$ ) (
     $loopBody$
@@ -64,9 +64,7 @@ mkparam $uri$ ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$
 >>
 
 subprogAspectSpecs(uri, pre, post) ::= <<
-mksubprog_aspect_specs 
-  (* URI *)
-  $uri$
+mksubprog_aspect_specs $uri$
   (* Precondition *)
   ($if(pre)$
   $pre$$else$None$endif$) 
@@ -76,13 +74,11 @@ mksubprog_aspect_specs
 >>
 
 identiferDecl(uri, ids, init) ::= <<
-mklocal_ident $uri$ ($ids; separator=" :: "$) $if(init)$$init$$else$None$endif$
+mklocal_ident $uri$ ($ids; separator=" :: "$ :: nil) $if(init)$$init$$else$None$endif$
 >>
 
 procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
-mkprocedure_body 
-  (* Procedure Body - URI *)
-  $uri$
+mkprocedure_body $uri$
   (* Procedure Body - Name *)
   $procName$
   (* Procedure Body - Specification *)
@@ -90,11 +86,13 @@ mkprocedure_body
   $aspectSpecs$$else$None$endif$)
   (* Procedure Body - Parameters *)
   ($if(params)$Some(
-    $params; separator=" :: \n"$
+    $params; separator=" :: \n"$ ::
+    nil
   )$else$None$endif$) 
   (* Procedure Body - Locally Defined Variables *)
   ($if(identDecls)$Some(
-    $identDecls; separator=" :: \n"$
+    $identDecls; separator=" :: \n"$ ::
+    nil
   )$else$None$endif$)
   (* Procedure Body - Body *) (
     $procBody$
@@ -102,9 +100,7 @@ mkprocedure_body
 >>
 
 functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-mkfunction_body 
-  (* Function Body - URI *)
-  $uri$
+mkfunction_body $uri$
   (* Function Body - Name *)
   $funcName$
   (* Function Body - Specification *)
@@ -114,11 +110,13 @@ mkfunction_body
   ($returnT$) 
   (* Function Body - Parameters *)
   ($if(params)$Some(
-    $params; separator=" :: \n"$
+    $params; separator=" :: \n"$ ::
+    nil
   )$else$None$endif$)
   (* Function Body - Locally Defined Variables *)
   ($if(identDecls)$Some(
-    $identDecls; separator=" :: \n"$
+    $identDecls; separator=" :: \n"$ ::
+    nil
   )$else$None$endif$)
   (* Function Body - Body *) (
     $funcBody$
@@ -129,32 +127,28 @@ mkfunction_body
 // <annotation> can be either "Procedure" or "Function"
 subProgram(uri, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
-$kind$
-  $uri$
+$kind$ $uri$
   ($prog$)
 >>
 
 packageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
-Packagebody 
-  (* Package Body - URI *)
-  ($pkgBodyUri$)
+Packagebody $pkgBodyUri$
   (* Package Body - Name *)
   ($pkgBodyName$)
   (* Package Body - Specification *)
   ($if(pkgBodyAspectSpecs)$
   $pkgBodyAspectSpecs$$else$None$endif$)    
   (* Package Body - Declared Items *) (
-    $pkgBodyDeclItems; separator=" ::\n\n"$
+    $pkgBodyDeclItems; separator=" ::\n\n"$ ::
+    nil
   )
 >>
 
 compilationUnit(unitUri, unitName, unitDecl,
-  unitExpTypeTable, unitTypeUriTable) ::= <<
+  unitExpTypeTable, unitTypeUriTable, unitTypeDeclAst) ::= <<
 (* Compilation Unit Declaration *)
-PkgBodyDecl
-  (* Compilation Unit - URI *)
-  $unitUri$
+PkgBodyDecl $unitUri$
   (* Compilation Unit - Name *)
   ($unitName$)
   (* Compilation Unit - Unit Declaration *) (
@@ -162,14 +156,20 @@ PkgBodyDecl
   )
   (* Compilation Unit - Type Table *) (
     mktype_table (
-      (* Expression --> TypeNum *)
-      $unitExpTypeTable; separator=" ::\n"$
+      (* Expression AstNum --> TypeNum *)
+      $unitExpTypeTable; separator=" ::\n"$ ::
+      nil
     ) (
-      (* TypeNum --> Type Name *)
-      $unitTypeUriTable; separator=" ::\n"$
+      (* TypeNum --> Type Name * Type Declaration AST Num *)
+      $unitTypeUriTable; separator=" ::\n"$ ::
+      nil
     )
-    
   )
+>>
+
+// for example: "hello"%string
+context(value, ctxt) ::= <<
+$value$%$ctxt$
 >>
 
 mappingPair(key, value) ::= <<
@@ -179,5 +179,4 @@ mappingPair(key, value) ::= <<
 location(line, col, endline, endcol) ::= <<
 Loc ($line$, $col$) ($endline$, $endcol$)
 >>
-
 

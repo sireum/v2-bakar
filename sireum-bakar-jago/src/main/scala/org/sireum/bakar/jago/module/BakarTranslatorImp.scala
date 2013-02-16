@@ -133,7 +133,6 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         val pm = ctx.popResult
         pkgElems += pm
       }
-      pkgElems += "nil"
       val pkgBodyUri = factory.buildUriMappingTable(sloc, None);
       v(pkgname)
       val pkgBodyName = ctx.popResult
@@ -178,7 +177,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
             
             val theType = objDecView.getDefinition() match {
               case id @ IdentifierEx(sloc, refName, ref, type_) =>
-                Some(refName)
+                Some(ref)
               case _ =>
                 None
             }
@@ -211,16 +210,14 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           }
         }     
         // list of parameters separated by "::" in Coq should be tailed with "nil"
-        if(!params.isEmpty)
-          params += "nil"
+//        if(!params.isEmpty)
+//          params += "nil"
         // [3] declared local variables inside the method
         val defingIds = mlistEmpty[String]
         for(declItem <- bodyDeclItems.getElements()) {
           v(declItem)
           defingIds += ctx.popResult
         }
-        if(!defingIds.isEmpty)
-          defingIds += "nil"
         // [4] method body
         v(bodyStatements)
         val mbody = ctx.popResult
@@ -286,7 +283,6 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         v(defName)
         declItems += ctx.popResult
       }
-      declItems += "nil"
       
       val optionalInitExp = 
         if (ctx.isEmpty(initExpQ.getExpression())){
@@ -300,7 +296,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         case sti @ SubtypeIndicationEx(sloc, hasAliasedQ, hasNullExclusionQ, subtypeMarkQ, subtypeConstraintQ) =>
           subtypeMarkQ.getExpression() match {
             case id @ IdentifierEx(sloc, refName, ref, type_) =>
-              Some(refName)
+              Some(ref)
             case _ =>
               None
           }
@@ -413,12 +409,12 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      assert(theType != null)
-      ctx.pushResult(factory.buildId(Some(theType), ref, refName))
+      val theTyp = if(theType == "null") None else Some(theType)
+      ctx.pushResult(factory.buildId(theTyp, ref, refName))
       false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-      assert(theType != null)
-      ctx.pushResult(factory.buildId(Some(theType), theDef, defName))
+      val theTyp = if(theType == "null") None else Some(theType)
+      ctx.pushResult(factory.buildId(theTyp, theDef, defName))
       false
 //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
 //

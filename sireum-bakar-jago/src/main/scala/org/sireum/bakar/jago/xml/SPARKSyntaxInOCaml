@@ -18,7 +18,7 @@ type typeuri = string
 
 type type_table = {
     tt_ast_table: (int * int) list;
-    tt_typeuri_table: (int * string) list
+    tt_typeuri_table: (int * (string * int option)) list
 }
 
 type location = 
@@ -67,27 +67,27 @@ type stmt =
 	| Sseq of astnum * stmt * stmt
 
 type param = {
-	param_uri: astnum;
+	param_astnum: astnum;
 	param_ident: idnum;
 	param_mode: mode;
 	param_init: (expr) option 
 }
 
 type subprog_aspect_specs = {
-	specs_uri: astnum;
+	specs_astnum: astnum;
 	pre: (predicate) option;
 	post: (predicate) option 
 }
 
 (* Local variables declarations used in the procedure/function body *)
 type local_ident = {
-	local_uri: astnum;
+	local_astnum: astnum;
 	local_idents: idnum list;
 	local_init: (value) option 
 }
 
 type procedure_body = {
-	proc_uri: astnum;
+	proc_astnum: astnum;
 	proc_name: procnum;
 	proc_specs: (subprog_aspect_specs) option;
 	proc_params: (param list) option;
@@ -96,7 +96,7 @@ type procedure_body = {
 }
 
 type function_body = {
-	fn_uri: astnum;
+	fn_astnum: astnum;
 	fn_name: procnum;
 	fn_specs: (subprog_aspect_specs) option;
 	fn_ret_type: typ;

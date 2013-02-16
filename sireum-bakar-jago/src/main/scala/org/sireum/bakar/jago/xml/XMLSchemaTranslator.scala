@@ -272,7 +272,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     val typeName = TypeNameSpace.Defining_Identifier
     val annotation = Some("Local variables declarations used in the procedure/function body")
     val fields = List(
-        createFieldDecl("local_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("local_astnum", TypeNameSpace.AstNum, false),
         createFieldDecl("local_idents", getListType(TypeNameSpace.IdNum), false),
         createFieldDecl("local_init", TypeNameSpace.ValT, true))
     createRecordType(typeName, annotation, typeName, fields: _*)
@@ -281,7 +281,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   def trans_parameter_specification {
     val typeName = TypeNameSpace.Parameter
     val fields = List(
-        createFieldDecl("param_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("param_astnum", TypeNameSpace.AstNum, false),
         createFieldDecl("param_ident", TypeNameSpace.IdNum, false),
         createFieldDecl("param_mode", TypeNameSpace.ModeT, false),
         createFieldDecl("param_init", TypeNameSpace.ExpressionT, true))
@@ -297,7 +297,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   def trans_procedure_aspectspecs {
     val typeName = TypeNameSpace.SubProgramAspectSpecs
     val fields = List(
-        createFieldDecl("specs_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("specs_astnum", TypeNameSpace.AstNum, false),
         createFieldDecl(TypeNameSpace.Pre, TypeNameSpace.Predicate, true),
         createFieldDecl(TypeNameSpace.Post, TypeNameSpace.Predicate, true))
     createRecordType(typeName, None, typeName, fields: _*)
@@ -345,7 +345,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     // create the Coq type for procedure body declaration
     val typeName = TypeNameSpace.ProcedureBodyT
     val fields = List(
-        createFieldDecl("proc_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("proc_astnum", TypeNameSpace.AstNum, false),
         createFieldDecl("proc_name", TypeNameSpace.ProcNum, false),
         createFieldDecl("proc_specs", TypeNameSpace.SubProgramAspectSpecs, true),
         createFieldDecl("proc_params", getListType(TypeNameSpace.Parameter), true),
@@ -381,7 +381,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     // create the Coq type for function body declaration
     val typeName = TypeNameSpace.FunctionBodyT
     val fields = List(
-        createFieldDecl("fn_uri", TypeNameSpace.AstNum, false),
+        createFieldDecl("fn_astnum", TypeNameSpace.AstNum, false),
         createFieldDecl("fn_name", TypeNameSpace.ProcNum, false),
         createFieldDecl("fn_specs", TypeNameSpace.SubProgramAspectSpecs, true),
         createFieldDecl("fn_ret_type", TypeNameSpace.Type, false),

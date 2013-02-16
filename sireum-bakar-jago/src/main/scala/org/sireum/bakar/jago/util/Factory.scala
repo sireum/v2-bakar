@@ -21,12 +21,14 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
   val unitLocMap = mmapEmpty[Int, String] // from AST# uri to its location
   val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# uri to its type number
-
+  // TODO: it's none now
+  val unitTypeDeclsMap = mmapEmpty[String, Int] // declared type to its ast number 
+  
   val ident2TypeMap = mmapEmpty[String, String] // int x; x --> int
 
   var astnum = 0
   var idnum = 0
-  var procnum = 0
+  var procnum = 0 
   var typenum = 0
   
   def next_astnum = {
@@ -47,6 +49,29 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   def next_typenum = {
     typenum = typenum + 1
     typenum
+  }
+  
+  /**
+   * For example: "hello"%string
+   */
+  def buildContext(value: String, ctxt: String) = {
+    val result = stg.getInstanceOf("context")
+    result.add("value", value)
+    result.add("ctxt", ctxt)
+    result.render()
+  }
+  
+  /**
+   * In Coq string should be like: "hello"%string,
+   * while in OCaml, it looks like: "hello"
+   */
+  def buildString(str: String) = {
+    (option: @unchecked) match {
+      case ProgramTarget.Ocaml =>
+        "\"" + str + "\""
+      case ProgramTarget.Coq =>
+        buildContext("\"" + str + "\"", "string")
+    }
   }
   
   def buildOptionV(value: Option[String]) = { 
@@ -100,6 +125,10 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
         if(unitTypeMap.get(theType.get).isDefined){
           unitTypeMap.get(theType.get).get
         }else{
+          
+        if(theType.isDefined && theType.get == "Integer")
+          println(theType.get)
+          
           val n = next_typenum
           unitTypeMap += (theType.get -> n)
           n
@@ -199,7 +228,6 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  // TODO
   def buildSeqStmt(stmts: String*): String = {
     // use "Sseq" to make the statements in sequence
     assert(stmts.length > 0)
@@ -207,8 +235,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       stmts.head
     }else{
       val result = stg.getInstanceOf("seqStmt")
-      val uri = 1000
-      result.add("uri", uri)
+      result.add("uri", next_astnum)
       result.add("stmt1", stmts.head)
       result.add("stmt2", buildSeqStmt(stmts.tail: _*))
       result.render()
@@ -253,15 +280,16 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   // + + + 
   def buildListAttributes(st: org.stringtemplate.v4.ST, 
       attributeName: String, attributeValues: String*) {
-    (option: @unchecked) match {
-      case ProgramTarget.Coq =>
-        attributeValues.foreach(v => st.add(attributeName, v))
-      case ProgramTarget.Ocaml =>
-        // st.add(attributeName, buildConstruct(attributeValues: _*))
-        // drop the right most element "nil" in the list object
-        val attVals = attributeValues.dropRight(1)
-        attVals.foreach(v => st.add(attributeName, v))
-    }
+//    (option: @unchecked) match {
+//      case ProgramTarget.Coq =>
+//        attributeValues.foreach(v => st.add(attributeName, v))
+//      case ProgramTarget.Ocaml =>
+//        // st.add(attributeName, buildConstruct(attributeValues: _*))
+//        // drop the right most element "nil" in the list object
+//        val attVals = attributeValues.dropRight(1)
+//        attVals.foreach(v => st.add(attributeName, v))
+//    }
+    attributeValues.foreach(v => st.add(attributeName, v))
   }
   
   def buildSubprogAspectSpecs(uri: Int, pre: Option[String], post: Option[String]) = {
@@ -348,8 +376,11 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     val reversedTypeMapping = unitTypeMap.map(_.swap)
     val sortedSeq2 = reversedTypeMapping.toSeq.sortBy(_._1) 
     for(e <- sortedSeq2){
-      result.add("unitTypeUriTable", buildMappingItem(e._2, e._1.toString)) 
-    }    
+      // TODO: the type declaration AST number is now set None
+      val typedecl_num = "None"
+      val typeInfor = buildMappingItem(buildString(e._2), typedecl_num)
+      result.add("unitTypeUriTable", buildMappingItem(e._1.toString, typeInfor)) 
+    }
     result.render()
   }
   

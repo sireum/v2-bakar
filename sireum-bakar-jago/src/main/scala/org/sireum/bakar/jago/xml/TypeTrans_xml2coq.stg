@@ -47,8 +47,8 @@ Definition typeuri := string.
 
 Record type_table: Type := mktype_table{
     tt_ast_table: list (nat * nat);
-    tt_typeuri_table: list (nat * string)
-}
+    tt_typeuri_table: list (nat * (string * option nat))
+}.
 
 Inductive location := 
     | Loc: nat * nat -> nat * nat -> location.
