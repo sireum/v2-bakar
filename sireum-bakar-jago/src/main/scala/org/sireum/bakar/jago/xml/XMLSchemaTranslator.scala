@@ -390,16 +390,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         createFieldDecl("fn_body", TypeNameSpace.StatementListT, false))
     createRecordType(typeName, None, typeName, fields: _*)
   }
-  
-  /**
-   * Syntax of commands:
-   * Inductive Com : Type :=
-   *  | CSkip : Com
-   *  | CAssign : id -> Exp -> Com
-   *  | CSeq : Com -> Com -> Com
-   *  | CIf : Exp -> Com -> Com -> Com
-   *  | CWhile : Exp -> LoopInvariant -> Com -> Com.
-   */
+
   def trans_statementlist {
     val statement = classOf[StatementClass]
     for(f <- statement.getDeclaredFields) { 
@@ -581,7 +572,6 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     val result = stg.getInstanceOf("typeRename")
     result.add("newName", newName)
     result.add("oldName", oldName)
-    // add it into typeDeclarations
     typeDeclarations += (result.render())
   }
   
