@@ -1,109 +1,109 @@
 (* Compilation Unit Declaration *)
-PkgBodyDecl ( 2,
+PkgBodyDecl ( 55,
   (* Compilation Unit - Name *)
    (*Jago_Test_Case_10*) 1,
   (* Compilation Unit - Unit Declaration *)
   (* Package Body Declaration *)
-  Packagebody ( 55,
+  Packagebody ( 54,
     (* Package Body - Name *)
-     (*Jago_Test_Case_10*) 3,
+     (*Jago_Test_Case_10*) 2,
     (* Package Body - Specification *)
     None, 
     (* Package Body - Declared Items *)
     [
       (* Procedure Body Declaration *)
-      Sproc( 54,
+      Sproc( 53,
         { 
           proc_astnum = 
             (* Procedure Body - AST Number *)
-            53;
+            52;
           proc_name = 
             (* Procedure Body - Name *)
-             (*P1*) 2;
+             (*P1*) 3;
           proc_specs =
             (* Procedure Body - Specification *)
             None;
           proc_params = 
             (* Procedure Body - Parameters *)
             Some([
-                  { param_astnum = 3; param_ident =  (*I1*) 1; param_mode = In; param_init = None }; 
-                  { param_astnum = 4; param_ident =  (*I2*) 2; param_mode = In; param_init = None }; 
-                  { param_astnum = 5; param_ident =  (*I3*) 3; param_mode = In; param_init = None }; 
-                  { param_astnum = 6; param_ident =  (*O1*) 4; param_mode = Out; param_init = None }; 
-                  { param_astnum = 7; param_ident =  (*O2*) 5; param_mode = Out; param_init = None }
+                  { param_astnum = 2; param_ident =  (*I1*) 1; param_mode = In; param_init = None }; 
+                  { param_astnum = 3; param_ident =  (*I2*) 2; param_mode = In; param_init = None }; 
+                  { param_astnum = 4; param_ident =  (*I3*) 3; param_mode = In; param_init = None }; 
+                  { param_astnum = 5; param_ident =  (*O1*) 4; param_mode = Out; param_init = None }; 
+                  { param_astnum = 6; param_ident =  (*O2*) 5; param_mode = Out; param_init = None }
                 ]);
           proc_loc_idents = 
             (* Procedure Body - Locally Defined Variables *)
             Some([
-                  { local_astnum = 8; local_idents = [ (*L1*) 6;  (*L2*) 7]; local_init = None }
+                  { local_astnum = 7; local_idents = [ (*L1*) 6;  (*L2*) 7]; local_init = None }
                 ]);
           proc_body =
             (* Procedure Body - Body *)
-            Sseq (46,
-              Sassign (10,  (*L2*) 7, Econst (9, 5)),
-              Sseq (47,
-                Sassign (11,  (*L1*) 6, Evar (12,  (*I3*) 3)),
-                Sseq (48,
-                  Sassign (13,  (*O2*) 5, Evar (14,  (*L1*) 6)),
-                  Sseq (49,
-                    Sassign (15,  (*L1*) 6, Evar (16,  (*I2*) 2)),
-                    Sseq (50,
-                      Sassign (20,  (*L1*) 6, Ebinop (17, Oadd, Evar (18,  (*I1*) 1), Evar (19,  (*I2*) 2))),
-                      Sseq (51,
-                        Sifthen (30, Ebinop (22, Cgt, Evar (23,  (*L1*) 6), Econst (21, 5)),
-                          Sifthen (29, Ebinop (25, Clt, Evar (26,  (*I1*) 1), Econst (24, 0)),
-                            Sassign (28,  (*L2*) 7, Econst (27, 8))
+            Sseq (45,
+              Sassign (9,  (*L2*) 7, Econst (8, 5)),
+              Sseq (46,
+                Sassign (11,  (*L1*) 6, Evar (10,  (*I3*) 3)),
+                Sseq (47,
+                  Sassign (13,  (*O2*) 5, Evar (12,  (*L1*) 6)),
+                  Sseq (48,
+                    Sassign (15,  (*L1*) 6, Evar (14,  (*I2*) 2)),
+                    Sseq (49,
+                      Sassign (19,  (*L1*) 6, Ebinop (18, Oadd, Evar (16,  (*I1*) 1), Evar (17,  (*I2*) 2))),
+                      Sseq (50,
+                        Sifthen (29, Ebinop (22, Cgt, Evar (21,  (*L1*) 6), Econst (20, 5)),
+                          Sifthen (28, Ebinop (25, Clt, Evar (24,  (*I1*) 1), Econst (23, 0)),
+                            Sassign (27,  (*L2*) 7, Econst (26, 8))
                           )
                         ),
-                        Sseq (52,
-                          Swhile (43, Ebinop (32, Cgt, Evar (33,  (*L1*) 6), Econst (31, 0)), 
+                        Sseq (51,
+                          Swhile (42, Ebinop (32, Cgt, Evar (31,  (*L1*) 6), Econst (30, 0)), 
                             None ,
-                            Sseq (42,
-                              Sassign (37,  (*L2*) 7, Ebinop (35, Oadd, Evar (36,  (*L2*) 7), Econst (34, 1))),
-                              Sassign (41,  (*L1*) 6, Ebinop (39, Osub, Evar (40,  (*L1*) 6), Econst (38, 1))) )
+                            Sseq (41,
+                              Sassign (36,  (*L2*) 7, Ebinop (35, Oadd, Evar (34,  (*L2*) 7), Econst (33, 1))),
+                              Sassign (40,  (*L1*) 6, Ebinop (39, Osub, Evar (38,  (*L1*) 6), Econst (37, 1))) )
                           ),
-                          Sassign (44,  (*O1*) 4, Evar (45,  (*L2*) 7)) ) ) ) ) ) ) )
+                          Sassign (44,  (*O1*) 4, Evar (43,  (*L2*) 7)) ) ) ) ) ) ) )
         }
       )
     ]
   ),  
   (* Compilation Unit - Type Table *)
   {
-    tt_ast_table = 
+    tt_exptype_table = 
       (* Expression AstNum --> TypeNum *) 
       [
+        (2, 1) ;
         (3, 1) ;
         (4, 1) ;
         (5, 1) ;
         (6, 1) ;
         (7, 1) ;
-        (8, 1) ;
-        (9, 2) ;
+        (8, 2) ;
+        (10, 1) ;
         (12, 1) ;
         (14, 1) ;
         (16, 1) ;
         (17, 1) ;
         (18, 1) ;
-        (19, 1) ;
-        (21, 2) ;
+        (20, 2) ;
+        (21, 1) ;
         (22, 3) ;
-        (23, 1) ;
-        (24, 2) ;
+        (23, 2) ;
+        (24, 1) ;
         (25, 3) ;
-        (26, 1) ;
-        (27, 2) ;
-        (31, 2) ;
+        (26, 2) ;
+        (30, 2) ;
+        (31, 1) ;
         (32, 3) ;
-        (33, 1) ;
-        (34, 2) ;
+        (33, 2) ;
+        (34, 1) ;
         (35, 1) ;
-        (36, 1) ;
-        (38, 2) ;
+        (37, 2) ;
+        (38, 1) ;
         (39, 1) ;
-        (40, 1) ;
-        (45, 1)
+        (43, 1)
       ];
-    tt_typeuri_table = 
+    tt_typename_table = 
       (* TypeNum --> Type Name * Type Declaration AST Num *) 
       [
         (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1", None)) ;
