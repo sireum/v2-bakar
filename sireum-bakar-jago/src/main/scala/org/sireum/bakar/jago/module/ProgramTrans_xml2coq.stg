@@ -4,20 +4,20 @@ optionVal(value) ::= <<
 $if(value)$Some($value$)$else$None$endif$ 
 >>
 
-binaryExpr(uri, op, loperand, roperand) ::= <<
-Ebinop $uri$ $op$ ($loperand$) ($roperand$)
+binaryExpr(astnum, op, loperand, roperand) ::= <<
+Ebinop $astnum$ $op$ ($loperand$) ($roperand$)
 >>
 
-unaryExpr(uri, op, operand) ::= <<
-Eunop $uri$ $op$ ($operand$)
+unaryExpr(astnum, op, operand) ::= <<
+Eunop $astnum$ $op$ ($operand$)
 >>
 
 varId(id, annotation) ::= <<
 $if(annotation)$(*$annotation$*) $endif$$id$
 >>
 
-identifierExpr(uri, id) ::= <<
-Evar $uri$ $id$
+identifierExpr(astnum, id) ::= <<
+Evar $astnum$ $id$
 >>
 
 // Inductive constant: Type := 
@@ -27,44 +27,44 @@ constant(theType, constVal) ::= <<
 $theType$ $constVal$
 >>
 
-constantExpr(uri, constVal) ::= <<
-Econst $uri$ ($constVal$)
+constantExpr(astnum, constVal) ::= <<
+Econst $astnum$ ($constVal$)
 >>
 
 procedureCall(procName, args) ::= <<
 $procName$($args; separator=", "$)
 >>
 
-seqStmt(uri, stmt1, stmt2) ::= <<
-Sseq $uri$ (
+seqStmt(astnum, stmt1, stmt2) ::= <<
+Sseq $astnum$ (
   $stmt1$ ) ( 
   $stmt2$ )
 >>
 
-whileStmt(uri, cond, loopInv, loopBody) ::= <<
-Swhile $uri$ ($cond$) ($if(loopInv)$
+whileStmt(astnum, cond, loopInv, loopBody) ::= <<
+Swhile $astnum$ ($cond$) ($if(loopInv)$
     $loopInv$$else$
     None$endif$ ) (
     $loopBody$
   )
 >>
 
-ifStmt(uri, cond, ifBody) ::= <<
-Sifthen $uri$ ($cond$) (
+ifStmt(astnum, cond, ifBody) ::= <<
+Sifthen $astnum$ ($cond$) (
     $ifBody$
   )
 >>
 
-assignStmt(uri, lhs, rhs) ::= <<
-Sassign $uri$ ($lhs$) ($rhs$)
+assignStmt(astnum, lhs, rhs) ::= <<
+Sassign $astnum$ ($lhs$) ($rhs$)
 >>
 
-param(uri, id, mode, initExp) ::= <<
-mkparam $uri$ ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
+param(astnum, id, mode, initExp) ::= <<
+mkparam $astnum$ ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
 >>
 
-subprogAspectSpecs(uri, pre, post) ::= <<
-mksubprog_aspect_specs $uri$
+subprogAspectSpecs(astnum, pre, post) ::= <<
+mksubprog_aspect_specs $astnum$
   (* Precondition *)
   ($if(pre)$
   $pre$$else$None$endif$) 
@@ -73,12 +73,12 @@ mksubprog_aspect_specs $uri$
   $post$$else$None$endif$)
 >>
 
-identiferDecl(uri, ids, init) ::= <<
-mklocal_ident $uri$ ($ids; separator=" :: "$ :: nil) $if(init)$$init$$else$None$endif$
+identiferDecl(astnum, ids, init) ::= <<
+mklocal_ident $astnum$ ($ids; separator=" :: "$ :: nil) $if(init)$$init$$else$None$endif$
 >>
 
-procedureBody(uri, procName, aspectSpecs, params, identDecls, procBody) ::= <<
-mkprocedure_body $uri$
+procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
+mkprocedure_body $astnum$
   (* Procedure Body - Name *)
   $procName$
   (* Procedure Body - Specification *)
@@ -99,8 +99,8 @@ mkprocedure_body $uri$
   )
 >>
 
-functionBody(uri, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-mkfunction_body $uri$
+functionBody(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+mkfunction_body $astnum$
   (* Function Body - Name *)
   $funcName$
   (* Function Body - Specification *)
@@ -125,15 +125,15 @@ mkfunction_body $uri$
 
 // <Sproc procedure_body> or <Sfunc function_body>
 // <annotation> can be either "Procedure" or "Function"
-subProgram(uri, kind, prog, annotation) ::= <<
+subProgram(astnum, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
-$kind$ $uri$
+$kind$ $astnum$
   ($prog$)
 >>
 
-packageBody(pkgBodyUri, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
+packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
-Packagebody $pkgBodyUri$
+Packagebody $astnum$
   (* Package Body - Name *)
   ($pkgBodyName$)
   (* Package Body - Specification *)
@@ -145,10 +145,10 @@ Packagebody $pkgBodyUri$
   )
 >>
 
-compilationUnit(unitUri, unitName, unitDecl,
-  unitExpTypeTable, unitTypeUriTable, unitTypeDeclAst) ::= <<
+compilationUnit(astnum, unitName, unitDecl,
+  unitExpTypeTable, unitTypeNameTable, unitTypeDeclAst) ::= <<
 (* Compilation Unit Declaration *)
-PkgBodyDecl $unitUri$
+PkgBodyDecl $astnum$
   (* Compilation Unit - Name *)
   ($unitName$)
   (* Compilation Unit - Unit Declaration *) (
@@ -156,12 +156,12 @@ PkgBodyDecl $unitUri$
   )
   (* Compilation Unit - Type Table *) (
     mktype_table (
-      (* Expression AstNum --> TypeNum *)
+      (* Expression Type Table: Expression AstNum --> TypeNum *)
       $unitExpTypeTable; separator=" ::\n"$ ::
       nil
     ) (
-      (* TypeNum --> Type Name * Type Declaration AST Num *)
-      $unitTypeUriTable; separator=" ::\n"$ ::
+      (* Type Name Table: TypeNum --> Type Name * Type Declaration AST Num *)
+      $unitTypeNameTable; separator=" ::\n"$ ::
       nil
     )
   )

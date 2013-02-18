@@ -5,13 +5,6 @@ $basicTypes()$
 $typeDeclarations; separator="\n\n"$
 >>
 
-//type ident =
-//	| Aid of int
-//	| Bid of int
-
-//type ident = int
-//type uri = int
-
 basicTypes() ::= <<
 type mode = 
     | In
@@ -32,8 +25,8 @@ type typenum = int
 type typeuri = string
 
 type type_table = {
-    tt_ast_table: (int * int) list;
-    tt_typeuri_table: (int * (string * int option)) list
+    tt_exptype_table: (int * int) list;
+    tt_typename_table: (int * (string * int option)) list
 }
 
 type location = 
@@ -64,19 +57,14 @@ type $recordName$ = $if(constructorName)$$endif${
 
 // constructorArgs is a typeExpression in form like: int * int 
 constructor(constructorName, constructorArgs) ::= <<
-| $constructorName$ $if(constructorArgs)$of $constructorArgs$$endif$
->>
-
-// construct type expression with form like: int * string 
-constructorArguments(arguments) ::= <<
-$arguments; separator=" * "$
+| $constructorName$ $if(constructorArgs)$of $constructorArgs; separator=" * "$$endif$
 >>
 
 typeRename(newName, oldName) ::= <<
 type $newName$ = $oldName$
 >>
 
-// In Coq, "option bool" should be written with "bool option" in OCaml
+// the Coq type "option bool" should be written with "bool option" in OCaml
 optionType(theType) ::= <<
 ($theType$) option
 >>

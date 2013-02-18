@@ -6,11 +6,10 @@ $importedLibs()$
 $basicTypes()$
 
 $typeDeclarations; separator="\n\n"$
-
-(* End SPARK_Syntax. *)
-(* Extraction SPARK_Syntax. *)
-(* Recursive Extraction program. *)
 >>
+// (* End SPARK_Syntax. *)
+// (* Extraction SPARK_Syntax. *)
+// (* Recursive Extraction program. *)
 
 importedLibs() ::= <<
 Require Export ZArith. 
@@ -18,13 +17,6 @@ Require Export Coq.Lists.List.
 Require Export Coq.Bool.Bool.
 Require Export Coq.Strings.String.
 >>
-
-//Inductive ident: Type :=
-//	| Aid: nat -> ident
-//	| Bid: nat -> ident.
-
-//Definition ident := nat.
-//Definition uri := nat.
 
 basicTypes() ::= <<
 Inductive mode: Type := 
@@ -46,8 +38,8 @@ Definition typenum := nat.
 Definition typeuri := string.
 
 Record type_table: Type := mktype_table{
-    tt_ast_table: list (nat * nat);
-    tt_typeuri_table: list (nat * (string * option nat))
+    tt_exptype_table: list (nat * nat);
+    tt_typename_table: list (nat * (string * option nat))
 }.
 
 Inductive location := 
@@ -76,20 +68,15 @@ Record $recordName$: Type := $constructorName${
 >>
 
 constructor(constructorName, constructorArgs) ::= <<
-| $constructorName$: $constructorArgs$
->>
-
-constructorArguments(arguments) ::= <<
-$arguments; separator=" -> "$
+| $constructorName$: $constructorArgs; separator = " -> "$
 >>
 
 typeRename(newName, oldName) ::= <<
 Definition $newName$ := $oldName$.
 >>
 
-// In Coq, "option bool" should be written with "bool option" in OCaml
-// $if(switch)$ ($theType$) option $else$ option ($theType$) $endif$
-optionType(theType, switch) ::= <<
+// the Coq type "option bool" should be written with "bool option" in OCaml
+optionType(theType) ::= <<
 option ($theType$)
 >>
 

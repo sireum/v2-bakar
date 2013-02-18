@@ -68,6 +68,11 @@ object Test1{
 //    val fr = reverse.toSeq.sortBy(_._1)
 //    for(e <- fr)
 //      println(e._1 + "->" + e._2)
+    var x = "how";
+    var y = "are";
+    def foo (p: String) = {p match {case "how" | "are" => "you" case _ => "!!!"}}
+    println(foo(x))
+    println(foo(y))
     
   }
   

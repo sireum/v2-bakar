@@ -19,8 +19,8 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
   val unitNameMap = mmapEmpty[String, Int] // from package/procedure name to natural number
   val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
-  val unitLocMap = mmapEmpty[Int, String] // from AST# uri to its location
-  val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# uri to its type number
+  val unitLocMap = mmapEmpty[Int, String] // from AST# number to its location
+  val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# number to its type number
   // TODO: it's none now
   val unitTypeDeclsMap = mmapEmpty[String, Int] // declared type to its ast number 
   
@@ -97,25 +97,25 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.get
   }
   
-  def buildBinaryExpr(uri: Int, op: String, loperand: String, roperand: String) = {
+  def buildBinaryExpr(astnum: Int, op: String, loperand: String, roperand: String) = {
     val result = stg.getInstanceOf("binaryExpr") 
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("op", op)
     result.add("loperand", loperand)
     result.add("roperand", roperand)
     result.render()
   }
   
-  def buildUnaryExpr(uri: Int, op: String, operand: String) = {
+  def buildUnaryExpr(astnum: Int, op: String, operand: String) = {
     val result = stg.getInstanceOf("unaryExpr")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("op", op)
     result.add("operand", operand)
     result.render()
   }
 
-  // Map the AST# uri to Location and (option: to Type, when AST is an expression)
-  def buildUriMappingTable(sloc: SourceLocation, theType: Option[String]) = {
+  // Map the AST# number to Location and (option: to Type, when AST is an expression)
+  def buildAstMappingTable(sloc: SourceLocation, theType: Option[String]) = {
     // record the location for the current AST
     val astnum = next_astnum
     unitLocMap += (astnum -> buildLocation(sloc))
@@ -125,10 +125,6 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
         if(unitTypeMap.get(theType.get).isDefined){
           unitTypeMap.get(theType.get).get
         }else{
-          
-        if(theType.isDefined && theType.get == "Integer")
-          println(theType.get)
-          
           val n = next_typenum
           unitTypeMap += (theType.get -> n)
           n
@@ -190,9 +186,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       varId
     }else{ 
       // val varId = buildId(theType, id)
-      val uri = buildUriMappingTable(sloc, ident2TypeMap.get(varId))
+      val astnum = buildAstMappingTable(sloc, ident2TypeMap.get(varId))
       val result = stg.getInstanceOf("identifierExpr")
-      result.add("uri", uri)
+      result.add("astnum", astnum)
       result.add("id", varId)
       result.render()
     }
@@ -213,9 +209,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildConstantExpr(uri: Int, theType: String, constVal: String) = {
+  def buildConstantExpr(astnum: Int, theType: String, constVal: String) = {
     val result = stg.getInstanceOf("constantExpr")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     val o = buildConstant(theType, constVal)
     result.add("constVal", o)
     result.render()
@@ -235,41 +231,41 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       stmts.head
     }else{
       val result = stg.getInstanceOf("seqStmt")
-      result.add("uri", next_astnum)
+      result.add("astnum", next_astnum)
       result.add("stmt1", stmts.head)
       result.add("stmt2", buildSeqStmt(stmts.tail: _*))
       result.render()
     }
   }
   
-  def buildWhileStmt(uri: Int, cond: String, loopInv: String, loopBody: String) = {
+  def buildWhileStmt(astnum: Int, cond: String, loopInv: String, loopBody: String) = {
     val result = stg.getInstanceOf("whileStmt")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("cond", cond)
     result.add("loopInv", loopInv)
     result.add("loopBody", loopBody)
     result.render()
   }
   
-  def buildIfStmt(uri: Int, cond: String, ifBody: String) = {
+  def buildIfStmt(astnum: Int, cond: String, ifBody: String) = {
     val result = stg.getInstanceOf("ifStmt")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("cond", cond)
     result.add("ifBody", ifBody)
     result.render()
   }
   
-  def buildAssignStmt(uri: Int, lhs: String, rhs: String) = {
+  def buildAssignStmt(astnum: Int, lhs: String, rhs: String) = {
     val result = stg.getInstanceOf("assignStmt")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("lhs", lhs)
     result.add("rhs", rhs)
     result.render()
   }
   
-  def buildParameter(uri: Int, id: String, mode: String, initExp: Option[String]) = {
+  def buildParameter(astnum: Int, id: String, mode: String, initExp: Option[String]) = {
     val result = stg.getInstanceOf("param")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("id", id)
     result.add("mode", mode)
     if(initExp.isDefined)
@@ -277,24 +273,14 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  // + + + 
   def buildListAttributes(st: org.stringtemplate.v4.ST, 
       attributeName: String, attributeValues: String*) {
-//    (option: @unchecked) match {
-//      case ProgramTarget.Coq =>
-//        attributeValues.foreach(v => st.add(attributeName, v))
-//      case ProgramTarget.Ocaml =>
-//        // st.add(attributeName, buildConstruct(attributeValues: _*))
-//        // drop the right most element "nil" in the list object
-//        val attVals = attributeValues.dropRight(1)
-//        attVals.foreach(v => st.add(attributeName, v))
-//    }
     attributeValues.foreach(v => st.add(attributeName, v))
   }
   
-  def buildSubprogAspectSpecs(uri: Int, pre: Option[String], post: Option[String]) = {
+  def buildSubprogAspectSpecs(astnum: Int, pre: Option[String], post: Option[String]) = {
     val result = stg.getInstanceOf("subprogAspectSpecs")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     if(pre.isDefined)
       result.add("pre", pre.get)
     if(post.isDefined)
@@ -302,19 +288,19 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildIdentiferDecl(uri: Int, ids: MList[String], optionalInit: Option[String]) = {
+  def buildIdentiferDecl(astnum: Int, ids: MList[String], optionalInit: Option[String]) = {
     val result = stg.getInstanceOf("identiferDecl")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     if(optionalInit.isDefined)
       result.add("optionalInit", optionalInit.get)
     buildListAttributes(result, "ids", ids: _*)
     result.render()
   }
   
-  def buildProcedureBody(uri: Int, procName: String, aspectSpecs: Option[String], params: MList[String], 
+  def buildProcedureBody(astnum: Int, procName: String, aspectSpecs: Option[String], params: MList[String], 
       identDecls: MList[String], procBody: String) = {
     val result = stg.getInstanceOf("procedureBody")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("procName", procName)
     result.add("procBody", procBody)
     if(aspectSpecs.isDefined)
@@ -324,10 +310,10 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildFunctionBody(uri: Int, funcName: String, aspectSpecs: Option[String], returnT: String, params: MList[String], 
+  def buildFunctionBody(astnum: Int, funcName: String, aspectSpecs: Option[String], returnT: String, params: MList[String], 
       identDecls: MList[String], funcBody: String) = {
     val result = stg.getInstanceOf("functionBody")
-    result.add("uri", uri)
+    result.add("astnum", astnum)
     result.add("funcName", funcName)
     result.add("returnT", returnT)
     result.add("funcBody", funcBody)
@@ -338,19 +324,19 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildSubProgram(uri: Int, kind: String, prog: String, annotation: String) = {
+  def buildSubProgram(astnum: Int, kind: String, prog: String, annotation: Option[String]) = {
     val result = stg.getInstanceOf("subProgram")
-    result.add("uri", uri)
-    result.add("annotation", annotation)
+    result.add("astnum", astnum)
     result.add("kind", kind)
     result.add("prog", prog)
+    if(annotation.isDefined)
+      result.add("annotation", annotation.get)
     result.render()
   }
   
-  def buildPackageBody(pkgBodyUri: Int, pkgBodyName: String, pkgBodyAspectSpecs: Option[String], pkgBodyDeclItems: String*) = {
-	 // outputSpecification() 
+  def buildPackageBody(astnum: Int, pkgBodyName: String, pkgBodyAspectSpecs: Option[String], pkgBodyDeclItems: String*) = {
     val result = stg.getInstanceOf("packageBody")
-    result.add("pkgBodyUri", pkgBodyUri)
+    result.add("astnum", astnum)
     result.add("pkgBodyName", pkgBodyName) 
     if(pkgBodyAspectSpecs.isDefined)
       result.add("pkgBodyAspectSpecs", pkgBodyAspectSpecs) 
@@ -361,9 +347,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   /**
    * unitName should be a natural number, but it's annotated with its actual name string, so it's a string
    */
-  def buildCompilationUnit(unitUri: Int, unitName: String, unitDecl: String) = {
+  def buildCompilationUnit(astnum: Int, unitName: String, unitDecl: String) = {
     val result = stg.getInstanceOf("compilationUnit")
-    result.add("unitUri", unitUri)
+    result.add("astnum", astnum)
     result.add("unitName", unitName)
     result.add("unitDecl", unitDecl)
     // [1]
@@ -379,7 +365,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       // TODO: the type declaration AST number is now set None
       val typedecl_num = "None"
       val typeInfor = buildMappingItem(buildString(e._2), typedecl_num)
-      result.add("unitTypeUriTable", buildMappingItem(e._1.toString, typeInfor)) 
+      result.add("unitTypeNameTable", buildMappingItem(e._1.toString, typeInfor)) 
     }
     result.render()
   }
@@ -398,20 +384,6 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.add("endline", sloc.getEndline)
     result.add("endcol", sloc.getEndcol)
     result.render()
-  }
-  
-  def outputSpecification() {
-    val o: String = (option: @unchecked) match {
-      case ProgramTarget.Coq => "Coq"
-      case ProgramTarget.Ocaml => "OCaml"
-    }
-    println("\n(* " + "Translate SPARK Into: " + o + " ! *)\n\n")
-    println("(****************************")
-    println(" mapping from var string to nat value ")
-    for(e <- unitIdentMap){
-      println("\t" + e._1 + " -> " + e._2 + ";")
-    }
-    println("****************************)")
   }
 }
 

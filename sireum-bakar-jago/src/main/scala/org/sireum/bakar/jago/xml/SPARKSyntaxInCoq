@@ -23,8 +23,8 @@ Definition typenum := nat.
 Definition typeuri := string.
 
 Record type_table: Type := mktype_table{
-    tt_ast_table: list (nat * nat);
-    tt_typeuri_table: list (nat * (string * option nat))
+    tt_exptype_table: list (nat * nat);
+    tt_typename_table: list (nat * (string * option nat))
 }.
 
 Inductive location := 
@@ -123,7 +123,3 @@ Inductive package_body: Type :=
 (* compilation unit can be either package_declaration or package_body_declaration *)
 Inductive compilation_unit: Type := 
 	| PkgBodyDecl: astnum -> procnum -> package_body -> type_table -> compilation_unit.
-
-(* End SPARK_Syntax. *)
-(* Extraction SPARK_Syntax. *)
-(* Recursive Extraction program. *)

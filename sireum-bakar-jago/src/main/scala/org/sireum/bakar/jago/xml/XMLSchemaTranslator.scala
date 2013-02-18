@@ -37,31 +37,30 @@ import org.sireum.util.MList
 object XMLSchemaTranslator {
   def getOption(option: Option[String]) = {
     // the default option is <Coq>
-    option match {
-      case Some("OCaml") =>
+    (option: @unchecked) match {
+      case Some("coq") | Some("ocaml") =>
         option
-      case Some("Coq") =>
-        option
-      case _ =>
-        Some("Coq")
+      case None =>
+        // its default option is <Coq>
+        Some("coq")
     }
   }
   
   def getStringTemplateGroup(option: Option[String]) = {
     (option: @unchecked) match {
-      case Some("Coq") =>
+      case Some("coq") =>
         // STGroupFile (URL url, String encoding, char delimiterStartChar, char delimiterStopChar)
         new STGroupFile(getClass.getResource(TypeNameSpace.TypeTransTemplate_Coq), "UTF-8", '$', '$')
-      case Some("OCaml") =>
+      case Some("ocaml") =>
         new STGroupFile(getClass.getResource(TypeNameSpace.TypeTransTemplate_OCaml), "UTF-8", '$', '$')
     }
   }
   
   def getOutFileName(option: Option[String]) = {
     (option: @unchecked) match {
-      case Some("Coq") =>
+      case Some("coq") =>
         TypeNameSpace.CoqFileName
-      case Some("OCaml") =>
+      case Some("ocaml") =>
         TypeNameSpace.OCamlFileName
     }
   } 
@@ -102,9 +101,9 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    */
   def getTypeConstructorElems(typeConstructorElems: String*) = {
     (option: @unchecked) match {
-      case Some("Coq") =>
+      case Some("coq") =>
         typeConstructorElems
-      case Some("OCaml") =>
+      case Some("ocaml") =>
         typeConstructorElems.dropRight(1)
     }
   }
@@ -121,9 +120,9 @@ class XMLSchemaTranslator(userOption: Option[String]) {
    */ 
   def getTypeConstructor(cons: String) = {
     (option: @unchecked) match {
-      case Some("Coq") =>
+      case Some("coq") =>
         cons
-      case Some("OCaml") =>
+      case Some("ocaml") =>
         if(cons.contains("*")){
           cons
         }else{
@@ -148,11 +147,9 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     result.render()
   }
   
-  // xml2coq(c: org.sireum.bakar.xml.Base)
   def typeTranslator {
     trans_compilatoin_unit
-    //trans_package_declaration
-    writeIntoCoqFile
+    writeIntoTargetTypeFile
   }
   
   def trans_compilatoin_unit {
@@ -195,7 +192,6 @@ class XMLSchemaTranslator(userOption: Option[String]) {
           }
         }
       }
-      
     }
   }
 
@@ -291,8 +287,8 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   /**
    * procedure_annotation ::= [global_definition] 
    *                          [dependency_relation] 
-   *                  [precondition]
-   *                [postcondition]
+   *                          [precondition]
+   *                          [postcondition]
    */
   def trans_procedure_aspectspecs {
     val typeName = TypeNameSpace.SubProgramAspectSpecs
@@ -561,11 +557,6 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   }
   
   /**
-   * *********************************************************************
-   * *********************************************************************
-   */
-  
-  /**
    * Definition newName := oldName.
    */
   def createTypeRename(newName: String, oldName: String) {
@@ -584,15 +575,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     val result = stg.getInstanceOf("constructor")
     result.add("constructorName", constructorName)
     val typeConstructorArgs = getTypeConstructorElems(constructorArgs: _*)
-    if(typeConstructorArgs.length > 0) {
-      // In OCaml, the typeConstructorArgs typeExpresion maybe empty
-      val args = stg.getInstanceOf("constructorArguments")
-      typeConstructorArgs.foreach(arg => 
-        args.add("arguments", arg)
-      )
-      result.add("constructorArgs", args)
-    }
-    
+    typeConstructorArgs.foreach(e => result.add("constructorArgs", e))
     // return
     result.render()
   }
@@ -607,10 +590,10 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     val result = stg.getInstanceOf("typeDeclaration")
     result.add("typeName", typeName)
     if(constructors.length == 1){
+      // ocmal type extracted from coq type will be optimized
       result.add("constructorDecls", getTypeConstructor(constructors.head))
     }else{
-      constructors.foreach(cons => 
-        result.add("constructorDecls", cons))      
+      constructors.foreach(cons => result.add("constructorDecls", cons))      
     }
     if(annotation.isDefined)
       result.add("annotation", annotation.get)
@@ -623,9 +606,10 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     val result = stg.getInstanceOf("typeDeclaration")
     result.add("typeName", typeName)
     if(constructors.length == 1){
+      // ocmal type extracted from coq type will be optimized
       val c = constructors.head
       val cons = createConstructor(c.head, c.tail: _*)
-      result.add("constructorDecls", this.getTypeConstructor(cons))      
+      result.add("constructorDecls", getTypeConstructor(cons))      
     }else{
       constructors.foreach(consElems => {
         val constructorName = consElems.head
@@ -634,7 +618,6 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         result.add("constructorDecls", cons)
       })      
     }
-    
     if(annotation.isDefined)
       result.add("annotation", annotation.get)
     // [2] add it into typeDeclarations
@@ -644,10 +627,10 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   def createFieldDecl(fieldName: String, fieldType: String, option: Boolean) = {
     val result = stg.getInstanceOf("fieldDeclaration")
     result.add("fieldName", fieldName)
-    if(option)
-      result.add("fieldType", getOptionType(fieldType))
-    else 
-      result.add("fieldType", fieldType)
+    option match {
+      case true => result.add("fieldType", getOptionType(fieldType))
+      case false => result.add("fieldType", fieldType)
+    }
     result.render()
   }
   
@@ -655,15 +638,13 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     val result = stg.getInstanceOf("recordDeclaration")
     result.add("recordName", recordName)
     result.add("constructorName", "mk" + constructorName)
-    fields.foreach(f => 
-      result.add("fields", f)
-    )
+    fields.foreach(f => result.add("fields", f))
     if(annotation.isDefined)
       result.add("annotation", annotation.get)    
     typeDeclarations += result.render()
   }
   
-  def writeIntoCoqFile(){
+  def writeIntoTargetTypeFile(){
     val typeDefs = stg.getInstanceOf("typeDefinitions")
     typeDeclarations.foreach(typeDecl =>
       typeDefs.add("typeDeclarations", typeDecl))
@@ -671,27 +652,26 @@ class XMLSchemaTranslator(userOption: Option[String]) {
     fwriter.write(typeDefs.render())
     fwriter.close()
   }
-  
 }
 
 object TypeTranslator{
   def main(args: Array[String]){
     var option: Option[String] = None
     if(args.length > 0) {
-      val optValue = args(0)
-      if(optValue == "Coq" || optValue == "OCaml") {
-         option = Some(optValue)
-      }else {
-        println("usage: option should be either <Coq> or <OCaml>, the default is <Coq> !")  
-        System.exit(1)
+      val optValue = args(0).toLowerCase()
+      optValue match {
+        case "coq" | "ocaml" => 
+          option = Some(optValue)
+        case _ => 
+          println("usage: option should be either <Coq> or <OCaml>, the default is <Coq> !")  
+          System.exit(1)
       }
     }
     
     val translator = new XMLSchemaTranslator(option);
     translator.typeTranslator
     
-    println("      Begin to Translate SPARK into " + translator.option.get + "...")
-    println("~ ~ ~ XMLSchema Type Translation End !!! ~ ~ ~")
+    println("      Type Translation from SPARK to " + translator.option.get + "...")
     //    val url = getClass.getResource("TypeTrans_xml2coq.stg")
   }
 }

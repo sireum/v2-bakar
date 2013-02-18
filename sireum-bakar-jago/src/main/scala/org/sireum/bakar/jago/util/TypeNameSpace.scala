@@ -12,9 +12,9 @@ object TypeNameSpace {
   
   def Integer(option: Option[String]) = {
     option match {
-      case Some("Coq") =>
+      case Some("coq") =>
         "nat"
-      case Some("OCaml") => 
+      case Some("ocaml") => 
         "int" 
       case _ => 
         "int"

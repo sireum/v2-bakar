@@ -17,8 +17,8 @@ type typenum = int
 type typeuri = string
 
 type type_table = {
-    tt_ast_table: (int * int) list;
-    tt_typeuri_table: (int * (string * int option)) list
+    tt_exptype_table: (int * int) list;
+    tt_typename_table: (int * (string * int option)) list
 }
 
 type location = 
