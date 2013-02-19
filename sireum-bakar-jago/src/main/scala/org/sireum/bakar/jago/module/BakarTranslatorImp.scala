@@ -94,11 +94,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       sourceFile) =>
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
-      
-      v(unitDeclaration)
-      val unitDecl = ctx.popResult
+        
       // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
       val astnum = factory.buildAstMappingTable(sloc, None)
+      v(unitDeclaration)
+      val unitDecl = ctx.popResult
       val cu = factory.buildCompilationUnit(astnum, unitDecl)  
         
       // store the program translation results as PipelineJob's properties

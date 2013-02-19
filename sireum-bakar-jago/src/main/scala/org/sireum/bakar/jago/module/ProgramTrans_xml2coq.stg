@@ -156,7 +156,7 @@ CompilationUnit $astnum$
       (* Expression Type Table: Expression AstNum --> TypeNum *)
       $unitExpTypeTable; separator=" ::\n"$ :: nil
     ) (
-      (* Type Name Table: TypeNum --> (Type Name * Type Declaration AST Num) *)
+      (* Type Name Table: TypeNum --> (Type URI * Type Declaration AST Num) *)
       $unitTypeNameTable; separator=" ::\n"$ :: nil
     )
   )

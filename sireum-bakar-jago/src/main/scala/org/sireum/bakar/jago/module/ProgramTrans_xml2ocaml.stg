@@ -193,7 +193,7 @@ CompilationUnit ( $astnum$,
         $unitExpTypeTable; separator=" ;\n"$
       ];
     tt_typename_table = 
-      (* TypeNum --> (Type Name * Type Declaration AST Num) *) 
+      (* TypeNum --> (Type URI * Type Declaration AST Num) *) 
       [
         $unitTypeNameTable; separator=" ;\n"$
       ]
