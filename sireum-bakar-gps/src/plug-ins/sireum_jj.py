@@ -7,6 +7,7 @@ import gtk
 import gobject
 import simplejson as json
 import gps_utils.highlighter as highlighter
+import re
 
 def run_java_program():
 	""" This is temp function with reference to GPS function for fetching properties of project/code """
@@ -27,19 +28,19 @@ def run_java_program():
 	print "source files:", GPS.current_context().project().sources()
 	print "source dirs:", GPS.current_context().project().source_dirs()
 	print "project dir:", os.path.dirname(GPS.current_context().project().file().name())
-	#highlighting
-#	buffer = GPS.EditorBuffer.get(GPS.File (GPS.current_context().file().name()))
-#	
-#	h = highlighter.Text_Highlighter("default", "bla")
-#	overlay = buffer.create_overlay("Overlay")
-#	h.do_highlight(buffer, overlay, 1, 10)
-	
-	#highlighter.Regexp_Highlighter (name="tabs style", regexp="begin(.*?)end", bg_color="#FF7979")
-	
-	#ed  = GPS.Editor.highlight_range("example.adb","General",4)
-	#print "Editor location: ", ed.line()
-	#print "column:", GPS.current_context().column()
-	#print "line:", GPS.current_context().line()
+	print "file entities:", GPS.current_context().file().entities()
+	print "file entities 2:", GPS.File("example.adb").entities()
+
+	#highlighting (GPS >5.2) http://www.adacore.com/developers/development-log/category/gnatbench
+	# Create an soverlay for an editor:
+  	b = GPS.EditorBuffer.get(GPS.File("example.adb"))
+   	o = b.create_overlay("my_overlay_name")
+  	# Set the paragraph-background property to pink
+   	o.set_property ("paragraph-background", "#f0c0c0")
+  	# This highlights the entire line 7 in file
+  	b.apply_overlay (o,
+    GPS.EditorLocation(b, 7, 1),
+    GPS.EditorLocation(b, 7, 1))
 	
 
 
@@ -446,53 +447,15 @@ class TreeViewColumns:
 """ End of Kiasan code """
 
 def run_kiasan_and_read_json():
-	#run kiasan
+	"""
+	This method runs Kiasan plugin and load generated reports data into integrated GPS window.
+	"""
+	
 	run_java_program()
 	
-	if GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get():
-		os.system("rm -rf " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
-		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
-		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan/xml")
-	else:
-		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum"):
-			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum")	
-		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan"):
-			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
+	prepare_directories_for_reports()
 	
-#	package/namespace
-#	subprogram
-#	print "entity:", GPS.current_context().entity().name()
-#	print "entity category:", GPS.current_context().entity().category()
-	
-	kiasanLibDir = "/Users/jj/Programs/Sireum/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201212051038/lib/"
-	
-	runKiasanCommand = "java -jar " + kiasanLibDir + "BakarKiasan.jar"
-	runKiasanCommand += " --topi-lib-dir " + kiasanLibDir
-	runKiasanCommand += " --outdir /Users/jj/Documents/workspace/test/.sireum/kiasan"
-	runKiasanCommand += " --array-bound " + str(GPS.Preference("sireum-kiasan-array-indices-bound").get())
-	runKiasanCommand += " --loop-bound " + str(GPS.Preference("sireum-kiasan-loop-bound").get())
-	runKiasanCommand += " --invoke-bound " + str(GPS.Preference("sireum-kiasan-call-chain-bound").get())
-	runKiasanCommand += " --timeout " + str(GPS.Preference("sireum-kiasan-timeout").get())
-	runKiasanCommand += " --constrain-values" if GPS.Preference("sireum-kiasan-constrain-scalar-values").get() else ""
-	runKiasanCommand += " --smt " + GPS.Preference("sireum-kiasan-theorem-prover").get()
-	runKiasanCommand += " --constraint-solver " + GPS.Preference("sireum-kiasan-theorem-prover").get()
-	runKiasanCommand += " --topi-bin-dir " + GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get()
-	runKiasanCommand += " --generate-claim-coverage-report --modular-analysis --generate-pogs-report" if GPS.Preference("sireum-kiasan-generate-claim-report") else ""
-	runKiasanCommand += " --source-paths=" + GPS.current_context().directory()
-	runKiasanCommand += " --source-files=example.adb,example.ads"
-	runKiasanCommand += " --print-trace-bound-exhausted"
-	#runKiasanCommand += " --gen-bound-exhaustion-cases"
-	runKiasanCommand += " --generate-sireum-report"
-	#runKiasanCommand += " --generate-sireum-report-only" 
-	runKiasanCommand += " --generate-xml-report"
-	runKiasanCommand += " --generate-json-report" if GPS.Preference("sireum-kiasan-generate-json-output").get() else ""
-	runKiasanCommand += " --generate-aunit-test-cases" if GPS.Preference("sireum-kiasan-generate-aunit").get() else ""
-	runKiasanCommand += " --generate-html-report " + GPS.Preference("sireum-kiasan-html-output-directory").get() if GPS.Preference("sireum-kiasan-generate-html-report").get() else ""
-	#TODO: add dotLocation (KiasanRunner.java:443)
-	runKiasanCommand += " Example " + GPS.current_context().entity().name()
-	
-	print runKiasanCommand
-	os.system(runKiasanCommand)	
+	run_kiasan()
 	
 	#read generated json
 	kiasan_logic = KiasanLogic()
@@ -506,7 +469,73 @@ def run_kiasan_and_read_json():
 	win = GPS.MDI.get('kiasan')
 	win.split(reuse="True") # reuse=True: bottom from code window, reuse=False: top from code window
 	win.float(float=False)	# float=True: popup, float=False: GPS integrated window
-    
+
+
+def prepare_directories_for_reports():
+	"""
+	If option 'Delete previous Kiasan reports before re-runing' is enabled then delete entire directory, and create new empty
+	Check if directory sireum and sireum/kiasan exists - if not create them
+	"""
+	
+	if GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get():
+		os.system("rm -rf " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
+		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
+	else:
+		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum"):
+			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum")	
+		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan"):
+			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
+
+
+def run_kiasan():
+	"""
+	Runs Kiasan based on preferences and clicked entity. 
+	"""
+	
+	# get package name (we assume that package_name = file_name_without_extension)
+	file_name = GPS.current_context().file().name()
+	m = re.search( '(?<=\/)(\w+)\.ad[bs]', file_name)
+	package_name = m.groups()[0]
+	
+	# get procedure(s) names
+	if GPS.current_context().entity().category() == "subprogram":
+		procedures = GPS.current_context().entity().name()
+	elif GPS.current_context().entity().category() == "package/namespace":
+		raise NotImplementedError
+		# TODO: we need to find a way to get all procedures from package
+		procedures = "add " + "foo "
+	
+	kiasan_lib_dir = "/Users/jj/Programs/Sireum/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201212051038/lib/"
+	
+	# create run command
+	runKiasanCommand = "java -jar " + kiasan_lib_dir + "BakarKiasan.jar"
+	runKiasanCommand += " --topi-lib-dir " + kiasan_lib_dir
+	runKiasanCommand += " --outdir /Users/jj/Documents/workspace/test/.sireum/kiasan"
+	runKiasanCommand += " --array-bound " + str(GPS.Preference("sireum-kiasan-array-indices-bound").get())
+	runKiasanCommand += " --loop-bound " + str(GPS.Preference("sireum-kiasan-loop-bound").get())
+	runKiasanCommand += " --invoke-bound " + str(GPS.Preference("sireum-kiasan-call-chain-bound").get())
+	runKiasanCommand += " --timeout " + str(GPS.Preference("sireum-kiasan-timeout").get())
+	runKiasanCommand += " --constrain-values" if GPS.Preference("sireum-kiasan-constrain-scalar-values").get() else ""
+	runKiasanCommand += " --smt " + GPS.Preference("sireum-kiasan-theorem-prover").get()
+	runKiasanCommand += " --constraint-solver " + GPS.Preference("sireum-kiasan-theorem-prover").get()
+	runKiasanCommand += " --topi-bin-dir " + GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get()
+	runKiasanCommand += " --generate-claim-coverage-report --modular-analysis --generate-pogs-report" if GPS.Preference("sireum-kiasan-generate-claim-report") else ""
+	runKiasanCommand += " --source-paths=" + GPS.current_context().directory()
+	runKiasanCommand += " --source-files=" + package_name + ".adb" + "," + package_name + ".ads"
+	runKiasanCommand += " --print-trace-bound-exhausted"
+	#runKiasanCommand += " --gen-bound-exhaustion-cases"
+	runKiasanCommand += " --generate-sireum-report"
+	#runKiasanCommand += " --generate-sireum-report-only" 
+	runKiasanCommand += " --generate-xml-report"
+	runKiasanCommand += " --generate-json-report" if GPS.Preference("sireum-kiasan-generate-json-output").get() else ""
+	runKiasanCommand += " --generate-aunit-test-cases" if GPS.Preference("sireum-kiasan-generate-aunit").get() else ""
+	runKiasanCommand += " --generate-html-report " + GPS.Preference("sireum-kiasan-html-output-directory").get() if GPS.Preference("sireum-kiasan-generate-html-report").get() else ""
+	#TODO: add dotLocation?? (KiasanRunner.java:443)
+	runKiasanCommand += " " + package_name + " " + procedures
+	
+	print runKiasanCommand
+	os.system(runKiasanCommand)	
+	    
 """End of Kiasan GUI"""
 
 GPS.parse_xml ("""
