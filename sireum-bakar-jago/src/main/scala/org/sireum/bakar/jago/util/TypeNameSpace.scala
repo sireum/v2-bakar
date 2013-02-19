@@ -20,15 +20,16 @@ object TypeNameSpace {
         "int"
     }
   }
-//  val VarT = "ident";
-//  val Uri = "uri";
-  val ValT = "value";
-  val Location = "location";
+
+//  val ValT = "value";
+//  val Location = "location";
   
-  val IdNum = "idnum";
   val AstNum = "astnum";
+  val IdNum = "idnum";
   val ProcNum = "procnum";
+  val PkgNum = "pkgnum";
   val TypeNum = "typenum";
+  val AspectNum = "aspectnum";
   val TypeUri = "typeuri";
   val TypeTable = "type_table";
   
@@ -37,21 +38,21 @@ object TypeNameSpace {
   val String = "string";
   val Constant = "constant"
   val Predicate = "predicate"
-  val ExpressionT = "expr";
-  val BinaryOpT = "binary_operation";
-  val UnaryOpT = "unary_operation";
-  val StatementListT = "stmt";
+  val Expression = "expr";
+  val BinaryOp = "binary_operation";
+  val UnaryOp = "unary_operation";
+  val StatementList = "stmt";
   
   val ModeT = "mode";
-  val Defining_Identifier = "local_ident";
-  val SubProgramAspectSpecs = "subprog_aspect_specs";
-  val Parameter = "param";
-  val ProcedureBodyT = "procedure_body";
-  val FunctionBodyT = "function_body"; // "function" is a reserved key word in OCaml
-  val SubProgramT = "subprogram";
-  val PackageBodyAspectSpecs = "pkgbody_aspect_specs";
-  val PackageBodyT = "package_body";
+  val VariableDeclaration = "var_declaration";
+  val AspectSpecification = "aspect_specification";
+  val ParameterSpecification = "param_specification";
+  val ProcedureBody = "procedure_body";
+  val FunctionBody = "function_body"; // "function" is a reserved key word in OCaml
+  val SubProgram = "subprogram";
+  val PackageBodyDecl = "package_body";
   val PackageDeclaration = "package_declaration";
+  val UnitDeclaration = "unit_declaration";
   val CompilationUnit = "compilation_unit";
    
   val Assert = "assert"; // LoopInvariant

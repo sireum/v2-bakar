@@ -4,29 +4,27 @@ type mode =
 
 type typ = 
     | Tint
-    | Tbool
-
-type idnum = int
 
 type astnum = int
 
+type idnum = int
+
 type procnum = int
 
+type pkgnum = int
+
 type typenum = int
+
+type typedeclnum = int
+
+type aspectnum = int
 
 type typeuri = string
 
 type type_table = {
-    tt_exptype_table: (int * int) list;
-    tt_typename_table: (int * (string * int option)) list
+    tt_exptype_table: (astnum * typenum) list;
+    tt_typename_table: (typenum * (typeuri * typedeclnum option)) list
 }
-
-type location = 
-    | Loc of (int * int) * (int * int)
-
-type value = 
-    | Aval of int
-    | Bval of bool
 
 type constant = 
 	int
@@ -66,42 +64,44 @@ type stmt =
 	| Swhile of astnum * expr * loopInvariant * stmt
 	| Sseq of astnum * stmt * stmt
 
-type param = {
+type param_specification = {
 	param_astnum: astnum;
-	param_ident: idnum;
+	param_idents: idnum list;
+	param_typenum: typenum;
 	param_mode: mode;
 	param_init: (expr) option 
 }
 
-type subprog_aspect_specs = {
-	specs_astnum: astnum;
-	pre: (predicate) option;
-	post: (predicate) option 
+type aspect_specification = {
+	aspect_astnum: astnum;
+	aspect_mark: aspectnum;
+	aspect_definition: predicate 
 }
 
 (* Local variables declarations used in the procedure/function body *)
-type local_ident = {
-	local_astnum: astnum;
-	local_idents: idnum list;
-	local_init: (value) option 
+type var_declaration = {
+	var_astnum: astnum;
+	var_idents: idnum list;
+	var_typenum: typenum;
+	var_init: (expr) option 
 }
 
 type procedure_body = {
 	proc_astnum: astnum;
 	proc_name: procnum;
-	proc_specs: (subprog_aspect_specs) option;
-	proc_params: (param list) option;
-	proc_loc_idents: (local_ident list) option;
+	proc_specs: (aspect_specification list) option;
+	proc_params: (param_specification list) option;
+	proc_loc_idents: (var_declaration list) option;
 	proc_body: stmt 
 }
 
 type function_body = {
 	fn_astnum: astnum;
 	fn_name: procnum;
-	fn_specs: (subprog_aspect_specs) option;
 	fn_ret_type: typ;
-	fn_params: (param list) option;
-	fn_loc_idents: (local_ident list) option;
+	fn_specs: (aspect_specification list) option;
+	fn_params: (param_specification list) option;
+	fn_loc_idents: (var_declaration list) option;
 	fn_body: stmt 
 }
 
@@ -109,11 +109,12 @@ type subprogram =
 	| Sproc of astnum * procedure_body
 	| Sfunc of astnum * function_body
 
-type pkgbody_aspect_specs = subprog_aspect_specs
-
 type package_body = 
-	| Packagebody of astnum * procnum * (pkgbody_aspect_specs) option * subprogram list
+	| PackageBody of astnum * pkgnum * (aspect_specification list) option * subprogram list
 
 (* compilation unit can be either package_declaration or package_body_declaration *)
+type unit_declaration = 
+	| PackageBodyDecl of astnum * package_body
+
 type compilation_unit = 
-	| PkgBodyDecl of astnum * procnum * package_body * type_table
+	| CompilationUnit of astnum * unit_declaration * type_table

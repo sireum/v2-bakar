@@ -95,12 +95,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
       
-      val unitName = factory.buildId(None, unitFullName, unitFullName)
       v(unitDeclaration)
       val unitDecl = ctx.popResult
       // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
       val astnum = factory.buildAstMappingTable(sloc, None)
-      val cu = factory.buildCompilationUnit(astnum, unitName, unitDecl)  
+      val cu = factory.buildCompilationUnit(astnum, unitDecl)  
         
       // store the program translation results as PipelineJob's properties
       // so the result can be used by the following pipeline modules
@@ -135,10 +134,13 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         v(m)
         pkgElems += ctx.popResult
       }
-      val astnum = factory.buildAstMappingTable(sloc, None);
-      val pkgBodyAspectSpecs: Option[String] = None
-      val pkg = factory.buildPackageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
-      ctx.pushResult(pkg)
+      var astnum = factory.buildAstMappingTable(sloc, None)
+      val pkgBodyAspectSpecs = mlistEmpty[String]
+      val pkgBodyDecl = factory.buildPackageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
+      //
+      astnum = factory.buildAstMappingTable(sloc, None)
+      val packageUnit = factory.buildUnitDeclaration(astnum, "PackageBodyDecl", pkgBodyDecl)
+      ctx.pushResult(packageUnit)
 
       false
   }
@@ -191,16 +193,18 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
                 Some(ctx.popResult)
               }
             // [2-3] parameter names of the same type and mode
+            val paramlist = mlistEmpty[String]
             pnames.getDefiningNames().foreach {
               case DefiningIdentifierEx(sloc, defName, theDef, theType) => 
                 val pnm = factory.buildId(paramType, theDef, defName)
-                val astnum = factory.buildAstMappingTable(sloc, paramType)
-                val paramDecl = factory.buildParameter(astnum, pnm, factory.buildMode(mode), initExp)
-                params += paramDecl
+                paramlist += pnm
               case x =>
                 println("Not expecting: " + x)
                 assert(false)
             }
+            val astnum = factory.buildAstMappingTable(sloc, paramType)
+            val paramDecl = factory.buildParamSpecification(astnum, paramlist, paramType.get, factory.buildMode(mode), initExp)
+            params += paramDecl
           case x =>
             println("Not expecting: " + x)
             assert(false)
@@ -224,9 +228,9 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           case None => None
         }
         // [6] method aspect specification, for example, Pre and Post  
-        val specs = None
+        val specs = mlistEmpty[String]
         // [7] return
-        MethodClass(mname, specs, params, defingIds, mbody, returnType)
+        MethodClass(mname, returnType, specs, params, defingIds, mbody)
       }
 
     {
@@ -261,7 +265,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         var astnum = factory.buildAstMappingTable(sloc, None)
-        val functionBody = factory.buildFunctionBody(astnum, m.mname, m.aspectSpecs, m.returnType.get, m.params, m.localIdents, m.mbody)
+        val functionBody = factory.buildFunctionBody(astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localIdents, m.mbody)
         val annotation = Some("Function")
         // TODO: should use: factory.buildAstMappingTable(sloc, ReturnType)
         astnum = factory.buildAstMappingTable(sloc, None)
@@ -290,7 +294,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
 
       val theType = util_GetTypeFromObjDeclViewQ(objDeclViewQ)
       val astnum = factory.buildAstMappingTable(sloc, theType)    
-      ctx.pushResult(factory.buildIdentiferDecl(astnum, declItems, optionalInitExp))
+      ctx.pushResult(factory.buildIdentiferDecl(astnum, declItems, theType.get, optionalInitExp))
       false
   }
   
@@ -473,11 +477,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
 
 final case class MethodClass(
     mname: String, 
-    aspectSpecs: Option[String], 
+    returnType: Option[String],
+    aspectSpecs: MList[String], 
     params: MList[String],
     localIdents: MList[String],
-    mbody: String,
-    returnType: Option[String]
+    mbody: String
 )
 
 

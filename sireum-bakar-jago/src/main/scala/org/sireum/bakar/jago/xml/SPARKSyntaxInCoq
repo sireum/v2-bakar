@@ -9,30 +9,28 @@ Inductive mode: Type :=
     | Out: mode.
 
 Inductive typ: Type := 
-    | Tint: typ
-    | Tbool: typ.
-
-Definition idnum := nat.
+    | Tint: typ.
 
 Definition astnum := nat.
 
+Definition idnum := nat.
+
 Definition procnum := nat.
 
+Definition pkgnum := nat.
+
 Definition typenum := nat.
+
+Definition typedeclnum := nat.
+
+Definition aspectnum := nat.
 
 Definition typeuri := string.
 
 Record type_table: Type := mktype_table{
-    tt_exptype_table: list (nat * nat);
-    tt_typename_table: list (nat * (string * option nat))
+    tt_exptype_table: list (astnum * typenum);
+    tt_typename_table: list (typenum * (typeuri * option typedeclnum))
 }.
-
-Inductive location := 
-    | Loc: nat * nat -> nat * nat -> location.
-
-Inductive value: Type := 
-    | Aval: nat -> value
-    | Bval: bool -> value.
 
 Inductive constant: Type := 
 	| Ointconst: nat -> constant.
@@ -72,42 +70,44 @@ Inductive stmt: Type :=
 	| Swhile: astnum -> expr -> loopInvariant -> stmt -> stmt
 	| Sseq: astnum -> stmt -> stmt -> stmt.
 
-Record param: Type := mkparam{
+Record param_specification: Type := mkparam_specification{
 	param_astnum: astnum;
-	param_ident: idnum;
+	param_idents: list idnum;
+	param_typenum: typenum;
 	param_mode: mode;
 	param_init: option (expr)
 }.
 
-Record subprog_aspect_specs: Type := mksubprog_aspect_specs{
-	specs_astnum: astnum;
-	pre: option (predicate);
-	post: option (predicate)
+Record aspect_specification: Type := mkaspect_specification{
+	aspect_astnum: astnum;
+	aspect_mark: aspectnum;
+	aspect_definition: predicate
 }.
 
 (* Local variables declarations used in the procedure/function body *)
-Record local_ident: Type := mklocal_ident{
-	local_astnum: astnum;
-	local_idents: list idnum;
-	local_init: option (value)
+Record var_declaration: Type := mkvar_declaration{
+	var_astnum: astnum;
+	var_idents: list idnum;
+	var_typenum: typenum;
+	var_init: option (expr)
 }.
 
 Record procedure_body: Type := mkprocedure_body{
 	proc_astnum: astnum;
 	proc_name: procnum;
-	proc_specs: option (subprog_aspect_specs);
-	proc_params: option (list param);
-	proc_loc_idents: option (list local_ident);
+	proc_specs: option (list aspect_specification);
+	proc_params: option (list param_specification);
+	proc_loc_idents: option (list var_declaration);
 	proc_body: stmt
 }.
 
 Record function_body: Type := mkfunction_body{
 	fn_astnum: astnum;
 	fn_name: procnum;
-	fn_specs: option (subprog_aspect_specs);
 	fn_ret_type: typ;
-	fn_params: option (list param);
-	fn_loc_idents: option (list local_ident);
+	fn_specs: option (list aspect_specification);
+	fn_params: option (list param_specification);
+	fn_loc_idents: option (list var_declaration);
 	fn_body: stmt
 }.
 
@@ -115,11 +115,12 @@ Inductive subprogram: Type :=
 	| Sproc: astnum -> procedure_body -> subprogram
 	| Sfunc: astnum -> function_body -> subprogram.
 
-Definition pkgbody_aspect_specs := subprog_aspect_specs.
-
 Inductive package_body: Type := 
-	| Packagebody: astnum -> procnum -> option (pkgbody_aspect_specs) -> list subprogram -> package_body.
+	| PackageBody: astnum -> pkgnum -> option (list aspect_specification) -> list subprogram -> package_body.
 
 (* compilation unit can be either package_declaration or package_body_declaration *)
+Inductive unit_declaration: Type := 
+	| PackageBodyDecl: astnum -> package_body -> unit_declaration.
+
 Inductive compilation_unit: Type := 
-	| PkgBodyDecl: astnum -> procnum -> package_body -> type_table -> compilation_unit.
+	| CompilationUnit: astnum -> unit_declaration -> type_table -> compilation_unit.

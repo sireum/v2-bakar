@@ -12,29 +12,27 @@ type mode =
 
 type typ = 
     | Tint
-    | Tbool
-
-type idnum = int
 
 type astnum = int
 
+type idnum = int
+
 type procnum = int
 
+type pkgnum = int
+
 type typenum = int
+
+type typedeclnum = int
+
+type aspectnum = int
 
 type typeuri = string
 
 type type_table = {
-    tt_exptype_table: (int * int) list;
-    tt_typename_table: (int * (string * int option)) list
+    tt_exptype_table: (astnum * typenum) list;
+    tt_typename_table: (typenum * (typeuri * typedeclnum option)) list
 }
-
-type location = 
-    | Loc of (int * int) * (int * int)
-
-type value = 
-    | Aval of int
-    | Bval of bool
 >>
 
 typeDeclaration(typeName, constructorDecls, annotation) ::= <<

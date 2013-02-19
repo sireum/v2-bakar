@@ -62,29 +62,24 @@ assignStmt(astnum, lhs, rhs) ::= <<
 Sassign ($astnum$, $lhs$, $rhs$)
 >>
 
-param(astnum, id, mode, initExp) ::= <<
-{ param_astnum = $astnum$; param_ident = $id$; param_mode = $mode$; param_init = $if(initExp)$$initExp$$else$None$endif$ }
+paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
+{ param_astnum = $astnum$; param_idents = [$ids; separator="; "$]; param_typenum = $theType$; param_mode = $mode$; param_init = $if(initExp)$$initExp$$else$None$endif$ }
 >>
 
-subprogAspectSpecs(astnum, pre, post) ::= <<
+aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 { 
-  specs_astnum = 
-    (* Specification AST Number *)
+  aspect_astnum = 
     $astnum$;
-  pre = 
-    (* Precondition *)
-    $if(pre)$
-    $pre$$else$None$endif$; 
-  post = 
-    (* Postcondition *)
-    $if(post)$
-    $post$$else$None$endif$
+  aspect_mark = 
+    $aspectMark$; 
+  aspect_definition = 
+    $aspectDef$
 }
 >>
 
 // +++++++++
-identiferDecl(astnum, ids, init) ::= <<
-{ local_astnum = $astnum$; local_idents = [$ids; separator="; "$]; local_init = $if(init)$$init$$else$None$endif$ }
+varDeclaration(astnum, ids, theType, init) ::= <<
+{ var_astnum = $astnum$; var_idents = [$ids; separator="; "$]; var_typenum = $theType$; var_init = $if(init)$$init$$else$None$endif$ }
 >>
 
 // ++++++
@@ -99,7 +94,7 @@ procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <
   proc_specs =
     (* Procedure Body - Specification *)
     $if(aspectSpecs)$
-    $aspectSpecs$$else$
+    $aspectSpecs; separator="; \n"$$else$
     None$endif$;
   proc_params = 
     (* Procedure Body - Parameters *)
@@ -108,7 +103,7 @@ procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <
     ])$else$
     None$endif$;
   proc_loc_idents = 
-    (* Procedure Body - Locally Defined Variables *)
+    (* Procedure Body - Local Defined Variables *)
     $if(identDecls)$Some([
       $identDecls; separator="; \n"$
     ])$else$
@@ -128,14 +123,14 @@ functionBody(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBod
   fn_name =
     (* Function Body - Name *)
     $funcName$;
+  fn_ret_type = 
+    (* Function Body - Return Type *)
+    $returnT$;
   fn_specs = 
     (* Function Body - Specification *)
     $if(aspectSpecs)$
-    $aspectSpecs$$else$
+    $aspectSpecs; separator="; \n"$$else$
     None$endif$;
-  fn_retT = 
-    (* Function Body - Return Type *)
-    $returnT$;
   fn_params = 
     (* Function Body - Parameters *)
     $if(params)$Some([
@@ -165,12 +160,12 @@ $kind$( $astnum$,
 // ++++++
 packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
-Packagebody ( $astnum$,
+PackageBody ( $astnum$,
   (* Package Body - Name *)
   $pkgBodyName$,
   (* Package Body - Specification *)
   $if(pkgBodyAspectSpecs)$
-  $pkgBodyAspectSpecs$$else$
+  $pkgBodyAspectSpecs; separator="; \n"$$else$
   None$endif$, 
   (* Package Body - Declared Items *)
   [
@@ -179,12 +174,15 @@ Packagebody ( $astnum$,
 )
 >>
 
-compilationUnit(astnum, unitName, unitDecl,
-  unitExpTypeTable, unitTypeNameTable) ::= <<
-(* Compilation Unit Declaration *)
-PkgBodyDecl ( $astnum$,
-  (* Compilation Unit - Name *)
-  $unitName$,
+unitDeclaration(astnum, kind, packageUnit) ::= <<
+$kind$( $astnum$,
+  $packageUnit$
+)
+>>
+
+compilationUnit(astnum, unitDecl, unitExpTypeTable, unitTypeNameTable) ::= <<
+(* Compilation Unit *)
+CompilationUnit ( $astnum$,
   (* Compilation Unit - Unit Declaration *)
   $unitDecl$,  
   (* Compilation Unit - Type Table *)
@@ -195,7 +193,7 @@ PkgBodyDecl ( $astnum$,
         $unitExpTypeTable; separator=" ;\n"$
       ];
     tt_typename_table = 
-      (* TypeNum --> Type Name * Type Declaration AST Num *) 
+      (* TypeNum --> (Type Name * Type Declaration AST Num) *) 
       [
         $unitTypeNameTable; separator=" ;\n"$
       ]
@@ -205,10 +203,6 @@ PkgBodyDecl ( $astnum$,
 
 mappingPair(key, value) ::= <<
 ($key$, $value$)
->>
-
-location(line, col, endline, endcol) ::= <<
-Loc (($line$, $col$), ($endline$, $endcol$))
 >>
 
 

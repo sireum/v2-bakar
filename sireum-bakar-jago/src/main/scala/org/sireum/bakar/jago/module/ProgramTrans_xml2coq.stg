@@ -59,22 +59,20 @@ assignStmt(astnum, lhs, rhs) ::= <<
 Sassign $astnum$ ($lhs$) ($rhs$)
 >>
 
-param(astnum, id, mode, initExp) ::= <<
-mkparam $astnum$ ($id$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
+paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
+mkparam_specification $astnum$ ($ids; separator=" :: "$ :: nil) ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
 >>
 
-subprogAspectSpecs(astnum, pre, post) ::= <<
-mksubprog_aspect_specs $astnum$
-  (* Precondition *)
-  ($if(pre)$
-  $pre$$else$None$endif$) 
-  (* Postcondition *)
-  ($if(post)$
-  $post$$else$None$endif$)
+aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
+mkaspect_specification $astnum$
+  (* Aspect Mark *)
+  ($aspectMark$) 
+  (* Aspect Definition *)
+  ($aspectDef$)
 >>
 
-identiferDecl(astnum, ids, init) ::= <<
-mklocal_ident $astnum$ ($ids; separator=" :: "$ :: nil) $if(init)$$init$$else$None$endif$
+varDeclaration(astnum, ids, theType, init) ::= <<
+mkvar_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$$init$$else$None$endif$
 >>
 
 procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
@@ -83,16 +81,14 @@ mkprocedure_body $astnum$
   $procName$
   (* Procedure Body - Specification *)
   ($if(aspectSpecs)$
-  $aspectSpecs$$else$None$endif$)
+  $aspectSpecs; separator=" :: \n"$ :: nil$else$None$endif$)
   (* Procedure Body - Parameters *)
   ($if(params)$Some(
-    $params; separator=" :: \n"$ ::
-    nil
+    $params; separator=" :: \n"$ :: nil
   )$else$None$endif$) 
   (* Procedure Body - Locally Defined Variables *)
   ($if(identDecls)$Some(
-    $identDecls; separator=" :: \n"$ ::
-    nil
+    $identDecls; separator=" :: \n"$ :: nil
   )$else$None$endif$)
   (* Procedure Body - Body *) (
     $procBody$
@@ -103,20 +99,18 @@ functionBody(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBod
 mkfunction_body $astnum$
   (* Function Body - Name *)
   $funcName$
-  (* Function Body - Specification *)
-  ($if(aspectSpecs)$
-  $aspectSpecs$$else$None$endif$)
   (* Function Body - Return Type *) 
   ($returnT$) 
+  (* Function Body - Specification *)
+  ($if(aspectSpecs)$
+  $aspectSpecs; separator=" :: \n"$ :: nil$else$None$endif$)
   (* Function Body - Parameters *)
   ($if(params)$Some(
-    $params; separator=" :: \n"$ ::
-    nil
+    $params; separator=" :: \n"$ :: nil
   )$else$None$endif$)
-  (* Function Body - Locally Defined Variables *)
+  (* Function Body - Local Defined Variables *)
   ($if(identDecls)$Some(
-    $identDecls; separator=" :: \n"$ ::
-    nil
+    $identDecls; separator=" :: \n"$ :: nil
   )$else$None$endif$)
   (* Function Body - Body *) (
     $funcBody$
@@ -127,42 +121,43 @@ mkfunction_body $astnum$
 // <annotation> can be either "Procedure" or "Function"
 subProgram(astnum, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
-$kind$ $astnum$
-  ($prog$)
+$kind$ $astnum$ (
+  $prog$
+)
 >>
 
 packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
-Packagebody $astnum$
+PackageBody $astnum$
   (* Package Body - Name *)
   ($pkgBodyName$)
   (* Package Body - Specification *)
   ($if(pkgBodyAspectSpecs)$
-  $pkgBodyAspectSpecs$$else$None$endif$)    
+  $pkgBodyAspectSpecs; separator = " ::\n"$ :: nil$else$None$endif$)    
   (* Package Body - Declared Items *) (
-    $pkgBodyDeclItems; separator=" ::\n\n"$ ::
-    nil
+    $pkgBodyDeclItems; separator=" ::\n\n"$ :: nil
   )
 >>
 
-compilationUnit(astnum, unitName, unitDecl,
-  unitExpTypeTable, unitTypeNameTable, unitTypeDeclAst) ::= <<
-(* Compilation Unit Declaration *)
-PkgBodyDecl $astnum$
-  (* Compilation Unit - Name *)
-  ($unitName$)
+unitDeclaration(astnum, kind, packageUnit) ::= <<
+$kind$ $astnum$ (
+  $packageUnit$
+)
+>>
+
+compilationUnit(astnum, unitDecl, unitExpTypeTable, unitTypeNameTable) ::= <<
+(* Compilation Unit *)
+CompilationUnit $astnum$
   (* Compilation Unit - Unit Declaration *) (
     $unitDecl$
   )
   (* Compilation Unit - Type Table *) (
     mktype_table (
       (* Expression Type Table: Expression AstNum --> TypeNum *)
-      $unitExpTypeTable; separator=" ::\n"$ ::
-      nil
+      $unitExpTypeTable; separator=" ::\n"$ :: nil
     ) (
-      (* Type Name Table: TypeNum --> Type Name * Type Declaration AST Num *)
-      $unitTypeNameTable; separator=" ::\n"$ ::
-      nil
+      (* Type Name Table: TypeNum --> (Type Name * Type Declaration AST Num) *)
+      $unitTypeNameTable; separator=" ::\n"$ :: nil
     )
   )
 >>
@@ -174,9 +169,5 @@ $value$%$ctxt$
 
 mappingPair(key, value) ::= <<
 ($key$, $value$)
->>
-
-location(line, col, endline, endcol) ::= <<
-Loc ($line$, $col$) ($endline$, $endcol$)
 >>
 

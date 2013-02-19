@@ -19,7 +19,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
   val unitNameMap = mmapEmpty[String, Int] // from package/procedure name to natural number
   val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
-  val unitLocMap = mmapEmpty[Int, String] // from AST# number to its location
+  val unitAspectMap = mmapEmpty[String, Int] // from aspect mark name, like "Post", to natural number
   val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# number to its type number
   // TODO: it's none now
   val unitTypeDeclsMap = mmapEmpty[String, Int] // declared type to its ast number 
@@ -49,6 +49,16 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   def next_typenum = {
     typenum = typenum + 1
     typenum
+  }
+  
+  def getTypeNum(theType: String) = {
+    if(unitTypeMap.get(theType).isDefined){
+      unitTypeMap.get(theType).get
+    }else{
+      val n = next_typenum
+      unitTypeMap += (theType -> n)
+      n
+    }
   }
   
   /**
@@ -116,19 +126,10 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
 
   // Map the AST# number to Location and (option: to Type, when AST is an expression)
   def buildAstMappingTable(sloc: SourceLocation, theType: Option[String]) = {
-    // record the location for the current AST
     val astnum = next_astnum
-    unitLocMap += (astnum -> buildLocation(sloc))
     // if the current AST is an expression, then we need to record its type
     if(theType.isDefined){
-      val typenum = 
-        if(unitTypeMap.get(theType.get).isDefined){
-          unitTypeMap.get(theType.get).get
-        }else{
-          val n = next_typenum
-          unitTypeMap += (theType.get -> n)
-          n
-        }
+      val typenum = getTypeNum(theType.get)
       unitExpTypeMap += (astnum -> typenum)
     }
     astnum
@@ -263,62 +264,63 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildParameter(astnum: Int, id: String, mode: String, initExp: Option[String]) = {
-    val result = stg.getInstanceOf("param")
+  def buildListAttributes(st: org.stringtemplate.v4.ST, 
+      attributeName: String, attributeValues: String*) {
+    attributeValues.foreach(v => st.add(attributeName, v))
+  }  
+  
+  // paramSpecification(astnum, ids, theType, mode, initExp)
+  def buildParamSpecification(astnum: Int, ids: MList[String], theType: String, mode: String, initExp: Option[String]) = {
+    val result = stg.getInstanceOf("paramSpecification")
     result.add("astnum", astnum)
-    result.add("id", id)
+    buildListAttributes(result, "ids", ids: _*)
+    val typeNum = getTypeNum(theType)
+    result.add("theType", typeNum)
     result.add("mode", mode)
     if(initExp.isDefined)
       result.add("initExp", initExp.get)
     result.render()
   }
   
-  def buildListAttributes(st: org.stringtemplate.v4.ST, 
-      attributeName: String, attributeValues: String*) {
-    attributeValues.foreach(v => st.add(attributeName, v))
-  }
-  
-  def buildSubprogAspectSpecs(astnum: Int, pre: Option[String], post: Option[String]) = {
-    val result = stg.getInstanceOf("subprogAspectSpecs")
+  def buildAspectSpecification(astnum: Int, aspectMark: String, aspectDef: String) = {
+    val result = stg.getInstanceOf("aspectSpecification")
     result.add("astnum", astnum)
-    if(pre.isDefined)
-      result.add("pre", pre.get)
-    if(post.isDefined)
-      result.add("post", post.get)
+    result.add("aspectMark", aspectMark)
+    result.add("aspectDef", aspectDef)
     result.render()
   }
   
-  def buildIdentiferDecl(astnum: Int, ids: MList[String], optionalInit: Option[String]) = {
-    val result = stg.getInstanceOf("identiferDecl")
+  def buildIdentiferDecl(astnum: Int, ids: MList[String], theType: String, optionalInit: Option[String]) = {
+    val result = stg.getInstanceOf("varDeclaration")
     result.add("astnum", astnum)
-    if(optionalInit.isDefined)
-      result.add("optionalInit", optionalInit.get)
     buildListAttributes(result, "ids", ids: _*)
+    val theTypeNum = getTypeNum(theType)
+    result.add("theType", theTypeNum)
+    if(optionalInit.isDefined)
+      result.add("init", optionalInit.get)
     result.render()
   }
   
-  def buildProcedureBody(astnum: Int, procName: String, aspectSpecs: Option[String], params: MList[String], 
+  def buildProcedureBody(astnum: Int, procName: String, aspectSpecs: MList[String], params: MList[String], 
       identDecls: MList[String], procBody: String) = {
     val result = stg.getInstanceOf("procedureBody")
     result.add("astnum", astnum)
     result.add("procName", procName)
-    result.add("procBody", procBody)
-    if(aspectSpecs.isDefined)
-      result.add("aspectSpecs", aspectSpecs.get)
+    result.add("procBody", procBody) 
+    buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
     buildListAttributes(result, "params", params: _*)
     buildListAttributes(result, "identDecls", identDecls: _*)
     result.render()
   }
   
-  def buildFunctionBody(astnum: Int, funcName: String, aspectSpecs: Option[String], returnT: String, params: MList[String], 
+  def buildFunctionBody(astnum: Int, funcName: String, returnT: String, aspectSpecs: MList[String], params: MList[String], 
       identDecls: MList[String], funcBody: String) = {
     val result = stg.getInstanceOf("functionBody")
     result.add("astnum", astnum)
     result.add("funcName", funcName)
     result.add("returnT", returnT)
-    result.add("funcBody", funcBody)
-    if(aspectSpecs.isDefined)
-      result.add("aspectSpecs", aspectSpecs.get)
+    result.add("funcBody", funcBody) 
+    buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
     buildListAttributes(result, "params", params: _*)
     buildListAttributes(result, "identDecls", identDecls: _*)
     result.render()
@@ -334,23 +336,29 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildPackageBody(astnum: Int, pkgBodyName: String, pkgBodyAspectSpecs: Option[String], pkgBodyDeclItems: String*) = {
+  def buildPackageBody(astnum: Int, pkgBodyName: String, pkgBodyAspectSpecs: MList[String], pkgBodyDeclItems: String*) = {
     val result = stg.getInstanceOf("packageBody")
     result.add("astnum", astnum)
-    result.add("pkgBodyName", pkgBodyName) 
-    if(pkgBodyAspectSpecs.isDefined)
-      result.add("pkgBodyAspectSpecs", pkgBodyAspectSpecs) 
+    result.add("pkgBodyName", pkgBodyName)
+    buildListAttributes(result, "pkgBodyAspectSpecs", pkgBodyAspectSpecs: _*)
     buildListAttributes(result, "pkgBodyDeclItems", pkgBodyDeclItems: _*)
+    result.render()
+  }
+  
+  def buildUnitDeclaration(astnum: Int, kind: String, packageUnit: String) = {
+    val result = stg.getInstanceOf("unitDeclaration")
+    result.add("astnum", astnum)
+    result.add("kind", kind)
+    result.add("packageUnit", packageUnit)
     result.render()
   }
   
   /**
    * unitName should be a natural number, but it's annotated with its actual name string, so it's a string
    */
-  def buildCompilationUnit(astnum: Int, unitName: String, unitDecl: String) = {
+  def buildCompilationUnit(astnum: Int, unitDecl: String) = {
     val result = stg.getInstanceOf("compilationUnit")
     result.add("astnum", astnum)
-    result.add("unitName", unitName)
     result.add("unitDecl", unitDecl)
     // [1]
     val sortedSeq1 = unitExpTypeMap.toSeq.sortBy(_._1)
@@ -374,15 +382,6 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     val result = stg.getInstanceOf("mappingPair")
     result.add("key", key)
     result.add("value", value)
-    result.render()
-  }
-  
-  def buildLocation(sloc: SourceLocation) = {
-    val result = stg.getInstanceOf("location")
-    result.add("line", sloc.getLine)
-    result.add("col", sloc.getCol)
-    result.add("endline", sloc.getEndline)
-    result.add("endcol", sloc.getEndcol)
     result.render()
   }
 }
