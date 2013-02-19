@@ -125,11 +125,11 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   }
 
   // Map the AST# number to Location and (option: to Type, when AST is an expression)
-  def buildAstMappingTable(sloc: SourceLocation, theType: Option[String]) = {
+  def buildAstMappingTable(sloc: SourceLocation, theExpType: Option[String]) = {
     val astnum = next_astnum
     // if the current AST is an expression, then we need to record its type
-    if(theType.isDefined){
-      val typenum = getTypeNum(theType.get)
+    if(theExpType.isDefined){
+      val typenum = getTypeNum(theExpType.get)
       unitExpTypeMap += (astnum -> typenum)
     }
     astnum
@@ -225,17 +225,26 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     result.render()
   }
   
-  def buildSeqStmt(stmts: String*): String = {
+  def buildSeqStmt(seq_astnum: Int, stmt1: String, stmt2: String): String = {
     // use "Sseq" to make the statements in sequence
-    assert(stmts.length > 0)
-    if(stmts.length == 1){
-      stmts.head
+//    assert(stmts.length > 0)
+//    if(stmts.length == 1){
+//      stmts.head
+//    }else{
+//      val result = stg.getInstanceOf("seqStmt")
+//      result.add("astnum", next_astnum)
+//      result.add("stmt1", stmts.head)
+//      result.add("stmt2", buildSeqStmt(stmts.tail: _*))
+//      result.render()
+//    }
+    if(stmt2 == null){
+      stmt1
     }else{
       val result = stg.getInstanceOf("seqStmt")
-      result.add("astnum", next_astnum)
-      result.add("stmt1", stmts.head)
-      result.add("stmt2", buildSeqStmt(stmts.tail: _*))
-      result.render()
+      result.add("astnum", seq_astnum)
+      result.add("stmt1", stmt1)
+      result.add("stmt2", stmt2)
+      result.render()      
     }
   }
   

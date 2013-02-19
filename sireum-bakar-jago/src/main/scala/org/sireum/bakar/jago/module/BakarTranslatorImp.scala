@@ -116,7 +116,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
 
       assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
       assert(names.getDefiningNames().length == 1)
-      
+      val unit_astnum = factory.buildAstMappingTable(sloc, None)
+      val pkgbody_astnum = factory.buildAstMappingTable(sloc, None)
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
@@ -134,12 +135,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         v(m)
         pkgElems += ctx.popResult
       }
-      var astnum = factory.buildAstMappingTable(sloc, None)
       val pkgBodyAspectSpecs = mlistEmpty[String]
-      val pkgBodyDecl = factory.buildPackageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
+      val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
       //
-      astnum = factory.buildAstMappingTable(sloc, None)
-      val packageUnit = factory.buildUnitDeclaration(astnum, "PackageBodyDecl", pkgBodyDecl)
+      
+      val packageUnit = factory.buildUnitDeclaration(unit_astnum, "PackageBodyDecl", pkgBodyDecl)
       ctx.pushResult(packageUnit)
 
       false
@@ -166,7 +166,15 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         // val mname = names.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDefName()
         v(names.getDefiningNames().get(0))
         val mname = ctx.popResult
-        // [2] method parameters
+        // [2] return type
+        val returnType : Option[String] = resultProfile match {
+          case Some(e) =>
+            v(e)
+            val ne = ctx.popResult
+            Some(ne)
+          case None => None
+        }
+        // [3] method parameters
         val params = mlistEmpty[String]
         for(p <- paramProfile.getParameterSpecifications()) {
           p match {
@@ -202,7 +210,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
                 println("Not expecting: " + x)
                 assert(false)
             }
-            val astnum = factory.buildAstMappingTable(sloc, paramType)
+            val astnum = factory.buildAstMappingTable(sloc, None)
             val paramDecl = factory.buildParamSpecification(astnum, paramlist, paramType.get, factory.buildMode(mode), initExp)
             params += paramDecl
           case x =>
@@ -210,23 +218,16 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
             assert(false)
           }
         }     
-        // [3] declared local variables inside the method
+        // [4] declared local variables inside the method
         val defingIds = mlistEmpty[String]
         for(declItem <- bodyDeclItems.getElements()) {
           v(declItem)
           defingIds += ctx.popResult
         }
-        // [4] method body
+        // [5] method body
         v(bodyStatements)
         val mbody = ctx.popResult
-        // [5] return type
-        val returnType : Option[String] = resultProfile match {
-          case Some(e) =>
-            v(e)
-            val ne = ctx.popResult
-            Some(ne)
-          case None => None
-        }
+
         // [6] method aspect specification, for example, Pre and Post  
         val specs = mlistEmpty[String]
         // [7] return
@@ -246,14 +247,15 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       case o @ ProcedureBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, aspectSpec, bodyDecItems, bodyStatements, bodyExceptionHandlers) =>
 
+        val method_astnum = factory.buildAstMappingTable(sloc, None)  
+        val procbody_astnum = factory.buildAstMappingTable(sloc, None)  
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        var astnum = factory.buildAstMappingTable(sloc, None)  
-        val procedureBody = factory.buildProcedureBody(astnum, m.mname, m.aspectSpecs, m.params, m.localIdents, m.mbody)
+        val procedureBody = factory.buildProcedureBody(procbody_astnum, m.mname, m.aspectSpecs, m.params, m.localIdents, m.mbody)
         val annotation = Some("Procedure")
-        astnum = factory.buildAstMappingTable(sloc, None)
-        val result = factory.buildSubProgram(astnum, "Sproc", procedureBody, annotation)
+        
+        val result = factory.buildSubProgram(method_astnum, "Sproc", procedureBody, annotation)
         ctx.pushResult(result)
 
         false
@@ -261,15 +263,16 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
         bodyDecItems, bodyStatements, bodyExceptionHandlers) =>
 
+        // TODO: should use: factory.buildAstMappingTable(sloc, ReturnType)          
+        val method_astnum = factory.buildAstMappingTable(sloc, None)  
+        val fnbody_astnum = factory.buildAstMappingTable(sloc, None)            
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        var astnum = factory.buildAstMappingTable(sloc, None)
-        val functionBody = factory.buildFunctionBody(astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localIdents, m.mbody)
+        val functionBody = factory.buildFunctionBody(fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localIdents, m.mbody)
         val annotation = Some("Function")
-        // TODO: should use: factory.buildAstMappingTable(sloc, ReturnType)
-        astnum = factory.buildAstMappingTable(sloc, None)
-        val result = factory.buildSubProgram(astnum, "Sfunc", functionBody, annotation)
+        
+        val result = factory.buildSubProgram(method_astnum, "Sfunc", functionBody, annotation)
         ctx.pushResult(result)
 
         false
@@ -278,6 +281,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   
   def definingIdentifier(ctx: Context, v: => BVisitor): VisitorFunction = { 
     case varDecl @ VariableDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl) =>
+      val theType = util_GetTypeFromObjDeclViewQ(objDeclViewQ)
+      val astnum = factory.buildAstMappingTable(sloc, None) 
       val declItems = mlistEmpty[String]
       for(defName <- namesQl.getDefiningNames()){
         v(defName)
@@ -292,29 +297,42 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           Some(ctx.popResult)
         }
 
-      val theType = util_GetTypeFromObjDeclViewQ(objDeclViewQ)
-      val astnum = factory.buildAstMappingTable(sloc, theType)    
       ctx.pushResult(factory.buildIdentiferDecl(astnum, declItems, theType.get, optionalInitExp))
       false
   }
   
+  def unit_trans_seq(stmts: MBuffer[Base], v: => BVisitor): String = {
+    var result: String = null
+    if(!stmts.isEmpty){
+      val seq_astnum = factory.next_astnum
+      v(stmts.head)  
+      val stmt1 = ctx.popResult
+      val stmt2 = unit_trans_seq(stmts.tail, v)
+      result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
+    }
+    result
+  }
+  
   def statementH(ctx: Context, v: => BVisitor): VisitorFunction = {
     case o @ StatementListEx(statements) =>
-      val stmts = mlistEmpty[String]
-      for(stmt <- statements) {
-        v(stmt)
-        stmts += ctx.popResult
-      }
-      val seq: String = factory.buildSeqStmt(stmts: _*)
+//      val stmts = mlistEmpty[String]
+//      for(stmt <- statements) {
+//        v(stmt)
+//        stmts += ctx.popResult
+//      }
+      import scala.collection.JavaConversions._
+      //val stmts = asScalaBuffer[Base](statements)
+      
+      val seq: String = unit_trans_seq(statements, v)
       ctx.pushResult(seq) 
       false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression) =>
+      val astnum = factory.buildAstMappingTable(sloc, None)
       v(assignmentVariableName)
       val lhs = ctx.popResult.asInstanceOf[String]
       v(assignmentExpression)
       val rhs = ctx.popResult.asInstanceOf[String]
       val rhs_exp = factory.buildIdentifierExpr(sloc, rhs)
-      val astnum = factory.buildAstMappingTable(sloc, None)
       ctx.pushResult(factory.buildAssignStmt(astnum, lhs, rhs_exp))
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
@@ -330,11 +348,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IfStatementEx(sloc, labelNames, statementPaths) =>
       statementPaths.getPaths().foreach {
         case IfPathEx(sloc, condExp, statements) =>
+          val astnum = factory.buildAstMappingTable(sloc, None)
           v(condExp)
           val cond = ctx.popResult.asInstanceOf[String]
           v(statements)
           val thenBranch = ctx.popResult.asInstanceOf[String]
-          val astnum = factory.buildAstMappingTable(sloc, None)
           ctx.pushResult(factory.buildIfStmt(astnum, cond, thenBranch))
         case x =>
           println("statementH: IfStatement need to be handled for " + x.getClass().getSimpleName())
@@ -343,13 +361,13 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier,
       whileCondition, loopStatements) =>
+      val astnum = factory.buildAstMappingTable(sloc, None)
       v(whileCondition)
       val cond = ctx.popResult.asInstanceOf[String]
       v(loopStatements)
       val loopBody = ctx.popResult.asInstanceOf[String]
       // TODO: extract the loop invariant from the While Statement
       val loopInv = factory.buildOptionV(None) 
-      val astnum = factory.buildAstMappingTable(sloc, None)
       ctx.pushResult(factory.buildWhileStmt(astnum, cond, loopInv, loopBody))
       false
 //    case o =>
@@ -370,26 +388,25 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       ctx.pushResult(factory.buildId(Some(theType), ref, refName))
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType) =>
+      val astnum = factory.buildAstMappingTable(sloc, Some(theType))
       val plist = mlistEmpty[String]
       // import scala.collection.JavaConversions.asScalaBuffer
       // to do implicit conversion between Java collection and scala collection
       // scala.collection.mutable.Buffer <=> java.util.List
       for(param <- functionCallParameters.getAssociations) {
         v(param)
-        plist += ctx.popResult.asInstanceOf[String]
+        plist += factory.buildIdentifierExpr(sloc, ctx.popResult)
       }
       
       if(ctx.isBinaryOp(prefixQ)) {
         assert(plist.length == 2)
-        val loperand = factory.buildIdentifierExpr(sloc, plist(0))
-        val roperand = factory.buildIdentifierExpr(sloc, plist(1))
-        val astnum = factory.buildAstMappingTable(sloc, Some(theType))
+        val loperand = plist(0)
+        val roperand = plist(1)
         val bexp = factory.buildBinaryExpr(astnum, ctx.getBinaryOp(prefixQ).get, loperand, roperand)
         ctx.pushResult(bexp)
       }else if(ctx.isUnaryOp(prefixQ)) {
         assert(plist.length == 1)
-        val operand = factory.buildIdentifierExpr(sloc, plist(0))
-        val astnum = factory.buildAstMappingTable(sloc, Some(theType))
+        val operand = plist(0)
         val uexp = factory.buildUnaryExpr(astnum, ctx.getUnaryOp(prefixQ).get, operand)
         ctx.pushResult(uexp)
       }else {
