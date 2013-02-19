@@ -78,8 +78,8 @@ aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 >>
 
 // +++++++++
-varDeclaration(astnum, ids, theType, init) ::= <<
-{ var_astnum = $astnum$; var_idents = [$ids; separator="; "$]; var_typenum = $theType$; var_init = $if(init)$$init$$else$None$endif$ }
+localVarDeclaration(astnum, ids, theType, init) ::= <<
+{ local_astnum = $astnum$; local_idents = [$ids; separator="; "$]; local_typenum = $theType$; local_init = $if(init)$$init$$else$None$endif$ }
 >>
 
 // ++++++
@@ -193,7 +193,7 @@ CompilationUnit ( $astnum$,
         $unitExpTypeTable; separator=" ;\n"$
       ];
     tt_typename_table = 
-      (* TypeNum --> (Type URI * Type Declaration AST Num) *) 
+      (* TypeNum --> (Type URI * (Type Declaration AST Num) Option) *) 
       [
         $unitTypeNameTable; separator=" ;\n"$
       ]

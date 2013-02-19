@@ -71,8 +71,8 @@ mkaspect_specification $astnum$
   ($aspectDef$)
 >>
 
-varDeclaration(astnum, ids, theType, init) ::= <<
-mkvar_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$$init$$else$None$endif$
+localVarDeclaration(astnum, ids, theType, init) ::= <<
+mklocal_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$$init$$else$None$endif$
 >>
 
 procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
@@ -156,7 +156,7 @@ CompilationUnit $astnum$
       (* Expression Type Table: Expression AstNum --> TypeNum *)
       $unitExpTypeTable; separator=" ::\n"$ :: nil
     ) (
-      (* Type Name Table: TypeNum --> (Type URI * Type Declaration AST Num) *)
+      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
       $unitTypeNameTable; separator=" ::\n"$ :: nil
     )
   )

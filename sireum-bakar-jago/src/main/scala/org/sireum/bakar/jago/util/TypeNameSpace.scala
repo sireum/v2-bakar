@@ -44,7 +44,8 @@ object TypeNameSpace {
   val StatementList = "stmt";
   
   val ModeT = "mode";
-  val VariableDeclaration = "var_declaration";
+  val LocalVariableDeclaration = "local_declaration";
+  val GlobalVariableDeclaration = "global_declaration";
   val AspectSpecification = "aspect_specification";
   val ParameterSpecification = "param_specification";
   val ProcedureBody = "procedure_body";

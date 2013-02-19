@@ -269,13 +269,13 @@ class XMLSchemaTranslator(userOption: Option[String]) {
   
   
   def trans_variable_declaration {
-    val typeName = TypeNameSpace.VariableDeclaration
+    val typeName = TypeNameSpace.LocalVariableDeclaration
     val annotation = Some("Local variables declarations used in the procedure/function body")
     val fields = List(
-        createFieldDecl("var_astnum", TypeNameSpace.AstNum, false),
-        createFieldDecl("var_idents", getListType(TypeNameSpace.IdNum), false),
-        createFieldDecl("var_typenum", TypeNameSpace.TypeNum, false),
-        createFieldDecl("var_init", TypeNameSpace.Expression, true))
+        createFieldDecl("local_astnum", TypeNameSpace.AstNum, false),
+        createFieldDecl("local_idents", getListType(TypeNameSpace.IdNum), false),
+        createFieldDecl("local_typenum", TypeNameSpace.TypeNum, false),
+        createFieldDecl("local_init", TypeNameSpace.Expression, true))
     createRecordType(typeName, annotation, typeName, fields: _*)
   }
   
@@ -351,7 +351,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         createFieldDecl("proc_name", TypeNameSpace.ProcNum, false),
         createFieldDecl("proc_specs", getListType(TypeNameSpace.AspectSpecification), true),
         createFieldDecl("proc_params", getListType(TypeNameSpace.ParameterSpecification), true),
-        createFieldDecl("proc_loc_idents", getListType(TypeNameSpace.VariableDeclaration), true),
+        createFieldDecl("proc_loc_idents", getListType(TypeNameSpace.LocalVariableDeclaration), true),
         createFieldDecl("proc_body", TypeNameSpace.StatementList, false))
     createRecordType(typeName, None, typeName, fields: _*)
   }
@@ -388,7 +388,7 @@ class XMLSchemaTranslator(userOption: Option[String]) {
         createFieldDecl("fn_ret_type", TypeNameSpace.Type, false),
         createFieldDecl("fn_specs", getListType(TypeNameSpace.AspectSpecification), true),
         createFieldDecl("fn_params", getListType(TypeNameSpace.ParameterSpecification), true),
-        createFieldDecl("fn_loc_idents", getListType(TypeNameSpace.VariableDeclaration), true),
+        createFieldDecl("fn_loc_idents", getListType(TypeNameSpace.LocalVariableDeclaration), true),
         createFieldDecl("fn_body", TypeNameSpace.StatementList, false))
     createRecordType(typeName, None, typeName, fields: _*)
   }

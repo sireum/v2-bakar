@@ -36,7 +36,7 @@ Definition pkgnum := nat.
 
 Definition typenum := nat.
 
-Definition typedeclnum := nat.
+Definition typedeclnum := astnum.
 
 Definition aspectnum := nat.
 

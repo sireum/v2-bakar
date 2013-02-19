@@ -94,16 +94,20 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       sourceFile) =>
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
+      // [1] Package Declaration
         
-      // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
-      val astnum = factory.buildAstMappingTable(sloc, None)
-      v(unitDeclaration)
-      val unitDecl = ctx.popResult
-      val cu = factory.buildCompilationUnit(astnum, unitDecl)  
+      // [2] Package Body  
+      if(unitKind == "A_Package_Body"){
+        // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
+        val astnum = factory.buildAstMappingTable(sloc, None)
+        v(unitDeclaration)
+        val unitDecl = ctx.popResult
+        val cu = factory.buildCompilationUnit(astnum, unitDecl)  
         
-      // store the program translation results as PipelineJob's properties
-      // so the result can be used by the following pipeline modules
-      this.results_=(Seq[String](cu)) 
+        // store the program translation results as PipelineJob's properties
+        // so the result can be used by the following pipeline modules
+        this.results_=(Seq[String](cu))         
+      }
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
@@ -301,28 +305,9 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       false
   }
   
-  def unit_trans_seq(stmts: MBuffer[Base], v: => BVisitor): String = {
-    var result: String = null
-    if(!stmts.isEmpty){
-      val seq_astnum = factory.next_astnum
-      v(stmts.head)  
-      val stmt1 = ctx.popResult
-      val stmt2 = unit_trans_seq(stmts.tail, v)
-      result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
-    }
-    result
-  }
-  
   def statementH(ctx: Context, v: => BVisitor): VisitorFunction = {
     case o @ StatementListEx(statements) =>
-//      val stmts = mlistEmpty[String]
-//      for(stmt <- statements) {
-//        v(stmt)
-//        stmts += ctx.popResult
-//      }
       import scala.collection.JavaConversions._
-      //val stmts = asScalaBuffer[Base](statements)
-      
       val seq: String = unit_trans_seq(statements, v)
       ctx.pushResult(seq) 
       false
@@ -421,7 +406,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
       val theTyp = if(theType == "null") None else Some(theType)
-      ctx.pushResult(factory.buildId(theTyp, ref, refName))
+      ctx.pushResult(factory.buildId(theTyp, ref, refName)) 
       false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
       val theTyp = if(theType == "null") None else Some(theType)
@@ -458,7 +443,23 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         None
     }
   }  
-  
+
+  def unit_trans_seq(stmts: MBuffer[Base], v: => BVisitor): String = {
+    var result: String = null
+    if(!stmts.isEmpty){
+      if(stmts.length == 1){
+        v(stmts.head)  
+        result = ctx.popResult
+      }else{
+        val seq_astnum = factory.next_astnum
+        v(stmts.head)  
+        val stmt1 = ctx.popResult
+        val stmt2 = unit_trans_seq(stmts.tail, v)
+        result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)        
+      }
+    }
+    result
+  }  
   
   def theVisitor: BVisitor = visit
   val ctx = new Context {}

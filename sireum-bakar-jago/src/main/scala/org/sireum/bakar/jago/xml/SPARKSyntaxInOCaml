@@ -15,7 +15,7 @@ type pkgnum = int
 
 type typenum = int
 
-type typedeclnum = int
+type typedeclnum = astnum
 
 type aspectnum = int
 
@@ -79,11 +79,11 @@ type aspect_specification = {
 }
 
 (* Local variables declarations used in the procedure/function body *)
-type var_declaration = {
-	var_astnum: astnum;
-	var_idents: idnum list;
-	var_typenum: typenum;
-	var_init: (expr) option 
+type local_declaration = {
+	local_astnum: astnum;
+	local_idents: idnum list;
+	local_typenum: typenum;
+	local_init: (expr) option 
 }
 
 type procedure_body = {
@@ -91,7 +91,7 @@ type procedure_body = {
 	proc_name: procnum;
 	proc_specs: (aspect_specification list) option;
 	proc_params: (param_specification list) option;
-	proc_loc_idents: (var_declaration list) option;
+	proc_loc_idents: (local_declaration list) option;
 	proc_body: stmt 
 }
 
@@ -101,7 +101,7 @@ type function_body = {
 	fn_ret_type: typ;
 	fn_specs: (aspect_specification list) option;
 	fn_params: (param_specification list) option;
-	fn_loc_idents: (var_declaration list) option;
+	fn_loc_idents: (local_declaration list) option;
 	fn_body: stmt 
 }
 

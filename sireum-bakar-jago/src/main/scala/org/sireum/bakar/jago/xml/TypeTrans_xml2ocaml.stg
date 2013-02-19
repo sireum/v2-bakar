@@ -23,7 +23,7 @@ type pkgnum = int
 
 type typenum = int
 
-type typedeclnum = int
+type typedeclnum = astnum
 
 type aspectnum = int
 

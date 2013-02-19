@@ -21,7 +21,7 @@ Definition pkgnum := nat.
 
 Definition typenum := nat.
 
-Definition typedeclnum := nat.
+Definition typedeclnum := astnum.
 
 Definition aspectnum := nat.
 
@@ -85,11 +85,11 @@ Record aspect_specification: Type := mkaspect_specification{
 }.
 
 (* Local variables declarations used in the procedure/function body *)
-Record var_declaration: Type := mkvar_declaration{
-	var_astnum: astnum;
-	var_idents: list idnum;
-	var_typenum: typenum;
-	var_init: option (expr)
+Record local_declaration: Type := mklocal_declaration{
+	local_astnum: astnum;
+	local_idents: list idnum;
+	local_typenum: typenum;
+	local_init: option (expr)
 }.
 
 Record procedure_body: Type := mkprocedure_body{
@@ -97,7 +97,7 @@ Record procedure_body: Type := mkprocedure_body{
 	proc_name: procnum;
 	proc_specs: option (list aspect_specification);
 	proc_params: option (list param_specification);
-	proc_loc_idents: option (list var_declaration);
+	proc_loc_idents: option (list local_declaration);
 	proc_body: stmt
 }.
 
@@ -107,7 +107,7 @@ Record function_body: Type := mkfunction_body{
 	fn_ret_type: typ;
 	fn_specs: option (list aspect_specification);
 	fn_params: option (list param_specification);
-	fn_loc_idents: option (list var_declaration);
+	fn_loc_idents: option (list local_declaration);
 	fn_body: stmt
 }.
 

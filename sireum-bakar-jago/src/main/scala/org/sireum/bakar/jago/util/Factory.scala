@@ -7,7 +7,7 @@ import org.sireum.bakar.xml.SourceLocation
 
 class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   // the default program translation option is Coq
-  var url = (option: @unchecked) match { 
+  var url = (option: @unchecked) match {   
     case ProgramTarget.Ocaml =>
       getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_OCaml)
     case ProgramTarget.Coq =>
@@ -16,9 +16,10 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$') 
   
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
-  val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
-  val unitNameMap = mmapEmpty[String, Int] // from package/procedure name to natural number
   val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
+  val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
+  val unitProcMap = mmapEmpty[String, Int] // from procedure name to natural number
+  val unitPkgMap = mmapEmpty[String, Int] // from package name to natural number
   val unitAspectMap = mmapEmpty[String, Int] // from aspect mark name, like "Post", to natural number
   val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# number to its type number
   // TODO: it's none now
@@ -29,7 +30,11 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   var astnum = 0
   var idnum = 0
   var procnum = 0 
+  var pkgnum = 0
   var typenum = 0
+  
+  var typedeclnum = 0
+  var aspectnum = 0
   
   def next_astnum = {
     astnum = astnum + 1
@@ -46,9 +51,34 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     procnum
   }
   
+  def next_pkgnum = {
+    pkgnum = pkgnum + 1
+    pkgnum
+  }
+  
   def next_typenum = {
     typenum = typenum + 1
     typenum
+  }
+  
+  def next_typedeclnum = {
+    typedeclnum = typedeclnum + 1
+    typedeclnum
+  }
+  
+  def next_aspectnum = {
+    aspectnum = aspectnum + 1
+    aspectnum
+  }
+  
+  def getIdNum(var_name: String) = {
+    if(unitIdentMap.get(var_name).isEmpty){
+      val idnum = next_idnum
+      unitIdentMap += (var_name -> idnum)
+      idnum
+    }else{
+      unitIdentMap.get(var_name).get        
+    }
   }
   
   def getTypeNum(theType: String) = {
@@ -59,6 +89,26 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       unitTypeMap += (theType -> n)
       n
     }
+  }
+  
+  def getProcNum(proc_name: String) = {
+    if(unitProcMap.get(proc_name).isEmpty){
+      val proc_num = next_procnum
+      unitProcMap += (proc_name -> proc_num)
+      proc_num
+    }else{
+      unitProcMap.get(proc_name).get
+    }    
+  }
+  
+  def getPkgNum(pkg_name: String) = {
+    if(unitPkgMap.get(pkg_name).isEmpty){
+      val pkg_num = next_pkgnum
+      unitPkgMap += (pkg_name -> pkg_num)
+      pkg_num
+    }else{
+      unitPkgMap.get(pkg_name).get
+    }    
   }
   
   /**
@@ -141,28 +191,20 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
    */
   def buildId(theType: Option[String], id_uri: String, id: String) = {
     // [1] Type Name Mapping
-    if(theType.isDefined && unitTypeMap.get(theType.get).isEmpty){
-      unitTypeMap += (theType.get -> next_typenum)
-    }
+    if(theType.isDefined)
+      getTypeNum(theType.get)
     // [2] Package/Procedure Name Mapping
     if(theType.isEmpty){
-      if(unitNameMap.get(id_uri).isEmpty){
-        val procnum = next_procnum
-        unitNameMap += (id_uri -> procnum)
-        buildIdV0(id, procnum)
-      }else{
-        buildIdV0(id, unitNameMap.get(id_uri).get)
-      }
+      val pkg_proc_num = 
+        if(id_uri.contains("package_body"))
+          getPkgNum(id_uri)
+        else // if(id_uri.contains("procedure_body"))
+          getProcNum(id_uri)
+      buildIdV0(id, pkg_proc_num) 
     }else{
       // [3] Variable Name Mapping
-      val result = if(unitIdentMap.get(id_uri).isEmpty){
-        val idnum = next_idnum
-        unitIdentMap += (id_uri -> idnum)
-        // ((*L1* 8))
-        buildIdV0(id, idnum)
-      }else{
-        buildIdV0(id, unitIdentMap.get(id_uri).get)        
-      }
+      val id_num = getIdNum(id_uri)
+      val result = buildIdV0(id, id_num)
       ident2TypeMap += (result -> theType.get)
       result
     }
@@ -227,16 +269,6 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   
   def buildSeqStmt(seq_astnum: Int, stmt1: String, stmt2: String): String = {
     // use "Sseq" to make the statements in sequence
-//    assert(stmts.length > 0)
-//    if(stmts.length == 1){
-//      stmts.head
-//    }else{
-//      val result = stg.getInstanceOf("seqStmt")
-//      result.add("astnum", next_astnum)
-//      result.add("stmt1", stmts.head)
-//      result.add("stmt2", buildSeqStmt(stmts.tail: _*))
-//      result.render()
-//    }
     if(stmt2 == null){
       stmt1
     }else{
@@ -300,7 +332,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   }
   
   def buildIdentiferDecl(astnum: Int, ids: MList[String], theType: String, optionalInit: Option[String]) = {
-    val result = stg.getInstanceOf("varDeclaration")
+    val result = stg.getInstanceOf("localVarDeclaration")
     result.add("astnum", astnum)
     buildListAttributes(result, "ids", ids: _*)
     val theTypeNum = getTypeNum(theType)
@@ -381,7 +413,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     for(e <- sortedSeq2){
       // TODO: the type declaration AST number is now set None
       val typedecl_num = "None"
-      val typeInfor = buildMappingItem(buildString(e._2), typedecl_num)
+      val typeInfor = buildMappingItem(buildString(e._2).replaceAll(" ", "_"), typedecl_num)
       result.add("unitTypeNameTable", buildMappingItem(e._1.toString, typeInfor)) 
     }
     result.render()
