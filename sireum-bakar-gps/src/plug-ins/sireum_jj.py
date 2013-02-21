@@ -8,39 +8,43 @@ import gobject
 import simplejson as json
 import gps_utils.highlighter as highlighter
 import re
+import warnings
 
 def run_java_program():
 	""" This is temp function with reference to GPS function for fetching properties of project/code """
 	
-	os.system("java -cp /Users/jj/Programs/gnat/share/gps/plug-ins HelloJava "+GPS.current_context().file().name())
-	print "filename:", GPS.current_context().file().name()
-	print "dir:", GPS.current_context().directory()
-	print "entity:", GPS.current_context().entity().name()
-	print "entity category:", GPS.current_context().entity().category()
-	print "entity declaration:", GPS.current_context().entity().declaration()
-	#print "entity body:", GPS.current_context().entity().body()
-	print "entity methods:", GPS.current_context().entity().methods()
-	print "entity primitive_of:", GPS.current_context().entity().primitive_of()
-	print "entity references:", GPS.current_context().entity().references()
-	print "dir(entity)", dir(GPS.current_context().entity())
-	print "project filename:", GPS.current_context().project().file().name()
-	print "root project file/pathname:", GPS.Project.root().file().name()
-	print "source files:", GPS.current_context().project().sources()
-	print "source dirs:", GPS.current_context().project().source_dirs()
-	print "project dir:", os.path.dirname(GPS.current_context().project().file().name())
-	print "file entities:", GPS.current_context().file().entities()
-	print "file entities 2:", GPS.File("example.adb").entities()
-
-	#highlighting (GPS >5.2) http://www.adacore.com/developers/development-log/category/gnatbench
-	# Create an soverlay for an editor:
-  	b = GPS.EditorBuffer.get(GPS.File("example.adb"))
-   	o = b.create_overlay("my_overlay_name")
-  	# Set the paragraph-background property to pink
-   	o.set_property ("paragraph-background", "#f0c0c0")
-  	# This highlights the entire line 7 in file
-  	b.apply_overlay (o,
-    GPS.EditorLocation(b, 7, 1),
-    GPS.EditorLocation(b, 7, 1))
+	#os.system("java -cp /Users/jj/Programs/gnat/share/gps/plug-ins HelloJava "+GPS.current_context().file().name())
+#	print "filename:", GPS.current_context().file().name()
+#	print "dir:", GPS.current_context().directory()
+#	print "entity:", GPS.current_context().entity().name()
+#	print "entity category:", GPS.current_context().entity().category()
+#	print "entity declaration:", GPS.current_context().entity().declaration()
+#	#print "entity body:", GPS.current_context().entity().body()
+#	print "entity methods:", GPS.current_context().entity().methods()
+#	print "entity primitive_of:", GPS.current_context().entity().primitive_of()
+#	print "entity references:", GPS.current_context().entity().references()
+#	#print "dir(entity)", dir(GPS.current_context().entity())
+#	print "project filename:", GPS.current_context().project().file().name()
+#	print "root project file/pathname:", GPS.Project.root().file().name()
+#	print "source files:", GPS.current_context().project().sources()
+#	print "source dirs:", GPS.current_context().project().source_dirs()
+#	print "project dir:", os.path.dirname(GPS.current_context().project().file().name())
+	
+#	print '\n\nGPS.File(GPS.current_context().file().name()).entities()', GPS.File(GPS.current_context().file().name()).entities()
+#	print '\n\nGPS.current_context().file().entities()', GPS.current_context().file().entities()
+#	
+#	print '\n\nGPS.File(GPS.current_context().file().name()).entities(False)', GPS.File(GPS.current_context().file().name()).entities(False)
+#	print '\n\nGPS.current_context().file().entities(False)', GPS.current_context().file().entities(False)
+	
+	highlight_style = GPS.Style("my highlighting style")
+	highlight_style.set_background ("#7fff00")   # a green background
+	
+	f = GPS.File(GPS.current_context().file().name())	
+	m = []
+	for i in range(12,20):
+		m.append(GPS.Message("my message category", f, i, 1, "message text", 2))
+		m[-1].set_style(highlight_style)
+	#m.remove()
 	
 
 
@@ -439,7 +443,6 @@ class KiasanGUI:
                 
                 
 
-
 class TreeViewColumns:
     COLUMN_PACKAGE, COLUMN_TOTAL, COLUMN_ERRORS, COLUMN_INSTRUCTION, COLUMN_BRANCH, COLUMN_TIME = range(6)
  
@@ -451,7 +454,7 @@ def run_kiasan_and_read_json():
 	This method runs Kiasan plugin and load generated reports data into integrated GPS window.
 	"""
 	
-	run_java_program()
+	#run_java_program()
 	
 	prepare_directories_for_reports()
 	
@@ -493,17 +496,21 @@ def run_kiasan():
 	"""
 	
 	# get package name (we assume that package_name = file_name_without_extension)
+	warnings.warn('Maybe better solution is fetch package from entities list? (like procedures)')
 	file_name = GPS.current_context().file().name()
 	m = re.search( '(?<=\/)(\w+)\.ad[bs]', file_name)
 	package_name = m.groups()[0]
 	
-	# get procedure(s) names
+	# get procedures list	
 	if GPS.current_context().entity().category() == "subprogram":
-		procedures = GPS.current_context().entity().name()
+		procedures_list = [GPS.current_context().entity().name()]
 	elif GPS.current_context().entity().category() == "package/namespace":
-		raise NotImplementedError
-		# TODO: we need to find a way to get all procedures from package
-		procedures = "add " + "foo "
+		# fetch all procedures from file (procedure=subprogram) 
+		procedures_list = []
+		for entity in GPS.current_context().file().entities(False):
+			if entity.category() == 'subprogram':
+				procedures_list.append(entity.name())
+		
 	
 	kiasan_lib_dir = "/Users/jj/Programs/Sireum/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201212051038/lib/"
 	
@@ -531,10 +538,11 @@ def run_kiasan():
 	runKiasanCommand += " --generate-aunit-test-cases" if GPS.Preference("sireum-kiasan-generate-aunit").get() else ""
 	runKiasanCommand += " --generate-html-report " + GPS.Preference("sireum-kiasan-html-output-directory").get() if GPS.Preference("sireum-kiasan-generate-html-report").get() else ""
 	#TODO: add dotLocation?? (KiasanRunner.java:443)
-	runKiasanCommand += " " + package_name + " " + procedures
+	runKiasanCommand += " " + package_name
 	
-	print runKiasanCommand
-	os.system(runKiasanCommand)	
+	for procedure in procedures_list:
+		print runKiasanCommand + " " + procedure
+		os.system(runKiasanCommand + " " + procedure)	
 	    
 """End of Kiasan GUI"""
 
@@ -555,7 +563,7 @@ GPS.parse_xml ("""
         <menu action="run Kiasan">
             <title>Run Kiasan</title>
         </menu>        	
-    </submenu>     	
+    </submenu>
 	<contextual action="run Kiasan" >
     	<Title>Sireum/Run Kiasan</Title>
   	</contextual>  
