@@ -18,6 +18,7 @@ Require Export Coq.Bool.Bool.
 Require Export Coq.Strings.String.
 >>
 
+// Definition pkgnum := nat.
 basicTypes() ::= <<
 Inductive mode: Type := 
     | In: mode
@@ -31,8 +32,6 @@ Definition astnum := nat.
 Definition idnum := nat.
 
 Definition procnum := nat.
-
-Definition pkgnum := nat.
 
 Definition typenum := nat.
 

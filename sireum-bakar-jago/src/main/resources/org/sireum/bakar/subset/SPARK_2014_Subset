@@ -4,6 +4,7 @@
   * Subject: Re: [Spark2014-discuss] [L621-012] formal semantics of SPARK 2014
   * To: spark2014-discuss@lists.forge.open-do.org
 ************************************************************************************/
+
 We have converged on the following subset. Here I'll just give an
 informal list of the features that this subset would contain,
 following the structure of the two reference manuals (Ada 2012 and

@@ -1,17 +1,16 @@
-package org.sireum.bakar.jago.module
+package org.sireum.bakar.jago.program
 
 import org.sireum.pipeline._
 import org.sireum.bakar.xml._
 import org.sireum.util._
 import scala.collection.JavaConversions.asScalaBuffer
-import org.sireum.bakar.jago.util.Factory._
-import org.sireum.bakar.jago.util.TranslatorUtil
 import org.sireum.bakar.jago.util.Factory
+import org.sireum.bakar.jago.util.TranslatorUtil
+import org.stringtemplate.v4.STGroupFile
+import org.sireum.bakar.jago.util.TypeNameSpace
 
-/** 
-  * The following class will be called reflectively in Bakar2CoqTranslatorModuleCore.  
-  */
-class BakarTranslatorDef (val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
+class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarProgramTranslatorModule {
+
   // add implementation here
   // Here we implement the translation from SPARK XML AST tree to Coq value
   // - Bakar2CoqTranslatorConfig generate Bakar2CoqTranslatorModuleCore
@@ -96,17 +95,20 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         Console.err.println("Need to handle context clauses")
       // [1] Package Declaration
         
-      // [2] Package Body  
-      if(unitKind == "A_Package_Body"){
+      // [2] Compilation unit can be either (1)Package Body or (2)Procedure Body  
+      if(unitKind == "A_Package_Body" || 
+          unitKind == "A_Procedure_Body"){
         // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
-        val astnum = factory.buildAstMappingTable(sloc, None)
+        val cu_astnum = factory.buildAstMappingTable(sloc, None)
+        val unit_astnum = factory.buildAstMappingTable(sloc, None)
         v(unitDeclaration)
-        val unitDecl = ctx.popResult
-        val cu = factory.buildCompilationUnit(astnum, unitDecl)  
+        val bodyDecl = ctx.popResult
+        val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl)
+        val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)  
         
         // store the program translation results as PipelineJob's properties
         // so the result can be used by the following pipeline modules
-        this.results_=(Seq[String](cu))         
+        this.jagoProgramResults_=(Seq[String](cu))         
       }
 
       false
@@ -120,7 +122,6 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
 
       assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
       assert(names.getDefiningNames().length == 1)
-      val unit_astnum = factory.buildAstMappingTable(sloc, None)
       val pkgbody_astnum = factory.buildAstMappingTable(sloc, None)
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
@@ -142,9 +143,9 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val pkgBodyAspectSpecs = mlistEmpty[String]
       val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
       //
-      
-      val packageUnit = factory.buildUnitDeclaration(unit_astnum, "PackageBodyDecl", pkgBodyDecl)
-      ctx.pushResult(packageUnit)
+      //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "PackageBodyDecl", pkgBodyDecl)
+      // val packageUnit = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", pkgBodyDecl)
+      ctx.pushResult(pkgBodyDecl)
 
       false
   }
@@ -261,7 +262,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         
         val result = factory.buildSubProgram(method_astnum, "Sproc", procedureBody, annotation)
         ctx.pushResult(result)
-
+        
         false
       case o @ FunctionBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
@@ -353,7 +354,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val loopBody = ctx.popResult.asInstanceOf[String]
       // TODO: extract the loop invariant from the While Statement
       val loopInv = factory.buildOptionV(None) 
-      ctx.pushResult(factory.buildWhileStmt(astnum, cond, loopInv, loopBody))
+      ctx.pushResult(factory.buildWhileStmt(astnum, cond, loopBody))
       false
 //    case o =>
 //      println("statementH: need to handle " + o.getClass().getSimpleName())
@@ -477,17 +478,24 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       )))
   
   import org.sireum.option.ProgramTarget
-  val t = this.translationType
+  def getProgramTranslatorSTG(o : ProgramTarget.Type) = {
+    (o : @unchecked) match {
+      case ProgramTarget.Ocaml =>
+        new STGroupFile(getClass.getResource(TypeNameSpace.ProgramTransTemplate_OCaml), "UTF-8", '$', '$')
+      case ProgramTarget.Coq =>
+        new STGroupFile(getClass.getResource(TypeNameSpace.ProgramTransTemplate_Coq), "UTF-8", '$', '$')
+    }
+  }
+  
+  val t = this.jagoProgramTarget
   assert (t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
-  val factory = new Factory(t)
-  // print the test cases
-  // var count = 0;
-  // var suffix = 0;
+  
+  val stg = getProgramTranslatorSTG(t)
+  val factory = new Factory(stg)
+  
   this.parseGnat2XMLresults.foreach {
-    case (key, value) => {
-      // println("test case " + count + "_" + suffix + ": " + key)
-      // suffix = (suffix + 1)%2
-      // count = if (suffix == 0) (count + 1) else count  
+    case (key, value) => { 
+      // println("Hello how are you")
       visit(value)
     }
   }
@@ -501,5 +509,3 @@ final case class MethodClass(
     localIdents: MList[String],
     mbody: String
 )
-
-

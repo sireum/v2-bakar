@@ -11,8 +11,6 @@ type idnum = int
 
 type procnum = int
 
-type pkgnum = int
-
 type typenum = int
 
 type typedeclnum = astnum
@@ -54,15 +52,13 @@ type expr =
 	| Ebinop of astnum * binary_operation * expr * expr
 	| Eunop of astnum * unary_operation * expr
 
-type predicate = expr
-
-type loopInvariant = (predicate) option
-
 type stmt = 
 	| Sassign of astnum * idnum * expr
 	| Sifthen of astnum * expr * stmt
-	| Swhile of astnum * expr * loopInvariant * stmt
+	| Swhile of astnum * expr * stmt
 	| Sseq of astnum * stmt * stmt
+	| Sassert of astnum * expr
+	| Sloopinvariant of astnum * expr
 
 type param_specification = {
 	param_astnum: astnum;
@@ -75,7 +71,7 @@ type param_specification = {
 type aspect_specification = {
 	aspect_astnum: astnum;
 	aspect_mark: aspectnum;
-	aspect_definition: predicate 
+	aspect_definition: expr 
 }
 
 (* Local variables declarations used in the procedure/function body *)
@@ -109,12 +105,8 @@ type subprogram =
 	| Sproc of astnum * procedure_body
 	| Sfunc of astnum * function_body
 
-type package_body = 
-	| PackageBody of astnum * pkgnum * (aspect_specification list) option * subprogram list
-
-(* compilation unit can be either package_declaration or package_body_declaration *)
 type unit_declaration = 
-	| PackageBodyDecl of astnum * package_body
+	| UnitDecl of astnum * subprogram
 
 type compilation_unit = 
 	| CompilationUnit of astnum * unit_declaration * type_table

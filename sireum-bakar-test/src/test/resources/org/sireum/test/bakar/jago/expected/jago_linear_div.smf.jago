@@ -1,0 +1,60 @@
+(* Compilation Unit *)
+CompilationUnit 1
+  (* Compilation Unit - Unit Declaration *) (
+    UnitDecl 2 (
+      (* Procedure Body Declaration *)
+      Sproc 3 (
+        mkprocedure_body 4
+          (* Procedure Body - Name *)
+          (*Linear_Div*) 1
+          (* Procedure Body - Specification *)
+          (None)
+          (* Procedure Body - Parameters *)
+          (Some(
+            mkparam_specification 5 ((*Dividend*) 1 :: nil) (1) (In) None :: 
+            mkparam_specification 6 ((*Divisor*) 2 :: nil) (1) (In) None :: 
+            mkparam_specification 7 ((*Quotient*) 3 :: nil) (1) (Out) None :: 
+            mkparam_specification 8 ((*Remainder*) 4 :: nil) (1) (Out) None :: nil
+          )) 
+          (* Procedure Body - Locally Defined Variables *)
+          (None)
+          (* Procedure Body - Body *) (
+            Sseq 9 (
+              Sassign 10 ((*Quotient*) 3) (Econst 11 (Ointconst 0)) ) ( 
+              Sseq 12 (
+                Sassign 13 ((*Remainder*) 4) (Evar 14 (*Dividend*) 1) ) ( 
+                Swhile 15 (Ebinop 16 Cge (Evar 17 (*Remainder*) 4) (Evar 18 (*Divisor*) 2)) (
+                    Sseq 19 (
+                      Sassign 20 ((*Quotient*) 3) (Ebinop 21 Oadd (Evar 22 (*Quotient*) 3) (Econst 23 (Ointconst 1))) ) ( 
+                      Sseq 24 (
+                        Sassign 25 ((*Quotient*) 3) (Ebinop 26 Oadd (Evar 27 (*Quotient*) 3) (Econst 28 (Ointconst 1))) ) ( 
+                        Sassign 29 ((*Remainder*) 4) (Ebinop 30 Osub (Evar 31 (*Remainder*) 4) (Evar 32 (*Divisor*) 2)) ) )
+                  ) ) )
+          )
+      )
+    )
+  )
+  (* Compilation Unit - Type Table *) (
+    mktype_table (
+      (* Expression Type Table: Expression AstNum --> TypeNum *)
+      (11, 2) ::
+      (14, 1) ::
+      (16, 3) ::
+      (17, 1) ::
+      (18, 1) ::
+      (21, 1) ::
+      (22, 1) ::
+      (23, 2) ::
+      (26, 1) ::
+      (27, 1) ::
+      (28, 2) ::
+      (30, 1) ::
+      (31, 1) ::
+      (32, 1) :: nil
+    ) (
+      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
+      (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
+      (2, ("universal_integer"%string, None)) ::
+      (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) :: nil
+    )
+  )

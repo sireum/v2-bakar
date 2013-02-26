@@ -5,16 +5,7 @@ import org.sireum.util._
 import org.sireum.option.ProgramTarget
 import org.sireum.bakar.xml.SourceLocation
 
-class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
-  // the default program translation option is Coq
-  var url = (option: @unchecked) match {   
-    case ProgramTarget.Ocaml =>
-      getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_OCaml)
-    case ProgramTarget.Coq =>
-      getClass.getResource("./../module/" + TypeNameSpace.ProgramTransTemplate_Coq)
-  }
-  val stg = new STGroupFile(url.getPath(), "UTF-8", '$', '$') 
-  
+class Factory(stg: STGroupFile) {
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
   val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
   val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
@@ -126,12 +117,9 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
    * while in OCaml, it looks like: "hello"
    */
   def buildString(str: String) = {
-    (option: @unchecked) match {
-      case ProgramTarget.Ocaml =>
-        "\"" + str + "\""
-      case ProgramTarget.Coq =>
-        buildContext("\"" + str + "\"", "string")
-    }
+    val result = stg.getInstanceOf("stringFormat")
+    result.add("value", str)
+    result.render()
   }
   
   def buildOptionV(value: Option[String]) = { 
@@ -144,7 +132,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
   def buildMode(mode: String) = {
     // In XML AST, mode is AN_OUT_MODE, or AN_IN_MODE
     val result = mode match {
-      case "AN_IN_MODE" => 
+      case "AN_IN_MODE" | "A_DEFAULT_IN_MODE" => 
         Some("In")
       case "AN_OUT_MODE" => 
         Some("Out")
@@ -279,12 +267,25 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
       result.render()      
     }
   }
+
+  def buildAssertStmt(astnum: Int, assertExp: String) = {
+    val result = stg.getInstanceOf("assertStmt")
+    result.add("astnum", astnum)
+    result.add("assertExp", assertExp)
+    result.render()
+  }
   
-  def buildWhileStmt(astnum: Int, cond: String, loopInv: String, loopBody: String) = {
+  def buildLoopInvariantStmt(astnum: Int, invariantExp: String) = {
+    val result = stg.getInstanceOf("loopInvariantStmt")
+    result.add("astnum", astnum)
+    result.add("invariantExp", invariantExp)
+    result.render()
+  }
+  
+  def buildWhileStmt(astnum: Int, cond: String, loopBody: String) = {
     val result = stg.getInstanceOf("whileStmt")
     result.add("astnum", astnum)
     result.add("cond", cond)
-    result.add("loopInv", loopInv)
     result.add("loopBody", loopBody)
     result.render()
   }
@@ -390,7 +391,7 @@ class Factory(option: ProgramTarget.Type = ProgramTarget.Coq) {
     val result = stg.getInstanceOf("unitDeclaration")
     result.add("astnum", astnum)
     result.add("kind", kind)
-    result.add("packageUnit", packageUnit)
+    result.add("packageUnit", packageUnit) 
     result.render()
   }
   

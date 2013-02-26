@@ -41,10 +41,16 @@ Sseq $astnum$ (
   $stmt2$ )
 >>
 
-whileStmt(astnum, cond, loopInv, loopBody) ::= <<
-Swhile $astnum$ ($cond$) ($if(loopInv)$
-    $loopInv$$else$
-    None$endif$ ) (
+assertStmt(astnum, assertExp) ::= <<
+Sassert $astnum$ ($assertExp$)
+>>	
+
+loopInvariantStmt(astnum, invariantExp) ::= <<
+Sloopinvariant $astnum$ ($invariantExp$)
+>>
+
+whileStmt(astnum, cond, loopBody) ::= <<
+Swhile $astnum$ ($cond$) (
     $loopBody$
   )
 >>
@@ -162,9 +168,9 @@ CompilationUnit $astnum$
   )
 >>
 
-// for example: "hello"%string
-context(value, ctxt) ::= <<
-$value$%$ctxt$
+// in Coq, it is something like "hello"%string
+stringFormat(value) ::= <<
+"$value$"%string
 >>
 
 mappingPair(key, value) ::= <<

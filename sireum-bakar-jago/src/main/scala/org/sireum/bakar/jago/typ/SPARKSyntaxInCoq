@@ -17,8 +17,6 @@ Definition idnum := nat.
 
 Definition procnum := nat.
 
-Definition pkgnum := nat.
-
 Definition typenum := nat.
 
 Definition typedeclnum := astnum.
@@ -60,15 +58,13 @@ Inductive expr: Type :=
 	| Ebinop: astnum -> binary_operation -> expr -> expr -> expr
 	| Eunop: astnum -> unary_operation -> expr -> expr.
 
-Definition predicate := expr.
-
-Definition loopInvariant := option (predicate).
-
 Inductive stmt: Type := 
 	| Sassign: astnum -> idnum -> expr -> stmt
 	| Sifthen: astnum -> expr -> stmt -> stmt
-	| Swhile: astnum -> expr -> loopInvariant -> stmt -> stmt
-	| Sseq: astnum -> stmt -> stmt -> stmt.
+	| Swhile: astnum -> expr -> stmt -> stmt
+	| Sseq: astnum -> stmt -> stmt -> stmt
+	| Sassert: astnum -> expr -> stmt
+	| Sloopinvariant: astnum -> expr -> stmt.
 
 Record param_specification: Type := mkparam_specification{
 	param_astnum: astnum;
@@ -81,7 +77,7 @@ Record param_specification: Type := mkparam_specification{
 Record aspect_specification: Type := mkaspect_specification{
 	aspect_astnum: astnum;
 	aspect_mark: aspectnum;
-	aspect_definition: predicate
+	aspect_definition: expr
 }.
 
 (* Local variables declarations used in the procedure/function body *)
@@ -115,12 +111,8 @@ Inductive subprogram: Type :=
 	| Sproc: astnum -> procedure_body -> subprogram
 	| Sfunc: astnum -> function_body -> subprogram.
 
-Inductive package_body: Type := 
-	| PackageBody: astnum -> pkgnum -> option (list aspect_specification) -> list subprogram -> package_body.
-
-(* compilation unit can be either package_declaration or package_body_declaration *)
 Inductive unit_declaration: Type := 
-	| PackageBodyDecl: astnum -> package_body -> unit_declaration.
+	| UnitDecl: astnum -> subprogram -> unit_declaration.
 
 Inductive compilation_unit: Type := 
 	| CompilationUnit: astnum -> unit_declaration -> type_table -> compilation_unit.

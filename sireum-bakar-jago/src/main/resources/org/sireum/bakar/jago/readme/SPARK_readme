@@ -1,0 +1,9 @@
+(1) either subprogram or package can be a compilation unit, if test.adb contains only 
+    a subprogram body, then use gnatmake to compile it
+  >>$ gnatmake -gnat2012 -gnatct test.adb
+
+(2) after compilation, use gnat2xml to generate its AST in XML
+  >>$ gnat2xml test.adb 
+
+
+

@@ -16,6 +16,7 @@ class test {
 object obj {
   val x = "Inside the obj";
   var y = 0;
+  println(x)
   def printCurrentState {
     y = y + 1
     println(">>> " + y)

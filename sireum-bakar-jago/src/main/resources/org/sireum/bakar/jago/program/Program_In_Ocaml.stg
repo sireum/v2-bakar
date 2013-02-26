@@ -43,11 +43,16 @@ Sseq ($astnum$,
   $stmt2$ )
 >>
 
-whileStmt(astnum, cond, loopInv, loopBody) ::= <<
-Swhile ($astnum$, $cond$, 
-  $if(loopInv)$
-  $loopInv$$else$
-  None$endif$,
+assertStmt(astnum, assertExp) ::= <<
+Sassert ($astnum$, $assertExp$)
+>>	
+
+loopInvariantStmt(astnum, invariantExp) ::= <<
+Sloopinvariant ($astnum$, $invariantExp$)
+>>
+
+whileStmt(astnum, cond, loopBody) ::= <<
+Swhile ($astnum$, $cond$,
   $loopBody$
 )
 >>
@@ -199,6 +204,10 @@ CompilationUnit ( $astnum$,
       ]
   }
 )
+>>
+
+stringFormat(value) ::= <<
+"$value$"
 >>
 
 mappingPair(key, value) ::= <<

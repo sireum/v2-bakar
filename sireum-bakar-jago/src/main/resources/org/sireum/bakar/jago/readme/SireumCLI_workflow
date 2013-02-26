@@ -1,0 +1,85 @@
+/*************************
+  * Sireum CLI workflow
+  ************************/
+
+  ************************
+    <1> CLI Source Code
+  ************************
+
+Take CLI for my type/program bakar-jago translator as example.
+
+* Sireum-option
+  parse user input options
+  - Sireum.scala / SireumMode: define the operation options of sireum toolset for users
+    + Its the entry point to call all static analysis tools developed on sireum platform
+      For example
+      # (1) we define "bakar : SireumBakarMode = SireumBakarMode()" for bakar-jago translator
+      # (2) define class "SireumBakarMode" in Bakar.scala
+  - Bakar.scala: define the operation options for running my bakar-jago translator
+    + it defines SireumBakarTypeMode and SireumBakarProgramMode classes, which are annotated with "BakarType" 
+      and "BakarProgram" classes that are defined under sireum-bakar-tools/BakarTool/. "BakarType" and ""BakarProgram"
+      will call bakar-jogo type/program tanslator. 
+
+* Sireum-tools  
+  - CliBuilder: run it, according to sireum-option/CliGen/CliGenMode, will generate [[Sireum-Cli/sireumCli]]
+
+* Sireum-Cli    
+  - SireumCli (parse the user input command, for example: sireum bakar -type Coq, and execute it)
+    + object SireumCli > 
+      parse > parseSireumMode > parseSireumBakarMode > parseSireumBakarTypeMode & parseSireumBakarProgramMode, 
+      which set the result with the class name of "BakarType" and "BakarProgram".
+
+* sireum-option 
+  - CliGen / CliGenMode 
+  (for example to generate siruemCli)
+  Input
+  - className:  use java reflection to parse Sireum-option/Sireum.scala/SireumMode
+  - classpath: 
+  Output
+  - dir: is Sireum-Cli
+  - genClassName: is sireumCli
+
+* sireum-bakar-tools
+  - BakarTool.scala
+    + BakarType:    it calls the bakar-jago type translator
+    + BakarProgram: it calls the bakar-jago program translator
+
+
+  ************************
+   <2> Build & Update CLI 
+  ************************
+  -- From Jason Belt
+
+Re: ~/Documents/workspace-sireumv2/sireum-internal/sireumv2 $ tools/bin/sbt compile package-bin update-dist
+
+
+Step 1: 
+Build update site
+
+~/Documents/workspace-sireumv2/sireum-internal/sireumv2 $ tools/bin/sbt compile package-bin update-dist
+
+Step 2
+from ~/temp directory
+
+$ export SIREUM_UPDATE=~/Documents/ ….. /sireumv2/update
+
+$ cp $SIREUM_UPDATE/sireum .
+$ chmod 700 ./sireum
+
+$ ./sireum update
+
+$ ./sireum bakar type
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,6 +5,7 @@ $basicTypes()$
 $typeDeclarations; separator="\n\n"$
 >>
 
+// type pkgnum = int
 basicTypes() ::= <<
 type mode = 
     | In
@@ -18,8 +19,6 @@ type astnum = int
 type idnum = int
 
 type procnum = int
-
-type pkgnum = int
 
 type typenum = int
 
