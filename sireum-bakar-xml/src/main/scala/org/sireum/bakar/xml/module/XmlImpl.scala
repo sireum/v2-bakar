@@ -24,11 +24,12 @@ object Util {
   def base(s : String) : String = {
     val f = new File(scala.util.Properties.envOrElse(gnat2xml_key, ""))
     if (!f.exists() || !f.isDirectory() || !(new File(f, s).exists()))
-      ""
+      s
     else
       new File(f, s).getAbsolutePath()
   }
-  val gnatmake = base("gnatmake" + ext)
+  
+  //val gnatmake = base("gnatmake" + ext)
   val gnat2xml = base("gnat2xml" + ext)
 
   def copy(srcUri : FileResourceUri, destUri : FileResourceUri) {
@@ -95,8 +96,8 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
 
   val sfiles = this.srcFiles.map(f => new File(new URI(f)).getName())
 
-  val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct", "-gnatd.V") ++ sfiles
-  val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
+  //val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct", "-gnatd.V") ++ sfiles
+  //val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
   //println(result1)
 
   val g2xargs = ivector(Util.gnat2xml, "-v", "-t",
