@@ -1,4 +1,4 @@
-package body Jago_Test_Case_10 is
+package body Test_Case_10 is
     procedure P1 (I1, I2, I3 : in Integer; O1, O2 : out Integer)
     is
         L1, L2 : Integer;
@@ -23,4 +23,4 @@ package body Jago_Test_Case_10 is
 	
         O1 := L2; 	
     end P1;
-end Jago_Test_Case_10;
+end Test_Case_10;

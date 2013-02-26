@@ -95,7 +95,7 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
 
   val sfiles = this.srcFiles.map(f => new File(new URI(f)).getName())
 
-  val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct") ++ sfiles
+  val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct", "-gnatd.V") ++ sfiles
   val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
   //println(result1)
 

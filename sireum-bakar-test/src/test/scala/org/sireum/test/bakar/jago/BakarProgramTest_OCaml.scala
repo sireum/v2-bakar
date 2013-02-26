@@ -1,5 +1,4 @@
 package org.sireum.test.bakar.jago
-// BakarTranslatorTest_Jago
 
 import org.junit.runner.RunWith
 import java.io.Writer
@@ -11,12 +10,12 @@ import org.sireum.util._
 import org.sireum.example.bakar.BakarExamples
 import org.sireum.example.bakar.BakarExamplesAnchor
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
-import org.sireum.bakar.jago.module.BakarTranslatorModule
+import org.sireum.bakar.jago.program.BakarProgramTranslatorModule
 import org.scalatest.junit.JUnitRunner
 import org.sireum.option.ProgramTarget
 
 @RunWith(classOf[JUnitRunner])
-class BakarTranslatorTest_Jago extends BakarTestFileFramework {
+class BakarTranslatorTest_OCaml extends BakarTestFileFramework {
 
   //this.includes += "case"
   //this.excludes += "function_simple"
@@ -24,10 +23,10 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
   //this.includes += "test_case_10
   this.includes += "jago"
     
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
+  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
   override def pre(c : Configuration) : Boolean = {
-    BakarTranslatorModule.setTranslationType(c.job.properties, ProgramTarget.Coq)
+    BakarProgramTranslatorModule.setJagoProgramTarget(c.job.properties, ProgramTarget.Ocaml)
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
     return true;
@@ -50,16 +49,16 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
       PipelineStage(
         "translator stage",
         false,
-        BakarTranslatorModule)
+        BakarProgramTranslatorModule)
     )
 
   override def generateExpected = false
-  override def outputSuffix = "jago"
+  override def outputSuffix = "ocaml"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
-    val results = BakarTranslatorModule.getResults(job.properties)
+    val results = BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
     results.foreach{f => 
-      w.write(f) 
+      w.write(f)
       println(f)}
   }
 }
