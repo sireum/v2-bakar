@@ -1,5 +1,5 @@
 
-typeDefinitions(typeDeclarations) ::= <<
+bakarJagoTypes(typeDeclarations) ::= <<
 $importedLibs()$
 
 (* Module SPARK_Syntax. *)
@@ -47,32 +47,32 @@ Record type_table: Type := mktype_table{
 }.
 >>
 
-typeDeclaration(typeName, constructorDecls, annotation) ::= <<
+typeDeclaration(typeName, constructors, annotation) ::= <<
 $if(annotation)$(* $annotation$ *)$endif$
 Inductive $typeName$: Type := 
-	$constructorDecls; separator="\n"$.
+	$constructors; separator="\n"$.
 >>
 
 fieldDeclaration(fieldName, fieldType) ::= <<
 $fieldName$: $fieldType$
 >>
 
-recordDeclaration(recordName, constructorName, fields, annotation) ::= <<
+recordDeclaration(recordName, fields, annotation) ::= <<
 $if(annotation)$(* $annotation$ *)$endif$
-Record $recordName$: Type := $constructorName${
+Record $recordName$: Type := mk$recordName${
 	$fields; separator=";\n"$
 }.
 >>
 
-constructor(constructorName, constructorArgs) ::= <<
-| $constructorName$: $constructorArgs; separator = " -> "$
+typeConstructor(typeName, constructorName, constructorArgs) ::= <<
+| $constructorName$: $constructorArgs; separator = " -> "$$if(constructorArgs)$ -> $endif$$typeName$
 >>
 
 typeRename(newName, oldName) ::= <<
 Definition $newName$ := $oldName$.
 >>
 
-// the Coq type "option bool" should be written with "bool option" in OCaml
+// Coq type "option bool" should be written with "bool option" in OCaml
 optionType(theType) ::= <<
 option ($theType$)
 >>

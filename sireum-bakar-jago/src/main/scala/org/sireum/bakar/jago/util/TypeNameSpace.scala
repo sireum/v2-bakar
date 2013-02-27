@@ -38,7 +38,7 @@ object TypeNameSpace {
   val Expression = "expr"
   val BinaryOp = "binary_operation"
   val UnaryOp = "unary_operation"
-  val StatementList = "stmt"
+  val Statement = "stmt"
   
   val ModeT = "mode"
   val LocalVariableDeclaration = "local_declaration"

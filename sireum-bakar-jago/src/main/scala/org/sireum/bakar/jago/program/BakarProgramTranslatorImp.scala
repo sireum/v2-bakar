@@ -19,9 +19,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   type BVisitor = Any => Boolean
   
   trait Context {
-    var result: String = null
+    var result: Any = null
     
-    def pushResult(o: String) {
+    def pushResult(o: Any) {
       result = o;
     }
     
@@ -103,7 +103,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         val unit_astnum = factory.buildAstMappingTable(sloc, None)
         v(unitDeclaration)
         val bodyDecl = ctx.popResult
-        val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl)
+        val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl.asInstanceOf[String])
         val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)  
         
         // store the program translation results as PipelineJob's properties
@@ -126,7 +126,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
-      val pkgBodyName = ctx.popResult
+      val pkgBodyName = ctx.popResult.asInstanceOf[String]
       
       val pkgElems = mlistEmpty[String]
       TranslatorUtil.getTypeDeclarations(bodyDecItems)
@@ -138,7 +138,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
 
       for (m <- TranslatorUtil.getMethodDeclarations(bodyDecItems)) {
         v(m)
-        pkgElems += ctx.popResult
+        pkgElems += ctx.popResult.asInstanceOf[String]
       }
       val pkgBodyAspectSpecs = mlistEmpty[String]
       val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
@@ -170,12 +170,12 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         // [1] method name
         // val mname = names.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDefName()
         v(names.getDefiningNames().get(0))
-        val mname = ctx.popResult
+        val mname = ctx.popResult.asInstanceOf[String]
         // [2] return type
         val returnType : Option[String] = resultProfile match {
           case Some(e) =>
             v(e)
-            val ne = ctx.popResult
+            val ne = ctx.popResult.asInstanceOf[String]
             Some(ne)
           case None => None
         }
@@ -203,7 +203,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
                 None
               }else{
                 v(_initExpr)
-                Some(ctx.popResult)
+                Some(ctx.popResult.asInstanceOf[String])
               }
             // [2-3] parameter names of the same type and mode
             val paramlist = mlistEmpty[String]
@@ -227,11 +227,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         val defingIds = mlistEmpty[String]
         for(declItem <- bodyDeclItems.getElements()) {
           v(declItem)
-          defingIds += ctx.popResult
+          defingIds += ctx.popResult.asInstanceOf[String]
         }
         // [5] method body
         v(bodyStatements)
-        val mbody = ctx.popResult
+        val mbody = ctx.popResult.asInstanceOf[String]
 
         // [6] method aspect specification, for example, Pre and Post  
         val specs = mlistEmpty[String]
@@ -291,7 +291,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val declItems = mlistEmpty[String]
       for(defName <- namesQl.getDefiningNames()){
         v(defName)
-        declItems += ctx.popResult
+        declItems += ctx.popResult.asInstanceOf[String]
       }
       
       val optionalInitExp = 
@@ -299,7 +299,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           None
         }else{
           v(initExpQ.getExpression())
-          Some(ctx.popResult)
+          Some(ctx.popResult.asInstanceOf[String])
         }
 
       ctx.pushResult(factory.buildIdentiferDecl(astnum, declItems, theType.get, optionalInitExp))
@@ -323,11 +323,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
       v(calledName)
-      val procName = ctx.popResult
+      val procName = ctx.popResult.asInstanceOf[String]
       val params = mlistEmpty[String]
       for(param <- callStatementParameters.getAssociations()) {
         v(param)
-        params += ctx.popResult
+        params += ctx.popResult.asInstanceOf[String]
       }
       ctx.pushResult(factory.buildProcedureCall(procName, params: _*)) 
       false
@@ -352,9 +352,21 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val cond = ctx.popResult.asInstanceOf[String]
       v(loopStatements)
       val loopBody = ctx.popResult.asInstanceOf[String]
-      // TODO: extract the loop invariant from the While Statement
-      val loopInv = factory.buildOptionV(None) 
       ctx.pushResult(factory.buildWhileStmt(astnum, cond, loopBody))
+      false
+    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName) =>
+      pragmaName match {
+        case "Loop_Invariant" =>
+          val astnum = factory.buildAstMappingTable(sloc, None)
+          v(pragmaArgumentAssociationsQl)
+          //TODO: now consider while loop with only one loop invariant
+          val hd = ctx.popResult.asInstanceOf[MList[Any]].head
+          val loopInvariantExp = hd.asInstanceOf[String]
+          ctx.pushResult(factory.buildLoopInvariantStmt(astnum, loopInvariantExp))
+          false
+        case _ =>
+          println("statementH: other pragmas need to be handled !")
+      }
       false
 //    case o =>
 //      println("statementH: need to handle " + o.getClass().getSimpleName())
@@ -381,7 +393,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       // scala.collection.mutable.Buffer <=> java.util.List
       for(param <- functionCallParameters.getAssociations) {
         v(param)
-        plist += factory.buildIdentifierExpr(sloc, ctx.popResult)
+        plist += factory.buildIdentifierExpr(sloc, ctx.popResult.asInstanceOf[String])
       }
       
       if(ctx.isBinaryOp(prefixQ)) {
@@ -416,14 +428,31 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
 //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
 //
 //      false
-    case o =>
-      //println("nameH: need to handle: " + o.getClass().getSimpleName())
-      true
+//    case o =>
+//      //println("nameH: need to handle: " + o.getClass().getSimpleName())
+//      true
   }  
+  
+  def associationListH(ctx: Context, v : => BVisitor) : VisitorFunction = {
+    case o @ AssociationListEx(associations) =>
+      val result = mlistEmpty[Any]
+      associations.foreach{association =>
+        v(association)
+        result += ctx.popResult
+      }
+      ctx.pushResult(result)
+      false
+  }
+  
+  def pragmaArgumentAssociationH(ctx: Context, v: => BVisitor): VisitorFunction = {
+    case o @ PragmaArgumentAssociationEx(sloc, formalParameter, actualParameter) =>
+      v(actualParameter)
+      false
+  }
   
   def everythingElseH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o if (o != null) =>
-      println("everythingElseH " + o.getClass.getSimpleName)
+      //println("everythingElseH " + o.getClass.getSimpleName)
       true
     case null =>
       println("everythingElseH: it is null")
@@ -450,11 +479,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     if(!stmts.isEmpty){
       if(stmts.length == 1){
         v(stmts.head)  
-        result = ctx.popResult
+        result = ctx.popResult.asInstanceOf[String]
       }else{
         val seq_astnum = factory.next_astnum
         v(stmts.head)  
-        val stmt1 = ctx.popResult
+        val stmt1 = ctx.popResult.asInstanceOf[String]
         val stmt2 = unit_trans_seq(stmts.tail, v)
         result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)        
       }
@@ -474,6 +503,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         statementH(ctx, theVisitor),
         expressionH(ctx, theVisitor),
         nameH(ctx, theVisitor),
+        associationListH(ctx, theVisitor),
+        pragmaArgumentAssociationH(ctx, theVisitor),
         everythingElseH(ctx, theVisitor)
       )))
   

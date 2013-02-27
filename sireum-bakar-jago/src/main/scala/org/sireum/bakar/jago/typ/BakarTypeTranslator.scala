@@ -23,6 +23,7 @@ import org.sireum.util.MList
 import org.sireum.option.TypeTarget
 import org.sireum.option.SireumBakarTypeMode
 import java.net.URI
+import org.sireum.bakar.jago.util.Factory
 
 /**
  * Refer the following file for reference
@@ -36,6 +37,29 @@ import java.net.URI
  * 4. In OCaml, integer type is "int"
  */
 class BakarTypeTranslator(o : SireumBakarTypeMode) {
+  class Context {
+    val typeDeclarations = mlistEmpty[Any]
+    var result: Any = null
+    
+    def pushResult(o: Any){
+      result = o
+    }
+    
+    def popResult = {
+      val r = result
+      result = null
+      r
+    }
+    
+    def addNewTypeDecl(newTypeDecl: Any){
+      typeDeclarations += newTypeDecl
+    }
+    
+    def getTypeDecls = {
+      typeDeclarations
+    }
+  }
+  
   def getTypeTranslatorSTG(o : TypeTarget.Type) = {
     (o : @unchecked) match {
       case TypeTarget.Coq =>
@@ -46,86 +70,17 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
         new STGroupFile(getClass.getResource(TypeNameSpace.TypeTransTemplate_OCaml), "UTF-8", '$', '$')
     }
   }
-  
+
+  val ctx = new Context()
   val option = o.typ
   val stg = getTypeTranslatorSTG(option)
+  val factory = new Factory(stg)
+  import factory._
 
-  val typeDeclarations = mlistEmpty[String]
-  val typeConstructors = mlistEmpty[String]
-
-  def emptyTypeConstructors {
-    typeConstructors.clear
-  }
-
-  def getTypeConstructors = {
-    typeConstructors
-  }
-
-  def setTypeConstructors(constructors : MList[String]) {
-    // getTypeConstructors() return a reference to "typeConstructors", 
-    // so emptyTypeConstructors() will empty both "typeConstructors" and the return result of getTypeConstructors()
-    val temp = mlistEmpty[String]
-    constructors.foreach(c => temp += c)
-    emptyTypeConstructors
-    temp.foreach(c => typeConstructors += c)
-  }
-
-  /**
-   * Type definitions are different in Coq and OCaml, take id as example
-   * In Coq:   Inductive id := | Id: string -> id. (its constructorArgs is <Id, string, id>)
-   * In OCaml: type      id = | Id of string       (its constructorArgs is <Id, string>)
-   */
-  def getTypeConstructorElems(typeConstructorElems : String*) = {
-    (option : @unchecked) match {
-      case TypeTarget.Coq =>
-        typeConstructorElems
-      case TypeTarget.Ocaml =>
-        typeConstructorElems.dropRight(1)
-    }
-  }
-
-  /**
-   * If the Coq type is defined by singleton inductive, its extracted OCaml type will be optimized, for example:
-   * (1) Inductive constant: Type :=
-   *       | Ointconst: nat -> constant.        =>      type constant = nat
-   * However,
-   * (2) Inductive package_body: Type :=
-   *       | Packagebody: option (pkgbody_aspect_specs) -> list subprogram -> package_body.  =>
-   *     type package_body =
-   *       | Packagebody of pkgbody_aspect_specs option * subprogram list
-   */
-  def getTypeConstructor(cons : String) = {
-    (option : @unchecked) match {
-      case TypeTarget.Coq =>
-        cons
-      case TypeTarget.Ocaml =>
-        if (cons.contains("*")) {
-          cons
-        } else {
-          val t = cons.split(" of ")
-          t.apply(1) // drop the constructor head
-        }
-    }
-  }
-
-  /**
-   * In Coq, "option bool" should be written with "bool option" in OCaml
-   */
-  def getOptionType(theType : String) = {
-    val result = stg.getInstanceOf("optionType")
-    result.add("theType", theType)
-    result.render()
-  }
-
-  def getListType(elemType : String) = {
-    val result = stg.getInstanceOf("listType")
-    result.add("elemType", elemType)
-    result.render()
-  }
-
-  def typeTranslator {
+  def typeTranslator = {
     trans_compilatoin_unit
-    writeIntoTargetTypeFile
+    //writeIntoTargetTypeFile
+    buildBakarJagoTypes(ctx.getTypeDecls.asInstanceOf[MList[String]] : _*)
   }
 
   def trans_compilatoin_unit {
@@ -141,10 +96,11 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     }
 
     val annotation : Option[String] = None
-    val constructors = List(
-      List("CompilationUnit", TypeNameSpace.AstNum, TypeNameSpace.UnitDeclaration,
-        TypeNameSpace.TypeTable, TypeNameSpace.CompilationUnit))
-    this.createInductiveTypeV2(TypeNameSpace.CompilationUnit, annotation, constructors)
+    val constructors = mlistEmpty[String]
+    constructors += buildTypeConstructor(TypeNameSpace.CompilationUnit, "CompilationUnit", TypeNameSpace.AstNum, 
+        TypeNameSpace.UnitDeclaration, TypeNameSpace.TypeTable)
+    val cuDecl = buildTypeDeclaration(TypeNameSpace.CompilationUnit, annotation, constructors: _*)
+    ctx.addNewTypeDecl(cuDecl) 
   }
 
   def trans_package_declaration {
@@ -172,12 +128,12 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     }
     //val annotation: Option[String] = Some("compilation unit can be either package_declaration or package_body_declaration")
     val annotation : Option[String] = None
-    val constructors = List(
-      //List("PackageDeclaration", TypeNameSpace.AstNum, TypeNameSpace.PackageDeclaration, TypeNameSpace.UnitDeclaration), 
-      //List("PackageBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.PackageBodyDecl, TypeNameSpace.UnitDeclaration)
-      List("UnitDecl", TypeNameSpace.AstNum, TypeNameSpace.SubProgram, TypeNameSpace.UnitDeclaration)
-    )
-    createInductiveTypeV2(TypeNameSpace.UnitDeclaration, annotation, constructors)
+    val constructors = mlistEmpty[String]
+    constructors += buildTypeConstructor(TypeNameSpace.UnitDeclaration, "UnitDecl", TypeNameSpace.AstNum, TypeNameSpace.SubProgram)    
+    //List("PackageDeclaration", TypeNameSpace.AstNum, TypeNameSpace.PackageDeclaration, TypeNameSpace.UnitDeclaration), 
+    //List("PackageBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.PackageBodyDecl, TypeNameSpace.UnitDeclaration)
+    val pkgDecl = buildTypeDeclaration(TypeNameSpace.UnitDeclaration, annotation, constructors: _*)
+    ctx.addNewTypeDecl(pkgDecl)
   }
 
   def trans_packagebody_declaration {
@@ -238,12 +194,15 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
               }
             }
           }
-          // create a subprogram type for both procedure and functio
-          val typeName = TypeNameSpace.SubProgram
-          val constructors = List(
-            List("Sproc", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBody, TypeNameSpace.SubProgram),
-            List("Sfunc", TypeNameSpace.AstNum, TypeNameSpace.FunctionBody, TypeNameSpace.SubProgram))
-          createInductiveTypeV2(typeName, None, constructors)
+          // create a subprogram type for both procedure and function
+          val annotation : Option[String] = None
+          val constructors = mlistEmpty[String]
+          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sproc", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBody) 
+          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sfunc", TypeNameSpace.AstNum, TypeNameSpace.FunctionBody)    
+          //List("PackageDeclaration", TypeNameSpace.AstNum, TypeNameSpace.PackageDeclaration, TypeNameSpace.UnitDeclaration), 
+          //List("PackageBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.PackageBodyDecl, TypeNameSpace.UnitDeclaration)
+          val subprogramDecl = buildTypeDeclaration(TypeNameSpace.SubProgram, annotation, constructors: _*)
+          ctx.addNewTypeDecl(subprogramDecl)
         }
       }
     }
@@ -253,22 +212,24 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     val typeName = TypeNameSpace.LocalVariableDeclaration
     val annotation = Some("Local variables declarations used in the procedure/function body")
     val fields = List(
-      createFieldDecl("local_astnum", TypeNameSpace.AstNum, false),
-      createFieldDecl("local_idents", getListType(TypeNameSpace.IdNum), false),
-      createFieldDecl("local_typenum", TypeNameSpace.TypeNum, false),
-      createFieldDecl("local_init", TypeNameSpace.Expression, true))
-    createRecordType(typeName, annotation, typeName, fields : _*)
+      buildFieldDecl("local_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("local_idents", buildListType(TypeNameSpace.IdNum)),
+      buildFieldDecl("local_typenum", TypeNameSpace.TypeNum),
+      buildFieldDecl("local_init", buildOptionType(TypeNameSpace.Expression)))
+    val varDecl = buildRecordType(typeName, annotation, fields : _*)
+    ctx.addNewTypeDecl(varDecl)
   }
 
   def trans_parameter_specification {
     val typeName = TypeNameSpace.ParameterSpecification
     val fields = List(
-      createFieldDecl("param_astnum", TypeNameSpace.AstNum, false),
-      createFieldDecl("param_idents", getListType(TypeNameSpace.IdNum), false),
-      createFieldDecl("param_typenum", TypeNameSpace.TypeNum, false),
-      createFieldDecl("param_mode", TypeNameSpace.ModeT, false),
-      createFieldDecl("param_init", TypeNameSpace.Expression, true))
-    createRecordType(typeName, None, typeName, fields : _*)
+      buildFieldDecl("param_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("param_idents", buildListType(TypeNameSpace.IdNum)),
+      buildFieldDecl("param_typenum", TypeNameSpace.TypeNum),
+      buildFieldDecl("param_mode", TypeNameSpace.ModeT),
+      buildFieldDecl("param_init", buildOptionType(TypeNameSpace.Expression)))
+    val paramDecl = buildRecordType(typeName, None, fields : _*)
+    ctx.addNewTypeDecl(paramDecl)
   }
 
   /**
@@ -280,10 +241,11 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
   def trans_procedure_aspectspecs {
     val typeName = TypeNameSpace.AspectSpecification
     val fields = List(
-      createFieldDecl("aspect_astnum", TypeNameSpace.AstNum, false),
-      createFieldDecl("aspect_mark", TypeNameSpace.AspectNum, false),
-      createFieldDecl("aspect_definition", TypeNameSpace.Expression, false))
-    createRecordType(typeName, None, typeName, fields : _*)
+      buildFieldDecl("aspect_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("aspect_mark", TypeNameSpace.AspectNum),
+      buildFieldDecl("aspect_definition", TypeNameSpace.Expression))
+    val procAspectDecl = buildRecordType(typeName, None, fields : _*)
+    ctx.addNewTypeDecl(procAspectDecl)
   }
 
   /**
@@ -292,7 +254,7 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
    *                          |                                                       |- DefinitionClass objectDeclarationViewQ (var type)
    *                          |                                                       |- ExpressionClass initializationExpressionQ
    *                          |- ElementList aspectSpecificationsQl (define global, pre, post ...)
-   *                        |- ElementList bodyDeclarativeItemsQl (define temperate variables used in procedure body)
+   *                          |- ElementList bodyDeclarativeItemsQl (define temperate variables used in procedure body)
    *                          |- StatementList bodyStatementsQl (commands in procedure boy)
    *
    *
@@ -314,7 +276,7 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     for (f <- orders if seen.contains(f)) {
       f match {
         case "bodyStatementsQl" =>
-          trans_statementlist // expression needs to be defined first
+          trans_statement // expression needs to be defined first
         case "parameterProfileQl" =>
           trans_parameter_specification
         case "aspectSpecificationsQl" =>
@@ -328,13 +290,14 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     // create the Coq type for procedure body declaration
     val typeName = TypeNameSpace.ProcedureBody
     val fields = List(
-      createFieldDecl("proc_astnum", TypeNameSpace.AstNum, false),
-      createFieldDecl("proc_name", TypeNameSpace.ProcNum, false),
-      createFieldDecl("proc_specs", getListType(TypeNameSpace.AspectSpecification), true),
-      createFieldDecl("proc_params", getListType(TypeNameSpace.ParameterSpecification), true),
-      createFieldDecl("proc_loc_idents", getListType(TypeNameSpace.LocalVariableDeclaration), true),
-      createFieldDecl("proc_body", TypeNameSpace.StatementList, false))
-    createRecordType(typeName, None, typeName, fields : _*)
+      buildFieldDecl("proc_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("proc_name", TypeNameSpace.ProcNum),
+      buildFieldDecl("proc_specs", buildOptionType(buildListType(TypeNameSpace.AspectSpecification))),
+      buildFieldDecl("proc_params", buildOptionType(buildListType(TypeNameSpace.ParameterSpecification))),
+      buildFieldDecl("proc_loc_idents", buildOptionType(buildListType(TypeNameSpace.LocalVariableDeclaration))),
+      buildFieldDecl("proc_body", TypeNameSpace.Statement))
+    val procBodyDecl = buildRecordType(typeName, None, fields : _*)
+    ctx.addNewTypeDecl(procBodyDecl)
   }
 
   /**
@@ -363,64 +326,66 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     }
     // create the Coq type for function body declaration
     val typeName = TypeNameSpace.FunctionBody
+    val annotation = None
     val fields = List(
-      createFieldDecl("fn_astnum", TypeNameSpace.AstNum, false),
-      createFieldDecl("fn_name", TypeNameSpace.ProcNum, false),
-      createFieldDecl("fn_ret_type", TypeNameSpace.Type, false),
-      createFieldDecl("fn_specs", getListType(TypeNameSpace.AspectSpecification), true),
-      createFieldDecl("fn_params", getListType(TypeNameSpace.ParameterSpecification), true),
-      createFieldDecl("fn_loc_idents", getListType(TypeNameSpace.LocalVariableDeclaration), true),
-      createFieldDecl("fn_body", TypeNameSpace.StatementList, false))
-    createRecordType(typeName, None, typeName, fields : _*)
+      buildFieldDecl("fn_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("fn_name", TypeNameSpace.ProcNum),
+      buildFieldDecl("fn_ret_type", TypeNameSpace.Type),
+      buildFieldDecl("fn_specs", buildOptionType(buildListType(TypeNameSpace.AspectSpecification))),
+      buildFieldDecl("fn_params", buildOptionType(buildListType(TypeNameSpace.ParameterSpecification))),
+      buildFieldDecl("fn_loc_idents", buildOptionType(buildListType(TypeNameSpace.LocalVariableDeclaration))),
+      buildFieldDecl("fn_body", TypeNameSpace.Statement))
+    val fnBodyDecl = buildRecordType(typeName, annotation, fields : _*)
+    ctx.addNewTypeDecl(fnBodyDecl)
   }
 
-  def trans_statementlist {
+  def trans_statement {
     val statement = classOf[StatementClass]
     for (f <- statement.getDeclaredFields) {
       for (a <- f.getDeclaredAnnotations) {
         if (a.annotationType() == classOf[XmlElements]) {
-          emptyTypeConstructors
+          val typeConstructors = mlistEmpty[String]
           val xelems = a.asInstanceOf[XmlElements]
           for (elem <- xelems.value) {
             for (m <- elem.getClass.getDeclaredMethods if m.getName == "type") {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
-              mtype.getSimpleName() match {
+              val tc = mtype.getSimpleName() match {
                 case "AssignmentStatement" =>
                   trans_expression
-                  createAndPushConstructor("Sassign", TypeNameSpace.AstNum, TypeNameSpace.IdNum,
-                    TypeNameSpace.Expression, TypeNameSpace.StatementList)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sassign", TypeNameSpace.AstNum, 
+                      TypeNameSpace.IdNum, TypeNameSpace.Expression)
                 case "IfStatement" =>
-                  createAndPushConstructor("Sifthen", TypeNameSpace.AstNum, TypeNameSpace.Expression,
-                    TypeNameSpace.StatementList, TypeNameSpace.StatementList)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sifthen", TypeNameSpace.AstNum, 
+                      TypeNameSpace.Expression, TypeNameSpace.Statement)
                 case "WhileLoopStatement" =>
-                  // option: loop invariant (--# assert predicate) for while loop
-                  // createTypeRename(TypeNameSpace.Predicate, TypeNameSpace.Expression)
-                  // createTypeRename(TypeNameSpace.LoopInvariant, getOptionType(TypeNameSpace.Predicate))
-                  createAndPushConstructor("Swhile", TypeNameSpace.AstNum, TypeNameSpace.Expression, //TypeNameSpace.LoopInvariant, 
-                    TypeNameSpace.StatementList, TypeNameSpace.StatementList)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Swhile", TypeNameSpace.AstNum, 
+                      TypeNameSpace.Expression, TypeNameSpace.Statement)
                 case "BlockStatement" =>
-                  createAndPushConstructor("Sseq", TypeNameSpace.AstNum, TypeNameSpace.StatementList,
-                    TypeNameSpace.StatementList, TypeNameSpace.StatementList)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sseq", TypeNameSpace.AstNum, 
+                      TypeNameSpace.Statement, TypeNameSpace.Statement)
                 case "AssertPragma" =>
-                  // assert and loop invariant
-                  createAndPushConstructor("Sassert", TypeNameSpace.AstNum, TypeNameSpace.Expression, TypeNameSpace.StatementList)
-                  createAndPushConstructor("Sloopinvariant", TypeNameSpace.AstNum, TypeNameSpace.Expression, TypeNameSpace.StatementList)
-                //                case "NullStatement" =>
-                //                  createConstructor("CSkip", TypeNameSpace.StatementT)                  
-                //                case "ForLoopStatement" =>
-                //                  ""
-                //                case "CaseStatement" =>
-                //                  ""
-                //                case "LoopStatement" =>
-                //                  ""
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sassert", TypeNameSpace.AstNum, TypeNameSpace.Expression)
+                case "ImplementationDefinedPragma" =>
+                  // loop invariant is defined through this data structure
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sloopinvariant", TypeNameSpace.AstNum, TypeNameSpace.Expression)
+//                case "NullStatement" =>
+//                  createConstructor("CSkip", TypeNameSpace.StatementT)   
+//                case "ForLoopStatement" =>
+//                  ""
+//                case "CaseStatement" =>
+//                  ""
+//                case "LoopStatement" =>
+//                  ""
                 case _ =>
-                  Unit
+                  ""
               }
+              if(tc != "")
+                typeConstructors += tc
             }
           }
-          // write into the Coq file
-          createInductiveType(TypeNameSpace.StatementList, None, getTypeConstructors : _*)
-          emptyTypeConstructors
+          val annotation = None
+          val stmtDecl = buildTypeDeclaration(TypeNameSpace.Statement, annotation, typeConstructors: _*)
+          ctx.addNewTypeDecl(stmtDecl)
         }
       }
     }
@@ -431,84 +396,67 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     for (f <- exp.getDeclaredFields) {
       for (a <- f.getDeclaredAnnotations) {
         if (a.annotationType == classOf[XmlElements]) {
-          emptyTypeConstructors
+          val typeConstructors = mlistEmpty[String]
           val xelems = a.asInstanceOf[XmlElements]
-          val mTrans = Map[String, Class[_] => Unit]("IntegerLiteral" -> trans_literal, "Identifier" -> trans_identifier,
-            "FunctionCall" -> trans_functioncall)
           for (elem <- xelems.value) {
             for (m <- elem.getClass.getDeclaredMethods if (m.getName == "type")) {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
-              var hit = false
-              for (e <- mTrans if !hit)
-                if (mtype.toString().endsWith(e._1)) {
-                  e._2(mtype)
-                  hit = true
-                }
+              val tc = mtype.getSimpleName() match{
+                case "IntegerLiteral" =>
+                  trans_literal
+                  buildTypeConstructor(TypeNameSpace.Expression, "Econst", TypeNameSpace.AstNum, TypeNameSpace.Constant)
+                case "Identifier" =>
+                  buildTypeConstructor(TypeNameSpace.Expression, "Evar", TypeNameSpace.AstNum, TypeNameSpace.IdNum)
+                case "FunctionCall" =>
+                  trans_functioncall
+                  val btc = buildTypeConstructor(TypeNameSpace.Expression, "Ebinop", TypeNameSpace.AstNum, 
+                      TypeNameSpace.BinaryOp, TypeNameSpace.Expression, TypeNameSpace.Expression)
+                  val utc = buildTypeConstructor(TypeNameSpace.Expression, "Eunop", TypeNameSpace.AstNum, 
+                      TypeNameSpace.UnaryOp, TypeNameSpace.Expression)  
+                  typeConstructors += btc
+                  typeConstructors += utc
+                  ""
+                case _ =>
+                  ""
+              }
+              if(tc != "")
+                typeConstructors += tc
             }
           }
-          // write the resulting type into a Coq file
-          // 1. sort expression constructors
-
-          // 2. generate expression type with these constructors, and write into Coq file
-          createInductiveType(TypeNameSpace.Expression, None, getTypeConstructors : _*)
-          emptyTypeConstructors
+          // if needed, we can sort expression constructors   
+          val annotation = None
+          val exprDecl = buildTypeDeclaration(TypeNameSpace.Expression, annotation, typeConstructors: _*)
+          ctx.addNewTypeDecl(exprDecl)
+          
         }
       }
     }
   }
 
-  /**
-   * | Econst: nat -> expr
-   */
-  def trans_literal(c : java.lang.Class[_]) = {
-    //    val index = c.toString().lastIndexOf(".")
-    //    val head = c.toString().substring(index+1)
-    //    val bodySmts = 
-    //      if(c.toString().contains("NullLiteral"))
-    //        List(TypeNameSpace.ExpressionT)
-    //      else
-    //        List(TypeNameSpace.Integer(option), TypeNameSpace.ExpressionT)
-    // [1] constant type
-    val constCons = List(
-      List("Ointconst", TypeNameSpace.Integer(option), TypeNameSpace.Constant))
-    createInductiveTypeV2(TypeNameSpace.Constant, None, constCons)
-    // [2] constant expression
-    val bodyStmts = List(TypeNameSpace.AstNum, TypeNameSpace.Constant, TypeNameSpace.Expression)
-    createAndPushConstructor("Econst", bodyStmts : _*)
+  def trans_literal{
+    // constant type
+    val tc = buildTypeConstructor(TypeNameSpace.Constant, "Ointconst", TypeNameSpace.Integer(option))
+    val annotation = None
+    val constantDecl = buildTypeDeclaration(TypeNameSpace.Constant, annotation, tc)
+    ctx.addNewTypeDecl(constantDecl)
   }
 
   /**
-   * Evar: ident -> expr
+   * binary expression is represented with FunctionCall
+   * class FunctionCall /- ExpressionClass prefixQ (operator)
+   *                    |- AssociationList functionCallParametersQl (operands)
    */
-  def trans_identifier(c : java.lang.Class[_]) = {
-    val bodySmts = List(TypeNameSpace.AstNum, TypeNameSpace.IdNum, TypeNameSpace.Expression)
-    createAndPushConstructor("Evar", bodySmts : _*)
-  }
-
-  /**
-   * | BinExp: Exp -> Op -> Exp -> Exp
-   * | NegExp: Exp -> Exp
-   * | PosExp: Exp -> ExP
-   *
-   * class FunctionCall /- ExpressionClass prefixQ
-   *                    |- AssociationList functionCallParametersQl
-   */
-  def trans_functioncall(c : java.lang.Class[_]) = {
-    val cons = getTypeConstructors
-    for (f <- c.getDeclaredFields if f.getName == "prefixQ") {
-      val opT = f.getType()
-      trans_operator(opT)
+  def trans_functioncall{
+    val o = classOf[FunctionCall]
+    for (f <- o.getDeclaredFields if f.getName == "prefixQ") {
+      val tpe = f.getType
+      trans_operator
     }
-
-    setTypeConstructors(cons)
-    createAndPushConstructor("Ebinop", TypeNameSpace.AstNum, TypeNameSpace.BinaryOp,
-      TypeNameSpace.Expression, TypeNameSpace.Expression, TypeNameSpace.Expression)
-    createAndPushConstructor("Eunop", TypeNameSpace.AstNum, TypeNameSpace.UnaryOp,
-      TypeNameSpace.Expression, TypeNameSpace.Expression)
   }
 
-  def trans_operator(c : java.lang.Class[_]) = {
-    for (f <- c.getDeclaredFields) {
+  def trans_operator {
+    val o = classOf[ExpressionClass]
+    for (f <- o.getDeclaredFields) {
       for (a <- f.getDeclaredAnnotations) {
         if (a.annotationType() == classOf[XmlElements]) {
           val xelems = a.asInstanceOf[XmlElements]
@@ -528,135 +476,47 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
               val uop = unopTrans.get(mtype.getSimpleName)
               // operator type <Op> is something like: | BGt: Op 
               if (bop.isDefined)
-                binOps += createConstructor(bop.get, TypeNameSpace.BinaryOp)
+                binOps += buildTypeConstructor(TypeNameSpace.BinaryOp, bop.get)
               else if (uop.isDefined)
-                unOps += createConstructor(uop.get, TypeNameSpace.UnaryOp)
+                unOps += buildTypeConstructor(TypeNameSpace.UnaryOp, uop.get)
             }
           }
           // [1] sort the constructors
           val sortedUnOpCons = unOps.sortWith(_ < _)
           val sortedBinOpCons = binOps.sortWith(_ < _)
-          // [2] construct Operator type and write into the Coq file
-          createInductiveType(TypeNameSpace.UnaryOp, None, sortedUnOpCons : _*)
-          createInductiveType(TypeNameSpace.BinaryOp, None, sortedBinOpCons : _*)
+          // [2] construct Operator type
+          val annotation = None
+          val UnaryOpTypeDecl = buildTypeDeclaration(TypeNameSpace.UnaryOp, annotation, sortedUnOpCons: _*)
+          val BinOpTypeDecl = buildTypeDeclaration(TypeNameSpace.BinaryOp, annotation, sortedBinOpCons: _*)
+          ctx.addNewTypeDecl(UnaryOpTypeDecl)
+          ctx.addNewTypeDecl(BinOpTypeDecl)
         }
       }
     }
   }
 
-  /**
-   * Definition newName := oldName.
-   */
-  def createTypeRename(newName : String, oldName : String) {
-    val result = stg.getInstanceOf("typeRename")
-    result.add("newName", newName)
-    result.add("oldName", oldName)
-    typeDeclarations += (result.render())
-  }
-
-  /**
-   * Type definitions are different in Coq and OCaml, take id as example
-   * In Coq:   Inductive id := | Id: string -> id. (its constructorArgs is <Id, string, id>)
-   * In OCaml: type      id = | Id of string       (its constructorArgs is <Id, string>)
-   */
-  def createConstructor(constructorName : String, constructorArgs : String*) = {
-    val result = stg.getInstanceOf("constructor")
-    result.add("constructorName", constructorName)
-    val typeConstructorArgs = getTypeConstructorElems(constructorArgs : _*)
-    typeConstructorArgs.foreach(e => result.add("constructorArgs", e))
-    // return
-    result.render()
-  }
-
-  def createAndPushConstructor(constructorName : String, constructorArgs : String*) = {
-    val result = createConstructor(constructorName, constructorArgs : _*)
-    typeConstructors += result
-  }
-
-  def createInductiveType(typeName : String, annotation : Option[String], constructors : String*) {
-    // [1] generate expression type with these constructors
-    val result = stg.getInstanceOf("typeDeclaration")
-    result.add("typeName", typeName)
-    if (constructors.length == 1) {
-      // ocmal type extracted from coq type will be optimized
-      result.add("constructorDecls", getTypeConstructor(constructors.head))
-    } else {
-      constructors.foreach(cons => result.add("constructorDecls", cons))
-    }
-    if (annotation.isDefined)
-      result.add("annotation", annotation.get)
-    // [2] add it into typeDeclarations
-    typeDeclarations += result.render()
-  }
-
-  def createInductiveTypeV2(typeName : String, annotation : Option[String], constructors : List[List[String]]) {
-    // [1] generate expression type with these constructors
-    val result = stg.getInstanceOf("typeDeclaration")
-    result.add("typeName", typeName)
-    if (constructors.length == 1) {
-      // ocmal type extracted from coq type will be optimized
-      val c = constructors.head
-      val cons = createConstructor(c.head, c.tail : _*)
-      result.add("constructorDecls", getTypeConstructor(cons))
-    } else {
-      constructors.foreach(consElems => {
-        val constructorName = consElems.head
-        val constructorArgs = consElems.tail
-        val cons = createConstructor(constructorName, constructorArgs : _*)
-        result.add("constructorDecls", cons)
-      })
-    }
-    if (annotation.isDefined)
-      result.add("annotation", annotation.get)
-    // [2] add it into typeDeclarations
-    typeDeclarations += result.render()
-  }
-
-  def createFieldDecl(fieldName : String, fieldType : String, option : Boolean) = {
-    val result = stg.getInstanceOf("fieldDeclaration")
-    result.add("fieldName", fieldName)
-    option match {
-      case true  => result.add("fieldType", getOptionType(fieldType))
-      case false => result.add("fieldType", fieldType)
-    }
-    result.render()
-  }
-
-  def createRecordType(recordName : String, annotation : Option[String], constructorName : String, fields : String*) = {
-    val result = stg.getInstanceOf("recordDeclaration")
-    result.add("recordName", recordName)
-    result.add("constructorName", "mk" + constructorName)
-    fields.foreach(f => result.add("fields", f))
-    if (annotation.isDefined)
-      result.add("annotation", annotation.get)
-    typeDeclarations += result.render()
-  }
-
   def writeIntoTargetTypeFile() {
-    val typeDefs = stg.getInstanceOf("typeDefinitions")
-    typeDeclarations.foreach(typeDecl =>
-      typeDefs.add("typeDeclarations", typeDecl))
-
+    val typ = buildBakarJagoTypes(ctx.getTypeDecls.asInstanceOf[MList[String]] : _*)
     // val fwriter = new FileWriter(new File(o.outFile, outFileName))
     val fwriter = new FileWriter(new File(new URI(o.outFile)))
-    fwriter.write(typeDefs.render())
+    fwriter.write(typ)
     fwriter.close()
     println("wrote: " + o.outFile)
-    // println(typeDefs.render())
   }
 }
 
-object TypeTranslator {
-  def run(mode : SireumBakarTypeMode) {
+object BakarTypeTranslator {
+  def run(mode : SireumBakarTypeMode): String = {
+    println("\nType Translation: SPARK --> " + mode.typ.toString.dropRight(1) + " !\n")
     val translator = new BakarTypeTranslator(mode);
     translator.typeTranslator
-    println("\n      Type Translation: SPARK --> " + mode.typ.toString.dropRight(1) + " !\n")
-
   }
 
   def main(args : Array[String]) {
     val mode = SireumBakarTypeMode()
-    run(mode)
+    //mode.typ = TypeTarget.Ocaml
+    val result = run(mode)
+    println(result)
   }
 }
 

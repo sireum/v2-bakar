@@ -3,7 +3,7 @@ package org.sireum.test.bakar.jago
 import org.sireum.test.framework.TestFramework
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import org.sireum.bakar.jago.typ.TypeTranslator
+import org.sireum.bakar.jago.typ.BakarTypeTranslator
 import org.sireum.option.SireumBakarTypeMode
 import org.sireum.util.FileUtil
 import java.io.File
@@ -22,9 +22,23 @@ class BakarTypeTest extends TestFramework {
   test("Coq"){
     val mode = SireumBakarTypeMode()
     mode.typ = TypeTarget.Coq
-    mode.outFile = new File(if (genExpected) expected else results, "t.coq").toURI().toASCIIString()
-    TypeTranslator.run(mode)
-    if(!genExpected){
+    mode.outFile = new File(if (genExpected) expected else results, "typ.coq").toURI().toASCIIString()
+    val jagoTypes = BakarTypeTranslator.run(mode)
+    if(genExpected){
+      val f = new File(new URI(mode.outFile))
+      val fwriter = new FileWriter(f)
+      fwriter.write(jagoTypes)
+      fwriter.close()   
+      println("wrote: " + f.getAbsolutePath)
+    }else{
+      // compare the results with expected ones
+      val f = new File(new URI(mode.outFile))
+      val fwriter = new FileWriter(f)
+      fwriter.write(jagoTypes)
+      fwriter.close()   
+      
+      val (expected, _) = FileUtil.readFile(f.toURI.toString)
+      results should equal(expected)
       
     }
   }
@@ -32,7 +46,23 @@ class BakarTypeTest extends TestFramework {
   test("Ocaml"){
     val mode = SireumBakarTypeMode()
     mode.typ = TypeTarget.Ocaml
-    mode.outFile = new File(if (genExpected) expected else results, "t.ocaml").toURI().toASCIIString()
-    TypeTranslator.run(mode)
+    mode.outFile = new File(if (genExpected) expected else results, "typ.ocaml").toURI().toASCIIString()
+    val jagoTypes = BakarTypeTranslator.run(mode)
+    if(genExpected){
+      val f = new File(new URI(mode.outFile))
+      val fwriter = new FileWriter(f)
+      fwriter.write(jagoTypes)
+      fwriter.close()   
+      println("wrote: " + f.getAbsolutePath)      
+    }else{
+      // compare the results with expected ones
+      val f = new File(new URI(mode.outFile))
+      val fwriter = new FileWriter(f)
+      fwriter.write(jagoTypes)
+      fwriter.close()   
+      
+      val (expected, _) = FileUtil.readFile(f.toURI.toString)
+      results should equal(expected)      
+    }
   }
 }

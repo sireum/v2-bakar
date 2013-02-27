@@ -6,6 +6,9 @@ import org.sireum.option.ProgramTarget
 import org.sireum.bakar.xml.SourceLocation
 
 class Factory(stg: STGroupFile) {
+  /**********************************************************
+   * [1] The Following Is For Bakar Jago Program Translator *
+   **********************************************************/
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
   val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
   val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
@@ -426,6 +429,112 @@ class Factory(stg: STGroupFile) {
     result.add("value", value)
     result.render()
   }
+  
+  /*******************************************************
+   * [2] The Following Is For Bakar Jago Type Translator *
+   *******************************************************/ 
+
+  def buildBakarJagoTypes(typeDeclarations: String*) = {
+    val result = stg.getInstanceOf("bakarJagoTypes")
+    for(typeDecl <- typeDeclarations)
+      result.add("typeDeclarations", typeDecl)
+    result.render()
+  }  
+
+  /**
+   * If the Coq type is defined by singleton inductive, its extracted OCaml type will be optimized, for example:
+   * (1) Inductive constant: Type :=
+   *       | Ointconst: nat -> constant.        =>      type constant = nat
+   * However,
+   * (2) Inductive package_body: Type :=
+   *       | Packagebody: option (pkgbody_aspect_specs) -> list subprogram -> package_body.  =>
+   *     type package_body =
+   *       | Packagebody of pkgbody_aspect_specs option * subprogram list
+   */  
+  def buildTypeDeclaration(typeName : String, annotation : Option[String], constructors : String*) = {
+    val result = stg.getInstanceOf("typeDeclaration")
+    result.add("typeName", typeName)
+    val stgFileName = stg.getName()
+    stgFileName match{
+      case "Type_In_Coq" =>
+        for(e <- constructors)
+          result.add("constructors", e) 
+      case "Type_In_Ocaml" =>
+        // do some optimization in Ocaml type
+        if(constructors.length > 1){
+          for(e <- constructors){
+            result.add("constructors", e)
+          }
+         }else{
+           val constr =
+             if(constructors.head.contains("*")){
+               constructors.head
+             }else{
+               val t = constructors.head.split(" of ")
+               t.apply(1) // drop the constructor head
+             }
+           result.add("constructors", constr) 
+         }
+      case _ =>
+        assert(false)
+    }
+    if (annotation.isDefined)
+      result.add("annotation", annotation.get)
+    result.render()    
+  }
+  
+  def buildFieldDecl(fieldName : String, fieldType : String) = {
+    val result = stg.getInstanceOf("fieldDeclaration")
+    result.add("fieldName", fieldName)
+    result.add("fieldType", fieldType)
+    result.render()
+  }  
+  
+  def buildRecordType(recordName : String, annotation : Option[String], fields : String*) = {
+    val result = stg.getInstanceOf("recordDeclaration")
+    result.add("recordName", recordName)
+    for(e <- fields)
+      result.add("fields", e)
+    if (annotation.isDefined)
+      result.add("annotation", annotation.get)
+    result.render()
+  }  
+  
+  /**
+   * Type definitions are different in Coq and OCaml, take id as example
+   * In Coq:   Inductive id := | Id: string -> id
+   * In OCaml: type      id  = | Id of string
+   */
+  def buildTypeConstructor(typeName: String, constructorName : String, constructorArgs : String*) = {
+    val result = stg.getInstanceOf("typeConstructor")
+    result.add("typeName", typeName)
+    result.add("constructorName", constructorName)
+    for(e <- constructorArgs)
+      result.add("constructorArgs", e)
+    result.render()
+  }  
+  
+  def buildTypeRename(newName : String, oldName : String) {
+    val result = stg.getInstanceOf("typeRename")
+    result.add("newName", newName)
+    result.add("oldName", oldName)
+    result.render()
+  }  
+
+  def buildOptionType(theType : String) = {
+    // Coq type "option bool" should be written with "bool option" in OCaml
+    val result = stg.getInstanceOf("optionType")
+    result.add("theType", theType)
+    result.render()
+  }
+
+  def buildListType(elemType : String) = {
+    val result = stg.getInstanceOf("listType")
+    result.add("elemType", elemType)
+    result.render()
+  }  
+  
+  
 }
 
 

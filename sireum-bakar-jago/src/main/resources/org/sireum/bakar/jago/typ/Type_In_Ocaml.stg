@@ -1,5 +1,5 @@
 
-typeDefinitions(typeDeclarations) ::= <<
+bakarJagoTypes(typeDeclarations) ::= <<
 $basicTypes()$
 
 $typeDeclarations; separator="\n\n"$
@@ -34,26 +34,24 @@ type type_table = {
 }
 >>
 
-typeDeclaration(typeName, constructorDecls, annotation) ::= <<
+typeDeclaration(typeName, constructors, annotation) ::= <<
 $if(annotation)$(* $annotation$ *)$endif$
 type $typeName$ = 
-	$constructorDecls; separator="\n"$
+	$constructors; separator="\n"$
 >>
 
 fieldDeclaration(fieldName, fieldType) ::= <<
 $fieldName$: $fieldType$
 >>
 
-// to make it consistent with Coq StringTemplate, we keep the property "constructorName"
-recordDeclaration(recordName, constructorName, fields, annotation) ::= <<
+recordDeclaration(recordName, fields, annotation) ::= <<
 $if(annotation)$(* $annotation$ *)$endif$
-type $recordName$ = $if(constructorName)$$endif${
+type $recordName$ = {
 	$fields; separator=";\n"$ 
 }
 >>
-
-// constructorArgs is a typeExpression in form like: int * int 
-constructor(constructorName, constructorArgs) ::= <<
+ 
+typeConstructor(typeName, constructorName, constructorArgs) ::= <<
 | $constructorName$ $if(constructorArgs)$of $constructorArgs; separator=" * "$$endif$
 >>
 
@@ -61,7 +59,7 @@ typeRename(newName, oldName) ::= <<
 type $newName$ = $oldName$
 >>
 
-// the Coq type "option bool" should be written with "bool option" in OCaml
+// Coq type "option bool" should be written with "bool option" in OCaml
 optionType(theType) ::= <<
 ($theType$) option
 >>

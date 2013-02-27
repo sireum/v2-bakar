@@ -1,0 +1,89 @@
+(* Compilation Unit *)
+CompilationUnit ( 1,
+  (* Compilation Unit - Unit Declaration *)
+  UnitDecl( 2,
+    (* Procedure Body Declaration *)
+    Sproc( 3,
+      { 
+        proc_astnum = 
+          (* Procedure Body - AST Number *)
+          4;
+        proc_name = 
+          (* Procedure Body - Name *)
+           (*Linear_Div_Complete*) 1;
+        proc_specs =
+          (* Procedure Body - Specification *)
+          None;
+        proc_params = 
+          (* Procedure Body - Parameters *)
+          Some([
+                { param_astnum = 5; param_idents = [ (*Dividend*) 1]; param_typenum = 1; param_mode = In; param_init = None }; 
+                { param_astnum = 6; param_idents = [ (*Divisor*) 2]; param_typenum = 1; param_mode = In; param_init = None }; 
+                { param_astnum = 7; param_idents = [ (*Quotient*) 3]; param_typenum = 1; param_mode = Out; param_init = None }; 
+                { param_astnum = 8; param_idents = [ (*Remainder*) 4]; param_typenum = 1; param_mode = Out; param_init = None }
+              ]);
+        proc_loc_idents = 
+          (* Procedure Body - Local Defined Variables *)
+              None;
+        proc_body =
+          (* Procedure Body - Body *)
+          Sseq (9,
+            Sassign (10,  (*Quotient*) 3, Econst (11, 0)),
+            Sseq (12,
+              Sassign (13,  (*Remainder*) 4, Evar (14,  (*Dividend*) 1)),
+              Swhile (15, Ebinop (16, Cge, Evar (17,  (*Remainder*) 4), Evar (18,  (*Divisor*) 2)),
+                Sseq (19,
+                  Sloopinvariant (20, Ebinop (21, Oand, Ebinop (22, Oand, Ebinop (23, Cge, Evar (24,  (*Remainder*) 4), Econst (25, 0)), Ebinop (26, Cge, Evar (27,  (*Quotient*) 3), Econst (28, 0))), Ebinop (29, Ceq, Ebinop (30, Oadd, Ebinop (31, Omul, Evar (32,  (*Divisor*) 2), Evar (33,  (*Quotient*) 3)), Evar (34,  (*Remainder*) 4)), Evar (35,  (*Dividend*) 1)))),
+                  Sseq (36,
+                    Sassign (37,  (*Quotient*) 3, Ebinop (38, Oadd, Evar (39,  (*Quotient*) 3), Econst (40, 1))),
+                    Sseq (41,
+                      Sassign (42,  (*Quotient*) 3, Ebinop (43, Oadd, Evar (44,  (*Quotient*) 3), Econst (45, 1))),
+                      Sassign (46,  (*Remainder*) 4, Ebinop (47, Osub, Evar (48,  (*Remainder*) 4), Evar (49,  (*Divisor*) 2))) ) ) )
+              ) ) )
+      }
+    )
+  ),  
+  (* Compilation Unit - Type Table *)
+  {
+    tt_exptype_table = 
+      (* Expression AstNum --> TypeNum *) 
+      [
+        (11, 2) ;
+        (14, 1) ;
+        (16, 3) ;
+        (17, 1) ;
+        (18, 1) ;
+        (21, 3) ;
+        (22, 3) ;
+        (23, 3) ;
+        (24, 1) ;
+        (25, 2) ;
+        (26, 3) ;
+        (27, 1) ;
+        (28, 2) ;
+        (29, 3) ;
+        (30, 1) ;
+        (31, 1) ;
+        (32, 1) ;
+        (33, 1) ;
+        (34, 1) ;
+        (35, 1) ;
+        (38, 1) ;
+        (39, 1) ;
+        (40, 2) ;
+        (43, 1) ;
+        (44, 1) ;
+        (45, 2) ;
+        (47, 1) ;
+        (48, 1) ;
+        (49, 1)
+      ];
+    tt_typename_table = 
+      (* TypeNum --> (Type URI * (Type Declaration AST Num) Option) *) 
+      [
+        (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1", None)) ;
+        (2, ("universal_integer", None)) ;
+        (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1", None))
+      ]
+  }
+)
