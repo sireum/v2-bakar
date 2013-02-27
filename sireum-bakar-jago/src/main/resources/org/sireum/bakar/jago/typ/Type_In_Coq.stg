@@ -2,7 +2,6 @@
 bakarJagoTypes(typeDeclarations) ::= <<
 $importedLibs()$
 
-(* Module SPARK_Syntax. *)
 $basicTypes()$
 
 $typeDeclarations; separator="\n\n"$
