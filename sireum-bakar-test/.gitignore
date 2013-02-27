@@ -1,3 +1,5 @@
+*.adt
+*.ali
 /bin
 /target
 /.cache
