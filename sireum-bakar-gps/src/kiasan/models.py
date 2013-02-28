@@ -1,4 +1,5 @@
 import simplejson as json
+import urllib
 
 class Entity:
     """ Base class for package or procedure rows """
@@ -55,7 +56,7 @@ class Procedure(Entity):
         if report_dict.has_key("cases"):
             for case in report_dict["cases"]:
                 case_header = CaseHeader() 
-                case_header._file = case["filename"][5:].replace(".xml",".json") #skip first 5 chars ('file:') and replace .xml with .json
+                case_header._file = case["filename"].replace(".xml",".json") #replace .xml with .json
                 case_header._name = case["caseName"]
                 case_header._error = case["optErrorStatus"]
                 self._cases.append(case_header)
@@ -63,7 +64,7 @@ class Procedure(Entity):
                 
     def get_case(self, case_no):
         """ Fetch case from json file """   
-        case_file = open(self._cases[case_no])
+        case_file = urllib.urlopen(self._cases[case_no]._file)
         case_file_str = case_file.read()
         case_dict = json.loads(case_file_str)
                 

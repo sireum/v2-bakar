@@ -168,7 +168,7 @@ class KiasanGUI:
     def get_cases(self, treeview, path, view_column):
         """ Callback function: get cases for entity(procedure) """
         #check if method was clicked (then path contains index of package and method)
-        #if package clicked path contains only package index        
+        #if package clicked path contains only package index
         if len(path) > 1:
         
             # get procedure name
@@ -185,7 +185,7 @@ class KiasanGUI:
             
             # add cases to combo
             for case_header in self._report[package_index]._procedures[proc_index]._cases:
-                self._cases_combo.append_text(proc_name + ":" + case_header._name + " " + case_header._error)
+                self._cases_combo.append_text(proc_name + ":" + case_header._name + " " + (case_header._error if case_header._error != None else ""))
             
             #save current selection
             self._current_package_index = package_index

@@ -1,5 +1,6 @@
 import simplejson as json
 from models import Package
+import urllib
 
 class KiasanLogic:
     def run_kiasan(self):
@@ -8,7 +9,7 @@ class KiasanLogic:
     
     def extract_report_file(self, report_file_path):
         """Open .json report file and extract content into Package list."""        
-        json_obj = open(report_file_path)
+        json_obj = urllib.urlopen(report_file_path)
         json_str = json_obj.read()
         json_dict = json.loads(json_str)
         report = self.convert_dict_to_report(json_dict)
