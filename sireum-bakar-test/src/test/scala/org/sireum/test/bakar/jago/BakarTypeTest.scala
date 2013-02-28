@@ -5,6 +5,7 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.sireum.bakar.jago.typ.BakarTypeTranslator
 import org.sireum.option.SireumBakarTypeMode
+import org.sireum.option.TypeTarget
 import org.sireum.util.FileUtil
 import java.io.File
 import java.net.URI
@@ -14,55 +15,55 @@ import java.io.FileWriter
 @RunWith(classOf[JUnitRunner])
 class BakarTypeTest extends TestFramework {
   val base = FileUtil.fileUri(this.getClass, "").replace("/bin/", "/src/test/resources/")
-  val expected = new File(new File(new URI(base)), "expected")
-  val results = new File(new File(new URI(base)), "results")
-  
+  val EXPECTED_DIR = new File(new File(new URI(base)), "expected")
+  val RESULT_DIR = new File(new File(new URI(base)), "results")
+
   val genExpected = false
+
+//  def compare (results : String, filename : String) {
+//    val (expected, _) = FileUtil.readFile(new File(EXPECTED_DIR , filename).toURI.toString)
+//    results should equal(expected)
+//  }
   
-  test("Coq"){
-    val mode = SireumBakarTypeMode()
-    mode.typ = TypeTarget.Coq
-    mode.outFile = new File(if (genExpected) expected else results, "typ.coq").toURI().toASCIIString()
-    val jagoTypes = BakarTypeTranslator.run(mode)
-    if(genExpected){
-      val f = new File(new URI(mode.outFile))
-      val fwriter = new FileWriter(f)
-      fwriter.write(jagoTypes)
-      fwriter.close()   
-      println("wrote: " + f.getAbsolutePath)
-    }else{
-      // compare the results with expected ones
-      val f = new File(new URI(mode.outFile))
-      val fwriter = new FileWriter(f)
-      fwriter.write(jagoTypes)
-      fwriter.close()   
-      
-      val (expected, _) = FileUtil.readFile(f.toURI.toString)
+  def compare(mode: SireumBakarTypeMode) {
+    val typ = mode.typ
+    val fileName = typ match {
+      case TypeTarget.Coq => "typ1.coq" 
+      case TypeTarget.Ocaml => "typ1.ocaml"
+    }
+    
+    val outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, fileName).toURI().toASCIIString()
+    mode.outFile = outFile
+    BakarTypeTranslator.run(mode)
+    
+    if(!genExpected) {
+      val (results, _) = FileUtil.readFile(outFile)
+      val (expected, _) = FileUtil.readFile(new File(EXPECTED_DIR , fileName).toURI.toString)
       results should equal(expected)
-      
     }
   }
   
-  test("Ocaml"){
+  test("Coq") {
+    val mode = SireumBakarTypeMode()
+    mode.typ = TypeTarget.Coq
+    compare(mode)
+//    mode.outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, "typ1.coq").toURI().toASCIIString()
+//    BakarTypeTranslator.run(mode)
+//    val (results, _) = FileUtil.readFile(mode.outFile)
+//    
+//    if(!genExpected)
+//      compare(results, "typ1.coq")
+  }
+
+  test("Ocaml") {
     val mode = SireumBakarTypeMode()
     mode.typ = TypeTarget.Ocaml
-    mode.outFile = new File(if (genExpected) expected else results, "typ.ocaml").toURI().toASCIIString()
-    val jagoTypes = BakarTypeTranslator.run(mode)
-    if(genExpected){
-      val f = new File(new URI(mode.outFile))
-      val fwriter = new FileWriter(f)
-      fwriter.write(jagoTypes)
-      fwriter.close()   
-      println("wrote: " + f.getAbsolutePath)      
-    }else{
-      // compare the results with expected ones
-      val f = new File(new URI(mode.outFile))
-      val fwriter = new FileWriter(f)
-      fwriter.write(jagoTypes)
-      fwriter.close()   
-      
-      val (expected, _) = FileUtil.readFile(f.toURI.toString)
-      results should equal(expected)      
-    }
+    compare(mode)
+//    mode.outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, "typ1.ocaml").toURI().toASCIIString()
+//    BakarTypeTranslator.run(mode)
+//    val (results, _) = FileUtil.readFile(mode.outFile)
+//    
+//    if(!genExpected)
+//      compare(results, "typ1.ocaml")
   }
 }

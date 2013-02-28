@@ -39,27 +39,27 @@ import org.sireum.bakar.jago.util.Factory
 class BakarTypeTranslator(o : SireumBakarTypeMode) {
   class Context {
     val typeDeclarations = mlistEmpty[Any]
-    var result: Any = null
-    
-    def pushResult(o: Any){
+    var result : Any = null
+
+    def pushResult(o : Any) {
       result = o
     }
-    
+
     def popResult = {
       val r = result
       result = null
       r
     }
-    
-    def addNewTypeDecl(newTypeDecl: Any){
+
+    def addNewTypeDecl(newTypeDecl : Any) {
       typeDeclarations += newTypeDecl
     }
-    
+
     def getTypeDecls = {
       typeDeclarations
     }
   }
-  
+
   def getTypeTranslatorSTG(o : TypeTarget.Type) = {
     (o : @unchecked) match {
       case TypeTarget.Coq =>
@@ -77,7 +77,7 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
   val factory = new Factory(stg)
   import factory._
 
-  def typeTranslator = {
+  def doTypeTranslation = {
     trans_compilatoin_unit
     //writeIntoTargetTypeFile
     buildBakarJagoTypes(ctx.getTypeDecls.asInstanceOf[MList[String]] : _*)
@@ -97,10 +97,10 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
 
     val annotation : Option[String] = None
     val constructors = mlistEmpty[String]
-    constructors += buildTypeConstructor(TypeNameSpace.CompilationUnit, "CompilationUnit", TypeNameSpace.AstNum, 
-        TypeNameSpace.UnitDeclaration, TypeNameSpace.TypeTable)
-    val cuDecl = buildTypeDeclaration(TypeNameSpace.CompilationUnit, annotation, constructors: _*)
-    ctx.addNewTypeDecl(cuDecl) 
+    constructors += buildTypeConstructor(TypeNameSpace.CompilationUnit, "CompilationUnit", TypeNameSpace.AstNum,
+      TypeNameSpace.UnitDeclaration, TypeNameSpace.TypeTable)
+    val cuDecl = buildTypeDeclaration(TypeNameSpace.CompilationUnit, annotation, constructors : _*)
+    ctx.addNewTypeDecl(cuDecl)
   }
 
   def trans_package_declaration {
@@ -129,10 +129,10 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     //val annotation: Option[String] = Some("compilation unit can be either package_declaration or package_body_declaration")
     val annotation : Option[String] = None
     val constructors = mlistEmpty[String]
-    constructors += buildTypeConstructor(TypeNameSpace.UnitDeclaration, "UnitDecl", TypeNameSpace.AstNum, TypeNameSpace.SubProgram)    
+    constructors += buildTypeConstructor(TypeNameSpace.UnitDeclaration, "UnitDecl", TypeNameSpace.AstNum, TypeNameSpace.SubProgram)
     //List("PackageDeclaration", TypeNameSpace.AstNum, TypeNameSpace.PackageDeclaration, TypeNameSpace.UnitDeclaration), 
     //List("PackageBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.PackageBodyDecl, TypeNameSpace.UnitDeclaration)
-    val pkgDecl = buildTypeDeclaration(TypeNameSpace.UnitDeclaration, annotation, constructors: _*)
+    val pkgDecl = buildTypeDeclaration(TypeNameSpace.UnitDeclaration, annotation, constructors : _*)
     ctx.addNewTypeDecl(pkgDecl)
   }
 
@@ -197,11 +197,11 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
           // create a subprogram type for both procedure and function
           val annotation : Option[String] = None
           val constructors = mlistEmpty[String]
-          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sproc", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBody) 
-          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sfunc", TypeNameSpace.AstNum, TypeNameSpace.FunctionBody)    
+          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sproc", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBody)
+          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sfunc", TypeNameSpace.AstNum, TypeNameSpace.FunctionBody)
           //List("PackageDeclaration", TypeNameSpace.AstNum, TypeNameSpace.PackageDeclaration, TypeNameSpace.UnitDeclaration), 
           //List("PackageBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.PackageBodyDecl, TypeNameSpace.UnitDeclaration)
-          val subprogramDecl = buildTypeDeclaration(TypeNameSpace.SubProgram, annotation, constructors: _*)
+          val subprogramDecl = buildTypeDeclaration(TypeNameSpace.SubProgram, annotation, constructors : _*)
           ctx.addNewTypeDecl(subprogramDecl)
         }
       }
@@ -352,39 +352,39 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
               val tc = mtype.getSimpleName() match {
                 case "AssignmentStatement" =>
                   trans_expression
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sassign", TypeNameSpace.AstNum, 
-                      TypeNameSpace.IdNum, TypeNameSpace.Expression)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sassign", TypeNameSpace.AstNum,
+                    TypeNameSpace.IdNum, TypeNameSpace.Expression)
                 case "IfStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sifthen", TypeNameSpace.AstNum, 
-                      TypeNameSpace.Expression, TypeNameSpace.Statement)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sifthen", TypeNameSpace.AstNum,
+                    TypeNameSpace.Expression, TypeNameSpace.Statement)
                 case "WhileLoopStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Swhile", TypeNameSpace.AstNum, 
-                      TypeNameSpace.Expression, TypeNameSpace.Statement)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Swhile", TypeNameSpace.AstNum,
+                    TypeNameSpace.Expression, TypeNameSpace.Statement)
                 case "BlockStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sseq", TypeNameSpace.AstNum, 
-                      TypeNameSpace.Statement, TypeNameSpace.Statement)
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sseq", TypeNameSpace.AstNum,
+                    TypeNameSpace.Statement, TypeNameSpace.Statement)
                 case "AssertPragma" =>
                   buildTypeConstructor(TypeNameSpace.Statement, "Sassert", TypeNameSpace.AstNum, TypeNameSpace.Expression)
                 case "ImplementationDefinedPragma" =>
                   // loop invariant is defined through this data structure
                   buildTypeConstructor(TypeNameSpace.Statement, "Sloopinvariant", TypeNameSpace.AstNum, TypeNameSpace.Expression)
-//                case "NullStatement" =>
-//                  createConstructor("CSkip", TypeNameSpace.StatementT)   
-//                case "ForLoopStatement" =>
-//                  ""
-//                case "CaseStatement" =>
-//                  ""
-//                case "LoopStatement" =>
-//                  ""
+                //                case "NullStatement" =>
+                //                  createConstructor("CSkip", TypeNameSpace.StatementT)   
+                //                case "ForLoopStatement" =>
+                //                  ""
+                //                case "CaseStatement" =>
+                //                  ""
+                //                case "LoopStatement" =>
+                //                  ""
                 case _ =>
                   ""
               }
-              if(tc != "")
+              if (tc != "")
                 typeConstructors += tc
             }
           }
           val annotation = None
-          val stmtDecl = buildTypeDeclaration(TypeNameSpace.Statement, annotation, typeConstructors: _*)
+          val stmtDecl = buildTypeDeclaration(TypeNameSpace.Statement, annotation, typeConstructors : _*)
           ctx.addNewTypeDecl(stmtDecl)
         }
       }
@@ -401,7 +401,7 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
           for (elem <- xelems.value) {
             for (m <- elem.getClass.getDeclaredMethods if (m.getName == "type")) {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
-              val tc = mtype.getSimpleName() match{
+              val tc = mtype.getSimpleName() match {
                 case "IntegerLiteral" =>
                   trans_literal
                   buildTypeConstructor(TypeNameSpace.Expression, "Econst", TypeNameSpace.AstNum, TypeNameSpace.Constant)
@@ -409,31 +409,31 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
                   buildTypeConstructor(TypeNameSpace.Expression, "Evar", TypeNameSpace.AstNum, TypeNameSpace.IdNum)
                 case "FunctionCall" =>
                   trans_functioncall
-                  val btc = buildTypeConstructor(TypeNameSpace.Expression, "Ebinop", TypeNameSpace.AstNum, 
-                      TypeNameSpace.BinaryOp, TypeNameSpace.Expression, TypeNameSpace.Expression)
-                  val utc = buildTypeConstructor(TypeNameSpace.Expression, "Eunop", TypeNameSpace.AstNum, 
-                      TypeNameSpace.UnaryOp, TypeNameSpace.Expression)  
+                  val btc = buildTypeConstructor(TypeNameSpace.Expression, "Ebinop", TypeNameSpace.AstNum,
+                    TypeNameSpace.BinaryOp, TypeNameSpace.Expression, TypeNameSpace.Expression)
+                  val utc = buildTypeConstructor(TypeNameSpace.Expression, "Eunop", TypeNameSpace.AstNum,
+                    TypeNameSpace.UnaryOp, TypeNameSpace.Expression)
                   typeConstructors += btc
                   typeConstructors += utc
                   ""
                 case _ =>
                   ""
               }
-              if(tc != "")
+              if (tc != "")
                 typeConstructors += tc
             }
           }
           // if needed, we can sort expression constructors   
           val annotation = None
-          val exprDecl = buildTypeDeclaration(TypeNameSpace.Expression, annotation, typeConstructors: _*)
+          val exprDecl = buildTypeDeclaration(TypeNameSpace.Expression, annotation, typeConstructors : _*)
           ctx.addNewTypeDecl(exprDecl)
-          
+
         }
       }
     }
   }
 
-  def trans_literal{
+  def trans_literal {
     // constant type
     val tc = buildTypeConstructor(TypeNameSpace.Constant, "Ointconst", TypeNameSpace.Integer(option))
     val annotation = None
@@ -446,7 +446,7 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
    * class FunctionCall /- ExpressionClass prefixQ (operator)
    *                    |- AssociationList functionCallParametersQl (operands)
    */
-  def trans_functioncall{
+  def trans_functioncall {
     val o = classOf[FunctionCall]
     for (f <- o.getDeclaredFields if f.getName == "prefixQ") {
       val tpe = f.getType
@@ -486,8 +486,8 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
           val sortedBinOpCons = binOps.sortWith(_ < _)
           // [2] construct Operator type
           val annotation = None
-          val UnaryOpTypeDecl = buildTypeDeclaration(TypeNameSpace.UnaryOp, annotation, sortedUnOpCons: _*)
-          val BinOpTypeDecl = buildTypeDeclaration(TypeNameSpace.BinaryOp, annotation, sortedBinOpCons: _*)
+          val UnaryOpTypeDecl = buildTypeDeclaration(TypeNameSpace.UnaryOp, annotation, sortedUnOpCons : _*)
+          val BinOpTypeDecl = buildTypeDeclaration(TypeNameSpace.BinaryOp, annotation, sortedBinOpCons : _*)
           ctx.addNewTypeDecl(UnaryOpTypeDecl)
           ctx.addNewTypeDecl(BinOpTypeDecl)
         }
@@ -495,28 +495,56 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
     }
   }
 
-  def writeIntoTargetTypeFile() {
-    val typ = buildBakarJagoTypes(ctx.getTypeDecls.asInstanceOf[MList[String]] : _*)
-    // val fwriter = new FileWriter(new File(o.outFile, outFileName))
-    val fwriter = new FileWriter(new File(new URI(o.outFile)))
-    fwriter.write(typ)
-    fwriter.close()
-    println("wrote: " + o.outFile)
+  def writeIntoOutFile(results: String) {
+    try {
+      // val fwriter = new FileWriter(new File(o.outFile, outFileName))
+      // replace("/bin/", "/src/test/resources/")
+      // val z1 = new File("./").getAbsoluteFile().toURI().toASCIIString()
+      val currentPath = new File(".").getAbsolutePath().replace(".", "")
+      val absoluteOutputPath = 
+        if(o.outFile.startsWith("~")) 
+          o.outFile.replace("~", System.getProperty("user.home"))
+        else if(o.outFile.startsWith("/"))
+          o.outFile
+        else
+          currentPath + o.outFile      
+          
+      val parentPath = (new File(absoluteOutputPath)).getParentFile()
+      if(!parentPath.exists && !parentPath.mkdirs){
+        throw new RuntimeException("Could not create " + o.outFile)
+      }
+      println("wrote into: " + absoluteOutputPath)
+      val fwriter = new FileWriter(new File(absoluteOutputPath))
+      fwriter.write(results)
+      fwriter.close()
+    } catch {
+      case e : Throwable =>
+        e.printStackTrace
+        assert(false)
+    }
+
   }
 }
 
 object BakarTypeTranslator {
-  def run(mode : SireumBakarTypeMode): String = {
-    println("\nType Translation: SPARK --> " + mode.typ.toString.dropRight(1) + " !\n")
+  def run(mode : SireumBakarTypeMode) : String = {
+    //println("\nType Translation: SPARK --> " + mode.typ.toString.dropRight(1) + " !\n")
     val translator = new BakarTypeTranslator(mode);
-    translator.typeTranslator
+    val results = translator.doTypeTranslation
+    if(mode.outFile != "") {
+      translator.writeIntoOutFile(results)
+    } else {
+      Console.println(results)
+    }
+    results
   }
 
   def main(args : Array[String]) {
     val mode = SireumBakarTypeMode()
     //mode.typ = TypeTarget.Ocaml
+    //mode.outFile  = "~/new_temp/zz/test.coq"
     val result = run(mode)
-    println(result)
+    //println(result)
   }
 }
 
