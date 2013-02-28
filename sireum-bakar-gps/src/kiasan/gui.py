@@ -4,6 +4,8 @@ import gtk
 import gobject
 
 class KiasanGUI:
+    """ Main GUI class contains all GUI elements inside of main pane (self._pane)"""
+    
     def __init__(self, report):
         self._report = report
         
@@ -13,7 +15,7 @@ class KiasanGUI:
         # init report window
         self._report_window = gtk.ScrolledWindow()
         self._report_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        #self._report_window.set_size_request(600, 200)        
+        #self._report_window.set_size_request(600, 200)
         
         # init report window tree view
         self.init_report_treeview()
@@ -33,8 +35,7 @@ class KiasanGUI:
         
         
     def init_report_treeview(self):
-        """ Initialize tree view with packages/functions """
-        
+        """ Initialize tree view with packages/procedures """        
         # create report model
         report_model = self.create_report_treeview_model(self._report)
         
@@ -51,8 +52,7 @@ class KiasanGUI:
         
         
     def create_report_treeview_model(self, report):
-        """ Create TreeStore object - model for treeview with columns """
-        
+        """ Create TreeStore object - model for treeview with columns """        
         tree_store = gtk.TreeStore(gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_INT, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_INT, #@UndefinedVariable-is not a problem
@@ -70,21 +70,20 @@ class KiasanGUI:
                           TreeViewColumns.COLUMN_BRANCH, package._branch_coverage,
                           TreeViewColumns.COLUMN_TIME, package._time)
             
-            for function in package._functions:
+            for procedure in package._procedures:
                 iterate_children = tree_store.append(iteration)
                 tree_store.set(iterate_children,
-                               TreeViewColumns.COLUMN_PACKAGE, function._name,
-                               TreeViewColumns.COLUMN_TOTAL, function._branches,
-                               TreeViewColumns.COLUMN_ERRORS, function._errors,
-                               TreeViewColumns.COLUMN_INSTRUCTION, function._instr_coverage,
-                               TreeViewColumns.COLUMN_BRANCH, function._branch_coverage,
-                               TreeViewColumns.COLUMN_TIME, function._time)
+                               TreeViewColumns.COLUMN_PACKAGE, procedure._name,
+                               TreeViewColumns.COLUMN_TOTAL, procedure._branches,
+                               TreeViewColumns.COLUMN_ERRORS, procedure._errors,
+                               TreeViewColumns.COLUMN_INSTRUCTION, procedure._instr_coverage,
+                               TreeViewColumns.COLUMN_BRANCH, procedure._branch_coverage,
+                               TreeViewColumns.COLUMN_TIME, procedure._time)
         return tree_store
         
     
     def add_columns_to_report_treeview(self):
-        """ Add columns to tree view """
-        
+        """ Add columns to tree view """        
         column = gtk.TreeViewColumn('Package/Unit', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_PACKAGE)
         column.set_sort_column_id(TreeViewColumns.COLUMN_PACKAGE)
         column.set_resizable(True)
@@ -117,8 +116,7 @@ class KiasanGUI:
     
         
     def init_cases_window(self):
-        """ Initialize cases window: labels, combo and scrolled windows """
-        
+        """ Initialize cases window: labels, combo and scrolled windows """        
         # initialize top part: labels and combo box
         self._cases_window_top = gtk.HBox()
         self._cases_pane.add1(self._cases_window_top)
@@ -168,43 +166,39 @@ class KiasanGUI:
         
     
     def get_cases(self, treeview, path, view_column):
-        """ Callback function: get cases for entity(function) """
-        
-        """ 
-        check if method was clicked (then path contains index of package and method)
-        if package clicked path contains only package index
-        """ 
+        """ Callback function: get cases for entity(procedure) """
+        #check if method was clicked (then path contains index of package and method)
+        #if package clicked path contains only package index        
         if len(path) > 1:
         
-            # get function name
+            # get procedure name
             package_index = path[0]
-            fun_index = path[1] 
+            proc_index = path[1] 
             
-            fun_name = self._report[path[0]]._functions[path[1]]._name
+            proc_name = self._report[path[0]]._procedures[path[1]]._name
         
             # set label to method name            
-            self._cases_entity_label.set_label(" " + fun_name + " ")
+            self._cases_entity_label.set_label(" " + proc_name + " ")
             
             # clean combo
             self._cases_combo.get_model().clear()
             
             # add cases to combo
-            for case_no in range(len(self._report[package_index]._functions[fun_index]._cases)):
-                self._cases_combo.append_text(fun_name + ":" + str(case_no))                
+            for case_header in self._report[package_index]._procedures[proc_index]._cases:
+                self._cases_combo.append_text(proc_name + ":" + case_header._name + " " + case_header._error)
             
             #save current selection
             self._current_package_index = package_index
-            self._current_fun_index = fun_index
+            self._current_fun_index = proc_index
             
     
     def cases_combo_changed(self, cases_combo):
-        """ Callback function: cases combo changed """  
-        
+        """ Callback function: cases combo changed """          
         selected_case_no = cases_combo.get_active()
         
         # check if any item is selected (-1: no active item selected)
         if selected_case_no != -1: 
-            case = self._report[self._current_package_index]._functions[self._current_fun_index].get_case(selected_case_no)
+            case = self._report[self._current_package_index]._procedures[self._current_fun_index].get_case(selected_case_no)
             
             # load pre state
             case_pre_state_treeview_model = self.create_case_state_treeview_model(case._pre_state)
@@ -218,8 +212,7 @@ class KiasanGUI:
             
             
     def create_case_state_treeview_model(self, case_state):
-        """ Create treeview model for case (pre/post state) """
-        
+        """ Create treeview model for case (pre/post state) """        
         tree_store = gtk.TreeStore(str)
         parent = tree_store.append(None, [case_state._name])
         

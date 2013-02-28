@@ -13,6 +13,7 @@ if __name__=="__main__":
     if response == gtk.RESPONSE_OK:
         # parse report file
         report_file = dialog.get_filename()
+        dialog.destroy()
         logic = KiasanLogic()
         report = logic.extract_report_file(report_file)
         
@@ -24,6 +25,7 @@ if __name__=="__main__":
         window.set_default_size(800,400)        
         window.add(gui._pane)        
         window.show_all()  
-        gtk.main()
-        
-    dialog.destroy()  
+        gtk.main() 
+    else:
+        dialog.destroy()
+    
