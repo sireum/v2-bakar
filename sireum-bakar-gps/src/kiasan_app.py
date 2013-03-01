@@ -7,13 +7,14 @@ from kiasan.gui import KiasanGUI
 if __name__=="__main__":
     
     # get report file
-    dialog = gtk.FileChooserDialog("Open..", None, gtk.FILE_CHOOSER_ACTION_OPEN, (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
-    dialog.set_default_response(gtk.RESPONSE_OK)
-    response = dialog.run()
-    if response == gtk.RESPONSE_OK:
+#    dialog = gtk.FileChooserDialog("Open..", None, gtk.FILE_CHOOSER_ACTION_OPEN, (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+#    dialog.set_default_response(gtk.RESPONSE_OK)
+#    response = dialog.run()
+#    if response == gtk.RESPONSE_OK:
         # parse report file
-        report_file = dialog.get_filename()
-        dialog.destroy()
+#        report_file = dialog.get_filename()
+        report_file = "/Users/jj/Documents/workspace/test/.sireum/kiasan/kiasan_sireum_report.json"
+#        dialog.destroy()
         logic = KiasanLogic()
         report = logic.extract_report_file(report_file)
         
@@ -26,6 +27,6 @@ if __name__=="__main__":
         window.add(gui._pane)        
         window.show_all()  
         gtk.main() 
-    else:
-        dialog.destroy()
+#    else:
+#        dialog.destroy()
     

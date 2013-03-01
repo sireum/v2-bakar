@@ -2,7 +2,7 @@ import simplejson as json
 import urllib
 
 class Entity:
-    """ Base class for package or procedure rows """
+    """ Base class for package or method rows """
     
     def __init__(self, report_dict):
         self._name = report_dict["optLabel"]
@@ -32,22 +32,23 @@ class Package(Entity):
         
     def __init__(self, report_dict):
         Entity.__init__(self, report_dict)
-        self.extract_procedures(report_dict)       
+        self.extract_methods(report_dict)       
 
 
-    def extract_procedures(self, report_dict):
-        self._procedures = []
+    def extract_methods(self, report_dict):
+        self._methods = []
         if report_dict.has_key("theChildren"):
             for child in report_dict["theChildren"]:
-                self._procedures.append(Procedure(child))
+                self._methods.append(Method(child))
 
 
 
-class Procedure(Entity):
-    """ Class represents procedure row """    
+class Method(Entity):
+    """ Class represents method row """    
     def __init__(self, report_dict):
         Entity.__init__(self, report_dict) 
         self.extract_cases(report_dict)
+        self.extract_file_coverage(report_dict)
         
         
     def extract_cases(self, report_dict):   
@@ -61,7 +62,21 @@ class Procedure(Entity):
                 case_header._error = case["optErrorStatus"]
                 self._cases.append(case_header)
                 
-                
+    
+    def extract_file_coverage(self, report_dict):
+        """Extract file coverage (line for highlight) from dictionary"""
+        self._files = []
+        if report_dict.has_key("optFileCoverage"):
+            for file_dict in report_dict["optFileCoverage"]:
+                method_file = MethodFile()
+                method_file._path = file_dict["sourcePath"]
+                method_file._covered_lines = []
+                for index, value in enumerate(file_dict["coverage"]):
+                    if value == "Full":
+                        method_file._covered_lines.append(index)
+                self._files.append(method_file)
+        
+                    
     def get_case(self, case_no):
         """ Fetch case from json file """   
         case_file = urllib.urlopen(self._cases[case_no]._file)
@@ -97,9 +112,17 @@ class Procedure(Entity):
 
 
 
+class MethodFile:
+    """ class represents files which contains method definition or body """
+    pass
+    
+    
+    
 class CaseHeader:
     """ class represents case header (used for combo box) """
     pass
+
+
 
 class Case:
     """ class represents case with pre and post state """  
@@ -126,8 +149,8 @@ class CaseStateFrame:
         
 
 
-class CaseProcedure:
-    """ Class represents procedure in CaseStateFrame """
+class CaseMethod:
+    """ Class represents method in CaseStateFrame """
     
     def __init__(self):
         self._name = ""

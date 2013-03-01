@@ -35,17 +35,7 @@ def run_helper():
 #	print '\n\nGPS.File(GPS.current_context().file().name()).entities(False)', GPS.File(GPS.current_context().file().name()).entities(False)
 #	print '\n\nGPS.current_context().file().entities(False)', GPS.current_context().file().entities(False)
 	
-	highlight_style = GPS.Style("my highlighting style")
-	highlight_style.set_background ("#7fff00")   # a green background
 	
-	gps_file = GPS.File(GPS.current_context().file().name())
-	lines = []
-	for i in range(12, 20):
-		lines.append(GPS.Message("my message category", gps_file, i, 1, "message text", 2))
-		lines[-1].set_style(highlight_style)
-	for i in lines:
-		#i.remove()
-		pass
 
 
 def run_kiasan_plugin():
@@ -64,7 +54,7 @@ def run_kiasan_plugin():
 	# attach GUI to GPS
 	GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
 	win = GPS.MDI.get('kiasan')
-	win.split(reuse="True") # reuse=True: bottom from code window, reuse=False: top from code window
+	win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
 	win.float(float=False)	# float=True: popup, float=False: GPS integrated window
 
 
@@ -86,20 +76,20 @@ def prepare_directories_for_reports():
 def run_kiasan_tool():
 	"""Runs Kiasan based on preferences and clicked entity."""	
 	# get package name (we assume that package_name = file_name_without_extension)
-	warnings.warn('Maybe better solution is fetch package from entities list? (like procedures)')
+	warnings.warn('Maybe better solution is fetch package from entities list? (like methods)')
 	file_name = GPS.current_context().file().name()
 	match = re.search(r'(?<=\/)(\w+)\.ad[bs]', file_name)
 	package_name = match.groups()[0]
 	
-	# get procedures list	
+	# get methods list	
 	if GPS.current_context().entity().category() == "subprogram":
-		procedures_list = [GPS.current_context().entity().name()]
+		methods_list = [GPS.current_context().entity().name()]
 	elif GPS.current_context().entity().category() == "package/namespace":
-		# fetch all procedures from file (procedure=subprogram) 
-		procedures_list = []
+		# fetch all methods from file (method=subprogram) 
+		methods_list = []
 		for entity in GPS.current_context().file().entities(False):
 			if entity.category() == 'subprogram':
-				procedures_list.append(entity.name())
+				methods_list.append(entity.name())
 		
 	
 	kiasan_lib_dir = "/Users/jj/Programs/Sireum/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302251534/lib/"
@@ -130,10 +120,10 @@ def run_kiasan_tool():
 	#TODO: add dotLocation?? (KiasanRunner.java:443)
 	run_kiasan_command += " " + package_name
 	
-	# run Kiasan tool for each procedure
-	for procedure in procedures_list:
-		print run_kiasan_command + " " + procedure
-		os.system(run_kiasan_command + " " + procedure)	
+	# run Kiasan tool for each method
+	for method in methods_list:
+		print run_kiasan_command + " " + method
+		os.system(run_kiasan_command + " " + method)	
 
 
 GPS.parse_xml ("""
