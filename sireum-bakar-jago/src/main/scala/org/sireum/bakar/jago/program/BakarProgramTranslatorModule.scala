@@ -8,7 +8,7 @@ import org.sireum.pipeline._
 import java.lang.String
 import org.sireum.bakar.xml.CompilationUnit
 import org.sireum.option.ProgramTarget.Type
-import scala.collection.Seq
+import scala.collection.immutable.Seq
 import scala.collection.mutable.Map
 
 object BakarProgramTranslatorModule extends PipelineModule {
@@ -116,9 +116,9 @@ object BakarProgramTranslatorModule extends PipelineModule {
         "Output error for '" + this.title + "': No entry found for 'jagoProgramResults'. Expecting (BakarProgramTranslatorModule.jagoProgramResultsKey)") 
     }
 
-    if(job ? BakarProgramTranslatorModule.jagoProgramResultsKey && !job(BakarProgramTranslatorModule.jagoProgramResultsKey).isInstanceOf[scala.collection.Seq[java.lang.String]]) {
+    if(job ? BakarProgramTranslatorModule.jagoProgramResultsKey && !job(BakarProgramTranslatorModule.jagoProgramResultsKey).isInstanceOf[scala.collection.immutable.Seq[java.lang.String]]) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
-        "Output error for '" + this.title + "': Wrong type found for BakarProgramTranslatorModule.jagoProgramResultsKey.  Expecting 'scala.collection.Seq[java.lang.String]' but found '" + 
+        "Output error for '" + this.title + "': Wrong type found for BakarProgramTranslatorModule.jagoProgramResultsKey.  Expecting 'scala.collection.immutable.Seq[java.lang.String]' but found '" + 
         job(BakarProgramTranslatorModule.jagoProgramResultsKey).getClass.toString + "'")
     } 
     return tags
@@ -154,15 +154,15 @@ object BakarProgramTranslatorModule extends PipelineModule {
     return options
   }
 
-  def getJagoProgramResults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.Seq[java.lang.String] = {
+  def getJagoProgramResults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[java.lang.String] = {
     if (options.contains(BakarProgramTranslatorModule.jagoProgramResultsKey)) {
-       return options(BakarProgramTranslatorModule.jagoProgramResultsKey).asInstanceOf[scala.collection.Seq[java.lang.String]]
+       return options(BakarProgramTranslatorModule.jagoProgramResultsKey).asInstanceOf[scala.collection.immutable.Seq[java.lang.String]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setJagoProgramResults (options : MMap[Property.Key, Any], jagoProgramResults : scala.collection.Seq[java.lang.String]) : MMap[Property.Key, Any] = {
+  def setJagoProgramResults (options : MMap[Property.Key, Any], jagoProgramResults : scala.collection.immutable.Seq[java.lang.String]) : MMap[Property.Key, Any] = {
 
     options(jagoProgramResultsKey) = jagoProgramResults
 
@@ -173,7 +173,7 @@ object BakarProgramTranslatorModule extends PipelineModule {
     implicit class BakarProgramTranslatorModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def jagoProgramTarget : org.sireum.option.ProgramTarget.Type = BakarProgramTranslatorModule.getJagoProgramTarget(job.propertyMap)
       def parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarProgramTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
-      def jagoProgramResults : scala.collection.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
+      def jagoProgramResults : scala.collection.immutable.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
     }
   }
 
@@ -186,8 +186,8 @@ object BakarProgramTranslatorModule extends PipelineModule {
       def parseGnat2XMLresults_=(parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) { BakarProgramTranslatorModule.setParseGnat2XMLresults(job.propertyMap, parseGnat2XMLresults) }
       def parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarProgramTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
 
-      def jagoProgramResults_=(jagoProgramResults : scala.collection.Seq[java.lang.String]) { BakarProgramTranslatorModule.setJagoProgramResults(job.propertyMap, jagoProgramResults) }
-      def jagoProgramResults : scala.collection.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
+      def jagoProgramResults_=(jagoProgramResults : scala.collection.immutable.Seq[java.lang.String]) { BakarProgramTranslatorModule.setJagoProgramResults(job.propertyMap, jagoProgramResults) }
+      def jagoProgramResults : scala.collection.immutable.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
     }
   }
 }
@@ -200,6 +200,6 @@ trait BakarProgramTranslatorModule {
   def parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarProgramTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
 
 
-  def jagoProgramResults_=(jagoProgramResults : scala.collection.Seq[java.lang.String]) { BakarProgramTranslatorModule.setJagoProgramResults(job.propertyMap, jagoProgramResults) }
-  def jagoProgramResults : scala.collection.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
+  def jagoProgramResults_=(jagoProgramResults : scala.collection.immutable.Seq[java.lang.String]) { BakarProgramTranslatorModule.setJagoProgramResults(job.propertyMap, jagoProgramResults) }
+  def jagoProgramResults : scala.collection.immutable.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
 }

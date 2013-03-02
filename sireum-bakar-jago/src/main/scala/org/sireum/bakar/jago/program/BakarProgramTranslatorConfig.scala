@@ -8,6 +8,7 @@ import org.sireum.pipeline.Produce
 import org.sireum.option.PipelineMode
 import org.sireum.option.ProgramTarget
 import org.sireum.pipeline.gen.ModuleGenerator
+import org.sireum.util._
 
 case class BakarProgramTranslator (
     title: String = "",
@@ -19,7 +20,7 @@ case class BakarProgramTranslator (
     parseGnat2XMLresults: MMap[FileResourceUri, CompilationUnit],
     
     @Produce
-    jagoProgramResults: Seq[String]    
+    jagoProgramResults: ISeq[String]    
 )
 
 object GenerateModuleCore_ProgramTrans{

@@ -24,6 +24,7 @@ import org.sireum.option.TypeTarget
 import org.sireum.option.SireumBakarTypeMode
 import java.net.URI
 import org.sireum.bakar.jago.util.Factory
+import org.sireum.bakar.jago.util.TranslatorUtil
 
 /**
  * Refer the following file for reference
@@ -494,45 +495,14 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
       }
     }
   }
-
-  def writeIntoOutFile(results: String) {
-    try {
-      // val fwriter = new FileWriter(new File(o.outFile, outFileName))
-      // replace("/bin/", "/src/test/resources/")
-      // val z1 = new File("./").getAbsoluteFile().toURI().toASCIIString()
-      val currentPath = new File(".").getAbsolutePath().replace(".", "")
-      val absoluteOutputPath = 
-        if(o.outFile.startsWith("~")) 
-          o.outFile.replace("~", System.getProperty("user.home"))
-        else if(o.outFile.startsWith("/"))
-          o.outFile
-        else
-          currentPath + o.outFile      
-          
-      val parentPath = (new File(absoluteOutputPath)).getParentFile()
-      if(!parentPath.exists && !parentPath.mkdirs){
-        throw new RuntimeException("Could not create " + o.outFile)
-      }
-      println("wrote into: " + absoluteOutputPath)
-      val fwriter = new FileWriter(new File(absoluteOutputPath))
-      fwriter.write(results)
-      fwriter.close()
-    } catch {
-      case e : Throwable =>
-        e.printStackTrace
-        assert(false)
-    }
-
-  }
 }
 
 object BakarTypeTranslator {
   def run(mode : SireumBakarTypeMode) : String = {
-    //println("\nType Translation: SPARK --> " + mode.typ.toString.dropRight(1) + " !\n")
     val translator = new BakarTypeTranslator(mode);
     val results = translator.doTypeTranslation
     if(mode.outFile != "") {
-      translator.writeIntoOutFile(results)
+      TranslatorUtil.writeIntoOutFile(results, mode.outFile)
     } else {
       Console.println(results)
     }
@@ -542,7 +512,7 @@ object BakarTypeTranslator {
   def main(args : Array[String]) {
     val mode = SireumBakarTypeMode()
     //mode.typ = TypeTarget.Ocaml
-    //mode.outFile  = "~/new_temp/zz/test.coq"
+    //mode.outFile  = Some("~/new_temp/zz/test.coq")
     val result = run(mode)
     //println(result)
   }

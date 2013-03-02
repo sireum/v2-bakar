@@ -30,6 +30,11 @@ object Test1{
   }
   
   def main(args: Array[String]){
+    
+    val fl = TranslatorUtil.readFromSrcFile("zz1.adb")
+    
+    
+    
     // @Switch(false)
         
 //    for(m <- cls.getDeclaredMethods() if m.getName() == "foo") {
@@ -37,17 +42,17 @@ object Test1{
 //      println(result)
 //    }
     
-    val ls = List("How")
-    val res = ls.dropRight(1)
-
-    val stg = new STGroupFile(getClass.getResource("./../xml/" + TypeNameSpace.TypeTransTemplate_Coq).getPath(), "UTF-8", '$', '$')
-    val zz = stg.getInstanceOf("typeRename")
-    updateST(zz, "newName", "new")
-    println(zz.render())
-    updateST(zz, "oldName", "old")
-//    zz.add("newName", "new")
-//    zz.add("oldName", "old")
-    println(zz.render())
+//    val ls = List("How")
+//    val res = ls.dropRight(1)
+//
+//    val stg = new STGroupFile(getClass.getResource("./../xml/" + TypeNameSpace.TypeTransTemplate_Coq).getPath(), "UTF-8", '$', '$')
+//    val zz = stg.getInstanceOf("typeRename")
+//    updateST(zz, "newName", "new")
+//    println(zz.render())
+//    updateST(zz, "oldName", "old")
+////    zz.add("newName", "new")
+////    zz.add("oldName", "old")
+//    println(zz.render())
     
 //    val result = FileUtil.fileUri(this.getClass, "")
 //    println("The result is: \n" + result)
@@ -69,11 +74,11 @@ object Test1{
 //    val fr = reverse.toSeq.sortBy(_._1)
 //    for(e <- fr)
 //      println(e._1 + "->" + e._2)
-    var x = "how";
-    var y = "are";
-    def foo (p: String) = {p match {case "how" | "are" => "you" case _ => "!!!"}}
-    println(foo(x))
-    println(foo(y))
+//    var x = "how";
+//    var y = "are";
+//    def foo (p: String) = {p match {case "how" | "are" => "you" case _ => "!!!"}}
+//    println(foo(x))
+//    println(foo(y))
     
   }
   

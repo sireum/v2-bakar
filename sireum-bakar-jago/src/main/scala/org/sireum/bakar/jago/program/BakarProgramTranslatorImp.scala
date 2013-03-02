@@ -17,26 +17,33 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // - Bakar2CoqTranslatorModuleCore is a general framework that's common for all the translation project
   // - Bakar2CoqTranslatorImp implements our specific translation from SPARK XML AST tree to Coq, and it's called in Bakar2CoqTranslatorModuleCore
   type BVisitor = Any => Boolean
-  
+
   trait Context {
-    var result: Any = null
-    
-    def pushResult(o: Any) {
+    val results = mlistEmpty[String]
+    var result : Any = null
+
+    def pushResult(o : Any) {
       result = o;
     }
-    
+
     def popResult = {
       val t = result
       result = null
       t
     }
-    
+
+    def addToResults(o : String) {
+      results += o
+    }
+
+    def getResults = results
+
     def isEmpty(o : Base) : Boolean = o.isInstanceOf[NotAnElement]
-    
-    def isUnaryOp(o: Any) = getUnaryOp(o).isDefined
-    
-    def getUnaryOp(o: Any): scala.Option[String] = {
-      if(!o.isInstanceOf[ExpressionClass]) {
+
+    def isUnaryOp(o : Any) = getUnaryOp(o).isDefined
+
+    def getUnaryOp(o : Any) : scala.Option[String] = {
+      if (!o.isInstanceOf[ExpressionClass]) {
         return None
       }
       val x = o.asInstanceOf[ExpressionClass].getExpression().asInstanceOf[Any]
@@ -47,9 +54,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         case _                       => None
       }
     }
-    
+
     def isBinaryOp(o : Any) = getBinaryOp(o).isDefined
-    
+
     def getBinaryOp(o : Any) : scala.Option[String] = {
       if (!o.isInstanceOf[ExpressionClass]) {
         return None
@@ -71,15 +78,15 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         case MinusOperatorEx(_)              => Some("Osub")
         case MultiplyOperatorEx(_)           => Some("Omul")
         case PlusOperatorEx(_)               => Some("Oadd")
-//        case RemOperatorEx(_)                => Some("ARem")
-//        case ModOperatorEx                   => Some("AMod")
+        //        case RemOperatorEx(_)                => Some("ARem")
+        //        case ModOperatorEx                   => Some("AMod")
         case _ =>
           None
       }
     }
   }
-  
-def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
+
+  def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ CompilationUnitEx(
       sloc,
       contextClauseElements,
@@ -94,21 +101,18 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
       // [1] Package Declaration
-        
+
       // [2] Compilation unit can be either (1)Package Body or (2)Procedure Body  
-      if(unitKind == "A_Package_Body" || 
-          unitKind == "A_Procedure_Body"){
+      if (unitKind == "A_Package_Body" ||
+        unitKind == "A_Procedure_Body") {
         // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
         val cu_astnum = factory.buildAstMappingTable(sloc, None)
         val unit_astnum = factory.buildAstMappingTable(sloc, None)
         v(unitDeclaration)
         val bodyDecl = ctx.popResult
         val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl.asInstanceOf[String])
-        val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)  
-        
-        // store the program translation results as PipelineJob's properties
-        // so the result can be used by the following pipeline modules
-        this.jagoProgramResults_=(Seq[String](cu))         
+        val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
+        ctx.addToResults(cu)
       }
 
       false
@@ -127,10 +131,10 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
       val pkgBodyName = ctx.popResult.asInstanceOf[String]
-      
+
       val pkgElems = mlistEmpty[String]
       TranslatorUtil.getTypeDeclarations(bodyDecItems)
-      
+
       if (!aspectSpec.getElements().isEmpty())
         Console.err.println("Need to handle package body aspect clauses")
       if (!bodyStatements.getStatements.isEmpty)
@@ -141,7 +145,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         pkgElems += ctx.popResult.asInstanceOf[String]
       }
       val pkgBodyAspectSpecs = mlistEmpty[String]
-      val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems:_*)
+      val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems : _*)
       //
       //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "PackageBodyDecl", pkgBodyDecl)
       // val packageUnit = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", pkgBodyDecl)
@@ -165,7 +169,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         assert(exceptionHandlerList.getExceptionHandlers().isEmpty())
         assert(ctx.isEmpty(isOverridingDec))
         assert(ctx.isEmpty(isNotOverridingDec))
-        
+
         assert(names.getDefiningNames().length == 1)
         // [1] method name
         // val mname = names.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDefName()
@@ -181,51 +185,51 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         }
         // [3] method parameters
         val params = mlistEmpty[String]
-        for(p <- paramProfile.getParameterSpecifications()) {
+        for (p <- paramProfile.getParameterSpecifications()) {
           p match {
-          case ps @ ParameterSpecificationEx(sloc, pnames, _hasAliased, _hasNullEx,
-            objDecView, _initExpr, mode) =>
-            // e.g (I : Integer) or (I, J : 
-            assert(ctx.isEmpty(_hasAliased.getHasAliased()))
-            assert(ctx.isEmpty(_hasNullEx.getHasNullExclusion()))
-            assert(ctx.isEmpty(_initExpr.getExpression()))
-            // [2-1] parameter type
-            val paramType = objDecView.getDefinition() match {
-              case id @ IdentifierEx(sloc, refName, ref, type_) =>
-                Some(ref)
-              case _ =>
-                None
-            }
-            assert(paramType.isDefined)
-            // [2-2] parameter initialization
-            val initExp: Option[String] = 
-              if(ctx.isEmpty(_initExpr)) {
-                None
-              }else{
-                v(_initExpr)
-                Some(ctx.popResult.asInstanceOf[String])
+            case ps @ ParameterSpecificationEx(sloc, pnames, _hasAliased, _hasNullEx,
+              objDecView, _initExpr, mode) =>
+              // e.g (I : Integer) or (I, J : 
+              assert(ctx.isEmpty(_hasAliased.getHasAliased()))
+              assert(ctx.isEmpty(_hasNullEx.getHasNullExclusion()))
+              assert(ctx.isEmpty(_initExpr.getExpression()))
+              // [2-1] parameter type
+              val paramType = objDecView.getDefinition() match {
+                case id @ IdentifierEx(sloc, refName, ref, type_) =>
+                  Some(ref)
+                case _ =>
+                  None
               }
-            // [2-3] parameter names of the same type and mode
-            val paramlist = mlistEmpty[String]
-            pnames.getDefiningNames().foreach {
-              case DefiningIdentifierEx(sloc, defName, theDef, theType) => 
-                val pnm = factory.buildId(paramType, theDef, defName)
-                paramlist += pnm
-              case x =>
-                println("Not expecting: " + x)
-                assert(false)
-            }
-            val astnum = factory.buildAstMappingTable(sloc, None)
-            val paramDecl = factory.buildParamSpecification(astnum, paramlist, paramType.get, factory.buildMode(mode), initExp)
-            params += paramDecl
-          case x =>
-            println("Not expecting: " + x)
-            assert(false)
+              assert(paramType.isDefined)
+              // [2-2] parameter initialization
+              val initExp : Option[String] =
+                if (ctx.isEmpty(_initExpr)) {
+                  None
+                } else {
+                  v(_initExpr)
+                  Some(ctx.popResult.asInstanceOf[String])
+                }
+              // [2-3] parameter names of the same type and mode
+              val paramlist = mlistEmpty[String]
+              pnames.getDefiningNames().foreach {
+                case DefiningIdentifierEx(sloc, defName, theDef, theType) =>
+                  val pnm = factory.buildId(paramType, theDef, defName)
+                  paramlist += pnm
+                case x =>
+                  println("Not expecting: " + x)
+                  assert(false)
+              }
+              val astnum = factory.buildAstMappingTable(sloc, None)
+              val paramDecl = factory.buildParamSpecification(astnum, paramlist, paramType.get, factory.buildMode(mode), initExp)
+              params += paramDecl
+            case x =>
+              println("Not expecting: " + x)
+              assert(false)
           }
-        }     
+        }
         // [4] declared local variables inside the method
         val defingIds = mlistEmpty[String]
-        for(declItem <- bodyDeclItems.getElements()) {
+        for (declItem <- bodyDeclItems.getElements()) {
           v(declItem)
           defingIds += ctx.popResult.asInstanceOf[String]
         }
@@ -252,52 +256,52 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       case o @ ProcedureBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, aspectSpec, bodyDecItems, bodyStatements, bodyExceptionHandlers) =>
 
-        val method_astnum = factory.buildAstMappingTable(sloc, None)  
-        val procbody_astnum = factory.buildAstMappingTable(sloc, None)  
+        val method_astnum = factory.buildAstMappingTable(sloc, None)
+        val procbody_astnum = factory.buildAstMappingTable(sloc, None)
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val procedureBody = factory.buildProcedureBody(procbody_astnum, m.mname, m.aspectSpecs, m.params, m.localIdents, m.mbody)
         val annotation = Some("Procedure")
-        
+
         val result = factory.buildSubProgram(method_astnum, "Sproc", procedureBody, annotation)
         ctx.pushResult(result)
-        
+
         false
       case o @ FunctionBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
         bodyDecItems, bodyStatements, bodyExceptionHandlers) =>
 
         // TODO: should use: factory.buildAstMappingTable(sloc, ReturnType)          
-        val method_astnum = factory.buildAstMappingTable(sloc, None)  
-        val fnbody_astnum = factory.buildAstMappingTable(sloc, None)            
+        val method_astnum = factory.buildAstMappingTable(sloc, None)
+        val fnbody_astnum = factory.buildAstMappingTable(sloc, None)
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val functionBody = factory.buildFunctionBody(fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localIdents, m.mbody)
         val annotation = Some("Function")
-        
+
         val result = factory.buildSubProgram(method_astnum, "Sfunc", functionBody, annotation)
         ctx.pushResult(result)
 
         false
     }
   }
-  
-  def definingIdentifier(ctx: Context, v: => BVisitor): VisitorFunction = { 
+
+  def definingIdentifier(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case varDecl @ VariableDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl) =>
       val theType = util_GetTypeFromObjDeclViewQ(objDeclViewQ)
-      val astnum = factory.buildAstMappingTable(sloc, None) 
+      val astnum = factory.buildAstMappingTable(sloc, None)
       val declItems = mlistEmpty[String]
-      for(defName <- namesQl.getDefiningNames()){
+      for (defName <- namesQl.getDefiningNames()) {
         v(defName)
         declItems += ctx.popResult.asInstanceOf[String]
       }
-      
-      val optionalInitExp = 
-        if(ctx.isEmpty(initExpQ.getExpression())){
+
+      val optionalInitExp =
+        if (ctx.isEmpty(initExpQ.getExpression())) {
           None
-        }else{
+        } else {
           v(initExpQ.getExpression())
           Some(ctx.popResult.asInstanceOf[String])
         }
@@ -305,12 +309,12 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       ctx.pushResult(factory.buildIdentiferDecl(astnum, declItems, theType.get, optionalInitExp))
       false
   }
-  
-  def statementH(ctx: Context, v: => BVisitor): VisitorFunction = {
+
+  def statementH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ StatementListEx(statements) =>
       import scala.collection.JavaConversions._
-      val seq: String = unit_trans_seq(statements, v)
-      ctx.pushResult(seq) 
+      val seq : String = unit_trans_seq(statements, v)
+      ctx.pushResult(seq)
       false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression) =>
       val astnum = factory.buildAstMappingTable(sloc, None)
@@ -325,11 +329,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       v(calledName)
       val procName = ctx.popResult.asInstanceOf[String]
       val params = mlistEmpty[String]
-      for(param <- callStatementParameters.getAssociations()) {
+      for (param <- callStatementParameters.getAssociations()) {
         v(param)
         params += ctx.popResult.asInstanceOf[String]
       }
-      ctx.pushResult(factory.buildProcedureCall(procName, params: _*)) 
+      ctx.pushResult(factory.buildProcedureCall(procName, params : _*))
       false
     case o @ IfStatementEx(sloc, labelNames, statementPaths) =>
       statementPaths.getPaths().foreach {
@@ -343,7 +347,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         case x =>
           println("statementH: IfStatement need to be handled for " + x.getClass().getSimpleName())
       }
-      
+
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier,
       whileCondition, loopStatements) =>
@@ -368,11 +372,11 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
           println("statementH: other pragmas need to be handled !")
       }
       false
-//    case o =>
-//      println("statementH: need to handle " + o.getClass().getSimpleName())
-//      true
+    //    case o =>
+    //      println("statementH: need to handle " + o.getClass().getSimpleName())
+    //      true
   }
-  
+
   def expressionH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IntegerLiteralEx(sloc, litVal, theType) =>
       // litval could look like 3_500
@@ -391,65 +395,65 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       // import scala.collection.JavaConversions.asScalaBuffer
       // to do implicit conversion between Java collection and scala collection
       // scala.collection.mutable.Buffer <=> java.util.List
-      for(param <- functionCallParameters.getAssociations) {
+      for (param <- functionCallParameters.getAssociations) {
         v(param)
         plist += factory.buildIdentifierExpr(sloc, ctx.popResult.asInstanceOf[String])
       }
-      
-      if(ctx.isBinaryOp(prefixQ)) {
+
+      if (ctx.isBinaryOp(prefixQ)) {
         assert(plist.length == 2)
         val loperand = plist(0)
         val roperand = plist(1)
         val bexp = factory.buildBinaryExpr(astnum, ctx.getBinaryOp(prefixQ).get, loperand, roperand)
         ctx.pushResult(bexp)
-      }else if(ctx.isUnaryOp(prefixQ)) {
+      } else if (ctx.isUnaryOp(prefixQ)) {
         assert(plist.length == 1)
         val operand = plist(0)
         val uexp = factory.buildUnaryExpr(astnum, ctx.getUnaryOp(prefixQ).get, operand)
         ctx.pushResult(uexp)
-      }else {
+      } else {
         println("expressionH: need to handle Function Call Expression !")
       }
       false
-//    case o =>
-//      println("expressionH: need to handle: " + o.getClass.getSimpleName)
-//      true
-  } 
-  
+    //    case o =>
+    //      println("expressionH: need to handle: " + o.getClass.getSimpleName)
+    //      true
+  }
+
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      val theTyp = if(theType == "null") None else Some(theType)
-      ctx.pushResult(factory.buildId(theTyp, ref, refName)) 
+      val theTyp = if (theType == "null") None else Some(theType)
+      ctx.pushResult(factory.buildId(theTyp, ref, refName))
       false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-      val theTyp = if(theType == "null") None else Some(theType)
+      val theTyp = if (theType == "null") None else Some(theType)
       ctx.pushResult(factory.buildId(theTyp, theDef, defName))
       false
-//    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
-//
-//      false
-//    case o =>
-//      //println("nameH: need to handle: " + o.getClass().getSimpleName())
-//      true
-  }  
-  
-  def associationListH(ctx: Context, v : => BVisitor) : VisitorFunction = {
+    //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
+    //
+    //      false
+    //    case o =>
+    //      //println("nameH: need to handle: " + o.getClass().getSimpleName())
+    //      true
+  }
+
+  def associationListH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ AssociationListEx(associations) =>
       val result = mlistEmpty[Any]
-      associations.foreach{association =>
+      associations.foreach { association =>
         v(association)
         result += ctx.popResult
       }
       ctx.pushResult(result)
       false
   }
-  
-  def pragmaArgumentAssociationH(ctx: Context, v: => BVisitor): VisitorFunction = {
+
+  def pragmaArgumentAssociationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ PragmaArgumentAssociationEx(sloc, formalParameter, actualParameter) =>
       v(actualParameter)
       false
   }
-  
+
   def everythingElseH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o if (o != null) =>
       //println("everythingElseH " + o.getClass.getSimpleName)
@@ -459,8 +463,8 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       assert(false)
       false
   }
-  
-  def util_GetTypeFromObjDeclViewQ(objDeclViewQ: DefinitionClass) = {
+
+  def util_GetTypeFromObjDeclViewQ(objDeclViewQ : DefinitionClass) = {
     objDeclViewQ.getDefinition() match {
       case sti @ SubtypeIndicationEx(sloc, hasAliasedQ, hasNullExclusionQ, subtypeMarkQ, subtypeConstraintQ) =>
         subtypeMarkQ.getExpression() match {
@@ -472,28 +476,28 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       case _ =>
         None
     }
-  }  
+  }
 
-  def unit_trans_seq(stmts: MBuffer[Base], v: => BVisitor): String = {
-    var result: String = null
-    if(!stmts.isEmpty){
-      if(stmts.length == 1){
-        v(stmts.head)  
+  def unit_trans_seq(stmts : MBuffer[Base], v : => BVisitor) : String = {
+    var result : String = null
+    if (!stmts.isEmpty) {
+      if (stmts.length == 1) {
+        v(stmts.head)
         result = ctx.popResult.asInstanceOf[String]
-      }else{
+      } else {
         val seq_astnum = factory.next_astnum
-        v(stmts.head)  
+        v(stmts.head)
         val stmt1 = ctx.popResult.asInstanceOf[String]
         val stmt2 = unit_trans_seq(stmts.tail, v)
-        result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)        
+        result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
       }
     }
     result
-  }  
-  
-  def theVisitor: BVisitor = visit
+  }
+
+  def theVisitor : BVisitor = visit
   val ctx = new Context {}
-  
+
   val visit = Visitor.build(
     Visitor.first(
       ivector(
@@ -507,7 +511,7 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         pragmaArgumentAssociationH(ctx, theVisitor),
         everythingElseH(ctx, theVisitor)
       )))
-  
+
   import org.sireum.option.ProgramTarget
   def getProgramTranslatorSTG(o : ProgramTarget.Type) = {
     (o : @unchecked) match {
@@ -517,26 +521,30 @@ def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
         new STGroupFile(getClass.getResource(TypeNameSpace.ProgramTransTemplate_Coq), "UTF-8", '$', '$')
     }
   }
-  
+
   val t = this.jagoProgramTarget
-  assert (t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
-  
+  assert(t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
+
   val stg = getProgramTranslatorSTG(t)
   val factory = new Factory(stg)
   
+  //println(this.parseGnat2XMLresults)
+
+// for multiple source files, do translation one by one
   this.parseGnat2XMLresults.foreach {
-    case (key, value) => { 
-      // println("Hello how are you")
+    case (key, value) => {
       visit(value)
     }
   }
+  // store the program translation results as PipelineJob's properties
+  // so the result can be used by the following pipeline modules  
+  this.jagoProgramResults = ctx.getResults.toList
 }
 
 final case class MethodClass(
-    mname: String, 
-    returnType: Option[String],
-    aspectSpecs: MList[String], 
-    params: MList[String],
-    localIdents: MList[String],
-    mbody: String
-)
+  mname : String,
+  returnType : Option[String],
+  aspectSpecs : MList[String],
+  params : MList[String],
+  localIdents : MList[String],
+  mbody : String)

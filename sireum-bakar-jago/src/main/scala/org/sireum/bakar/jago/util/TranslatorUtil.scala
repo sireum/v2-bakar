@@ -6,6 +6,8 @@ import org.sireum.util._
 import org.sireum.option.ProgramTarget
 import org.stringtemplate.v4.STGroupFile
 import org.sireum.option.TypeTarget
+import java.io.File
+import java.io.FileWriter
 
 object URIS {
   // 
@@ -56,4 +58,56 @@ object TranslatorUtil {
       case _                               => false
     }
   }
+
+  // - - - - - - - - - - -  - - - - - -  - - -  - - 
+  def getAbsolutePath(fileName : String) : String = {
+    // val fwriter = new FileWriter(new File(o.outFile, outFileName))
+    // replace("/bin/", "/src/test/resources/")
+    // val z1 = new File("./").getAbsoluteFile().toURI().toASCIIString()
+    val currentPath = new File(".").getAbsolutePath().replace(".", "")
+    val absolutePath =
+      if (fileName.startsWith("~"))
+        fileName.replace("~", System.getProperty("user.home"))
+      else if (fileName.startsWith("/"))
+        fileName
+      else
+        currentPath + fileName
+    absolutePath
+  }
+
+  def writeIntoOutFile(results : String, outFileName : String) {
+    try {
+      val absoluteOutputPath = getAbsolutePath(outFileName)
+      val parentPath = (new File(absoluteOutputPath)).getParentFile()
+      if (!parentPath.exists && !parentPath.mkdirs) {
+        throw new RuntimeException("Could not create " + outFileName)
+      }
+      println("wrote into: " + absoluteOutputPath)
+      val fwriter = new FileWriter(new File(absoluteOutputPath))
+      fwriter.write(results)
+      fwriter.close()
+    } catch {
+      case e : Throwable =>
+        e.printStackTrace
+        assert(false)
+    }
+  }
+
+  def readFromSrcFile(srcFileName : String): File = {
+    try {
+      val absoluteInputPath = getAbsolutePath(srcFileName)
+      val srcFile = new File(absoluteInputPath)
+      if (!srcFile.exists) {
+        throw new RuntimeException("Could not open the file: " + srcFileName)
+      }
+      srcFile
+    } catch {
+      case e : Throwable =>
+        e.printStackTrace
+        assert(false)
+        null
+    }
+
+  }
+
 }

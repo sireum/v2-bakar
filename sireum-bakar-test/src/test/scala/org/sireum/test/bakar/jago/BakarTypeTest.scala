@@ -19,17 +19,12 @@ class BakarTypeTest extends TestFramework {
   val RESULT_DIR = new File(new File(new URI(base)), "results")
 
   val genExpected = false
-
-//  def compare (results : String, filename : String) {
-//    val (expected, _) = FileUtil.readFile(new File(EXPECTED_DIR , filename).toURI.toString)
-//    results should equal(expected)
-//  }
   
   def compare(mode: SireumBakarTypeMode) {
     val typ = mode.typ
     val fileName = typ match {
-      case TypeTarget.Coq => "typ1.coq" 
-      case TypeTarget.Ocaml => "typ1.ocaml"
+      case TypeTarget.Coq => "test_typ.coq" 
+      case TypeTarget.Ocaml => "test_typ.ocaml"
     }
     
     val outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, fileName).toURI().toASCIIString()
@@ -47,23 +42,11 @@ class BakarTypeTest extends TestFramework {
     val mode = SireumBakarTypeMode()
     mode.typ = TypeTarget.Coq
     compare(mode)
-//    mode.outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, "typ1.coq").toURI().toASCIIString()
-//    BakarTypeTranslator.run(mode)
-//    val (results, _) = FileUtil.readFile(mode.outFile)
-//    
-//    if(!genExpected)
-//      compare(results, "typ1.coq")
   }
 
   test("Ocaml") {
     val mode = SireumBakarTypeMode()
     mode.typ = TypeTarget.Ocaml
     compare(mode)
-//    mode.outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, "typ1.ocaml").toURI().toASCIIString()
-//    BakarTypeTranslator.run(mode)
-//    val (results, _) = FileUtil.readFile(mode.outFile)
-//    
-//    if(!genExpected)
-//      compare(results, "typ1.ocaml")
   }
 }

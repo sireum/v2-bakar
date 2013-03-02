@@ -39,6 +39,11 @@ Run the BakarTranslator (from Bakar to Pillar) test :
 /************************************
 **    To Fix The Common Errors
 *************************************/
+(0) 
+Modifications (or errors) in one project can make other projects invalid.
+Find the failure reason from the modified project, once it's fixed, all the erros 
+in other projects will disappear.
+
 (1)
 Eclipse > Preference ... > Java > Installed JREs > Add... > Standard Vm > Next > 
 change the default system JRE home to:
@@ -64,10 +69,19 @@ If there is any problem with using classes inside these packages, fix it by:
     /Users/zhi/Documents/workspace/sireum-core/sireum-lib/lib/sireum.userlibraries
     
 (5)
+bash-3.2$ cd ~/SireumV2/apps/eclipse/classic/eclipse
 bash-3.2$ cat eclipse 
 #!/bin/bash
 export SIREUM_HOME=$( cd "$( dirname "$0/../../../../../../../../" )" &> /dev/null && pwd )
 $SIREUM_HOME/sireum launch eclipse -j "-XX:MaxPermSize=256m,-Xms125m,-Xmx4000m" --args "$@"
+
+(6) 
+when run gnat2xml, if it calls the Apple's gcc, then there will be errors.
+$ cd ~
+$ cat .bashrc
+$ export PATH=~/Programs/gnat/bin/:$PATH:~/bin:.
+put ~/Programs/gnat/bin/ before $PATH, so when gnat2xml runs, 
+it will call the first encountered gcc under ~/Programs/gnat/bin/ instead of Apple's gcc.
 
 
 /************************************
@@ -75,7 +89,8 @@ $SIREUM_HOME/sireum launch eclipse -j "-XX:MaxPermSize=256m,-Xms125m,-Xmx4000m" 
 *************************************/
 The git repository is:
 (1) Core:
-  >> https://git.assembla.com/sireum-core.git
+  >> ssh://git@git.assembla.com/sireum-core.git (use this one, the following one can not commit changes)
+  // https://git.assembla.com/sireum-core.git
 (2) Bakar (there are two versions, select the 'master' version without number)
   >> ssh://zhangzhi@cislinux.cis.ksu.edu/research/plgroup/stash/Software/Research/repositories/sireum-bakar.git
 (3) Internal (there are two versions, select the 'master' version without number)

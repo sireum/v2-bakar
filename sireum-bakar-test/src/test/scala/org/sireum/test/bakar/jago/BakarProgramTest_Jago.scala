@@ -27,9 +27,13 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
   override def pre(c : Configuration) : Boolean = {
-    BakarProgramTranslatorModule.setJagoProgramTarget(c.job.properties, ProgramTarget.Coq)
+    import BakarProgramTranslatorModule.ProducerView._
+    c.job.jagoProgramTarget = ProgramTarget.Coq
+
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
+    
+    //println("job Properties: " + c.job.properties)
     return true;
   }
 
@@ -57,7 +61,8 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
   override def outputSuffix = "jago"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
-    val results = BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
+    import BakarProgramTranslatorModule.ConsumerView._
+    val results = job.jagoProgramResults //BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
     results.foreach{f => 
       w.write(f) 
       println(f)}
