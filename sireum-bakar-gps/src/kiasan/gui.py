@@ -234,14 +234,14 @@ class KiasanGUI:
             case = self._report[self._current_package_index]._methods[self._current_fun_index].get_case(selected_case_no)
             
             # load pre and post state models
-            case_pre_state_treeview_model, case_post_state_treeview_model = self.create_case_state_treeview_model(case._pre_state, case._post_state)             
+            case_pre_state_treeview_model, case_post_state_treeview_model = self.create_case_state_treeview_model(case._pre_state, case._post_state)
             
             # create pre and post state treeviews
             self._cases_pre_treeview.set_model(case_pre_state_treeview_model)
             self._cases_pre_treeview.expand_all()
             
             self._cases_post_treeview.set_model(case_post_state_treeview_model)
-            self._cases_post_treeview.expand_all()            
+            self._cases_post_treeview.expand_all()
             
             
     def create_case_state_treeview_model(self, pre_state, post_state):

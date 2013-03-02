@@ -36,8 +36,6 @@ def run_helper():
 #	print '\n\nGPS.current_context().file().entities(False)', GPS.current_context().file().entities(False)
 	
 	
-
-
 def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""	
 	prepare_directories_for_reports()	
@@ -80,7 +78,7 @@ def run_kiasan_tool():
 	file_name = GPS.current_context().file().name()
 	match = re.search(r'(?<=\/)(\w+)\.ad[bs]', file_name)
 	package_name = match.groups()[0]
-	
+	load_sireum_settings()
 	# get methods list	
 	if GPS.current_context().entity().category() == "subprogram":
 		methods_list = [GPS.current_context().entity().name()]
@@ -125,6 +123,24 @@ def run_kiasan_tool():
 		print run_kiasan_command + " " + method
 		os.system(run_kiasan_command + " " + method)	
 
+
+def load_sireum_settings():
+	output = os.popen('echo $PATH','r').readline() #python 2.7 solution: subprocess.check_output("echo $PATH", shell=True)
+	paths = output.split(':')
+	sireum_paths = [i for i in paths if 'Sireum' in i]
+	r_index = sireum_paths[0].rfind('Sireum')
+	sireum_path = sireum_paths[0][:r_index+len('Sireum')]
+	
+	dot_exec = GPS.Preference("sireum-kiasan-location-of-dot-executable")
+	if dot_exec.get() == "":
+		default_dot_exec_path = sireum_path + "/apps/graphviz/bin/dot"
+		dot_exec.set(default_dot_exec_path)
+	
+	theorem_prover = GPS.Preference("sireum-kiasan-theorem-prover-bin-directory")
+	if theorem_prover.get() == "":
+		default_theorem_prover_path = sireum_path + "/apps/z3/bin"
+		theorem_prover.set(default_theorem_prover_path)
+	
 
 GPS.parse_xml ("""
 	<filter_and name="Source editor in Ada" >
@@ -230,7 +246,7 @@ GPS.parse_xml ("""
    				page="Sireum/Kiasan"
    				label="Location of Dot Executable"
    				type="string" 
-   				default = "/Users/jj/Programs/Sireum/apps/graphviz/bin/dot"
+   				default = ""
    				/>
    	<preference name="sireum-kiasan-theorem-prover"
    				page="Sireum/Kiasan"
@@ -244,7 +260,7 @@ GPS.parse_xml ("""
    				page="Sireum/Kiasan"
    				label="Theorem Prover Bin Directory"
    				type="string" 
-   				default = "/Users/jj/Programs/Sireum/apps/z3/bin"
+   				default = ""
    				/>
    	<preference name="sireum-kiasan-generate-aunit"
    				page="Sireum/Kiasan"
