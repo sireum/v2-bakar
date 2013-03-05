@@ -7,24 +7,20 @@ import org.sireum.pilar.ast.Model
 import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.option.PipelineMode
 
-case class NodePrettyPrinter (
-    title :String = "NodePrettyPrinter",
-    
-    @Input
-    models : ISeq[Model],
-    
-    @Produce 
-    results : Map[String, String]
-    )
-    
-    
-object build {
+case class BakarPrettyPrinter(
+  title : String = "BakarPrettyPrinter",
+
+  @Input models : ISeq[Model],
+
+  @Produce results : Map[String, String])
+
+object BakarPrettyPrinter {
   def main(args : Array[String]) {
     val opt = PipelineMode()
-    opt.classNames = Array(NodePrettyPrinter.getClass.getName.dropRight(1))
+    opt.classNames = Array(BakarPrettyPrinter.getClass.getName.dropRight(1))
     opt.dir = "./src/main/scala/org/sireum/bakar/pilar"
-    opt.genClassName = "NodePrettyPrinterCore"
+    opt.genClassName = "BakarPrettyPrinterCore"
 
     ModuleGenerator.run(opt)
   }
-} 
+}

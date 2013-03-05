@@ -11,18 +11,15 @@ import org.sireum.pilar.ast.Model
 import org.sireum.util._
 import org.sireum.pipeline.Output
 
-case class BakarTranslator (
+case class BakarTranslator(
 
-    title : String = "Bakar Vistor",
-    
-    @Input
-    parseGnat2XMLresults : MMap[FileResourceUri, CompilationUnit],
-    
-    @Output
-    models : ISeq[Model]
-)
+  title : String = "Bakar Vistor",
 
-object hold2 {
+  @Input parseGnat2XMLresults : MMap[FileResourceUri, CompilationUnit],
+
+  @Output models : ISeq[Model])
+
+object BakarTranslator {
   def main(args : Array[String]) {
     val opt = PipelineMode()
     opt.classNames = Array(BakarTranslator.getClass.getName.dropRight(1))
@@ -31,4 +28,4 @@ object hold2 {
 
     ModuleGenerator.run(opt)
   }
-} 
+}

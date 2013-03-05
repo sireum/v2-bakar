@@ -20,7 +20,7 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.util.Visitor.VisitorStackProvider
 import org.sireum.pilar.ast.PilarAstNode
-import org.sireum.bakar.pilar.NodePrettyPrinterModule
+import org.sireum.bakar.pilar.BakarPrettyPrinterModule
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorPrettyPrinterTest extends BakarTestFileFramework {
@@ -59,16 +59,16 @@ class BakarTranslatorPrettyPrinterTest extends BakarTestFileFramework {
       PipelineStage(
         "pretty printer stage",
         false,
-        NodePrettyPrinterModule
+        BakarPrettyPrinterModule
       )
     )
 
-  override def generateExpected = true
+  override def generateExpected = false
   
   override def outputSuffix = "pretty_print"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
-    val results = NodePrettyPrinterModule.getResults(job.properties)
+    val results = BakarPrettyPrinterModule.getResults(job.properties)
     results.foreach { x =>
       w.write(x._1)
       w.write("\n")

@@ -1,6 +1,7 @@
 package org.sireum.bakar.pilar
 
 import org.sireum.pilar.parser.PilarParser
+import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.util.FileUtil
 
 object PilarFragmentTester {
@@ -13,7 +14,7 @@ object PilarFragmentTester {
     val p = PilarParser.parseFileWithErrorAsString(frag, claz)
     println(p)
     if (p._1.isDefined) {
-      println(PrettyPrinter.print(p._1.get))
+      println(NodePrettyPrinter.print(p._1.get))
     }
   }
 }

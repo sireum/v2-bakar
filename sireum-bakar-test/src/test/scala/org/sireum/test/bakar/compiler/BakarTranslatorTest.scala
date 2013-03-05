@@ -27,6 +27,7 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   //this.includes += "case"
   //this.excludes += "function_simple"
   //this.includes += "constraints"
+  this.excludes += "jago"
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 

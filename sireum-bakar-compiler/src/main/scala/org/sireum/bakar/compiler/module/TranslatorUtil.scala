@@ -16,7 +16,7 @@ object StandardURIs {
 
 object TranslatorUtil {
   val emptyAnnot = ivectorEmpty[Annotation]
-      
+
   def getTypeDeclarations(e : ElementList) = {
     e.getElements().filter {
       case x : OrdinaryTypeDeclaration => true
@@ -44,9 +44,9 @@ object TranslatorUtil {
 
   def getMethodDeclarations(e : ElementList) = {
     e.getElements().filter {
-      case o : ProcedureDeclaration        => true      
+      case o : ProcedureDeclaration        => true
       case o : ProcedureBodyDeclaration    => true
-      case o : FunctionDeclaration         => true      
+      case o : FunctionDeclaration         => true
       case o : FunctionBodyDeclaration     => true
       case o : GenericProcedureDeclaration => true
       case o : NullProcedureDeclaration    => true

@@ -7,7 +7,7 @@ import org.sireum.util._
 import scala.collection.JavaConversions.asScalaBuffer
 import java.io.File
 
-class BakarTranslatorDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
+class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
 
   type BVisitor = Any => Boolean
 
@@ -26,7 +26,7 @@ class BakarTranslatorDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
       val locs = mlistEmpty[LocationDecl]; stackLocationList.push(locs); locs
     }
     def popLocationList = this.stackLocationList.pop
-    def pushLocation(l : LocationDecl) = { 
+    def pushLocation(l : LocationDecl) = {
       stackLocationList.top += l
       l
     }
@@ -467,7 +467,7 @@ class BakarTranslatorDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
     case o @ IfStatementEx(sloc, labelNames, statementPaths) =>
       val isSingle = statementPaths.getPaths.size == 1
       val endLoc = ctx.newLocLabel
-      var gotoLoc = if(isSingle) endLoc else ctx.newLocLabel
+      var gotoLoc = if (isSingle) endLoc else ctx.newLocLabel
 
         def render(sloc : SourceLocation, condExp : ExpressionClass, statements : StatementList, isIfElse : Boolean) = {
           if (isIfElse) {
@@ -488,7 +488,7 @@ class BakarTranslatorDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
           // ... eval body statements
           v(statements)
 
-          if(!isSingle){
+          if (!isSingle) {
             // # goto endLoc;
             val gl = ctx.createGotoJumpLocation(endLoc, TranslatorUtil.emptyAnnot)
             ctx.pushLocation(gl)
@@ -524,26 +524,26 @@ class BakarTranslatorDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
       println(o.getClass().getSimpleName())
 
       val loopEndLabel = ctx.newLocLabel
-      
+
       // #loopStart.
       val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel))
-            
+
       v(whileCondition)
-      
+
       // # if (!loopCond) goto endLocLabel;
       val ne = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult.asInstanceOf[NameExp])
       val itj = IfThenJump(ne, TranslatorUtil.emptyAnnot, loopEndLabel)
       val ij = IfJump(TranslatorUtil.emptyAnnot, ivector(itj), None)
       val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, ij)
       ctx.pushLocation(jl)
-          
+
       v(loopStatements)
-      
+
       // # goto loopStart
       val gl = ctx.pushLocation(ctx.createGotoJumpLocation(loopStart.name.get, TranslatorUtil.emptyAnnot))
-      
+
       ctx.pushLocation(ctx.createEmptyLocation(loopEndLabel))
-      
+
       false
     case o @ ForLoopStatementEx(sloc, labelnames, statementIdentifier,
       forLoopParameterSpecification, loopStatements) =>
