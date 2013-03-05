@@ -8,6 +8,8 @@ import re
 import warnings
 import kiasan.gui
 import kiasan.logic
+import urllib
+import subprocess
 
 
 def run_helper():
@@ -43,8 +45,9 @@ def run_kiasan_plugin():
 	
 	#read generated json
 	kiasan_logic = kiasan.logic.KiasanLogic()
-	report_file_path = os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan/kiasan_sireum_report.json"
-	report = kiasan_logic.extract_report_file(report_file_path)
+	report_file_path = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan/kiasan_sireum_report.json"
+	report_file_url = urllib.pathname2url(report_file_path)
+	report = kiasan_logic.extract_report_file(report_file_url)
 	
 	# load data into GUI
 	gui = kiasan.gui.KiasanGUI(report)
@@ -62,24 +65,31 @@ def prepare_directories_for_reports():
 	Check if directory sireum and sireum/kiasan exists - if not create them.
 	"""	
 	if GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get():
-		os.system("rm -rf " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
-		os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
-	else:
-		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum"):
-			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum")	
-		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan"):
-			os.system("mkdir " + os.path.dirname(GPS.current_context().project().file().name()) + "/.sireum/kiasan")
+		REMOVE_DIR_CMD = "rd /s /q" if os.name=="nt" else "rm -rf"	#REMOVE_DIR_CMD = ["rd","/s","/q"] if os.name=="nt" else ["rm", "-rf"]
+		os.system(REMOVE_DIR_CMD + " " + "\"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan" + "\"")	#subprocess.call(REMOVE_DIR_CMD + [os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"])
+		os.system("mkdir " + "\"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum" + "\"")
+		os.system("mkdir " + "\"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan" + "\"")
+	else:		
+		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum"):
+			os.system("mkdir \"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum\"")	
+		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"):
+			os.system("mkdir \"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan\"")
 
 
 def run_kiasan_tool():
 	"""Runs Kiasan based on preferences and clicked entity."""	
 	# get package name (we assume that package_name = file_name_without_extension)
 	warnings.warn('Maybe better solution is fetch package from entities list? (like methods)')
-	file_name = GPS.current_context().file().name()
+	file_name = GPS.current_context().file().name().replace("\\","/")
 	match = re.search(r'(?<=\/)(\w+)\.ad[bs]', file_name)
 	package_name = match.groups()[0]
-	load_sireum_settings()
-	# get methods list	
+	
+	SIREUM_PATH = get_sireum_path()
+	if SIREUM_PATH == "":
+		raise Exception('Sireum path not found')
+	load_sireum_settings(SIREUM_PATH)
+	
+	# get methods as list	
 	if GPS.current_context().entity().category() == "subprogram":
 		methods_list = [GPS.current_context().entity().name()]
 	elif GPS.current_context().entity().category() == "package/namespace":
@@ -89,57 +99,115 @@ def run_kiasan_tool():
 			if entity.category() == 'subprogram':
 				methods_list.append(entity.name())
 		
-	
-	kiasan_lib_dir = "/Users/jj/Programs/Sireum/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302251534/lib/"
+	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302271712/lib/"	
 	
 	# create run command
-	run_kiasan_command = "java -jar " + kiasan_lib_dir + "BakarKiasan.jar"
-	run_kiasan_command += " --topi-lib-dir " + kiasan_lib_dir
-	run_kiasan_command += " --outdir /Users/jj/Documents/workspace/test/.sireum/kiasan"
-	run_kiasan_command += " --array-bound " + str(GPS.Preference("sireum-kiasan-array-indices-bound").get())
-	run_kiasan_command += " --loop-bound " + str(GPS.Preference("sireum-kiasan-loop-bound").get())
-	run_kiasan_command += " --invoke-bound " + str(GPS.Preference("sireum-kiasan-call-chain-bound").get())
-	run_kiasan_command += " --timeout " + str(GPS.Preference("sireum-kiasan-timeout").get())
-	run_kiasan_command += " --constrain-values" if GPS.Preference("sireum-kiasan-constrain-scalar-values").get() else ""
-	run_kiasan_command += " --smt " + GPS.Preference("sireum-kiasan-theorem-prover").get()
-	run_kiasan_command += " --constraint-solver " + GPS.Preference("sireum-kiasan-theorem-prover").get()
-	run_kiasan_command += " --topi-bin-dir " + GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get()
-	run_kiasan_command += " --generate-claim-coverage-report --modular-analysis --generate-pogs-report" if GPS.Preference("sireum-kiasan-generate-claim-report") else ""
-	run_kiasan_command += " --source-paths=" + GPS.current_context().directory()
-	run_kiasan_command += " --source-files=" + package_name + ".adb" + "," + package_name + ".ads"
-	run_kiasan_command += " --print-trace-bound-exhausted"
-	#run_kiasan_command += " --gen-bound-exhaustion-cases"
-	run_kiasan_command += " --generate-sireum-report"
-	#run_kiasan_command += " --generate-sireum-report-only" 
-	run_kiasan_command += " --generate-xml-report"
-	run_kiasan_command += " --generate-json-report" if GPS.Preference("sireum-kiasan-generate-json-output").get() else ""
-	run_kiasan_command += " --generate-aunit-test-cases" if GPS.Preference("sireum-kiasan-generate-aunit").get() else ""
-	run_kiasan_command += " --generate-html-report " + GPS.Preference("sireum-kiasan-html-output-directory").get() if GPS.Preference("sireum-kiasan-generate-html-report").get() else ""
+	run_kiasan_command = []
+	run_kiasan_command.append(SIREUM_PATH + "/apps/platform/java/bin/java")
+	run_kiasan_command.append("-jar")
+	run_kiasan_command.append(kiasan_lib_dir + "BakarKiasan.jar")
+	run_kiasan_command.append("--topi-lib-dir")
+	run_kiasan_command.append(kiasan_lib_dir)
+	run_kiasan_command.append("--outdir")
+	run_kiasan_command.append(os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan")
+	run_kiasan_command.append("--array-bound")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-array-indices-bound").get()))
+	run_kiasan_command.append("--loop-bound")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-loop-bound").get()))
+	run_kiasan_command.append("--invoke-bound")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-call-chain-bound").get()))
+	run_kiasan_command.append("--timeout")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-timeout").get()))
+	if GPS.Preference("sireum-kiasan-constrain-scalar-values").get():
+		run_kiasan_command.append("--constrain-values")
+	run_kiasan_command.append("--smt")
+	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
+	run_kiasan_command.append("--constraint-solver")
+	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
+	run_kiasan_command.append("--topi-bin-dir")
+	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get())
+	run_kiasan_command.append("--generate-claim-coverage-report")
+	run_kiasan_command.append("--modular-analysis")
+	if GPS.Preference("sireum-kiasan-generate-claim-report"):
+		run_kiasan_command.append("--generate-pogs-report") 
+	run_kiasan_command.append("--source-paths=" + GPS.current_context().directory().replace("\\","/"))
+	run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
+	run_kiasan_command.append("--print-trace-bound-exhausted")
+	#run_kiasan_command.append("--gen-bound-exhaustion-cases")
+	run_kiasan_command.append("--generate-sireum-report")
+	#run_kiasan_command.append("--generate-sireum-report-only") 
+	run_kiasan_command.append("--generate-xml-report")
+	if GPS.Preference("sireum-kiasan-generate-json-output").get():
+		run_kiasan_command.append("--generate-json-report")
+	if GPS.Preference("sireum-kiasan-generate-aunit").get():
+		run_kiasan_command.append("--generate-aunit-test-cases")
+	if GPS.Preference("sireum-kiasan-generate-html-report").get():
+		run_kiasan_command.append("--generate-html-report")
+		run_kiasan_command.append(GPS.Preference("sireum-kiasan-html-output-directory").get()) 
 	#TODO: add dotLocation?? (KiasanRunner.java:443)
-	run_kiasan_command += " " + package_name
+	run_kiasan_command.append(package_name)
 	
-	# run Kiasan tool for each method
+	# run Kiasan tool for each method	
 	for method in methods_list:
-		print run_kiasan_command + " " + method
-		os.system(run_kiasan_command + " " + method)	
+		print " ".join(run_kiasan_command + [method])
+		subprocess.call(run_kiasan_command + [method]) #os.system(run_kiasan_command + " " + method)	
 
 
-def load_sireum_settings():
-	output = os.popen('echo $PATH','r').readline() #python 2.7 solution: subprocess.check_output("echo $PATH", shell=True)
-	paths = output.split(':')
-	sireum_paths = [i for i in paths if 'Sireum' in i]
-	r_index = sireum_paths[0].rfind('Sireum')
-	sireum_path = sireum_paths[0][:r_index+len('Sireum')]
+def get_sireum_path():
+	if os.name=="posix":
+		PATH = "$PATH"
+		SIREUM_HOME = "$SIREUM_HOME"
+		SPLITTER = ":"
+	elif os.name=="nt":
+		PATH = "%PATH%"
+		SIREUM_HOME = "%SIREUM_HOME%"
+		SPLITTER = ";"
+	else:
+		raise NotImplementedError
 	
-	dot_exec = GPS.Preference("sireum-kiasan-location-of-dot-executable")
-	if dot_exec.get() == "":
-		default_dot_exec_path = sireum_path + "/apps/graphviz/bin/dot"
-		dot_exec.set(default_dot_exec_path)
+	sireum_path = ""
+	# check if SIREUM_HOME is set
+	output = os.popen("echo "+SIREUM_HOME,"r").readline().replace("\\","/").replace("\n","") #python 2.7 solution: subprocess.check_output("echo $PATH", shell=True)
+	if os.path.isdir(output):
+		sireum_path = output
+	# check if Sireum is in the PATH
+	else:
+		output = os.popen("echo "+PATH,"r").readline().replace("\\","/") #python 2.7 solution: subprocess.check_output("echo $PATH", shell=True)
+		paths = output.split(SPLITTER)
+		sireum_paths = [i for i in paths if 'Sireum' in i]
+		r_index = sireum_paths[0].rfind('Sireum')
+		if r_index>-1:
+			sireum_path = sireum_paths[0][:r_index+len('Sireum')]
 	
-	theorem_prover = GPS.Preference("sireum-kiasan-theorem-prover-bin-directory")
-	if theorem_prover.get() == "":
-		default_theorem_prover_path = sireum_path + "/apps/z3/bin"
-		theorem_prover.set(default_theorem_prover_path)
+	# remove / from the end
+	if len(sireum_path)>0 and sireum_path[-1] == "/":
+		sireum_path = sireum_path[:-1]
+	
+	return sireum_path
+
+
+def load_sireum_settings(SIREUM_PATH):
+	""" Set preferences (if not set) """
+	
+	# set HTML Output dir
+	html_output_dir = GPS.Preference("sireum-kiasan-html-output-directory")
+	if html_output_dir.get()=="":
+		USER_HOME = "$HOME" if os.name=="posix" else "%USERPROFILE%"
+		output = os.popen("echo "+USER_HOME,"r").readline().replace("\\","/")
+		default_html_output_path = output + "/Documents/Kiasan"
+		html_output_dir.set(default_html_output_path)
+	
+	# set theorem prover and dot exec paths	
+	if SIREUM_PATH != "":
+		dot_exec = GPS.Preference("sireum-kiasan-location-of-dot-executable")
+		if dot_exec.get() == "":
+			default_dot_exec_path = SIREUM_PATH + "/apps/graphviz/bin/dot"
+			dot_exec.set(default_dot_exec_path)
+		
+		theorem_prover = GPS.Preference("sireum-kiasan-theorem-prover-bin-directory")
+		if theorem_prover.get() == "":
+			default_theorem_prover_path = SIREUM_PATH + "/apps/z3/bin"
+			theorem_prover.set(default_theorem_prover_path)
 	
 
 GPS.parse_xml ("""

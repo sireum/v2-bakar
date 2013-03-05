@@ -84,13 +84,13 @@ class Method(Entity):
         case_dict = json.loads(case_file_str)
                 
         case = Case()
-        case._pre_state = self.get_state(case_dict["preState"], True)
-        case._post_state = self.get_state(case_dict["postState"], False)
+        case._pre_state = self.get_state(case_dict["preState"])
+        case._post_state = self.get_state(case_dict["postState"])
         
         return case
 
 
-    def get_state(self, case_state_dict, is_pre_state):
+    def get_state(self, case_state_dict):
         """ Get pre or post state from state_dict """        
         case_state = CaseState()
         case_state._name = case_state_dict["id"]["name"]

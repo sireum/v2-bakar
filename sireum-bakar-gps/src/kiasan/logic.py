@@ -7,10 +7,11 @@ class KiasanLogic:
         raise NotImplemented
     
     
-    def extract_report_file(self, report_file_path):
+    def extract_report_file(self, report_file_url):
         """Open .json report file and extract content into Package list."""        
-        json_obj = urllib.urlopen(report_file_path)
+        json_obj = urllib.urlopen(report_file_url)
         json_str = json_obj.read()
+        json_obj.close()
         json_dict = json.loads(json_str)
         report = self.convert_dict_to_report(json_dict)
         return report

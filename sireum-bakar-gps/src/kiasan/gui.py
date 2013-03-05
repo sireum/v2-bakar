@@ -249,6 +249,7 @@ class KiasanGUI:
         # colors for changed and not changed(default) vars
         COLOR_DEFAULT = "#000000"
         COLOR_CHANGED = "#ff0000"        
+        COLOR_NEW = "#0000ff"
         
         pre_tree_store = gtk.TreeStore(str, str)
         post_tree_store = gtk.TreeStore(str, str)
@@ -258,27 +259,42 @@ class KiasanGUI:
         # add globals
         pre_globals_tree = pre_tree_store.append(pre_parent, ["Globals", COLOR_DEFAULT])
         post_globals_tree = post_tree_store.append(post_parent, ["Globals", COLOR_DEFAULT])
-        for global_var in pre_state._globals:
-            pre_row = global_var + " = " + str(pre_state._globals[global_var])
+        for global_var in post_state._globals:
             post_row = global_var + " = " + str(post_state._globals[global_var])
-            color = COLOR_DEFAULT if pre_row == post_row else COLOR_CHANGED
+            if global_var in pre_state._globals:
+                pre_row = global_var + " = " + str(pre_state._globals[global_var])
+                color = COLOR_DEFAULT if pre_row == post_row else COLOR_CHANGED
+            else:
+                pre_row = " "
+                color = COLOR_NEW            
             pre_tree_store.append(pre_globals_tree, [pre_row, color])
             post_tree_store.append(post_globals_tree, [post_row, color])
         
         # add call stack frames
         pre_stack_frames = pre_tree_store.append(pre_parent, ["Call Stack Frames", COLOR_DEFAULT])
         post_stack_frames = post_tree_store.append(post_parent, ["Call Stack Frames", COLOR_DEFAULT])
+        pre_frames_count = 0
         for pre_frame, post_frame in zip(pre_state._frames, post_state._frames):
+            pre_frames_count += 1
             color = COLOR_DEFAULT if pre_frame._line_num == post_frame._line_num else COLOR_CHANGED
             pre_stack_frame = pre_tree_store.append(pre_stack_frames, [str(pre_frame._line_num) + ":" + pre_frame._name, color])
             post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, color])
-            for variable_name in pre_frame._variables:
-                pre_row = variable_name + " = " + str(pre_frame._variables[variable_name])
+            for variable_name in post_frame._variables:
                 post_row = variable_name + " = " + str(post_frame._variables[variable_name])
-                color = COLOR_DEFAULT if pre_frame._variables[variable_name] == post_frame._variables[variable_name] else COLOR_CHANGED
+                if variable_name in pre_frame._variables:
+                    pre_row = variable_name + " = " + str(pre_frame._variables[variable_name])
+                    color = COLOR_DEFAULT if pre_frame._variables[variable_name] == post_frame._variables[variable_name] else COLOR_CHANGED
+                else:
+                    pre_row = " "
+                    color = COLOR_NEW
                 pre_tree_store.append(pre_stack_frame, [pre_row, color])
-                post_tree_store.append(post_stack_frame, [post_row, color])
+                post_tree_store.append(post_stack_frame, [post_row, color])   
         
+        for post_frame in post_state._frames[pre_frames_count:]:
+            post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, COLOR_NEW])
+            for variable_name in post_frame._variables:
+                post_row = variable_name + " = " + str(post_frame._variables[variable_name])
+                post_tree_store.append(post_stack_frame, [post_row, COLOR_NEW])
         
         return pre_tree_store, post_tree_store
                 
