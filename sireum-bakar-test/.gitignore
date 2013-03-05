@@ -1,5 +1,7 @@
 *.adt
 *.ali
+*.lst
+*.rep
 /bin
 /target
 /.cache
