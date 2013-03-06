@@ -187,7 +187,7 @@ class KiasanGUI:
             self._cases_combo.get_model().clear()
             
             # add cases to combo
-            for case_header in self._report[package_index]._methods[method_index]._cases:
+            for case_header in self._report[package_index]._methods[method_index]._cases_headers:
                 self._cases_combo.append_text(method_name + ":" + case_header._name + " " + (case_header._error if case_header._error != None else ""))
             
             #save current selection

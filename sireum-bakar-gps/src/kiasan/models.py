@@ -47,20 +47,21 @@ class Method(Entity):
     """ Class represents method row """    
     def __init__(self, report_dict):
         Entity.__init__(self, report_dict) 
-        self.extract_cases(report_dict)
-        self.extract_file_coverage(report_dict)
+        self._cases_headers = []
+        self._cases = {}
+        self.extract_cases_headers(report_dict)
+        self.extract_file_coverage(report_dict)        
         
         
-    def extract_cases(self, report_dict):   
+    def extract_cases_headers(self, report_dict):   
         """Extract cases from dictionary"""
-        self._cases = []
         if report_dict.has_key("cases"):
             for case in report_dict["cases"]:
                 case_header = CaseHeader() 
                 case_header._file = case["filename"].replace(".xml",".json") #replace .xml with .json
                 case_header._name = case["caseName"]
                 case_header._error = case["optErrorStatus"]
-                self._cases.append(case_header)
+                self._cases_headers.append(case_header)
                 
     
     def extract_file_coverage(self, report_dict):
@@ -79,15 +80,16 @@ class Method(Entity):
                     
     def get_case(self, case_no):
         """ Fetch case from json file """   
-        case_file = urllib.urlopen(self._cases[case_no]._file)
-        case_file_str = case_file.read()
-        case_dict = json.loads(case_file_str)
-                
-        case = Case()
-        case._pre_state = self.get_state(case_dict["preState"])
-        case._post_state = self.get_state(case_dict["postState"])
+        if case_no not in self._cases:
+            case_file = urllib.urlopen(self._cases_headers[case_no]._file)
+            case_file_str = case_file.read()
+            case_dict = json.loads(case_file_str)
+                    
+            self._cases[case_no] = Case()
+            self._cases[case_no]._pre_state = self.get_state(case_dict["preState"])
+            self._cases[case_no]._post_state = self.get_state(case_dict["postState"])
         
-        return case
+        return self._cases[case_no]
 
 
     def get_state(self, case_state_dict):
