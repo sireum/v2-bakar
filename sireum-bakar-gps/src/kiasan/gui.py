@@ -2,7 +2,7 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 import gobject
-import gpshelper
+import warnings
 
 class KiasanGUI:
     """ Main GUI class contains all GUI elements inside of main pane (self._pane)"""
@@ -49,7 +49,7 @@ class KiasanGUI:
         self._treeview.show()
         
         # double click
-        self._treeview.connect('row-activated', self.get_cases)
+        self._treeview.connect('row-activated', self.get_cases)        
         self._treeview.connect('row-activated', self.highlight_methods)
         
         
@@ -197,25 +197,27 @@ class KiasanGUI:
     
     def highlight_methods(self, treeview, path, view_column):
         """ Callback function: highlight lines of clicked method/package """
+        try:
+            import gpshelper
+        except ImportError:
+            warnings.warn('Program is running as python app (not GPS plugin)')
+        
         #check if method was clicked (then path contains index of package and method: len=2)
-        #if package clicked path contains only package index: len=1
+        #if package clicked path contains only package index: len=1    
         if len(path) == 2:
             package_index = path[0]
             method_index = path[1]
+            gpshelper.remove_all_highlight()    #remove old highlight
             for method_file in self._report[package_index]._methods[method_index]._files:
                 file_name = method_file._path
                 lines = method_file._covered_lines  
-                gpshelper.remove_highlight(file_name)
                 gpshelper.highlight(file_name, lines)
             
         elif len(path) == 1:
             package_index = path[0]
             
             # remove old highlighting
-            for method in self._report[package_index]._methods:
-                for method_file in method._files:
-                    file_name = method_file._path
-                    gpshelper.remove_highlight(file_name)
+            gpshelper.remove_all_highlight()
                     
             #highlight
             for method in self._report[package_index]._methods:

@@ -24,28 +24,28 @@ def run_helper():
 #	print "entity methods:", GPS.current_context().entity().methods()
 #	print "entity primitive_of:", GPS.current_context().entity().primitive_of()
 #	print "entity references:", GPS.current_context().entity().references()
-#	#print "dir(entity)", dir(GPS.current_context().entity())
+#	print "dir(entity)", dir(GPS.current_context().entity())
 #	print "project filename:", GPS.current_context().project().file().name()
 #	print "root project file/pathname:", GPS.Project.root().file().name()
 #	print "source files:", GPS.current_context().project().sources()
 #	print "source dirs:", GPS.current_context().project().source_dirs()
 #	print "project dir:", os.path.dirname(GPS.current_context().project().file().name())
-	
 #	print '\n\nGPS.File(GPS.current_context().file().name()).entities()', GPS.File(GPS.current_context().file().name()).entities()
 #	print '\n\nGPS.current_context().file().entities()', GPS.current_context().file().entities()
-#	
 #	print '\n\nGPS.File(GPS.current_context().file().name()).entities(False)', GPS.File(GPS.current_context().file().name()).entities(False)
 #	print '\n\nGPS.current_context().file().entities(False)', GPS.current_context().file().entities(False)
 	
 	
 def run_kiasan_plugin():
-	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""	
-	prepare_directories_for_reports()	
+	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
+	project_path = os.path.dirname(GPS.current_context().project().file().name()).replace("\\", "/")	#normalized project path
+	remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
+	prepare_directories_for_reports(project_path, remove_previous_reports)	
 	run_kiasan_tool()
 	
 	#read generated json
 	kiasan_logic = kiasan.logic.KiasanLogic()
-	report_file_path = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan/kiasan_sireum_report.json"
+	report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
 	report_file_url = urllib.pathname2url(report_file_path)
 	report = kiasan_logic.extract_report_file(report_file_url)
 	
@@ -59,21 +59,22 @@ def run_kiasan_plugin():
 	win.float(float=False)	# float=True: popup, float=False: GPS integrated window
 
 
-def prepare_directories_for_reports():
+def prepare_directories_for_reports(project_path, remove_previous_reports):
 	"""
 	If option 'Delete previous Kiasan reports before re-runing' is enabled then delete entire directory, and create new empty.
 	Check if directory sireum and sireum/kiasan exists - if not create them.
 	"""	
-	if GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get():
+	project_path = os.path.dirname(project_path).replace("\\","/")	# normalize
+	if remove_previous_reports:
 		REMOVE_DIR_CMD = "rd /s /q" if os.name=="nt" else "rm -rf"	#REMOVE_DIR_CMD = ["rd","/s","/q"] if os.name=="nt" else ["rm", "-rf"]
-		os.system(REMOVE_DIR_CMD + " " + "\"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan" + "\"")	#subprocess.call(REMOVE_DIR_CMD + [os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"])
-		os.system("mkdir " + "\"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum" + "\"")
-		os.system("mkdir " + "\"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan" + "\"")
+		os.system(REMOVE_DIR_CMD + " " + "\"" + project_path + "/.sireum/kiasan" + "\"")	#subprocess.call(REMOVE_DIR_CMD + [os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"])
+		os.system("mkdir " + "\"" + project_path + "/.sireum" + "\"")
+		os.system("mkdir " + "\"" + project_path + "/.sireum/kiasan" + "\"")
 	else:		
-		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum"):
-			os.system("mkdir \"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum\"")	
-		if not os.path.isdir(os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"):
-			os.system("mkdir \"" + os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan\"")
+		if not os.path.isdir(project_path + "/.sireum"):
+			os.system("mkdir \"" + project_path + "/.sireum\"")	
+		if not os.path.isdir(project_path + "/.sireum/kiasan"):
+			os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
 
 
 def run_kiasan_tool():
@@ -85,8 +86,7 @@ def run_kiasan_tool():
 	package_name = match.groups()[0]
 	
 	SIREUM_PATH = get_sireum_path()
-	if SIREUM_PATH == "":
-		raise Exception('Sireum path not found')
+	
 	load_sireum_settings(SIREUM_PATH)
 	
 	# get methods as list	
@@ -133,9 +133,9 @@ def run_kiasan_tool():
 	run_kiasan_command.append("--source-paths=" + GPS.current_context().directory().replace("\\","/"))
 	run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
 	run_kiasan_command.append("--print-trace-bound-exhausted")
-	#run_kiasan_command.append("--gen-bound-exhaustion-cases")
+	warnings.warn('run_kiasan_command.append("--gen-bound-exhaustion-cases")')
 	run_kiasan_command.append("--generate-sireum-report")
-	#run_kiasan_command.append("--generate-sireum-report-only") 
+	warnings.warn('run_kiasan_command.append("--generate-sireum-report-only")') 
 	run_kiasan_command.append("--generate-xml-report")
 	if GPS.Preference("sireum-kiasan-generate-json-output").get():
 		run_kiasan_command.append("--generate-json-report")
@@ -144,7 +144,7 @@ def run_kiasan_tool():
 	if GPS.Preference("sireum-kiasan-generate-html-report").get():
 		run_kiasan_command.append("--generate-html-report")
 		run_kiasan_command.append(GPS.Preference("sireum-kiasan-html-output-directory").get()) 
-	#TODO: add dotLocation?? (KiasanRunner.java:443)
+	warnings.warn('add dotLocation?? (KiasanRunner.java:443)')
 	run_kiasan_command.append(package_name)
 	
 	# run Kiasan tool for each method	
@@ -154,34 +154,28 @@ def run_kiasan_tool():
 
 
 def get_sireum_path():
-	if os.name=="posix":
-		PATH = "$PATH"
-		SIREUM_HOME = "$SIREUM_HOME"
-		SPLITTER = ":"
-	elif os.name=="nt":
-		PATH = "%PATH%"
-		SIREUM_HOME = "%SIREUM_HOME%"
-		SPLITTER = ";"
-	else:
-		raise NotImplementedError
+	""" This method is fetching sireum path from SIREUM_HOME environmental variable or from the PATH (if SIREUM_HOME not set) """
+	
+	SPLITTER = ";" if os.name=="nt" else ":"
+	SIREUM_HOME = "SIREUM_HOME"
 	
 	sireum_path = ""
 	# check if SIREUM_HOME is set
-	output = os.popen("echo "+SIREUM_HOME,"r").readline().replace("\\","/").replace("\n","") #python 2.7 solution: subprocess.check_output("echo $PATH", shell=True)
-	if os.path.isdir(output):
-		sireum_path = output
+	if SIREUM_HOME in os.environ:
+		sireum_path = os.environ[SIREUM_HOME].replace("\\","/").replace("\n","")
 	# check if Sireum is in the PATH
 	else:
-		output = os.popen("echo "+PATH,"r").readline().replace("\\","/") #python 2.7 solution: subprocess.check_output("echo $PATH", shell=True)
+		output = os.environ['PATH'].replace("\\","/")
 		paths = output.split(SPLITTER)
 		sireum_paths = [i for i in paths if 'Sireum' in i]
 		r_index = sireum_paths[0].rfind('Sireum')
 		if r_index>-1:
 			sireum_path = sireum_paths[0][:r_index+len('Sireum')]
 	
-	# remove / from the end
-	if len(sireum_path)>0 and sireum_path[-1] == "/":
-		sireum_path = sireum_path[:-1]
+	sireum_path = os.path.abspath(sireum_path)	# normalize path (remove / at the end if exists)	
+	
+	if sireum_path == "":
+		raise Exception('Sireum path not found')
 	
 	return sireum_path
 
@@ -192,9 +186,8 @@ def load_sireum_settings(SIREUM_PATH):
 	# set HTML Output dir
 	html_output_dir = GPS.Preference("sireum-kiasan-html-output-directory")
 	if html_output_dir.get()=="":
-		USER_HOME = "$HOME" if os.name=="posix" else "%USERPROFILE%"
-		output = os.popen("echo "+USER_HOME,"r").readline().replace("\\","/")
-		default_html_output_path = output + "/Documents/Kiasan"
+		home_path = os.environ['HOME'].replace("\\","/")
+		default_html_output_path = home_path + "/Documents/Kiasan"
 		html_output_dir.set(default_html_output_path)
 	
 	# set theorem prover and dot exec paths	
