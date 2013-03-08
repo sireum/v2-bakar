@@ -1,3 +1,46 @@
  
- >> rm `find . -name ".DS_Store"`
- >> rm `find . -name ".preferences.xml"`
+ 
+ 
+ (1) look for and remove some files
+ $ rm `find . -name ".DS_Store"`
+ $ rm `find . -name ".preferences.xml"`
+
+ (2) modify the PATH environment variable
+ $ cd ~
+ $ emacs .bashrc (save: control x + control s; exit: control x + control c)
+ $ source ~/.bashrc (refresh .bashrc)
+ 
+ (3) 
+ $ cd ~/Document/workspaceV2/sireum-bakar
+ $ git status (check any change status of the project sireum-bakar)
+ 
+ (4) create soft link
+ $ ln -s ~/Downloads/gnat2xml .  (create a link in current directory to gnat2xml)
+  
+ (5) 
+ $ ls -lah 
+ 
+ .preferences
+ 
+ 
+ /***************************************************/
+ clean up tools (by Jason)
+ 
+ (1) squeezeSpark (make it executable: chmod 700 squeeze)
+ #!/bin/sh
+#SQUEEZE recursively removes unnecessary backup files
+
+squeeze
+
+echo Removing ada artifacts
+find  "$PWD" \( -name '*.lst' -o -name '*.rep' -o -name '*.sli' -o -name '*.vcg' -o -name '*.out' -o -name '*.adt' -o -name '*.ali' \) -exec rm -v {} \;
+ 
+ (2) squeeze
+ #!/bin/sh
+#SQUEEZE recursively removes unnecessary backup files
+
+echo squeezing $PWD
+
+find  "$PWD" \( -name '*~' -o -name '*.*~' -o -name 'WS_FTP.LOG' -o -name '.*~' -o -name '#*.*#' -o -name '#.*#' -o -name '#*#' -o -name '*.$$$' -o -name '.saves*' -o -name '.pine-debug*' -o -name '*.bak' -o -name '*.aux' -o -name '*.dvi' -o -name '.DS_Store' \) -exec rm -v {} \;
+
+ 
