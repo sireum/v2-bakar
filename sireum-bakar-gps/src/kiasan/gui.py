@@ -208,7 +208,7 @@ class KiasanGUI:
             package_index = path[0]
             method_index = path[1]
             gpshelper.remove_all_highlight()    #remove old highlight
-            for method_file in self._report[package_index]._methods[method_index]._files:
+            for method_file in self._report[package_index]._methods[method_index]._files:                
                 file_name = method_file._path
                 lines = method_file._covered_lines  
                 gpshelper.highlight(file_name, lines)
@@ -304,6 +304,3 @@ class KiasanGUI:
 
 class TreeViewColumns:
     COLUMN_PACKAGE, COLUMN_TOTAL, COLUMN_ERRORS, COLUMN_INSTRUCTION, COLUMN_BRANCH, COLUMN_TIME = range(6)
-    
-    
-    
