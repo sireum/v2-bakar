@@ -83,12 +83,12 @@ object Util {
 
 class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {
   val waittime = 200000
-
-  val baseDestDir = if (this.destDir.isDefined) new File(new URI(this.destDir.get)) else new File(".")
-  baseDestDir.mkdirs()
+  
+  val baseDestDir = if (this.destDir.isDefined) new File(new URI(this.destDir.get)) else java.nio.file.Files.createTempDirectory(null).toFile
+  baseDestDir.mkdirs
 
   val tempDir = new File(baseDestDir, "0/temp")
-  tempDir.mkdirs()
+  tempDir.mkdirs
   val tempUri = FileUtil.toUri(tempDir)
 
   Util.cleanDir(tempUri)
