@@ -20,26 +20,14 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.util.Visitor.VisitorStackProvider
 import org.sireum.pilar.ast.PilarAstNode
-import org.sireum.bakar.pilar.BakarPrettyPrinterModule
+import org.sireum.bakar.compiler.rewriter.BakarExpRewriterModule
+import org.sireum.pilar.pretty.NodePrettyPrinter
 
 @RunWith(classOf[JUnitRunner])
-class BakarTranslatorPrettyPrinterTest extends BakarTestFileFramework {
+class BakarRewriterTest extends BakarTranslatorPrettyPrinterTest {
 
-  //this.includes += "case"
-  //this.excludes += "function_simple"
-  //this.includes += "binaryexpression"
-  //this.includes += "abspackage" 
-  this.excludes += "jago"
-  this.includes += "simplerecord.smf"
-    
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
-
-  override def pre(c : Configuration) : Boolean = {
-    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
-    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
-    return true;
-  }
-
+  override def generateExpected = false
+  
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
@@ -59,22 +47,19 @@ class BakarTranslatorPrettyPrinterTest extends BakarTestFileFramework {
         false,
         BakarTranslatorModule),
       PipelineStage(
-        "pretty printer stage",
+        "rewriter stage",
         false,
-        BakarPrettyPrinterModule
-      )
+        BakarExpRewriterModule)        
     )
 
-  override def generateExpected = false
+  override def outputSuffix = "rewriter"
   
-  override def outputSuffix = "pretty_print"
-
   override def writeTestString(job : PipelineJob, w : Writer) = {
-    val results = BakarPrettyPrinterModule.getResults(job.properties)
-    results.foreach { x =>
-      w.write(x._1)
-      w.write("\n")
-      w.write(x._2)
+    import BakarExpRewriterModule.ConsumerView._
+    job.models foreach { m =>
+      val x = NodePrettyPrinter.print(m)
+      println(x)
+      w.write(x)
     }
   }
 }

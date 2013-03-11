@@ -28,6 +28,9 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   //this.excludes += "function_simple"
   //this.includes += "constraints"
   this.excludes += "jago"
+  
+  //this.includes += "simplearray.smf"
+  //this.includes += "simplerecord.smf"
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
@@ -37,6 +40,8 @@ class BakarTranslatorTest extends BakarTestFileFramework {
     return true;
   }
 
+  override def generateExpected = false
+  
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
@@ -57,7 +62,6 @@ class BakarTranslatorTest extends BakarTestFileFramework {
         BakarTranslatorModule)
     )
 
-  override def generateExpected = false
   override def outputSuffix = "gvisitor"
 
   def printTree(t : PilarAstNode, w : Writer) {

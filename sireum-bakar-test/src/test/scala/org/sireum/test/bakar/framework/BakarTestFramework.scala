@@ -115,7 +115,7 @@ trait BakarTestFileFramework extends BakarTestFramework {
             fw.write(results)
             fw.close
             println("wrote: " + efile.getAbsolutePath)
-          } else {
+          } else if (efile.exists){
             val fw = new FileWriter(rfile)
             fw.write(results)
             fw.close
@@ -124,6 +124,8 @@ trait BakarTestFileFramework extends BakarTestFramework {
             results should equal(expected)
 
             assert(post(c))
+          } else {
+            fail("Couldn't locate expected results")
           }
         } catch {
           case e : Throwable =>
