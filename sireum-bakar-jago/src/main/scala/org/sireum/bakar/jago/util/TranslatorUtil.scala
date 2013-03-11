@@ -93,7 +93,7 @@ object TranslatorUtil {
     }
   }
 
-  def readFromSrcFile(srcFileName : String): File = {
+  def readFromSrcFile(srcFileName : String) : File = {
     try {
       val absoluteInputPath = getAbsolutePath(srcFileName)
       val srcFile = new File(absoluteInputPath)
@@ -108,6 +108,35 @@ object TranslatorUtil {
         null
     }
 
+  }
+
+  def getReturnType(typeUri : String) : String = {
+    val typ = typeUri.toLowerCase()
+    if (typ.contains("integer")) {
+      "Tint"
+    } else if (typ.contains("boolean")) {
+      "Tbool"
+    } else {
+      ""
+    }
+  }
+  
+  def getDigitNumber(str: String): String = {
+    var s = -1;
+    var e = -1;
+    var i = 0;
+    for(c <- str){
+      if(c.isDigit){
+        e = i
+        if(s == -1)
+          s = i
+      }
+      i = i + 1
+    }
+    if(s == -1)
+      ""
+    else
+      str.substring(s, e+1)  
   }
 
 }

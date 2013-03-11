@@ -1,11 +1,8 @@
 /************************************************
  **************      To Do List    **************
  ************************************************/
-(1) Pre/Post aspects and LoopInvariant
-(2) change package names for type/program translation; change package names for StringTemplates;
-    remove package for SPARK_2014_Subset
-(3) add type translator tests
-(4) add more test cases from AdaCore
+(1) Pre/Post aspects
+(2) add more test cases from AdaCore
 
 Future work
 (1) demo the tool on website, like Microsoft Z3 (http://rise4fun.com/Z3)
@@ -13,3 +10,10 @@ Future work
 (3) ...
 
 
+/************************************************
+ **************      Done List    **************
+ ************************************************/
+(1) LoopInvariant
+(2) change package names for type/program translation; change package names for StringTemplates;
+    remove package for SPARK_2014_Subset
+(3) add type translator tests

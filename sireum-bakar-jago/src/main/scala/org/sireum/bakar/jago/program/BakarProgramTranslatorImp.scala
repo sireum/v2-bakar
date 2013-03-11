@@ -100,20 +100,15 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       sourceFile) =>
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
-      // [1] Package Declaration
-
-      // [2] Compilation unit can be either (1)Package Body or (2)Procedure Body  
-      if (unitKind == "A_Package_Body" ||
-        unitKind == "A_Procedure_Body") {
-        // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
-        val cu_astnum = factory.buildAstMappingTable(sloc, None)
-        val unit_astnum = factory.buildAstMappingTable(sloc, None)
-        v(unitDeclaration)
-        val bodyDecl = ctx.popResult
-        val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl.asInstanceOf[String])
-        val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
-        ctx.addToResults(cu)
-      }
+      // Compilation unit can be either (1)Package Body/Declaration or (2)Procedure/Function Body
+      // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
+      val cu_astnum = factory.buildAstMappingTable(sloc, None)
+      val unit_astnum = factory.buildAstMappingTable(sloc, None)
+      v(unitDeclaration)
+      val bodyDecl = ctx.popResult
+      val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl.asInstanceOf[String])
+      val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
+      ctx.addToResults(cu)
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
@@ -148,7 +143,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems : _*)
       //
       //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "PackageBodyDecl", pkgBodyDecl)
-      // val packageUnit = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", pkgBodyDecl)
+      //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", pkgBodyDecl)
       ctx.pushResult(pkgBodyDecl)
 
       false
@@ -179,8 +174,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val returnType : Option[String] = resultProfile match {
           case Some(e) =>
             v(e)
-            val ne = ctx.popResult.asInstanceOf[String]
-            Some(ne)
+            val typnum = TranslatorUtil.getDigitNumber(ctx.popResult.asInstanceOf[String])
+            val t = factory.unitTypeMap.map(_.swap).get(typnum.toInt)
+            assert(t.isDefined)
+            Some(TranslatorUtil.getReturnType(t.get))
           case None => None
         }
         // [3] method parameters
@@ -312,8 +309,22 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 
   def statementH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ StatementListEx(statements) =>
-      import scala.collection.JavaConversions._
-      val seq : String = unit_trans_seq(statements, v)
+      def buildSeq(stmts : java.util.List[Base]) : String = {
+        assert(stmts.length > 0)
+        val result =
+          if (stmts.length == 1) {
+            v(stmts.head)
+            ctx.popResult.asInstanceOf[String]
+          } else {
+            val seq_astnum = factory.next_astnum
+            v(stmts.head)
+            val stmt1 = ctx.popResult.asInstanceOf[String]
+            val stmt2 = buildSeq(stmts.subList(1, stmts.length))
+            factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
+          }
+        result
+      }
+      val seq = buildSeq(statements)
       ctx.pushResult(seq)
       false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression) =>
@@ -478,23 +489,6 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     }
   }
 
-  def unit_trans_seq(stmts : MBuffer[Base], v : => BVisitor) : String = {
-    var result : String = null
-    if (!stmts.isEmpty) {
-      if (stmts.length == 1) {
-        v(stmts.head)
-        result = ctx.popResult.asInstanceOf[String]
-      } else {
-        val seq_astnum = factory.next_astnum
-        v(stmts.head)
-        val stmt1 = ctx.popResult.asInstanceOf[String]
-        val stmt2 = unit_trans_seq(stmts.tail, v)
-        result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
-      }
-    }
-    result
-  }
-
   def theVisitor : BVisitor = visit
   val ctx = new Context {}
 
@@ -527,10 +521,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 
   val stg = getProgramTranslatorSTG(t)
   val factory = new Factory(stg)
-  
+
   //println(this.parseGnat2XMLresults)
 
-// for multiple source files, do translation one by one
+  // for multiple source files, do translation one by one
   this.parseGnat2XMLresults.foreach {
     case (key, value) => {
       visit(value)

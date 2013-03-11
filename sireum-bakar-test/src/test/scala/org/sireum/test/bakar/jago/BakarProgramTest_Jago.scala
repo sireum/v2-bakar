@@ -23,6 +23,7 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
   //this.includes += "example"
   //this.includes += "test_case_10"
   this.includes += "linear_div_with_loopInvariant"
+  //this.includes += "linear_div_fn"
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
@@ -33,7 +34,6 @@ class BakarTranslatorTest_Jago extends BakarTestFileFramework {
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
     
-    //println("job Properties: " + c.job.properties)
     return true;
   }
 

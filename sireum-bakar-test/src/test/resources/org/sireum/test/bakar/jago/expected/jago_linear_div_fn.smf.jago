@@ -1,0 +1,81 @@
+(* Compilation Unit *)
+CompilationUnit 1
+  (* Compilation Unit - Unit Declaration *) (
+    UnitDecl 2 (
+      (* Function Body Declaration *)
+      Sfunc 3 (
+        mkfunction_body 4
+          (* Function Body - Name *)
+          (*Linear_Div_Fn*) 1
+          (* Function Body - Return Type *) 
+          ((*Integer*) 1) 
+          (* Function Body - Specification *)
+          (None)
+          (* Function Body - Parameters *)
+          (Some(
+            mkparam_specification 5 ((*Dividend*) 2 :: nil) (2) (In) None :: 
+            mkparam_specification 6 ((*Divisor*) 3 :: nil) (2) (In) None :: nil
+          ))
+          (* Function Body - Local Defined Variables *)
+          (Some(
+            mklocal_declaration 7 ((*Quotient*) 4 :: nil) 2 Econst 8 (Ointconst 0) :: 
+            mklocal_declaration 9 ((*Remainder*) 5 :: nil) 2 None :: nil
+          ))
+          (* Function Body - Body *) (
+            Sseq 10 (
+              Sassign 11 ((*Remainder*) 5) (Evar 12 (*Dividend*) 2) ) ( 
+              Sseq 13 (
+                Swhile 14 (Ebinop 15 Cge (Evar 16 (*Remainder*) 5) (Evar 17 (*Divisor*) 3)) (
+                    Sseq 18 (
+                      Sloopinvariant 19 (Ebinop 20 Oand (Ebinop 21 Oand (Ebinop 22 Cge (Evar 23 (*Remainder*) 5) (Econst 24 (Ointconst 0))) (Ebinop 25 Cge (Evar 26 (*Quotient*) 4) (Econst 27 (Ointconst 0)))) (Ebinop 28 Ceq (Ebinop 29 Oadd (Ebinop 30 Omul (Evar 31 (*Divisor*) 3) (Evar 32 (*Quotient*) 4)) (Evar 33 (*Remainder*) 5)) (Evar 34 (*Dividend*) 2))) ) ( 
+                      Sseq 35 (
+                        Sassign 36 ((*Quotient*) 4) (Ebinop 37 Oadd (Evar 38 (*Quotient*) 4) (Econst 39 (Ointconst 1))) ) ( 
+                        Sseq 40 (
+                          Sassign 41 ((*Quotient*) 4) (Ebinop 42 Oadd (Evar 43 (*Quotient*) 4) (Econst 44 (Ointconst 1))) ) ( 
+                          Sassign 45 ((*Remainder*) 5) (Ebinop 46 Osub (Evar 47 (*Remainder*) 5) (Evar 48 (*Divisor*) 3)) ) ) )
+                  ) ) ( 
+                (*Remainder*) 5 ) )
+          )
+      )
+    )
+  )
+  (* Compilation Unit - Type Table *) (
+    mktype_table (
+      (* Expression Type Table: Expression AstNum --> TypeNum *)
+      (8, 3) ::
+      (12, 2) ::
+      (15, 4) ::
+      (16, 2) ::
+      (17, 2) ::
+      (20, 4) ::
+      (21, 4) ::
+      (22, 4) ::
+      (23, 2) ::
+      (24, 3) ::
+      (25, 4) ::
+      (26, 2) ::
+      (27, 3) ::
+      (28, 4) ::
+      (29, 2) ::
+      (30, 2) ::
+      (31, 2) ::
+      (32, 2) ::
+      (33, 2) ::
+      (34, 2) ::
+      (37, 2) ::
+      (38, 2) ::
+      (39, 3) ::
+      (42, 2) ::
+      (43, 2) ::
+      (44, 3) ::
+      (46, 2) ::
+      (47, 2) ::
+      (48, 2) :: nil
+    ) (
+      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
+      (1, ("null"%string, None)) ::
+      (2, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
+      (3, ("universal_integer"%string, None)) ::
+      (4, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) :: nil
+    )
+  )
