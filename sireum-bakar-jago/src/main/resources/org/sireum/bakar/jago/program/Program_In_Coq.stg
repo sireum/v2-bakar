@@ -65,8 +65,12 @@ assignStmt(astnum, lhs, rhs) ::= <<
 Sassign $astnum$ ($lhs$) ($rhs$)
 >>
 
+returnStmt(astnum, returnExp) ::= <<
+Sreturn $astnum$ $if(returnExp)$(Some ($returnExp$))$else$None$endif$
+>>
+
 paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
-mkparam_specification $astnum$ ($ids; separator=" :: "$ :: nil) ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$($initExp$)$else$None$endif$
+mkparam_specification $astnum$ ($ids; separator=" :: "$ :: nil) ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$(Some ($initExp$))$else$None$endif$
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -78,7 +82,7 @@ mkaspect_specification $astnum$
 >>
 
 localVarDeclaration(astnum, ids, theType, init) ::= <<
-mklocal_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$$init$$else$None$endif$
+mklocal_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$(Some ($init$))$else$None$endif$
 >>
 
 procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<

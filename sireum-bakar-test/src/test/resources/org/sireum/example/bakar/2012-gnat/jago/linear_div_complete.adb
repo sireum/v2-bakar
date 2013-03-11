@@ -1,10 +1,10 @@
 procedure Linear_Div_Complete (Dividend : Integer;
-                      Divisor : Integer; Quotient : out Integer; Remainder : out Integer)
-  --with 
-  --Pre => Divisor > 0 and Dividend >= 0, Post => Quotient >= 0 
-  --and Remainder >= 0
-  --and Remainder < Divisor
-  --and Divisor * Quotient + Remainder = Dividend;
+			       Divisor : Integer; Quotient : out Integer; Remainder : out Integer)
+--  with 
+--  Pre => Divisor > 0 and Dividend >= 0, Post => Quotient >= 0 
+--  and Remainder >= 0
+--  and Remainder < Divisor
+--  and Divisor * Quotient + Remainder = Dividend;
 is begin
    --pragma Assume (Dividend /= 0);
    Quotient := 0;

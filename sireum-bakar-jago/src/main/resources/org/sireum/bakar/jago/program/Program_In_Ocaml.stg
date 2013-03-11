@@ -67,8 +67,12 @@ assignStmt(astnum, lhs, rhs) ::= <<
 Sassign ($astnum$, $lhs$, $rhs$)
 >>
 
+returnStmt(astnum, returnExp) ::= <<
+Sreturn ($astnum$, $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
+>>
+
 paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
-{ param_astnum = $astnum$; param_idents = [$ids; separator="; "$]; param_typenum = $theType$; param_mode = $mode$; param_init = $if(initExp)$$initExp$$else$None$endif$ }
+{ param_astnum = $astnum$; param_idents = [$ids; separator="; "$]; param_typenum = $theType$; param_mode = $mode$; param_init = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -84,7 +88,7 @@ aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 
 // +++++++++
 localVarDeclaration(astnum, ids, theType, init) ::= <<
-{ local_astnum = $astnum$; local_idents = [$ids; separator="; "$]; local_typenum = $theType$; local_init = $if(init)$$init$$else$None$endif$ }
+{ local_astnum = $astnum$; local_idents = [$ids; separator="; "$]; local_typenum = $theType$; local_init = $if(init)$(Some ($init$))$else$None$endif$ }
 >>
 
 // ++++++

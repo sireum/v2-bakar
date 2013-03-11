@@ -1,0 +1,94 @@
+(* Compilation Unit *)
+CompilationUnit ( 1,
+  (* Compilation Unit - Unit Declaration *)
+  UnitDecl( 2,
+    (* Function Body Declaration *)
+    Sfunc( 3,
+      {
+        fn_astnum =   
+          (* Function Body - AST Number *)
+          4; 
+        fn_name =
+          (* Function Body - Name *)
+           (*Linear_Div_Fn*) 1;
+        fn_ret_type = 
+          (* Function Body - Return Type *)
+          Tint;
+        fn_specs = 
+          (* Function Body - Specification *)
+          None;
+        fn_params = 
+          (* Function Body - Parameters *)
+          Some([
+                { param_astnum = 5; param_idents = [ (*Dividend*) 1]; param_typenum = 1; param_mode = In; param_init = None }; 
+                { param_astnum = 6; param_idents = [ (*Divisor*) 2]; param_typenum = 1; param_mode = In; param_init = None }
+              ]);
+        fn_loc_idents = 
+          (* Function Body - Locally Defined Variables *)
+          Some([
+                { local_astnum = 7; local_idents = [ (*Quotient*) 3]; local_typenum = 1; local_init = (Some (Econst (8, 0))) }; 
+                { local_astnum = 9; local_idents = [ (*Remainder*) 4]; local_typenum = 1; local_init = None }
+              ]);
+        fn_body = 
+          (* Function Body - Body *)
+          Sseq (10,
+            Sassign (11,  (*Remainder*) 4, Evar (12,  (*Dividend*) 1)),
+            Sseq (13,
+              Swhile (14, Ebinop (15, Cge, Evar (16,  (*Remainder*) 4), Evar (17,  (*Divisor*) 2)),
+                Sseq (18,
+                  Sloopinvariant (19, Ebinop (20, Oand, Ebinop (21, Oand, Ebinop (22, Cge, Evar (23,  (*Remainder*) 4), Econst (24, 0)), Ebinop (25, Cge, Evar (26,  (*Quotient*) 3), Econst (27, 0))), Ebinop (28, Ceq, Ebinop (29, Oadd, Ebinop (30, Omul, Evar (31,  (*Divisor*) 2), Evar (32,  (*Quotient*) 3)), Evar (33,  (*Remainder*) 4)), Evar (34,  (*Dividend*) 1)))),
+                  Sseq (35,
+                    Sassign (36,  (*Quotient*) 3, Ebinop (37, Oadd, Evar (38,  (*Quotient*) 3), Econst (39, 1))),
+                    Sseq (40,
+                      Sassign (41,  (*Quotient*) 3, Ebinop (42, Oadd, Evar (43,  (*Quotient*) 3), Econst (44, 1))),
+                      Sassign (45,  (*Remainder*) 4, Ebinop (46, Osub, Evar (47,  (*Remainder*) 4), Evar (48,  (*Divisor*) 2))) ) ) )
+              ),
+              Sreturn (49, (Some (Evar (50,  (*Remainder*) 4)))) ) )
+      }
+    )
+  ),  
+  (* Compilation Unit - Type Table *)
+  {
+    tt_exptype_table = 
+      (* Expression AstNum --> TypeNum *) 
+      [
+        (8, 2) ;
+        (12, 1) ;
+        (15, 3) ;
+        (16, 1) ;
+        (17, 1) ;
+        (20, 3) ;
+        (21, 3) ;
+        (22, 3) ;
+        (23, 1) ;
+        (24, 2) ;
+        (25, 3) ;
+        (26, 1) ;
+        (27, 2) ;
+        (28, 3) ;
+        (29, 1) ;
+        (30, 1) ;
+        (31, 1) ;
+        (32, 1) ;
+        (33, 1) ;
+        (34, 1) ;
+        (37, 1) ;
+        (38, 1) ;
+        (39, 2) ;
+        (42, 1) ;
+        (43, 1) ;
+        (44, 2) ;
+        (46, 1) ;
+        (47, 1) ;
+        (48, 1) ;
+        (50, 1)
+      ];
+    tt_typename_table = 
+      (* TypeNum --> (Type URI * (Type Declaration AST Num) Option) *) 
+      [
+        (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1", None)) ;
+        (2, ("universal_integer", None)) ;
+        (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1", None))
+      ]
+  }
+)

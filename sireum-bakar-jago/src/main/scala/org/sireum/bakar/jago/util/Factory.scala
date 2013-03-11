@@ -19,7 +19,7 @@ class Factory(stg: STGroupFile) {
   // TODO: it's none now
   val unitTypeDeclsMap = mmapEmpty[String, Int] // declared type to its ast number 
   
-  val ident2TypeMap = mmapEmpty[String, String] // int x; x --> int
+  //val ident2TypeMap = mmapEmpty[String, String] // int x; x --> int
 
   var astnum = 0
   var idnum = 0
@@ -148,7 +148,13 @@ class Factory(stg: STGroupFile) {
     result.get
   }
   
-  def buildBinaryExpr(astnum: Int, op: String, loperand: String, roperand: String) = {
+  def buildExpTypeTable(exp_astnum: Int, exp_type: String) {
+    val typenum = getTypeNum(exp_type)
+    unitExpTypeMap += (exp_astnum -> typenum)
+  }
+  
+  def buildBinaryExpr(astnum: Int, theType: String, op: String, loperand: String, roperand: String) = {
+    buildExpTypeTable(astnum, theType)
     val result = stg.getInstanceOf("binaryExpr") 
     result.add("astnum", astnum)
     result.add("op", op)
@@ -157,52 +163,37 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  def buildUnaryExpr(astnum: Int, op: String, operand: String) = {
+  def buildUnaryExpr(astnum: Int, theType: String, op: String, operand: String) = {
+    buildExpTypeTable(astnum, theType)
     val result = stg.getInstanceOf("unaryExpr")
     result.add("astnum", astnum)
     result.add("op", op)
     result.add("operand", operand)
     result.render()
   }
-
-  // Map the AST# number to Location and (option: to Type, when AST is an expression)
-  def buildAstMappingTable(sloc: SourceLocation, theExpType: Option[String]) = {
-    val astnum = next_astnum
-    // if the current AST is an expression, then we need to record its type
-    if(theExpType.isDefined){
-      val typenum = getTypeNum(theExpType.get)
-      unitExpTypeMap += (astnum -> typenum)
-    }
-    astnum
-  }
   
   /**
    * the identifier can be either variable or package/procedure name. 
    * theType will be null if it's package/procedure name
    */
-  def buildId(theType: Option[String], id_uri: String, id: String) = {
-    // [1] Type Name Mapping
-    if(theType.isDefined)
-      getTypeNum(theType.get)
-    // [2] Package/Procedure Name Mapping
-    if(theType.isEmpty){
+  def buildId(theType: Option[String], id: String, id_uri: String) = {
+    if(theType.isDefined){
+      // [1] Variable Name Mapping
+      val id_num = getIdNum(id_uri)
+      buildAnnotatedIdNum(id, id_num)
+    }else{
+      // [2] Package/Procedure Name Mapping
       val pkg_proc_num = 
         if(id_uri.contains("package_body"))
           getPkgNum(id_uri)
         else // if(id_uri.contains("procedure_body"))
           getProcNum(id_uri)
-      buildIdV0(id, pkg_proc_num) 
-    }else{
-      // [3] Variable Name Mapping
-      val id_num = getIdNum(id_uri)
-      val result = buildIdV0(id, id_num)
-      ident2TypeMap += (result -> theType.get)
-      result
+      buildAnnotatedIdNum(id, pkg_proc_num) 
     }
   }
   
-  def buildIdV0(id_str: String, id_nat: Int) = {
-    // mapping the id string id_str to a natural number id_nat
+  def buildAnnotatedIdNum(id_str: String, id_nat: Int) = {
+    // the id number annotated with its id string, for example: (*x*) 1
     val result = stg.getInstanceOf("varId")
     result.add("annotation", id_str)
     result.add("id", id_nat)
@@ -214,25 +205,20 @@ class Factory(stg: STGroupFile) {
    * Its Coq representation is: Sassign x (Evar y), 
    * where the left-hand is an identifier, while its right-hand is an expression with prefix "Evar"
    */
-  def buildIdentifierExpr(sloc: SourceLocation, varId: String) = {
-    if(varId.startsWith("Econst") || varId.startsWith("Evar") || 
-        varId.startsWith("Ebinop") || varId.startsWith("Eunop")){
-      varId
-    }else{ 
-      // val varId = buildId(theType, id)
-      val astnum = buildAstMappingTable(sloc, ident2TypeMap.get(varId))
-      val result = stg.getInstanceOf("identifierExpr")
-      result.add("astnum", astnum)
-      result.add("id", varId)
-      result.render()
-    }
+  def buildIdExpr(astnum: Int, theType: String, id: String, id_uri: String) = {
+    buildExpTypeTable(astnum, theType)
+    val idnum_with_anno = buildId(Some(theType), id, id_uri) // for example: (* x *) 1
+    val result = stg.getInstanceOf("identifierExpr")
+    result.add("astnum", astnum)
+    result.add("id", idnum_with_anno)
+    result.render()    
   }
   
   def buildConstant(theType: String, constVal: String) = {
     val mTrans = Map[String, String]("integer" -> "Ointconst")
     var o: Option[String] = None
     for(e <- mTrans if !(o.isDefined)) {
-      if(theType.contains(e._1))
+      if(theType.toLowerCase.contains(e._1))
         o = Some(e._2)
     }
     
@@ -244,6 +230,7 @@ class Factory(stg: STGroupFile) {
   }
   
   def buildConstantExpr(astnum: Int, theType: String, constVal: String) = {
+    buildExpTypeTable(astnum, theType)
     val result = stg.getInstanceOf("constantExpr")
     result.add("astnum", astnum)
     val o = buildConstant(theType, constVal)
@@ -307,6 +294,14 @@ class Factory(stg: STGroupFile) {
     result.add("lhs", lhs)
     result.add("rhs", rhs)
     result.render()
+  }
+  
+  def buildReturnStmt(astnum: Int, returnExp: Option[String]) = {
+    val result = stg.getInstanceOf("returnStmt")
+    result.add("astnum", astnum)
+    if(returnExp.isDefined)
+      result.add("returnExp", returnExp.get)
+    result.render()    
   }
   
   def buildListAttributes(st: org.stringtemplate.v4.ST, 

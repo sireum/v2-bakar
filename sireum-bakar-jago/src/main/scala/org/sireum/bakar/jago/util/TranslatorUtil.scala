@@ -112,31 +112,11 @@ object TranslatorUtil {
 
   def getReturnType(typeUri : String) : String = {
     val typ = typeUri.toLowerCase()
-    if (typ.contains("integer")) {
-      "Tint"
-    } else if (typ.contains("boolean")) {
-      "Tbool"
-    } else {
-      ""
+    typ match {
+      case "integer" => "Tint"
+      case "boolean" => "Tbool"
+      case _ => ""
     }
-  }
-  
-  def getDigitNumber(str: String): String = {
-    var s = -1;
-    var e = -1;
-    var i = 0;
-    for(c <- str){
-      if(c.isDigit){
-        e = i
-        if(s == -1)
-          s = i
-      }
-      i = i + 1
-    }
-    if(s == -1)
-      ""
-    else
-      str.substring(s, e+1)  
   }
 
 }

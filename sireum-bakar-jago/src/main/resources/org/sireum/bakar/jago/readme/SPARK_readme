@@ -5,5 +5,14 @@
 (2) after compilation, use gnat2xml to generate its AST in XML
   >>$ gnat2xml test.adb 
 
+(3) each file can have only one compilation unit, for example, it doesn't allow one file
+    has both procedure specification and procedure body
 
+(4) compile and build executable Ada programs
+    given the name of the main program, "gnatmake" utility automatically performs the necessary 
+    compilation, binding and linking steps.
+    for example, test.ads and test.adb
+    $ gnatmake test.adb or gnatmake test  (gnatmake will figure out its dependencies automatically)
 
+    
+    

@@ -369,6 +369,8 @@ class BakarTypeTranslator(o : SireumBakarTypeMode) {
                 case "ImplementationDefinedPragma" =>
                   // loop invariant is defined through this data structure
                   buildTypeConstructor(TypeNameSpace.Statement, "Sloopinvariant", TypeNameSpace.AstNum, TypeNameSpace.Expression)
+                case "ReturnStatement" =>
+                  buildTypeConstructor(TypeNameSpace.Statement, "Sreturn", TypeNameSpace.AstNum, buildOptionType(TypeNameSpace.Expression))
                 //                case "NullStatement" =>
                 //                  createConstructor("CSkip", TypeNameSpace.StatementT)   
                 //                case "ForLoopStatement" =>
