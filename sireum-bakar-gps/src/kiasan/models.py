@@ -73,10 +73,6 @@ class Method(Entity):
                 method_file._path = file_dict["sourcePath"]
                 method_file._covered_lines = file_dict["coverage"]
                 self._files.append(method_file)
-#                method_file._covered_lines = []
-#                for index, value in enumerate(file_dict["coverage"]):
-#                    if value == "Full":
-#                        method_file._covered_lines.append(index)
                 
         
                     

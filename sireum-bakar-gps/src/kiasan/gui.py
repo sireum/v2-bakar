@@ -207,19 +207,22 @@ class KiasanGUI:
         if len(path) == 2:
             package_index = path[0]
             method_index = path[1]
-            gpshelper.remove_all_highlight()    #remove old highlight
             for method_file in self._report[package_index]._methods[method_index]._files:                
                 file_name = method_file._path
+                gpshelper.remove_highlight_from_file(file_name) # remove old highlight
                 lines = method_file._covered_lines  
-                gpshelper.highlight(file_name, lines)
+                gpshelper.highlight(file_name, lines)   # highlight lines
             
         elif len(path) == 1:
             package_index = path[0]
             
             # remove old highlighting
-            gpshelper.remove_all_highlight()
+            for method in self._report[package_index]._methods:
+                for method_file in method._files:
+                    file_name = method_file._path
+                    gpshelper.remove_highlight_from_file(file_name)
                     
-            #highlight
+            # highlight
             for method in self._report[package_index]._methods:
                 for method_file in method._files:
                     file_name = method_file._path
@@ -269,7 +272,7 @@ class KiasanGUI:
             else:
                 pre_row = " "
                 color = COLOR_NEW            
-            pre_tree_store.append(pre_globals_tree, [pre_row, color])
+            pre_tree_store.append(pre_globals_tree, [pre_row, COLOR_DEFAULT])
             post_tree_store.append(post_globals_tree, [post_row, color])
         
         # add call stack frames
@@ -279,7 +282,7 @@ class KiasanGUI:
         for pre_frame, post_frame in zip(pre_state._frames, post_state._frames):
             pre_frames_count += 1
             color = COLOR_DEFAULT if pre_frame._line_num == post_frame._line_num else COLOR_CHANGED
-            pre_stack_frame = pre_tree_store.append(pre_stack_frames, [str(pre_frame._line_num) + ":" + pre_frame._name, color])
+            pre_stack_frame = pre_tree_store.append(pre_stack_frames, [str(pre_frame._line_num) + ":" + pre_frame._name, COLOR_DEFAULT])
             post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, color])
             for variable_name in post_frame._variables:
                 post_row = variable_name + " = " + str(post_frame._variables[variable_name])
@@ -289,7 +292,7 @@ class KiasanGUI:
                 else:
                     pre_row = " "
                     color = COLOR_NEW
-                pre_tree_store.append(pre_stack_frame, [pre_row, color])
+                pre_tree_store.append(pre_stack_frame, [pre_row, COLOR_DEFAULT])
                 post_tree_store.append(post_stack_frame, [post_row, color])   
         
         for post_frame in post_state._frames[pre_frames_count:]:

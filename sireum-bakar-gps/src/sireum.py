@@ -97,59 +97,15 @@ def run_kiasan_tool():
 		for entity in GPS.current_context().file().entities(False):
 			if entity.category() == 'subprogram':
 				methods_list.append(entity.name())
-		
-	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302271712/lib/"	
 	
-	# create run command
-	run_kiasan_command = []
-	run_kiasan_command.append(SIREUM_PATH + "/apps/platform/java/bin/java")
-	run_kiasan_command.append("-jar")
-	run_kiasan_command.append(kiasan_lib_dir + "BakarKiasan.jar")
-	run_kiasan_command.append("--topi-lib-dir")
-	run_kiasan_command.append(kiasan_lib_dir)
-	run_kiasan_command.append("--outdir")
-	run_kiasan_command.append(os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan")
-	run_kiasan_command.append("--array-bound")
-	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-array-indices-bound").get()))
-	run_kiasan_command.append("--loop-bound")
-	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-loop-bound").get()))
-	run_kiasan_command.append("--invoke-bound")
-	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-call-chain-bound").get()))
-	run_kiasan_command.append("--timeout")
-	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-timeout").get()))
-	if GPS.Preference("sireum-kiasan-constrain-scalar-values").get():
-		run_kiasan_command.append("--constrain-values")
-	run_kiasan_command.append("--smt")
-	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
-	run_kiasan_command.append("--constraint-solver")
-	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
-	run_kiasan_command.append("--topi-bin-dir")
-	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get())
-	run_kiasan_command.append("--generate-claim-coverage-report")
-	run_kiasan_command.append("--modular-analysis")
-	if GPS.Preference("sireum-kiasan-generate-claim-report"):
-		run_kiasan_command.append("--generate-pogs-report") 
-	run_kiasan_command.append("--source-paths=" + GPS.current_context().directory().replace("\\","/"))
-	run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
-	run_kiasan_command.append("--print-trace-bound-exhausted")
-	warnings.warn('run_kiasan_command.append("--gen-bound-exhaustion-cases")')
-	run_kiasan_command.append("--generate-sireum-report")
-	warnings.warn('run_kiasan_command.append("--generate-sireum-report-only")') 
-	run_kiasan_command.append("--generate-xml-report")
-	if GPS.Preference("sireum-kiasan-generate-json-output").get():
-		run_kiasan_command.append("--generate-json-report")
-	if GPS.Preference("sireum-kiasan-generate-aunit").get():
-		run_kiasan_command.append("--generate-aunit-test-cases")
-	if GPS.Preference("sireum-kiasan-generate-html-report").get():
-		run_kiasan_command.append("--generate-html-report")
-		run_kiasan_command.append(GPS.Preference("sireum-kiasan-html-output-directory").get()) 
-	warnings.warn('add dotLocation?? (KiasanRunner.java:443)')
-	run_kiasan_command.append(package_name)
+	output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
+	
+	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, output_dir)
 	
 	# run Kiasan tool for each method	
 	for method in methods_list:
-		print " ".join(run_kiasan_command + [method])
-		subprocess.call(run_kiasan_command + [method]) #os.system(run_kiasan_command + " " + method)	
+		print " ".join(kiasan_run_cmd + [method])
+		subprocess.call(kiasan_run_cmd + [method]) #os.system(run_kiasan_command + " " + method)	
 
 
 def get_sireum_path():
@@ -202,6 +158,58 @@ def load_sireum_settings(SIREUM_PATH):
 			theorem_prover.set(default_theorem_prover_path)
 	
 
+def get_run_kiasan_command(SIREUM_PATH, package_name, output_dir):
+	""" Create command for run Kiasan. """
+	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302271712/lib/"	
+	
+	run_kiasan_command = []
+	run_kiasan_command.append(SIREUM_PATH + "/apps/platform/java/bin/java")
+	run_kiasan_command.append("-jar")
+	run_kiasan_command.append(kiasan_lib_dir + "BakarKiasan.jar")
+	run_kiasan_command.append("--topi-lib-dir")
+	run_kiasan_command.append(kiasan_lib_dir)
+	run_kiasan_command.append("--outdir")
+	run_kiasan_command.append(output_dir)
+	run_kiasan_command.append("--array-bound")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-array-indices-bound").get()))
+	run_kiasan_command.append("--loop-bound")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-loop-bound").get()))
+	run_kiasan_command.append("--invoke-bound")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-call-chain-bound").get()))
+	run_kiasan_command.append("--timeout")
+	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-timeout").get()))
+	if GPS.Preference("sireum-kiasan-constrain-scalar-values").get():
+		run_kiasan_command.append("--constrain-values")
+	run_kiasan_command.append("--smt")
+	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
+	run_kiasan_command.append("--constraint-solver")
+	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
+	run_kiasan_command.append("--topi-bin-dir")
+	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get())
+	run_kiasan_command.append("--generate-claim-coverage-report")
+	run_kiasan_command.append("--modular-analysis")
+	if GPS.Preference("sireum-kiasan-generate-claim-report").get():
+		run_kiasan_command.append("--generate-pogs-report") 
+	run_kiasan_command.append("--source-paths=" + GPS.current_context().directory().replace("\\","/"))
+	run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
+	run_kiasan_command.append("--print-trace-bound-exhausted")
+	warnings.warn('run_kiasan_command.append("--gen-bound-exhaustion-cases")')
+	run_kiasan_command.append("--generate-sireum-report")
+	warnings.warn('run_kiasan_command.append("--generate-sireum-report-only")') 
+	run_kiasan_command.append("--generate-xml-report")
+	if GPS.Preference("sireum-kiasan-generate-json-output").get():
+		run_kiasan_command.append("--generate-json-report")
+	if GPS.Preference("sireum-kiasan-generate-aunit").get():
+		run_kiasan_command.append("--generate-aunit-test-cases")
+	if GPS.Preference("sireum-kiasan-generate-html-report").get():
+		run_kiasan_command.append("--generate-html-report")
+		run_kiasan_command.append(GPS.Preference("sireum-kiasan-html-output-directory").get()) 
+	warnings.warn('add dotLocation?? (KiasanRunner.java:443)')
+	run_kiasan_command.append(package_name)
+	
+	return run_kiasan_command
+
+
 GPS.parse_xml ("""
 	<filter_and name="Source editor in Ada" >
     	<filter language="ada" />
@@ -228,7 +236,7 @@ GPS.parse_xml ("""
     </submenu>
 	<contextual action="run Kiasan" >
     	<Title>Sireum/Run Kiasan</Title>
-  	</contextual>  
+  	</contextual>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"
    				page = "Sireum/Kiasan"
