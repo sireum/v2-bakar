@@ -1,10 +1,11 @@
 function Linear_Div_Fn (Dividend : Integer;
 			      Divisor : Integer) return Integer
-  --with 
-  --Pre => Divisor > 0 and Dividend >= 0, Post => Quotient >= 0 
-  --and Remainder >= 0
-  --and Remainder < Divisor
-  --and Divisor * Quotient + Remainder = Dividend;
+--  with 
+--  Pre => Divisor > 0 and Dividend >= 0, 
+--  Post => Quotient >= 0 
+--  and Remainder >= 0
+--  and Remainder < Divisor
+--  and Divisor * Quotient + Remainder = Dividend;
 is 
    Quotient : Integer := 0; 
    Remainder : Integer; 

@@ -22,6 +22,16 @@
  
  .preferences
  
+ (6) compile the .rst file to pdf
+To compile the documentation just do the following under
+sireum-bakar-internal/sireum-bakar-doc/src/main/resources:
+
+* HTML:$ make html
+* PDF: $ make latexpdf
+
+Note that you need to have sphinx installed (I use macports' py27-sphinx).
+
+
  
  /***************************************************/
  clean up tools (by Jason)
