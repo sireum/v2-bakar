@@ -103,19 +103,31 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
   val g2xargs = ivector(Util.gnat2xml, "-v", "-t",
     "-m" + baseDestDir.getAbsolutePath()) ++ sfiles
   val gnat2xmlResult = new Exec().run(waittime, g2xargs, None, Some(tempDir))
-
+  
   val results = mlistEmpty[FileResourceUri]
   gnat2xmlResult match {
     case Exec.StringResult(str, exitval) =>
-      str.split("\n").foreach { l =>
-        if (l.startsWith("Creating")) {
-          results += FileUtil.toUri(new File(l.substring("Creating ".length())))
+      if(exitval != 0){
+        
+        info.tags += InfoTag(MarkerType(
+            "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
+            MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]
+            ), Some(str))
+            
+      } else {
+        str.split("\n").foreach { l =>
+          if (l.startsWith("Creating")) {
+            results += FileUtil.toUri(new File(l.substring("Creating ".length())))
+          }
         }
       }
-    case _ =>
-      println(gnat2xmlResult)
+    case x =>
+      info.tags += InfoTag(MarkerType(
+            "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
+            MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]
+            ), Some(x.toString))
   }
-
+    
   this.gnat2xmlResults_=(results)
 }
 
