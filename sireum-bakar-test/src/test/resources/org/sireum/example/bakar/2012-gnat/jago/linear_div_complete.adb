@@ -1,5 +1,7 @@
 procedure Linear_Div_Complete (Dividend : Integer;
 			       Divisor : Integer; Quotient : out Integer; Remainder : out Integer)
+-- Right now we don't handle the procedure body with Pre/Post aspects
+  
 --  with 
 --  Pre => Divisor > 0 and Dividend >= 0, Post => Quotient >= 0 
 --  and Remainder >= 0
