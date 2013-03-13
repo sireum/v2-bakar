@@ -12,7 +12,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   type BVisitor = Any => Boolean
 
   trait Context {
-    var genThreeAddress = true
+    var genThreeAddress = false
     val TEMP_VAR_PREFIX = "_t"
     val LOCATION_PREFIX = "l"
 
@@ -479,7 +479,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           v(condExp)
 
           // #l0. if(!resultVar) then goto <nextSlot>;
-          val ne = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult.asInstanceOf[NameExp])
+          val ne = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult.asInstanceOf[Exp])
           val itj = IfThenJump(ne, TranslatorUtil.emptyAnnot, gotoLoc)
           val ij = IfJump(TranslatorUtil.emptyAnnot, ivector(itj), None)
           val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, ij)
@@ -531,7 +531,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       v(whileCondition)
 
       // # if (!loopCond) goto endLocLabel;
-      val ne = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult.asInstanceOf[NameExp])
+      val ne = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult.asInstanceOf[Exp])
       val itj = IfThenJump(ne, TranslatorUtil.emptyAnnot, loopEndLabel)
       val ij = IfJump(TranslatorUtil.emptyAnnot, ivector(itj), None)
       val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, ij)
@@ -652,7 +652,16 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       val ie = IndexingExp(pprefix, indices.toList)
       ctx.pushResult(ie)
       false
-
+    case o @ SelectedComponentEx(sloc, prefix, selector, typ) =>
+      v(prefix)
+      val e = ctx.popResult.asInstanceOf[Exp]
+      
+      v(selector)
+      val s = ctx.popResult.asInstanceOf[NameExp]
+      
+      val ae = AccessExp(e, s.name)
+      ctx.pushResult(ae)
+      false
     case o @ (
       RealLiteralEx(_) |
       //ExpressionClassEx(_) |
@@ -674,7 +683,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     case o @ AssertPragmaEx(sloc, pragmaArgumentAssociations, pragmaName) =>
       for (a <- pragmaArgumentAssociations.getAssociations()) {
         v(a)
-        val r = ctx.popResult.asInstanceOf[NameExp]
+        val r = ctx.popResult.asInstanceOf[Exp]
         val aa = AssertAction(TranslatorUtil.emptyAnnot, r, None)
         ctx.createPushLocation(aa, TranslatorUtil.emptyAnnot)
       }

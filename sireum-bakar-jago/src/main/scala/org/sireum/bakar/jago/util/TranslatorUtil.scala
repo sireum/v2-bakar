@@ -93,7 +93,7 @@ object TranslatorUtil {
     }
   }
 
-  def readFromSrcFile(srcFileName : String): File = {
+  def readFromSrcFile(srcFileName : String) : File = {
     try {
       val absoluteInputPath = getAbsolutePath(srcFileName)
       val srcFile = new File(absoluteInputPath)
@@ -108,6 +108,15 @@ object TranslatorUtil {
         null
     }
 
+  }
+
+  def getReturnType(typeUri : String) : String = {
+    val typ = typeUri.toLowerCase()
+    typ match {
+      case "integer" => "Tint"
+      case "boolean" => "Tbool"
+      case _ => ""
+    }
   }
 
 }

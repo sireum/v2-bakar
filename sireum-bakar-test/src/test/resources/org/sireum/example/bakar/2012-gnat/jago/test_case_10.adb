@@ -1,5 +1,4 @@
-package body Test_Case_10 is
-    procedure P1 (I1, I2, I3 : in Integer; O1, O2 : out Integer)
+    procedure Test_Case_10 (I1, I2, I3 : in Integer; O1, O2 : out Integer)
     is
         L1, L2 : Integer;
     begin
@@ -16,11 +15,5 @@ package body Test_Case_10 is
             end if;
         end if;	
 	
-	while L1 > 0 loop
-	   L2 := L2 + 1;
-	   L1 := L1 - 1;
-	end loop;
-	
         O1 := L2; 	
-    end P1;
-end Test_Case_10;
+    end Test_Case_10;

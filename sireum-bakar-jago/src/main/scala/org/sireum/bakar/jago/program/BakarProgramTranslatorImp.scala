@@ -100,20 +100,15 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       sourceFile) =>
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
-      // [1] Package Declaration
-
-      // [2] Compilation unit can be either (1)Package Body or (2)Procedure Body  
-      if (unitKind == "A_Package_Body" ||
-        unitKind == "A_Procedure_Body") {
-        // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
-        val cu_astnum = factory.buildAstMappingTable(sloc, None)
-        val unit_astnum = factory.buildAstMappingTable(sloc, None)
-        v(unitDeclaration)
-        val bodyDecl = ctx.popResult
-        val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl.asInstanceOf[String])
-        val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
-        ctx.addToResults(cu)
-      }
+      // Compilation unit can be either (1)Package Body/Declaration or (2)Procedure/Function Body
+      // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
+      val cu_astnum = factory.next_astnum
+      val unit_astnum = factory.next_astnum
+      v(unitDeclaration)
+      val bodyDecl = ctx.popResult
+      val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl.asInstanceOf[String])
+      val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
+      ctx.addToResults(cu)
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
@@ -126,7 +121,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 
       assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
       assert(names.getDefiningNames().length == 1)
-      val pkgbody_astnum = factory.buildAstMappingTable(sloc, None)
+      val pkgbody_astnum = factory.next_astnum
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
@@ -148,7 +143,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems : _*)
       //
       //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "PackageBodyDecl", pkgBodyDecl)
-      // val packageUnit = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", pkgBodyDecl)
+      //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", pkgBodyDecl)
       ctx.pushResult(pkgBodyDecl)
 
       false
@@ -179,8 +174,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val returnType : Option[String] = resultProfile match {
           case Some(e) =>
             v(e)
-            val ne = ctx.popResult.asInstanceOf[String]
-            Some(ne)
+            val r = ctx.popResult.asInstanceOf[Identifier]
+            Some(TranslatorUtil.getReturnType(r.getRefName()))
           case None => None
         }
         // [3] method parameters
@@ -213,14 +208,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
               val paramlist = mlistEmpty[String]
               pnames.getDefiningNames().foreach {
                 case DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-                  val pnm = factory.buildId(paramType, theDef, defName)
+                  val pnm = factory.buildId(paramType, defName, theDef)
                   paramlist += pnm
                 case x =>
                   println("Not expecting: " + x)
                   assert(false)
               }
-              val astnum = factory.buildAstMappingTable(sloc, None)
-              val paramDecl = factory.buildParamSpecification(astnum, paramlist, paramType.get, factory.buildMode(mode), initExp)
+              val paramDecl = factory.buildParamSpecification(factory.next_astnum, paramlist, paramType.get, factory.buildMode(mode), initExp)
               params += paramDecl
             case x =>
               println("Not expecting: " + x)
@@ -256,8 +250,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       case o @ ProcedureBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, aspectSpec, bodyDecItems, bodyStatements, bodyExceptionHandlers) =>
 
-        val method_astnum = factory.buildAstMappingTable(sloc, None)
-        val procbody_astnum = factory.buildAstMappingTable(sloc, None)
+        val method_astnum = factory.next_astnum
+        val procbody_astnum = factory.next_astnum
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
@@ -273,8 +267,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         bodyDecItems, bodyStatements, bodyExceptionHandlers) =>
 
         // TODO: should use: factory.buildAstMappingTable(sloc, ReturnType)          
-        val method_astnum = factory.buildAstMappingTable(sloc, None)
-        val fnbody_astnum = factory.buildAstMappingTable(sloc, None)
+        val method_astnum = factory.next_astnum
+        val fnbody_astnum = factory.next_astnum
         val m = handleMethodBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
@@ -288,10 +282,16 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     }
   }
 
+  /**
+   * ProcedureBodyDeclaration /- body_declarative_items_ql: List[VariableDeclaration]
+   */
   def definingIdentifier(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case varDecl @ VariableDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl) =>
-      val theType = util_GetTypeFromObjDeclViewQ(objDeclViewQ)
-      val astnum = factory.buildAstMappingTable(sloc, None)
+      //val theType = util_GetTypeFromObjDeclViewQ(objDeclViewQ)
+      v(objDeclViewQ.getDefinition())
+      val typ = ctx.popResult.asInstanceOf[Identifier]
+      val theType = Some(typ.getRef)
+      val astnum = factory.next_astnum
       val declItems = mlistEmpty[String]
       for (defName <- namesQl.getDefiningNames()) {
         v(defName)
@@ -303,7 +303,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           None
         } else {
           v(initExpQ.getExpression())
-          Some(ctx.popResult.asInstanceOf[String])
+          Some(getExpressionStr(ctx.popResult))
         }
 
       ctx.pushResult(factory.buildIdentiferDecl(astnum, declItems, theType.get, optionalInitExp))
@@ -312,33 +312,39 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 
   def statementH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ StatementListEx(statements) =>
-      import scala.collection.JavaConversions._
-      val seq : String = unit_trans_seq(statements, v)
+      def buildSeq(stmts : java.util.List[Base]) : String = {
+        assert(stmts.length > 0)
+        val result =
+          if (stmts.length == 1) {
+            // for function, consider return statement
+            v(stmts.head)
+            ctx.popResult.asInstanceOf[String]
+          } else {
+            val seq_astnum = factory.next_astnum
+            v(stmts.head)
+            val stmt1 = ctx.popResult.asInstanceOf[String]
+            val stmt2 = buildSeq(stmts.subList(1, stmts.length))
+            factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
+          }
+        result
+      }
+      val seq = buildSeq(statements)
       ctx.pushResult(seq)
       false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression) =>
-      val astnum = factory.buildAstMappingTable(sloc, None)
+      val astnum = factory.next_astnum
       v(assignmentVariableName)
-      val lhs = ctx.popResult.asInstanceOf[String]
+      val l = ctx.popResult.asInstanceOf[Identifier]
+      val lhs = factory.buildId(Some(l.getType), l.getRefName, l.getRef)
+      //val lhs = ctx.popResult.asInstanceOf[Identifier].getRefName()
       v(assignmentExpression)
-      val rhs = ctx.popResult.asInstanceOf[String]
-      val rhs_exp = factory.buildIdentifierExpr(sloc, rhs)
-      ctx.pushResult(factory.buildAssignStmt(astnum, lhs, rhs_exp))
-      false
-    case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
-      v(calledName)
-      val procName = ctx.popResult.asInstanceOf[String]
-      val params = mlistEmpty[String]
-      for (param <- callStatementParameters.getAssociations()) {
-        v(param)
-        params += ctx.popResult.asInstanceOf[String]
-      }
-      ctx.pushResult(factory.buildProcedureCall(procName, params : _*))
+      val rhs = getExpressionStr(ctx.popResult)
+      ctx.pushResult(factory.buildAssignStmt(astnum, lhs, rhs))
       false
     case o @ IfStatementEx(sloc, labelNames, statementPaths) =>
       statementPaths.getPaths().foreach {
         case IfPathEx(sloc, condExp, statements) =>
-          val astnum = factory.buildAstMappingTable(sloc, None)
+          val astnum = factory.next_astnum
           v(condExp)
           val cond = ctx.popResult.asInstanceOf[String]
           v(statements)
@@ -351,7 +357,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier,
       whileCondition, loopStatements) =>
-      val astnum = factory.buildAstMappingTable(sloc, None)
+      val astnum = factory.next_astnum
       v(whileCondition)
       val cond = ctx.popResult.asInstanceOf[String]
       v(loopStatements)
@@ -359,9 +365,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       ctx.pushResult(factory.buildWhileStmt(astnum, cond, loopBody))
       false
     case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName) =>
+      // ImplementationDefinedPragma: defines the user supplied loop invariant, which is an element of StatementList
       pragmaName match {
         case "Loop_Invariant" =>
-          val astnum = factory.buildAstMappingTable(sloc, None)
+          val astnum = factory.next_astnum
           v(pragmaArgumentAssociationsQl)
           //TODO: now consider while loop with only one loop invariant
           val hd = ctx.popResult.asInstanceOf[MList[Any]].head
@@ -372,77 +379,80 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           println("statementH: other pragmas need to be handled !")
       }
       false
-    //    case o =>
-    //      println("statementH: need to handle " + o.getClass().getSimpleName())
-    //      true
+    case o @ ReturnStatementEx(sloc, labelNames, returnExp) =>
+      assert(labelNames == null || labelNames.getDefiningNames().isEmpty())
+      val astnum = factory.next_astnum
+      v(returnExp)
+      val re = getExpressionStr(ctx.popResult)
+      ctx.pushResult(factory.buildReturnStmt(astnum, Some(re)))
+      
+      false
+//    case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
+//      v(calledName)
+//      val procName = ctx.popResult.asInstanceOf[String]
+//      val params = mlistEmpty[String]
+//      for (param <- callStatementParameters.getAssociations()) {
+//        v(param)
+//        params += ctx.popResult.asInstanceOf[String]
+//      }
+//      ctx.pushResult(factory.buildProcedureCall(procName, params : _*))
+//      false
+//    case o =>
+//      println("statementH: need to handle " + o.getClass().getSimpleName())
+//      true
   }
 
   def expressionH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IntegerLiteralEx(sloc, litVal, theType) =>
-      // litval could look like 3_500
-      val v = litVal.replaceAll("_", "")
-      val astnum = factory.buildAstMappingTable(sloc, Some(theType))
-      ctx.pushResult(factory.buildConstantExpr(astnum, theType, v))
+      ctx.pushResult(o)
       false
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      // identifier can be variable name or package/procedure name, <theType> is null if it's function name
-      assert(theType != null)
-      ctx.pushResult(factory.buildId(Some(theType), ref, refName))
+      ctx.pushResult(o)
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType) =>
-      val astnum = factory.buildAstMappingTable(sloc, Some(theType))
+      val astnum = factory.next_astnum
       val plist = mlistEmpty[String]
       // import scala.collection.JavaConversions.asScalaBuffer
       // to do implicit conversion between Java collection and scala collection
       // scala.collection.mutable.Buffer <=> java.util.List
       for (param <- functionCallParameters.getAssociations) {
         v(param)
-        plist += factory.buildIdentifierExpr(sloc, ctx.popResult.asInstanceOf[String])
+        plist += getExpressionStr(ctx.popResult)
       }
 
       if (ctx.isBinaryOp(prefixQ)) {
         assert(plist.length == 2)
         val loperand = plist(0)
         val roperand = plist(1)
-        val bexp = factory.buildBinaryExpr(astnum, ctx.getBinaryOp(prefixQ).get, loperand, roperand)
+        val bexp = factory.buildBinaryExpr(astnum, theType, ctx.getBinaryOp(prefixQ).get, loperand, roperand)
         ctx.pushResult(bexp)
       } else if (ctx.isUnaryOp(prefixQ)) {
         assert(plist.length == 1)
         val operand = plist(0)
-        val uexp = factory.buildUnaryExpr(astnum, ctx.getUnaryOp(prefixQ).get, operand)
+        val uexp = factory.buildUnaryExpr(astnum, theType, ctx.getUnaryOp(prefixQ).get, operand)
         ctx.pushResult(uexp)
       } else {
         println("expressionH: need to handle Function Call Expression !")
       }
       false
-    //    case o =>
-    //      println("expressionH: need to handle: " + o.getClass.getSimpleName)
-    //      true
+//    case o =>
+//      println("expressionH: need to handle: " + o.getClass.getSimpleName)
+//      true
   }
 
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
-    case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      val theTyp = if (theType == "null") None else Some(theType)
-      ctx.pushResult(factory.buildId(theTyp, ref, refName))
-      false
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
       val theTyp = if (theType == "null") None else Some(theType)
-      ctx.pushResult(factory.buildId(theTyp, theDef, defName))
+      ctx.pushResult(factory.buildId(theTyp, defName, theDef))
       false
-    //    case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
-    //
-    //      false
-    //    case o =>
-    //      //println("nameH: need to handle: " + o.getClass().getSimpleName())
-    //      true
   }
 
   def associationListH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ AssociationListEx(associations) =>
       val result = mlistEmpty[Any]
-      associations.foreach { association =>
+      for(association <- associations) {
         v(association)
-        result += ctx.popResult
+        result += ctx.popResult        
       }
       ctx.pushResult(result)
       false
@@ -463,36 +473,18 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       assert(false)
       false
   }
-
-  def util_GetTypeFromObjDeclViewQ(objDeclViewQ : DefinitionClass) = {
-    objDeclViewQ.getDefinition() match {
-      case sti @ SubtypeIndicationEx(sloc, hasAliasedQ, hasNullExclusionQ, subtypeMarkQ, subtypeConstraintQ) =>
-        subtypeMarkQ.getExpression() match {
-          case id @ IdentifierEx(sloc, refName, ref, type_) =>
-            Some(ref)
-          case _ =>
-            None
-        }
+  
+  def getExpressionStr(e: Any): String = {
+    e match {
+      case o @ IntegerLiteralEx(sloc, litVal, theType) =>
+        val value = litVal.replaceAll("_", "") // litval could look like 3_500
+        factory.buildConstantExpr(factory.next_astnum, theType, value)
+      case o @ IdentifierEx(sloc, refName, ref, theType) =>
+        // identifier can be variable name or package/procedure name, <theType> is null if it's function name
+        factory.buildIdExpr(factory.next_astnum, theType, refName, ref)
       case _ =>
-        None
+        e.asInstanceOf[String]
     }
-  }
-
-  def unit_trans_seq(stmts : MBuffer[Base], v : => BVisitor) : String = {
-    var result : String = null
-    if (!stmts.isEmpty) {
-      if (stmts.length == 1) {
-        v(stmts.head)
-        result = ctx.popResult.asInstanceOf[String]
-      } else {
-        val seq_astnum = factory.next_astnum
-        v(stmts.head)
-        val stmt1 = ctx.popResult.asInstanceOf[String]
-        val stmt2 = unit_trans_seq(stmts.tail, v)
-        result = factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
-      }
-    }
-    result
   }
 
   def theVisitor : BVisitor = visit
@@ -527,10 +519,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 
   val stg = getProgramTranslatorSTG(t)
   val factory = new Factory(stg)
-  
+
   //println(this.parseGnat2XMLresults)
 
-// for multiple source files, do translation one by one
+  // for multiple source files, do translation one by one
   this.parseGnat2XMLresults.foreach {
     case (key, value) => {
       visit(value)

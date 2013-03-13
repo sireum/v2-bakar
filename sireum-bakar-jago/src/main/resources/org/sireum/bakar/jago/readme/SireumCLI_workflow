@@ -50,26 +50,29 @@ Take CLI for my type/program bakar-jago translator as example.
   ************************
   -- From Jason Belt
 
-Re: ~/Documents/workspace-sireumv2/sireum-internal/sireumv2 $ tools/bin/sbt compile package-bin update-dist
+$ cd ~/Documents/workspace-sireumv2/sireum-internal/sireumv2 
+$ tools/bin/sbt compile package-bin update-dist
 
 
 Step 1: 
 Build update site
 
-~/Documents/workspace-sireumv2/sireum-internal/sireumv2 $ tools/bin/sbt compile package-bin update-dist
+$ cd ~/Documents/workspace-sireumv2/sireum-internal/sireumv2 
+$ tools/bin/sbt compile package-bin update-dist
 
 Step 2
 from ~/temp directory
 
-$ export SIREUM_UPDATE=~/Documents/ ….. /sireumv2/update
+$ export SIREUM_UPDATE=~/Documents/workspaceV2/sireum-internal/sireumv2/update
 
 $ cp $SIREUM_UPDATE/sireum .
 $ chmod 700 ./sireum
 
 $ ./sireum update
 
-$ ./sireum bakar type
-
+$ ./sireum bakar type -t Coq 
+$ ./sireum bakar program -p Coq linear_div_fn.adb [output_file_name]
+  where "output_file_name" is the optional output file name
 
 
 

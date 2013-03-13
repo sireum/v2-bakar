@@ -119,11 +119,14 @@ trait BakarTestFileFramework extends BakarTestFramework {
             val fw = new FileWriter(rfile)
             fw.write(results)
             fw.close
+            if (efile.exists) {
+              val (expected, _) = FileUtil.readFile(efile.toURI.toString)
+              results should equal(expected)
 
-            val (expected, _) = FileUtil.readFile(efile.toURI.toString)
-            results should equal(expected)
-
-            assert(post(c))
+              assert(post(c))
+            } else {
+              fail("Couldn't locate expected results")
+            }
           }
         } catch {
           case e : Throwable =>

@@ -23,19 +23,30 @@ class BakarTypeTest extends TestFramework {
   def compare(mode: SireumBakarTypeMode) {
     val typ = mode.typ
     val fileName = typ match {
-      case TypeTarget.Coq => "test_typ.coq" 
-      case TypeTarget.Ocaml => "test_typ.ocaml"
+      case TypeTarget.Coq => "typ.coq" 
+      case TypeTarget.Ocaml => "typ.ocaml"
     }
     
-    val outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, fileName).toURI().toASCIIString()
-    mode.outFile = outFile
-    BakarTypeTranslator.run(mode)
+    val outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, fileName)
+    // val outFile = new File(if (genExpected) EXPECTED_DIR else RESULT_DIR, fileName).toURI().toASCIIString()
+    // mode.outFile = outFile
+    val results = BakarTypeTranslator.run(mode)
     
-    if(!genExpected) {
-      val (results, _) = FileUtil.readFile(outFile)
-      val (expected, _) = FileUtil.readFile(new File(EXPECTED_DIR , fileName).toURI.toString)
-      results should equal(expected)
+    try {
+      val fw = new FileWriter(outFile)
+      fw.write(results)
+      fw.close()
+      if(!genExpected) {
+        // val (results, _) = FileUtil.readFile(outFile)
+        val (expected, _) = FileUtil.readFile(new File(EXPECTED_DIR , fileName).toURI.toString)
+        results should equal(expected)
+      }      
+    } catch {
+      case e: Throwable =>
+        e.printStackTrace
+        assert(false)
     }
+
   }
   
   test("Coq") {

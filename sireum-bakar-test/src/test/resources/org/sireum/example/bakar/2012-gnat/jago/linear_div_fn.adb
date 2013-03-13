@@ -1,15 +1,16 @@
-procedure Linear_Div_Complete (Dividend : Integer;
-			       Divisor : Integer; Quotient : out Integer; Remainder : out Integer)
--- Right now we don't handle the procedure body with Pre/Post aspects
-  
+function Linear_Div_Fn (Dividend : Integer;
+			      Divisor : Integer) return Integer
 --  with 
---  Pre => Divisor > 0 and Dividend >= 0, Post => Quotient >= 0 
+--  Pre => Divisor > 0 and Dividend >= 0, 
+--  Post => Quotient >= 0 
 --  and Remainder >= 0
 --  and Remainder < Divisor
 --  and Divisor * Quotient + Remainder = Dividend;
-is begin
+is 
+   Quotient : Integer := 0; 
+   Remainder : Integer; 
+begin
    --pragma Assume (Dividend /= 0);
-   Quotient := 0;
    Remainder := Dividend;
    while Remainder >= Divisor loop
       pragma Loop_Invariant
@@ -20,4 +21,5 @@ is begin
       Quotient := Quotient + 1;
       Remainder := Remainder - Divisor;
    end loop;
-end Linear_Div_Complete;
+   return Remainder;
+end Linear_Div_Fn;
