@@ -23,12 +23,6 @@ object BakarType {
 }
 
 object BakarProgram extends ImplicitLogging {
-//  case class Configuration(
-//    sources : ISeq[FileResourceUri], // type FileResourceUri = String
-//    expectedDir : File,
-//    resultsDir : File,
-//    job : PipelineJob)
-
   def pipeline : PipelineConfiguration =
     PipelineConfiguration(
       "Jago Bakar program translation pipeline",
@@ -69,20 +63,44 @@ object BakarProgram extends ImplicitLogging {
     setJobEnvirenment(job, o)
     pipeline.compute(job)
 
-    val results = BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
-    var r : String = ""
-    for (e <- results) {
-      r += e + "\n"
+    val tags = job.tags
+
+    var error = false
+    if (!tags.isEmpty) {
+      println(Tag.collateAsString(tags))
+
+      error = tags.exists { t =>
+        t.typ match {
+          case m @ MarkerType(n, d, t, MarkerTagSeverity.Error, p, k) => true
+        }
+      }
     }
-    if (o.outFile != "") {
-      TranslatorUtil.writeIntoOutFile(r, o.outFile)
-    } else {
-      Console.println(r)
+    //val tags = if (!job.tags.isEmpty) job.tags else job.lastStageInfo.tags
+    //    if(!tags.isEmpty){
+    //      tags.foreach{
+    //        case InfoTag(MarkerType(n,d,t,s,p,k), desc) =>
+    //          var stream = if(s == MarkerTagSeverity.Error) Console.err else  Console.err
+    //          stream.println(desc)
+    //        case _ =>
+    //      }
+    //    }
+
+    if (!error) {
+      val results = BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
+      var r : String = ""
+      for (e <- results) {
+        r += e + "\n"
+      }
+      if (o.outFile != "") {
+        TranslatorUtil.writeIntoOutFile(r, o.outFile)
+      } else {
+        Console.println(r)
+      }
     }
   }
 
   def main(args : Array[String]) {
-    val srcFiles = scala.collection.immutable.Seq[String]("linear_div_with_loopInvariant.adb")
+    val srcFiles = scala.collection.immutable.Seq[String]("../sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb")
     val mode = SireumBakarProgramMode(
       ProgramTarget.Coq,
       srcFiles,
