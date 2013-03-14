@@ -107,12 +107,12 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
 
   def buildLocationTag(message : String) = {
     val tagType = MarkerType(
-        "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
-        MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]
-      )
+      "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
+      MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]
+    )
 
-    implicit def isDigits(str: String) = str.forall(c => c.isDigit)
-      
+      implicit def isDigits(str : String) = str.forall(c => c.isDigit)
+
     var rettags = ivectorEmpty[Tag]
     for (m <- message.split("\n").drop(2)) {
       m.split(":").toList match {
@@ -142,12 +142,12 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
     case Exec.Timeout =>
     case Exec.ExceptionRaised(exception) =>
       val pattern = new Regex("\\s*Cannot run program \"gnat2xml\".*")
-      val emsg: Option[String] =
+      val emsg : Option[String] =
         pattern.findFirstIn(exception.toString) match {
-        case Some(_) =>
-          Some("\"gnat2xml\" cannot be found in the path !")
-        case _ => None
-      }
+          case Some(_) =>
+            Some("\"gnat2xml\" cannot be found in the path !")
+          case _ => None
+        }
       info.tags += InfoTag(MarkerType(
         "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
         MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]
