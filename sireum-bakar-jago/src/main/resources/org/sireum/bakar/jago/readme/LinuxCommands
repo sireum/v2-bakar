@@ -31,6 +31,10 @@ sireum-bakar-internal/sireum-bakar-doc/src/main/resources:
 
 Note that you need to have sphinx installed (I use macports' py27-sphinx).
 
+ (7) history
+ print all the used terminal commands
+  
+  
 
  
  /***************************************************/

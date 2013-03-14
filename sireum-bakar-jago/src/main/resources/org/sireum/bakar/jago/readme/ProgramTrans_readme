@@ -95,6 +95,10 @@ foo.txt
 # Ignore objects and archives.
 *.[oa]
 
+(8)
+after import the project ``sireumv2``, read its ``README.TXT`` to fix the errors in it
+"In order for Eclipse to compile this project, you need to run sbt-init from 
+command-line at least once. See the instructions in build.txt."
 
 /************************************
 **          Git Repository
