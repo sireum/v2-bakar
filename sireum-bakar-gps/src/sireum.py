@@ -162,10 +162,10 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir):
 	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
 	run_kiasan_command.append("--topi-bin-dir")
 	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get())
-	run_kiasan_command.append("--generate-claim-coverage-report")
-	run_kiasan_command.append("--modular-analysis")
 	if GPS.Preference("sireum-kiasan-generate-claim-report").get():
-		run_kiasan_command.append("--generate-pogs-report") 
+		run_kiasan_command.append("--generate-claim-coverage-report")
+		run_kiasan_command.append("--modular-analysis")
+		run_kiasan_command.append("--generate-pogs-report")
 	run_kiasan_command.append("--source-paths=" + source_paths)
 	run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
 	run_kiasan_command.append("--print-trace-bound-exhausted")
@@ -179,8 +179,12 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir):
 		run_kiasan_command.append("--generate-aunit-test-cases")
 	if GPS.Preference("sireum-kiasan-generate-html-report").get():
 		run_kiasan_command.append("--generate-html-report")
-		run_kiasan_command.append(GPS.Preference("sireum-kiasan-html-output-directory").get()) 
-	warnings.warn('add dotLocation?? (KiasanRunner.java:443)')
+		#run_kiasan_command.append("--html-report-dir")
+		#run_kiasan_command.append(GPS.Preference("sireum-kiasan-html-output-directory").get())
+		run_kiasan_command.append("--dot-location")
+		run_kiasan_command.append(GPS.Preference("sireum-kiasan-location-of-dot-executable").get())
+		run_kiasan_command.append("--dot-format") 
+		run_kiasan_command.append("XDOT") 
 	run_kiasan_command.append(package_name)
 	
 	return run_kiasan_command
