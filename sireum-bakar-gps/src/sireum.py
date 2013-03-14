@@ -12,30 +12,6 @@ import urllib
 import subprocess
 
 
-def run_helper():
-	"""This is helper function with reference to GPS function for fetching properties of project/code."""
-	
-#	print "filename:", GPS.current_context().file().name()
-#	print "dir:", GPS.current_context().directory()
-#	print "entity:", GPS.current_context().entity().name()
-#	print "entity category:", GPS.current_context().entity().category()
-#	print "entity declaration:", GPS.current_context().entity().declaration()
-#	#print "entity body:", GPS.current_context().entity().body()
-#	print "entity methods:", GPS.current_context().entity().methods()
-#	print "entity primitive_of:", GPS.current_context().entity().primitive_of()
-#	print "entity references:", GPS.current_context().entity().references()
-#	print "dir(entity)", dir(GPS.current_context().entity())
-#	print "project filename:", GPS.current_context().project().file().name()
-#	print "root project file/pathname:", GPS.Project.root().file().name()
-#	print "source files:", GPS.current_context().project().sources()
-#	print "source dirs:", GPS.current_context().project().source_dirs()
-#	print "project dir:", os.path.dirname(GPS.current_context().project().file().name())
-#	print '\n\nGPS.File(GPS.current_context().file().name()).entities()', GPS.File(GPS.current_context().file().name()).entities()
-#	print '\n\nGPS.current_context().file().entities()', GPS.current_context().file().entities()
-#	print '\n\nGPS.File(GPS.current_context().file().name()).entities(False)', GPS.File(GPS.current_context().file().name()).entities(False)
-#	print '\n\nGPS.current_context().file().entities(False)', GPS.current_context().file().entities(False)
-	
-	
 def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
 	project_path = os.path.dirname(GPS.current_context().project().file().name()).replace("\\", "/")	#normalized project path
@@ -79,10 +55,10 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 def run_kiasan_tool():
 	"""Runs Kiasan based on preferences and clicked entity."""	
 	# get package name (we assume that package_name = file_name_without_extension)
-	warnings.warn('Maybe better solution is fetch package from entities list? (like methods)')
 	file_name = GPS.current_context().file().name().replace("\\","/")
 	match = re.search(r'(?<=\/)(\w+)\.ad[bs]', file_name)
 	package_name = match.groups()[0]
+	warnings.warn('Maybe better solution is fetch package from entities list? (like methods)')
 	
 	SIREUM_PATH = get_sireum_path()
 	
@@ -98,9 +74,9 @@ def run_kiasan_tool():
 			if entity.category() == 'subprogram':
 				methods_list.append(entity.name())
 	
+	source_paths = GPS.current_context().directory().replace("\\","/")
 	output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
-	
-	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, output_dir)
+	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir)
 	
 	# run Kiasan tool for each method	
 	for method in methods_list:
@@ -158,7 +134,7 @@ def load_sireum_settings(SIREUM_PATH):
 			theorem_prover.set(default_theorem_prover_path)
 	
 
-def get_run_kiasan_command(SIREUM_PATH, package_name, output_dir):
+def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir):
 	""" Create command for run Kiasan. """
 	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302271712/lib/"	
 	
@@ -190,7 +166,7 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, output_dir):
 	run_kiasan_command.append("--modular-analysis")
 	if GPS.Preference("sireum-kiasan-generate-claim-report").get():
 		run_kiasan_command.append("--generate-pogs-report") 
-	run_kiasan_command.append("--source-paths=" + GPS.current_context().directory().replace("\\","/"))
+	run_kiasan_command.append("--source-paths=" + source_paths)
 	run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
 	run_kiasan_command.append("--print-trace-bound-exhausted")
 	warnings.warn('run_kiasan_command.append("--gen-bound-exhaustion-cases")')
@@ -221,18 +197,12 @@ GPS.parse_xml ("""
     <action name="run Kiasan">
     	<filter id="Source editor in Ada" />
         <shell lang="python">sireum.run_kiasan_plugin()</shell>
-    </action>
-    <action name="run Helper">
-        <shell lang="python">sireum.run_helper()</shell>
-    </action>
+    </action>    
     <submenu before="Window">
         <title>Sireum</title>
         <menu action="run Kiasan">
             <title>Run Kiasan</title>
-        </menu>
-        <menu action="run Helper">
-            <title>Run Helper</title>
-        </menu>    	
+        </menu>	    	
     </submenu>
 	<contextual action="run Kiasan" >
     	<Title>Sireum/Run Kiasan</Title>

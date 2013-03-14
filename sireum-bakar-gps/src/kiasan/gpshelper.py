@@ -6,7 +6,7 @@ def remove_highlight_from_file(file_name):
     file_name -- path to file with highlighted lines
     """
     gps_file = GPS.File(file_name)
-    old_lines = GPS.Message.list(file=gps_file)
+    old_lines = GPS.Message.list(file=gps_file, category="kiasan_highlight")
     for line in old_lines:
         line.remove()
         
@@ -25,11 +25,10 @@ def highlight(file_name, coverage):
     
     gps_file = GPS.File(file_name)     
     
-        
     for i in range(1,len(coverage)):
         if coverage[i] == "Full":
             line = GPS.Message("kiasan_highlight", gps_file, i, 1, "message text", 2)
-            line.set_style(full_cover)        
+            line.set_style(full_cover)      
         elif coverage[i] == "Partial":
             line = GPS.Message("kiasan_highlight", gps_file, i, 1, "message text", 2)
             line.set_style(partial_cover)
