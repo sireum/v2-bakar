@@ -29,7 +29,7 @@ class PPRewriter {
   }
 
   val rewriter = Rewriter.build[Model]({
-    case o : AnnotableProperty =>
+    case o : AnnotableProperty[_] =>
       if (!o.propertyMap.isEmpty) {
         var annots = ilistEmpty[Annotation]
         for ((k, v) <- o.propertyMap if k != ".annotations") {
