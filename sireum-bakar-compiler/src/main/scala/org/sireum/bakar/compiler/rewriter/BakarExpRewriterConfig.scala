@@ -78,7 +78,7 @@ class BakarRewriter {
       val te = newTempVar
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, te, ":=", exp))
       clhs match {
-        case Some(cexp) if cexp == e =>
+        case Some(cexp) if cexp eq e =>
           postlocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, exp, ":=", te))
         case _ =>
       }
@@ -87,13 +87,16 @@ class BakarRewriter {
     case e @ IndexingExp(exp, indices) =>
       val te = newTempVar
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, te, ":=", exp))
+      println(e)
       clhs match {
-        case Some(cexp) if cexp == e =>
+        case Some(cexp) if cexp eq e =>
           postlocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, exp, ":=", te))
         case _ =>
       }
 
-      IndexingExp(te, indices)
+      val ie = IndexingExp(te, indices)
+      ie.propertyMap ++= e.propertyMap
+      ie
   }, Rewriter.TraversalMode.BOTTOM_UP)
 
   def rewrite(m : Model) : Model = {

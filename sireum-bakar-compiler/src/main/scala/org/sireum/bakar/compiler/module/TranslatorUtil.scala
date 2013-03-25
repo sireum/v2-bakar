@@ -6,6 +6,8 @@ import org.sireum.pilar.ast._
 import org.sireum.util._
 
 object URIS {
+  val TYPE_MAP = "BAKAR_TYPE_MAP"
+  val TYPE_DEF = "BAKAR_TYPE_DEF"
   val TYPE_URI = "BAKAR_TYPE_URI"
   val REF_URI = "BAKAR_REF_URI"
 }
@@ -19,9 +21,15 @@ object TranslatorUtil {
 
   def getTypeDeclarations(e : ElementList) = {
     e.getElements().filter {
-      case x : OrdinaryTypeDeclaration => true
-      case x : SubtypeDeclaration      => true
-      case _                           => false
+      case x : OrdinaryTypeDeclaration         => true
+      case x : IncompleteTypeDeclaration       => true
+      case x : PrivateTypeDeclaration          => true
+      case x : SubtypeDeclaration              => true
+      case x : ProtectedTypeDeclaration        => true
+      case x : TaggedIncompleteTypeDeclaration => true
+      case x : FormalIncompleteTypeDeclaration => true
+      case x : FormalTypeDeclaration           => true
+      case _                                   => false
     }
   }
 

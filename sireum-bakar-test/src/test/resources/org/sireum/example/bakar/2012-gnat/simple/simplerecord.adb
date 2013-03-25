@@ -1,7 +1,12 @@
 package body SimpleRecord is
+
+   subtype SmallInt is Integer range -10 .. 10;
+
+   type Vector is array (SmallInt) of SmallInt;
+      
    type Rec is record
-      A : Integer;
-      B : Integer;
+      A : SmallInt;
+      B : Vector;
    end record;
 
    type NestedRec is record
@@ -10,14 +15,20 @@ package body SimpleRecord is
     
    function Dummy return Boolean is begin return True; end Dummy;
 
-   procedure Add(I : Integer; R : in out Rec) is
+   procedure Add(I : SmallInt; R : in out Rec) is
    begin
-      R.B := R.A + I;
+      R.A := R.A + I;
    end  Add;
     
-   procedure NAdd(NR : in out NestedRec) is
+   procedure NAdd(I : SmallInt; NR : in out NestedRec) is
    begin
-     NR.X.A := NR.X.B + 7;
+     NR.X.A := NR.X.A + I;
    end NAdd;
     
+   procedure AAdd(I : SmallInt; R : in out Rec) is
+   begin
+     R.B(I) := I + 1;
+   end AAdd;
+  
+   
 end SimpleRecord;
