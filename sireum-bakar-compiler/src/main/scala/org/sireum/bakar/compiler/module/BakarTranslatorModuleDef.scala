@@ -1,11 +1,12 @@
 package org.sireum.bakar.compiler.module
 
+import scala.collection.JavaConversions.asScalaBuffer
+
+import org.sireum.bakar.symbol._
 import org.sireum.bakar.xml._
 import org.sireum.pilar.ast._
 import org.sireum.pipeline._
 import org.sireum.util._
-import scala.collection.JavaConversions.asScalaBuffer
-import java.io.File
 
 class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
 
@@ -193,9 +194,234 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
       pp
     }
+
+    def getName(o : Base) : (SourceLocation, String, String, String) = {
+      o match {
+        case e @ ExpressionClassEx(exp) =>
+          getName(exp)
+        case di @ DefiningIdentifierEx(sloc, defName, _def, typ) => (sloc, defName, _def, typ)
+        case i @ IdentifierEx(sloc, refName, ref, typ)           => (sloc, refName, ref, typ)
+      }
+    }
+
+    def handleTypeDefinition(o : DefinitionClass, v : => BVisitor) : Option[TypeDef] = {
+      o.getDefinition match {
+        case cad @ ConstrainedArrayDefinitionEx(sloc, discreteSubtypeDefs, arrayComponentDef) =>
+          val dim = discreteSubtypeDefs.getDefinitions.size
+          assert(dim == 1)
+
+          println(arrayComponentDef.getElement())
+
+          var compTypeName : Option[String] = None
+          var compTypeUri : Option[ResourceUri] = None
+          arrayComponentDef.getElement match {
+            case cd @ ComponentDefinitionEx(sloc, ha, compDefView) =>
+              assert(isEmpty(ha.getHasAliased()))
+              compDefView.getDefinition match {
+                case si @ SubtypeIndicationEx(siloc, ha, hne, smark, scons) =>
+                  assert(isEmpty(ha.getHasAliased()))
+                  assert(isEmpty(hne.getHasNullExclusion))
+                  assert(isEmpty(scons.getConstraint))
+
+                  var (_, tname, turi, _) = getName(smark.getExpression)
+                  compTypeName = Some(tname)
+                  compTypeUri = Some(turi)
+              }
+            case x =>
+              Console.err.println("Not expecting array component type " + x)
+              assert(false)
+          }
+
+          var indexTypes = ivectorEmpty[ResourceUri]
+          discreteSubtypeDefs.getDefinitions.foreach {
+            case ds @ DiscreteSubtypeIndicationAsSubtypeDefinitionEx(sloc, stmark, stcons) =>
+              assert(isEmpty(stcons.getConstraint()))
+
+              val (_, itname, ituri, _) = getName(stmark)
+              indexTypes :+= ituri
+            case x =>
+          }
+
+          return Some(ConstrainedArrayDef("", dim, compTypeUri.get, indexTypes))
+
+        case etd @ EnumerationTypeDefinitionEx(_) =>
+        case rtd @ RecordTypeDefinitionEx(rsloc, hasAbs, hasLim, recDef) =>
+          assert(this.isEmpty(hasAbs.getHasAbstract()))
+          assert(this.isEmpty(hasLim.getHasLimited()))
+
+          val components = mlinkedMapEmpty[String, ComponentDef]
+          recDef.getDefinition match {
+            case rde @ RecordDefinitionEx(rdsloc, hasLim, recordComponents) =>
+              assert(this.isEmpty(hasLim.getHasLimited()))
+
+              for (rc <- recordComponents.getRecordComponents) {
+                rc match {
+
+                  case cd @ ComponentDeclarationEx(rcsloc, names, hasAliased,
+                    objDecView, initExp, aspectSpec) =>
+                    assert(this.isEmpty(hasAliased.getHasAliased()))
+                    assert(this.isEmpty(initExp.getExpression()))
+                    assert(aspectSpec.getElements().isEmpty())
+                    assert(names.getDefiningNames().size() == 1)
+
+                    var typeName : Option[String] = None
+                    var typeUri : Option[String] = None
+
+                    objDecView.getDefinition match {
+                      case cd @ ComponentDefinitionEx(sloc, ha, compDefView) =>
+                        assert(isEmpty(ha.getHasAliased()))
+                        compDefView.getDefinition match {
+                          case si @ SubtypeIndicationEx(siloc, ha, hne, smark, scons) =>
+                            assert(isEmpty(ha.getHasAliased()))
+                            assert(isEmpty(hne.getHasNullExclusion))
+                            assert(isEmpty(scons.getConstraint))
+
+                            var (_, tname, turi, _) = getName(smark.getExpression)
+                            typeName = Some(tname)
+                            typeUri = Some(turi)
+                        }
+                    }
+                    val (csloc, cname, curi, ctype) = this.getName(names.getDefiningNames.head)
+                    components(cname) = ComponentDef(curi, typeName.get, typeUri.get, handleLoc(csloc))
+                  case x =>
+                    Console.err.println("Not expecting component decl " + x)
+                    assert(false)
+                }
+              }
+            case x =>
+              Console.err.println("Not expecting record definition " + x)
+              assert(false)
+          }
+          return Some(RecordTypeDef(
+            "que",
+            false,
+            components.toMap))
+        case x =>
+          Console.err.println("Not handling type def " + x)
+          assert(false)
+      }
+      assert(false)
+      None
+    }
+
+    def handleLoc(s : SourceLocation) : Location =
+      new BeginEndLineColumnLocation {
+        var lineBegin = s.getLine
+        var columnBegin = s.getCol
+        var lineEnd = s.getEndline
+        var columnEnd = s.getEndcol
+      }
+
+    def handleType(o : Base, v : => BVisitor) : Option[PackageElement] = {
+      o match {
+        case otd @ OrdinaryTypeDeclarationEx(sloc, names, discriminantPart,
+          typeDecView, aspectSpecs) =>
+          assert(names.getDefiningNames().size == 1)
+          assert(this.isEmpty(discriminantPart.getDefinition()))
+          assert(aspectSpecs.getElements().isEmpty())
+
+          val (tsloc, tname, turi, ttyp) = getName(names.getDefiningNames.head)
+
+          val td = this.handleTypeDefinition(typeDecView, v)
+
+          td.get match {
+            case cad : ConstrainedArrayDef =>
+              val tad = TypeAliasDecl(NameDefinition(tname),
+                TranslatorUtil.emptyAnnot,
+                NamedTypeSpec(NameUser("_ARRAY_"), ilistEmpty[TypeSpec]))
+              tad(URIS.TYPE_DEF) = cad
+              tad(URIS.TYPE_URI) = turi
+              return Some(tad)
+            case rtd : RecordTypeDef =>
+              var attrs = ivectorEmpty[AttributeDecl]
+              for ((k, v) <- rtd.components) {
+                val attr = AttributeDecl(
+                  NameDefinition(k),
+                  TranslatorUtil.emptyAnnot,
+                  Some(NamedTypeSpec(NameUser(v.typeName), ilistEmpty[TypeSpec])),
+                  None
+                )
+                attr(URIS.REF_URI) = v.refUri
+                attr(URIS.TYPE_URI) = v.typeUri
+                attrs :+= attr
+              }
+              val rd = RecordDecl(
+                NameDefinition(tname),
+                TranslatorUtil.emptyAnnot,
+                ilistEmpty[(NameDefinition, ISeq[Annotation])],
+                ilistEmpty[ExtendClause],
+                attrs
+              )
+              rd(URIS.TYPE_DEF) = rtd
+              rd(URIS.TYPE_URI) = turi
+              return Some(rd)
+            case x =>
+              Console.err.println("Not handling " + x)
+              assert(false)
+          }
+          None
+        case std @ SubtypeDeclarationEx(sloc, names, typeDeclView, aspectSpecs) =>
+          assert(names.getDefiningNames().size == 1)
+          assert(aspectSpecs.getElements().isEmpty())
+
+          val (tsloc, tname, turi, ttyp) = getName(names.getDefiningNames.head)
+
+          typeDeclView.getDefinition match {
+            case si @ SubtypeIndicationEx(sloc, hasAliased, hasNullEx, subtypeMark,
+              subtypeCons) =>
+              assert(this.isEmpty(hasAliased.getHasAliased()))
+              assert(this.isEmpty(hasNullEx.getHasNullExclusion()))
+
+              val (ssloc, sname, suri, styp) = getName(subtypeMark)
+
+              var cons : Option[Constraint] = None
+              if (!this.isEmpty(subtypeCons.getConstraint())) {
+                subtypeCons.getConstraint() match {
+                  case ser @ SimpleExpressionRangeEx(sloc, lower, upper) =>
+                    v(lower)
+                    val l = this.popResult.asInstanceOf[Exp]
+
+                    v(upper)
+                    val u = this.popResult.asInstanceOf[Exp]
+
+                    cons = Some(SimpleRangeConstraint(l, u))
+                  case x =>
+                    Console.err.println("Not expecting constraint type " + x)
+                }
+              }
+
+              val std = SubTypeDecl(tname, turi, suri, cons)
+              val tad = TypeAliasDecl(NameDefinition(tname),
+                TranslatorUtil.emptyAnnot,
+                NamedTypeSpec(NameUser(sname), ilistEmpty[TypeSpec]))
+
+              tad(URIS.TYPE_DEF) = std
+              tad(URIS.TYPE_URI) = turi
+
+              return Some(tad)
+            case x =>
+              Console.err.println("Not expecting type decl view " + x)
+              assert(false)
+          }
+          None
+        case x =>
+          Console.err.println("Not handling type declaration " + x)
+          assert(false)
+          None
+      }
+    }
   }
 
   implicit def nd2nu(nd : NameDefinition) = NameUser(nd.name)
+
+  implicit def addprop[T <: PropertyProvider](pp : T, key : String, value : Any) : T = {
+    if (value == null || value == "null" || value == "") {
+      Console.err.println(s"null/empty value for $key from $pp")
+    } else {
+      pp.setProperty(key, value)
+    }
+    pp
+  }
 
   def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ CompilationUnitEx(
@@ -255,7 +481,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       val pname = NameDefinition(di.getDefName())
 
       val packElems = mlistEmpty[PackageElement]
-      TranslatorUtil.getTypeDeclarations(bodyDecItems)
+
+      for (td <- TranslatorUtil.getTypeDeclarations(bodyDecItems)) {
+        val pe = ctx.handleType(td, v)
+        if (pe.isDefined) packElems += pe.get
+      }
 
       if (!aspectSpec.getElements().isEmpty())
         Console.err.println("Need to handle package body aspect clauses")
@@ -411,15 +641,17 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   }
 
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
-    case o @ IdentifierEx(sloc, refName, ref, theType) =>
-      val ret = ctx.addProperty(URIS.TYPE_URI, theType, NameExp(
-        ctx.addProperty(URIS.REF_URI, ref, NameUser(refName))))
-      ctx.pushResult(ret)
+    case o @ IdentifierEx(sloc, name, uri, typ) =>
+      val nu = NameUser(name)
+      this.addprop(nu, URIS.REF_URI, uri)
+      this.addprop(nu, URIS.TYPE_URI, typ)
+      ctx.pushResult(NameExp(nu))
       false
-    case o @ DefiningIdentifierEx(sloc, defName, theDef, theType) =>
-      val ret = ctx.addProperty(URIS.TYPE_URI, theType, NameExp(
-        ctx.addProperty(URIS.REF_URI, theDef, NameUser(defName))))
-      ctx.pushResult(ret)
+    case o @ DefiningIdentifierEx(sloc, name, uri, typ) =>
+      val nu = NameUser(name)
+      this.addprop(nu, URIS.REF_URI, uri)
+      this.addprop(nu, URIS.TYPE_URI, typ)
+      ctx.pushResult(NameExp(nu))
       false
     case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
 
@@ -650,17 +882,22 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
 
       val ie = IndexingExp(pprefix, indices.toList)
+
+      assert(theType != null && theType != "null")
+      addprop(ie, URIS.TYPE_URI, theType)
+
       ctx.pushResult(ie)
       false
     case o @ SelectedComponentEx(sloc, prefix, selector, typ) =>
       v(prefix)
       val e = ctx.popResult.asInstanceOf[Exp]
-      
-      v(selector)
-      val s = ctx.popResult.asInstanceOf[NameExp]
-      
-      val ae = AccessExp(e, s.name)
-      ctx.pushResult(ae)
+
+      val (selsloc, selname, seluri, styp) = ctx.getName(selector)
+      val attr = NameUser(selname)
+      addprop(attr, URIS.REF_URI, seluri)
+      addprop(attr, URIS.TYPE_URI, styp)
+
+      ctx.pushResult(AccessExp(e, attr))
       false
     case o @ (
       RealLiteralEx(_) |
