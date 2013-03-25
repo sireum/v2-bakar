@@ -100,6 +100,15 @@ after import the project ``sireumv2``, read its ``README.TXT`` to fix the errors
 "In order for Eclipse to compile this project, you need to run sbt-init from 
 command-line at least once. See the instructions in build.txt."
 
+  (* build soft link to the source code *)
+$ cd ~/Documents/workspaceV2/sireum-core-internal/sireumv2/codebase
+$ ~/Documents/workspaceV2/sireum-bakar bakar
+$ ~/Documents/workspaceV2/sireum-bakar-internal/ bakar-internal
+$ ln -s ~/Documents/workspaceV2/sireum-core core
+  (* solve the dependency problems *)
+$ cd ~/Documents/workspaceV2/sireum-core-internal/sireumv2/
+$ tools/bin/sbt-init 
+
 /************************************
 **          Git Repository
 *************************************/
