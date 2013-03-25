@@ -30,16 +30,26 @@ class PPRewriter {
 
   val rewriter = Rewriter.build[Model]({
     case o : AnnotableProperty[_] =>
-      if (!o.propertyMap.isEmpty) {
+      if (!o.propertyEmpty) {
         var annots = ilistEmpty[Annotation]
-        for ((k, v) <- o.propertyMap if k != ".annotations") {
+        for ((k, v) <- o.propertyMap if k != AnnotableProperty.annPropKey) {
           val xv = xs.to(v)
           annots :+= Annotation(NameUser(k.toString),
-            ilist(ExpAnnotationParam(None, LiteralExp(LiteralType.STRING, "", xv))))
+            ilist(ExpAnnotationParam(None, LiteralExp(LiteralType.RAW, "", xv))))
         }
         o.annotations = annots
       }
       o
+    case o : Annotable[_] =>
+      if (!o.propertyEmpty) {
+        var annots = ilistEmpty[Annotation]
+        for ((k, v) <- o.propertyMap if k != AnnotableProperty.annPropKey) {
+          val xv = xs.to(v)
+          annots :+= Annotation(NameUser(k.toString),
+            ilist(ExpAnnotationParam(None, LiteralExp(LiteralType.RAW, "", xv))))
+        }
+        o.make(annots)
+      } else o
     case x =>
       println("Don't know what to do with " + x)
       x
