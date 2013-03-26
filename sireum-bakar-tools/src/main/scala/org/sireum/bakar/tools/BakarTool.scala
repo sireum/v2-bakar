@@ -2,7 +2,6 @@ package org.sireum.bakar.tools
 
 import org.sireum.option.SireumBakarTypeMode
 import org.sireum.option.SireumBakarProgramMode
-import org.sireum.bakar.jago.typ.BakarTypeTranslator
 import org.sireum.option.TypeTarget
 import org.sireum.pipeline._
 import java.io.File
@@ -15,17 +14,38 @@ import org.sireum.bakar.jago.program.BakarProgramTranslatorModule
 import org.sireum.bakar.jago.util.TranslatorUtil
 import org.sireum.option.ProgramTarget
 import org.sireum.util._
+import org.sireum.bakar.jago.typ.BakarTypTranslatorModule
 
-object BakarType {
+object BakarType extends ImplicitLogging {
+  def pipeline : PipelineConfiguration = 
+    PipelineConfiguration(
+        "Bakar Jago type translation pipeline",
+        false,
+        PipelineStage(
+            "type translator stage",
+            false,
+            BakarTypTranslatorModule
+        )
+    )
+  
   def run(o : SireumBakarTypeMode) = {
-    BakarTypeTranslator.run(o)
-  }
+    val job = PipelineJob()
+    BakarTypTranslatorModule.setJagoTypeTarget(job.properties, o.typ)
+    pipeline.compute(job)
+    val results = BakarTypTranslatorModule.getJagoTypeResults(job.properties)
+
+    if (o.outFile != "") {
+      TranslatorUtil.writeIntoOutFile(results, o.outFile)
+    } else {
+      Console.println(results)
+    }
+  }    
 }
 
 object BakarProgram extends ImplicitLogging {
   def pipeline : PipelineConfiguration =
     PipelineConfiguration(
-      "Jago Bakar program translation pipeline",
+      "Bakar Jago program translation pipeline",
       false,
       PipelineStage(
         "gnat2xml stage",
@@ -99,12 +119,12 @@ object BakarProgram extends ImplicitLogging {
     }
   }
 
-  def main(args : Array[String]) {
-    val srcFiles = scala.collection.immutable.Seq[String]("../sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb")
-    val mode = SireumBakarProgramMode(
-      ProgramTarget.Coq,
-      srcFiles,
-      "outFile")
-    run(mode)
-  }
+//  def main(args : Array[String]) {
+//    val srcFiles = scala.collection.immutable.Seq[String]("../sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/jago/linear_div_with_loopInvariant.adb")
+//    val mode = SireumBakarProgramMode(
+//      ProgramTarget.Coq,
+//      srcFiles,
+//      "outFile")
+//    run(mode)
+//  }
 }
