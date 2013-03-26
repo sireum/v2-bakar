@@ -101,7 +101,7 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
   //val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
   //println(result1)
 
-  val g2xargs = ivector(Util.gnat2xml, "-t",
+  val g2xargs = ivector(Util.gnat2xml, "-v", "-t",
     "-m" + baseDestDir.getAbsolutePath()) ++ sfiles
   val gnat2xmlResult = new Exec().run(waittime, g2xargs, None, Some(tempDir))
 
@@ -114,7 +114,7 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
       implicit def isDigits(str : String) = str.forall(c => c.isDigit)
 
     var rettags = ivectorEmpty[Tag]
-    for (m <- message.split("\n").drop(2)) {
+    for (m <- message.split("\n").drop(3)) {
       m.split(":").toList match {
         case fname :: line :: col :: error :: Nil if line && col =>
           rettags :+= Tag.toTag(Some(fname.toLowerCase), line.toInt, col.toInt, error, tagType)
