@@ -57,13 +57,13 @@ $ tools/bin/sbt compile package-bin update-dist
 Step 1: 
 Build update site
 
-$ cd ~/Documents/workspace-sireumv2/sireum-internal/sireumv2 
+$ cd ~/Documents/workspace-sireumv2/sireum-core-internal/sireumv2 
 $ tools/bin/sbt compile package-bin update-dist
 
 Step 2
 from ~/temp directory
 
-$ export SIREUM_UPDATE=~/Documents/workspaceV2/sireum-internal/sireumv2/update
+$ export SIREUM_UPDATE=~/Documents/workspaceV2/sireum-core-internal/sireumv2/update
 
 $ cp $SIREUM_UPDATE/sireum .
 $ chmod 700 ./sireum

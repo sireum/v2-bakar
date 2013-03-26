@@ -1,0 +1,58 @@
+(* Compilation Unit *)
+CompilationUnit 1
+  (* Compilation Unit - Unit Declaration *) (
+    UnitDecl 2 (
+      (* Function Body Declaration *)
+      Sfunc 3 (
+        mkfunction_body 4
+          (* Function Body - Name *)
+          (*Factorial*) 1
+          (* Function Body - Return Type *) 
+          (Tint) 
+          (* Function Body - Specification *)
+          (None)
+          (* Function Body - Parameters *)
+          (Some(
+            mkparam_specification 5 ((*N*) 1 :: nil) (1) (In) None :: nil
+          ))
+          (* Function Body - Local Defined Variables *)
+          (Some(
+            mklocal_declaration 6 ((*Result*) 2 :: nil) 1 (Some (Econst 7 (Ointconst 1))) :: 
+            mklocal_declaration 8 ((*T*) 3 :: nil) 1 None :: nil
+          ))
+          (* Function Body - Body *) (
+            Sseq 9 (
+              Sassign 10 ((*T*) 3) (Evar 11 (*N*) 1) ) ( 
+              Sseq 12 (
+                Swhile 13 (Ebinop 14 Cgt (Evar 15 (*T*) 3) (Econst 16 (Ointconst 0))) (
+                    Sseq 17 (
+                      Sassign 18 ((*Result*) 2) (Ebinop 19 Omul (Evar 20 (*Result*) 2) (Evar 21 (*T*) 3)) ) ( 
+                      Sassign 22 ((*T*) 3) (Ebinop 23 Osub (Evar 24 (*T*) 3) (Econst 25 (Ointconst 1))) )
+                  ) ) ( 
+                Sreturn 26 (Some (Evar 27 (*Result*) 2)) ) )
+          )
+      )
+    )
+  )
+  (* Compilation Unit - Type Table *) (
+    mktype_table (
+      (* Expression Type Table: Expression AstNum --> TypeNum *)
+      (7, 2) ::
+      (11, 1) ::
+      (14, 3) ::
+      (15, 1) ::
+      (16, 2) ::
+      (19, 1) ::
+      (20, 1) ::
+      (21, 1) ::
+      (23, 1) ::
+      (24, 1) ::
+      (25, 2) ::
+      (27, 1) :: nil
+    ) (
+      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
+      (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
+      (2, ("universal_integer"%string, None)) ::
+      (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) :: nil
+    )
+  )

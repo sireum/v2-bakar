@@ -1,0 +1,49 @@
+(* Compilation Unit *)
+CompilationUnit 1
+  (* Compilation Unit - Unit Declaration *) (
+    UnitDecl 2 (
+      (* Function Body Declaration *)
+      Sfunc 3 (
+        mkfunction_body 4
+          (* Function Body - Name *)
+          (*Max*) 1
+          (* Function Body - Return Type *) 
+          (Tint) 
+          (* Function Body - Specification *)
+          (None)
+          (* Function Body - Parameters *)
+          (Some(
+            mkparam_specification 5 ((*X*) 1 :: nil) (1) (In) None :: 
+            mkparam_specification 6 ((*Y*) 2 :: nil) (1) (In) None :: nil
+          ))
+          (* Function Body - Local Defined Variables *)
+          (Some(
+            mklocal_declaration 7 ((*Result*) 3 :: nil) 1 None :: nil
+          ))
+          (* Function Body - Body *) (
+            Sseq 8 (
+              Sassign 9 ((*Result*) 3) (Evar 10 (*Y*) 2) ) ( 
+              Sseq 11 (
+                Sifthen 12 (Ebinop 13 Cgt (Evar 14 (*X*) 1) (Evar 15 (*Y*) 2)) (
+                    Sassign 16 ((*Result*) 3) (Evar 17 (*X*) 1)
+                  ) ) ( 
+                Sreturn 18 (Some (Evar 19 (*Result*) 3)) ) )
+          )
+      )
+    )
+  )
+  (* Compilation Unit - Type Table *) (
+    mktype_table (
+      (* Expression Type Table: Expression AstNum --> TypeNum *)
+      (10, 1) ::
+      (13, 2) ::
+      (14, 1) ::
+      (15, 1) ::
+      (17, 1) ::
+      (19, 1) :: nil
+    ) (
+      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
+      (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
+      (2, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) :: nil
+    )
+  )

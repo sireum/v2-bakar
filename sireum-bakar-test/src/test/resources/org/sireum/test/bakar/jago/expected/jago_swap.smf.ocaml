@@ -1,0 +1,53 @@
+(* Compilation Unit *)
+CompilationUnit ( 1,
+  (* Compilation Unit - Unit Declaration *)
+  UnitDecl( 2,
+    (* Procedure Body Declaration *)
+    Sproc( 3,
+      { 
+        proc_astnum = 
+          (* Procedure Body - AST Number *)
+          4;
+        proc_name = 
+          (* Procedure Body - Name *)
+           (*Swap*) 1;
+        proc_specs =
+          (* Procedure Body - Specification *)
+          None;
+        proc_params = 
+          (* Procedure Body - Parameters *)
+          Some([
+                { param_astnum = 5; param_idents = [ (*X*) 1]; param_typenum = 1; param_mode = In Out; param_init = None }; 
+                { param_astnum = 6; param_idents = [ (*Y*) 2]; param_typenum = 1; param_mode = In Out; param_init = None }
+              ]);
+        proc_loc_idents = 
+          (* Procedure Body - Local Defined Variables *)
+          Some([
+                { local_astnum = 7; local_idents = [ (*T*) 3]; local_typenum = 1; local_init = None }
+              ]);
+        proc_body =
+          (* Procedure Body - Body *)
+          Sseq (8,
+            Sassign (9,  (*T*) 3, Evar (10,  (*X*) 1)),
+            Sseq (11,
+              Sassign (12,  (*X*) 1, Evar (13,  (*Y*) 2)),
+              Sassign (14,  (*Y*) 2, Evar (15,  (*T*) 3)) ) )
+      }
+    )
+  ),  
+  (* Compilation Unit - Type Table *)
+  {
+    tt_exptype_table = 
+      (* Expression AstNum --> TypeNum *) 
+      [
+        (10, 1) ;
+        (13, 1) ;
+        (15, 1)
+      ];
+    tt_typename_table = 
+      (* TypeNum --> (Type URI * (Type Declaration AST Num) Option) *) 
+      [
+        (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1", None))
+      ]
+  }
+)

@@ -1,0 +1,62 @@
+(* Compilation Unit *)
+CompilationUnit ( 1,
+  (* Compilation Unit - Unit Declaration *)
+  UnitDecl( 2,
+    (* Function Body Declaration *)
+    Sfunc( 3,
+      {
+        fn_astnum =   
+          (* Function Body - AST Number *)
+          4; 
+        fn_name =
+          (* Function Body - Name *)
+           (*Min*) 1;
+        fn_ret_type = 
+          (* Function Body - Return Type *)
+          Tint;
+        fn_specs = 
+          (* Function Body - Specification *)
+          None;
+        fn_params = 
+          (* Function Body - Parameters *)
+          Some([
+                { param_astnum = 5; param_idents = [ (*X*) 1]; param_typenum = 1; param_mode = In; param_init = None }; 
+                { param_astnum = 6; param_idents = [ (*Y*) 2]; param_typenum = 1; param_mode = In; param_init = None }
+              ]);
+        fn_loc_idents = 
+          (* Function Body - Locally Defined Variables *)
+          Some([
+                { local_astnum = 7; local_idents = [ (*Result*) 3]; local_typenum = 1; local_init = None }
+              ]);
+        fn_body = 
+          (* Function Body - Body *)
+          Sseq (8,
+            Sassign (9,  (*Result*) 3, Evar (10,  (*X*) 1)),
+            Sseq (11,
+              Sifthen (12, Ebinop (13, Cgt, Evar (14,  (*X*) 1), Evar (15,  (*Y*) 2)),
+                Sassign (16,  (*Result*) 3, Evar (17,  (*Y*) 2))
+              ),
+              Sreturn (18, (Some (Evar (19,  (*Result*) 3)))) ) )
+      }
+    )
+  ),  
+  (* Compilation Unit - Type Table *)
+  {
+    tt_exptype_table = 
+      (* Expression AstNum --> TypeNum *) 
+      [
+        (10, 1) ;
+        (13, 2) ;
+        (14, 1) ;
+        (15, 1) ;
+        (17, 1) ;
+        (19, 1)
+      ];
+    tt_typename_table = 
+      (* TypeNum --> (Type URI * (Type Declaration AST Num) Option) *) 
+      [
+        (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1", None)) ;
+        (2, ("ada://ordinary_type/Standard-1:1/Boolean-1:1", None))
+      ]
+  }
+)

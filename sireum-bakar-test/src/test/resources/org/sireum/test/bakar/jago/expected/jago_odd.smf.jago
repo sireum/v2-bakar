@@ -1,0 +1,50 @@
+(* Compilation Unit *)
+CompilationUnit 1
+  (* Compilation Unit - Unit Declaration *) (
+    UnitDecl 2 (
+      (* Procedure Body Declaration *)
+      Sproc 3 (
+        mkprocedure_body 4
+          (* Procedure Body - Name *)
+          (*Odd*) 1
+          (* Procedure Body - Specification *)
+          (None)
+          (* Procedure Body - Parameters *)
+          (Some(
+            mkparam_specification 5 ((*X*) 1 :: nil) (1) (In) None :: 
+            mkparam_specification 6 ((*R*) 2 :: nil) (2) (Out) None :: nil
+          )) 
+          (* Procedure Body - Locally Defined Variables *)
+          (Some(
+            mklocal_declaration 7 ((*T*) 3 :: nil) 1 None :: nil
+          ))
+          (* Procedure Body - Body *) (
+            Sseq 8 (
+              Sassign 9 ((*R*) 2) () ) ( 
+              Sseq 10 (
+                Sassign 11 ((*T*) 3) (Ebinop 12 Odiv (Evar 13 (*X*) 1) (Econst 14 (Ointconst 2))) ) ( 
+                Sifthen 15 (Ebinop 16 Ceq (Evar 17 (*X*) 1) (Ebinop 18 Omul (Evar 19 (*T*) 3) (Econst 20 (Ointconst 2)))) (
+                    Sassign 21 ((*R*) 2) ()
+                  ) ) )
+          )
+      )
+    )
+  )
+  (* Compilation Unit - Type Table *) (
+    mktype_table (
+      (* Expression Type Table: Expression AstNum --> TypeNum *)
+      (12, 1) ::
+      (13, 1) ::
+      (14, 3) ::
+      (16, 2) ::
+      (17, 1) ::
+      (18, 1) ::
+      (19, 1) ::
+      (20, 3) :: nil
+    ) (
+      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
+      (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
+      (2, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) ::
+      (3, ("universal_integer"%string, None)) :: nil
+    )
+  )
