@@ -16,14 +16,15 @@ import org.scalatest.junit.JUnitRunner
 import org.sireum.option.ProgramTarget
 
 @RunWith(classOf[JUnitRunner])
-class BakarTranslatorTest_Jago extends BakarTestFileFramework {
+class BakarProgramTest_Jago extends BakarTestFileFramework {
 
   //this.includes += "case"
   //this.excludes += "function_simple"
   //this.includes += "example"
-  this.includes += "test_case_10"
+  //this.includes += "test_case_10"
   //this.includes += "linear_div_with_loopInvariant"
   //this.includes += "linear_div_fn"
+  //this.includes += "factorial"
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
