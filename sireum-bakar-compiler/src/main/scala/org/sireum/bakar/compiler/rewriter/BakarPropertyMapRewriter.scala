@@ -12,9 +12,8 @@ import org.sireum.util._
 
 class BakarPropertyMapRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarPropertyMapRewriterModule {
   var r = ilistEmpty[Model]
-  for (m <- this.models) {
+  for (m <- this.models) 
     r :+= PPRewriter.rewrite(m)
-  }
   this.models = r
 }
 
@@ -28,32 +27,25 @@ class PPRewriter {
     override def mode : XStreamer.Mode.Type = XStreamer.Mode.XML
   }
 
-  val rewriter = Rewriter.build[Model]({
-    case o : AnnotableProperty[_] =>
-      if (!o.propertyEmpty) {
-        var annots = ilistEmpty[Annotation]
-        for ((k, v) <- o.propertyMap if k != AnnotableProperty.annPropKey) {
-          val xv = xs.to(v)
-          annots :+= Annotation(NameUser(k.toString),
-            ilist(ExpAnnotationParam(None, LiteralExp(LiteralType.RAW, "", xv))))
-        }
-        o.annotations = annots
+  def copyAnnot[T <: Annotable[T]](o : Annotable[T]) : Annotable[T] = {
+    if (!o.propertyEmpty) {
+      var annots = o.annotations
+      for ((k, v) <- o.propertyMap if k != AnnotableProperty.annPropKey)
+        annots :+= Annotation(NameUser(k.toString),
+          ilist(ExpAnnotationParam(None, LiteralExp(LiteralType.RAW, "", xs.to(v)))))
+      o match {
+        case x : AnnotableProperty[T] =>
+          x.annotations = annots
+          x
+        case _ => o.make(annots)
       }
+    } else
       o
-    case o : Annotable[_] =>
-      if (!o.propertyEmpty) {
-        var annots = ilistEmpty[Annotation]
-        for ((k, v) <- o.propertyMap if k != AnnotableProperty.annPropKey) {
-          val xv = xs.to(v)
-          annots :+= Annotation(NameUser(k.toString),
-            ilist(ExpAnnotationParam(None, LiteralExp(LiteralType.RAW, "", xv))))
-        }
-        o.make(annots)
-      } else o
-    case x =>
-      println("Don't know what to do with " + x)
-      x
+  }
 
+  val rewriter = Rewriter.build[Model]({
+    case o : Annotable[_] => copyAnnot(o)
+    case x => x
   })
 
   def rewrite(m : Model) : Model = rewriter(m)
