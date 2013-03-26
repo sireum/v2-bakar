@@ -8,7 +8,8 @@ Inductive mode: Type :=
     | Out: mode.
 
 Inductive typ: Type := 
-    | Tint: typ.
+    | Tint: typ
+    | Tbool: typ.
 
 Definition astnum := nat.
 

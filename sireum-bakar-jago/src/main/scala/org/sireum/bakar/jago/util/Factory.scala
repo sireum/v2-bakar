@@ -140,7 +140,7 @@ class Factory(stg: STGroupFile) {
       case "AN_OUT_MODE" => 
         Some("Out")
       case "AN_IN_OUT_MODE" =>
-        Some("In Out")
+        Some("In_Out")
       case _ => 
         None
     }
@@ -215,7 +215,7 @@ class Factory(stg: STGroupFile) {
   }
   
   def buildConstant(theType: String, constVal: String) = {
-    val mTrans = Map[String, String]("integer" -> "Ointconst")
+    val mTrans = Map[String, String]("integer" -> "Ointconst", "boolean" -> "Oboolconst")
     var o: Option[String] = None
     for(e <- mTrans if !(o.isDefined)) {
       if(theType.toLowerCase.contains(e._1))
@@ -225,7 +225,7 @@ class Factory(stg: STGroupFile) {
     val result = stg.getInstanceOf("constant")
     if(o.isDefined)
       result.add("theType", o.get)
-    result.add("constVal", constVal)
+    result.add("constVal", constVal.toLowerCase) // transform bool value "False" to "false"
     result.render()
   }
   

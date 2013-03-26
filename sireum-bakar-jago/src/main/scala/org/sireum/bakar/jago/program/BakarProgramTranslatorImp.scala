@@ -406,6 +406,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o @ IntegerLiteralEx(sloc, litVal, theType) =>
       ctx.pushResult(o)
       false
+    case o @ EnumerationLiteralEx(sloc, refName, ref, theType) =>
+      ctx.pushResult(o)
+      false
     case o @ IdentifierEx(sloc, refName, ref, theType) =>
       ctx.pushResult(o)
       false
@@ -479,6 +482,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       case o @ IntegerLiteralEx(sloc, litVal, theType) =>
         val value = litVal.replaceAll("_", "") // litval could look like 3_500
         factory.buildConstantExpr(factory.next_astnum, theType, value)
+      case o @ EnumerationLiteralEx(sloc, refName, ref, theType) =>
+        factory.buildConstantExpr(factory.next_astnum, theType, refName)
       case o @ IdentifierEx(sloc, refName, ref, theType) =>
         // identifier can be variable name or package/procedure name, <theType> is null if it's function name
         factory.buildIdExpr(factory.next_astnum, theType, refName, ref)

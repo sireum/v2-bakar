@@ -37,7 +37,7 @@ class BakarTypeTest_Jago extends BakarTestFileFramework {
         )
     )
   
-  override def generateExpected = true
+  override def generateExpected = false
   override def outputSuffix = "coq"
   
   override def writeTestString(job: PipelineJob, w: Writer) = {

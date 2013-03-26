@@ -13,6 +13,7 @@ type mode =
 
 type typ = 
     | Tint
+    | Tbool
 
 type astnum = int
 

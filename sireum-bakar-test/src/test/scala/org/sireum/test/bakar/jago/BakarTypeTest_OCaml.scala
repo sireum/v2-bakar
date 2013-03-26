@@ -36,7 +36,7 @@ class BakarTypeTest_OCaml extends BakarTestFileFramework {
         )        
     )
   
-  override def generateExpected = true
+  override def generateExpected = false
   override def outputSuffix = "ocaml"
     
   override def writeTestString(job: PipelineJob, w: Writer) = {

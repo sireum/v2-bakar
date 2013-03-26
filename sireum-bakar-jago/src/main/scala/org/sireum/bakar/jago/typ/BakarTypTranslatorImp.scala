@@ -423,9 +423,11 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
 
   def trans_literal {
     // constant type
-    val tc = buildTypeConstructor(TypeNameSpace.Constant, "Ointconst", TypeNameSpace.Integer(option))
     val annotation = None
-    val constantDecl = buildTypeDeclaration(TypeNameSpace.Constant, annotation, tc)
+    val constructors = mlistEmpty[String]
+    constructors += buildTypeConstructor(TypeNameSpace.Constant, "Ointconst", TypeNameSpace.Integer(option))
+    //constructors += buildTypeConstructor(TypeNameSpace.Constant, "Oboolconst", TypeNameSpace.Bool)
+    val constantDecl = buildTypeDeclaration(TypeNameSpace.Constant, annotation, constructors : _*)
     ctx.addNewTypeDecl(constantDecl)
   }
 
