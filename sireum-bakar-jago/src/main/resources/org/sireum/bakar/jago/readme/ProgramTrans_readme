@@ -114,6 +114,11 @@ if there are errors for the package with imported libraries, then it can be fixe
 Eclipse > Preference > Java > User Path > User Libraries > ... 
   remove the problem library and then re-add it again
 
+(10) 
+To solve the conflict in Git:
+Right click the project -> Fetch From Upstream -> Rebase ...
+
+
 /************************************
 **          Git Repository
 *************************************/
