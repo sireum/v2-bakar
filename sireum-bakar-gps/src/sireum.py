@@ -179,8 +179,11 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir):
 		run_kiasan_command.append("--generate-aunit-test-cases")
 	if GPS.Preference("sireum-kiasan-generate-html-report").get():
 		run_kiasan_command.append("--generate-html-report")
-		#run_kiasan_command.append("--html-report-dir")
-		#run_kiasan_command.append(GPS.Preference("sireum-kiasan-html-output-directory").get())
+		run_kiasan_command.append("--html-report-dir")
+		html_output_dir = GPS.Preference("sireum-kiasan-html-output-directory").get()
+		if html_output_dir == "":
+			html_output_dir = output_dir
+		run_kiasan_command.append(html_output_dir)
 		run_kiasan_command.append("--dot-location")
 		run_kiasan_command.append(GPS.Preference("sireum-kiasan-location-of-dot-executable").get())
 		run_kiasan_command.append("--dot-format") 

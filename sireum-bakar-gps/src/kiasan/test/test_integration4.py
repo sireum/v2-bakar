@@ -9,13 +9,13 @@ import unittest
 import subprocess
 import os
 
-class TestIntegration1(unittest.TestCase):
+class TestIntegration4(unittest.TestCase):
     """Integration tests from Kiasan plugin."""
     
     # performed before all tests
     @classmethod
     def setUpClass(self):
-        self.project_path = subprocess.Popen(['pwd'], stdout=subprocess.PIPE).communicate()[0].replace('\n','') + "/test_projects/test_proj1"
+        self.project_path = subprocess.Popen(['pwd'], stdout=subprocess.PIPE).communicate()[0].replace('\n','') + "/test_projects/test_proj4"
         self.output_path = self.project_path + "/.sireum/kiasan"
         self.sireum_path = sireum.get_sireum_path()     
         fake_modules.GPS.preferences['sireum-kiasan-array-indices-bound'] = fake_modules.Preference(5)
@@ -39,11 +39,12 @@ class TestIntegration1(unittest.TestCase):
         subprocess.call(["mkdir", self.output_path])     
           
     
-    # proj1 - all methods
-    def test_proj1_methods_add_and_foo(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path)
-        subprocess.call(kiasan_run_cmd + ["add"])
-        subprocess.call(kiasan_run_cmd + ["foo"])
+    # proj4 - all methods
+    def test_proj4_all_methods(self):
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "multicall", self.project_path, self.output_path)
+        methods = ["main", "logic", "service", "service_logic", "repository"]
+        for method in methods:
+            subprocess.call(kiasan_run_cmd + [method])
                 
         report_file_path = self.output_path+"/kiasan_sireum_report.json"
         
@@ -56,9 +57,33 @@ class TestIntegration1(unittest.TestCase):
         report = kiasan_logic.extract_report_file(report_file_url)
         
         #assertions
-        self.assertEqual("example", report[0]._name)
-        self.assertEqual(2, len(report[0]._methods))
-        self.assertEqual(set(["add","foo"]), set(m._name for m in report[0]._methods))
+        self.assertTrue(os.path.isfile(report_file_path))
+        self.assertEqual("multicall", report[0]._name)
+        self.assertEqual(len(methods), len(report[0]._methods))
+        self.assertEqual(set(methods), set(m._name for m in report[0]._methods))
+        
+    # proj4 - main method
+    def test_proj4_main(self):
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "multicall", self.project_path, self.output_path)
+        methods = ["main"]
+        for method in methods:
+            subprocess.call(kiasan_run_cmd + [method])
+                
+        report_file_path = self.output_path+"/kiasan_sireum_report.json"
+        
+        self.assertTrue(os.path.isfile(report_file_path))
+        
+        #read generated json
+        kiasan_logic = kiasan.logic.KiasanLogic()
+        report_file_path = self.output_path+"/kiasan_sireum_report.json"
+        report_file_url = urllib.pathname2url(report_file_path)
+        report = kiasan_logic.extract_report_file(report_file_url)
+        
+        #assertions
+        self.assertTrue(os.path.isfile(report_file_path))
+        self.assertEqual("multicall", report[0]._name)
+        self.assertEqual(len(methods), len(report[0]._methods))
+        self.assertEqual(set(methods), set(m._name for m in report[0]._methods))
         
     
         
