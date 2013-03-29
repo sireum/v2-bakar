@@ -76,12 +76,17 @@ def run_kiasan_tool():
 	
 	source_paths = GPS.current_context().directory().replace("\\","/")
 	output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
-	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir)
 	
-	# run Kiasan tool for each method	
-	for method in methods_list:
+	# run Kiasan tool for each method except last one
+	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, False)	
+	for method in methods_list[:-1]:
 		print " ".join(kiasan_run_cmd + [method])
-		subprocess.call(kiasan_run_cmd + [method]) #os.system(run_kiasan_command + " " + method)	
+		subprocess.call(kiasan_run_cmd + [method])
+		
+	# run Kiasan tool for last method and generate report
+	kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, True)
+	print " ".join(kiasan_run_cmd_with_report + [methods_list[-1]])
+	subprocess.call(kiasan_run_cmd_with_report + [methods_list[-1]])
 
 
 def get_sireum_path():
@@ -134,7 +139,7 @@ def load_sireum_settings(SIREUM_PATH):
 			theorem_prover.set(default_theorem_prover_path)
 	
 
-def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir):
+def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, generate_report):
 	""" Create command for run Kiasan. """
 	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302271712/lib/"	
 	
@@ -162,32 +167,33 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir):
 	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
 	run_kiasan_command.append("--topi-bin-dir")
 	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get())
-	if GPS.Preference("sireum-kiasan-generate-claim-report").get():
-		run_kiasan_command.append("--generate-claim-coverage-report")
-		run_kiasan_command.append("--modular-analysis")
-		run_kiasan_command.append("--generate-pogs-report")
 	run_kiasan_command.append("--source-paths=" + source_paths)
 	run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
 	run_kiasan_command.append("--print-trace-bound-exhausted")
 	warnings.warn('run_kiasan_command.append("--gen-bound-exhaustion-cases")')
-	run_kiasan_command.append("--generate-sireum-report")
-	warnings.warn('run_kiasan_command.append("--generate-sireum-report-only")') 
-	run_kiasan_command.append("--generate-xml-report")
-	if GPS.Preference("sireum-kiasan-generate-json-output").get():
-		run_kiasan_command.append("--generate-json-report")
-	if GPS.Preference("sireum-kiasan-generate-aunit").get():
-		run_kiasan_command.append("--generate-aunit-test-cases")
-	if GPS.Preference("sireum-kiasan-generate-html-report").get():
-		run_kiasan_command.append("--generate-html-report")
-		run_kiasan_command.append("--html-report-dir")
-		html_output_dir = GPS.Preference("sireum-kiasan-html-output-directory").get()
-		if html_output_dir == "":
-			html_output_dir = output_dir
-		run_kiasan_command.append(html_output_dir)
-		run_kiasan_command.append("--dot-location")
-		run_kiasan_command.append(GPS.Preference("sireum-kiasan-location-of-dot-executable").get())
-		run_kiasan_command.append("--dot-format") 
-		run_kiasan_command.append("XDOT") 
+	if generate_report:
+		if GPS.Preference("sireum-kiasan-generate-claim-report").get():
+			run_kiasan_command.append("--generate-claim-coverage-report")
+			run_kiasan_command.append("--modular-analysis")
+		run_kiasan_command.append("--generate-pogs-report")
+		run_kiasan_command.append("--generate-sireum-report")
+		warnings.warn('run_kiasan_command.append("--generate-sireum-report-only")') 
+		run_kiasan_command.append("--generate-xml-report")
+		if GPS.Preference("sireum-kiasan-generate-json-output").get():
+			run_kiasan_command.append("--generate-json-report")
+		if GPS.Preference("sireum-kiasan-generate-aunit").get():
+			run_kiasan_command.append("--generate-aunit-test-cases")
+		if GPS.Preference("sireum-kiasan-generate-html-report").get():
+			run_kiasan_command.append("--generate-html-report")
+			run_kiasan_command.append("--html-report-dir")
+			html_output_dir = GPS.Preference("sireum-kiasan-html-output-directory").get()
+			if html_output_dir == "":
+				html_output_dir = output_dir
+			run_kiasan_command.append(html_output_dir)
+			run_kiasan_command.append("--dot-location")
+			run_kiasan_command.append(GPS.Preference("sireum-kiasan-location-of-dot-executable").get())
+			run_kiasan_command.append("--dot-format") 
+			run_kiasan_command.append("XDOT") 
 	run_kiasan_command.append(package_name)
 	
 	return run_kiasan_command

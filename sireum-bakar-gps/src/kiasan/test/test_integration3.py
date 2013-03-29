@@ -40,10 +40,12 @@ class TestIntegration3(unittest.TestCase):
         
     
     def test_proj3_odometer(self):
-        kiasan_run_cmd_odometer = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path)
+        kiasan_run_cmd_odometer = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path, False)
         methods_odometer = ["Invariant","Zero_Trip", "Read_Trip", "Read_Total", "Inc", "Set_Mark", "Factory_Reset"]
-        for method in methods_odometer:
+        for method in methods_odometer[:-1]:
             subprocess.call(kiasan_run_cmd_odometer + [method])
+        kiasan_run_cmd_with_report = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path, True)
+        subprocess.call(kiasan_run_cmd_with_report + [methods_odometer[-1]])
         
         #read generated json
         kiasan_logic = kiasan.logic.KiasanLogic()
@@ -60,7 +62,7 @@ class TestIntegration3(unittest.TestCase):
     
     
     def test_proj3_odometer_method_inc(self):
-        kiasan_run_cmd_odometer = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path)
+        kiasan_run_cmd_odometer = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path, True)
         methods_odometer = ["Inc"]
         for method in methods_odometer:
             subprocess.call(kiasan_run_cmd_odometer + [method])
@@ -81,20 +83,20 @@ class TestIntegration3(unittest.TestCase):
     
     # proj2 - all methods
     def test_proj3_all_packages_and_methods(self):
-        kiasan_run_cmd_odometer = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path)
+        kiasan_run_cmd_odometer = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path, False)
         methods_odometer = ["Invariant","Zero_Trip", "Read_Trip", "Read_Total", "Inc", "Set_Mark", "Factory_Reset"]
         for method in methods_odometer:
             subprocess.call(kiasan_run_cmd_odometer + [method])
         
-        kiasan_run_cmd_simple_sort = sireum.get_run_kiasan_command(self.sireum_path, "Simple_Sort", self.project_path, self.output_path)
+        kiasan_run_cmd_simple_sort = sireum.get_run_kiasan_command(self.sireum_path, "Simple_Sort", self.project_path, self.output_path, False)
         methods_simple_sort = ["isSorted","isPerm", "BubbleSort", "BubbleSort_using_SwapElements", "InsertionSort", "SelectionSort", "ShellSort"]
         for method in methods_simple_sort:
             subprocess.call(kiasan_run_cmd_simple_sort + [method])
         
-        kiasan_run_cmd_swap = sireum.get_run_kiasan_command(self.sireum_path, "Swap_Examples", self.project_path, self.output_path)
+        kiasan_run_cmd_swap = sireum.get_run_kiasan_command(self.sireum_path, "Swap_Examples", self.project_path, self.output_path, True)
         methods_swap = ["Swap"]
         for method in methods_swap:
-            subprocess.call(kiasan_run_cmd_swap + [method])        
+            subprocess.call(kiasan_run_cmd_swap + [method])
         
         #read generated json
         kiasan_logic = kiasan.logic.KiasanLogic()

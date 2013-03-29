@@ -41,10 +41,13 @@ class TestIntegration2(unittest.TestCase):
     
     # proj2 - all methods
     def test_proj2_methods_add_sub_mul(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path)
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path, False)
         methods = ["add", "sub", "mul"]
-        for method in methods:
+        for method in methods[:-1]:
             subprocess.call(kiasan_run_cmd + [method])
+        kiasan_run_cmd_with_report = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path, True)
+        subprocess.call(kiasan_run_cmd_with_report + [methods[-1]])
+            
         
         #read generated json
         kiasan_logic = kiasan.logic.KiasanLogic()
@@ -59,7 +62,7 @@ class TestIntegration2(unittest.TestCase):
         self.assertEqual(set(methods), set(m._name for m in report[0]._methods))
         
     def test_proj2_method_add(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path)
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path, True)
         methods = ["add"]
         for method in methods:
             subprocess.call(kiasan_run_cmd + [method])
@@ -78,7 +81,7 @@ class TestIntegration2(unittest.TestCase):
         
         
     def test_proj2_method_sub(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path)
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path, True)
         methods = ["sub"]
         for method in methods:
             subprocess.call(kiasan_run_cmd + [method])
@@ -97,7 +100,7 @@ class TestIntegration2(unittest.TestCase):
         
         
     def test_proj2_method_mul(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path)
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "calc", self.project_path, self.output_path, True)
         methods = ["mul"]
         for method in methods:
             subprocess.call(kiasan_run_cmd + [method])

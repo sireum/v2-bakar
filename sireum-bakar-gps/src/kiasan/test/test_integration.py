@@ -41,9 +41,10 @@ class TestIntegration1(unittest.TestCase):
     
     # proj1 - all methods
     def test_proj1_methods_add_and_foo(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path)
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, False)
         subprocess.call(kiasan_run_cmd + ["add"])
-        subprocess.call(kiasan_run_cmd + ["foo"])
+        kiasan_run_cmd_with_report = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, True)
+        subprocess.call(kiasan_run_cmd_with_report + ["foo"])
                 
         report_file_path = self.output_path+"/kiasan_sireum_report.json"
         

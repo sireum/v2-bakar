@@ -41,10 +41,12 @@ class TestIntegration4(unittest.TestCase):
     
     # proj4 - all methods
     def test_proj4_all_methods(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "multicall", self.project_path, self.output_path)
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "multicall", self.project_path, self.output_path, False)
         methods = ["main", "logic", "service", "service_logic", "repository"]
-        for method in methods:
+        for method in methods[:-1]:
             subprocess.call(kiasan_run_cmd + [method])
+        kiasan_run_cmd_with_report = sireum.get_run_kiasan_command(self.sireum_path, "multicall", self.project_path, self.output_path, True)
+        subprocess.call(kiasan_run_cmd_with_report + [methods[-1]])
                 
         report_file_path = self.output_path+"/kiasan_sireum_report.json"
         
@@ -64,7 +66,7 @@ class TestIntegration4(unittest.TestCase):
         
     # proj4 - main method
     def test_proj4_main(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "multicall", self.project_path, self.output_path)
+        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "multicall", self.project_path, self.output_path, True)
         methods = ["main"]
         for method in methods:
             subprocess.call(kiasan_run_cmd + [method])
