@@ -24,84 +24,40 @@ object Util {
 
   def base(s : String) : String = {
     val f = new File(scala.util.Properties.envOrElse(gnat2xml_key, ""))
-    if (!f.exists() || !f.isDirectory() || !(new File(f, s).exists()))
-      s
-    else
-      new File(f, s).getAbsolutePath()
+    if (!f.exists() || !f.isDirectory() || !(new File(f, s).exists())) s
+    else new File(f, s).getAbsolutePath()
   }
 
   //val gnatmake = base("gnatmake" + ext)
   val gnat2xml = base("gnat2xml" + ext)
-
-  def copy(srcUri : FileResourceUri, destUri : FileResourceUri) {
-      def copyFile(f : File) {
-        try {
-          val fin = new FileInputStream(f)
-          val dest = new File(new File(new URI(destUri)), f.getName())
-          val fout = new FileOutputStream(dest)
-          val buffer = new Array[Byte](1024)
-          var bytesRead = fin.read(buffer)
-          while (bytesRead > 0) {
-            fout.write(buffer, 0, bytesRead)
-            bytesRead = fin.read(buffer)
-          }
-          fin.close
-          fout.close
-        } catch {
-          case e : Exception =>
-            e.printStackTrace()
-        }
-      }
-
-    val src = new File(new URI(srcUri))
-    val dest = new File(new URI(destUri))
-
-    if (src.exists()) {
-      if (src.isDirectory()) {
-        src.listFiles().foreach { f =>
-          if (f.isFile()) {
-            copyFile(f)
-          }
-        }
-      } else {
-        copyFile(src)
-      }
-    }
-  }
-
-  def cleanDir(dirUri : FileResourceUri) {
-    val dir = new File(new URI(dirUri))
-
-    if (dir.exists)
-      dir.listFiles.foreach { f =>
-        if (f.isDirectory()) {
-          cleanDir(f.getAbsoluteFile.toURI.toASCIIString)
-        }
-        f.delete()
-      }
-  }
 }
 
-class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {
+class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {
   val waittime = 200000
 
-  val baseDestDir = if (this.destDir.isDefined) new File(new URI(this.destDir.get)) else java.nio.file.Files.createTempDirectory(null).toFile
+  val baseDestDir =
+    if (this.destDir.isDefined) new File(new URI(this.destDir.get))
+    else java.nio.file.Files.createTempDirectory(null).toFile
   baseDestDir.mkdirs
 
+  // need to write gnat2xml results to disc since it just dumps out the
+  // compilation units to the console as it processes them.  That isn't valid
+  // xml since they aren't wrapped in a list so jaxb can't process them 
   val tempDir = new File(baseDestDir, "0/temp")
   tempDir.mkdirs
-  val tempUri = FileUtil.toUri(tempDir)
 
-  Util.cleanDir(tempUri)
-  this.srcFiles.foreach(f => Util.copy(f, tempUri))
-
-  val sfiles = this.srcFiles.map(f => new File(new URI(f)).getName())
+  val dirs = msetEmpty[String]
+  val sfiles = this.srcFiles.map { f =>
+    val fl = new File(new URI(f))
+    dirs += fl.getParentFile().getAbsolutePath()
+    fl.getAbsolutePath()
+  }
 
   //val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct", "-gnatd.V") ++ sfiles
   //val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
   //println(result1)
 
-  val g2xargs = ivector(Util.gnat2xml, "-v", "-t",
+  val g2xargs = ivector(Util.gnat2xml, "-I" + dirs.mkString(","), "-v",
     "-m" + baseDestDir.getAbsolutePath()) ++ sfiles
   val gnat2xmlResult = new Exec().run(waittime, g2xargs, None, Some(tempDir))
 
@@ -127,18 +83,21 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
     rettags
   }
 
-  val results = mlistEmpty[FileResourceUri]
+  var results = imapEmpty[FileResourceUri, FileResourceUri]
   gnat2xmlResult match {
     case Exec.StringResult(str, exitval) =>
-      if (exitval != 0) {
+      if (exitval != 0)
         info.tags ++= buildLocationTag(str)
-      } else {
-        str.split("\n").foreach { l =>
-          if (l.startsWith("Creating")) {
-            results += FileUtil.toUri(new File(l.substring("Creating ".length())))
+      else
+        for (l <- str.split("\n") if l.startsWith("Creating ")) {
+          val f = new File(l.substring("Creating ".length()))
+          val fname = f.getName().dropRight(4)
+          val key = this.srcFiles.find(p => p.endsWith(fname)) match {
+            case Some(uri) => uri
+            case None      => fname
           }
+          results += (key -> FileUtil.toUri(f))
         }
-      }
     case Exec.Timeout =>
     case Exec.ExceptionRaised(exception) =>
       val pattern = new Regex("\\s*Cannot run program \"gnat2xml\".*")
@@ -154,21 +113,21 @@ class Gnat2XMLWrapperDef(val job : PipelineJob, info : PipelineJobModuleInfo) ex
       ), emsg)
   }
 
-  this.gnat2xmlResults_=(results)
+  this.gnat2xmlResults = results 
 }
 
-class ParseGnat2XMLDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends ParseGnat2XMLModule {
+class ParseGnat2XMLModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends ParseGnat2XMLModule {
   import javax.xml.bind._
   import org.sireum.bakar.xml._
 
-  val results = mmapEmpty[FileResourceUri, CompilationUnit]
+  var results = imapEmpty[FileResourceUri, CompilationUnit]
   val u = JAXBContext.newInstance("org.sireum.bakar.xml").createUnmarshaller();
 
-  for (uri <- this.gnat2xmlResults) {
-    val f = new File(new URI(uri))
+  for ((orig, xml) <- this.gnat2xmlResults) {
+    val f = new File(new URI(xml))
     val o = u.unmarshal(new FileInputStream(f)).asInstanceOf[JAXBElement[CompilationUnit]]
-    results(uri) = o.getValue()
+    results += (orig -> o.getValue())
   }
 
-  this.parseGnat2XMLresults_=(results)
+  this.parseGnat2XMLresults = results
 }

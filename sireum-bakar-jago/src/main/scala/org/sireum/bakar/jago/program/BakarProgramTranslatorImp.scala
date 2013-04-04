@@ -313,21 +313,21 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   def statementH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ StatementListEx(statements) =>
       def buildSeq(stmts : java.util.List[Base]) : String = {
-        assert(stmts.length > 0)
-        val result =
-          if (stmts.length == 1) {
-            // for function, consider return statement
-            v(stmts.head)
-            ctx.popResult.asInstanceOf[String]
-          } else {
-            val seq_astnum = factory.next_astnum
-            v(stmts.head)
-            val stmt1 = ctx.popResult.asInstanceOf[String]
-            val stmt2 = buildSeq(stmts.subList(1, stmts.length))
-            factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
-          }
-        result
-      }
+          assert(stmts.length > 0)
+          val result =
+            if (stmts.length == 1) {
+              // for function, consider return statement
+              v(stmts.head)
+              ctx.popResult.asInstanceOf[String]
+            } else {
+              val seq_astnum = factory.next_astnum
+              v(stmts.head)
+              val stmt1 = ctx.popResult.asInstanceOf[String]
+              val stmt2 = buildSeq(stmts.subList(1, stmts.length))
+              factory.buildSeqStmt(seq_astnum, stmt1, stmt2)
+            }
+          result
+        }
       val seq = buildSeq(statements)
       ctx.pushResult(seq)
       false
@@ -385,21 +385,21 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       v(returnExp)
       val re = getExpressionStr(ctx.popResult)
       ctx.pushResult(factory.buildReturnStmt(astnum, Some(re)))
-      
+
       false
-//    case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
-//      v(calledName)
-//      val procName = ctx.popResult.asInstanceOf[String]
-//      val params = mlistEmpty[String]
-//      for (param <- callStatementParameters.getAssociations()) {
-//        v(param)
-//        params += ctx.popResult.asInstanceOf[String]
-//      }
-//      ctx.pushResult(factory.buildProcedureCall(procName, params : _*))
-//      false
-//    case o =>
-//      println("statementH: need to handle " + o.getClass().getSimpleName())
-//      true
+    //    case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation) =>
+    //      v(calledName)
+    //      val procName = ctx.popResult.asInstanceOf[String]
+    //      val params = mlistEmpty[String]
+    //      for (param <- callStatementParameters.getAssociations()) {
+    //        v(param)
+    //        params += ctx.popResult.asInstanceOf[String]
+    //      }
+    //      ctx.pushResult(factory.buildProcedureCall(procName, params : _*))
+    //      false
+    //    case o =>
+    //      println("statementH: need to handle " + o.getClass().getSimpleName())
+    //      true
   }
 
   def expressionH(ctx : Context, v : => BVisitor) : VisitorFunction = {
@@ -438,9 +438,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         println("expressionH: need to handle Function Call Expression !")
       }
       false
-//    case o =>
-//      println("expressionH: need to handle: " + o.getClass.getSimpleName)
-//      true
+    //    case o =>
+    //      println("expressionH: need to handle: " + o.getClass.getSimpleName)
+    //      true
   }
 
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
@@ -453,9 +453,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   def associationListH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ AssociationListEx(associations) =>
       val result = mlistEmpty[Any]
-      for(association <- associations) {
+      for (association <- associations) {
         v(association)
-        result += ctx.popResult        
+        result += ctx.popResult
       }
       ctx.pushResult(result)
       false
@@ -476,8 +476,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       assert(false)
       false
   }
-  
-  def getExpressionStr(e: Any): String = {
+
+  def getExpressionStr(e : Any) : String = {
     e match {
       case o @ IntegerLiteralEx(sloc, litVal, theType) =>
         val value = litVal.replaceAll("_", "") // litval could look like 3_500

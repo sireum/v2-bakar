@@ -15,7 +15,7 @@ case class BakarTranslator(
 
   title : String = "Bakar Vistor",
 
-  @Input parseGnat2XMLresults : MMap[FileResourceUri, CompilationUnit],
+  @Input parseGnat2XMLresults : IMap[FileResourceUri, CompilationUnit],
 
   @Output models : ISeq[Model])
 

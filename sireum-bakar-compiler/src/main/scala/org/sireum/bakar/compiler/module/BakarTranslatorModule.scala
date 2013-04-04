@@ -8,8 +8,8 @@ import org.sireum.pipeline._
 import java.lang.String
 import org.sireum.bakar.xml.CompilationUnit
 import org.sireum.pilar.ast.Model
+import scala.collection.immutable.Map
 import scala.collection.immutable.Seq
-import scala.collection.mutable.Map
 
 object BakarTranslatorModule extends PipelineModule {
   def title = "Bakar Vistor"
@@ -70,9 +70,9 @@ object BakarTranslatorModule extends PipelineModule {
 
     _parseGnat2XMLresults match {
       case Some(x) =>
-        if (!x.isInstanceOf[scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]) {
+        if (!x.isInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-            "Input error for '" + this.title + "': Wrong type found for 'parseGnat2XMLresults'.  Expecting 'scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]' but found '" + x.getClass.toString + "'")
+            "Input error for '" + this.title + "': Wrong type found for 'parseGnat2XMLresults'.  Expecting 'scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
@@ -96,15 +96,15 @@ object BakarTranslatorModule extends PipelineModule {
     return tags
   }
 
-  def getParseGnat2XMLresults(options : scala.collection.Map[Property.Key, Any]) : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = {
+  def getParseGnat2XMLresults(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = {
     if (options.contains(BakarTranslatorModule.globalParseGnat2XMLresultsKey)) {
-      return options(BakarTranslatorModule.globalParseGnat2XMLresultsKey).asInstanceOf[scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]
+      return options(BakarTranslatorModule.globalParseGnat2XMLresultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setParseGnat2XMLresults(options : MMap[Property.Key, Any], parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) : MMap[Property.Key, Any] = {
+  def setParseGnat2XMLresults(options : MMap[Property.Key, Any], parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) : MMap[Property.Key, Any] = {
 
     options(BakarTranslatorModule.globalParseGnat2XMLresultsKey) = parseGnat2XMLresults
 
@@ -128,7 +128,7 @@ object BakarTranslatorModule extends PipelineModule {
 
   object ConsumerView {
     implicit class BakarTranslatorModuleConsumerView(val job : PropertyProvider) extends AnyVal {
-      def parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+      def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarTranslatorModule.getModels(job.propertyMap)
     }
   }
@@ -136,8 +136,8 @@ object BakarTranslatorModule extends PipelineModule {
   object ProducerView {
     implicit class BakarTranslatorModuleProducerView(val job : PropertyProvider) extends AnyVal {
 
-      def parseGnat2XMLresults_=(parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) { BakarTranslatorModule.setParseGnat2XMLresults(job.propertyMap, parseGnat2XMLresults) }
-      def parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+      def parseGnat2XMLresults_=(parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) { BakarTranslatorModule.setParseGnat2XMLresults(job.propertyMap, parseGnat2XMLresults) }
+      def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
 
       def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarTranslatorModule.setModels(job.propertyMap, models) }
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarTranslatorModule.getModels(job.propertyMap)
@@ -148,7 +148,7 @@ object BakarTranslatorModule extends PipelineModule {
 trait BakarTranslatorModule {
   def job : PipelineJob
 
-  def parseGnat2XMLresults : scala.collection.mutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+  def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
 
   def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarTranslatorModule.setModels(job.propertyMap, models) }
   def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarTranslatorModule.getModels(job.propertyMap)

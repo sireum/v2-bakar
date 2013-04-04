@@ -63,7 +63,7 @@ class BakarProgramTest_Jago extends BakarTestFileFramework {
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
     import BakarProgramTranslatorModule.ConsumerView._
-    val results = job.jagoProgramResults //BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
+    val results = job.jagoProgramResults 
     results.foreach{f => 
       w.write(f) 
       println(f)}
