@@ -128,8 +128,10 @@ class BakarRewriter {
             }
 
             val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
-            elems :+= ProcedureDecl(n, a, tv, params, rt, va,
+            val pd = ProcedureDecl(n, a, tv, params, rt, va,
               ImplementedBody(body.locals, x.toList, body.catchClauses))
+            pd.propertyMap ++= p.propertyMap
+            elems :+= pd
           }
           case o => elems :+= o
         }

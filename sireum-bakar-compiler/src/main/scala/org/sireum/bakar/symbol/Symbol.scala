@@ -127,8 +127,8 @@ case class ModularTypeDef(
 
 case class SignedIntegerTypeDef(
   val id : String,
-  val lowRangeExp : Exp,
-  val highRangeExp : Exp) extends IntegerTypeDef
+  val lowRangeExp : Option[Exp],
+  val highRangeExp : Option[Exp]) extends IntegerTypeDef
 
 trait RealTypeDef extends ScalarTypeDef
 
