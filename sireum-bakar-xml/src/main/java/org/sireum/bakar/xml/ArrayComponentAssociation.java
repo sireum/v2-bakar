@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="sloc" type="{}Source_Location"/>
- *         &lt;element name="array_component_choices_ql" type="{}Expression_List"/>
+ *         &lt;element name="array_component_choices_ql" type="{}Element_List"/>
  *         &lt;element name="component_expression_q" type="{}Expression_Class"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -47,7 +47,7 @@ public class ArrayComponentAssociation
     @XmlElement(required = true)
     protected SourceLocation sloc;
     @XmlElement(name = "array_component_choices_ql", required = true)
-    protected ExpressionList arrayComponentChoicesQl;
+    protected ElementList arrayComponentChoicesQl;
     @XmlElement(name = "component_expression_q", required = true)
     protected ExpressionClass componentExpressionQ;
 
@@ -80,10 +80,10 @@ public class ArrayComponentAssociation
      * 
      * @return
      *     possible object is
-     *     {@link ExpressionList }
+     *     {@link ElementList }
      *     
      */
-    public ExpressionList getArrayComponentChoicesQl() {
+    public ElementList getArrayComponentChoicesQl() {
         return arrayComponentChoicesQl;
     }
 
@@ -92,10 +92,10 @@ public class ArrayComponentAssociation
      * 
      * @param value
      *     allowed object is
-     *     {@link ExpressionList }
+     *     {@link ElementList }
      *     
      */
-    public void setArrayComponentChoicesQl(ExpressionList value) {
+    public void setArrayComponentChoicesQl(ElementList value) {
         this.arrayComponentChoicesQl = value;
     }
 

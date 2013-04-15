@@ -570,7 +570,10 @@
       </jxb:bindings>
       <jxb:bindings node="xs:element[@name='has_limited_q']//xs:complexType//xs:choice">
         <jxb:property name="hasLimited" />
-      </jxb:bindings>          
+      </jxb:bindings>
+      <jxb:bindings node="xs:element[@name='has_synchronized_q']//xs:complexType//xs:choice">
+        <jxb:property name="hasSynchronized" />
+      </jxb:bindings>
     </jxb:bindings>
               
     <jxb:bindings node="//xs:complexType[@name='Formal_Private_Type_Definition']//xs:sequence">
@@ -598,9 +601,12 @@
       <jxb:bindings node="xs:element[@name='has_limited_q']//xs:complexType//xs:choice">
         <jxb:property name="hasLimited" />
       </jxb:bindings>
+      <jxb:bindings node="xs:element[@name='has_synchronized_q']//xs:complexType//xs:choice">
+        <jxb:property name="hasSynchronized" />
+      </jxb:bindings>      
       <jxb:bindings node="xs:element[@name='has_private_q']//xs:complexType//xs:choice">
         <jxb:property name="hasPrivate" />
-      </jxb:bindings>                
+      </jxb:bindings>
     </jxb:bindings>  
     
     <jxb:bindings node="//xs:complexType[@name='Formal_Pool_Specific_Access_To_Variable']//xs:sequence">

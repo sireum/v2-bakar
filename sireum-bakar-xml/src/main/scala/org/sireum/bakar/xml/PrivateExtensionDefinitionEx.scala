@@ -8,6 +8,7 @@ object PrivateExtensionDefinitionEx {
       o.getSloc(),
       o.getHasAbstractQ(),
       o.getHasLimitedQ(),
+      o.getHasSynchronizedQ(),
       o.getAncestorSubtypeIndicationQ(),
       o.getDefinitionInterfaceListQl()
     )

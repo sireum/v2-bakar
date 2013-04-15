@@ -58,7 +58,8 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   //println(result1)
 
   val g2xargs = ivector(Util.gnat2xml, "-I" + dirs.mkString(","), "-v",
-    "-m" + baseDestDir.getAbsolutePath()) ++ sfiles
+    "-m" + baseDestDir.getAbsolutePath()) ++ sfiles ++ ivector("-cargs", "-gnatd.V")
+  
   val gnat2xmlResult = new Exec().run(waittime, g2xargs, None, Some(tempDir))
 
   def buildLocationTag(message : String) = {

@@ -49,6 +49,18 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
+ *         &lt;element name="has_synchronized_q">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;choice>
+ *                   &lt;element name="synchronized" type="{}Synchronized"/>
+ *                   &lt;element name="not_an_element" type="{}Not_An_Element"/>
+ *                 &lt;/choice>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="ancestor_subtype_indication_q" type="{}Element_Class"/>
  *         &lt;element name="definition_interface_list_ql" type="{}Expression_List"/>
  *       &lt;/sequence>
@@ -64,6 +76,7 @@ import javax.xml.bind.annotation.XmlType;
     "sloc",
     "hasAbstractQ",
     "hasLimitedQ",
+    "hasSynchronizedQ",
     "ancestorSubtypeIndicationQ",
     "definitionInterfaceListQl"
 })
@@ -77,6 +90,8 @@ public class PrivateExtensionDefinition
     protected PrivateExtensionDefinition.HasAbstractQ hasAbstractQ;
     @XmlElement(name = "has_limited_q", required = true)
     protected PrivateExtensionDefinition.HasLimitedQ hasLimitedQ;
+    @XmlElement(name = "has_synchronized_q", required = true)
+    protected PrivateExtensionDefinition.HasSynchronizedQ hasSynchronizedQ;
     @XmlElement(name = "ancestor_subtype_indication_q", required = true)
     protected ElementClass ancestorSubtypeIndicationQ;
     @XmlElement(name = "definition_interface_list_ql", required = true)
@@ -152,6 +167,30 @@ public class PrivateExtensionDefinition
      */
     public void setHasLimitedQ(PrivateExtensionDefinition.HasLimitedQ value) {
         this.hasLimitedQ = value;
+    }
+
+    /**
+     * Gets the value of the hasSynchronizedQ property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link PrivateExtensionDefinition.HasSynchronizedQ }
+     *     
+     */
+    public PrivateExtensionDefinition.HasSynchronizedQ getHasSynchronizedQ() {
+        return hasSynchronizedQ;
+    }
+
+    /**
+     * Sets the value of the hasSynchronizedQ property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link PrivateExtensionDefinition.HasSynchronizedQ }
+     *     
+     */
+    public void setHasSynchronizedQ(PrivateExtensionDefinition.HasSynchronizedQ value) {
+        this.hasSynchronizedQ = value;
     }
 
     /**
@@ -324,6 +363,69 @@ public class PrivateExtensionDefinition
          */
         public void setHasLimited(Base value) {
             this.hasLimited = value;
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;choice>
+     *         &lt;element name="synchronized" type="{}Synchronized"/>
+     *         &lt;element name="not_an_element" type="{}Not_An_Element"/>
+     *       &lt;/choice>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "hasSynchronized"
+    })
+    public static class HasSynchronizedQ
+        extends Base
+    {
+
+        @XmlElements({
+            @XmlElement(name = "synchronized", type = Synchronized.class),
+            @XmlElement(name = "not_an_element", type = NotAnElement.class)
+        })
+        protected Base hasSynchronized;
+
+        /**
+         * Gets the value of the hasSynchronized property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link Synchronized }
+         *     {@link NotAnElement }
+         *     
+         */
+        public Base getHasSynchronized() {
+            return hasSynchronized;
+        }
+
+        /**
+         * Sets the value of the hasSynchronized property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Synchronized }
+         *     {@link NotAnElement }
+         *     
+         */
+        public void setHasSynchronized(Base value) {
+            this.hasSynchronized = value;
         }
 
     }

@@ -8,6 +8,7 @@ object FormalDerivedTypeDefinitionEx {
       o.getSloc(),
       o.getHasAbstractQ(),
       o.getHasLimitedQ(),
+      o.getHasSynchronizedQ(),
       o.getSubtypeMarkQ(),
       o.getDefinitionInterfaceListQl(),
       o.getHasPrivateQ()

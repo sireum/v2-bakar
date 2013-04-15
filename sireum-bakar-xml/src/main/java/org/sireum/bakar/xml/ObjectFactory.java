@@ -98,6 +98,7 @@ public class ObjectFactory {
     private final static QName _UnaryMinusOperator_QNAME = new QName("", "unary_minus_operator");
     private final static QName _RemoteTypesPragma_QNAME = new QName("", "remote_types_pragma");
     private final static QName _ExceptionDeclaration_QNAME = new QName("", "exception_declaration");
+    private final static QName _Synchronized_QNAME = new QName("", "synchronized");
     private final static QName _SignedZerosAttribute_QNAME = new QName("", "signed_zeros_attribute");
     private final static QName _FloatingPointDefinition_QNAME = new QName("", "floating_point_definition");
     private final static QName _DiscreteRangeAttributeReferenceAsSubtypeDefinition_QNAME = new QName("", "discrete_range_attribute_reference_as_subtype_definition");
@@ -1427,6 +1428,14 @@ public class ObjectFactory {
      */
     public ExceptionDeclaration createExceptionDeclaration() {
         return new ExceptionDeclaration();
+    }
+
+    /**
+     * Create an instance of {@link Synchronized }
+     * 
+     */
+    public Synchronized createSynchronized() {
+        return new Synchronized();
     }
 
     /**
@@ -4422,6 +4431,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link FormalDerivedTypeDefinition.HasSynchronizedQ }
+     * 
+     */
+    public FormalDerivedTypeDefinition.HasSynchronizedQ createFormalDerivedTypeDefinitionHasSynchronizedQ() {
+        return new FormalDerivedTypeDefinition.HasSynchronizedQ();
+    }
+
+    /**
      * Create an instance of {@link FormalDerivedTypeDefinition.HasPrivateQ }
      * 
      */
@@ -4555,6 +4572,14 @@ public class ObjectFactory {
      */
     public PrivateExtensionDefinition.HasLimitedQ createPrivateExtensionDefinitionHasLimitedQ() {
         return new PrivateExtensionDefinition.HasLimitedQ();
+    }
+
+    /**
+     * Create an instance of {@link PrivateExtensionDefinition.HasSynchronizedQ }
+     * 
+     */
+    public PrivateExtensionDefinition.HasSynchronizedQ createPrivateExtensionDefinitionHasSynchronizedQ() {
+        return new PrivateExtensionDefinition.HasSynchronizedQ();
     }
 
     /**
@@ -5807,6 +5832,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "", name = "exception_declaration")
     public JAXBElement<ExceptionDeclaration> createExceptionDeclaration(ExceptionDeclaration value) {
         return new JAXBElement<ExceptionDeclaration>(_ExceptionDeclaration_QNAME, ExceptionDeclaration.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Synchronized }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "synchronized")
+    public JAXBElement<Synchronized> createSynchronized(Synchronized value) {
+        return new JAXBElement<Synchronized>(_Synchronized_QNAME, Synchronized.class, null, value);
     }
 
     /**
