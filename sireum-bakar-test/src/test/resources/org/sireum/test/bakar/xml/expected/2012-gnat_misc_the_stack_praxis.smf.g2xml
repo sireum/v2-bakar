@@ -1,4 +1,4 @@
-the_stack_praxis.adb.xml
+the_stack_praxis.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1355,7 +1355,7 @@ the_stack_praxis.adb.xml
   <sourceFile>the_stack_praxis.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-the_stack_praxis.ads.xml
+the_stack_praxis.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

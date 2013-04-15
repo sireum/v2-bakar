@@ -1,4 +1,4 @@
-example.adb.xml
+example.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1147,7 +1147,7 @@ example.adb.xml
   <sourceFile>example.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-example.ads.xml
+example.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

@@ -1,4 +1,4 @@
-proceduretest01.adb.xml
+proceduretest01.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1702,7 +1702,7 @@ proceduretest01.adb.xml
   <sourceFile>proceduretest01.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-proceduretest01.ads.xml
+proceduretest01.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

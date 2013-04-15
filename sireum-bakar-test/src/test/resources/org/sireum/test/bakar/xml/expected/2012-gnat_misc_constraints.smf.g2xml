@@ -1,4 +1,4 @@
-constraints.adb.xml
+constraints.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -1065,7 +1065,7 @@ constraints.adb.xml
   <sourceFile>constraints.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-constraints.ads.xml
+constraints.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

@@ -1,4 +1,4 @@
-simplemath1.adb.xml
+simplemath1.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -400,7 +400,7 @@ simplemath1.adb.xml
   <sourceFile>simplemath1.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-simplemath1.ads.xml
+simplemath1.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

@@ -1,4 +1,4 @@
-faultintegrator.adb.xml
+faultintegrator.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1609,7 +1609,7 @@ faultintegrator.adb.xml
   <sourceFile>faultintegrator.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-faultintegrator.ads.xml
+faultintegrator.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

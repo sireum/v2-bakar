@@ -1,4 +1,4 @@
-the_stack_demonic.adb.xml
+the_stack_demonic.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -3140,7 +3140,7 @@ the_stack_demonic.adb.xml
   <sourceFile>the_stack_demonic.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-the_stack_demonic.ads.xml
+the_stack_demonic.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

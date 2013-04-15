@@ -1,4 +1,4 @@
-simplerecordtests.adb.xml
+simplerecordtests.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -1658,7 +1658,7 @@ simplerecordtests.adb.xml
   <sourceFile>simplerecordtests.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-simplerecordtests.ads.xml
+simplerecordtests.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

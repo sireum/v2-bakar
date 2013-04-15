@@ -1,4 +1,4 @@
-p_complex.adb.xml
+p_complex.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -2615,7 +2615,7 @@ p_complex.adb.xml
   <sourceFile>p_complex.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_complex.ads.xml
+p_complex.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

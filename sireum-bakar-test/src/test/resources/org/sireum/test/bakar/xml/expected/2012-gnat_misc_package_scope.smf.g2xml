@@ -1,4 +1,4 @@
-package_scope-p2.adb.xml
+package_scope-p2.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -556,7 +556,7 @@ package_scope-p2.adb.xml
   <sourceFile>package_scope-p2.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-package_scope-p2.ads.xml
+package_scope-p2.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -987,7 +987,7 @@ package_scope-p2.ads.xml
   <sourceFile>package_scope-p2.ads</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-package_scope.adb.xml
+package_scope.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1661,7 +1661,7 @@ package_scope.adb.xml
   <sourceFile>package_scope.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-package_scope.ads.xml
+package_scope.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

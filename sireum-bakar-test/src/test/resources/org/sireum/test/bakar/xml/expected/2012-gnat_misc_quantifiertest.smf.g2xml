@@ -1,4 +1,4 @@
-quantifiertest.adb.xml
+quantifiertest.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -448,7 +448,7 @@ quantifiertest.adb.xml
   <sourceFile>quantifiertest.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-quantifiertest.ads.xml
+quantifiertest.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

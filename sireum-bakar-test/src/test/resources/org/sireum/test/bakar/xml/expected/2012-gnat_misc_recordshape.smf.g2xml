@@ -1,4 +1,4 @@
-recordshape-circlepackage.ads.xml
+recordshape-circlepackage.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>4</line>
@@ -587,7 +587,7 @@ recordshape-circlepackage.ads.xml
   <sourceFile>recordshape-circlepackage.ads</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-recordshape-trianglepackage.ads.xml
+recordshape-trianglepackage.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>4</line>
@@ -1198,7 +1198,7 @@ recordshape-trianglepackage.ads.xml
   <sourceFile>recordshape-trianglepackage.ads</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-recordshape.ads.xml
+recordshape.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

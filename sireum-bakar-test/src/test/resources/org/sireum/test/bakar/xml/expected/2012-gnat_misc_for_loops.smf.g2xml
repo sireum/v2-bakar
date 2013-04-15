@@ -1,4 +1,4 @@
-for_loops.adb.xml
+for_loops.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -2362,7 +2362,7 @@ for_loops.adb.xml
   <sourceFile>for_loops.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-for_loops.ads.xml
+for_loops.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

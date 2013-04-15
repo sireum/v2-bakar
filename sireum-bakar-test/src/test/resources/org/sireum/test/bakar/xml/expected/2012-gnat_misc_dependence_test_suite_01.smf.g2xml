@@ -1,4 +1,4 @@
-dependence_test_suite_01.adb.xml
+dependence_test_suite_01.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>
@@ -6017,7 +6017,7 @@ dependence_test_suite_01.adb.xml
   <sourceFile>dependence_test_suite_01.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-dependence_test_suite_01.ads.xml
+dependence_test_suite_01.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

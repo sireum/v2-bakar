@@ -1,4 +1,4 @@
-type_conversion.adb.xml
+type_conversion.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -295,7 +295,7 @@ type_conversion.adb.xml
   <sourceFile>type_conversion.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-type_conversion.ads.xml
+type_conversion.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

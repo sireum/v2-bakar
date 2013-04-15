@@ -1,4 +1,4 @@
-function_simple.adb.xml
+function_simple.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1425,7 +1425,7 @@ function_simple.adb.xml
   <sourceFile>function_simple.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-function_simple.ads.xml
+function_simple.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

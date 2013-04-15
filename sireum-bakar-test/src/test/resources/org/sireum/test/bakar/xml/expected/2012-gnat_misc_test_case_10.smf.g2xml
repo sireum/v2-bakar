@@ -1,4 +1,4 @@
-test_case_10.adb.xml
+test_case_10.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>
@@ -1034,7 +1034,7 @@ test_case_10.adb.xml
   <sourceFile>test_case_10.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-test_case_10.ads.xml
+test_case_10.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

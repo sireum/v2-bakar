@@ -1,4 +1,4 @@
-p_simple_call.adb.xml
+p_simple_call.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -1749,7 +1749,7 @@ p_simple_call.adb.xml
   <sourceFile>p_simple_call.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_simple_call.ads.xml
+p_simple_call.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

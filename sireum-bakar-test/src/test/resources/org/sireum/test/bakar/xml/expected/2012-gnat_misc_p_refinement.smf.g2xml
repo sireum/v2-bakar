@@ -1,4 +1,4 @@
-p_refinement.adb.xml
+p_refinement.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1429,7 +1429,7 @@ p_refinement.adb.xml
   <sourceFile>p_refinement.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_refinement.ads.xml
+p_refinement.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

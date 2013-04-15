@@ -1,4 +1,4 @@
-case_statement_enum.adb.xml
+case_statement_enum.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>
@@ -747,7 +747,7 @@ case_statement_enum.adb.xml
   <sourceFile>case_statement_enum.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-case_statement_enum.ads.xml
+case_statement_enum.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

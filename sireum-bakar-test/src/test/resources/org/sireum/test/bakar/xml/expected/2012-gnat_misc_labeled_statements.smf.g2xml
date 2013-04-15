@@ -1,4 +1,4 @@
-labeled_statements.adb.xml
+labeled_statements.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1852,7 +1852,7 @@ labeled_statements.adb.xml
   <sourceFile>labeled_statements.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-labeled_statements.ads.xml
+labeled_statements.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

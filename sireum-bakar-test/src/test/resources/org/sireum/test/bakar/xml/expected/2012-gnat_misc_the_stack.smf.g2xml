@@ -1,4 +1,4 @@
-the_stack.adb.xml
+the_stack.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -3236,7 +3236,7 @@ the_stack.adb.xml
   <sourceFile>the_stack.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-the_stack.ads.xml
+the_stack.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

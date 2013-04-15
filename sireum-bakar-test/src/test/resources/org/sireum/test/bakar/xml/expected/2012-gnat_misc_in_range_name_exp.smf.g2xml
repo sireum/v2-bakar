@@ -1,4 +1,4 @@
-in_range_name_exp.adb.xml
+in_range_name_exp.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -714,7 +714,7 @@ in_range_name_exp.adb.xml
   <sourceFile>in_range_name_exp.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-in_range_name_exp.ads.xml
+in_range_name_exp.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

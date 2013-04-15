@@ -1,4 +1,4 @@
-p_public_child-p2-p3.adb.xml
+p_public_child-p2-p3.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -350,7 +350,7 @@ p_public_child-p2-p3.adb.xml
   <sourceFile>p_public_child-p2-p3.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_public_child-p2-p3.ads.xml
+p_public_child-p2-p3.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -574,7 +574,7 @@ p_public_child-p2-p3.ads.xml
   <sourceFile>p_public_child-p2-p3.ads</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_public_child-p2.adb.xml
+p_public_child-p2.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -1593,7 +1593,7 @@ p_public_child-p2.adb.xml
   <sourceFile>p_public_child-p2.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_public_child-p2.ads.xml
+p_public_child-p2.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -2024,7 +2024,7 @@ p_public_child-p2.ads.xml
   <sourceFile>p_public_child-p2.ads</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_public_child.adb.xml
+p_public_child.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -3649,7 +3649,7 @@ p_public_child.adb.xml
   <sourceFile>p_public_child.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-p_public_child.ads.xml
+p_public_child.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>

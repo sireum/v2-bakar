@@ -1,4 +1,4 @@
-packagedemo_a.adb.xml
+packagedemo_a.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>2</line>
@@ -367,7 +367,7 @@ packagedemo_a.adb.xml
   <sourceFile>packagedemo_a.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-packagedemo_a.ads.xml
+packagedemo_a.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>
@@ -608,7 +608,7 @@ packagedemo_a.ads.xml
   <sourceFile>packagedemo_a.ads</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-packagedemo_b.adb.xml
+packagedemo_b.adb
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>3</line>
@@ -968,7 +968,7 @@ packagedemo_b.adb.xml
   <sourceFile>packagedemo_b.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 
-packagedemo_b.ads.xml
+packagedemo_b.ads
 <org.sireum.bakar.xml.CompilationUnit>
   <sloc>
     <line>1</line>
