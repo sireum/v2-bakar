@@ -25,6 +25,7 @@ class BakarXmlTest extends BakarTestFileFramework {
   //this.includes += "case"
   //this.excludes += "function_simple"
   //this.includes += "constraints"
+  this.includes += "misc"
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
