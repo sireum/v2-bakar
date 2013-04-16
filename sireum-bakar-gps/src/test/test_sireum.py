@@ -86,8 +86,6 @@ class Test(unittest.TestCase):
         # restore previous state
         if sireum_home_was_set:
             os.environ[SIREUM_HOME] = sireum_home_temp
-        else:
-            del os.environ[SIREUM_HOME]
         os.environ['PATH'] = path_temp
         
 
