@@ -3013,7 +3013,7 @@ for_loops.ads
                             <endcol>36</endcol>
                           </sloc>
                           <arrayComponentChoicesQl>
-                            <expressions>
+                            <elements>
                               <org.sireum.bakar.xml.OthersChoice>
                                 <sloc>
                                   <line>9</line>
@@ -3022,7 +3022,7 @@ for_loops.ads
                                   <endcol>31</endcol>
                                 </sloc>
                               </org.sireum.bakar.xml.OthersChoice>
-                            </expressions>
+                            </elements>
                           </arrayComponentChoicesQl>
                           <componentExpressionQ>
                             <expression class="org.sireum.bakar.xml.IntegerLiteral">

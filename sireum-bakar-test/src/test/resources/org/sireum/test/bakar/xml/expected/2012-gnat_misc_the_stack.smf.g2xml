@@ -3096,7 +3096,41 @@ the_stack.adb
                             <endline>94</endline>
                             <endcol>32</endcol>
                           </sloc>
-                          <arrayComponentChoicesQl/>
+                          <arrayComponentChoicesQl>
+                            <elements>
+                              <org.sireum.bakar.xml.DiscreteSubtypeIndication>
+                                <sloc>
+                                  <line>94</line>
+                                  <col>17</col>
+                                  <endline>94</endline>
+                                  <endcol>27</endcol>
+                                </sloc>
+                                <subtypeMarkQ>
+                                  <expression class="org.sireum.bakar.xml.Identifier">
+                                    <sloc>
+                                      <line>94</line>
+                                      <col>17</col>
+                                      <endline>94</endline>
+                                      <endcol>27</endcol>
+                                    </sloc>
+                                    <refName>Index_Range</refName>
+                                    <ref>ada://subtype/The_Stack-1:9/Index_Range+8:12</ref>
+                                    <type>null</type>
+                                  </expression>
+                                </subtypeMarkQ>
+                                <subtypeConstraintQ>
+                                  <constraint class="org.sireum.bakar.xml.NotAnElement">
+                                    <sloc>
+                                      <line>1</line>
+                                      <col>1</col>
+                                      <endline>0</endline>
+                                      <endcol>0</endcol>
+                                    </sloc>
+                                  </constraint>
+                                </subtypeConstraintQ>
+                              </org.sireum.bakar.xml.DiscreteSubtypeIndication>
+                            </elements>
+                          </arrayComponentChoicesQl>
                           <componentExpressionQ>
                             <expression class="org.sireum.bakar.xml.IntegerLiteral">
                               <sloc>
