@@ -75,7 +75,67 @@ $ ./sireum bakar program -p Coq linear_div_fn.adb [output_file_name]
   where "output_file_name" is the optional output file name
 
 
+  ********************************
+   <3> Run In Different Platforms 
+  ********************************
 
+How to run the Sireum Bakar Type/Program Translator:
+(*
+  For how to compile the source code of asis and gnat2xml to build their binary code, 
+  which we put together in a compiled gnat bundle,
+  refer to the documents in the following link:
+  https://sireum.assembla.com/code/sireum-bakar/git-2/nodes/master/doc
+*)
+
+/*******
+ Windows
+ *******/
+(1) Download Sireum distributions
+    download either <win64> or <win32> from http://www.sireum.org/download
+(2) Uncompress it in, e.g., C:\
+    This will create a Sireum directory in C:\Sireum
+(3) Set up the enviroment
+(3.1)
+    download and uncompress the compiled gnat bundle, which includes gnat2xml, 
+    under some route, let's call this route GNATBUNDLE_HOME.
+(3.2) 
+    set PATH=GNATBUNDLE_HOME\bin;%PATH%
+(4) Run the Type/Program Translator
+    > cd C:\Sireum
+    (* do type translation targeting to coq/ocaml type *)
+    > sireum bakar type -t coq 
+    > sireum bakar type -t ocaml
+    (* do program translation targeting to coq/ocaml program *) 
+    (* assume there is a test case test.adb together with test.smf under the current directory  *)
+    > sireum bakar program -p coq test.adb
+    > sireum bakar program -p ocaml test.adb
+
+/*******
+  Macs
+ *******/
+(1) Download Sireum distributions
+    download either <mac64> from http://www.sireum.org/download
+(2) Uncompress it in, e.g, ~/Applications
+    This will create a Sireum directory in ~/Applications/Sireum
+(3) Set up the enviroment
+(3.1)
+    download and uncompress the compiled gnat bundle, which includes gnat2xml, 
+    under some route, let's call this route GNATBUNDLE_HOME.
+(3.2) 
+    export PATH=GNATBUNDLE_HOME/bin/:$PATH
+(4) Run the Type/Program Translator
+    > cd ~/Applications/Sireum
+    (* do type translation targeting to coq/ocaml type *)
+    > sireum bakar type -t coq 
+    > sireum bakar type -t ocaml
+    (* do program translation targeting to coq/ocaml program *) 
+    (* assume there is a test case test.adb together with test.smf under the current directory  *)
+    > sireum bakar program -p coq test.adb
+    > sireum bakar program -p ocaml test.adb
+
+/*******
+  Linux
+ *******/
 
 
 
