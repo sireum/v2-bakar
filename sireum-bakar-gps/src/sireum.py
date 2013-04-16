@@ -104,9 +104,10 @@ def get_sireum_path():
 		output = os.environ['PATH'].replace("\\","/")
 		paths = output.split(SPLITTER)
 		sireum_paths = [i for i in paths if 'Sireum' in i]
-		r_index = sireum_paths[0].rfind('Sireum')
-		if r_index>-1:
-			sireum_path = sireum_paths[0][:r_index+len('Sireum')]
+		if len(sireum_paths)>0:
+			r_index = sireum_paths[0].rfind('Sireum')
+			if r_index>-1:
+				sireum_path = sireum_paths[0][:r_index+len('Sireum')]
 	
 	sireum_path = os.path.abspath(sireum_path)	# normalize path (remove / at the end if exists)	
 	
