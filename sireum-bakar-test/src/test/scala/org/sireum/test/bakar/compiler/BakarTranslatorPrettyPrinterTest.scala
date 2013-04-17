@@ -23,22 +23,13 @@ import org.sireum.pilar.ast.PilarAstNode
 import org.sireum.bakar.pilar.BakarPrettyPrinterModule
 
 @RunWith(classOf[JUnitRunner])
-class BakarTranslatorPrettyPrinterTest extends BakarTestFileFramework {
+class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
 
   //this.includes += "case"
   //this.excludes += "function_simple"
   //this.includes += "binaryexpression"
   //this.includes += "abspackage" 
-  this.excludes += "jago"
-  this.includes += "simplerecord.smf"
-    
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
-
-  override def pre(c : Configuration) : Boolean = {
-    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
-    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
-    return true;
-  }
+  //this.includes += "simplerecord.smf"
 
   override def pipeline =
     PipelineConfiguration(
@@ -65,7 +56,7 @@ class BakarTranslatorPrettyPrinterTest extends BakarTestFileFramework {
       )
     )
 
-  override def generateExpected = false
+  override def generateExpected = true
   
   override def outputSuffix = "pretty_print"
 

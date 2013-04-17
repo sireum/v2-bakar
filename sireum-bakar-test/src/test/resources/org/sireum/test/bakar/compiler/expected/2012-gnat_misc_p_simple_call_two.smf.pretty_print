@@ -1,0 +1,27 @@
+p_simple_call_two.adb
+package P_Simple_Call_Two;
+
+
+typealias  standard::integer;
+
+procedure R (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + Y + B + C;
+
+  #l2.
+    return;
+}
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l3.
+    Z := Z + X;
+
+  #l4.
+    return;
+}

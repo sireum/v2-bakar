@@ -1,0 +1,28 @@
+packagedemo_a.adb
+package PackageDemo_A;
+
+
+typealias  standard::integer;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + 2ii;
+
+  #l2.
+    return;
+}packagedemo_b.adb
+package PackageDemo_B;
+
+
+typealias  standard::integer;
+
+procedure T (
+        Integer M,
+        Integer Z) {
+
+  #l3.
+    return;
+}

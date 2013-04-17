@@ -1,0 +1,37 @@
+simplearray.adb
+package SimpleArray;
+
+
+typealias Integer Index;
+
+typealias _ARRAY_ Vector;
+
+typealias  standard::integer;
+
+procedure Boolean Dummy {
+
+  #l1.
+    return true;
+}
+
+procedure Integer Max (
+        Vector V) {
+  local
+    Integer M;
+
+
+  #l2.
+    M := V[0ii];
+
+  #l4.
+    if !(V[I] > M) then goto l3;
+
+  #l5.
+    M := V[I];
+
+  #l3.
+    // empty loc
+
+  #l6.
+    return M;
+}

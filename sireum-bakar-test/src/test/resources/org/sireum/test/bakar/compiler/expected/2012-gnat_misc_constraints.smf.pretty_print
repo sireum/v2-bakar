@@ -1,0 +1,43 @@
+constraints.adb
+package Constraints;
+
+
+typealias  standard::integer;
+
+procedure foo (
+        Integer a,
+        Day dayVar) {
+
+  #l3.
+    if !(!(dayVar == )) then goto l2;
+
+  #l4.
+    a := a + 2ii;
+
+  #l5.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l7.
+    if !(Succ (dayVar) == ) then goto l6;
+
+  #l8.
+    a := a - 1ii;
+
+  #l9.
+    goto l1;
+
+  #l6.
+    // empty loc
+
+  #l10.
+    a := a * 1ii;
+
+  #l1.
+    // empty loc
+
+  #l11.
+    return;
+}

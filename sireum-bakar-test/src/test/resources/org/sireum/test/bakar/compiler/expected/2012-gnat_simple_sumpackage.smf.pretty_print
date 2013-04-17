@@ -1,0 +1,93 @@
+sumpackage.adb
+package SumPackage;
+
+
+typealias  standard::integer;
+
+procedure Integer Sum (
+        Integer N) {
+  local
+    Integer R;
+    Integer T;
+
+
+  #l1.
+    R := 0ii;
+
+  #l3.
+    if !(N >= 0ii) then goto l2;
+
+  #l4.
+    T := N - 1ii;
+
+  #l6.
+    // empty loc
+
+  #l7.
+    if !(T >= 0ii) then goto l5;
+
+  #l8.
+    R := R + 1ii;
+
+  #l9.
+    T := T - 1ii;
+
+  #l10.
+    goto l6;
+
+  #l5.
+    // empty loc
+
+  #l11.
+    assert N == R;
+
+  #l2.
+    // empty loc
+
+  #l12.
+    return R;
+}
+
+procedure Sum2 (
+        Integer N,
+        Integer R) {
+  local
+    Integer T;
+
+
+  #l13.
+    R := 0ii;
+
+  #l15.
+    if !(N >= 0ii) then goto l14;
+
+  #l16.
+    T := N - 1ii;
+
+  #l18.
+    // empty loc
+
+  #l19.
+    if !(T >= 0ii) then goto l17;
+
+  #l20.
+    R := R + 1ii;
+
+  #l21.
+    T := T - 1ii;
+
+  #l22.
+    goto l18;
+
+  #l17.
+    // empty loc
+
+  #l23.
+    assert N == R;
+
+  #l14.
+    // empty loc
+
+  #l24.
+    return;
+}

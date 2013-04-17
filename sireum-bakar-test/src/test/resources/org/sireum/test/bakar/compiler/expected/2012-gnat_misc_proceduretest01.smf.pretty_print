@@ -1,0 +1,55 @@
+proceduretest01.adb
+package ProcedureTest01;
+
+
+typealias  standard::integer;
+
+procedure P (
+        Integer a,
+        Integer b,
+        Integer c) {
+
+  #l1.
+    b := a + b;
+
+  #l2.
+    c := a + b;
+
+  #l3.
+    return;
+}
+
+procedure helper (
+        Integer x,
+        Integer y) {
+  local
+    Integer arg0;
+
+
+  #l4.
+    arg0 := 1ii;
+
+  #l5.
+    return;
+}
+
+procedure Q (
+        Integer S,
+        Integer T,
+        Integer R) {
+  local
+    Integer L1;
+
+
+  #l6.
+    L1 := S;
+
+  #l7.
+    R := 5ii;
+
+  #l8.
+    T := T + L1;
+
+  #l9.
+    return;
+}

@@ -1,0 +1,30 @@
+case_statement_int.adb
+package Case_Statement_Int;
+
+
+typealias  standard::integer;
+
+procedure Activity isWorkDay (
+        Integer d) {
+  local
+    Activity ret;
+
+
+  #l1.
+    ret := ;
+
+  #l2.
+    ret := ;
+
+  #l3.
+    ret := ;
+
+  #l4.
+    ret := ;
+
+  #l5.
+    ret := ;
+
+  #l6.
+    return ret;
+}

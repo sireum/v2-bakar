@@ -1,0 +1,44 @@
+minpackage.adb
+package Minpackage;
+
+
+typealias  standard::integer;
+
+procedure Integer MinFunc (
+        Integer X,
+        Integer Y) {
+  local
+    Integer Min;
+    Integer Max;
+
+
+  #l3.
+    if !(X >= Y) then goto l2;
+
+  #l4.
+    Min := Y;
+
+  #l5.
+    Max := X;
+
+  #l6.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l7.
+    Min := X;
+
+  #l8.
+    Max := Y;
+
+  #l1.
+    // empty loc
+
+  #l9.
+    assert Min <= X &&& Min <= Y &&& X <= Max &&& Y <= Max;
+
+  #l10.
+    return Min;
+}

@@ -1,0 +1,74 @@
+simplerecordtests.adb
+package SimpleRecordTests;
+
+
+typealias  standard::integer;
+
+procedure Test01 (
+        Object Q) {
+  local
+    Float T;
+
+
+  #l1.
+    T := Q.X;
+
+  #l2.
+    Q.X := Q.Y;
+
+  #l3.
+    Q.Y := T;
+
+  #l4.
+    return;
+}
+
+procedure Test02 (
+        Float I1,
+        Float I2,
+        Float O1,
+        Float O2) {
+  local
+    Object Q;
+
+
+  #l5.
+    Q.X := I1;
+
+  #l6.
+    Q.Y := I2;
+
+  #l7.
+    O1 := Q.X;
+
+  #l8.
+    O2 := Q.Y;
+
+  #l9.
+    return;
+}
+
+procedure Test03 (
+        Float I1,
+        Float I2,
+        Float O1,
+        Float O2) {
+  local
+    NestedObject Q;
+
+
+  #l10.
+    Q.O.X := I1;
+
+  #l11.
+    Q.O.Y := I2;
+
+  #l12.
+    O1 := Q.O.X;
+
+  #l13.
+    O2 := Q.O.Y;
+
+  #l14.
+    return;
+}

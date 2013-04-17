@@ -1,0 +1,35 @@
+function_simple.adb
+package Function_Simple;
+
+
+typealias  standard::integer;
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    return X + Z + Y;
+}
+
+procedure P1 (
+        Integer M,
+        Integer N) {
+
+  #l2.
+    B := F1 (M, N);
+
+  #l3.
+    return;
+}
+
+procedure P2 (
+        Integer M,
+        Integer N) {
+
+  #l4.
+    B := F1 (M, N) + C;
+
+  #l5.
+    return;
+}

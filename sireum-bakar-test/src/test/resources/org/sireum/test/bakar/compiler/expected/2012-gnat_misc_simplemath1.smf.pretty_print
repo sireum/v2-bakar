@@ -1,0 +1,15 @@
+simplemath1.adb
+package SimpleMath1;
+
+
+typealias  standard::integer;
+
+procedure Inc (
+        Integer I) {
+
+  #l1.
+    I := I + B;
+
+  #l2.
+    return;
+}

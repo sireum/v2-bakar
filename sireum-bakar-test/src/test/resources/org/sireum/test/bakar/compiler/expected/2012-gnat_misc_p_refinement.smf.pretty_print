@@ -1,0 +1,16 @@
+p_refinement.adb
+package P_Refinement;
+
+
+typealias  standard::integer;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + B;
+
+  #l2.
+    return;
+}

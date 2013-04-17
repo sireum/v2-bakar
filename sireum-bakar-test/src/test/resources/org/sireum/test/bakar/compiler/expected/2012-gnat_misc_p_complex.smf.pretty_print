@@ -1,0 +1,16 @@
+p_complex.adb
+package P_Complex;
+
+
+typealias  standard::integer;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + B;
+
+  #l2.
+    return;
+}

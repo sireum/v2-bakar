@@ -2,49 +2,35 @@ abspackage.adb
 package AbsPackage;
 
 
+typealias  standard::integer;
+
 procedure Integer AbsFunc (
         Integer x) {
   local
     Integer r;
-    _t1;
-    _t2;
-    _t3;
-    _t4;
 
 
   #l3.
-    _t1 := x < 0ii;
+    if !(x < 0ii) then goto l2;
 
   #l4.
-    if !(_t1) then goto l2;
+    r := x * -(1ii);
 
   #l5.
-    _t2 := -(1ii);
-
-  #l6.
-    _t3 := x * _t2;
-
-  #l7.
-    r := _t3;
-
-  #l8.
     goto l1;
 
   #l2.
     // empty loc
 
-  #l9.
+  #l6.
     r := x;
 
   #l1.
     // empty loc
 
-  #l10.
-    _t4 := r >= 0ii;
+  #l7.
+    assert r >= 0ii;
 
-  #l11.
-    assert _t4;
-
-  #l12.
+  #l8.
     return r;
 }

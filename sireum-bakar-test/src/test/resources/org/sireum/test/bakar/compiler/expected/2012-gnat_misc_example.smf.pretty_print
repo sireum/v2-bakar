@@ -1,0 +1,36 @@
+example.adb
+package example;
+
+
+typealias  standard::integer;
+
+procedure add (
+        Integer x,
+        Integer y) {
+
+  #l1.
+    x := x + y;
+
+  #l2.
+    return;
+}
+
+procedure foo (
+        Integer A,
+        Integer B) {
+  local
+    Integer M;
+
+
+  #l3.
+    M := 3ii;
+
+  #l4.
+    A := A + 2ii;
+
+  #l5.
+    B := B + 5ii;
+
+  #l6.
+    return;
+}

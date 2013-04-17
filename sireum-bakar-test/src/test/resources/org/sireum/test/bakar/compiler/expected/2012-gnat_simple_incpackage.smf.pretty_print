@@ -1,0 +1,21 @@
+incpackage.adb
+package IncPackage;
+
+
+typealias  standard::integer;
+
+procedure Integer Inc (
+        Integer X) {
+  local
+    Integer R;
+
+
+  #l1.
+    R := X + 1ii;
+
+  #l2.
+    assert R > X;
+
+  #l3.
+    return R;
+}

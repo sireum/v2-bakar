@@ -1,0 +1,15 @@
+quantifiertest.adb
+package QuantifierTest;
+
+
+typealias  standard::integer;
+
+procedure dummy (
+        Index I) {
+
+  #l1.
+    V[I] := V[I] + 3ii;
+
+  #l2.
+    return;
+}

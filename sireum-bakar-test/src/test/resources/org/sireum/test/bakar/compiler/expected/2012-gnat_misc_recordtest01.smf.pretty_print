@@ -1,0 +1,49 @@
+recordtest01.adb
+package RecordTest01;
+
+
+typealias  standard::integer;
+
+procedure Test01 (
+        Object Q) {
+  local
+    Integer T;
+
+
+  #l1.
+    T := Q.X;
+
+  #l2.
+    Q.X := Q.Y;
+
+  #l3.
+    Q.Y := T;
+
+  #l4.
+    return;
+}
+
+procedure Test02 (
+        Integer I1,
+        Integer I2,
+        Integer O1,
+        Integer O2) {
+  local
+    NestedObject Q;
+
+
+  #l5.
+    Q.O.X := I1;
+
+  #l6.
+    Q.O.Y := I2;
+
+  #l7.
+    O1 := Q.O.X;
+
+  #l8.
+    O2 := Q.O.Y;
+
+  #l9.
+    return;
+}

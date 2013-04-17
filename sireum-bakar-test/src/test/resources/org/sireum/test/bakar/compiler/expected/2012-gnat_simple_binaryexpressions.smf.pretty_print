@@ -2,6 +2,8 @@ binaryexpressions.adb
 package BinaryExpressions;
 
 
+typealias  standard::integer;
+
 procedure Integer X {
 
   #l1.
@@ -19,65 +21,33 @@ procedure Integer Add (
     Integer r4;
     Integer r5;
     Integer r6;
-    _t1;
-    _t2;
-    _t3;
-    _t4;
-    _t5;
-    _t6;
-    _t7;
-    _t8;
 
 
   #l2.
-    _t1 := 1ii + 2ii;
+    r0 := 1ii + 2ii;
 
   #l3.
-    r0 := _t1;
+    r1 := I + 1ii;
 
   #l4.
-    _t2 := I + 1ii;
+    r2 := I + J;
 
   #l5.
-    r1 := _t2;
+    r3 := I + I;
 
   #l6.
-    _t3 := I + J;
+    r4 := J + J;
 
   #l7.
-    r2 := _t3;
+    r5 := J + I;
 
   #l8.
-    _t4 := I + I;
+    r6 := J + 1ii;
 
   #l9.
-    r3 := _t4;
+    assert r2 == r5;
 
   #l10.
-    _t5 := J + J;
-
-  #l11.
-    r4 := _t5;
-
-  #l12.
-    _t6 := J + I;
-
-  #l13.
-    r5 := _t6;
-
-  #l14.
-    _t7 := J + 1ii;
-
-  #l15.
-    r6 := _t7;
-
-  #l16.
-    _t8 := r2 == r5;
-
-  #l17.
-    assert _t8;
-
-  #l18.
     return r6;
 }
 
@@ -92,58 +62,30 @@ procedure Integer Sub (
     Integer r4;
     Integer r5;
     Integer r6;
-    _t9;
-    _t10;
-    _t11;
-    _t12;
-    _t13;
-    _t14;
-    _t15;
 
 
-  #l19.
-    _t9 := 1ii - 2ii;
+  #l11.
+    r0 := 1ii - 2ii;
 
-  #l20.
-    r0 := _t9;
+  #l12.
+    r1 := I - 1ii;
 
-  #l21.
-    _t10 := I - 1ii;
+  #l13.
+    r2 := I - J;
 
-  #l22.
-    r1 := _t10;
+  #l14.
+    r3 := I - I;
 
-  #l23.
-    _t11 := I - J;
+  #l15.
+    r4 := J - J;
 
-  #l24.
-    r2 := _t11;
+  #l16.
+    r5 := J - I;
 
-  #l25.
-    _t12 := I - I;
+  #l17.
+    r6 := J - 1ii;
 
-  #l26.
-    r3 := _t12;
-
-  #l27.
-    _t13 := J - J;
-
-  #l28.
-    r4 := _t13;
-
-  #l29.
-    _t14 := J - I;
-
-  #l30.
-    r5 := _t14;
-
-  #l31.
-    _t15 := J - 1ii;
-
-  #l32.
-    r6 := _t15;
-
-  #l33.
+  #l18.
     return r6;
 }
 
@@ -158,65 +100,33 @@ procedure Integer Mult (
     Integer r4;
     Integer r5;
     Integer r6;
-    _t16;
-    _t17;
-    _t18;
-    _t19;
-    _t20;
-    _t21;
-    _t22;
-    _t23;
 
 
-  #l34.
-    _t16 := 1ii * 2ii;
+  #l19.
+    r0 := 1ii * 2ii;
 
-  #l35.
-    r0 := _t16;
+  #l20.
+    r1 := I * 1ii;
 
-  #l36.
-    _t17 := I * 1ii;
+  #l21.
+    r2 := I * J;
 
-  #l37.
-    r1 := _t17;
+  #l22.
+    r3 := I * I;
 
-  #l38.
-    _t18 := I * J;
+  #l23.
+    r4 := J * J;
 
-  #l39.
-    r2 := _t18;
+  #l24.
+    r5 := J * I;
 
-  #l40.
-    _t19 := I * I;
+  #l25.
+    r6 := J * 1ii;
 
-  #l41.
-    r3 := _t19;
+  #l26.
+    assert r2 == r5;
 
-  #l42.
-    _t20 := J * J;
-
-  #l43.
-    r4 := _t20;
-
-  #l44.
-    _t21 := J * I;
-
-  #l45.
-    r5 := _t21;
-
-  #l46.
-    _t22 := J * 1ii;
-
-  #l47.
-    r6 := _t22;
-
-  #l48.
-    _t23 := r2 == r5;
-
-  #l49.
-    assert _t23;
-
-  #l50.
+  #l27.
     return r6;
 }
 
@@ -231,57 +141,29 @@ procedure Integer Division (
     Integer r4;
     Integer r5;
     Integer r6;
-    _t24;
-    _t25;
-    _t26;
-    _t27;
-    _t28;
-    _t29;
-    _t30;
 
 
-  #l51.
-    _t24 := 1ii / 2ii;
+  #l28.
+    r0 := 1ii / 2ii;
 
-  #l52.
-    r0 := _t24;
+  #l29.
+    r1 := I / 1ii;
 
-  #l53.
-    _t25 := I / 1ii;
+  #l30.
+    r2 := I / I;
 
-  #l54.
-    r1 := _t25;
+  #l31.
+    r3 := I / J;
 
-  #l55.
-    _t26 := I / I;
+  #l32.
+    r4 := J / I;
 
-  #l56.
-    r2 := _t26;
+  #l33.
+    r5 := J / J;
 
-  #l57.
-    _t27 := I / J;
+  #l34.
+    r6 := J / 1ii;
 
-  #l58.
-    r3 := _t27;
-
-  #l59.
-    _t28 := J / I;
-
-  #l60.
-    r4 := _t28;
-
-  #l61.
-    _t29 := J / J;
-
-  #l62.
-    r5 := _t29;
-
-  #l63.
-    _t30 := J / 1ii;
-
-  #l64.
-    r6 := _t30;
-
-  #l65.
+  #l35.
     return r6;
 }

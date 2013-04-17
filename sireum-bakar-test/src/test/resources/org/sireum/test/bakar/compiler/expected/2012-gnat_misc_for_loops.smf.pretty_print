@@ -1,0 +1,42 @@
+for_loops.adb
+package for_loops;
+
+
+typealias  standard::integer;
+
+procedure Stupid (
+        Index_Range Z) {
+
+  #l1.
+    A[I] := 1ii;
+
+  #l2.
+    A[I] := 1ii;
+
+  #l3.
+    A[I] := 1ii;
+
+  #l4.
+    A[I] := 1ii;
+
+  #l5.
+    A[I] := A[I];
+
+  #l6.
+    A[I] := A[I];
+
+  #l7.
+    A[I] := A[I];
+
+  #l8.
+    A[I] := A[I];
+
+  #l9.
+    A[I] := A[I];
+
+  #l10.
+    A[I] := A[I];
+
+  #l11.
+    return;
+}

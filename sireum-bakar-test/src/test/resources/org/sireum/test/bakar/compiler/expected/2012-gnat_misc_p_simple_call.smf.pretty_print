@@ -1,0 +1,54 @@
+p_simple_call.adb
+package P_Simple_Call;
+
+
+typealias  standard::integer;
+
+procedure R (
+        Integer X) {
+
+  #l1.
+    X := Y + B + C;
+
+  #l2.
+    return;
+}
+
+procedure Integer incX (
+        Integer X) {
+  local
+    Integer result;
+
+
+  #l5.
+    if !(X == 0ii) then goto l4;
+
+  #l6.
+    result := X + 1ii;
+
+  #l7.
+    goto l3;
+
+  #l4.
+    // empty loc
+
+  #l8.
+    result := X - 1ii;
+
+  #l3.
+    // empty loc
+
+  #l9.
+    return result;
+}
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l10.
+    Z := Z + incX (X);
+
+  #l11.
+    return;
+}
