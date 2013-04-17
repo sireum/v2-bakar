@@ -28,10 +28,12 @@ trait BakarTestFramework extends TestFramework {
   val excludes = msetEmpty[Regex]
 
   def accept(name : String, files : ISeq[FileResourceUri]) : Boolean = {
+
     return (disableIncludes || includes.isEmpty ||
       includes.exists(r => r.findFirstMatchIn(name).isDefined)) &&
       (disableExcludes || excludes.isEmpty ||
-        excludes.exists(r => r.findFirstMatchIn(name).isEmpty))
+        !excludes.exists(r => r.findFirstMatchIn(name).isDefined)
+      )
   }
 
   def register(projects : ISeq[Project]) {
