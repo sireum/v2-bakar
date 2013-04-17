@@ -56,11 +56,14 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   //val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct", "-gnatd.V") ++ sfiles
   //val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
   //println(result1)
-
+  
   val g2xargs = ivector(Util.gnat2xml, "-I" + dirs.mkString(","), "-v",
     "-m" + baseDestDir.getAbsolutePath()) ++ sfiles ++ ivector("-cargs", "-gnatd.V")
+
+  val e = new Exec()
+  e.env -= "DYLD_FALLBACK_LIBRARY_PATH"
   
-  val gnat2xmlResult = new Exec().run(waittime, g2xargs, None, Some(tempDir))
+  val gnat2xmlResult = e.run(waittime, g2xargs, None, Some(tempDir))
 
   def buildLocationTag(message : String) = {
     val tagType = MarkerType(
