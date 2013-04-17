@@ -20,6 +20,7 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.util.Visitor.VisitorStackProvider
 import org.sireum.pilar.ast.PilarAstNode
+import org.sireum.util._
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorTest extends BakarTestFileFramework {
@@ -27,11 +28,11 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   //this.includes += "case"
   //this.excludes += "function_simple"
   //this.includes += "constraints"
-  this.excludes += "jago"
-  
-  //this.includes += "simplearray.smf"
-  //this.includes += "simplerecord.smf"
-    
+  this.excludes += "gnat_jago"
+
+  this.excludes ++= Set("misc_labeled", "misc_p_public", "misc_package_scope",
+    "misc_recordshape", "misc_the_stack")
+
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
   override def pre(c : Configuration) : Boolean = {
@@ -41,7 +42,7 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   }
 
   override def generateExpected = false
-  
+
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
@@ -75,10 +76,14 @@ class BakarTranslatorTest extends BakarTestFileFramework {
           w.write(s.substring(0, if (s.length < 150) s.length else 150) + "\n")
         }
       {
-        case p : PilarAstNode  => printIndent; printlnContent(p); true
-        case Nil              => printIndent; w.write("List()\n"); false
-        case l : ISeq[_]      => printIndent; printlnContent(l); true
-        case None             => printIndent; w.write("None\n"); false
+        case p : PilarAstNode =>
+          printIndent; printlnContent(p); true
+        case Nil              =>
+          printIndent; w.write("List()\n"); false
+        case l : ISeq[_]      =>
+          printIndent; printlnContent(l); true
+        case None             =>
+          printIndent; w.write("None\n"); false
         case s : Some[_]      => printIndent; printlnContent(s); true
       }
     }, None)(t)

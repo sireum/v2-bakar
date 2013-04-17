@@ -1,12 +1,12 @@
 package org.sireum.bakar.compiler.module
 
 import scala.collection.JavaConversions.asScalaBuffer
-
 import org.sireum.bakar.symbol._
 import org.sireum.bakar.xml._
 import org.sireum.pilar.ast._
 import org.sireum.pipeline._
 import org.sireum.util._
+import java.net.URI
 
 class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
 
@@ -423,6 +423,14 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           None
       }
     }
+      
+    def addResourceUri(s : org.sireum.pilar.symbol.Symbol, uri : String) {
+      import org.sireum.pilar.symbol.Symbol
+      val u = new URI(uri)
+      val paths = if (u.getPath.startsWith("/")) u.getPath.split("/").drop(1) else u.getPath.split("/")
+      
+      s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
+    }
   }
 
   implicit def nd2nu(nd : NameDefinition) = NameUser(nd.name)
@@ -667,16 +675,18 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         false
     }
   }
-
+  
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, name, uri, typ) =>
       val nu = NameUser(name)
+      ctx.addResourceUri(nu, uri)
       this.addprop(nu, URIS.REF_URI, uri)
       this.addprop(nu, URIS.TYPE_URI, typ)
       ctx.pushResult(NameExp(nu), sloc)
       false
     case o @ DefiningIdentifierEx(sloc, name, uri, typ) =>
       val nu = NameUser(name)
+      ctx.addResourceUri(nu, uri)
       this.addprop(nu, URIS.REF_URI, uri)
       this.addprop(nu, URIS.TYPE_URI, typ)
       ctx.pushResult(NameExp(nu), sloc)

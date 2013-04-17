@@ -1,12 +1,18 @@
-Model(Some(in_range_name_exp.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(in_range_name_exp)),Vector(),List(ProcedureDecl(NameDefinition(test)
+Model(Some(in_range_name_exp.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(in_range_name_exp)),Vector(),List(TypeAliasDecl(NameDefinition(stand
   Some(in_range_name_exp.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(in_range_name_exp)),Vector(),List(ProcedureDecl(NameDefinition(test),Vector(),Vector(),List(ParamDecl(Some(Name
-    PackageDecl(Some(NameDefinition(in_range_name_exp)),Vector(),List(ProcedureDecl(NameDefinition(test),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSp
+  Vector(PackageDecl(Some(NameDefinition(in_range_name_exp)),Vector(),List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUs
+    PackageDecl(Some(NameDefinition(in_range_name_exp)),Vector(),List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),Li
       Some(NameDefinition(in_range_name_exp))
         NameDefinition(in_range_name_exp)
       List()
-      List(ProcedureDecl(NameDefinition(test),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(Z),Vector())),
+      List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),List())), ProcedureDecl(NameDefinition(test),Vector(),Vector(),
+        TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),List()))
+          NameDefinition(standard::integer)
+          List()
+          NamedTypeSpec(NameUser(),List())
+            NameUser()
+            List()
         ProcedureDecl(NameDefinition(test),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(Z),Vector())),Some(
           NameDefinition(test)
           List()

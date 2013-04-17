@@ -1,12 +1,18 @@
-Model(Some(p_refinement.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(P_Refinement)),Vector(),List(ProcedureDecl(NameDefinition(Q),Vector(),Vec
+Model(Some(p_refinement.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(P_Refinement)),Vector(),List(TypeAliasDecl(NameDefinition(standard::integ
   Some(p_refinement.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(P_Refinement)),Vector(),List(ProcedureDecl(NameDefinition(Q),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpe
-    PackageDecl(Some(NameDefinition(P_Refinement)),Vector(),List(ProcedureDecl(NameDefinition(Q),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameU
+  Vector(PackageDecl(Some(NameDefinition(P_Refinement)),Vector(),List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),
+    PackageDecl(Some(NameDefinition(P_Refinement)),Vector(),List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),List())
       Some(NameDefinition(P_Refinement))
         NameDefinition(P_Refinement)
       List()
-      List(ProcedureDecl(NameDefinition(Q),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(X),Vector()), Par
+      List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),List())), ProcedureDecl(NameDefinition(Q),Vector(),Vector(),Lis
+        TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),List()))
+          NameDefinition(standard::integer)
+          List()
+          NamedTypeSpec(NameUser(),List())
+            NameUser()
+            List()
         ProcedureDecl(NameDefinition(Q),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(X),Vector()), ParamDec
           NameDefinition(Q)
           List()
@@ -27,34 +33,27 @@ Model(Some(p_refinement.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(P_R
               NameDefinition(Z)
               List()
           None
-          ImplementedBody(List(LocalVarDecl(None,NameDefinition(_t1),Vector())),List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),Name
-            List(LocalVarDecl(None,NameDefinition(_t1),Vector()))
-              LocalVarDecl(None,NameDefinition(_t1),Vector())
-                None
-                NameDefinition(_t1)
-                List()
-            List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(_t1)),:=,BinaryExp(+,NameExp(NameUser(X)),NameExp(NameUse
-              ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(_t1)),:=,BinaryExp(+,NameExp(NameUser(X)),NameExp(NameUser(B))
+          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUse
+            List()
+            List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUser(X)),NameExp(NameUser(
+              ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUser(X)),NameExp(NameUser(B))))
                 Some(NameDefinition(l1))
                   NameDefinition(l1)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(_t1)),:=,BinaryExp(+,NameExp(NameUser(X)),NameExp(NameUser(B))))
+                AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUser(X)),NameExp(NameUser(B))))
                   List()
-                  NameExp(NameUser(_t1))
-                    NameUser(_t1)
+                  NameExp(NameUser(Z))
+                    NameUser(Z)
                   BinaryExp(+,NameExp(NameUser(X)),NameExp(NameUser(B)))
                     NameExp(NameUser(X))
                       NameUser(X)
                     NameExp(NameUser(B))
                       NameUser(B)
-              ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,NameExp(NameUser(_t1))))
+              JumpLocation(Some(NameDefinition(l2)),Vector(),ReturnJump(Vector(),None))
                 Some(NameDefinition(l2))
                   NameDefinition(l2)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(Z)),:=,NameExp(NameUser(_t1)))
+                ReturnJump(Vector(),None)
                   List()
-                  NameExp(NameUser(Z))
-                    NameUser(Z)
-                  NameExp(NameUser(_t1))
-                    NameUser(_t1)
+                  None
             List()

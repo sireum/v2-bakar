@@ -1,12 +1,18 @@
-Model(Some(case_statement_enum.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Case_Statement_Enum)),Vector(),List(ProcedureDecl(NameDefinition(i
+Model(Some(case_statement_enum.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Case_Statement_Enum)),Vector(),List(TypeAliasDecl(NameDefinition(s
   Some(case_statement_enum.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(Case_Statement_Enum)),Vector(),List(ProcedureDecl(NameDefinition(isWorkDay),Vector(),Vector(),List(ParamDecl(So
-    PackageDecl(Some(NameDefinition(Case_Statement_Enum)),Vector(),List(ProcedureDecl(NameDefinition(isWorkDay),Vector(),Vector(),List(ParamDecl(Some(Name
+  Vector(PackageDecl(Some(NameDefinition(Case_Statement_Enum)),Vector(),List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(Name
+    PackageDecl(Some(NameDefinition(Case_Statement_Enum)),Vector(),List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),
       Some(NameDefinition(Case_Statement_Enum))
         NameDefinition(Case_Statement_Enum)
       List()
-      List(ProcedureDecl(NameDefinition(isWorkDay),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameUser(Week),Vector())),NameDefinition(d),Vector())
+      List(TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),List())), ProcedureDecl(NameDefinition(isWorkDay),Vector(),Vect
+        TypeAliasDecl(NameDefinition(standard::integer),Vector(),NamedTypeSpec(NameUser(),List()))
+          NameDefinition(standard::integer)
+          List()
+          NamedTypeSpec(NameUser(),List())
+            NameUser()
+            List()
         ProcedureDecl(NameDefinition(isWorkDay),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameUser(Week),Vector())),NameDefinition(d),Vector())),Som
           NameDefinition(isWorkDay)
           List()
