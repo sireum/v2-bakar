@@ -28,7 +28,6 @@ trait BakarTestFramework extends TestFramework {
   val excludes = msetEmpty[Regex]
 
   def accept(name : String, files : ISeq[FileResourceUri]) : Boolean = {
-
     return (disableIncludes || includes.isEmpty ||
       includes.exists(r => r.findFirstMatchIn(name).isDefined)) &&
       (disableExcludes || excludes.isEmpty ||
@@ -81,6 +80,11 @@ trait BakarTestFileFramework extends BakarTestFramework {
 
   override def execute(testName : String, files : ISeq[FileResourceUri]) = {
     test(testName) {
+      
+      if(excludes.exists(r => r.findFirstMatchIn(testName).isDefined)) {
+        this.cancel("Canceling test")
+      }
+      
       val testNamelc = testName.toLowerCase
 
       val edir = new File(new URI(EXPECTED_DIR))

@@ -19,6 +19,9 @@ import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
 @RunWith(classOf[JUnitRunner])
 class BakarTypeResolverTest extends BakarRewriterTest {
 
+  // record definition is in ads file
+  this.excludes ++= Set("recordtest01", "recordtest02")
+  
   override def generateExpected = false
 
   override def pipeline =
@@ -28,13 +31,11 @@ class BakarTypeResolverTest extends BakarRewriterTest {
       PipelineStage(
         "gnat2xml stage",
         false,
-        Gnat2XMLWrapperModule
-      ),
+        Gnat2XMLWrapperModule),
       PipelineStage(
         "scalaxb stage",
         false,
-        ParseGnat2XMLModule
-      ),
+        ParseGnat2XMLModule),
       PipelineStage(
         "translator stage",
         false,
@@ -59,7 +60,7 @@ class BakarTypeResolverTest extends BakarRewriterTest {
     import BakarTypeResolverModule.ConsumerView._
     job.models foreach { m =>
       val x = NodePrettyPrinter.print(m)
-      println(x)
+      //println(x)
       w.write(x)
     }
   }

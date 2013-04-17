@@ -508,8 +508,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         if (pe.isDefined) packElems += pe.get
       }
       // inject the standard definitions
+      packElems += StandardTypeDefs.StandardBoolean
       packElems += StandardTypeDefs.StandardInteger
-
+      packElems += StandardTypeDefs.StandardNatural
+      packElems += StandardTypeDefs.StandardPositive
+      
       if (!aspectSpec.getElements().isEmpty())
         Console.err.println("Need to handle package body aspect clauses")
 

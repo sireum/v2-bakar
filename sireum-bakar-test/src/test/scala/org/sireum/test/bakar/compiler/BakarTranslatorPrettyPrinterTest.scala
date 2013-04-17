@@ -30,7 +30,7 @@ class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
   //this.includes += "binaryexpression"
   //this.includes += "abspackage" 
   //this.includes += "simplerecord.smf"
-
+    
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
@@ -56,7 +56,7 @@ class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
       )
     )
 
-  override def generateExpected = true
+  override def generateExpected = false
   
   override def outputSuffix = "pretty_print"
 
