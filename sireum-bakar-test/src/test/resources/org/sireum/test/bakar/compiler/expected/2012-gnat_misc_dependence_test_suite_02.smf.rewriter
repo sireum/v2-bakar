@@ -1,0 +1,1207 @@
+package Dependence_Test_Suite_02;
+
+
+typealias  standard::integer;
+
+procedure Success0 (
+        Integer O) {
+
+  #l1.
+    O := 5ii;
+
+  #l2.
+    return;
+}
+
+procedure Success1 (
+        Integer I,
+        Integer O) {
+
+  #l3.
+    O := I;
+
+  #l4.
+    return;
+}
+
+procedure Success2 (
+        Integer I,
+        Integer O) {
+  local
+    Integer L;
+
+
+  #l5.
+    L := I;
+
+  #l6.
+    O := L;
+
+  #l7.
+    return;
+}
+
+procedure Success3 (
+        Integer I,
+        Integer O) {
+  local
+    Integer L1;
+    Integer L2;
+    Integer L3;
+
+
+  #l8.
+    L1 := I;
+
+  #l9.
+    L2 := L1;
+
+  #l10.
+    L3 := L2;
+
+  #l11.
+    O := L3;
+
+  #l12.
+    return;
+}
+
+procedure Success4 (
+        Integer I1,
+        Integer I2,
+        Integer O) {
+  local
+    Integer L1;
+    Integer L2;
+    Integer L3;
+
+
+  #l13.
+    L1 := I1;
+
+  #l14.
+    L2 := I2;
+
+  #rwl0.
+    _t0 := L1;
+
+  #rwl1.
+    _t1 := L2;
+
+  #l15.
+    L3 := _t0 + _t1;
+
+  #l16.
+    O := L3;
+
+  #l17.
+    return;
+}
+
+procedure Success5 (
+        Integer I1,
+        Integer I2,
+        Integer O1,
+        Integer O2) {
+  local
+    Integer L1;
+    Integer L2;
+    Integer L3;
+
+
+  #l18.
+    O1 := I2;
+
+  #l19.
+    L1 := I1;
+
+  #l20.
+    L2 := L1;
+
+  #rwl2.
+    _t2 := L1;
+
+  #rwl3.
+    _t3 := L2;
+
+  #l21.
+    L3 := _t2 + _t3;
+
+  #l22.
+    O2 := O1;
+
+  #l23.
+    O1 := L3;
+
+  #l24.
+    return;
+}
+
+procedure Success6 (
+        Integer I1,
+        Integer I2,
+        Integer O1,
+        Integer O2) {
+
+  #l25.
+    O1 := I1;
+
+  #rwl4.
+    _t4 := I2;
+
+  #rwl5.
+    _t5 := 5ii;
+
+  #l28.
+    if !(_t4 > _t5) then goto l27;
+
+  #l29.
+    O2 := 5ii;
+
+  #l30.
+    goto l26;
+
+  #l27.
+    // empty loc
+
+  #l31.
+    O2 := 5ii;
+
+  #l26.
+    // empty loc
+
+  #l32.
+    return;
+}
+
+procedure Success7 (
+        Integer I1,
+        Integer I2,
+        Integer O) {
+  local
+    Integer L1;
+
+
+  #l33.
+    L1 := I1;
+
+  #rwl6.
+    _t6 := L1;
+
+  #rwl7.
+    _t7 := I2;
+
+  #l36.
+    if !(_t6 > _t7) then goto l35;
+
+  #l37.
+    O := 6ii;
+
+  #l38.
+    goto l34;
+
+  #l35.
+    // empty loc
+
+  #l39.
+    O := 7ii;
+
+  #l34.
+    // empty loc
+
+  #l40.
+    return;
+}
+
+procedure Success8 (
+        Integer I1,
+        Integer I2,
+        Integer O) {
+  local
+    Integer L1;
+    Integer L2;
+
+
+  #l41.
+    L1 := I1;
+
+  #rwl8.
+    _t8 := L1;
+
+  #rwl9.
+    _t9 := 5ii;
+
+  #l44.
+    if !(_t8 > _t9) then goto l43;
+
+  #l45.
+    L2 := 6ii;
+
+  #l46.
+    goto l42;
+
+  #l43.
+    // empty loc
+
+  #l47.
+    L2 := I2;
+
+  #l42.
+    // empty loc
+
+  #l48.
+    O := L2;
+
+  #l49.
+    return;
+}
+
+procedure Success9 (
+        Integer I1,
+        Integer I2,
+        Integer I3,
+        Integer O) {
+  local
+    Integer L1;
+    Integer L2;
+
+
+  #l50.
+    L1 := I1;
+
+  #rwl10.
+    _t10 := L1;
+
+  #rwl11.
+    _t11 := 5ii;
+
+  #l53.
+    if !(_t10 > _t11) then goto l52;
+
+  #l54.
+    L2 := 6ii;
+
+  #l55.
+    goto l51;
+
+  #l52.
+    // empty loc
+
+  #rwl12.
+    _t12 := I2;
+
+  #rwl13.
+    _t13 := 0ii;
+
+  #l58.
+    if !(_t12 < _t13) then goto l57;
+
+  #l59.
+    L2 := I3;
+
+  #l60.
+    goto l56;
+
+  #l57.
+    // empty loc
+
+  #l61.
+    L2 := 7ii;
+
+  #l56.
+    // empty loc
+
+  #l51.
+    // empty loc
+
+  #l62.
+    O := L2;
+
+  #l63.
+    return;
+}
+
+procedure Success10 (
+        Integer I1,
+        Integer I2,
+        Integer I3,
+        Integer O1,
+        Integer O2) {
+  local
+    Integer L1;
+    Integer L2;
+
+
+  #l64.
+    L2 := 5ii;
+
+  #l65.
+    L1 := I3;
+
+  #l66.
+    O2 := L1;
+
+  #l67.
+    L1 := I2;
+
+  #rwl14.
+    _t14 := L1;
+
+  #rwl15.
+    _t15 := 5ii;
+
+  #l69.
+    if !(_t14 > _t15) then goto l68;
+
+  #rwl16.
+    _t16 := I1;
+
+  #rwl17.
+    _t17 := 0ii;
+
+  #l72.
+    if !(_t16 < _t17) then goto l71;
+
+  #l73.
+    L2 := 8ii;
+
+  #l74.
+    goto l70;
+
+  #l71.
+    // empty loc
+
+  #l75.
+    L2 := 7ii;
+
+  #l70.
+    // empty loc
+
+  #l68.
+    // empty loc
+
+  #l76.
+    O1 := L2;
+
+  #l77.
+    return;
+}
+
+procedure Success11 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l78.
+    J := 1ii;
+
+  #l79.
+    Sum := 0ii;
+
+  #l81.
+    // empty loc
+
+  #rwl18.
+    _t18 := J;
+
+  #rwl19.
+    _t19 := I1;
+
+  #l82.
+    if !(_t18 <= _t19) then goto l80;
+
+  #rwl20.
+    _t20 := Sum;
+
+  #rwl21.
+    _t21 := J;
+
+  #l83.
+    Sum := _t20 + _t21;
+
+  #rwl22.
+    _t22 := J;
+
+  #rwl23.
+    _t23 := 1ii;
+
+  #l84.
+    J := _t22 + _t23;
+
+  #l85.
+    goto l81;
+
+  #l80.
+    // empty loc
+
+  #l86.
+    O1 := Sum;
+
+  #l87.
+    return;
+}
+
+procedure Success12 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l88.
+    J := 1ii;
+
+  #l89.
+    Sum := 0ii;
+
+  #l91.
+    // empty loc
+
+  #rwl24.
+    _t24 := J;
+
+  #rwl25.
+    _t25 := I1;
+
+  #l92.
+    if !(_t24 <= _t25) then goto l90;
+
+  #rwl26.
+    _t26 := Sum;
+
+  #rwl27.
+    _t27 := J;
+
+  #l93.
+    Sum := _t26 + _t27;
+
+  #rwl28.
+    _t28 := Sum;
+
+  #rwl29.
+    _t29 := I2;
+
+  #l95.
+    if !(_t28 > _t29) then goto l94;
+
+  #l96.
+    Sum := 0ii;
+
+  #l94.
+    // empty loc
+
+  #rwl30.
+    _t30 := J;
+
+  #rwl31.
+    _t31 := 1ii;
+
+  #l97.
+    J := _t30 + _t31;
+
+  #l98.
+    goto l91;
+
+  #l90.
+    // empty loc
+
+  #l99.
+    O1 := Sum;
+
+  #l100.
+    return;
+}
+
+procedure Success13 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J1;
+    Integer J2;
+
+
+  #l101.
+    J1 := 1ii;
+
+  #l102.
+    J2 := 1ii;
+
+  #l103.
+    Sum := 0ii;
+
+  #l105.
+    // empty loc
+
+  #rwl32.
+    _t32 := J1;
+
+  #rwl33.
+    _t33 := I1;
+
+  #l106.
+    if !(_t32 <= _t33) then goto l104;
+
+  #l108.
+    // empty loc
+
+  #rwl34.
+    _t34 := J2;
+
+  #rwl35.
+    _t35 := I2;
+
+  #l109.
+    if !(_t34 <= _t35) then goto l107;
+
+  #rwl36.
+    _t36 := J1;
+
+  #rwl37.
+    _t37 := J2;
+
+  #rwl38.
+    _t38 := Sum;
+
+  #rwl39.
+    _t39 := _t36 * _t37;
+
+  #l110.
+    Sum := _t38 + _t39;
+
+  #rwl40.
+    _t40 := J2;
+
+  #rwl41.
+    _t41 := 1ii;
+
+  #l111.
+    J2 := _t40 + _t41;
+
+  #l112.
+    goto l108;
+
+  #l107.
+    // empty loc
+
+  #rwl42.
+    _t42 := J1;
+
+  #rwl43.
+    _t43 := 1ii;
+
+  #l113.
+    J1 := _t42 + _t43;
+
+  #l114.
+    goto l105;
+
+  #l104.
+    // empty loc
+
+  #l115.
+    O1 := Sum;
+
+  #l116.
+    return;
+}
+
+procedure Success14 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+    Integer L1;
+    Integer L2;
+
+
+  #l117.
+    J := 1ii;
+
+  #l118.
+    Sum := 0ii;
+
+  #l119.
+    L2 := 0ii;
+
+  #l121.
+    // empty loc
+
+  #rwl44.
+    _t44 := J;
+
+  #rwl45.
+    _t45 := I1;
+
+  #l122.
+    if !(_t44 <= _t45) then goto l120;
+
+  #rwl46.
+    _t46 := Sum;
+
+  #rwl47.
+    _t47 := J;
+
+  #l123.
+    Sum := _t46 + _t47;
+
+  #l124.
+    L1 := Sum;
+
+  #l125.
+    L2 := L1;
+
+  #rwl48.
+    _t48 := J;
+
+  #rwl49.
+    _t49 := 1ii;
+
+  #l126.
+    J := _t48 + _t49;
+
+  #l127.
+    goto l121;
+
+  #l120.
+    // empty loc
+
+  #rwl50.
+    _t50 := Sum;
+
+  #rwl51.
+    _t51 := L2;
+
+  #l128.
+    O1 := _t50 + _t51;
+
+  #l129.
+    return;
+}
+
+procedure Success15 (
+        Integer O1) {
+  local
+    Integer Sum;
+
+
+  #l130.
+    Sum := 0ii;
+
+  #rwl52.
+    _t52 := Sum;
+
+  #rwl53.
+    _t53 := J;
+
+  #l131.
+    Sum := _t52 + _t53;
+
+  #l132.
+    O1 := Sum;
+
+  #l133.
+    return;
+}
+
+procedure Success16 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+
+
+  #l134.
+    Sum := 0ii;
+
+  #rwl54.
+    _t54 := Sum;
+
+  #rwl55.
+    _t55 := J;
+
+  #l135.
+    Sum := _t54 + _t55;
+
+  #l136.
+    O1 := Sum;
+
+  #l137.
+    return;
+}
+
+procedure Success17 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+
+
+  #l138.
+    Sum := 0ii;
+
+  #rwl56.
+    _t56 := Sum;
+
+  #rwl57.
+    _t57 := J;
+
+  #l139.
+    Sum := _t56 + _t57;
+
+  #rwl58.
+    _t58 := Sum;
+
+  #rwl59.
+    _t59 := I2;
+
+  #l141.
+    if !(_t58 > _t59) then goto l140;
+
+  #l142.
+    Sum := 0ii;
+
+  #l140.
+    // empty loc
+
+  #l143.
+    O1 := Sum;
+
+  #l144.
+    return;
+}
+
+procedure Success18 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+
+
+  #l145.
+    Sum := 0ii;
+
+  #rwl60.
+    _t60 := J1;
+
+  #rwl61.
+    _t61 := J2;
+
+  #rwl62.
+    _t62 := Sum;
+
+  #rwl63.
+    _t63 := _t60 * _t61;
+
+  #l146.
+    Sum := _t62 + _t63;
+
+  #l147.
+    O1 := Sum;
+
+  #l148.
+    return;
+}
+
+procedure Success19 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+
+
+  #l149.
+    Sum := 0ii;
+
+  #rwl64.
+    _t64 := Sum;
+
+  #rwl65.
+    _t65 := J1;
+
+  #l150.
+    Sum := _t64 + _t65;
+
+  #l151.
+    O1 := Sum;
+
+  #l152.
+    return;
+}
+
+procedure Success20 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l153.
+    J := 1ii;
+
+  #l154.
+    Sum := 0ii;
+
+  #rwl66.
+    _t66 := Sum;
+
+  #rwl67.
+    _t67 := J;
+
+  #l155.
+    Sum := _t66 + _t67;
+
+  #rwl68.
+    _t68 := J;
+
+  #rwl69.
+    _t69 := 1ii;
+
+  #l156.
+    J := _t68 + _t69;
+
+  #l157.
+    O1 := Sum;
+
+  #l158.
+    return;
+}
+
+procedure Success21 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l159.
+    J := 1ii;
+
+  #l160.
+    Sum := 0ii;
+
+  #rwl70.
+    _t70 := Sum;
+
+  #rwl71.
+    _t71 := J;
+
+  #l161.
+    Sum := _t70 + _t71;
+
+  #rwl72.
+    _t72 := J;
+
+  #rwl73.
+    _t73 := 1ii;
+
+  #l162.
+    J := _t72 + _t73;
+
+  #rwl74.
+    _t74 := J;
+
+  #rwl75.
+    _t75 := I1;
+
+  #l164.
+    if !(_t74 >= _t75) then goto l163;
+
+  #l163.
+    // empty loc
+
+  #l165.
+    O1 := Sum;
+
+  #l166.
+    return;
+}
+
+procedure Success22 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l167.
+    J := 1ii;
+
+  #l168.
+    Sum := 0ii;
+
+  #rwl76.
+    _t76 := Sum;
+
+  #rwl77.
+    _t77 := J;
+
+  #l169.
+    Sum := _t76 + _t77;
+
+  #rwl78.
+    _t78 := Sum;
+
+  #rwl79.
+    _t79 := I2;
+
+  #l171.
+    if !(_t78 > _t79) then goto l170;
+
+  #l172.
+    Sum := 0ii;
+
+  #l170.
+    // empty loc
+
+  #rwl80.
+    _t80 := J;
+
+  #rwl81.
+    _t81 := 1ii;
+
+  #l173.
+    J := _t80 + _t81;
+
+  #l174.
+    O1 := Sum;
+
+  #l175.
+    return;
+}
+
+procedure Success23 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J1;
+    Integer J2;
+
+
+  #l176.
+    J1 := 1ii;
+
+  #l177.
+    J2 := 1ii;
+
+  #l178.
+    Sum := 0ii;
+
+  #rwl82.
+    _t82 := J1;
+
+  #rwl83.
+    _t83 := J2;
+
+  #rwl84.
+    _t84 := Sum;
+
+  #rwl85.
+    _t85 := _t82 * _t83;
+
+  #l179.
+    Sum := _t84 + _t85;
+
+  #rwl86.
+    _t86 := J2;
+
+  #rwl87.
+    _t87 := 1ii;
+
+  #l180.
+    J2 := _t86 + _t87;
+
+  #rwl88.
+    _t88 := J1;
+
+  #rwl89.
+    _t89 := 1ii;
+
+  #l181.
+    J1 := _t88 + _t89;
+
+  #l182.
+    O1 := Sum;
+
+  #l183.
+    return;
+}
+
+procedure Success24 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l184.
+    J := 1ii;
+
+  #l185.
+    Sum := 0ii;
+
+  #rwl90.
+    _t90 := Sum;
+
+  #rwl91.
+    _t91 := J;
+
+  #l186.
+    Sum := _t90 + _t91;
+
+  #rwl92.
+    _t92 := J;
+
+  #rwl93.
+    _t93 := 1ii;
+
+  #l187.
+    J := _t92 + _t93;
+
+  #l188.
+    O1 := Sum;
+
+  #l189.
+    return;
+}
+
+procedure Success25 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l190.
+    J := 1ii;
+
+  #l191.
+    Sum := 0ii;
+
+  #rwl94.
+    _t94 := Sum;
+
+  #rwl95.
+    _t95 := J;
+
+  #l192.
+    Sum := _t94 + _t95;
+
+  #rwl96.
+    _t96 := J;
+
+  #rwl97.
+    _t97 := 1ii;
+
+  #l193.
+    J := _t96 + _t97;
+
+  #l194.
+    O1 := Sum;
+
+  #l195.
+    return;
+}
+
+procedure Success26 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+
+
+  #l196.
+    J := 1ii;
+
+  #l197.
+    Sum := 0ii;
+
+  #l199.
+    // empty loc
+
+  #rwl98.
+    _t98 := J;
+
+  #rwl99.
+    _t99 := I1;
+
+  #l200.
+    if !(_t98 <= _t99) then goto l198;
+
+  #rwl100.
+    _t100 := Sum;
+
+  #rwl101.
+    _t101 := J;
+
+  #l201.
+    Sum := _t100 + _t101;
+
+  #rwl102.
+    _t102 := J;
+
+  #rwl103.
+    _t103 := 1ii;
+
+  #l202.
+    J := _t102 + _t103;
+
+  #l203.
+    goto l199;
+
+  #l198.
+    // empty loc
+
+  #l204.
+    O1 := Sum;
+
+  #l205.
+    return;
+}
+
+procedure Success27 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+
+
+  #l206.
+    Sum := 0ii;
+
+  #rwl104.
+    _t104 := Sum;
+
+  #rwl105.
+    _t105 := J;
+
+  #l207.
+    Sum := _t104 + _t105;
+
+  #l208.
+    O1 := Sum;
+
+  #l209.
+    return;
+}

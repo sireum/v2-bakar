@@ -1,0 +1,53 @@
+package AbsPackage;
+
+
+typealias  standard::integer;
+
+procedure Integer AbsFunc (
+        Integer x) {
+  local
+    Integer r;
+
+
+  #rwl0.
+    _t0 := x;
+
+  #rwl1.
+    _t1 := 0ii;
+
+  #l3.
+    if !(_t0 < _t1) then goto l2;
+
+  #rwl2.
+    _t2 := x;
+
+  #rwl3.
+    _t3 := -(1ii);
+
+  #l4.
+    r := _t2 * _t3;
+
+  #l5.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l6.
+    r := x;
+
+  #l1.
+    // empty loc
+
+  #rwl4.
+    _t4 := r;
+
+  #rwl5.
+    _t5 := 0ii;
+
+  #l7.
+    assert _t4 >= _t5;
+
+  #l8.
+    return r;
+}

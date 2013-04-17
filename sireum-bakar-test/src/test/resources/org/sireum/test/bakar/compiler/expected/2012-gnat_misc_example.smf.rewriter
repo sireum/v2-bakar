@@ -1,0 +1,53 @@
+package example;
+
+
+typealias  standard::integer;
+
+procedure add (
+        Integer x,
+        Integer y) {
+
+  #rwl0.
+    _t0 := x;
+
+  #rwl1.
+    _t1 := y;
+
+  #l1.
+    x := _t0 + _t1;
+
+  #l2.
+    return;
+}
+
+procedure foo (
+        Integer A,
+        Integer B) {
+  local
+    Integer M;
+
+
+  #l3.
+    M := 3ii;
+
+  #rwl2.
+    _t2 := A;
+
+  #rwl3.
+    _t3 := 2ii;
+
+  #l4.
+    A := _t2 + _t3;
+
+  #rwl4.
+    _t4 := B;
+
+  #rwl5.
+    _t5 := 5ii;
+
+  #l5.
+    B := _t4 + _t5;
+
+  #l6.
+    return;
+}

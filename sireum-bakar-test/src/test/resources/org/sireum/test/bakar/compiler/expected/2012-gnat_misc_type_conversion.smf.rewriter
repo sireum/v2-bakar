@@ -1,0 +1,15 @@
+package Type_Conversion;
+
+
+typealias  standard::integer;
+
+procedure Convert (
+        Float Y,
+        Integer X) {
+
+  #l1.
+    X := Y;
+
+  #l2.
+    return;
+}

@@ -1,0 +1,66 @@
+package RecordTest01;
+
+
+typealias  standard::integer;
+
+procedure Test01 (
+        Object Q) {
+  local
+    Integer T;
+
+
+  #l1.
+    T := Q.X;
+
+  #l2.
+    Q.X := Q.Y;
+
+  #l3.
+    Q.Y := T;
+
+  #l4.
+    return;
+}
+
+procedure Test02 (
+        Integer I1,
+        Integer I2,
+        Integer O1,
+        Integer O2) {
+  local
+    NestedObject Q;
+
+
+  #rwl0.
+    _t0 := Q.O;
+
+  #l5.
+    _t0.X := I1;
+
+  #rwl1.
+    Q.O := _t0;
+
+  #rwl2.
+    _t1 := Q.O;
+
+  #l6.
+    _t1.Y := I2;
+
+  #rwl3.
+    Q.O := _t1;
+
+  #rwl4.
+    _t2 := Q.O;
+
+  #l7.
+    O1 := _t2.X;
+
+  #rwl5.
+    _t3 := Q.O;
+
+  #l8.
+    O2 := _t3.Y;
+
+  #l9.
+    return;
+}

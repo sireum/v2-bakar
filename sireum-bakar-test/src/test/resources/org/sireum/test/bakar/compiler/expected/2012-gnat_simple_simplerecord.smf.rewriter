@@ -1,0 +1,92 @@
+package SimpleRecord;
+
+
+typealias Integer SmallInt;
+
+typealias _ARRAY_ Vector;
+
+record Rec {
+
+  SmallInt A;
+
+  Vector B;
+}
+
+record NestedRec {
+
+  Rec X;
+}
+
+typealias  standard::integer;
+
+procedure Boolean Dummy {
+
+  #l1.
+    return true;
+}
+
+procedure Add (
+        SmallInt I,
+        Rec R) {
+
+  #rwl0.
+    _t0 := R.A;
+
+  #rwl1.
+    _t1 := I;
+
+  #l2.
+    R.A := _t0 + _t1;
+
+  #l3.
+    return;
+}
+
+procedure NAdd (
+        SmallInt I,
+        NestedRec NR) {
+
+  #rwl2.
+    _t2 := NR.X;
+
+  #rwl4.
+    _t3 := NR.X;
+
+  #rwl5.
+    _t4 := _t3.A;
+
+  #rwl6.
+    _t5 := I;
+
+  #l4.
+    _t2.A := _t4 + _t5;
+
+  #rwl3.
+    NR.X := _t2;
+
+  #l5.
+    return;
+}
+
+procedure AAdd (
+        SmallInt I,
+        Rec R) {
+
+  #rwl7.
+    _t6 := R.B;
+
+  #rwl9.
+    _t7 := I;
+
+  #rwl10.
+    _t8 := 1ii;
+
+  #l6.
+    _t6[I] := _t7 + _t8;
+
+  #rwl8.
+    R.B := _t6;
+
+  #l7.
+    return;
+}

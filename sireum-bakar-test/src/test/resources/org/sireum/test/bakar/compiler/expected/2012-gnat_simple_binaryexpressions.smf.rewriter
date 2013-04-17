@@ -1,0 +1,348 @@
+package BinaryExpressions;
+
+
+typealias  standard::integer;
+
+procedure Integer X {
+
+  #l1.
+    return 1ii;
+}
+
+procedure Integer Add (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #rwl0.
+    _t0 := 1ii;
+
+  #rwl1.
+    _t1 := 2ii;
+
+  #l2.
+    r0 := _t0 + _t1;
+
+  #rwl2.
+    _t2 := I;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #l3.
+    r1 := _t2 + _t3;
+
+  #rwl4.
+    _t4 := I;
+
+  #rwl5.
+    _t5 := J;
+
+  #l4.
+    r2 := _t4 + _t5;
+
+  #rwl6.
+    _t6 := I;
+
+  #rwl7.
+    _t7 := I;
+
+  #l5.
+    r3 := _t6 + _t7;
+
+  #rwl8.
+    _t8 := J;
+
+  #rwl9.
+    _t9 := J;
+
+  #l6.
+    r4 := _t8 + _t9;
+
+  #rwl10.
+    _t10 := J;
+
+  #rwl11.
+    _t11 := I;
+
+  #l7.
+    r5 := _t10 + _t11;
+
+  #rwl12.
+    _t12 := J;
+
+  #rwl13.
+    _t13 := 1ii;
+
+  #l8.
+    r6 := _t12 + _t13;
+
+  #rwl14.
+    _t14 := r2;
+
+  #rwl15.
+    _t15 := r5;
+
+  #l9.
+    assert _t14 == _t15;
+
+  #l10.
+    return r6;
+}
+
+procedure Integer Sub (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #rwl16.
+    _t16 := 1ii;
+
+  #rwl17.
+    _t17 := 2ii;
+
+  #l11.
+    r0 := _t16 - _t17;
+
+  #rwl18.
+    _t18 := I;
+
+  #rwl19.
+    _t19 := 1ii;
+
+  #l12.
+    r1 := _t18 - _t19;
+
+  #rwl20.
+    _t20 := I;
+
+  #rwl21.
+    _t21 := J;
+
+  #l13.
+    r2 := _t20 - _t21;
+
+  #rwl22.
+    _t22 := I;
+
+  #rwl23.
+    _t23 := I;
+
+  #l14.
+    r3 := _t22 - _t23;
+
+  #rwl24.
+    _t24 := J;
+
+  #rwl25.
+    _t25 := J;
+
+  #l15.
+    r4 := _t24 - _t25;
+
+  #rwl26.
+    _t26 := J;
+
+  #rwl27.
+    _t27 := I;
+
+  #l16.
+    r5 := _t26 - _t27;
+
+  #rwl28.
+    _t28 := J;
+
+  #rwl29.
+    _t29 := 1ii;
+
+  #l17.
+    r6 := _t28 - _t29;
+
+  #l18.
+    return r6;
+}
+
+procedure Integer Mult (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #rwl30.
+    _t30 := 1ii;
+
+  #rwl31.
+    _t31 := 2ii;
+
+  #l19.
+    r0 := _t30 * _t31;
+
+  #rwl32.
+    _t32 := I;
+
+  #rwl33.
+    _t33 := 1ii;
+
+  #l20.
+    r1 := _t32 * _t33;
+
+  #rwl34.
+    _t34 := I;
+
+  #rwl35.
+    _t35 := J;
+
+  #l21.
+    r2 := _t34 * _t35;
+
+  #rwl36.
+    _t36 := I;
+
+  #rwl37.
+    _t37 := I;
+
+  #l22.
+    r3 := _t36 * _t37;
+
+  #rwl38.
+    _t38 := J;
+
+  #rwl39.
+    _t39 := J;
+
+  #l23.
+    r4 := _t38 * _t39;
+
+  #rwl40.
+    _t40 := J;
+
+  #rwl41.
+    _t41 := I;
+
+  #l24.
+    r5 := _t40 * _t41;
+
+  #rwl42.
+    _t42 := J;
+
+  #rwl43.
+    _t43 := 1ii;
+
+  #l25.
+    r6 := _t42 * _t43;
+
+  #rwl44.
+    _t44 := r2;
+
+  #rwl45.
+    _t45 := r5;
+
+  #l26.
+    assert _t44 == _t45;
+
+  #l27.
+    return r6;
+}
+
+procedure Integer Division (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #rwl46.
+    _t46 := 1ii;
+
+  #rwl47.
+    _t47 := 2ii;
+
+  #l28.
+    r0 := _t46 / _t47;
+
+  #rwl48.
+    _t48 := I;
+
+  #rwl49.
+    _t49 := 1ii;
+
+  #l29.
+    r1 := _t48 / _t49;
+
+  #rwl50.
+    _t50 := I;
+
+  #rwl51.
+    _t51 := I;
+
+  #l30.
+    r2 := _t50 / _t51;
+
+  #rwl52.
+    _t52 := I;
+
+  #rwl53.
+    _t53 := J;
+
+  #l31.
+    r3 := _t52 / _t53;
+
+  #rwl54.
+    _t54 := J;
+
+  #rwl55.
+    _t55 := I;
+
+  #l32.
+    r4 := _t54 / _t55;
+
+  #rwl56.
+    _t56 := J;
+
+  #rwl57.
+    _t57 := J;
+
+  #l33.
+    r5 := _t56 / _t57;
+
+  #rwl58.
+    _t58 := J;
+
+  #rwl59.
+    _t59 := 1ii;
+
+  #l34.
+    r6 := _t58 / _t59;
+
+  #l35.
+    return r6;
+}

@@ -1,0 +1,52 @@
+package Function_Simple;
+
+
+typealias  standard::integer;
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+
+  #rwl0.
+    _t0 := X;
+
+  #rwl1.
+    _t1 := Z;
+
+  #rwl2.
+    _t2 := _t0 + _t1;
+
+  #rwl3.
+    _t3 := Y;
+
+  #l1.
+    return _t2 + _t3;
+}
+
+procedure P1 (
+        Integer M,
+        Integer N) {
+
+  #l2.
+    B := F1 (M, N);
+
+  #l3.
+    return;
+}
+
+procedure P2 (
+        Integer M,
+        Integer N) {
+
+  #rwl4.
+    _t4 := F1 (M, N);
+
+  #rwl5.
+    _t5 := C;
+
+  #l4.
+    B := _t4 + _t5;
+
+  #l5.
+    return;
+}

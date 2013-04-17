@@ -1,0 +1,32 @@
+package PackageDemo_A;
+
+
+typealias  standard::integer;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #rwl0.
+    _t0 := X;
+
+  #rwl1.
+    _t1 := 2ii;
+
+  #l1.
+    Z := _t0 + _t1;
+
+  #l2.
+    return;
+}package PackageDemo_B;
+
+
+typealias  standard::integer;
+
+procedure T (
+        Integer M,
+        Integer Z) {
+
+  #l3.
+    return;
+}

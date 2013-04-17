@@ -56,10 +56,6 @@ class BakarRewriterTest extends BakarTranslatorPrettyPrinterTest {
   
   override def writeTestString(job : PipelineJob, w : Writer) = {
     import BakarExpRewriterModule.ConsumerView._
-    job.models foreach { m =>
-      val x = NodePrettyPrinter.print(m)
-      println(x)
-      w.write(x)
-    }
+    job.models foreach ( m => w.write(NodePrettyPrinter.print(m)) )
   }
 }

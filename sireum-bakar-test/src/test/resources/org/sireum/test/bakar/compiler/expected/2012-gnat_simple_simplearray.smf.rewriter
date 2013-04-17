@@ -1,0 +1,42 @@
+package SimpleArray;
+
+
+typealias Integer Index;
+
+typealias _ARRAY_ Vector;
+
+typealias  standard::integer;
+
+procedure Boolean Dummy {
+
+  #l1.
+    return true;
+}
+
+procedure Integer Max (
+        Vector V) {
+  local
+    Integer M;
+
+
+  #l2.
+    M := V[0ii];
+
+  #rwl0.
+    _t0 := V[I];
+
+  #rwl1.
+    _t1 := M;
+
+  #l4.
+    if !(_t0 > _t1) then goto l3;
+
+  #l5.
+    M := V[I];
+
+  #l3.
+    // empty loc
+
+  #l6.
+    return M;
+}

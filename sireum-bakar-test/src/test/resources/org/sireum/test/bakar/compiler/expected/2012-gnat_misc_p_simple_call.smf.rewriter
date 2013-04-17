@@ -1,0 +1,89 @@
+package P_Simple_Call;
+
+
+typealias  standard::integer;
+
+procedure R (
+        Integer X) {
+
+  #rwl0.
+    _t0 := Y;
+
+  #rwl1.
+    _t1 := B;
+
+  #rwl2.
+    _t2 := _t0 + _t1;
+
+  #rwl3.
+    _t3 := C;
+
+  #l1.
+    X := _t2 + _t3;
+
+  #l2.
+    return;
+}
+
+procedure Integer incX (
+        Integer X) {
+  local
+    Integer result;
+
+
+  #rwl4.
+    _t4 := X;
+
+  #rwl5.
+    _t5 := 0ii;
+
+  #l5.
+    if !(_t4 == _t5) then goto l4;
+
+  #rwl6.
+    _t6 := X;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l6.
+    result := _t6 + _t7;
+
+  #l7.
+    goto l3;
+
+  #l4.
+    // empty loc
+
+  #rwl8.
+    _t8 := X;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #l8.
+    result := _t8 - _t9;
+
+  #l3.
+    // empty loc
+
+  #l9.
+    return result;
+}
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #rwl10.
+    _t10 := Z;
+
+  #rwl11.
+    _t11 := incX (X);
+
+  #l10.
+    Z := _t10 + _t11;
+
+  #l11.
+    return;
+}

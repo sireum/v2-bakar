@@ -1,0 +1,20 @@
+package SimpleMath1;
+
+
+typealias  standard::integer;
+
+procedure Inc (
+        Integer I) {
+
+  #rwl0.
+    _t0 := I;
+
+  #rwl1.
+    _t1 := B;
+
+  #l1.
+    I := _t0 + _t1;
+
+  #l2.
+    return;
+}

@@ -1,0 +1,99 @@
+package FaultIntegrator;
+
+
+typealias  standard::integer;
+
+procedure Init (
+        T FI,
+        Positive Threshold) {
+
+  #l1.
+    FI := false;
+
+  #l2.
+    return;
+}
+
+procedure Test (
+        T FI,
+        Boolean CurrentEvent,
+        Boolean IntegratedEvent) {
+
+  #l5.
+    if !(CurrentEvent) then goto l4;
+
+  #rwl0.
+    _t0 := FI.Counter;
+
+  #rwl1.
+    _t1 := FI.Limit;
+
+  #l8.
+    if !(_t0 == _t1) then goto l7;
+
+  #l9.
+    FI.Tripped := true;
+
+  #l10.
+    goto l6;
+
+  #l7.
+    // empty loc
+
+  #rwl2.
+    _t2 := FI.Counter;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #l11.
+    FI.Counter := _t2 + _t3;
+
+  #l6.
+    // empty loc
+
+  #l12.
+    goto l3;
+
+  #l4.
+    // empty loc
+
+  #rwl4.
+    _t4 := FI.Counter;
+
+  #rwl5.
+    _t5 := 0ii;
+
+  #l15.
+    if !(_t4 == _t5) then goto l14;
+
+  #l16.
+    FI.Tripped := false;
+
+  #l17.
+    goto l13;
+
+  #l14.
+    // empty loc
+
+  #rwl6.
+    _t6 := FI.Counter;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l18.
+    FI.Counter := _t6 - _t7;
+
+  #l13.
+    // empty loc
+
+  #l3.
+    // empty loc
+
+  #l19.
+    IntegratedEvent := FI.Tripped;
+
+  #l20.
+    return;
+}

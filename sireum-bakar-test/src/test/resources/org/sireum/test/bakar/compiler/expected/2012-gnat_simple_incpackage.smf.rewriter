@@ -1,0 +1,32 @@
+package IncPackage;
+
+
+typealias  standard::integer;
+
+procedure Integer Inc (
+        Integer X) {
+  local
+    Integer R;
+
+
+  #rwl0.
+    _t0 := X;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #l1.
+    R := _t0 + _t1;
+
+  #rwl2.
+    _t2 := R;
+
+  #rwl3.
+    _t3 := X;
+
+  #l2.
+    assert _t2 > _t3;
+
+  #l3.
+    return R;
+}

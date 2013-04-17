@@ -1,0 +1,20 @@
+package QuantifierTest;
+
+
+typealias  standard::integer;
+
+procedure dummy (
+        Index I) {
+
+  #rwl0.
+    _t0 := V[I];
+
+  #rwl1.
+    _t1 := 3ii;
+
+  #l1.
+    V[I] := _t0 + _t1;
+
+  #l2.
+    return;
+}

@@ -1,0 +1,72 @@
+package Constraints;
+
+
+typealias  standard::integer;
+
+procedure foo (
+        Integer a,
+        Day dayVar) {
+
+  #rwl0.
+    _t0 := dayVar;
+
+  #rwl1.
+    _t1 := ;
+
+  #l3.
+    if !(!(_t0 == _t1)) then goto l2;
+
+  #rwl2.
+    _t2 := a;
+
+  #rwl3.
+    _t3 := 2ii;
+
+  #l4.
+    a := _t2 + _t3;
+
+  #l5.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #rwl4.
+    _t4 := Succ (dayVar);
+
+  #rwl5.
+    _t5 := ;
+
+  #l7.
+    if !(_t4 == _t5) then goto l6;
+
+  #rwl6.
+    _t6 := a;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l8.
+    a := _t6 - _t7;
+
+  #l9.
+    goto l1;
+
+  #l6.
+    // empty loc
+
+  #rwl8.
+    _t8 := a;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #l10.
+    a := _t8 * _t9;
+
+  #l1.
+    // empty loc
+
+  #l11.
+    return;
+}
