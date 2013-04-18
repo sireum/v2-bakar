@@ -121,6 +121,9 @@ class BakarRewriter {
       ie(URIS.TYPE_URI) = etype
       ie.propertyMap ++= e.propertyMap
       ie
+    case e : Exp =>
+      assert (e ? URIS.TYPE_URI)
+      e
   }, Rewriter.TraversalMode.BOTTOM_UP)
 
   def rewrite(m : Model) : Model = {

@@ -20,7 +20,8 @@ import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
 class BakarTypeResolverTest extends BakarRewriterTest {
 
   // record definition is in ads file
-  this.excludes ++= Set("recordtest01", "recordtest02")
+  this.excludes ++= Set("recordtest01", "recordtest02", "case", "constraints", 
+      "dependence_test_suite_01", "faultintegrator")
   
   override def generateExpected = false
 

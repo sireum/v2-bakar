@@ -15,6 +15,8 @@ object URIS {
 }
 
 object StandardURIs {
+  val universalIntURI = "ada://ordinary_type/universal_integer"
+    
   val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1"
   val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1"
   val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1"
@@ -36,6 +38,8 @@ object StandardTypeDefs {
     tad(URIS.REF_URI) = typURI
     tad
   }
+  
+  val UniversalInteger = createType("universal_integer", StandardURIs.universalIntURI)
   
   val StandardBoolean = createType("standard::boolean", StandardURIs.boolURI)
   val StandardInteger = createType("standard::integer", StandardURIs.integerURI)

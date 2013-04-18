@@ -435,9 +435,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
   implicit def nd2nu(nd : NameDefinition) = NameUser(nd.name)
 
-  implicit def addprop[T <: PropertyProvider](pp : T, key : String, value : Any) : T = {
+  implicit def addprop[T <: PropertyProvider](pp : T, key : String, value : Any, required : Boolean = false) : T = {
     if (value == null || value == "null" || value == "") {
       Console.err.println(s"null/empty value for $key from $pp")
+      if(required)
+        throw new RuntimeException("Missing required type")
     } else {
       pp.setProperty(key, value)
     }
@@ -512,6 +514,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       packElems += StandardTypeDefs.StandardInteger
       packElems += StandardTypeDefs.StandardNatural
       packElems += StandardTypeDefs.StandardPositive
+      
+      // FIXME: inject the non-standard universal_integer
+      packElems += StandardTypeDefs.UniversalInteger
       
       if (!aspectSpec.getElements().isEmpty())
         Console.err.println("Need to handle package body aspect clauses")
@@ -896,16 +901,21 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
 
       false
-    case IntegerLiteralEx(sloc, litVal, theType) =>
-      val v = litVal.replaceAll("_", "")
+    case IntegerLiteralEx(sloc, litVal, typUri) =>
+      val v = litVal.replaceAll("_", "") // e.g. 3_500
       val le = LiteralExp(LiteralType.INTEGER, BigInt(v), v + "ii")
-      le(URIS.TYPE_URI) = theType
+      le(URIS.TYPE_URI) = typUri match {
+        case "universal integer" => StandardURIs.universalIntURI
+        case x => x 
+      }
       ctx.pushResult(le, sloc)
       false
     case o @ EnumerationLiteralEx(sloc, refName, ref, typ) =>
       if (typ == StandardURIs.boolURI) {
         val v = refName.toLowerCase() == "true"
-        ctx.pushResult(LiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase()), sloc)
+        val le = LiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase())
+        addprop(le, URIS.TYPE_URI, StandardURIs.boolURI)
+        ctx.pushResult(le, sloc)
       } else {
         Console.err.println("Not handling enumeration lit %s %s".format(typ, refName))
       }
@@ -932,13 +942,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
 
       val ie = IndexingExp(pprefix, indices.toList)
-
-      assert(theType != null && theType != "null")
-      addprop(ie, URIS.TYPE_URI, theType)
+      addprop(ie, URIS.TYPE_URI, theType, true)
 
       ctx.pushResult(ie, sloc)
       false
-    case o @ SelectedComponentEx(sloc, prefix, selector, typ) =>
+    case o @ SelectedComponentEx(sloc, prefix, selector, typUri) =>
       v(prefix)
       val e = ctx.popResult.asInstanceOf[Exp]
 
@@ -946,8 +954,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       val attr = NameUser(selname)
       addprop(attr, URIS.REF_URI, seluri)
       addprop(attr, URIS.TYPE_URI, styp)
-
-      ctx.pushResult(AccessExp(e, attr), sloc)
+      
+      val ae = AccessExp(e, attr)
+      this.addprop(ae, URIS.TYPE_URI, typUri, true)
+      
+      ctx.pushResult(ae, sloc)
       false
     case o @ (
       RealLiteralEx(_) |

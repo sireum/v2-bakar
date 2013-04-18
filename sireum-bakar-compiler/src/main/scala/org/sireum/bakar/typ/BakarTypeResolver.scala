@@ -84,8 +84,8 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
   def addMapping(nuref : PilarAstNode, nutyp : PilarAstNode) {
     assert(nuref ? URIS.REF_URI)
     assert(nutyp ? URIS.REF_URI)
-    val typUri : ResourceUri = nuref(URIS.REF_URI)
-    val refUri : ResourceUri = nutyp(URIS.REF_URI)
+    val refUri : ResourceUri = nuref(URIS.REF_URI)
+    val typUri : ResourceUri = nutyp(URIS.REF_URI)
     assert(!refUri2typeUri.contains(refUri))
     refUri2typeUri(refUri) = typUri
   }
@@ -105,8 +105,10 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         throw new RuntimeException("Not expecting ")
 
       case o @ NameExp(nu) =>
-        assert(nu ? URIS.REF_URI)
-        true
+        import org.sireum.pilar.symbol.Symbol
+        assert (o ? URIS.TYPE_URI)
+        assert (nu.hasResourceInfo)
+        false
     }
     v(m)
   }
