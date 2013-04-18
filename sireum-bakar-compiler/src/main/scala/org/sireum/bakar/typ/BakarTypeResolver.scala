@@ -16,7 +16,7 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
   val typeMap = mmapEmpty[ResourceUri, Type]
 
   var proc = ivectorEmpty[ProcedureDecl]
-  
+
   // collect the type definitions
   for (m <- this.models) {
     val v = Visitor.build {
@@ -80,48 +80,46 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
 
   // build the refuri to typuri map for the type provider
   val refUri2typeUri = mmapEmpty[ResourceUri, ResourceUri]
+
+  def addMapping(nuref : PilarAstNode, nutyp : PilarAstNode) {
+    assert(nuref ? URIS.REF_URI)
+    assert(nutyp ? URIS.REF_URI)
+    val typUri : ResourceUri = nuref(URIS.REF_URI)
+    val refUri : ResourceUri = nutyp(URIS.REF_URI)
+    assert(!refUri2typeUri.contains(refUri))
+    refUri2typeUri(refUri) = typUri
+  }
+
   for (m <- this.models) {
     val v = Visitor.build {
       case o @ GlobalVarDecl(name, _, Some(NamedTypeSpec(nu, _))) =>
-        assert (nu ? URIS.REF_URI)
-        assert (o ? URIS.REF_URI)
-        val typUri : ResourceUri = nu(URIS.REF_URI)
-        val refUri : ResourceUri = o(URIS.REF_URI)
-        refUri2typeUri(refUri) = typUri
+        addMapping(o, nu)
         false
       case o @ ParamDecl(Some(NamedTypeSpec(nu, _)), name, _) =>
-        assert (nu ? URIS.REF_URI)
-        assert (o ? URIS.REF_URI)
-        val typUri : ResourceUri = nu(URIS.REF_URI)
-        val refUri : ResourceUri = o(URIS.REF_URI)
-        refUri2typeUri(refUri) = typUri
+        addMapping(o, nu)
         false
       case o @ LocalVarDecl(Some(NamedTypeSpec(nu, _)), name, _) =>
-        assert (o ? URIS.REF_URI)
-        assert (nu ? URIS.REF_URI)
-        val refUri : ResourceUri = o(URIS.REF_URI)
-        val typUri : ResourceUri = nu(URIS.REF_URI)
-        refUri2typeUri(refUri) = typUri
+        addMapping(o, nu)
         false
       case GlobalVarDecl | ParamDecl | LocalVarDecl =>
         throw new RuntimeException("Not expecting ")
+
+      case o @ NameExp(nu) =>
+        assert(nu ? URIS.REF_URI)
+        true
     }
     v(m)
   }
-  
+
   this.bakarRef2TypeUriMap = refUri2typeUri.toMap
 }
 
 case class BakarTypeResolver(
   title : String = "Bakar Type Resolver",
 
-  @Input 
-  @Output 
-  models : ISeq[Model],
-  
-  @Output
-  bakarRef2TypeUriMap : IMap[ResourceUri, ResourceUri]
-  )
+  @Input @Output models : ISeq[Model],
+
+  @Output bakarRef2TypeUriMap : IMap[ResourceUri, ResourceUri])
 
 object BakarTypeResolver {
   def main(args : Array[String]) {

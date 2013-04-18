@@ -9,6 +9,7 @@ import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.util._
 import org.sireum.pilar.ast._
 import org.sireum.pilar.pretty.NodePrettyPrinter
+import org.sireum.bakar.compiler.module.URIS
 
 class BakarExpRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarExpRewriterModule {
   var r = ilistEmpty[Model]
@@ -29,9 +30,28 @@ class BakarRewriter {
   val tempVarPrefix = "_t"
   val locPrefix = "rwl"
 
+  val SCHEME = "ada"
+  val TEMP_VAR_TYPE = "variable_temp"
+  
   val eannot = ilistEmpty[Annotation]
-  def newTempVar = {
-    val ret = NameExp(NameUser(tempVarPrefix + tcounter))
+  def newTempVar(typeName : String, typeUri : String) = {
+    import org.sireum.pilar.symbol.Symbol
+
+    val name = tempVarPrefix + tcounter
+    val path = ilist(this.currentPackage, this.currentMethod, name)
+    val uri = SCHEME + "://" + TEMP_VAR_TYPE + "/" + path.mkString("/")
+    
+    val tvtnu = NameUser(typeName)
+    tvtnu(URIS.REF_URI) = tvtnu
+    val nts = Some(NamedTypeSpec(tvtnu, ilistEmpty[TypeSpec]))
+    val lvd = LocalVarDecl(nts, NameDefinition(name), ilistEmpty[Annotation])
+    lvd(URIS.REF_URI) = uri
+    this.newTempVars :+= lvd
+    
+    val nu = NameUser(name)
+    nu.uri("ada", "variable_temp", path, uri)
+    val ret = NameExp(nu)
+    ret(URIS.TYPE_URI) = typeUri
     tcounter += 1
     ret
   }
@@ -43,49 +63,52 @@ class BakarRewriter {
   }
 
   var clhs : Option[Exp] = None
-  //var locmap = ilinkedMapEmpty[LocationDecl, (ISeq[LocationDecl], ISeq[LocationDecl])]
   var prelocs = ilistEmpty[LocationDecl]
   var postlocs = ilistEmpty[LocationDecl]
-  var vars = ilistEmpty[LocalVarDecl]
+  var newTempVars = ilistEmpty[LocalVarDecl]
 
+  var currentPackage : String = null
+  var currentMethod : String = null
+  
+  def getTypeUri(e : Exp) : String = {
+    assert (e ? URIS.TYPE_URI)
+    e(URIS.TYPE_URI)
+  }
+  
   val rewriter = Rewriter.build[LocationDecl]({
-    /*
-    case p @ ProcedureDecl(name, annotations, typeVars, params, returnType, varArity, body : ImplementedBody) =>
-      val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
-
-      val newBody = ImplementedBody(body.locals,
-        x.toList,
-        body.catchClauses)
-
-      ProcedureDecl(name, annotations, typeVars, params, returnType, varArity, newBody)
-      */
-    case l : LocationDecl =>
-      //locmap += (l -> (prelocs, postlocs))
-      //prelocs = ilistEmpty[LocationDecl]
-      //postlocs = ilistEmpty[LocationDecl]
-      l
-    case BinaryExp(o, l, r) =>
-
-      val le = newTempVar
+    case l : LocationDecl => l
+    case b @ BinaryExp(o, l, r) =>
+      val btype = getTypeUri(b)
+      val ltype = getTypeUri(l)
+      val rtype = getTypeUri(r)
+      
+      val le = newTempVar("FIXME", ltype)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, le, ":=", l))
 
-      val re = newTempVar
+      val re = newTempVar("FIXME", rtype)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, re, ":=", r))
 
-      BinaryExp(o, le, re)
+      val be = BinaryExp(o, le, re)
+      be(URIS.TYPE_URI) = btype
+      be
     case e @ AccessExp(NameExp(NameUser(n)), attributeName) => e
     case e @ AccessExp(exp, attributeName) =>
-      val te = newTempVar
+      val etype = getTypeUri(e)
+      val exptype = getTypeUri(exp)
+      val te = newTempVar("FIXME", exptype)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, te, ":=", exp))
       clhs match {
         case Some(cexp) if cexp eq e =>
           postlocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, exp, ":=", te))
         case _ =>
       }
-      AccessExp(te, attributeName)
+      val ae = AccessExp(te, attributeName)
+      ae(URIS.TYPE_URI) = etype
     case e @ IndexingExp(NameExp(NameUser(n)), indices) => e
     case e @ IndexingExp(exp, indices) =>
-      val te = newTempVar
+      val etype = getTypeUri(e)
+      val exptype = getTypeUri(exp)
+      val te = newTempVar("FIXME", exptype)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, te, ":=", exp))
       println(e)
       clhs match {
@@ -95,6 +118,7 @@ class BakarRewriter {
       }
 
       val ie = IndexingExp(te, indices)
+      ie(URIS.TYPE_URI) = etype
       ie.propertyMap ++= e.propertyMap
       ie
   }, Rewriter.TraversalMode.BOTTOM_UP)
@@ -102,13 +126,16 @@ class BakarRewriter {
   def rewrite(m : Model) : Model = {
     var packages = ilistEmpty[PackageDecl]
     Visitor.build({
-      case p : PackageDecl =>
+      case p @ PackageDecl (name, _, elements) =>
         var elems = ivectorEmpty[PackageElement]
-        p.elements.foreach {
-          case p @ ProcedureDecl(n, a, tv, params, rt, va, body : ImplementedBody) => {
+        this.currentPackage = name.get.name
+        elements.foreach {
+          case m @ ProcedureDecl(n, a, tv, params, rt, va, body : ImplementedBody) => {
 
             var locmap = ilinkedMapEmpty[LocationDecl, (ISeq[LocationDecl], ISeq[LocationDecl])]
-
+            
+            this.currentMethod = n.name
+            
             for (l <- body.locations) {
               clhs = None
               l match {
@@ -132,6 +159,8 @@ class BakarRewriter {
               ImplementedBody(body.locals, x.toList, body.catchClauses))
             pd.propertyMap ++= p.propertyMap
             elems :+= pd
+            
+            this.newTempVars = ilistEmpty[LocalVarDecl]
           }
           case o => elems :+= o
         }

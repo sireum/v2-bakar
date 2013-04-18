@@ -680,18 +680,21 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   }
   
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
-    case o @ IdentifierEx(sloc, name, uri, typ) =>
+    case o @ IdentifierEx(sloc, name, refUri, typUri) =>
       val nu = NameUser(name)
-      ctx.addResourceUri(nu, uri)
-      this.addprop(nu, URIS.REF_URI, uri)
-      this.addprop(nu, URIS.TYPE_URI, typ)
-      ctx.pushResult(NameExp(nu), sloc)
+      ctx.addResourceUri(nu, refUri)
+      this.addprop(nu, URIS.REF_URI, refUri)
+      this.addprop(nu, URIS.TYPE_URI, typUri)
+      
+      val ne = NameExp(nu)
+      this.addprop(ne, URIS.TYPE_URI, typUri)
+      ctx.pushResult(ne, sloc)
       false
-    case o @ DefiningIdentifierEx(sloc, name, uri, typ) =>
+    case o @ DefiningIdentifierEx(sloc, name, refUri, typUri) =>
       val nu = NameUser(name)
-      ctx.addResourceUri(nu, uri)
-      this.addprop(nu, URIS.REF_URI, uri)
-      this.addprop(nu, URIS.TYPE_URI, typ)
+      ctx.addResourceUri(nu, refUri)
+      this.addprop(nu, URIS.REF_URI, refUri)
+      this.addprop(nu, URIS.TYPE_URI, typUri)
       ctx.pushResult(NameExp(nu), sloc)
       false
     case o @ SelectedComponentEx(sloc, prefix, selector, theType) =>
@@ -753,6 +756,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
           // #l0. if(!resultVar) then goto <nextSlot>;
           val ne = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult.asInstanceOf[Exp])
+          addprop(ne, URIS.TYPE_URI, StandardURIs.boolURI)
           val itj = IfThenJump(ne, TranslatorUtil.emptyAnnot, gotoLoc)
           val ij = IfJump(TranslatorUtil.emptyAnnot, ivector(itj), None)
           val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, ij)
@@ -805,6 +809,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       // # if (!loopCond) goto endLocLabel;
       val ne = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult.asInstanceOf[Exp])
+      addprop(ne, URIS.TYPE_URI, StandardURIs.boolURI)
       val itj = IfThenJump(ne, TranslatorUtil.emptyAnnot, loopEndLabel)
       val ij = IfJump(TranslatorUtil.emptyAnnot, ivector(itj), None)
       val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, ij)
@@ -893,7 +898,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       false
     case IntegerLiteralEx(sloc, litVal, theType) =>
       val v = litVal.replaceAll("_", "")
-      ctx.pushResult(LiteralExp(LiteralType.INTEGER, BigInt(v), v + "ii"), sloc)
+      val le = LiteralExp(LiteralType.INTEGER, BigInt(v), v + "ii")
+      le(URIS.TYPE_URI) = theType
+      ctx.pushResult(le, sloc)
       false
     case o @ EnumerationLiteralEx(sloc, refName, ref, typ) =>
       if (typ == StandardURIs.boolURI) {
