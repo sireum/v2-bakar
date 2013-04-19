@@ -11,6 +11,7 @@ import java.net.URI
 import org.sireum.example.bakar.BakarExamples
 import scala.util.matching.Regex
 import org.sireum.example.bakar.Project
+import org.scalatest.junit.JUnitTestFailedError
 
 trait BakarTestFramework extends TestFramework {
 
@@ -81,7 +82,8 @@ trait BakarTestFileFramework extends BakarTestFramework {
   override def execute(testName : String, files : ISeq[FileResourceUri]) = {
     test(testName) {
       
-      if(excludes.exists(r => r.findFirstMatchIn(testName).isDefined)) {
+      if(!accept(testName, files)) {
+        // hack to get around initialization order
         this.cancel("Canceling test")
       }
       
@@ -135,6 +137,7 @@ trait BakarTestFileFramework extends BakarTestFramework {
             }
           }
         } catch {
+          case t : JUnitTestFailedError => throw(t)
           case e : Throwable =>
             e.printStackTrace
             assert(false)

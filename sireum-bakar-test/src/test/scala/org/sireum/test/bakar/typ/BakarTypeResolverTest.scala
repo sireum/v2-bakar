@@ -21,7 +21,9 @@ class BakarTypeResolverTest extends BakarRewriterTest {
 
   // record definition is in ads file
   this.excludes ++= Set("recordtest01", "recordtest02", "case", "constraints", 
-      "dependence_test_suite_01", "faultintegrator")
+      "dependence_test_suite_01", "faultintegrator", "in_range_name",
+      "simplerecordtests", "packagedemo_b", "for_loops", "p_refinement",
+      "quantifier")
   
   override def generateExpected = false
 

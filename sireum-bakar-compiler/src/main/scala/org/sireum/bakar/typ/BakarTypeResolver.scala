@@ -48,24 +48,22 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       o(URIS.TYPE_MAP) = typeMap
       true
     case o : IndexingExp =>
-      assert(o.exp.isInstanceOf[NameExp])
       assert(o ? URIS.TYPE_URI)
+
       val ouri : ResourceUri = o(URIS.TYPE_URI)
       assert(typeMap.contains(ouri))
 
       o(URIS.TYPE_DEF) = typeMap(ouri)
-      false
+      true
     case o : AccessExp =>
-      assert(o.exp.isInstanceOf[NameExp])
-      assert(o.attributeName ? URIS.TYPE_URI)
-
-      val auri : ResourceUri = o.attributeName(URIS.TYPE_URI)
+      assert(o ? URIS.TYPE_URI)
+      val auri : ResourceUri = o(URIS.TYPE_URI)
 
       assert(typeMap.contains(auri))
 
       o(URIS.TYPE_DEF) = typeMap(auri)
 
-      false
+      true
     case o : Exp =>
       if (o ? URIS.TYPE_URI) {
         val auri : ResourceUri = o(URIS.TYPE_URI)

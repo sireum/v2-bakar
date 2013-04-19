@@ -104,13 +104,13 @@ class BakarRewriter {
       }
       val ae = AccessExp(te, attributeName)
       ae(URIS.TYPE_URI) = etype
+      ae
     case e @ IndexingExp(NameExp(NameUser(n)), indices) => e
     case e @ IndexingExp(exp, indices) =>
       val etype = getTypeUri(e)
       val exptype = getTypeUri(exp)
       val te = newTempVar("FIXME", exptype)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, te, ":=", exp))
-      println(e)
       clhs match {
         case Some(cexp) if cexp eq e =>
           postlocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, exp, ":=", te))
@@ -121,10 +121,13 @@ class BakarRewriter {
       ie(URIS.TYPE_URI) = etype
       ie.propertyMap ++= e.propertyMap
       ie
+    
+    // the rest of these are sanity checks
+    case te : TupleExp => te // tuple exp don't need a type
     case e : Exp =>
       assert (e ? URIS.TYPE_URI)
       e
-  }, Rewriter.TraversalMode.BOTTOM_UP)
+  },  Rewriter.TraversalMode.BOTTOM_UP, true)
 
   def rewrite(m : Model) : Model = {
     var packages = ilistEmpty[PackageDecl]

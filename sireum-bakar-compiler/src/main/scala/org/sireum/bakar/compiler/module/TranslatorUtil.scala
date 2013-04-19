@@ -15,19 +15,21 @@ object URIS {
 }
 
 object StandardURIs {
-  val universalIntURI = "ada://ordinary_type/universal_integer"
+  val universalIntURI = "ada://ordinary_type/universal_integer".intern
     
-  val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1"
-  val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1"
-  val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1"
-  val positiveURI = "ada://subtype/Standard-1:1/Positive-1:1"    
+  val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1".intern
+  val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1".intern
+  val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1".intern
+  val positiveURI = "ada://subtype/Standard-1:1/Positive-1:1".intern
+    
+  val floatURI =  "ada://ordinary_type/Standard-1:1/Float-1:1".intern
 }
 
 object StandardTypeDefs {
-  def createType(typName : String, typURI : String) : TypeAliasDecl = {
+  def createType(typName : String, baseType : String, typURI : String) : TypeAliasDecl = {
     val tad = TypeAliasDecl(NameDefinition(typName),
       TranslatorUtil.emptyAnnot,
-      NamedTypeSpec(NameUser("Integer"), ilistEmpty[TypeSpec])
+      NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec])
     )
 
     val istd = FullTypeDecl(typName, typURI,
@@ -39,12 +41,14 @@ object StandardTypeDefs {
     tad
   }
   
-  val UniversalInteger = createType("universal_integer", StandardURIs.universalIntURI)
+  val UniversalInteger = createType("universal_integer", "Integer", StandardURIs.universalIntURI)
   
-  val StandardBoolean = createType("standard::boolean", StandardURIs.boolURI)
-  val StandardInteger = createType("standard::integer", StandardURIs.integerURI)
-  val StandardNatural = createType("standard::natural", StandardURIs.naturalURI)  
-  val StandardPositive = createType("standard::positive", StandardURIs.positiveURI)    
+  val StandardBoolean = createType("standard::boolean", "Boolean", StandardURIs.boolURI)
+  val StandardInteger = createType("standard::integer", "Integer", StandardURIs.integerURI)
+  val StandardNatural = createType("standard::natural", "Integer", StandardURIs.naturalURI)  
+  val StandardPositive = createType("standard::positive", "Integer", StandardURIs.positiveURI)    
+  
+  val StandardFloat = createType("standard::float", "Float", StandardURIs.floatURI)    
 }
 
 object TranslatorUtil {
