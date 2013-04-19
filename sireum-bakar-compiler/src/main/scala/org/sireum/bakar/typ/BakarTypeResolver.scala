@@ -13,6 +13,8 @@ import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.util._
 
 class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTypeResolverModule {
+  
+  // type uri to type definition
   val typeMap = mmapEmpty[ResourceUri, Type]
 
   var proc = ivectorEmpty[ProcedureDecl]
@@ -31,7 +33,8 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       case o : AttributeDecl =>
         assert(o ? URIS.REF_URI)
         assert(o ? URIS.TYPE_URI)
-        typeMap(o(URIS.REF_URI)) = o(URIS.TYPE_URI)
+        
+        typeMap(o(URIS.REF_URI)) = o(URIS.TYPE_URI).asInstanceOf[Type]
         false
       case o : TypeAliasDecl =>
         assert(o ? URIS.TYPE_DEF)
