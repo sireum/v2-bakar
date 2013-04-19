@@ -88,9 +88,6 @@ class Test(unittest.TestCase):
             os.environ[SIREUM_HOME] = sireum_home_temp
         os.environ['PATH'] = path_temp
         
-    def test_which_fail(self):
-        self.assertTrue(False, "False is not true")
-        
 
 if __name__ == "__main__":
     unittest.main()
