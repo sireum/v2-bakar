@@ -1,3 +1,5 @@
+ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22 -> ada://ordinary_type/Standard-1:1/Float-1:1
+ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package Type_Conversion;
 
 

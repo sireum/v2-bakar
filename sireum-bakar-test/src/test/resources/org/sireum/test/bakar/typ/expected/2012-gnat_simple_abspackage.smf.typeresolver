@@ -1,3 +1,5 @@
+ada://variable/AbsPackage-1:9/AbsFunc-2:14/r+4:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package AbsPackage;
 
 

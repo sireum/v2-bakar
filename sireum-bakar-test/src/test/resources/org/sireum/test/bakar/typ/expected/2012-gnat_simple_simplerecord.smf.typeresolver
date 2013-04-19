@@ -1,3 +1,9 @@
+ada://parameter/SimpleRecord-1:9/AAdd+28:14/I+28:19 -> ada://subtype/SimpleRecord-1:9/SmallInt+3:12
+ada://parameter/SimpleRecord-1:9/Add+18:14/R+18:32 -> ada://ordinary_type/SimpleRecord-1:9/Rec+7:9
+ada://parameter/SimpleRecord-1:9/NAdd+23:14/NR+23:33 -> ada://ordinary_type/SimpleRecord-1:9/NestedRec+12:9
+ada://parameter/SimpleRecord-1:9/Add+18:14/I+18:18 -> ada://subtype/SimpleRecord-1:9/SmallInt+3:12
+ada://parameter/SimpleRecord-1:9/NAdd+23:14/I+23:19 -> ada://subtype/SimpleRecord-1:9/SmallInt+3:12
+ada://parameter/SimpleRecord-1:9/AAdd+28:14/R+28:33 -> ada://ordinary_type/SimpleRecord-1:9/Rec+7:9
 package SimpleRecord;
 
 

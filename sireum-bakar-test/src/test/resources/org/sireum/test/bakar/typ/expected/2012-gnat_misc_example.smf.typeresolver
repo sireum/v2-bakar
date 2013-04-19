@@ -1,3 +1,8 @@
+ada://parameter/Example-1:9/foo-5:15/B-5:41 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Example-1:9/add-2:15/y-2:41 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Example-1:9/foo-5:15/A-5:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/Example-1:9/foo-5:15/M+12:3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Example-1:9/add-2:15/x-2:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package example;
 
 

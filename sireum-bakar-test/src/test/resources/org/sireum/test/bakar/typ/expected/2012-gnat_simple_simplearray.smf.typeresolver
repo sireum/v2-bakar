@@ -1,3 +1,5 @@
+ada://parameter/SimpleArray-1:9/Max+8:13/V+8:18 -> ada://ordinary_type/SimpleArray-1:9/Vector+4:9
+ada://variable/SimpleArray-1:9/Max+8:13/M+9:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package SimpleArray;
 
 

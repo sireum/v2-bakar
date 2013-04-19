@@ -61,6 +61,8 @@ class BakarTypeResolverTest extends BakarRewriterTest {
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
     import BakarTypeResolverModule.ConsumerView._
+    for((k,v) <- job.bakarRef2TypeUriMap)
+      w.write(s"$k -> $v\n")
     job.models foreach { m =>
       val x = NodePrettyPrinter.print(m)
       //println(x)

@@ -1,3 +1,7 @@
+ada://parameter/P_Simple_Call_Two-1:9/Q-7:13/X-7:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/P_Simple_Call_Two-1:9/Q-7:13/Z-7:30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/P_Simple_Call_Two-1:9/R-11:13/X-11:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/P_Simple_Call_Two-1:9/R-11:13/Z-11:30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package P_Simple_Call_Two;
 
 

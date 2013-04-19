@@ -1,3 +1,5 @@
+ada://parameter/P_Complex-1:9/Q-6:13/X-6:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/P_Complex-1:9/Q-6:13/Z-6:30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package P_Complex;
 
 

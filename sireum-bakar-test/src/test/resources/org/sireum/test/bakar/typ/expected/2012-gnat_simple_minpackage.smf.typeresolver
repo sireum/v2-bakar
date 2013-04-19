@@ -1,3 +1,7 @@
+ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/Minpackage-1:9/MinFunc-2:12/Max+3:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/Minpackage-1:9/MinFunc-2:12/Min+3:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package Minpackage;
 
 

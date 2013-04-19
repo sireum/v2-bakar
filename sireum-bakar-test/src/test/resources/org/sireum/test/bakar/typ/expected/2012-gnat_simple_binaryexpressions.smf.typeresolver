@@ -1,3 +1,39 @@
+ada://variable/BinaryExpressions-1:9/Mult+35:12/r4+37:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Sub+20:12/r4+22:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Sub+20:12/r3+22:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Sub+20:12/r6+22:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Add+5:12/r5+7:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Sub+20:12/r1+22:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Mult+35:12/r3+37:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Mult+35:12/r0+37:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Division+50:12/r4+52:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Mult+35:12/I+35:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Add+5:12/r0+7:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Add+5:12/r2+7:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Division+50:12/r5+52:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Add+5:12/I+5:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Division+50:12/r3+52:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Sub+20:12/I+20:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Division+50:12/r2+52:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Sub+20:12/r0+22:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Add+5:12/r1+7:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Division+50:12/r0+52:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Division+50:12/r6+52:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Division+50:12/J+50:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Sub+20:12/J+20:19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Mult+35:12/r2+37:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Sub+20:12/r2+22:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Mult+35:12/J+35:20 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Mult+35:12/r6+37:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Mult+35:12/r1+37:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Division+50:12/I+50:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Mult+35:12/r5+37:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Add+5:12/r6+7:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Sub+20:12/r5+22:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Division+50:12/r1+52:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Add+5:12/r3+7:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/BinaryExpressions-1:9/Add+5:12/J+5:19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/BinaryExpressions-1:9/Add+5:12/r4+7:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package BinaryExpressions;
 
 
