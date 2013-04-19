@@ -42,7 +42,7 @@ class BakarRewriter {
     val uri = SCHEME + "://" + TEMP_VAR_TYPE + "/" + path.mkString("/")
     
     val tvtnu = NameUser(typeName)
-    tvtnu(URIS.REF_URI) = tvtnu
+    tvtnu(URIS.REF_URI) = typeUri
     val nts = Some(NamedTypeSpec(tvtnu, ilistEmpty[TypeSpec]))
     val lvd = LocalVarDecl(nts, NameDefinition(name), ilistEmpty[Annotation])
     lvd(URIS.REF_URI) = uri
@@ -162,7 +162,7 @@ class BakarRewriter {
 
             val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
             val pd = ProcedureDecl(n, a, tv, params, rt, va,
-              ImplementedBody(body.locals, x.toList, body.catchClauses))
+              ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses))
             pd.propertyMap ++= p.propertyMap
             elems :+= pd
             
