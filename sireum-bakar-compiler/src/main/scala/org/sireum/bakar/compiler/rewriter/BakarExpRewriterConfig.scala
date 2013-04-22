@@ -132,15 +132,15 @@ class BakarRewriter {
   def rewrite(m : Model) : Model = {
     var packages = ilistEmpty[PackageDecl]
     Visitor.build({
-      case p @ PackageDecl (name, _, elements) =>
+      case p @ PackageDecl (packName, _, elements) =>
         var elems = ivectorEmpty[PackageElement]
-        this.currentPackage = name.get.name
+        this.currentPackage = packName.get.name
         elements.foreach {
-          case m @ ProcedureDecl(n, a, tv, params, rt, va, body : ImplementedBody) => {
+          case pd @ ProcedureDecl(methName, a, tv, params, rt, va, body : ImplementedBody) => {
 
             var locmap = ilinkedMapEmpty[LocationDecl, (ISeq[LocationDecl], ISeq[LocationDecl])]
             
-            this.currentMethod = n.name
+            this.currentMethod = methName.name
             
             for (l <- body.locations) {
               clhs = None
@@ -161,10 +161,10 @@ class BakarRewriter {
             }
 
             val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
-            val pd = ProcedureDecl(n, a, tv, params, rt, va,
+            val modpd = ProcedureDecl(methName, a, tv, params, rt, va,
               ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses))
-            pd.propertyMap ++= p.propertyMap
-            elems :+= pd
+            modpd.propertyMap ++= pd.propertyMap
+            elems :+= modpd
             
             this.newTempVars = ilistEmpty[LocalVarDecl]
           }
