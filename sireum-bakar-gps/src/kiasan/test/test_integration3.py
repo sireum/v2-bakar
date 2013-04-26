@@ -37,8 +37,8 @@ class TestIntegration3(unittest.TestCase):
         subprocess.call(["rm", "-rf", self.output_path])
         subprocess.call(["mkdir", self.project_path+"/.sireum"])
         subprocess.call(["mkdir", self.output_path])
-        
-    
+
+           
     def test_proj3_odometer(self):
         kiasan_run_cmd_odometer = sireum.get_run_kiasan_command(self.sireum_path, "Odometer", self.project_path, self.output_path, False)
         methods_odometer = ["Invariant","Zero_Trip", "Read_Trip", "Read_Total", "Inc", "Set_Mark", "Factory_Reset"]
@@ -75,10 +75,13 @@ class TestIntegration3(unittest.TestCase):
         
         #assertions
         self.assertTrue(os.path.isfile(report_file_path))
-        odometer_ind = list(r._name for r in report).index("Odometer")
+        odometer_ind = list(p._name for p in report).index("Odometer")
         self.assertTrue(odometer_ind >= 0)
         self.assertEqual(len(methods_odometer), len(report[odometer_ind]._methods))
         self.assertEqual(set(methods_odometer), set(m._name for m in report[odometer_ind]._methods))
+        self.assertIsNotNone(report[odometer_ind]._methods[0].get_case(0)._pre_state);
+        self.assertIsNotNone(report[odometer_ind]._methods[0].get_case(0)._post_state);
+        
         
     
     # proj2 - all methods
