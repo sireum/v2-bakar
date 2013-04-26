@@ -59,19 +59,17 @@ object TranslatorUtil {
     }
   }
 
-  // - - - - - - - - - - -  - - - - - -  - - -  - - 
   def getAbsolutePath(fileName : String) : String = {
-    // val fwriter = new FileWriter(new File(o.outFile, outFileName))
-    // replace("/bin/", "/src/test/resources/")
-    // val z1 = new File("./").getAbsoluteFile().toURI().toASCIIString()
-    val currentPath = new File(".").getAbsolutePath().replace(".", "")
-    val absolutePath =
-      if (fileName.startsWith("~"))
-        fileName.replace("~", System.getProperty("user.home"))
-      else if (fileName.startsWith("/"))
-        fileName
-      else
-        currentPath + fileName
+//    val currentPath = new File(".").getAbsolutePath().replace(".", "")
+//    val absolutePath =
+//      if (fileName.startsWith("~"))
+//        fileName.replace("~", System.getProperty("user.home"))
+//      else if (fileName.startsWith("/"))
+//        fileName
+//      else
+//        currentPath + fileName
+    
+    val absolutePath = new File(fileName).getAbsolutePath()
     absolutePath
   }
 

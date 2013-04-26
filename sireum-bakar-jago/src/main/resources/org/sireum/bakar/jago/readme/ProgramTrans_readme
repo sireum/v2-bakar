@@ -102,12 +102,47 @@ command-line at least once. See the instructions in build.txt."
 
   (* build soft link to the source code *)
 $ cd ~/Documents/workspaceV2/sireum-core-internal/sireumv2/codebase
-$ ~/Documents/workspaceV2/sireum-bakar bakar
-$ ~/Documents/workspaceV2/sireum-bakar-internal/ bakar-internal
+$ ln -s ~/Documents/workspaceV2/sireum-bakar bakar
 $ ln -s ~/Documents/workspaceV2/sireum-core core
   (* solve the dependency problems *)
 $ cd ~/Documents/workspaceV2/sireum-core-internal/sireumv2/
 $ tools/bin/sbt-init 
+( $ compile )
+( $ tools/bin/sbt -Dsbt.log.noformat=true clean update compile test )
+
+#############
+On Windows 7:
+#############
+Step 1:
+`mklink` is used to build the symbolic link, and it should be run as administrator.
+`cmd` > use `Ctrl + Shift + Enter` instead of Enter key, it will run `cmd` as admin
+
+C:\Windows\system32>cd c:\sireum_workspace\sireum-core-internal\sireumv2\codebase
+
+c:\sireum_workspace\sireum-core-internal\sireumv2\codebase>mklink /D core c:\sireum_workspace\sireum-core
+symbolic link created for core <<===>> c:\sireum_workspace\sireum-core
+
+c:\sireum_workspace\sireum-core-internal\sireumv2\codebase>mklink /D bakar c:\sireum_workspace\sireum-bakar
+symbolic link created for bakar <<===>> c:\sireum_workspace\sireum-bakar
+
+/*****************/
+c:\sireum_workspace\sireum-core-internal\sireumv2\codebase>mklink
+Creates a symbolic link.
+MKLINK [[/D] | [/H] | [/J]] Link Target
+
+        /D      Creates a directory symbolic link.  Default is a file
+                symbolic link.
+        /H      Creates a hard link instead of a symbolic link.
+        /J      Creates a Directory Junction.
+        Link    specifies the new symbolic link name.
+        Target  specifies the path (relative or absolute) that the new link
+                refers to.
+/*****************/
+
+Step 2:
+$ C:\sireum_workspace\sireum-core-internal\sireumv2>set PATH=C:\sireum-dev-win64\Sireum\apps\platform\java\bin;%PATH%
+$ tools\bin\sbt-init
+
 
 (9)
 if there are errors for the package with imported libraries, then it can be fixed with:
@@ -131,4 +166,17 @@ The git repository is:
 (3) Internal (there are two versions, select the 'master' version without number)
   >> ssh://zhangzhi@cislinux.cis.ksu.edu/research/plgroup/stash/Software/Research/repositories/sireum-internal.git
 
+create a project, called Test, in Eclipse, under the project dir:
+  >> git init  (convert the project into a Git project, and create a dir: .git)
+               (remove it by: rm -rf .git)
+  >> git add . (add all files in current dir)
+  >> git commit -a -m "specification message"
 
+create a dir, called Repo, for holds the repository. Under the repository dir:
+  >> git init --bare
+
+under project Test:
+  >> git remote add origin file:///Volumes/ssd2/Users/zhi/Google\ Drive/docs
+  >> git push origin master
+
+  

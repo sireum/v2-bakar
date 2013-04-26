@@ -56,13 +56,13 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   //val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct", "-gnatd.V") ++ sfiles
   //val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
   //println(result1)
-  
+
   val g2xargs = ivector(Util.gnat2xml, "-I" + dirs.mkString(","), "-v",
     "-m" + baseDestDir.getAbsolutePath()) ++ sfiles ++ ivector("-cargs", "-gnatd.V")
 
   val e = new Exec()
   e.env -= "DYLD_FALLBACK_LIBRARY_PATH"
-  
+
   val gnat2xmlResult = e.run(waittime, g2xargs, None, Some(tempDir))
 
   def buildLocationTag(message : String) = {
@@ -72,6 +72,9 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     )
 
       implicit def isDigits(str : String) = str.forall(c => c.isDigit)
+
+    // delete it . . . 
+    println("@ @ @ Error Message: " + message)
 
     var rettags = ivectorEmpty[Tag]
     for (m <- message.split("\n").drop(3)) {
@@ -92,8 +95,11 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     case Exec.StringResult(str, exitval) =>
       if (exitval != 0)
         info.tags ++= buildLocationTag(str)
-      else
+      else {
+        var createXMLFile = false
         for (l <- str.split("\n") if l.startsWith("Creating ")) {
+          // (1) successfully create xml file for spark program
+          createXMLFile = true
           val f = new File(l.substring("Creating ".length()))
           val fname = f.getName().dropRight(4)
           val key = this.srcFiles.find(p => p.endsWith(fname)) match {
@@ -102,22 +108,28 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           }
           results += (key -> FileUtil.toUri(f))
         }
+        if (!createXMLFile)
+          // (2) report error for undefined program file name
+          for (m <- str.split("\n").drop(3))
+            info.tags += InfoTag(MarkerType(
+              "ERROR", None, "gnat2xml parameter error", MarkerTagSeverity.Error,
+              MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]),
+              Some(m.split(":").apply(1)))
+      }
     case Exec.Timeout =>
     case Exec.ExceptionRaised(exception) =>
-      val pattern = new Regex("\\s*Cannot run program \"gnat2xml\".*")
-      val emsg : Option[String] =
-        pattern.findFirstIn(exception.toString) match {
-          case Some(_) =>
-            Some("\"gnat2xml\" cannot be found in the path !")
-          case _ => None
-        }
+      val error_pattern = "Cannot run program \"gnat2xml.exe\""
+      val emsg =
+        if (exception.toString.contains(error_pattern))
+          Some("\"gnat2xml\" cannot be found in the path !")
+        else
+          None
       info.tags += InfoTag(MarkerType(
         "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
-        MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]
-      ), emsg)
+        MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]), emsg)
   }
 
-  this.gnat2xmlResults = results 
+  this.gnat2xmlResults = results
 }
 
 class ParseGnat2XMLModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends ParseGnat2XMLModule {

@@ -68,7 +68,7 @@ object BakarProgram extends ImplicitLogging {
     var srcFiles = mlistEmpty[String]
     for (srcFile <- mode.srcFiles) {
       val absoluteFileName = TranslatorUtil.getAbsolutePath(srcFile)
-      val fileUri = FileUtil.toUri(absoluteFileName)
+      val fileUri = FileUtil.toUri(absoluteFileName)    
       srcFiles += fileUri
     }
     Gnat2XMLWrapperModule.setSrcFiles(job.properties, srcFiles)
