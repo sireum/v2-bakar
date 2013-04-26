@@ -102,10 +102,11 @@ class Method(Entity):
             stack_frame = CaseStateFrame()
             stack_frame._name = stack_frame_dict["location"]["name"]
             stack_frame._line_num = stack_frame_dict["line"]
-                        
-            for variable_name in stack_frame_dict["optBaseElementMap"]:
-                variable_value = stack_frame_dict["optBaseElementMap"][variable_name]["theValue"]
-                stack_frame._variables[variable_name] = variable_value
+            
+            if stack_frame_dict["optBaseElementMap"] != None:                        
+                for variable_name in stack_frame_dict["optBaseElementMap"]:
+                    variable_value = stack_frame_dict["optBaseElementMap"][variable_name]["theValue"]
+                    stack_frame._variables[variable_name] = variable_value
             case_state._frames.append(stack_frame)
             
         return case_state
