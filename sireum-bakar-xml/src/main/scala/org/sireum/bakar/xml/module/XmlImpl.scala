@@ -71,10 +71,7 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]
     )
 
-      implicit def isDigits(str : String) = str.forall(c => c.isDigit)
-
-    // delete it . . . 
-    println("@ @ @ Error Message: " + message)
+    implicit def isDigits(str : String) = str.forall(c => c.isDigit)
 
     var rettags = ivectorEmpty[Tag]
     for (m <- message.split("\n").drop(3)) {
