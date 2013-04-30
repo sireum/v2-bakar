@@ -95,10 +95,11 @@ class Method(Entity):
         """ Get pre or post state from state_dict """        
         case_state = CaseState()
         case_state._name = case_state_dict["id"]["name"]
-        for variable_name in case_state_dict["optBaseElementMap"]:
-            variable_value = case_state_dict["optBaseElementMap"][variable_name]["theValue"]            
-            case_state._globals[variable_name] = variable_value
         
+        base_elements = self.get_base_types(case_state_dict["optBaseElementMap"])
+        ref_elements = self.get_ref_types(case_state_dict["optRefElementMap"])
+        case_state._globals = dict(base_elements.items() + ref_elements.items())
+                
         for stack_frame_dict in case_state_dict["optCallFrames"]:
             stack_frame = CaseStateFrame()
             stack_frame._name = stack_frame_dict["location"]["name"]
@@ -113,7 +114,50 @@ class Method(Entity):
         return case_state
     
     
+    def get_ref_types(self, ref_type_dict):
+        ref_structure = {}
+        
+        if ref_type_dict is not None:
+            for variable_name, variable_dict in ref_type_dict.items():
+                variable_type = variable_dict["id"]["name"];
+                if variable_dict["@class"] == "org.sireum.graph.object.model.ConcreteRefArrayNode":
+                    variable_dict_values = dict(zip(range(0,len(variable_dict["values"])), variable_dict["values"]));
+                    variable_value = self.get_ref_types(variable_dict_values)
+                elif variable_dict["@class"] == "org.sireum.graph.object.model.BaseArrayNode":
+                    variable_value = {}
+                    variable_value["size"] = variable_dict["length"]["theValue"]                
+                elif variable_dict["@class"] == "org.sireum.graph.object.model.ConcreteBaseArrayNode":
+                    variable_value = {}
+                    i = 0
+                    for value in variable_dict["values"]:
+                        variable_value[i] = value["theValue"]
+                        i += 1
+                    variable_value["size"] = i
+                elif variable_dict["@class"] == "org.sireum.graph.object.model.RecordNode":
+                    base_elements = self.get_base_types(variable_dict["optBaseElementMap"])
+                    ref_elements = self.get_ref_types(variable_dict["optRefElementMap"])
+                    variable_value = dict(base_elements.items() + ref_elements.items())
+                elif variable_dict["@class"] == "org.sireum.graph.object.model.RefArrayNode":
+                    pass
+                ref_structure[str(variable_name) + " = " + str(variable_type)] = variable_value
+            
+        return ref_structure
+            
+
+    def get_base_types(self, base_type_dict):
+        base_structure = {}
+        
+        if base_type_dict is not None:
+            for variable_name in base_type_dict:
+                variable_value = base_type_dict[variable_name]["theValue"]            
+                base_structure[variable_name] = variable_value
+        
+        return base_structure
+        
+        
+        
     def get_coverage(self, steps_dict):
+        """ Get line coverage(which should be highlighted) for single case. """
         coverage_dict = {}
         for step in steps_dict:
             if step["sourcePath"] not in coverage_dict:

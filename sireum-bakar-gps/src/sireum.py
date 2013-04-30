@@ -47,13 +47,12 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 	if remove_previous_reports:
 		REMOVE_DIR_CMD = "rd /s /q" if os.name=="nt" else "rm -rf"	#REMOVE_DIR_CMD = ["rd","/s","/q"] if os.name=="nt" else ["rm", "-rf"]
 		os.system(REMOVE_DIR_CMD + " " + "\"" + project_path + "/.sireum/kiasan" + "\"")	#subprocess.call(REMOVE_DIR_CMD + [os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"])
-		os.system("mkdir " + "\"" + project_path + "/.sireum" + "\"")
-		os.system("mkdir " + "\"" + project_path + "/.sireum/kiasan" + "\"")
-	else:		
-		if not os.path.isdir(project_path + "/.sireum"):
-			os.system("mkdir \"" + project_path + "/.sireum\"")	
-		if not os.path.isdir(project_path + "/.sireum/kiasan"):
-			os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
+#		os.system("mkdir " + "\"" + project_path + "/.sireum" + "\"")
+#		os.system("mkdir " + "\"" + project_path + "/.sireum/kiasan" + "\"")
+	if not os.path.isdir(project_path + "/.sireum"):
+		os.system("mkdir \"" + project_path + "/.sireum\"")	
+	if not os.path.isdir(project_path + "/.sireum/kiasan"):
+		os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
 
 
 def run_kiasan_tool():
