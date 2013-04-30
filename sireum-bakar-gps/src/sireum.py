@@ -208,11 +208,9 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, 
 def get_spark_source_files():
 	spark_smf_file = open('spark.smf', 'rU')
 	spark_files_list = []
-	print 'files: '
 	for line in spark_smf_file:
 		file_name = os.path.basename(line.replace('\n',''))
-		spark_files_list.append(file_name)
-		print file_name
+		spark_files_list.append(file_name)		
 	return spark_files_list
 
 
