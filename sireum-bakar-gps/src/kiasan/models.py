@@ -14,16 +14,16 @@ class Entity:
 
 
     def convert_to_percentage(self, num, total):
-        """Return the percentage value of num (total=100%)"""        
+        """Return the percentage value of num (total=100%)"""
         if num == 0:
             return "0%"
         else:
-            return str(int((num / total) * 100)) + "%"
+            return str(int((float(num) / total) * 100)) + "%"
 
 
     def convert_milis_to_secs(self, time):
         """Convert miliseconds to seconds"""        
-        return str(time / 1000) + "s"
+        return str(float(time) / 1000) + "s"
     
     
 
@@ -122,8 +122,7 @@ class Method(Entity):
                 for i in range(lines_in_file+1):
                     coverage_dict[step["sourcePath"]].append("None")
             coverage_dict[step["sourcePath"]][step["line"]] = "Case"
-        return coverage_dict
-        
+        return coverage_dict        
 
 
 
