@@ -14,7 +14,7 @@ import subprocess
 
 def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
-	project_path = os.path.dirname(GPS.current_context().project().file().name()).replace("\\", "/")	#normalized project path
+	project_path = get_project_path()	#normalized project path
 	remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
 	prepare_directories_for_reports(project_path, remove_previous_reports)	
 	run_kiasan_tool()
@@ -35,6 +35,10 @@ def run_kiasan_plugin():
 	win.float(float=False)	# float=True: popup, float=False: GPS integrated window
 
 
+def get_project_path():
+	return os.path.dirname(GPS.current_context().project().file().name()).replace("\\", "/")
+
+	
 def prepare_directories_for_reports(project_path, remove_previous_reports):
 	"""
 	If option 'Delete previous Kiasan reports before re-runing' is enabled then delete entire directory, and create new empty.
@@ -206,7 +210,7 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, 
 
 
 def get_spark_source_files():
-	spark_smf_file = open('spark.smf', 'rU')
+	spark_smf_file = open(get_project_path()+"/spark.smf", 'rU')
 	spark_files_list = []
 	for line in spark_smf_file:
 		file_name = os.path.basename(line.replace('\n',''))
