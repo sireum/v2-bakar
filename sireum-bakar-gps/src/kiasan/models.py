@@ -86,6 +86,7 @@ class Method(Entity):
             self._cases[case_no] = Case()
             self._cases[case_no]._pre_state = self.get_state(case_dict["preState"])
             self._cases[case_no]._post_state = self.get_state(case_dict["postState"])
+            self._cases[case_no]._files_coverage = self.get_coverage(case_dict["steps"])
         
         return self._cases[case_no]
 
@@ -110,6 +111,19 @@ class Method(Entity):
             case_state._frames.append(stack_frame)
             
         return case_state
+    
+    
+    def get_coverage(self, steps_dict):
+        coverage_dict = {}
+        for step in steps_dict:
+            if step["sourcePath"] not in coverage_dict:
+                coverage_dict[step["sourcePath"]] = []
+                lines_in_file = len(open(step["sourcePath"]).readlines())
+                for i in range(lines_in_file+1):
+                    coverage_dict[step["sourcePath"]].append("None")
+            coverage_dict[step["sourcePath"]][step["line"]] = "Case"
+        return coverage_dict
+        
 
 
 
@@ -127,8 +141,11 @@ class CaseHeader:
 
 class Case:
     """ class represents case with pre and post state """  
-      
-    pass
+    
+    def __init__(self):
+        self._pre_state = None
+        self._post_state = None
+        self._files_coverage = None
 
 
 

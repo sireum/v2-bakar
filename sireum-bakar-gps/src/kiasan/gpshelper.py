@@ -23,13 +23,19 @@ def highlight(file_name, coverage):
     partial_cover = GPS.Style("Partially covered lines")
     partial_cover.set_background ("#7fffb0")   # a blue-green background
     
+    case_cover = GPS.Style("Case lines")
+    case_cover.set_background("#c1c4f9")
+    
     gps_file = GPS.File(file_name)     
     
     for i in range(1,len(coverage)):
         if coverage[i] == "Full":
-            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "message text", 2)
+            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "full cover", 2)
             line.set_style(full_cover)      
         elif coverage[i] == "Partial":
-            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "message text", 2)
+            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "partial cover", 2)
             line.set_style(partial_cover)
+        elif coverage[i] == "Case":
+            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "case cover", 2)
+            line.set_style(case_cover)
     

@@ -248,6 +248,15 @@ class KiasanGUI:
             self._cases_post_treeview.set_model(case_post_state_treeview_model)
             self._cases_post_treeview.expand_all()
             
+            # highlight case lines
+            try:
+                import gpshelper
+                for file_name, lines in case._files_coverage.iteritems():
+                    gpshelper.remove_highlight_from_file(file_name)
+                    gpshelper.highlight(file_name, lines) 
+            except ImportError:
+                warnings.warn('Program is running as python app (not GPS plugin)')            
+            
             
     def create_case_state_treeview_model(self, pre_state, post_state):
         """ Create treeview model for case (pre/post state) """
