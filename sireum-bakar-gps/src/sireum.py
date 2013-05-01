@@ -145,7 +145,7 @@ def load_sireum_settings(SIREUM_PATH):
 
 def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, generate_report):
 	""" Create command for run Kiasan. """
-	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse_0.0.4.201302271712/lib/"	
+	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse/lib/"	
 	spark_source_files = ",".join(get_spark_source_files())
 	
 	run_kiasan_command = []

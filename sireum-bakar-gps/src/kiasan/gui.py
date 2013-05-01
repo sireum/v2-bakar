@@ -255,64 +255,80 @@ class KiasanGUI:
                     gpshelper.remove_highlight_from_file(file_name)
                     gpshelper.highlight(file_name, lines) 
             except ImportError:
-                warnings.warn('Program is running as python app (not GPS plugin)')            
+                warnings.warn('Program is running as python app (not GPS plugin)')
             
             
     def create_case_state_treeview_model(self, pre_state, post_state):
         """ Create treeview model for case (pre/post state) """
         # colors for changed and not changed(default) vars
-        COLOR_DEFAULT = "#000000"
-        COLOR_CHANGED = "#ff0000"        
-        COLOR_NEW = "#0000ff"
+        COLORS = {
+                  "DEFAULT": "#000000",
+                  "CHANGED": "#ff0000",       
+                  "NEW": "#0000ff"
+        }
         
         pre_tree_store = gtk.TreeStore(str, str)
         post_tree_store = gtk.TreeStore(str, str)
-        pre_parent = pre_tree_store.append(None, [pre_state._name, COLOR_DEFAULT])
-        post_parent = post_tree_store.append(None, [post_state._name, COLOR_DEFAULT])
+        pre_parent = pre_tree_store.append(None, [pre_state._name, COLORS["DEFAULT"]])
+        post_parent = post_tree_store.append(None, [post_state._name, COLORS["DEFAULT"]])
         
         # add globals
-        pre_globals_tree = pre_tree_store.append(pre_parent, ["Globals", COLOR_DEFAULT])
-        post_globals_tree = post_tree_store.append(post_parent, ["Globals", COLOR_DEFAULT])
-        for global_var in post_state._globals:
-            post_row = global_var + " = " + str(post_state._globals[global_var])
-            if global_var in pre_state._globals:
-                pre_row = global_var + " = " + str(pre_state._globals[global_var])
-                color = COLOR_DEFAULT if pre_row == post_row else COLOR_CHANGED
-            else:
-                pre_row = " "
-                color = COLOR_NEW            
-            pre_tree_store.append(pre_globals_tree, [pre_row, COLOR_DEFAULT])
-            post_tree_store.append(post_globals_tree, [post_row, color])
+        pre_globals_tree = pre_tree_store.append(pre_parent, ["Globals", COLORS["DEFAULT"]])
+        post_globals_tree = post_tree_store.append(post_parent, ["Globals", COLORS["DEFAULT"]])
+        
+        self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_globals_tree, post_globals_tree, pre_state._globals, post_state._globals, COLORS)    
         
         # add call stack frames
-        pre_stack_frames = pre_tree_store.append(pre_parent, ["Call Stack Frames", COLOR_DEFAULT])
-        post_stack_frames = post_tree_store.append(post_parent, ["Call Stack Frames", COLOR_DEFAULT])
+        pre_stack_frames = pre_tree_store.append(pre_parent, ["Call Stack Frames", COLORS["DEFAULT"]])
+        post_stack_frames = post_tree_store.append(post_parent, ["Call Stack Frames", COLORS["DEFAULT"]])
         pre_frames_count = 0
         for pre_frame, post_frame in zip(pre_state._frames, post_state._frames):
             pre_frames_count += 1
-            color = COLOR_DEFAULT if pre_frame._line_num == post_frame._line_num else COLOR_CHANGED
-            pre_stack_frame = pre_tree_store.append(pre_stack_frames, [str(pre_frame._line_num) + ":" + pre_frame._name, COLOR_DEFAULT])
+            color = COLORS["DEFAULT"] if pre_frame._line_num == post_frame._line_num else COLORS["CHANGED"]
+            pre_stack_frame = pre_tree_store.append(pre_stack_frames, [str(pre_frame._line_num) + ":" + pre_frame._name, COLORS["DEFAULT"]])
             post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, color])
             for variable_name in post_frame._variables:
                 post_row = variable_name + " = " + str(post_frame._variables[variable_name])
                 if variable_name in pre_frame._variables:
                     pre_row = variable_name + " = " + str(pre_frame._variables[variable_name])
-                    color = COLOR_DEFAULT if pre_frame._variables[variable_name] == post_frame._variables[variable_name] else COLOR_CHANGED
+                    color = COLORS["DEFAULT"] if pre_frame._variables[variable_name] == post_frame._variables[variable_name] else COLORS["CHANGED"]
+                    pre_tree_store.append(pre_stack_frame, [pre_row, COLORS["DEFAULT"]])
                 else:
-                    pre_row = " "
-                    color = COLOR_NEW
-                pre_tree_store.append(pre_stack_frame, [pre_row, COLOR_DEFAULT])
+                    color = COLORS["NEW"]                
                 post_tree_store.append(post_stack_frame, [post_row, color])   
         
         for post_frame in post_state._frames[pre_frames_count:]:
-            post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, COLOR_NEW])
+            post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, COLORS["NEW"]])
             for variable_name in post_frame._variables:
                 post_row = variable_name + " = " + str(post_frame._variables[variable_name])
-                post_tree_store.append(post_stack_frame, [post_row, COLOR_NEW])
+                post_tree_store.append(post_stack_frame, [post_row, COLORS["NEW"]])
         
         return pre_tree_store, post_tree_store
                 
-                
+        
+    def add_variables_to_case_state_treeview_model(self, pre_tree_store, post_tree_store, pre_globals_tree, post_globals_tree, pre_vars, post_vars, COLORS):
+        for global_var in post_vars:
+            if type(post_vars[global_var]) is type({}):
+                post_row = str(global_var)
+                if global_var in pre_vars:
+                    pre_row = global_var
+                    color = COLORS["DEFAULT"] if pre_row == post_row else COLORS["CHANGED"]
+                    pre_tree = pre_tree_store.append(pre_globals_tree, [pre_row, COLORS["DEFAULT"]])                
+                else:
+                    color = COLORS["NEW"]
+                post_tree = post_tree_store.append(post_globals_tree, [post_row, color])
+                self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_tree, post_tree, pre_vars[global_var], post_vars[global_var], COLORS)
+            else:
+                post_row = str(global_var) + " = " + str(post_vars[global_var])
+                if global_var in pre_vars:
+                    pre_row = str(global_var) + " = " + str(pre_vars[global_var])
+                    color = COLORS["DEFAULT"] if pre_row == post_row else COLORS["CHANGED"]
+                    pre_tree_store.append(pre_globals_tree, [pre_row, COLORS["DEFAULT"]])
+                else:
+                    color = COLORS["NEW"]
+                    post_tree_store.append(post_globals_tree, [post_row, color])
+            
+               
 
 class TreeViewColumns:
     COLUMN_PACKAGE, COLUMN_TOTAL, COLUMN_ERRORS, COLUMN_INSTRUCTION, COLUMN_BRANCH, COLUMN_TIME = range(6)
