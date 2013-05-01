@@ -115,20 +115,12 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
     case Exec.Timeout =>
     case Exec.ExceptionRaised(exception) =>
-      
-      println("> > > \n" + exception.toString)
-      
       /**
        * For the error of Gnat2XML not being in the PATH:
-       * Mac: java.io.IOException: Cannot run program "gnat2xml" 
-       *   (in directory "/var/folders/5g/xr80fpc94lb37pwggrnctgp00000gp/T/7966087565202193707/0/temp"): 
-       *   error=2, No such file or directory
-       * Windows: java.io.IOException: Cannot run program "gnat2xml.exe" 
-       *   (in directory "C:\Users\zhi\AppData\Local\Temp\8691040080243215339\0\temp"): 
-       *   CreateProcess error=2, The system cannot find the file specified
+       * Mac: java.io.IOException: Cannot run program "gnat2xml"
+       * Windows: java.io.IOException: Cannot run program "gnat2xml.exe"
        * Linux: 
        */
-      
       val error_pattern = "java.io.IOException: Cannot run program \"gnat2xml"
       val emsg =
         if (exception.toString.contains(error_pattern))
