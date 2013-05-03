@@ -208,12 +208,11 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, 
 	return run_kiasan_command
 
 
-def get_spark_source_files():
-	spark_smf_file = open(get_project_path()+"/spark.smf", 'rU')
+def get_spark_source_files():		
 	spark_files_list = []
-	for line in spark_smf_file:
-		file_name = os.path.basename(line.replace('\n',''))
-		spark_files_list.append(file_name)		
+	project_files = GPS.current_context().project().sources()
+	for proj_file in project_files:
+		spark_files_list.append(proj_file.name())
 	return spark_files_list
 
 

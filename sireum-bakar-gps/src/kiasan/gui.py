@@ -307,13 +307,13 @@ class KiasanGUI:
                 
         
     def add_variables_to_case_state_treeview_model(self, pre_tree_store, post_tree_store, pre_globals_tree, post_globals_tree, pre_vars, post_vars, COLORS):
-        for global_var in post_vars:
+        for global_var in sorted(post_vars.iterkeys()):
             if type(post_vars[global_var]) is type({}):
                 post_row = str(global_var)
                 if global_var in pre_vars:
                     pre_row = global_var
                     color = COLORS["DEFAULT"] if pre_row == post_row else COLORS["CHANGED"]
-                    pre_tree = pre_tree_store.append(pre_globals_tree, [pre_row, COLORS["DEFAULT"]])                
+                    pre_tree = pre_tree_store.append(pre_globals_tree, [pre_row, COLORS["DEFAULT"]])
                 else:
                     color = COLORS["NEW"]
                 post_tree = post_tree_store.append(post_globals_tree, [post_row, color])
@@ -326,7 +326,7 @@ class KiasanGUI:
                     pre_tree_store.append(pre_globals_tree, [pre_row, COLORS["DEFAULT"]])
                 else:
                     color = COLORS["NEW"]
-                    post_tree_store.append(post_globals_tree, [post_row, color])
+                post_tree_store.append(post_globals_tree, [post_row, color])
             
                
 
