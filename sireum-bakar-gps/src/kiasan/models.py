@@ -124,8 +124,9 @@ class Method(Entity):
                     variable_dict_values = dict(zip(range(0,len(variable_dict["values"])), variable_dict["values"]));
                     variable_value = self.get_ref_types(variable_dict_values)
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.BaseArrayNode":
-                    variable_value = {}
-                    variable_value["size"] = variable_dict["length"]["theValue"]                
+                    ref_elements = self.get_ref_types(variable_dict["optIndexValueMap"])
+                    variable_value = dict(ref_elements.items())
+                    variable_value["size"] = variable_dict["length"]["theValue"]
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.ConcreteBaseArrayNode":
                     variable_value = {}
                     i = 0
@@ -138,7 +139,14 @@ class Method(Entity):
                     ref_elements = self.get_ref_types(variable_dict["optRefElementMap"])
                     variable_value = dict(base_elements.items() + ref_elements.items())
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.RefArrayNode":
-                    pass
+                    ref_dict = {}
+                    i = 0
+                    for k, v in variable_dict["optIndexValueMap"].iteritems():
+                        ref_dict[i] = v
+                        i += 1
+                    ref_elements = self.get_ref_types(ref_dict)
+                    variable_value = dict(ref_elements.items())
+                    variable_value["size"] = variable_dict["length"]["theValue"]
                 ref_structure[str(variable_name) + " = " + str(variable_type)] = variable_value
             
         return ref_structure

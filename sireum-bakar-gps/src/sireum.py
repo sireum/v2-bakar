@@ -14,28 +14,32 @@ import subprocess
 
 def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
-	project_path = get_project_path()	#normalized project path
-	remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
-	prepare_directories_for_reports(project_path, remove_previous_reports)	
-	run_kiasan_tool()
-	
-	#read generated json
-	kiasan_logic = kiasan.logic.KiasanLogic()
-	report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
-	report_file_url = urllib.pathname2url(report_file_path)
-	report = kiasan_logic.extract_report_file(report_file_url)
-	
-	# load data into GUI
-	gui = kiasan.gui.KiasanGUI(report)
-	
-	# attach GUI to GPS
-	GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
-	win = GPS.MDI.get('kiasan')
-	win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
-	win.float(float=False)	# float=True: popup, float=False: GPS integrated window
+	try:
+		project_path = get_project_path()	#normalized project path
+		remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
+		prepare_directories_for_reports(project_path, remove_previous_reports)	
+		run_kiasan_tool()
+		
+		#read generated json
+		kiasan_logic = kiasan.logic.KiasanLogic()
+		report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
+		report_file_url = urllib.pathname2url(report_file_path)
+		report = kiasan_logic.extract_report_file(report_file_url)
+		
+		# load data into GUI
+		gui = kiasan.gui.KiasanGUI(report)
+		
+		# attach GUI to GPS
+		GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
+		win = GPS.MDI.get('kiasan')
+		win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
+		win.float(float=False)	# float=True: popup, float=False: GPS integrated window
+	except IndexError:
+		GPS.MDI.dialog("Build project, before run Kiasan.")
 
 
 def get_project_path():
+	""" Get project path from GPS API. """
 	return os.path.dirname(GPS.current_context().project().file().name()).replace("\\", "/")
 
 	
@@ -45,10 +49,8 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 	Check if directory sireum and sireum/kiasan exists - if not create them.
 	"""	
 	if remove_previous_reports:
-		REMOVE_DIR_CMD = "rd /s /q" if os.name=="nt" else "rm -rf"	#REMOVE_DIR_CMD = ["rd","/s","/q"] if os.name=="nt" else ["rm", "-rf"]
-		os.system(REMOVE_DIR_CMD + " " + "\"" + project_path + "/.sireum/kiasan" + "\"")	#subprocess.call(REMOVE_DIR_CMD + [os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"])
-#		os.system("mkdir " + "\"" + project_path + "/.sireum" + "\"")
-#		os.system("mkdir " + "\"" + project_path + "/.sireum/kiasan" + "\"")
+		REMOVE_DIR_CMD = "rd /s /q" if os.name=="nt" else "rm -rf"
+		os.system(REMOVE_DIR_CMD + " " + "\"" + project_path + "/.sireum/kiasan" + "\"")
 	if not os.path.isdir(project_path + "/.sireum"):
 		os.system("mkdir \"" + project_path + "/.sireum\"")	
 	if not os.path.isdir(project_path + "/.sireum/kiasan"):
@@ -56,7 +58,7 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 
 
 def run_kiasan_tool():
-	"""Runs Kiasan based on preferences and clicked entity."""	
+	""" Runs Kiasan based on preferences and clicked entity. """	
 	# get package name (we assume that package_name = file_name_without_extension)
 	file_name = GPS.current_context().file().name().replace("\\","/")
 	match = re.search(r'(?<=\/)(\w+)\.ad[bs]', file_name)
@@ -121,7 +123,7 @@ def get_sireum_path():
 
 
 def load_sireum_settings(SIREUM_PATH):
-	""" Set preferences (if not set) """
+	""" Set preferences (if not set). """
 	
 	# set HTML Output dir
 	html_output_dir = GPS.Preference("sireum-kiasan-html-output-directory")
@@ -212,7 +214,7 @@ def get_spark_source_files():
 	spark_files_list = []
 	project_files = GPS.current_context().project().sources()
 	for proj_file in project_files:
-		spark_files_list.append(proj_file.name())
+		spark_files_list.append(os.path.basename(proj_file.name()))
 	return spark_files_list
 
 

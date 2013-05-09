@@ -13,7 +13,7 @@ if __name__=="__main__":
 #    if response == gtk.RESPONSE_OK:
         # parse report file
 #        report_file = dialog.get_filename()
-        report_file = "/Users/jj/SkyDrive/workspace/ArraySet/.sireum/kiasan/kiasan_sireum_report.json"
+        report_file = "/Users/jj/SkyDrive/workspace/OdometerGPS/.sireum/kiasan/kiasan_sireum_report.json"
 #        dialog.destroy()
         logic = KiasanLogic()
         report = logic.extract_report_file(report_file)
