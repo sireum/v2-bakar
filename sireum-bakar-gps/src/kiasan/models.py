@@ -124,11 +124,11 @@ class Method(Entity):
             for variable_name, variable_dict in ref_type_dict.items():
                 variable_type = variable_dict["id"]["name"];
                 if variable_dict["@class"] == "org.sireum.graph.object.model.ConcreteRefArrayNode":
-                    variable_dict_values = dict(zip(range(0,len(variable_dict["values"])), variable_dict["values"]));
+                    variable_dict_values = dict(zip(range(variable_dict["minIndex"],variable_dict["minIndex"]+len(variable_dict["values"])), variable_dict["values"]));
                     variable_value = self.get_ref_types(variable_dict_values)
+                    variable_value["size"] = len(variable_dict["values"])
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.BaseArrayNode":
-                    ref_elements = self.get_ref_types(variable_dict["optIndexValueMap"])
-                    variable_value = dict(ref_elements.items())
+                    variable_value = self.get_ref_types(variable_dict["optIndexValueMap"])
                     variable_value["size"] = variable_dict["length"]["theValue"]
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.ConcreteBaseArrayNode":
                     variable_value = {}
