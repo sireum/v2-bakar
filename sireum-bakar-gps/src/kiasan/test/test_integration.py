@@ -21,11 +21,12 @@ class TestIntegration1(unittest.TestCase):
         self.sireum_path = sireum.get_sireum_path()
         
         #mock GPS module
-        #sys.modules["GPS"] = mock_helper.get_gps_mock(self.sireum_path, self.project_path)
         mock_helper.sireum_path = self.sireum_path
         sys.modules["GPS"].Preference = MagicMock(side_effect = mock_helper.preference_mock)
-        project_files = mock_helper.get_project_files(self.project_path)
-        sys.modules["GPS"].current_context.return_value = mock_helper.get_current_context_mock(project_files)
+        sys.modules["GPS"].current_context.return_value = mock_helper.get_current_context_mock(self.project_path)        
+#        proj_file_mock = MagicMock()
+#        proj_file_mock.name.return_value = 'example.ads'
+#        sys.modules["GPS"].current_context.file.return_value = proj_file_mock
 
 
     # performed before each test
@@ -39,6 +40,7 @@ class TestIntegration1(unittest.TestCase):
     # proj1 - all methods
     def test_proj1_methods_add_and_foo(self):
         kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, False)
+        print kiasan_run_cmd
         subprocess.call(kiasan_run_cmd + ["add"])
         kiasan_run_cmd_with_report = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, True)
         subprocess.call(kiasan_run_cmd_with_report + ["foo"])

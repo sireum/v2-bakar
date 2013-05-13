@@ -28,7 +28,8 @@ def preference_mock(*args, **kwargs):
     return pref
 
 
-def get_current_context_mock(project_files):
+def get_current_context_mock(project_path):
+    project_files = get_project_files(project_path)
     sources = []
     for proj_file in project_files:
         mock = MagicMock()
@@ -37,6 +38,10 @@ def get_current_context_mock(project_files):
     
     project = MagicMock()
     project.sources.return_value = sources
+    
+#    proj_file_mock = MagicMock()
+#    proj_file_mock.name.return_value = project_path
+#    project.file.return_value = proj_file_mock
     
     context = MagicMock()
     context.project.return_value = project
