@@ -1,7 +1,7 @@
 import sys
 from mock import MagicMock
 sys.modules["GPS"] = MagicMock()    #mock GPS module
-
+import sireum
 import kiasan.logic
 import urllib
 import unittest
@@ -18,7 +18,6 @@ class TestIntegration1(unittest.TestCase):
     def setUpClass(self):
         self.project_path = subprocess.Popen(['pwd'], stdout=subprocess.PIPE).communicate()[0].replace('\n','') + "/test_projects/test_proj1"
         self.output_path = self.project_path + "/.sireum/kiasan"
-        import sireum
         self.sireum_path = sireum.get_sireum_path()
         
         #mock GPS module
@@ -37,7 +36,6 @@ class TestIntegration1(unittest.TestCase):
         
     # proj1 - all methods
     def test_proj1_methods_add_and_foo(self):
-        import sireum
         kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, False)
         print kiasan_run_cmd
         subprocess.call(kiasan_run_cmd + ["add"])

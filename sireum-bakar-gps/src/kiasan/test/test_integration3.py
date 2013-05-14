@@ -9,6 +9,7 @@ import subprocess
 import os
 import mock_helper
 
+
 class TestIntegration3(unittest.TestCase):
     """Integration tests from Kiasan plugin."""
     
@@ -19,11 +20,10 @@ class TestIntegration3(unittest.TestCase):
         self.output_path = self.project_path + "/.sireum/kiasan"
         self.sireum_path = sireum.get_sireum_path()     
         
-        #mock GPS module
+        #mock GPS module        
         mock_helper.sireum_path = self.sireum_path
         sys.modules["GPS"].Preference = MagicMock(side_effect = mock_helper.preference_mock)
-        project_files = mock_helper.get_project_files(self.project_path)
-        sys.modules["GPS"].current_context.return_value = mock_helper.get_current_context_mock(project_files)
+        sys.modules["GPS"].current_context.return_value = mock_helper.get_current_context_mock(self.project_path)
         
     
     # performed before each test
