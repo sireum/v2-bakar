@@ -11,20 +11,21 @@ def get_project_files(project_path):
 def preference_mock(*args, **kwargs):
     preference_name = args[0]
     pref = MagicMock()
-    pref.get.return_value = {
-        'sireum-kiasan-array-indices-bound': 5,
-        'sireum-kiasan-loop-bound': 10,
-        'sireum-kiasan-call-chain-bound': 10,
-        'sireum-kiasan-timeout': 10,
-        'sireum-kiasan-constrain-scalar-values': True,
-        'sireum-kiasan-theorem-prover': 'Z3',
-        'sireum-kiasan-theorem-prover-bin-directory': sireum_path + "/apps/z3/bin",
-        'sireum-kiasan-generate-claim-report': False,
-        'sireum-kiasan-generate-json-output': True,
-        'sireum-kiasan-generate-aunit': False,
-        'sireum-kiasan-generate-html-report': False,
-        'sireum-kiasan-html-output-directory': sireum_path + "/apps/graphviz/bin/dot"
-    }[preference_name]
+    pref.get.return_value = 5
+#    pref.get.return_value = {
+#        'sireum-kiasan-array-indices-bound': 5,
+#        'sireum-kiasan-loop-bound': 10,
+#        'sireum-kiasan-call-chain-bound': 10,
+#        'sireum-kiasan-timeout': 10,
+#        'sireum-kiasan-constrain-scalar-values': True,
+#        'sireum-kiasan-theorem-prover': 'Z3',
+#        'sireum-kiasan-theorem-prover-bin-directory': sireum_path + "/apps/z3/bin",
+#        'sireum-kiasan-generate-claim-report': False,
+#        'sireum-kiasan-generate-json-output': True,
+#        'sireum-kiasan-generate-aunit': False,
+#        'sireum-kiasan-generate-html-report': False,
+#        'sireum-kiasan-html-output-directory': sireum_path + "/apps/graphviz/bin/dot"
+#    }[preference_name]
     return pref
 
 
@@ -38,10 +39,6 @@ def get_current_context_mock(project_path):
     
     project = MagicMock()
     project.sources.return_value = sources
-    
-#    proj_file_mock = MagicMock()
-#    proj_file_mock.name.return_value = project_path
-#    project.file.return_value = proj_file_mock
     
     context = MagicMock()
     context.project.return_value = project

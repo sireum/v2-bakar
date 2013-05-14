@@ -47,7 +47,7 @@ class TestIntegration1(unittest.TestCase):
                 
         report_file_path = self.output_path+"/kiasan_sireum_report.json"
         
-        self.assertTrue(os.path.isfile(report_file_path))
+        self.assertTrue(os.path.isfile(report_file_path), "Report file not generated")
         
         #read generated json
         kiasan_logic = kiasan.logic.KiasanLogic()
