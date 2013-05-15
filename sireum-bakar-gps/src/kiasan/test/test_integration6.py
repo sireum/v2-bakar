@@ -10,7 +10,7 @@ import os
 import mock_helper
 
 
-class TestIntegration5(unittest.TestCase):
+class TestIntegration6(unittest.TestCase):
     """Integration tests from Kiasan plugin."""
     
     # performed before all tests
@@ -35,8 +35,8 @@ class TestIntegration5(unittest.TestCase):
         subprocess.call(["mkdir", self.output_path])
 
         
-    # proj5 - all methods
-    def test_proj5_all_methods(self):
+    # proj6 - all methods
+    def test_proj6_all_methods(self):
         kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "RefExample", self.project_path, self.output_path, False)
         methods = ["CreateArray", "ChangeArray", "ChangeGlobalArray"]
         for method in methods[:-1]:
@@ -56,8 +56,8 @@ class TestIntegration5(unittest.TestCase):
         self.assertEqual(len(methods), len(report[0]._methods))
         self.assertEqual(set(methods), set(m._name for m in report[0]._methods))
         
-    # proj 1 - delete method
-    def test_proj5_delete(self):
+    # proj 6 - change global array procedure
+    def test_proj6_delete(self):
         kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "RefExample", self.project_path, self.output_path, True)
         methods = ["ChangeGlobalArray"]
         for method in methods:

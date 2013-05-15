@@ -56,7 +56,7 @@ class TestIntegration5(unittest.TestCase):
         self.assertEqual(len(methods), len(report[0]._methods))
         self.assertEqual(set(methods), set(m._name for m in report[0]._methods))
         
-    # proj 1 - delete method
+    # proj 5 - delete method
     def test_proj5_delete(self):
         kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "ArraySet", self.project_path, self.output_path, True)
         methods = ["Delete"]
