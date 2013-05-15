@@ -30,6 +30,8 @@ def run_kiasan_plugin():
 		gui = kiasan.gui.KiasanGUI(report)
 		
 		# attach GUI to GPS
+		if GPS.MDI.get('kiasan') is not None:
+			GPS.MDI.get('kiasan').hide()	# hide previous Kiasan results
 		GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
 		win = GPS.MDI.get('kiasan')
 		win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
