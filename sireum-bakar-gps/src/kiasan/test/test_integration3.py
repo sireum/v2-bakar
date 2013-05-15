@@ -18,7 +18,8 @@ class TestIntegration3(unittest.TestCase):
     def setUpClass(self):
         self.project_path = subprocess.Popen(['pwd'], stdout=subprocess.PIPE).communicate()[0].replace('\n','') + "/test_projects/test_proj3"
         self.output_path = self.project_path + "/.sireum/kiasan"
-        self.sireum_path = sireum.get_sireum_path()     
+        self.sireum_path = sireum.get_sireum_path()  
+        self.report_file_name = "kiasan_sireum_report.json"   
         
         #mock GPS module        
         mock_helper.sireum_path = self.sireum_path
@@ -44,7 +45,7 @@ class TestIntegration3(unittest.TestCase):
         
         #read generated json
         kiasan_logic = kiasan.logic.KiasanLogic()
-        report_file_path = self.output_path+"/kiasan_sireum_report.json"
+        report_file_path = self.output_path + "/" + self.report_file_name
         report_file_url = urllib.pathname2url(report_file_path)
         report = kiasan_logic.extract_report_file(report_file_url)
         
@@ -64,7 +65,7 @@ class TestIntegration3(unittest.TestCase):
         
         #read generated json
         kiasan_logic = kiasan.logic.KiasanLogic()
-        report_file_path = self.output_path+"/kiasan_sireum_report.json"
+        report_file_path = self.output_path + "/" + self.report_file_name
         report_file_url = urllib.pathname2url(report_file_path)
         report = kiasan_logic.extract_report_file(report_file_url)
         
@@ -98,7 +99,7 @@ class TestIntegration3(unittest.TestCase):
         
         #read generated json
         kiasan_logic = kiasan.logic.KiasanLogic()
-        report_file_path = self.output_path+"/kiasan_sireum_report.json"
+        report_file_path = self.output_path + "/" + self.report_file_name
         report_file_url = urllib.pathname2url(report_file_path)
         report = kiasan_logic.extract_report_file(report_file_url)
         
