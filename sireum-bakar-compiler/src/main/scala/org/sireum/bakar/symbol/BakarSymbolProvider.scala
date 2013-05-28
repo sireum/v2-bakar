@@ -196,8 +196,12 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
   val bst = st.get.asInstanceOf[BakarSymbolTable]
 
   def isVar(e : NameExp) : Boolean = {
+    import org.sireum.pilar.symbol.Symbol
     val name = e.name
-    name ? URIS.REF_URI && (name(URIS.REF_URI).asInstanceOf[String].contains("local"))
+    val u = name.uri
+    val ret = u.startsWith("ada://variable") || u.startsWith("ada://parameter")
+    ret
+    //name ? URIS.REF_URI && (name(URIS.REF_URI).asInstanceOf[String].contains("local"))
   }
 
   def procedureUri(e : NameExp) : Option[ResourceUri] = {

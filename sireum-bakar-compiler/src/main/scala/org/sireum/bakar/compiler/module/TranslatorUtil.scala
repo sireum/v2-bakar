@@ -14,6 +14,12 @@ object URIS {
   val REF_URI = "BAKAR_REF_URI"
 }
 
+object Attribute{
+  val ATTRIBUTE_MAP = "ATTRIBUTE_MAP"
+  val FIRST = "FIRST"
+  val LAST  = "LAST"
+}
+
 object StandardURIs {
   val universalIntURI = "ada://ordinary_type/universal_integer".intern
     
