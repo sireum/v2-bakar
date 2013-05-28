@@ -192,7 +192,9 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
   }
 }
 
-class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends SymbolProvider[S] {
+
+class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends SymbolProvider[S]
+{
   val bst = st.get.asInstanceOf[BakarSymbolTable]
 
   def isVar(e : NameExp) : Boolean = {
@@ -243,6 +245,12 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
     store.toMap
   }
 
-  def isFieldAccess(f : NameUser) : Boolean = false
+  def isFieldAccess(f : NameUser) : Boolean = {
+    import org.sireum.pilar.symbol.Symbol
+    val u = f.uri
+    val ret = u.startsWith("ada://component")
+    ret
+  }
+  
   def funUri(e : NameExp) : Option[ResourceUri] = None
 }

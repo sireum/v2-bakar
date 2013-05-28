@@ -6,6 +6,7 @@ package org.sireum.bakar.typ
 import org.sireum.util._
 import org.sireum.pipeline._
 import java.lang.String
+import org.sireum.bakar.symbol.Type
 import org.sireum.pilar.ast.Model
 import scala.collection.immutable.Map
 import scala.collection.immutable.Seq
@@ -14,6 +15,7 @@ object BakarTypeResolverModule extends PipelineModule {
   def title = "Bakar Type Resolver"
   def origin = classOf[BakarTypeResolver]
 
+  val globalBakarTypeUri2TypeMapKey = "Global.bakarTypeUri2TypeMap"
   val globalModelsKey = "Global.models"
   val globalBakarRef2TypeUriMapKey = "Global.bakarRef2TypeUriMap"
 
@@ -103,6 +105,17 @@ object BakarTypeResolverModule extends PipelineModule {
         "Output error for '" + this.title + "': Wrong type found for BakarTypeResolverModule.globalBakarRef2TypeUriMapKey.  Expecting 'scala.collection.immutable.Map[java.lang.String, java.lang.String]' but found '" + 
         job(BakarTypeResolverModule.globalBakarRef2TypeUriMapKey).getClass.toString + "'")
     } 
+
+    if(!(job ? BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey)) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+        "Output error for '" + this.title + "': No entry found for 'bakarTypeUri2TypeMap'. Expecting (BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey)") 
+    }
+
+    if(job ? BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey && !job(BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey).isInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type]]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey.  Expecting 'scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type]' but found '" + 
+        job(BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey).getClass.toString + "'")
+    } 
     return tags
   }
 
@@ -136,10 +149,26 @@ object BakarTypeResolverModule extends PipelineModule {
     return options
   }
 
+  def getBakarTypeUri2TypeMap (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type] = {
+    if (options.contains(BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey)) {
+       return options(BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setBakarTypeUri2TypeMap (options : MMap[Property.Key, Any], bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type]) : MMap[Property.Key, Any] = {
+
+    options(BakarTypeResolverModule.globalBakarTypeUri2TypeMapKey) = bakarTypeUri2TypeMap
+
+    return options
+  }
+
   object ConsumerView {
     implicit class BakarTypeResolverModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarTypeResolverModule.getModels(job.propertyMap)
       def bakarRef2TypeUriMap : scala.collection.immutable.Map[java.lang.String, java.lang.String] = BakarTypeResolverModule.getBakarRef2TypeUriMap(job.propertyMap)
+      def bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type] = BakarTypeResolverModule.getBakarTypeUri2TypeMap(job.propertyMap)
     }
   }
 
@@ -151,6 +180,9 @@ object BakarTypeResolverModule extends PipelineModule {
 
       def bakarRef2TypeUriMap_=(bakarRef2TypeUriMap : scala.collection.immutable.Map[java.lang.String, java.lang.String]) { BakarTypeResolverModule.setBakarRef2TypeUriMap(job.propertyMap, bakarRef2TypeUriMap) }
       def bakarRef2TypeUriMap : scala.collection.immutable.Map[java.lang.String, java.lang.String] = BakarTypeResolverModule.getBakarRef2TypeUriMap(job.propertyMap)
+
+      def bakarTypeUri2TypeMap_=(bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type]) { BakarTypeResolverModule.setBakarTypeUri2TypeMap(job.propertyMap, bakarTypeUri2TypeMap) }
+      def bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type] = BakarTypeResolverModule.getBakarTypeUri2TypeMap(job.propertyMap)
     }
   }
 }
@@ -165,4 +197,8 @@ trait BakarTypeResolverModule {
 
   def bakarRef2TypeUriMap_=(bakarRef2TypeUriMap : scala.collection.immutable.Map[java.lang.String, java.lang.String]) { BakarTypeResolverModule.setBakarRef2TypeUriMap(job.propertyMap, bakarRef2TypeUriMap) }
   def bakarRef2TypeUriMap : scala.collection.immutable.Map[java.lang.String, java.lang.String] = BakarTypeResolverModule.getBakarRef2TypeUriMap(job.propertyMap)
+
+
+  def bakarTypeUri2TypeMap_=(bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type]) { BakarTypeResolverModule.setBakarTypeUri2TypeMap(job.propertyMap, bakarTypeUri2TypeMap) }
+  def bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.Type] = BakarTypeResolverModule.getBakarTypeUri2TypeMap(job.propertyMap)
 }

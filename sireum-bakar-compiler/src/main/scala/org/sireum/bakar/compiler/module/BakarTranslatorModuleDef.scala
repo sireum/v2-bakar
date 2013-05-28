@@ -962,6 +962,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       val (selsloc, selname, seluri, styp) = ctx.getName(selector)
       val attr = NameUser(selname)
+      ctx.addResourceUri(attr, seluri)
       addprop(attr, URIS.REF_URI, seluri)
       addprop(attr, URIS.TYPE_URI, styp)
       

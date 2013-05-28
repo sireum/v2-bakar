@@ -33,9 +33,13 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       case o : AttributeDecl =>
         assert(o ? URIS.REF_URI)
         assert(o ? URIS.TYPE_URI)
+        //assert(o ? URIS.TYPE_DEF)
+        
+        val rf : ResourceUri = o(URIS.REF_URI)
+        val tu : ResourceUri = o(URIS.TYPE_URI)
         
         // FIXME: type erasure
-        typeMap(o(URIS.REF_URI)) = o(URIS.TYPE_URI).asInstanceOf[Type]
+        //typeMap(o(URIS.REF_URI)) = o(URIS.TYPE_URI).asInstanceOf[Type]
         false
       case o : TypeAliasDecl =>
         assert(o ? URIS.TYPE_DEF)
@@ -88,7 +92,7 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
     assert(nutyp ? URIS.REF_URI)
     val refUri : ResourceUri = nuref(URIS.REF_URI)
     val typUri : ResourceUri = nutyp(URIS.REF_URI)
-    assert(!refUri2typeUri.contains(refUri))
+    //assert(!refUri2typeUri.contains(refUri))
     refUri2typeUri(refUri) = typUri
   }
 
@@ -111,11 +115,25 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         assert (o ? URIS.TYPE_URI)
         assert (nu.hasResourceInfo)
         false
+      
+      case o @ AccessExp(exp, nu) =>
+        import org.sireum.pilar.symbol.Symbol
+        assert (nu ? URIS.REF_URI)
+        assert (nu ? URIS.TYPE_URI)
+
+        val refUri : ResourceUri = nu(URIS.REF_URI)
+        val typUri : ResourceUri = nu(URIS.TYPE_URI)
+        
+        //assert(!refUri2typeUri.contains(refUri))
+        refUri2typeUri(refUri) = typUri
+        false
     }
     v(m)
   }
 
   this.bakarRef2TypeUriMap = refUri2typeUri.toMap
+  
+  this.bakarTypeUri2TypeMap = typeMap.toMap
 }
 
 case class BakarTypeResolver(
@@ -123,7 +141,9 @@ case class BakarTypeResolver(
 
   @Input @Output models : ISeq[Model],
 
-  @Output bakarRef2TypeUriMap : IMap[ResourceUri, ResourceUri])
+  @Output bakarRef2TypeUriMap : IMap[ResourceUri, ResourceUri],
+
+  @Output bakarTypeUri2TypeMap : IMap[ResourceUri, Type])
 
 object BakarTypeResolver {
   def main(args : Array[String]) {
