@@ -14,21 +14,21 @@ object URIS {
   val REF_URI = "BAKAR_REF_URI"
 }
 
-object Attribute{
+object Attribute {
   val ATTRIBUTE_MAP = "ATTRIBUTE_MAP"
   val FIRST = "FIRST"
-  val LAST  = "LAST"
+  val LAST = "LAST"
 }
 
 object StandardURIs {
   val universalIntURI = "ada://ordinary_type/universal_integer".intern
-    
+
   val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1".intern
   val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1".intern
   val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1".intern
   val positiveURI = "ada://subtype/Standard-1:1/Positive-1:1".intern
-    
-  val floatURI =  "ada://ordinary_type/Standard-1:1/Float-1:1".intern
+
+  val floatURI = "ada://ordinary_type/Standard-1:1/Float-1:1".intern
 }
 
 object StandardTypeDefs {
@@ -40,21 +40,21 @@ object StandardTypeDefs {
 
     val istd = FullTypeDecl(typName, typURI,
       SignedIntegerTypeDef("myint", None, None))
-  
+
     tad(URIS.TYPE_DEF) = istd
     tad(URIS.TYPE_URI) = typURI
     tad(URIS.REF_URI) = typURI
     tad
   }
-  
+
   val UniversalInteger = createType("universal_integer", "Integer", StandardURIs.universalIntURI)
-  
+
   val StandardBoolean = createType("standard::boolean", "Boolean", StandardURIs.boolURI)
   val StandardInteger = createType("standard::integer", "Integer", StandardURIs.integerURI)
-  val StandardNatural = createType("standard::natural", "Integer", StandardURIs.naturalURI)  
-  val StandardPositive = createType("standard::positive", "Integer", StandardURIs.positiveURI)    
-  
-  val StandardFloat = createType("standard::float", "Float", StandardURIs.floatURI)    
+  val StandardNatural = createType("standard::natural", "Integer", StandardURIs.naturalURI)
+  val StandardPositive = createType("standard::positive", "Integer", StandardURIs.positiveURI)
+
+  val StandardFloat = createType("standard::float", "Float", StandardURIs.floatURI)
 }
 
 object TranslatorUtil {
@@ -84,10 +84,9 @@ object TranslatorUtil {
     }
   }
 
-  def getGlobalDeclarations(e : ElementList) = {
-    e.getElements.filter {
-      case x : VariableDeclaration => true
-      case _                       => false
+  def getGlobalDeclarations(el : ElementList) = {
+    for (e <- el.getElements() if e.isInstanceOf[VariableDeclaration]) yield {
+      e.asInstanceOf[VariableDeclaration]
     }
   }
 

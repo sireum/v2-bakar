@@ -12,8 +12,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
   type BVisitor = Any => Boolean
 
-  val DEBUG = false
-  
+  val DEBUG = true
+
   trait Context {
     var genThreeAddress = false
     val TEMP_VAR_PREFIX = "_t"
@@ -97,10 +97,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         case RemOperatorEx(_)                => Some(PilarAstUtil.REM_BINOP)
 
         case XorOperatorEx =>
-          if(DEBUG) println("Don't know how to handle bin op " + o)
+          if (DEBUG) println("Don't know how to handle bin op " + o)
           None
         case ModOperatorEx =>
-          if(DEBUG) println("Don't know how to handle bin op " + o)
+          if (DEBUG) println("Don't know how to handle bin op " + o)
           None
 
         case _ =>
@@ -199,7 +199,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
     def addProperty[T <: PropertyProvider](key : String, value : Any, pp : T) : T = {
       if (value == null || value == "") {
-        if(DEBUG) println("null/empty value for %s from %s".format(key, pp))
+        if (DEBUG) println("null/empty value for %s from %s".format(key, pp))
       } else {
         pp.setProperty(key, value)
       }
@@ -221,7 +221,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           val dim = discreteSubtypeDefs.getDefinitions.size
           assert(dim == 1)
 
-          if(DEBUG) println(arrayComponentDef.getElement())
+          if (DEBUG) println(arrayComponentDef.getElement())
 
           var compTypeName : Option[String] = None
           var compTypeUri : Option[ResourceUri] = None
@@ -239,7 +239,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                   compTypeUri = Some(turi)
               }
             case x =>
-              if(DEBUG) Console.err.println("Not expecting array component type " + x)
+              if (DEBUG) Console.err.println("Not expecting array component type " + x)
               assert(false)
           }
 
@@ -295,12 +295,12 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                     val (csloc, cname, curi, ctype) = this.getName(names.getDefiningNames.head)
                     components(cname) = ComponentDef(curi, typeName.get, typeUri.get, handleLoc(csloc))
                   case x =>
-                    if(DEBUG) Console.err.println("Not expecting component decl " + x)
+                    if (DEBUG) Console.err.println("Not expecting component decl " + x)
                     assert(false)
                 }
               }
             case x =>
-              if(DEBUG) Console.err.println("Not expecting record definition " + x)
+              if (DEBUG) Console.err.println("Not expecting record definition " + x)
               assert(false)
           }
           return Some(RecordTypeDef(
@@ -308,7 +308,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             false,
             components.toMap))
         case x =>
-          if(DEBUG) Console.err.println("Not handling type def " + x)
+          if (DEBUG) Console.err.println("Not handling type def " + x)
           assert(false)
       }
       assert(false)
@@ -370,7 +370,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               rd(URIS.REF_URI) = turi
               return Some(rd)
             case x =>
-              if(DEBUG) Console.err.println("Not handling " + x)
+              if (DEBUG) Console.err.println("Not handling " + x)
               assert(false)
           }
           None
@@ -400,7 +400,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
                     cons = Some(SimpleRangeConstraint(l, u))
                   case x =>
-                    if(DEBUG) Console.err.println("Not expecting constraint type " + x)
+                    if (DEBUG) Console.err.println("Not expecting constraint type " + x)
                 }
               }
 
@@ -415,22 +415,22 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
               return Some(tad)
             case x =>
-              if(DEBUG) Console.err.println("Not expecting type decl view " + x)
+              if (DEBUG) Console.err.println("Not expecting type decl view " + x)
               assert(false)
           }
           None
         case x =>
-          if(DEBUG) Console.err.println("Not handling type declaration " + x)
+          if (DEBUG) Console.err.println("Not handling type declaration " + x)
           assert(false)
           None
       }
     }
-      
+
     def addResourceUri(s : org.sireum.pilar.symbol.Symbol, uri : String) {
       import org.sireum.pilar.symbol.Symbol
       val u = new URI(uri)
       val paths = if (u.getPath.startsWith("/")) u.getPath.split("/").drop(1) else u.getPath.split("/")
-      
+
       s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
     }
   }
@@ -439,8 +439,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
   implicit def addprop[T <: PropertyProvider](pp : T, key : String, value : Any, required : Boolean = false) : T = {
     if (value == null || value == "null" || value == "") {
-      if(DEBUG) Console.err.println(s"null/empty value for $key from $pp")
-      if(required)
+      if (DEBUG) Console.err.println(s"null/empty value for $key from $pp")
+      if (required)
         throw new RuntimeException("Missing required type")
     } else {
       pp.setProperty(key, value)
@@ -462,7 +462,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       sourceFile) =>
 
       if (!contextClauseElements.getContextClauses().isEmpty)
-        if(DEBUG) Console.err.println("Need to handle context clauses")
+        if (DEBUG) Console.err.println("Need to handle context clauses")
 
       v(unitDeclaration)
 
@@ -470,29 +470,29 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         case p : PackageDecl =>
           ctx.models += Model(Some(sourceFile), ivectorEmpty[Annotation], ivector(p))
         case x =>
-          if(DEBUG) println("Expecting a PackageDecl, received " + x)
+          if (DEBUG) println("Expecting a PackageDecl, received " + x)
       }
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
       visiblePartDecItems, privatePartDecItems) =>
-      if(DEBUG) println(o.getClass().getSimpleName())
+      if (DEBUG) println(o.getClass().getSimpleName())
 
       assert(names.getDefiningNames.length == 1)
       val di = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier]
       val pname = NameDefinition(di.getDefName)
 
       if (!aspectSpec.getElements().isEmpty())
-        if(DEBUG) Console.err.println("Need to handle package spec aspect clauses: " + pname)
+        if (DEBUG) Console.err.println("Need to handle package spec aspect clauses: " + pname)
 
       for (x <- visiblePartDecItems.getDeclarativeItems()) {
         //v(x)
-        if(DEBUG) Console.err.println("Need to handle package spec public declarative items: " + pname)
+        if (DEBUG) Console.err.println("Need to handle package spec public declarative items: " + pname)
       }
 
       for (x <- privatePartDecItems.getDeclarativeItems()) {
         //v(x)
-        if(DEBUG) Console.err.println("Need to handle package spec private declarative items: " + pname)
+        if (DEBUG) Console.err.println("Need to handle package spec private declarative items: " + pname)
       }
 
       false
@@ -517,21 +517,41 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       packElems += StandardTypeDefs.StandardNatural
       packElems += StandardTypeDefs.StandardPositive
       packElems += StandardTypeDefs.StandardFloat
-      
+
       // FIXME: inject the non-standard universal_integer
       packElems += StandardTypeDefs.UniversalInteger
-      
+
       if (!aspectSpec.getElements().isEmpty())
-        if(DEBUG) Console.err.println("Need to handle package body aspect clauses")
+        if (DEBUG) Console.err.println("Need to handle package body aspect clauses")
 
       if (!bodyStatements.getStatements.isEmpty)
-        if(DEBUG) Console.err.println("Need to handle package body statements")
+        if (DEBUG) Console.err.println("Need to handle package body statements")
 
       if (!TranslatorUtil.getConstantDeclarations(bodyDecItems).isEmpty)
-        if(DEBUG) Console.err.println("Need to handle package body consts")
+        if (DEBUG) Console.err.println("Need to handle package body consts")
 
-      if (!TranslatorUtil.getGlobalDeclarations(bodyDecItems).isEmpty)
-        if(DEBUG) Console.err.println("Need to handle package body globals")
+      TranslatorUtil.getGlobalDeclarations(bodyDecItems).foreach {
+        case vd @ VariableDeclarationEx(sloc, names, hasAliased, objDecView, initExpr, aspectSpec) =>
+          assert(ctx.isEmpty(hasAliased.getHasAliased))
+          assert(ctx.isEmpty(initExpr.getExpression))
+          assert(aspectSpec.getElements.isEmpty)
+
+          v(objDecView)
+          val odv = ctx.popResult.asInstanceOf[NameExp]
+          val typeSpec = Some(NamedTypeSpec(odv.name, ivectorEmpty[TypeSpec]))
+
+          names.getDefiningNames.foreach {
+            case di : DefiningIdentifier =>
+              val (sloc, defName, defUri, typ) = ctx.getName(di)
+              val name = NameDefinition(defName)
+              val gvd = GlobalVarDecl(name, TranslatorUtil.emptyAnnot, typeSpec)
+              gvd(URIS.REF_URI) = defUri
+              packElems += gvd
+            case x =>
+              if (DEBUG) Console.err.println("Not Expecting: " + x)
+              assert(false)
+          }
+      }
 
       for (m <- TranslatorUtil.getMethodDeclarations(bodyDecItems)) {
         v(m)
@@ -589,11 +609,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 pd(URIS.REF_URI) = defUri
                 params += pd
               case x =>
-                if(DEBUG) println("Not expecting: " + x)
+                if (DEBUG) println("Not expecting: " + x)
                 assert(false)
             }
           case x =>
-            if(DEBUG) println("Not expecting: " + x)
+            if (DEBUG) println("Not expecting: " + x)
             assert(false)
         }
 
@@ -601,8 +621,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         bodyDeclItems.getElements().foreach {
           case vd @ VariableDeclarationEx(sloc, names, hasAliased,
             objDecView, initExpr, aspectSpec) =>
-            assert(ctx.isEmpty(hasAliased.getHasAliased()))
-            assert(ctx.isEmpty(initExpr.getExpression()))
+            assert(ctx.isEmpty(hasAliased.getHasAliased))
+            assert(ctx.isEmpty(initExpr.getExpression))
+            assert(aspectSpec.getElements.isEmpty)
 
             v(objDecView)
             val odv = ctx.popResult.asInstanceOf[NameExp]
@@ -616,11 +637,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 lvd(URIS.REF_URI) = defUri
                 ctx.localsPush(lvd)
               case x =>
-                if(DEBUG) println("Not expecting: " + x)
+                if (DEBUG) println("Not expecting: " + x)
                 assert(false)
             }
           case x =>
-            if(DEBUG) Console.err.println("Not expecting:" + x)
+            if (DEBUG) Console.err.println("Not expecting:" + x)
             assert(false)
         }
 
@@ -656,11 +677,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     {
       case o @ ProcedureDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         name, paramProfile, hasAbstract, aspectSpec) =>
-        if(DEBUG) println(o.getClass().getSimpleName())
+        if (DEBUG) println(o.getClass().getSimpleName())
         true
       case o @ FunctionDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, isNotNullReturn, resultProfile, hasAbstract, aspectSpec) =>
-        if(DEBUG) println(o.getClass().getSimpleName())
+        if (DEBUG) println(o.getClass().getSimpleName())
         true
 
       case o @ ProcedureBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
@@ -686,14 +707,14 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         false
     }
   }
-  
+
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, name, refUri, typUri) =>
       val nu = NameUser(name)
       ctx.addResourceUri(nu, refUri)
       this.addprop(nu, URIS.REF_URI, refUri)
       this.addprop(nu, URIS.TYPE_URI, typUri)
-      
+
       val ne = NameExp(nu)
       this.addprop(ne, URIS.TYPE_URI, typUri)
       ctx.pushResult(ne, sloc)
@@ -721,7 +742,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         case x : IndexingExp =>
           ret = Some(AccessExp(x, NameUser(sel.getRefName())))
         case q =>
-          if(DEBUG) println("what to do with " + q)
+          if (DEBUG) println("what to do with " + q)
           assert(false)
       }
       assert(ret.isDefined)
@@ -733,7 +754,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       DefiningNameClassEx(_) |
       DefiningExpandedNameEx(_)
       ) =>
-      if(DEBUG) println("nameH: need to handle: " + o.getClass().getSimpleName())
+      if (DEBUG) println("nameH: need to handle: " + o.getClass().getSimpleName())
       true
   }
 
@@ -799,14 +820,14 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       false
     case o @ CaseStatementEx(sloc, labelnames, caseExpression, statementPaths) =>
-      if(DEBUG) println(o.getClass().getSimpleName())
+      if (DEBUG) println(o.getClass().getSimpleName())
       true
     case o @ LoopStatementEx(sloc, labelNames, statementIdentifier, loopStatements) =>
-      if(DEBUG) println(o.getClass().getSimpleName())
+      if (DEBUG) println(o.getClass().getSimpleName())
       true
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier,
       whileCondition, loopStatements) =>
-      if(DEBUG) println(o.getClass().getSimpleName())
+      if (DEBUG) println(o.getClass().getSimpleName())
 
       val loopEndLabel = ctx.newLocLabel
 
@@ -833,7 +854,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       false
     case o @ ForLoopStatementEx(sloc, labelnames, statementIdentifier,
       forLoopParameterSpecification, loopStatements) =>
-      if(DEBUG) println(o.getClass().getSimpleName())
+      if (DEBUG) println(o.getClass().getSimpleName())
       true
     case o @ ReturnStatementEx(sloc, labelNames, returnExp) =>
       assert(labelNames == null || labelNames.getDefiningNames().isEmpty())
@@ -866,7 +887,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       RaiseStatementEx(_) |
       CodeStatementEx(_)
       ) =>
-      if(DEBUG) println("statementH: need to handle " + o.getClass().getSimpleName())
+      if (DEBUG) println("statementH: need to handle " + o.getClass().getSimpleName())
       true
   }
 
@@ -875,10 +896,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       import collection.JavaConversions._
 
       if (!ctx.isEmpty(isPrefixCall.getIsPrefixCall()))
-        if(DEBUG) Console.err.println("Need to handle prefix calls")
+        if (DEBUG) Console.err.println("Need to handle prefix calls")
 
       if (!ctx.isEmpty(isPrefixNotation.getIsPrefixNotation()))
-        if(DEBUG) Console.err.println("Need to handle prefix notation")
+        if (DEBUG) Console.err.println("Need to handle prefix notation")
 
       val plist = mlistEmpty[Exp]
       for (a <- functionCallParameters.getAssociations) {
@@ -899,9 +920,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       } else {
         v(prefix)
         val mname = ctx.popResult.asInstanceOf[Exp] match {
-          case ne @ NameExp(nu) => 
+          case ne @ NameExp(nu) =>
             // the name of the method is an identifier and has no type
-            if(!(ne ? URIS.TYPE_URI)) addprop(ne, URIS.TYPE_URI, callExpType, true)
+            if (!(ne ? URIS.TYPE_URI)) addprop(ne, URIS.TYPE_URI, callExpType, true)
             ne
           case _ => throw new RuntimeException("Unexpected")
         }
@@ -916,7 +937,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       val le = LiteralExp(LiteralType.INTEGER, BigInt(v), v + "ii")
       le(URIS.TYPE_URI) = typUri match {
         case "universal integer" => StandardURIs.universalIntURI
-        case x => x 
+        case x                   => x
       }
       ctx.pushResult(le, sloc)
       false
@@ -927,7 +948,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         addprop(le, URIS.TYPE_URI, StandardURIs.boolURI)
         ctx.pushResult(le, sloc)
       } else {
-        if(DEBUG) Console.err.println("Not handling enumeration lit %s %s".format(typ, refName))
+        if (DEBUG) Console.err.println("Not handling enumeration lit %s %s".format(typ, refName))
       }
       false
     case o @ AndThenShortCircuitEx(sloc, lhs, rhs, theType) =>
@@ -939,7 +960,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         ctx.handleBE(v, sloc, PilarAstUtil.LOGICAL_OR_BINOP, lhs, rhs, theType), sloc)
       false
     case o @ IfExpressionEx(_) =>
-      if(DEBUG) println("expressionH: need to handle: " + o.getClass.getSimpleName)
+      if (DEBUG) println("expressionH: need to handle: " + o.getClass.getSimpleName)
       true
     case o @ IndexedComponentEx(sloc, prefix, indexExp, theType) =>
       v(prefix)
@@ -965,10 +986,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ctx.addResourceUri(attr, seluri)
       addprop(attr, URIS.REF_URI, seluri)
       addprop(attr, URIS.TYPE_URI, styp)
-      
+
       val ae = AccessExp(e, attr)
       this.addprop(ae, URIS.TYPE_URI, typUri, true)
-      
+
       ctx.pushResult(ae, sloc)
       false
     case o @ (
@@ -984,7 +1005,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ForAllQuantifiedExpressionEx(_) |
       ForSomeQuantifiedExpressionEx(_)
       ) =>
-      if(DEBUG) println("expressionH: need to handle: " + o.getClass.getSimpleName)
+      if (DEBUG) println("expressionH: need to handle: " + o.getClass.getSimpleName)
       true
   }
 
@@ -1004,7 +1025,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ctx.unhandledSet += o.getClass.getSimpleName()
       true
     case null =>
-      if(DEBUG) println("everythingElseH: it is null")
+      if (DEBUG) println("everythingElseH: it is null")
       assert(false)
       false
   }
@@ -1032,7 +1053,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     }
   }
 
-  if(DEBUG) println("Not handling: " + ctx.unhandledSet.toList.sorted)
+  if (DEBUG) println("Not handling: " + ctx.unhandledSet.toList.sorted)
 
   this.models_=(ctx.models.toList)
 }
