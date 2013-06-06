@@ -125,7 +125,7 @@ is
 
   ---
   --- @return True if all invariants hold
-  ---5
+  ---
   function Invariant return Boolean
     --# global in Next_List, Free_Head, Used_Head, Item_List;
   is

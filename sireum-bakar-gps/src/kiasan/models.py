@@ -128,7 +128,7 @@ class Method(Entity):
                     variable_value = self.get_ref_types(variable_dict_values)
                     variable_value["size"] = len(variable_dict["values"])
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.BaseArrayNode":
-                    variable_value = self.get_ref_types(variable_dict["optIndexValueMap"])
+                    variable_value = self.get_base_types(variable_dict["optIndexValueMap"])
                     variable_value["size"] = variable_dict["length"]["theValue"]
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.ConcreteBaseArrayNode":
                     variable_value = {}

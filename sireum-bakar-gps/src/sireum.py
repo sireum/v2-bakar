@@ -10,6 +10,7 @@ import kiasan.gui
 import kiasan.logic
 import urllib
 import subprocess
+import gtk, gobject
 
 
 def run_kiasan_plugin():
@@ -71,7 +72,7 @@ def run_kiasan_tool():
 	
 	load_sireum_settings(SIREUM_PATH)
 	
-	# get methods as list	
+	# get methods as list
 	if GPS.current_context().entity().category() == "subprogram":
 		methods_list = [GPS.current_context().entity().name()]
 	elif GPS.current_context().entity().category() == "package/namespace":
@@ -84,16 +85,42 @@ def run_kiasan_tool():
 	source_paths = GPS.current_context().directory().replace("\\","/")
 	output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
 	
+	#init progress bar
+	win_pb, pb = init_progressbar()
+	GPS.MDI.add(win_pb, "KiasanProgress", "kiasanprogress")	
+	win = GPS.MDI.get('kiasanprogress')
+	win.float(float=True)	# float=True: popup, float=False: GPS integrated window
+	
 	# run Kiasan tool for each method except last one
 	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, False)	
+	method_no = 0
+	print 'got', len(methods_list)
 	for method in methods_list[:-1]:
+		#update progress bar
+		pb.set_fraction(float(method_no)/len(methods_list))
+		pb.set_text(str(float(method_no)*100/len(methods_list)) + " %")
+		method_no += 1
+		#run kiasan
 		print " ".join(kiasan_run_cmd + [method])
-		subprocess.call(kiasan_run_cmd + [method])
-		
+		subprocess.call(kiasan_run_cmd + [method])		
+	
 	# run Kiasan tool for last method and generate report
 	kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, True)
 	print " ".join(kiasan_run_cmd_with_report + [methods_list[-1]])
 	subprocess.call(kiasan_run_cmd_with_report + [methods_list[-1]])
+	
+	#update progress bar and hide progress it
+	GPS.MDI.get('kiasanprogress').hide()
+
+
+def init_progressbar():
+	pane = gtk.VPaned()
+
+	progressbar = gtk.ProgressBar()
+	
+	pane.add1(progressbar)
+
+	return pane, progressbar
 
 
 def get_sireum_path():
@@ -212,13 +239,19 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, 
 	return run_kiasan_command
 
 
-def get_spark_source_files():		
+def get_spark_source_files():
+	""" Get SPARK source files using GPS API. """	
 	spark_files_list = []
 	project_files = GPS.current_context().project().sources()
 	for proj_file in project_files:
 		spark_files_list.append(os.path.basename(proj_file.name()))
 	return spark_files_list
 
+
+def run_examiner(current_file):
+	import spark_support
+	spark_support.spark.examine_file(GPS.File(current_file))
+	
 
 
 GPS.parse_xml ("""
@@ -229,19 +262,27 @@ GPS.parse_xml ("""
     		shell_lang="python" 
     		shell_cmd="GPS.current_context().entity().category() in ['subprogram', 'package/namespace'] " />
   	</filter_and>
-    <action name="run Kiasan">
-    	<filter id="Source editor in Ada" />
-        <shell lang="python">sireum.run_kiasan_plugin()</shell>
-    </action>    
+	<action name="run Kiasan">
+		<filter id="Source editor in Ada" />
+		<shell lang="python">sireum.run_kiasan_plugin()</shell>
+	</action>	
+	<action name="run Examiner">
+		<filter id="Source editor in Ada" />
+		<shell lang="python">sireum.run_examiner(%f)</shell>
+	</action>
     <submenu before="Window">
         <title>Sireum</title>
         <menu action="run Kiasan">
             <title>Run Kiasan</title>
-        </menu>	    	
+        </menu>	            	
     </submenu>
 	<contextual action="run Kiasan" >
     	<Title>Sireum/Run Kiasan</Title>
   	</contextual>
+  	<button action="run Examiner">
+    	<title>Run Examiner</title>
+    	<pixmap>/Users/jj/Programs/gnat/share/gps/plug-ins/icons/run_examiner.png</pixmap>
+  	</button>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"
    				page = "Sireum/Kiasan"
