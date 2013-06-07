@@ -10,6 +10,28 @@
        <xjc:superClass name="org.sireum.bakar.xml.Base"/>
     </jxb:globalBindings>
     
+    <jxb:bindings node="//xs:complexType[@name='Source_Location']">
+      <jxb:bindings node="xs:attribute[@name='line']">
+        <jxb:property >
+          <jxb:baseType name="int" />
+        </jxb:property>
+      </jxb:bindings>
+      <jxb:bindings node="xs:attribute[@name='col']">
+        <jxb:property >
+          <jxb:baseType name="int" />
+        </jxb:property>
+      </jxb:bindings>
+      <jxb:bindings node="xs:attribute[@name='endline']">
+        <jxb:property >
+          <jxb:baseType name="int" />
+        </jxb:property>
+      </jxb:bindings>
+      <jxb:bindings node="xs:attribute[@name='endcol']">
+        <jxb:property >
+          <jxb:baseType name="int" />
+        </jxb:property>
+      </jxb:bindings>     
+    </jxb:bindings>
     
     <jxb:bindings node="//xs:complexType[@name='Element_Class']//xs:choice">
        <jxb:property name="element" />

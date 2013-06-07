@@ -41,10 +41,10 @@
    <!-- Basic Types -->
 
    <xsd:complexType name="Source_Location">
-      <xsd:attribute name="line" type="xsd:int" use="required"/>
-      <xsd:attribute name="col" type="xsd:int" use="required"/>
-      <xsd:attribute name="endline" type="xsd:int" use="required"/>
-      <xsd:attribute name="endcol" type="xsd:int" use="required"/>
+      <xsd:attribute name="line" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="col" type="xsd:positiveInteger" use="required"/>
+      <xsd:attribute name="endline" type="xsd:nonNegativeInteger" use="required"/>
+      <xsd:attribute name="endcol" type="xsd:nonNegativeInteger" use="required"/>
    </xsd:complexType>
 
    <xsd:element name="not_an_element" type="Not_An_Element"/>
