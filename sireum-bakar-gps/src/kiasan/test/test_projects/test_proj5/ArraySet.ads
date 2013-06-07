@@ -1,4 +1,4 @@
-with ArraySetDefs;
+ with ArraySetDefs;
 --# inherit ArraySetDefs,
 --#         ArraySetUnsigned;
 package ArraySet

@@ -15,6 +15,7 @@ import gtk, gobject
 
 def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
+	warnings.warn("Exception catching are based on guesses - most probably reasons of occurence.")
 	try:
 		project_path = get_project_path()	#normalized project path
 		remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
@@ -39,6 +40,8 @@ def run_kiasan_plugin():
 		win.float(float=False)	# float=True: popup, float=False: GPS integrated window
 	except IndexError:
 		GPS.MDI.dialog("Build project, before run Kiasan.")
+	except AttributeError:
+		GPS.MDI.dialog("This file does not belongs to opened project.")
 
 
 def get_project_path():
@@ -250,8 +253,13 @@ def get_spark_source_files():
 
 def run_examiner(current_file):
 	import spark_support
-	spark_support.spark.examine_file(GPS.File(current_file))
+	spark_support.spark.examine_file(current_file)
 	
+
+
+def get_examiner_icon():
+	return GPS.get_system_dir() + 'share/gps/plug-ins/icons/run_examiner.png'
+
 
 
 GPS.parse_xml ("""
@@ -268,7 +276,7 @@ GPS.parse_xml ("""
 	</action>	
 	<action name="run Examiner">
 		<filter id="Source editor in Ada" />
-		<shell lang="python">sireum.run_examiner(%f)</shell>
+		<shell lang="python">sireum.run_examiner(GPS.current_context().file())</shell>
 	</action>
     <submenu before="Window">
         <title>Sireum</title>
@@ -281,7 +289,7 @@ GPS.parse_xml ("""
   	</contextual>
   	<button action="run Examiner">
     	<title>Run Examiner</title>
-    	<pixmap>/Users/jj/Programs/gnat/share/gps/plug-ins/icons/run_examiner.png</pixmap>
+    	<pixmap>run_examiner.png</pixmap>
   	</button>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"

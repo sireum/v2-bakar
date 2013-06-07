@@ -1,3 +1,7 @@
-project test_proj5 is
+project Test_Proj5 is
 
-end test_proj5;
+   for Main use ("ArraySet.adb", "ArraySet.ads", "ArraySetDefs.ads", "ArraySetUnsigned.ads", "Standard.ads");
+   for Source_Files use ("ArraySet.adb", "ArraySet.ads", "ArraySetDefs.ads", "ArraySetUnsigned.ads", "Standard.ads");
+
+end Test_Proj5;
+
