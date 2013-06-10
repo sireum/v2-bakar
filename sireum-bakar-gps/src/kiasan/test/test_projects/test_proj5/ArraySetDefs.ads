@@ -10,10 +10,10 @@ package ArraySetDefs is
   Max_Value_Dwords : constant ArraySetUnsigned.Word := Max_Value_Length / 4;
 
   subtype ID_Type is ArraySetUnsigned.Word;
-  subtype Value_Length_Type is ArraySetUnsigned.Word range 0 .. Max_Value_Length;
+  subtype Value_Length_Type is ArraySetUnsigned.Word range 0 .. Max_Value_Length;    
   subtype Value_Index_Type is ArraySetUnsigned.Word range 0 .. Max_Value_Dwords - 1;
   type Value_Type is array (Value_Index_Type) of ArraySetUnsigned.Long;
-
+   
   Null_ID : constant ID_Type := ID_Type'First;
   Null_Value_Length : constant Value_Length_Type := Value_Length_Type'First;
   Null_Value_Entry : constant ArraySetUnsigned.Long := 0;
@@ -28,7 +28,7 @@ package ArraySetDefs is
   -- NOTE: Success and Failure are never used
   Success    : constant Response_Type := 0;
   Failure    : constant Response_Type := 999;
-
+   
   DB_Success          : constant Response_Type := 0;
   DB_Already_Exists   : constant Response_Type := 21;
   DB_Does_Not_Exist   : constant Response_Type := 23;

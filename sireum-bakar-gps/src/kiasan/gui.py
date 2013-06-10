@@ -94,11 +94,24 @@ class KiasanGUI:
         column = gtk.TreeViewColumn('T#', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_TOTAL)
         column.set_sort_column_id(TreeViewColumns.COLUMN_TOTAL)
         column.set_resizable(True)
+        # add tooltip
+        column_header = gtk.Label('T#')
+        column_header.show()
+        column.set_widget(column_header)
+        tooltips = gtk.Tooltips()
+        tooltips.set_tip(column_header, 'Number of test cases')
+        # end of add tooltip
         self._treeview.append_column(column)
         
         column = gtk.TreeViewColumn('E#', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_ERRORS)
         column.set_sort_column_id(TreeViewColumns.COLUMN_ERRORS)
         column.set_resizable(True)
+        # add tooltip
+        column_header = gtk.Label('E#')
+        column_header.show()
+        column.set_widget(column_header)
+        tooltips.set_tip(column_header, 'Number of error cases')
+        # end of add tooltip
         self._treeview.append_column(column)
         
         column = gtk.TreeViewColumn('Instruction Coverage', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_INSTRUCTION)
@@ -115,6 +128,8 @@ class KiasanGUI:
         column.set_sort_column_id(TreeViewColumns.COLUMN_TIME)
         column.set_resizable(True)
         self._treeview.append_column(column)
+        
+
     
         
     def init_cases_window(self):
