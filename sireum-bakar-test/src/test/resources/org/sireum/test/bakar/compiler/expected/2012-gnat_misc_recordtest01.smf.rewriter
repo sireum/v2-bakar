@@ -1,7 +1,17 @@
 package RecordTest01;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Test01 (
         Object Q) {
@@ -29,6 +39,10 @@ procedure Test02 (
         Integer O2) {
   local
     NestedObject Q;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
 
 
   #rwl0.

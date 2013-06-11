@@ -43,6 +43,6 @@ class BakarTypeTest_OCaml extends BakarTestFileFramework {
     import BakarTypTranslatorModule.ConsumerView._
     val results = job.jagoTypeResults
     w.write(results)
-    println(results)
+    //println(results)
   }
 }

@@ -3,8 +3,8 @@ package org.sireum.example.bakar
 import java.io.File
 import java.io.FilenameFilter
 import java.net.URI
-
 import org.sireum.util._
+import org.sireum.example.bakar.BakarExamplesAnchor
 
 case class Project(
     projectName : String,

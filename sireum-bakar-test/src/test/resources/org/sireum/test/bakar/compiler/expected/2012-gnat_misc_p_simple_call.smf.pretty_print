@@ -2,7 +2,19 @@ p_simple_call.adb
 package P_Simple_Call;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Integer @@B;
 
 procedure R (
         Integer X) {

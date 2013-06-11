@@ -3,7 +3,17 @@ package Dependence_Test_Suite_01;
 
 typealias Integer History_Range;
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Success0 (
         Integer O) {
@@ -39,14 +49,8 @@ procedure Success2 (
   #l6.
     O := L;
 
-  #rwl0.
-    _t0 := I;
-
-  #rwl1.
-    _t1 := Last;
-
   #l9.
-    if !(_t0 < _t1) then goto l8;
+    if !(I < Last) then goto l8;
 
   #l10.
     O := L;
@@ -108,14 +112,8 @@ procedure Success4 (
   #l20.
     L2 := I2;
 
-  #rwl2.
-    _t2 := L1;
-
-  #rwl3.
-    _t3 := L2;
-
   #l21.
-    L3 := _t2 + _t3;
+    L3 := L1 + L2;
 
   #l22.
     O := L3;
@@ -144,14 +142,8 @@ procedure Success5 (
   #l26.
     L2 := L1;
 
-  #rwl4.
-    _t4 := L1;
-
-  #rwl5.
-    _t5 := L2;
-
   #l27.
-    L3 := _t4 + _t5;
+    L3 := L1 + L2;
 
   #l28.
     O2 := O1;
@@ -172,14 +164,8 @@ procedure Success6 (
   #l31.
     O1 := I1;
 
-  #rwl6.
-    _t6 := I2;
-
-  #rwl7.
-    _t7 := 5ii;
-
   #l34.
-    if !(_t6 > _t7) then goto l33;
+    if !(I2 > 5ii) then goto l33;
 
   #l35.
     O2 := 5ii;
@@ -211,14 +197,8 @@ procedure Success7 (
   #l39.
     L1 := I1;
 
-  #rwl8.
-    _t8 := L1;
-
-  #rwl9.
-    _t9 := I2;
-
   #l42.
-    if !(_t8 > _t9) then goto l41;
+    if !(L1 > I2) then goto l41;
 
   #l43.
     O := 6ii;
@@ -251,14 +231,8 @@ procedure Success8 (
   #l47.
     L1 := I1;
 
-  #rwl10.
-    _t10 := L1;
-
-  #rwl11.
-    _t11 := 5ii;
-
   #l50.
-    if !(_t10 > _t11) then goto l49;
+    if !(L1 > 5ii) then goto l49;
 
   #l51.
     L2 := 6ii;
@@ -295,14 +269,8 @@ procedure Success9 (
   #l56.
     L1 := I1;
 
-  #rwl12.
-    _t12 := L1;
-
-  #rwl13.
-    _t13 := 5ii;
-
   #l59.
-    if !(_t12 > _t13) then goto l58;
+    if !(L1 > 5ii) then goto l58;
 
   #l60.
     L2 := 6ii;
@@ -313,14 +281,8 @@ procedure Success9 (
   #l58.
     // empty loc
 
-  #rwl14.
-    _t14 := I2;
-
-  #rwl15.
-    _t15 := 0ii;
-
   #l64.
-    if !(_t14 < _t15) then goto l63;
+    if !(I2 < 0ii) then goto l63;
 
   #l65.
     L2 := I3;
@@ -370,23 +332,11 @@ procedure Success10 (
   #l73.
     L1 := I2;
 
-  #rwl16.
-    _t16 := L1;
-
-  #rwl17.
-    _t17 := 5ii;
-
   #l75.
-    if !(_t16 > _t17) then goto l74;
-
-  #rwl18.
-    _t18 := I1;
-
-  #rwl19.
-    _t19 := 0ii;
+    if !(L1 > 5ii) then goto l74;
 
   #l78.
-    if !(_t18 < _t19) then goto l77;
+    if !(I1 < 0ii) then goto l77;
 
   #l79.
     L2 := 8ii;

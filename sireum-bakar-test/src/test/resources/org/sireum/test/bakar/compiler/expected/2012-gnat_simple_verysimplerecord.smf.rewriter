@@ -1,0 +1,80 @@
+package SimpleRecord;
+
+
+record Rec {
+
+  Integer A;
+
+  Integer B;
+}
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Rec @@RG;
+
+procedure Boolean Dummy {
+
+  #l1.
+    return true;
+}
+
+procedure Add (
+        Rec R) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #rwl0.
+    _t0 := R.A;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #l2.
+    R.A := _t0 + _t1;
+
+  #l3.
+    return;
+}
+
+procedure Del {
+  local
+    Integer T;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+
+
+  #l4.
+    T := RG.A;
+
+  #rwl2.
+    _t2 := RG.B;
+
+  #rwl3.
+    _t3 := RG.A;
+
+  #rwl4.
+    _t4 := _t2 - _t3;
+
+  #rwl5.
+    _t5 := 7ii;
+
+  #l5.
+    RG.A := _t4 - _t5;
+
+  #l6.
+    return;
+}

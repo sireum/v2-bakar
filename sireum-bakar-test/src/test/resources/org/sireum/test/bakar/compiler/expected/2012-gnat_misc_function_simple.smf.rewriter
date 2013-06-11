@@ -1,11 +1,29 @@
 package Function_Simple;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Integer @@B;
 
 procedure Integer F1 (
         Integer X,
         Integer Z) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
 
   #rwl0.
     _t0 := X;
@@ -37,6 +55,10 @@ procedure P1 (
 procedure P2 (
         Integer M,
         Integer N) {
+  local
+    FIXME _t4;
+    FIXME _t5;
+
 
   #rwl4.
     _t4 := F1 (M, N);

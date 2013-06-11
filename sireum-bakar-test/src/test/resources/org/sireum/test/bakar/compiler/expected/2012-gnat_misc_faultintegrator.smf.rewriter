@@ -1,7 +1,17 @@
 package FaultIntegrator;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Init (
         T FI,
@@ -18,6 +28,16 @@ procedure Test (
         T FI,
         Boolean CurrentEvent,
         Boolean IntegratedEvent) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+
 
   #l5.
     if !(CurrentEvent) then goto l4;

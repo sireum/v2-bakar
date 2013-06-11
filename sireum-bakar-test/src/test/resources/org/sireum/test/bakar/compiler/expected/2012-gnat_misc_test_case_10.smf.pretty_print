@@ -2,7 +2,17 @@ test_case_10.adb
 package Test_Case_10;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure P1 (
         Integer I1,

@@ -18,6 +18,7 @@ import org.sireum.test.bakar.framework.BakarTestFileFramework
 import org.sireum.example.bakar.BakarExamples
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.example.bakar.BakarExamplesAnchor
 
 @RunWith(classOf[JUnitRunner])
 class BakarXmlTest extends BakarTestFileFramework {

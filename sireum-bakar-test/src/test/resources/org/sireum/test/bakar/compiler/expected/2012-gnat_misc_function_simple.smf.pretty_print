@@ -2,7 +2,19 @@ function_simple.adb
 package Function_Simple;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Integer @@B;
 
 procedure Integer F1 (
         Integer X,

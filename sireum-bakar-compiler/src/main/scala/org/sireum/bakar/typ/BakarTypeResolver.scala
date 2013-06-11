@@ -107,9 +107,6 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       case o @ LocalVarDecl(Some(NamedTypeSpec(nu, _)), name, _) =>
         addMapping(o, nu)
         false
-      case GlobalVarDecl | ParamDecl | LocalVarDecl =>
-        throw new RuntimeException("Not expecting ")
-
       case o @ NameExp(nu) =>
         import org.sireum.pilar.symbol.Symbol
         assert (o ? URIS.TYPE_URI)

@@ -1,0 +1,52 @@
+verysimplearray.adb
+package VerySimpleArray;
+
+
+typealias Integer Index;
+
+typealias _ARRAY_ Vector;
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Vector @@V;
+
+procedure Boolean Dummy {
+
+  #l1.
+    return true;
+}
+
+procedure Add (
+        Vector X) {
+
+  #l2.
+    X[1ii] := X[2ii];
+
+  #l3.
+    return;
+}
+
+procedure Del {
+  local
+    Integer T;
+
+
+  #l4.
+    T := V[1ii];
+
+  #l5.
+    V[2ii] := T + V[3ii];
+
+  #l6.
+    return;
+}

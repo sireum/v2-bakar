@@ -1,3 +1,9 @@
+ada://variable_temp/AbsPackage/AbsFunc/_t5 -> ada://ordinary_type/universal_integer
+ada://variable_temp/AbsPackage/AbsFunc/_t1 -> ada://ordinary_type/universal_integer
+ada://variable_temp/AbsPackage/AbsFunc/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/AbsPackage-1:9/AbsFunc-2:14/r+4:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package AbsPackage;
@@ -141,11 +147,15 @@ procedure Integer AbsFunc (
 
               ("""<string sid="1">ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/AbsPackage-1:9/AbsFunc-2:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>3</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -230,6 +240,36 @@ procedure Integer AbsFunc (
         @BAKAR_REF_URI
 
           ("""<string sid="1">ada://variable/AbsPackage-1:9/AbsFunc-2:14/r+4:5</string>""")
+    ;
+    FIXME _t0
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t0</string>""")
+    ;
+    FIXME _t1
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t1</string>""")
+    ;
+    FIXME _t2
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t2</string>""")
+    ;
+    FIXME _t3
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t3</string>""")
+    ;
+    FIXME _t4
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t4</string>""")
+    ;
+    FIXME _t5
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t5</string>""")
     ;
 
 

@@ -1,5 +1,7 @@
 ada://parameter/PackageDemo_A-1:9/Q-2:13/X-2:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/PackageDemo_A/Q/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/PackageDemo_A-1:9/Q-2:13/Z-2:30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/PackageDemo_A/Q/_t1 -> ada://ordinary_type/universal_integer
 package PackageDemo_A;
 
 
@@ -146,11 +148,15 @@ procedure Q (
 
               ("""<string sid="1">ada://parameter/PackageDemo_A-1:9/Q-2:13/Z-2:30</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/PackageDemo_A-1:9/Q-2:13</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>3</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -230,6 +236,18 @@ procedure Q (
          </entry>
        </mcol.HashMap>""")
  {
+  local
+    FIXME _t0
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/PackageDemo_A/Q/_t0</string>""")
+    ;
+    FIXME _t1
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/PackageDemo_A/Q/_t1</string>""")
+    ;
+
 
   #rwl0.
     _t0 := X;

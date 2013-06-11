@@ -1,7 +1,17 @@
 package in_range_name_exp;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Boolean test (
         Integer Z) {

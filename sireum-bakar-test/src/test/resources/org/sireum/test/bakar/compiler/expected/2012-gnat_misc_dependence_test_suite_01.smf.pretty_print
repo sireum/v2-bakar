@@ -4,7 +4,17 @@ package Dependence_Test_Suite_01;
 
 typealias Integer History_Range;
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Success0 (
         Integer O) {

@@ -17,7 +17,17 @@ record NestedRec {
   Rec X;
 }
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Boolean Dummy {
 
@@ -28,6 +38,10 @@ procedure Boolean Dummy {
 procedure Add (
         SmallInt I,
         Rec R) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
 
   #rwl0.
     _t0 := R.A;
@@ -45,6 +59,12 @@ procedure Add (
 procedure NAdd (
         SmallInt I,
         NestedRec NR) {
+  local
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+
 
   #rwl2.
     _t2 := NR.X;
@@ -71,6 +91,11 @@ procedure NAdd (
 procedure AAdd (
         SmallInt I,
         Rec R) {
+  local
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+
 
   #rwl7.
     _t6 := R.B;

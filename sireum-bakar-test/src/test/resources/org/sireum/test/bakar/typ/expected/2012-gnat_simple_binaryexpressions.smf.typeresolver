@@ -1,39 +1,99 @@
+ada://variable_temp/BinaryExpressions/Mult/_t37 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t41 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Mult+35:12/r4+37:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t39 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Sub+20:12/r4+22:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t54 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t59 -> ada://ordinary_type/universal_integer
 ada://variable/BinaryExpressions-1:9/Sub+20:12/r3+22:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t16 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Division/_t48 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t0 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Mult/_t44 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Sub+20:12/r6+22:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t23 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Add+5:12/r5+7:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Sub+20:12/r1+22:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t27 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t20 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t36 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t26 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Mult+35:12/r3+37:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Mult+35:12/r0+37:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t33 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Sub/_t19 -> ada://ordinary_type/universal_integer
 ada://variable/BinaryExpressions-1:9/Division+50:12/r4+52:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t1 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Division/_t53 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t40 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/BinaryExpressions-1:9/Mult+35:12/I+35:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Add+5:12/r0+7:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Add+5:12/r2+7:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Division+50:12/r5+52:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t57 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/BinaryExpressions-1:9/Add+5:12/I+5:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Division+50:12/r3+52:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t49 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Mult/_t32 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t14 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t46 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Division/_t50 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t30 -> ada://ordinary_type/universal_integer
 ada://parameter/BinaryExpressions-1:9/Sub+20:12/I+20:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t3 -> ada://ordinary_type/universal_integer
 ada://variable/BinaryExpressions-1:9/Division+50:12/r2+52:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Sub+20:12/r0+22:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t35 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t45 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Add+5:12/r1+7:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t52 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t13 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Mult/_t38 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Division+50:12/r0+52:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t18 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t56 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Division+50:12/r6+52:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t29 -> ada://ordinary_type/universal_integer
 ada://parameter/BinaryExpressions-1:9/Division+50:12/J+50:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/BinaryExpressions-1:9/Sub+20:12/J+20:19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Mult+35:12/r2+37:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Sub+20:12/r2+22:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t51 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t31 -> ada://ordinary_type/universal_integer
 ada://parameter/BinaryExpressions-1:9/Mult+35:12/J+35:20 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Mult+35:12/r6+37:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Mult+35:12/r1+37:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/BinaryExpressions-1:9/Division+50:12/I+50:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Mult+35:12/r5+37:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t58 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Add+5:12/r6+7:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t47 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Add/_t6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Sub+20:12/r5+22:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Division+50:12/r1+52:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t22 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Add/_t12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t34 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Add+5:12/r3+7:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Sub/_t28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/BinaryExpressions-1:9/Add+5:12/J+5:19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/BinaryExpressions-1:9/Add+5:12/r4+7:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Mult/_t43 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Sub/_t17 -> ada://ordinary_type/universal_integer
+ada://variable_temp/BinaryExpressions/Add/_t7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/BinaryExpressions/Division/_t55 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package BinaryExpressions;
 
 
@@ -170,11 +230,15 @@ typealias Integer universal_integer
 ;
 
 procedure Integer X
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/X-4:12</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>3</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -270,11 +334,15 @@ procedure Integer Add (
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Add+5:12/J+5:19</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Add+5:12</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>5</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -390,6 +458,86 @@ procedure Integer Add (
 
           ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r6+7:29</string>""")
     ;
+    FIXME _t0
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t0</string>""")
+    ;
+    FIXME _t1
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t1</string>""")
+    ;
+    FIXME _t2
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t2</string>""")
+    ;
+    FIXME _t3
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t3</string>""")
+    ;
+    FIXME _t4
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t4</string>""")
+    ;
+    FIXME _t5
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t5</string>""")
+    ;
+    FIXME _t6
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t6</string>""")
+    ;
+    FIXME _t7
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t7</string>""")
+    ;
+    FIXME _t8
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t8</string>""")
+    ;
+    FIXME _t9
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t9</string>""")
+    ;
+    FIXME _t10
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t10</string>""")
+    ;
+    FIXME _t11
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t11</string>""")
+    ;
+    FIXME _t12
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t12</string>""")
+    ;
+    FIXME _t13
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t13</string>""")
+    ;
+    FIXME _t14
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t14</string>""")
+    ;
+    FIXME _t15
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t15</string>""")
+    ;
 
 
   #rwl0.
@@ -479,11 +627,15 @@ procedure Integer Sub (
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Sub+20:12/J+20:19</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Sub+20:12</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>20</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -599,6 +751,76 @@ procedure Integer Sub (
 
           ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r6+22:29</string>""")
     ;
+    FIXME _t16
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t16</string>""")
+    ;
+    FIXME _t17
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t17</string>""")
+    ;
+    FIXME _t18
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t18</string>""")
+    ;
+    FIXME _t19
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t19</string>""")
+    ;
+    FIXME _t20
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t20</string>""")
+    ;
+    FIXME _t21
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t21</string>""")
+    ;
+    FIXME _t22
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t22</string>""")
+    ;
+    FIXME _t23
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t23</string>""")
+    ;
+    FIXME _t24
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t24</string>""")
+    ;
+    FIXME _t25
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t25</string>""")
+    ;
+    FIXME _t26
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t26</string>""")
+    ;
+    FIXME _t27
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t27</string>""")
+    ;
+    FIXME _t28
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t28</string>""")
+    ;
+    FIXME _t29
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t29</string>""")
+    ;
 
 
   #rwl16.
@@ -679,11 +901,15 @@ procedure Integer Mult (
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Mult+35:12/J+35:20</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Mult+35:12</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>35</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -799,6 +1025,86 @@ procedure Integer Mult (
 
           ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r6+37:29</string>""")
     ;
+    FIXME _t30
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t30</string>""")
+    ;
+    FIXME _t31
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t31</string>""")
+    ;
+    FIXME _t32
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t32</string>""")
+    ;
+    FIXME _t33
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t33</string>""")
+    ;
+    FIXME _t34
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t34</string>""")
+    ;
+    FIXME _t35
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t35</string>""")
+    ;
+    FIXME _t36
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t36</string>""")
+    ;
+    FIXME _t37
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t37</string>""")
+    ;
+    FIXME _t38
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t38</string>""")
+    ;
+    FIXME _t39
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t39</string>""")
+    ;
+    FIXME _t40
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t40</string>""")
+    ;
+    FIXME _t41
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t41</string>""")
+    ;
+    FIXME _t42
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t42</string>""")
+    ;
+    FIXME _t43
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t43</string>""")
+    ;
+    FIXME _t44
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t44</string>""")
+    ;
+    FIXME _t45
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t45</string>""")
+    ;
 
 
   #rwl30.
@@ -888,11 +1194,15 @@ procedure Integer Division (
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Division+50:12/J+50:24</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Division+50:12</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>50</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -1007,6 +1317,76 @@ procedure Integer Division (
         @BAKAR_REF_URI
 
           ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r6+52:29</string>""")
+    ;
+    FIXME _t46
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t46</string>""")
+    ;
+    FIXME _t47
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t47</string>""")
+    ;
+    FIXME _t48
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t48</string>""")
+    ;
+    FIXME _t49
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t49</string>""")
+    ;
+    FIXME _t50
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t50</string>""")
+    ;
+    FIXME _t51
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t51</string>""")
+    ;
+    FIXME _t52
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t52</string>""")
+    ;
+    FIXME _t53
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t53</string>""")
+    ;
+    FIXME _t54
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t54</string>""")
+    ;
+    FIXME _t55
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t55</string>""")
+    ;
+    FIXME _t56
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t56</string>""")
+    ;
+    FIXME _t57
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t57</string>""")
+    ;
+    FIXME _t58
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t58</string>""")
+    ;
+    FIXME _t59
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t59</string>""")
     ;
 
 

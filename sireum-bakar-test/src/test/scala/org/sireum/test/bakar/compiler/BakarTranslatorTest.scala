@@ -21,6 +21,7 @@ import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.util.Visitor.VisitorStackProvider
 import org.sireum.pilar.ast.PilarAstNode
 import org.sireum.util._
+import org.sireum.example.bakar.BakarExamplesAnchor
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorTest extends BakarTestFileFramework {
@@ -30,8 +31,9 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   //this.includes += "constraints"
   this.excludes += "gnat_jago"
 
-  this.excludes ++= Set("misc_labeled", "misc_p_public", "misc_package_scope",
-    "misc_recordshape", "misc_the_stack")
+  this.excludes ++= Set("constraints", "dependence_test_suite_01", "in_range",
+    "misc_labeled", "misc_p_public", "misc_package_scope",
+    "misc_recordshape", "misc_the_stack", "packagedemo_b", "simplemath1")
 
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
@@ -78,13 +80,13 @@ class BakarTranslatorTest extends BakarTestFileFramework {
       {
         case p : PilarAstNode =>
           printIndent; printlnContent(p); true
-        case Nil              =>
+        case Nil =>
           printIndent; w.write("List()\n"); false
-        case l : ISeq[_]      =>
+        case l : ISeq[_] =>
           printIndent; printlnContent(l); true
-        case None             =>
+        case None =>
           printIndent; w.write("None\n"); false
-        case s : Some[_]      => printIndent; printlnContent(s); true
+        case s : Some[_] => printIndent; printlnContent(s); true
       }
     }, None)(t)
   }

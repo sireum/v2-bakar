@@ -1,60 +1,123 @@
+ada://variable_temp/Dependence_Test_Suite_02/Success20/_t66 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success25/_t96 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success23+389:14/Sum+392:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/O1+285:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success25+436:14/Sum+439:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success16/_t54 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success26/_t102 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success21+348:14/O1+348:42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t82 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success9/_t13 -> ada://ordinary_type/universal_integer
 ada://variable/Dependence_Test_Suite_02-1:9/Success26+455:14/J+458:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success1+11:14/O+11:40 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success19/_t65 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I3+135:33 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t36 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success8/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t41 -> ada://ordinary_type/universal_integer
 ada://variable/Dependence_Test_Suite_02-1:9/Success14+214:14/L2+217:19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/I1+41:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success10/_t14 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success26/_t98 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success20+329:14/Sum+332:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success22/_t81 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success11/_t19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/O1+68:45 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success25+436:14/J+439:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success22+369:14/Sum+372:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success22/_t76 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success10+135:14/L1+139:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/I2+301:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success19+301:14/Sum+304:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success11/_t21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success17/_t56 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success21+348:14/Sum+351:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success21/_t73 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t84 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success9/_t10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success18/_t61 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/I1+473:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t40 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success21+348:14/J+351:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success20/_t69 -> ada://ordinary_type/universal_integer
 ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/O1+194:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success7/_t7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/I1+268:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success1+11:14/I+11:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t26 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success4+41:14/L3+44:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/I1+301:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/I2+41:28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success11+158:14/I1+158:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t49 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success24/_t92 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success25/_t97 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success22/_t79 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/I2+194:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success21/_t70 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/O+114:49 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/I2+285:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success24/_t93 -> ada://ordinary_type/universal_integer
 ada://parameter/Dependence_Test_Suite_02-1:9/Success15+234:14/O1+234:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t45 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success25+436:14/I1+436:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success3+29:14/I+29:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/I1+53:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success9+114:14/L2+117:11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success21/_t71 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t35 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t83 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success15/_t53 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success26+455:14/Sum+458:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success3+29:14/L3+32:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success14+214:14/O1+214:42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success0-3:14/O-3:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success24+412:14/O1+412:42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success9/_t12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success20+329:14/I1+329:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/I2+83:28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success12+175:14/J+178:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success11/_t18 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/O2+135:54 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/I2+369:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success26/_t103 -> ada://ordinary_type/universal_integer
 ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/O1+455:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/O1+268:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success11/_t20 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success27/_t105 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success23+389:14/J2+392:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success26/_t99 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success10/_t17 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t27 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success5/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/I2+68:28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success21/_t74 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I1+135:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/I2+455:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success11+158:14/J+161:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success17/_t57 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success19/_t64 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success18/_t60 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/I2+389:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success26/_t100 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t38 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success25+436:14/O1+436:42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success20/_t68 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success22/_t78 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t34 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t87 -> ada://ordinary_type/universal_integer
 ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/I1+389:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t51 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/I1+369:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success24+412:14/J+415:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success27+473:14/Sum+476:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success15/_t52 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success21/_t72 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t33 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/O2+68:49 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success2+19:14/O+19:40 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success22+369:14/J+372:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
@@ -64,41 +127,74 @@ ada://parameter/Dependence_Test_Suite_02-1:9/Success3+29:14/O+29:40 -> ada://ord
 ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/I1+175:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success8+98:14/L1+101:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success8+98:14/L2+101:11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/O+83:45 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success24/_t90 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success6/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success5+53:14/L2+57:11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success14+214:14/L1+217:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success9/_t11 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success27/_t104 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success25/_t94 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/I1+98:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success3+29:14/L1+32:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success21/_t75 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success8/_t9 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t31 -> ada://ordinary_type/universal_integer
 ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/O1+135:50 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success10/_t16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success15+234:14/Sum+237:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t50 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success4/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t48 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success14+214:14/Sum+217:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success5+53:14/L1+57:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success14+214:14/I1+214:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/I2+268:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success5/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success6/_t5 -> ada://ordinary_type/universal_integer
 ada://variable/Dependence_Test_Suite_02-1:9/Success18+285:14/Sum+288:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success20+329:14/J+332:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/O+41:45 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success16+253:14/Sum+256:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success4+41:14/L1+44:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success17/_t58 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t44 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success20/_t67 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success26/_t101 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success13+194:14/J2+197:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t39 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success13+194:14/J1+197:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success11+158:14/O1+158:42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success11/_t23 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success25/_t95 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t86 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success18/_t63 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/I1+455:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success12/_t30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I3+114:32 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success5+53:14/L3+57:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t89 -> ada://ordinary_type/universal_integer
 ada://variable/Dependence_Test_Suite_02-1:9/Success3+29:14/L2+32:11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success24/_t91 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/O1+301:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success10/_t15 -> ada://ordinary_type/universal_integer
 ada://variable/Dependence_Test_Suite_02-1:9/Success14+214:14/J+217:12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I2+135:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/I2+175:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/I1+68:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/O2+53:49 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t32 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success9+114:14/L1+117:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success13+194:14/Sum+197:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success22/_t77 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success2+19:14/L+22:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/I2+473:29 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/O1+175:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t37 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/O1+369:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success7/_t6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success12+175:14/Sum+178:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success17+268:14/Sum+271:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/I2+53:28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
@@ -106,21 +202,31 @@ ada://parameter/Dependence_Test_Suite_02-1:9/Success21+348:14/I1+348:25 -> ada:/
 ada://parameter/Dependence_Test_Suite_02-1:9/Success16+253:14/I1+253:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success10+135:14/L2+139:11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success16+253:14/O1+253:42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success17/_t59 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success4/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success7+83:14/L1+86:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/I1+285:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success11/_t22 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/O1+473:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/O+98:45 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success2+19:14/I+19:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/I1+194:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success20+329:14/O1+329:42 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success11+158:14/Sum+161:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t85 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I2+114:28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success23/_t88 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/O1+53:45 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success22/_t80 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I1+114:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Dependence_Test_Suite_02-1:9/Success4+41:14/L2+44:11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/I2+98:28 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success24+412:14/I1+412:25 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success18/_t62 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success16/_t55 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/O1+389:46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Dependence_Test_Suite_02/Success13/_t43 -> ada://ordinary_type/universal_integer
+ada://variable_temp/Dependence_Test_Suite_02/Success14/_t47 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/I1+83:24 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package Dependence_Test_Suite_02;
 
@@ -263,11 +369,15 @@ procedure Success0 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success0-3:14/O-3:24</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success0-3:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>4</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -366,11 +476,15 @@ procedure Success1 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success1+11:14/O+11:40</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success1+11:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>11</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -469,11 +583,15 @@ procedure Success2 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success2+19:14/O+19:40</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success2+19:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>19</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -582,11 +700,15 @@ procedure Success3 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success3+29:14/O+29:40</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success3+29:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>29</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -716,11 +838,15 @@ procedure Success4 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/O+41:45</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success4+41:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>41</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -816,6 +942,16 @@ procedure Success4 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success4+41:14/L3+44:15</string>""")
     ;
+    FIXME _t0
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success4/_t0</string>""")
+    ;
+    FIXME _t1
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success4/_t1</string>""")
+    ;
 
 
   #l13.
@@ -861,11 +997,15 @@ procedure Success5 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/O2+53:49</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success5+53:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>53</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -961,6 +1101,16 @@ procedure Success5 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success5+53:14/L3+57:15</string>""")
     ;
+    FIXME _t2
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success5/_t2</string>""")
+    ;
+    FIXME _t3
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success5/_t3</string>""")
+    ;
 
 
   #l18.
@@ -1012,11 +1162,15 @@ procedure Success6 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/O2+68:49</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success6+68:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>68</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -1096,6 +1250,18 @@ procedure Success6 (
          </entry>
        </mcol.HashMap>""")
  {
+  local
+    FIXME _t4
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success6/_t4</string>""")
+    ;
+    FIXME _t5
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success6/_t5</string>""")
+    ;
+
 
   #l25.
     O1 := I1;
@@ -1144,11 +1310,15 @@ procedure Success7 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/O+83:45</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success7+83:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>83</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -1234,6 +1404,16 @@ procedure Success7 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success7+83:14/L1+86:7</string>""")
     ;
+    FIXME _t6
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success7/_t6</string>""")
+    ;
+    FIXME _t7
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success7/_t7</string>""")
+    ;
 
 
   #l33.
@@ -1283,11 +1463,15 @@ procedure Success8 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/O+98:45</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success8+98:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>98</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -1378,6 +1562,16 @@ procedure Success8 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success8+98:14/L2+101:11</string>""")
     ;
+    FIXME _t8
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success8/_t8</string>""")
+    ;
+    FIXME _t9
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success8/_t9</string>""")
+    ;
 
 
   #l41.
@@ -1435,11 +1629,15 @@ procedure Success9 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/O+114:49</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success9+114:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>114</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -1530,6 +1728,26 @@ procedure Success9 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success9+114:14/L2+117:11</string>""")
     ;
+    FIXME _t10
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success9/_t10</string>""")
+    ;
+    FIXME _t11
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success9/_t11</string>""")
+    ;
+    FIXME _t12
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success9/_t12</string>""")
+    ;
+    FIXME _t13
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success9/_t13</string>""")
+    ;
 
 
   #l50.
@@ -1613,11 +1831,15 @@ procedure Success10 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/O2+135:54</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success10+135:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>135</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -1708,6 +1930,26 @@ procedure Success10 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success10+135:14/L2+139:11</string>""")
     ;
+    FIXME _t14
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success10/_t14</string>""")
+    ;
+    FIXME _t15
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success10/_t15</string>""")
+    ;
+    FIXME _t16
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success10/_t16</string>""")
+    ;
+    FIXME _t17
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success10/_t17</string>""")
+    ;
 
 
   #l64.
@@ -1776,11 +2018,15 @@ procedure Success11 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success11+158:14/O1+158:42</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success11+158:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>158</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -1871,6 +2117,36 @@ procedure Success11 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success11+158:14/J+161:12</string>""")
     ;
+    FIXME _t18
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success11/_t18</string>""")
+    ;
+    FIXME _t19
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success11/_t19</string>""")
+    ;
+    FIXME _t20
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success11/_t20</string>""")
+    ;
+    FIXME _t21
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success11/_t21</string>""")
+    ;
+    FIXME _t22
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success11/_t22</string>""")
+    ;
+    FIXME _t23
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success11/_t23</string>""")
+    ;
 
 
   #l78.
@@ -1938,11 +2214,15 @@ procedure Success12 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/O1+175:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success12+175:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>175</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -2033,6 +2313,46 @@ procedure Success12 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success12+175:14/J+178:12</string>""")
     ;
+    FIXME _t24
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t24</string>""")
+    ;
+    FIXME _t25
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t25</string>""")
+    ;
+    FIXME _t26
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t26</string>""")
+    ;
+    FIXME _t27
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t27</string>""")
+    ;
+    FIXME _t28
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t28</string>""")
+    ;
+    FIXME _t29
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t29</string>""")
+    ;
+    FIXME _t30
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t30</string>""")
+    ;
+    FIXME _t31
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success12/_t31</string>""")
+    ;
 
 
   #l88.
@@ -2115,11 +2435,15 @@ procedure Success13 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/O1+194:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success13+194:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>194</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -2214,6 +2538,66 @@ procedure Success13 (
         @BAKAR_REF_URI
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success13+194:14/J2+197:16</string>""")
+    ;
+    FIXME _t32
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t32</string>""")
+    ;
+    FIXME _t33
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t33</string>""")
+    ;
+    FIXME _t34
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t34</string>""")
+    ;
+    FIXME _t35
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t35</string>""")
+    ;
+    FIXME _t36
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t36</string>""")
+    ;
+    FIXME _t37
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t37</string>""")
+    ;
+    FIXME _t38
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t38</string>""")
+    ;
+    FIXME _t39
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t39</string>""")
+    ;
+    FIXME _t40
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t40</string>""")
+    ;
+    FIXME _t41
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t41</string>""")
+    ;
+    FIXME _t42
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t42</string>""")
+    ;
+    FIXME _t43
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success13/_t43</string>""")
     ;
 
 
@@ -2313,11 +2697,15 @@ procedure Success14 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success14+214:14/O1+214:42</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success14+214:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>214</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -2418,6 +2806,46 @@ procedure Success14 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success14+214:14/L2+217:19</string>""")
     ;
+    FIXME _t44
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t44</string>""")
+    ;
+    FIXME _t45
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t45</string>""")
+    ;
+    FIXME _t46
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t46</string>""")
+    ;
+    FIXME _t47
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t47</string>""")
+    ;
+    FIXME _t48
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t48</string>""")
+    ;
+    FIXME _t49
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t49</string>""")
+    ;
+    FIXME _t50
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t50</string>""")
+    ;
+    FIXME _t51
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success14/_t51</string>""")
+    ;
 
 
   #l117.
@@ -2490,11 +2918,15 @@ procedure Success15 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success15+234:14/O1+234:25</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success15+234:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>234</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -2580,6 +3012,16 @@ procedure Success15 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success15+234:14/Sum+237:7</string>""")
     ;
+    FIXME _t52
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success15/_t52</string>""")
+    ;
+    FIXME _t53
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success15/_t53</string>""")
+    ;
 
 
   #l130.
@@ -2612,11 +3054,15 @@ procedure Success16 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success16+253:14/O1+253:42</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success16+253:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>253</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -2702,6 +3148,16 @@ procedure Success16 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success16+253:14/Sum+256:7</string>""")
     ;
+    FIXME _t54
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success16/_t54</string>""")
+    ;
+    FIXME _t55
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success16/_t55</string>""")
+    ;
 
 
   #l134.
@@ -2739,11 +3195,15 @@ procedure Success17 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/O1+268:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success17+268:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>268</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -2829,6 +3289,26 @@ procedure Success17 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success17+268:14/Sum+271:7</string>""")
     ;
+    FIXME _t56
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success17/_t56</string>""")
+    ;
+    FIXME _t57
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success17/_t57</string>""")
+    ;
+    FIXME _t58
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success17/_t58</string>""")
+    ;
+    FIXME _t59
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success17/_t59</string>""")
+    ;
 
 
   #l138.
@@ -2881,11 +3361,15 @@ procedure Success18 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/O1+285:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success18+285:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>285</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -2971,6 +3455,26 @@ procedure Success18 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success18+285:14/Sum+288:7</string>""")
     ;
+    FIXME _t60
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success18/_t60</string>""")
+    ;
+    FIXME _t61
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success18/_t61</string>""")
+    ;
+    FIXME _t62
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success18/_t62</string>""")
+    ;
+    FIXME _t63
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success18/_t63</string>""")
+    ;
 
 
   #l145.
@@ -3014,11 +3518,15 @@ procedure Success19 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/O1+301:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success19+301:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>301</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -3104,6 +3612,16 @@ procedure Success19 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success19+301:14/Sum+304:7</string>""")
     ;
+    FIXME _t64
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success19/_t64</string>""")
+    ;
+    FIXME _t65
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success19/_t65</string>""")
+    ;
 
 
   #l149.
@@ -3136,11 +3654,15 @@ procedure Success20 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success20+329:14/O1+329:42</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success20+329:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>329</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -3231,6 +3753,26 @@ procedure Success20 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success20+329:14/J+332:12</string>""")
     ;
+    FIXME _t66
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success20/_t66</string>""")
+    ;
+    FIXME _t67
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success20/_t67</string>""")
+    ;
+    FIXME _t68
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success20/_t68</string>""")
+    ;
+    FIXME _t69
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success20/_t69</string>""")
+    ;
 
 
   #l153.
@@ -3275,11 +3817,15 @@ procedure Success21 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success21+348:14/O1+348:42</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success21+348:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>348</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -3370,6 +3916,36 @@ procedure Success21 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success21+348:14/J+351:12</string>""")
     ;
+    FIXME _t70
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success21/_t70</string>""")
+    ;
+    FIXME _t71
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success21/_t71</string>""")
+    ;
+    FIXME _t72
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success21/_t72</string>""")
+    ;
+    FIXME _t73
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success21/_t73</string>""")
+    ;
+    FIXME _t74
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success21/_t74</string>""")
+    ;
+    FIXME _t75
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success21/_t75</string>""")
+    ;
 
 
   #l159.
@@ -3431,11 +4007,15 @@ procedure Success22 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/O1+369:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success22+369:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>369</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -3526,6 +4106,36 @@ procedure Success22 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success22+369:14/J+372:12</string>""")
     ;
+    FIXME _t76
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success22/_t76</string>""")
+    ;
+    FIXME _t77
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success22/_t77</string>""")
+    ;
+    FIXME _t78
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success22/_t78</string>""")
+    ;
+    FIXME _t79
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success22/_t79</string>""")
+    ;
+    FIXME _t80
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success22/_t80</string>""")
+    ;
+    FIXME _t81
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success22/_t81</string>""")
+    ;
 
 
   #l167.
@@ -3590,11 +4200,15 @@ procedure Success23 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/O1+389:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success23+389:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>389</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -3690,6 +4304,46 @@ procedure Success23 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success23+389:14/J2+392:16</string>""")
     ;
+    FIXME _t82
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t82</string>""")
+    ;
+    FIXME _t83
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t83</string>""")
+    ;
+    FIXME _t84
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t84</string>""")
+    ;
+    FIXME _t85
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t85</string>""")
+    ;
+    FIXME _t86
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t86</string>""")
+    ;
+    FIXME _t87
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t87</string>""")
+    ;
+    FIXME _t88
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t88</string>""")
+    ;
+    FIXME _t89
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success23/_t89</string>""")
+    ;
 
 
   #l176.
@@ -3752,11 +4406,15 @@ procedure Success24 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success24+412:14/O1+412:42</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success24+412:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>412</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -3847,6 +4505,26 @@ procedure Success24 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success24+412:14/J+415:12</string>""")
     ;
+    FIXME _t90
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success24/_t90</string>""")
+    ;
+    FIXME _t91
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success24/_t91</string>""")
+    ;
+    FIXME _t92
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success24/_t92</string>""")
+    ;
+    FIXME _t93
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success24/_t93</string>""")
+    ;
 
 
   #l184.
@@ -3891,11 +4569,15 @@ procedure Success25 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success25+436:14/O1+436:42</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success25+436:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>436</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -3986,6 +4668,26 @@ procedure Success25 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success25+436:14/J+439:12</string>""")
     ;
+    FIXME _t94
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success25/_t94</string>""")
+    ;
+    FIXME _t95
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success25/_t95</string>""")
+    ;
+    FIXME _t96
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success25/_t96</string>""")
+    ;
+    FIXME _t97
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success25/_t97</string>""")
+    ;
 
 
   #l190.
@@ -4035,11 +4737,15 @@ procedure Success26 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/O1+455:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success26+455:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>455</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -4130,6 +4836,36 @@ procedure Success26 (
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success26+455:14/J+458:12</string>""")
     ;
+    FIXME _t98
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success26/_t98</string>""")
+    ;
+    FIXME _t99
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success26/_t99</string>""")
+    ;
+    FIXME _t100
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success26/_t100</string>""")
+    ;
+    FIXME _t101
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success26/_t101</string>""")
+    ;
+    FIXME _t102
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success26/_t102</string>""")
+    ;
+    FIXME _t103
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success26/_t103</string>""")
+    ;
 
 
   #l196.
@@ -4197,11 +4933,15 @@ procedure Success27 (
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/O1+473:46</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Dependence_Test_Suite_02-1:9/Success27+473:14</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>473</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -4286,6 +5026,16 @@ procedure Success27 (
         @BAKAR_REF_URI
 
           ("""<string sid="1">ada://variable/Dependence_Test_Suite_02-1:9/Success27+473:14/Sum+476:7</string>""")
+    ;
+    FIXME _t104
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success27/_t104</string>""")
+    ;
+    FIXME _t105
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/Dependence_Test_Suite_02/Success27/_t105</string>""")
     ;
 
 

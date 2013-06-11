@@ -1,12 +1,28 @@
 package ProcedureTest01;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure P (
         Integer a,
         Integer b,
         Integer c) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
 
   #rwl0.
     _t0 := a;
@@ -50,6 +66,8 @@ procedure Q (
         Integer R) {
   local
     Integer L1;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #l6.

@@ -1,5 +1,7 @@
 ada://parameter/SimpleArray-1:9/Max+8:13/V+8:18 -> ada://ordinary_type/SimpleArray-1:9/Vector+4:9
+ada://variable_temp/SimpleArray/Max/_t0 -> ada://subtype/SimpleArray-1:9/Index+3:12
 ada://variable/SimpleArray-1:9/Max+8:13/M+9:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SimpleArray/Max/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package SimpleArray;
 
 
@@ -69,9 +71,9 @@ typealias _ARRAY_ Vector
       ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
          <string></string>
          <int>1</int>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <string sid="1">ada://subtype/SimpleArray-1:9/Index+3:12</string>
          <ivector ttype="ivector">
-           <string sid="2">ada://subtype/SimpleArray-1:9/Index+3:12</string>
+           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          </ivector>
        </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
 
@@ -217,11 +219,15 @@ typealias Integer universal_integer
 ;
 
 procedure Boolean Dummy
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/SimpleArray-1:9/Dummy-3:13</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>6</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -354,9 +360,9 @@ procedure Boolean Dummy
            <org.sireum.bakar.symbol.ConstrainedArrayDef cid="19" size="4">
              <string></string>
              <int>1</int>
-             <string srefid="5"/>
+             <string srefid="8"/>
              <ivector ttype="ivector">
-               <string srefid="8"/>
+               <string srefid="5"/>
              </ivector>
            </org.sireum.bakar.symbol.ConstrainedArrayDef>
          </entry>
@@ -373,11 +379,15 @@ procedure Integer Max (
 
               ("""<string sid="1">ada://parameter/SimpleArray-1:9/Max+8:13/V+8:18</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/SimpleArray-1:9/Max+8:13</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>8</int>
+         <int>4</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -510,9 +520,9 @@ procedure Integer Max (
            <org.sireum.bakar.symbol.ConstrainedArrayDef cid="19" size="4">
              <string></string>
              <int>1</int>
-             <string srefid="5"/>
+             <string srefid="8"/>
              <ivector ttype="ivector">
-               <string srefid="8"/>
+               <string srefid="5"/>
              </ivector>
            </org.sireum.bakar.symbol.ConstrainedArrayDef>
          </entry>
@@ -523,6 +533,16 @@ procedure Integer Max (
         @BAKAR_REF_URI
 
           ("""<string sid="1">ada://variable/SimpleArray-1:9/Max+8:13/M+9:7</string>""")
+    ;
+    FIXME _t0
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SimpleArray/Max/_t0</string>""")
+    ;
+    FIXME _t1
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SimpleArray/Max/_t1</string>""")
     ;
 
 

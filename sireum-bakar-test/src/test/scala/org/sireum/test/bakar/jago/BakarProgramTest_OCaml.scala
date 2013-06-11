@@ -13,6 +13,7 @@ import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.bakar.jago.program.BakarProgramTranslatorModule
 import org.scalatest.junit.JUnitRunner
 import org.sireum.option.ProgramTarget
+import org.sireum.example.bakar.BakarExamplesAnchor
 
 @RunWith(classOf[JUnitRunner])
 class BakarProgramTest_OCaml extends BakarTestFileFramework {
@@ -60,6 +61,7 @@ class BakarProgramTest_OCaml extends BakarTestFileFramework {
     val results = BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
     results.foreach{f => 
       w.write(f)
-      println(f)}
+      //println(f)
+    }
   }
 }

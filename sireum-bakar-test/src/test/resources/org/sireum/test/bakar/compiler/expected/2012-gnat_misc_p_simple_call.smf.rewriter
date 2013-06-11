@@ -1,10 +1,28 @@
 package P_Simple_Call;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Integer @@B;
 
 procedure R (
         Integer X) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
 
   #rwl0.
     _t0 := Y;
@@ -29,6 +47,12 @@ procedure Integer incX (
         Integer X) {
   local
     Integer result;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
 
 
   #rwl4.
@@ -74,6 +98,10 @@ procedure Integer incX (
 procedure Q (
         Integer X,
         Integer Z) {
+  local
+    FIXME _t10;
+    FIXME _t11;
+
 
   #rwl10.
     _t10 := Z;

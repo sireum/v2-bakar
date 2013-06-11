@@ -1,11 +1,31 @@
 package P_Simple_Call_Two;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Integer @@B;
 
 procedure R (
         Integer X,
         Integer Z) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+
 
   #rwl0.
     _t0 := X;
@@ -35,6 +55,10 @@ procedure R (
 procedure Q (
         Integer X,
         Integer Z) {
+  local
+    FIXME _t6;
+    FIXME _t7;
+
 
   #rwl6.
     _t6 := Z;

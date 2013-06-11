@@ -1,11 +1,25 @@
 package PackageDemo_A;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Q (
         Integer X,
         Integer Z) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
 
   #rwl0.
     _t0 := X;

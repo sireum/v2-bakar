@@ -1,11 +1,25 @@
 package example;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure add (
         Integer x,
         Integer y) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
 
   #rwl0.
     _t0 := x;
@@ -25,6 +39,10 @@ procedure foo (
         Integer B) {
   local
     Integer M;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #l3.

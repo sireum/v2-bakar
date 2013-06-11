@@ -1,7 +1,17 @@
 package Dependence_Test_Suite_02;
 
 
-typealias  standard::integer;
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
 
 procedure Success0 (
         Integer O) {
@@ -74,6 +84,8 @@ procedure Success4 (
     Integer L1;
     Integer L2;
     Integer L3;
+    FIXME _t0;
+    FIXME _t1;
 
 
   #l13.
@@ -107,6 +119,8 @@ procedure Success5 (
     Integer L1;
     Integer L2;
     Integer L3;
+    FIXME _t2;
+    FIXME _t3;
 
 
   #l18.
@@ -142,6 +156,10 @@ procedure Success6 (
         Integer I2,
         Integer O1,
         Integer O2) {
+  local
+    FIXME _t4;
+    FIXME _t5;
+
 
   #l25.
     O1 := I1;
@@ -180,6 +198,8 @@ procedure Success7 (
         Integer O) {
   local
     Integer L1;
+    FIXME _t6;
+    FIXME _t7;
 
 
   #l33.
@@ -220,6 +240,8 @@ procedure Success8 (
   local
     Integer L1;
     Integer L2;
+    FIXME _t8;
+    FIXME _t9;
 
 
   #l41.
@@ -264,6 +286,10 @@ procedure Success9 (
   local
     Integer L1;
     Integer L2;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
 
 
   #l50.
@@ -330,6 +356,10 @@ procedure Success10 (
   local
     Integer L1;
     Integer L2;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
 
 
   #l64.
@@ -393,6 +423,12 @@ procedure Success11 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
 
 
   #l78.
@@ -451,6 +487,14 @@ procedure Success12 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+    FIXME _t28;
+    FIXME _t29;
+    FIXME _t30;
+    FIXME _t31;
 
 
   #l88.
@@ -525,6 +569,18 @@ procedure Success13 (
     Integer Sum;
     Integer J1;
     Integer J2;
+    FIXME _t32;
+    FIXME _t33;
+    FIXME _t34;
+    FIXME _t35;
+    FIXME _t36;
+    FIXME _t37;
+    FIXME _t38;
+    FIXME _t39;
+    FIXME _t40;
+    FIXME _t41;
+    FIXME _t42;
+    FIXME _t43;
 
 
   #l101.
@@ -620,6 +676,14 @@ procedure Success14 (
     Integer J;
     Integer L1;
     Integer L2;
+    FIXME _t44;
+    FIXME _t45;
+    FIXME _t46;
+    FIXME _t47;
+    FIXME _t48;
+    FIXME _t49;
+    FIXME _t50;
+    FIXME _t51;
 
 
   #l117.
@@ -690,6 +754,8 @@ procedure Success15 (
         Integer O1) {
   local
     Integer Sum;
+    FIXME _t52;
+    FIXME _t53;
 
 
   #l130.
@@ -716,6 +782,8 @@ procedure Success16 (
         Integer O1) {
   local
     Integer Sum;
+    FIXME _t54;
+    FIXME _t55;
 
 
   #l134.
@@ -743,6 +811,10 @@ procedure Success17 (
         Integer O1) {
   local
     Integer Sum;
+    FIXME _t56;
+    FIXME _t57;
+    FIXME _t58;
+    FIXME _t59;
 
 
   #l138.
@@ -785,6 +857,10 @@ procedure Success18 (
         Integer O1) {
   local
     Integer Sum;
+    FIXME _t60;
+    FIXME _t61;
+    FIXME _t62;
+    FIXME _t63;
 
 
   #l145.
@@ -818,6 +894,8 @@ procedure Success19 (
         Integer O1) {
   local
     Integer Sum;
+    FIXME _t64;
+    FIXME _t65;
 
 
   #l149.
@@ -845,6 +923,10 @@ procedure Success20 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t66;
+    FIXME _t67;
+    FIXME _t68;
+    FIXME _t69;
 
 
   #l153.
@@ -884,6 +966,12 @@ procedure Success21 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t70;
+    FIXME _t71;
+    FIXME _t72;
+    FIXME _t73;
+    FIXME _t74;
+    FIXME _t75;
 
 
   #l159.
@@ -936,6 +1024,12 @@ procedure Success22 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t76;
+    FIXME _t77;
+    FIXME _t78;
+    FIXME _t79;
+    FIXME _t80;
+    FIXME _t81;
 
 
   #l167.
@@ -992,6 +1086,14 @@ procedure Success23 (
     Integer Sum;
     Integer J1;
     Integer J2;
+    FIXME _t82;
+    FIXME _t83;
+    FIXME _t84;
+    FIXME _t85;
+    FIXME _t86;
+    FIXME _t87;
+    FIXME _t88;
+    FIXME _t89;
 
 
   #l176.
@@ -1049,6 +1151,10 @@ procedure Success24 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t90;
+    FIXME _t91;
+    FIXME _t92;
+    FIXME _t93;
 
 
   #l184.
@@ -1088,6 +1194,10 @@ procedure Success25 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t94;
+    FIXME _t95;
+    FIXME _t96;
+    FIXME _t97;
 
 
   #l190.
@@ -1128,6 +1238,12 @@ procedure Success26 (
   local
     Integer Sum;
     Integer J;
+    FIXME _t98;
+    FIXME _t99;
+    FIXME _t100;
+    FIXME _t101;
+    FIXME _t102;
+    FIXME _t103;
 
 
   #l196.
@@ -1185,6 +1301,8 @@ procedure Success27 (
         Integer O1) {
   local
     Integer Sum;
+    FIXME _t104;
+    FIXME _t105;
 
 
   #l206.

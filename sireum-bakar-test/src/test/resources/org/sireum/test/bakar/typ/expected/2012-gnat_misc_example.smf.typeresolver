@@ -1,8 +1,14 @@
+ada://variable_temp/example/foo/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/example/add/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Example-1:9/foo-5:15/B-5:41 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/example/foo/_t5 -> ada://ordinary_type/universal_integer
+ada://variable_temp/example/add/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Example-1:9/add-2:15/y-2:41 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Example-1:9/foo-5:15/A-5:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Example-1:9/foo-5:15/M+12:3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/example/foo/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Example-1:9/add-2:15/x-2:21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/example/foo/_t3 -> ada://ordinary_type/universal_integer
 package example;
 
 
@@ -149,11 +155,15 @@ procedure add (
 
               ("""<string sid="1">ada://parameter/Example-1:9/add-2:15/y-2:41</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Example-1:9/add-2:15</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>4</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -233,6 +243,18 @@ procedure add (
          </entry>
        </mcol.HashMap>""")
  {
+  local
+    FIXME _t0
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/example/add/_t0</string>""")
+    ;
+    FIXME _t1
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/example/add/_t1</string>""")
+    ;
+
 
   #rwl0.
     _t0 := x;
@@ -258,11 +280,15 @@ procedure foo (
 
               ("""<string sid="1">ada://parameter/Example-1:9/foo-5:15/B-5:41</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Example-1:9/foo-5:15</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>2</int>
-         <int>1</int>
+         <int>10</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -347,6 +373,26 @@ procedure foo (
         @BAKAR_REF_URI
 
           ("""<string sid="1">ada://variable/Example-1:9/foo-5:15/M+12:3</string>""")
+    ;
+    FIXME _t2
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/example/foo/_t2</string>""")
+    ;
+    FIXME _t3
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/example/foo/_t3</string>""")
+    ;
+    FIXME _t4
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/example/foo/_t4</string>""")
+    ;
+    FIXME _t5
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/example/foo/_t5</string>""")
     ;
 
 

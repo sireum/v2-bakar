@@ -1,0 +1,55 @@
+verysimplerecord.adb
+package SimpleRecord;
+
+
+record Rec {
+
+  Integer A;
+
+  Integer B;
+}
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Rec @@RG;
+
+procedure Boolean Dummy {
+
+  #l1.
+    return true;
+}
+
+procedure Add (
+        Rec R) {
+
+  #l2.
+    R.A := R.A + 1ii;
+
+  #l3.
+    return;
+}
+
+procedure Del {
+  local
+    Integer T;
+
+
+  #l4.
+    T := RG.A;
+
+  #l5.
+    RG.A := RG.B - RG.A - 7ii;
+
+  #l6.
+    return;
+}

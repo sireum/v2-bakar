@@ -1,7 +1,7 @@
 package body SimpleArray is
 
    subtype Index is Integer range 0 .. 5;
-   type Vector is array (Index) of Integer;
+   type Vector is array (Integer) of Index;
 
    function Dummy return Boolean is begin return True; end Dummy;
 

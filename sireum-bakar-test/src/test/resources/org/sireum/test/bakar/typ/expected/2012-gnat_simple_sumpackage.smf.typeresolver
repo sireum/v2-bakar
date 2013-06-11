@@ -1,8 +1,32 @@
+ada://variable_temp/SumPackage/Sum2/_t17 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum/_t7 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum2/_t20 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum2/_t13 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum2/_t18 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/SumPackage-1:9/Sum-2:12/N-2:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/SumPackage-1:9/Sum2+20:13/R+20:31 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum/_t10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/SumPackage-1:9/Sum-2:12/R+4:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum/_t3 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/SumPackage-1:9/Sum2+20:13/T+23:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum2/_t19 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum2/_t23 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum2/_t12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum2/_t15 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum/_t11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum/_t9 -> ada://ordinary_type/universal_integer
 ada://variable/SumPackage-1:9/Sum-2:12/T+4:8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum2/_t14 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum/_t1 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum2/_t22 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum/_t5 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum2/_t21 -> ada://ordinary_type/universal_integer
+ada://variable_temp/SumPackage/Sum/_t6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/SumPackage/Sum2/_t16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/SumPackage-1:9/Sum2+20:13/N+20:18 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package SumPackage;
 
@@ -145,11 +169,15 @@ procedure Integer Sum (
 
               ("""<string sid="1">ada://parameter/SumPackage-1:9/Sum-2:12/N-2:16</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/SumPackage-1:9/Sum-2:12</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>3</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -240,6 +268,66 @@ procedure Integer Sum (
 
           ("""<string sid="1">ada://variable/SumPackage-1:9/Sum-2:12/T+4:8</string>""")
     ;
+    FIXME _t0
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t0</string>""")
+    ;
+    FIXME _t1
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t1</string>""")
+    ;
+    FIXME _t2
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t2</string>""")
+    ;
+    FIXME _t3
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t3</string>""")
+    ;
+    FIXME _t4
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t4</string>""")
+    ;
+    FIXME _t5
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t5</string>""")
+    ;
+    FIXME _t6
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t6</string>""")
+    ;
+    FIXME _t7
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t7</string>""")
+    ;
+    FIXME _t8
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t8</string>""")
+    ;
+    FIXME _t9
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t9</string>""")
+    ;
+    FIXME _t10
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t10</string>""")
+    ;
+    FIXME _t11
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum/_t11</string>""")
+    ;
 
 
   #l1.
@@ -326,11 +414,15 @@ procedure Sum2 (
 
               ("""<string sid="1">ada://parameter/SumPackage-1:9/Sum2+20:13/R+20:31</string>""")
 )
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/SumPackage-1:9/Sum2+20:13</string>""")
+
     @util.loc
 
       ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
-         <int>1</int>
-         <int>1</int>
+         <int>20</int>
+         <int>3</int>
        </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
@@ -415,6 +507,66 @@ procedure Sum2 (
         @BAKAR_REF_URI
 
           ("""<string sid="1">ada://variable/SumPackage-1:9/Sum2+20:13/T+23:5</string>""")
+    ;
+    FIXME _t12
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t12</string>""")
+    ;
+    FIXME _t13
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t13</string>""")
+    ;
+    FIXME _t14
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t14</string>""")
+    ;
+    FIXME _t15
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t15</string>""")
+    ;
+    FIXME _t16
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t16</string>""")
+    ;
+    FIXME _t17
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t17</string>""")
+    ;
+    FIXME _t18
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t18</string>""")
+    ;
+    FIXME _t19
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t19</string>""")
+    ;
+    FIXME _t20
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t20</string>""")
+    ;
+    FIXME _t21
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t21</string>""")
+    ;
+    FIXME _t22
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t22</string>""")
+    ;
+    FIXME _t23
+        @BAKAR_REF_URI
+
+          ("""<string sid="1">ada://variable_temp/SumPackage/Sum2/_t23</string>""")
     ;
 
 

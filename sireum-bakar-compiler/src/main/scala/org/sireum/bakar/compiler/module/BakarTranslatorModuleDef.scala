@@ -12,7 +12,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
   type BVisitor = Any => Boolean
 
-  val DEBUG = true
+  val DEBUG = false
 
   trait Context {
     var genThreeAddress = false
@@ -34,6 +34,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       l
     }
 
+    val globalUriMap = mmapEmpty[String, String]
+    
     var result : Any = null;
     def pushResult(o : Any, sloc : SourceLocation) {
       //assert(result == null);
@@ -433,6 +435,16 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
     }
+    
+    def convertGlobal(name : String, uri : String) : (String, String) = {
+      var i = uri.lastIndexOf("/")
+      assert (i > 0)
+      val returi = uri.substring(0, i + 1) + "@@" + uri.substring(i + 1)
+      
+      this.globalUriMap(uri) = returi
+      
+      ("@@" + name, returi)
+    } 
   }
 
   implicit def nd2nu(nd : NameDefinition) = NameUser(nd.name)
@@ -543,9 +555,12 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           names.getDefiningNames.foreach {
             case di : DefiningIdentifier =>
               val (sloc, defName, defUri, typ) = ctx.getName(di)
-              val name = NameDefinition(defName)
-              val gvd = GlobalVarDecl(name, TranslatorUtil.emptyAnnot, typeSpec)
-              gvd(URIS.REF_URI) = defUri
+              //val name = NameDefinition("@@" + defName)
+              
+              val (cdefName, cdefUri) = ctx.convertGlobal(defName, defUri)
+              
+              val gvd = GlobalVarDecl(NameDefinition(cdefName), TranslatorUtil.emptyAnnot, typeSpec)
+              gvd(URIS.REF_URI) = cdefUri
               packElems += gvd
             case x =>
               if (DEBUG) Console.err.println("Not Expecting: " + x)
@@ -711,8 +726,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, name, refUri, typUri) =>
       val nu = NameUser(name)
-      ctx.addResourceUri(nu, refUri)
-      this.addprop(nu, URIS.REF_URI, refUri)
+      
+      val srefUri = ctx.globalUriMap.getOrElse(refUri, refUri)
+      
+      ctx.addResourceUri(nu, srefUri)
+      this.addprop(nu, URIS.REF_URI, srefUri)
       this.addprop(nu, URIS.TYPE_URI, typUri)
 
       val ne = NameExp(nu)
