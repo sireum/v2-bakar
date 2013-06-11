@@ -16,16 +16,25 @@ import org.sireum.util.FileResourceUri
 import scala.util.matching.Regex
 
 object Util {
-  val gnat2xml_key = "gnat2xml"
+  val sireumHome = System.getenv("SIREUM_HOME")
+  val gnat2xml_key = "GNAT2XML"
   val ext = OsArchUtil.detect match {
     case OsArch.Win32 | OsArch.Win64 => ".exe"
     case _                           => ""
   }
 
   def base(s : String) : String = {
-    val f = new File(scala.util.Properties.envOrElse(gnat2xml_key, ""))
-    if (!f.exists() || !f.isDirectory() || !(new File(f, s).exists())) s
-    else new File(f, s).getAbsolutePath()
+    if(sireumHome != null){
+      var gnatPath = "/apps/gnat/2014/bin/" + s
+      val f = new File(sireumHome, gnatPath)
+      if(f.canExecute())
+        return f.getAbsolutePath()
+    }
+            
+    val f = new File(scala.util.Properties.envOrElse(gnat2xml_key, ""), s)
+        
+    if (!(f.canExecute())) s
+    else f.getAbsolutePath()
   }
 
   //val gnatmake = base("gnatmake" + ext)
