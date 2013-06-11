@@ -128,8 +128,9 @@ trait BakarTestFileFramework extends BakarTestFramework {
             fw.write(results)
             fw.close
             if (efile.exists) {
-              val (expected, _) = FileUtil.readFile(efile.toURI.toString)
-              results should equal(expected)
+              val (expected, _) = FileUtil.readFileLines(efile.toURI.toString)
+              val result = StringUtil.readLines(results)
+              result should equal(expected)
 
               assert(post(c))
             } else {
