@@ -257,7 +257,8 @@ def run_examiner(current_file):
 	
 
 
-def get_examiner_icon():
+def get_examiner_icon(gnat_path):
+	print 'gnat_path:', gnat_path
 	return GPS.get_system_dir() + 'share/gps/plug-ins/icons/run_examiner.png'
 
 
@@ -276,7 +277,7 @@ GPS.parse_xml ("""
 	</action>	
 	<action name="run Examiner">
 		<filter id="Source editor in Ada" />
-		<shell lang="python">sireum.run_examiner(GPS.current_context().file())</shell>
+		<shell lang="python">sireum.run_examiner(GPS.current_context().file())</shell>		
 	</action>
     <submenu before="Window">
         <title>Sireum</title>
@@ -289,7 +290,7 @@ GPS.parse_xml ("""
   	</contextual>
   	<button action="run Examiner">
     	<title>Run Examiner</title>
-    	<pixmap>run_examiner.png</pixmap>
+    	<pixmap>%s/share/gps/icons/other/run_examiner.png</pixmap>
   	</button>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"
@@ -396,4 +397,6 @@ GPS.parse_xml ("""
    				type="boolean" 
    				default = "True"
    				/>
-""")
+"""
+% GPS.get_system_dir()
+)
