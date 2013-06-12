@@ -183,7 +183,10 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, 
 	spark_source_files = ",".join(get_spark_source_files())
 	
 	run_kiasan_command = []
-	run_kiasan_command.append(SIREUM_PATH + "/apps/platform/java/bin/java")
+	if os.path.isdir(SIREUM_PATH + "/apps/platform/java"):
+		run_kiasan_command.append(SIREUM_PATH + "/apps/platform/java/bin/java")
+	else:
+		run_kiasan_command.append("java")
 	run_kiasan_command.append("-jar")
 	run_kiasan_command.append(kiasan_lib_dir + "BakarKiasan.jar")
 	run_kiasan_command.append("--topi-lib-dir")
