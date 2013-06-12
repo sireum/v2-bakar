@@ -1,21 +1,6 @@
-# fake GPS module
-class GPS(object):
-    """Fake GPS module"""
-    @staticmethod
-    def parse_xml(xml):
-        pass
-
 import sys
-sys.modules["GPS"] = GPS
-
-
-#class os_fake(object):
-#    """Fake os module"""
-#    environ = {}
-#    environ['PATH'] = '/Users/user/Programs'
-#    name = 'possix'
-#    
-#os = os_fake
+from mock import MagicMock
+sys.modules["GPS"] = MagicMock()
 
 import os
 import unittest
@@ -25,6 +10,14 @@ SIREUM_HOME = 'SIREUM_HOME'
 
 class Test(unittest.TestCase):
     """Unit tests for sireum plugin."""
+
+    # performed before all tests
+    @classmethod
+    def setUpClass(self):        
+        sys.modules["GPS"].get_system_dir = MagicMock()
+        sys.modules["GPS"].get_system_dir.return_value = "$SIREUM_HOME/apps/gnat/bin/2014"
+        sys.modules["GPS"].parse_xml = MagicMock()
+                
 
     def test_get_sireum_path_sireum_home_set(self):
         """Test get sireum path, when SIREUM_HOME env is set."""

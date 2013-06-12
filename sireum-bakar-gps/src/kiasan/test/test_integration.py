@@ -22,8 +22,6 @@ class TestIntegration1(unittest.TestCase):
         self.report_file_name = "kiasan_sireum_report.json"
         
         #mock GPS module
-        sys.modules["GPS"].get_system_dir = MagicMock()
-        sys.modules["GPS"].get_system_dir.return_value = "$SIREUM_HOME/apps/gnat/bin/2014"
         mock_helper.sireum_path = self.sireum_path
         sys.modules["GPS"].Preference = MagicMock(side_effect = mock_helper.preference_mock)
         sys.modules["GPS"].current_context.return_value = mock_helper.get_current_context_mock(self.project_path)
