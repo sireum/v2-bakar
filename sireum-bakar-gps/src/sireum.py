@@ -254,12 +254,6 @@ def get_spark_source_files():
 def run_examiner(current_file):
 	import spark_support
 	spark_support.spark.examine_file(current_file)
-	
-
-
-def get_examiner_icon(gnat_path):
-	print 'gnat_path:', gnat_path
-	return GPS.get_system_dir() + 'share/gps/plug-ins/icons/run_examiner.png'
 
 
 
