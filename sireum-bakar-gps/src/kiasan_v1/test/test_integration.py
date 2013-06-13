@@ -1,8 +1,8 @@
 import sys
 from mock import MagicMock
 sys.modules["GPS"] = MagicMock()    #mock GPS module
-import sireum
-import kiasan.logic
+import sireum_v1
+import kiasan_v1.logic
 import urllib
 import unittest
 import subprocess
@@ -18,7 +18,7 @@ class TestIntegration1(unittest.TestCase):
     def setUpClass(self):
         self.project_path = subprocess.Popen(['pwd'], stdout=subprocess.PIPE).communicate()[0].replace('\n','') + "/test_projects/test_proj1"
         self.output_path = self.project_path + "/.sireum/kiasan"
-        self.sireum_path = sireum.get_sireum_path()
+        self.sireum_path = sireum_v1.get_sireum_path()
         self.report_file_name = "kiasan_sireum_report.json"
         
         #mock GPS module
@@ -37,9 +37,9 @@ class TestIntegration1(unittest.TestCase):
         
     # proj1 - all methods
     def test_proj1_methods_add_and_foo(self):
-        kiasan_run_cmd = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, False)
+        kiasan_run_cmd = sireum_v1.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, False)
         subprocess.call(kiasan_run_cmd + ["add"])
-        kiasan_run_cmd_with_report = sireum.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, True)
+        kiasan_run_cmd_with_report = sireum_v1.get_run_kiasan_command(self.sireum_path, "example", self.project_path, self.output_path, True)
         subprocess.call(kiasan_run_cmd_with_report + ["foo"])
                 
         report_file_path = self.output_path + "/" + self.report_file_name
@@ -47,7 +47,7 @@ class TestIntegration1(unittest.TestCase):
         self.assertTrue(os.path.isfile(report_file_path), "Report file not generated")
         
         #read generated json
-        kiasan_logic = kiasan.logic.KiasanLogic()
+        kiasan_logic = kiasan_v1.logic.KiasanLogic()
         report_file_path = self.output_path + "/" + self.report_file_name
         report_file_url = urllib.pathname2url(report_file_path)
         report = kiasan_logic.extract_report_file(report_file_url)

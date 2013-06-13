@@ -4,7 +4,7 @@ sys.modules["GPS"] = MagicMock()
 
 import os
 import unittest
-import sireum
+import sireum_v1
 
 SIREUM_HOME = 'SIREUM_HOME'
 
@@ -30,7 +30,7 @@ class Test(unittest.TestCase):
         # test
         sireum_path = '/Fake/path'
         os.environ[SIREUM_HOME] = sireum_path
-        sireum_path_result = sireum.get_sireum_path()
+        sireum_path_result = sireum_v1.get_sireum_path()
         self.assertEqual(sireum_path, sireum_path_result)
         
         # restore previous state
@@ -54,7 +54,7 @@ class Test(unittest.TestCase):
         sireum_path = '/Fake/path'
         SPLITTER = ";" if os.name=="nt" else ":"        
         os.environ['PATH'] += SPLITTER+sireum_path
-        sireum_path_result = sireum.get_sireum_path()
+        sireum_path_result = sireum_v1.get_sireum_path()
         self.assertTrue(sireum_path_result)        
         
         # restore previous state
@@ -74,7 +74,7 @@ class Test(unittest.TestCase):
         path_temp = os.environ['PATH']
         del os.environ['PATH']
             
-        self.assertRaises(Exception, sireum.get_sireum_path)
+        self.assertRaises(Exception, sireum_v1.get_sireum_path)
             
         # restore previous state
         if sireum_home_was_set:

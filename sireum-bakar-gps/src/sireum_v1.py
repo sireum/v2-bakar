@@ -6,8 +6,8 @@ pygtk.require('2.0')
 import gtk
 import re
 import warnings
-import kiasan.gui
-import kiasan.logic
+import kiasan_v1.gui
+import kiasan_v1.logic
 import urllib
 import subprocess
 import gtk, gobject
@@ -23,13 +23,13 @@ def run_kiasan_plugin():
 		run_kiasan_tool()
 		
 		#read generated json
-		kiasan_logic = kiasan.logic.KiasanLogic()
+		kiasan_logic = kiasan_v1.logic.KiasanLogic()
 		report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
 		report_file_url = urllib.pathname2url(report_file_path)
 		report = kiasan_logic.extract_report_file(report_file_url)
 		
 		# load data into GUI
-		gui = kiasan.gui.KiasanGUI(report)
+		gui = kiasan_v1.gui.KiasanGUI(report)
 		
 		# attach GUI to GPS
 		if GPS.MDI.get('kiasan') is not None:
@@ -270,20 +270,20 @@ GPS.parse_xml ("""
   	</filter_and>
 	<action name="run Kiasan">
 		<filter id="Source editor in Ada" />
-		<shell lang="python">sireum.run_kiasan_plugin()</shell>
+		<shell lang="python">sireum_v1.run_kiasan_plugin()</shell>
 	</action>	
 	<action name="run Examiner">
 		<filter id="Source editor in Ada" />
-		<shell lang="python">sireum.run_examiner(GPS.current_context().file())</shell>		
+		<shell lang="python">sireum_v1.run_examiner(GPS.current_context().file())</shell>		
 	</action>
     <submenu before="Window">
-        <title>Sireum</title>
+        <title>Sireum Bakar (v1)</title>
         <menu action="run Kiasan">
             <title>Run Kiasan</title>
         </menu>	            	
     </submenu>
 	<contextual action="run Kiasan" >
-    	<Title>Sireum/Run Kiasan</Title>
+    	<Title>Sireum Bakar (v1)/Run Kiasan</Title>
   	</contextual>
   	<button action="run Examiner">
     	<title>Run Examiner</title>
@@ -291,85 +291,85 @@ GPS.parse_xml ("""
   	</button>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"
-   				page = "Sireum/Kiasan"
+   				page = "Sireum Bakar (v1)/Kiasan"
    				label = "Array indices bound"
    				type = "integer" 
    				default = "5"
    				/>
    	<preference name = "sireum-kiasan-loop-bound"
-   				page = "Sireum/Kiasan"
+   				page = "Sireum Bakar (v1)/Kiasan"
    				label = "Loop bound"
    				type = "integer" 
    				default = "10"
    				/>
    	<preference name="sireum-kiasan-call-chain-bound"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Call chain bound"
    				type="integer" 
    				default = "10"
    				/>
    	<preference name="sireum-kiasan-timeout"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Timeout (minutes)"
    				type="integer" 
    				default = "10"
    				/>
    	<preference name="sireum-kiasan-constrain-scalar-values"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Constrain Scalar Values"
    				type="boolean" 
    				default = "True"
    				/>
    	<preference name="sireum-kiasan-save-dirty-editors-before-running-kiasan"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Save dirty editors before running Kiasan"
    				type="boolean" 
    				default = "False"
    				/>
    	<preference name="sireum-kiasan-always-run-spark-examiner-before-running-kiasan"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Always run Spark Examiner before running Kiasan"
    				type="boolean" 
    				default = "True"
    				/>
    	<preference name="sireum-kiasan-delete-previous-kiasan-reports-before-re-running"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Delete previous Kiasan reports before re-running"
    				type="boolean" 
    				default = "True"
    				/>
    	<preference name="sireum-kiasan-warn-if-configuration-not-provided"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Warn in configuration not provided"
    				type="boolean" 
    				default = "True"
    				/>
    	<preference name="sireum-kiasan-generate-claim-report"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Generate Claim Report"
    				type="boolean" 
    				default = "False"
    				/>
    	<preference name="sireum-kiasan-generate-html-report"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Generate HTML report"
    				type="boolean" 
    				default = "False"
    				/>
    	<preference name="sireum-kiasan-html-output-directory"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="HTML Output Directory"
    				type="string" 
    				default = "~/Documents/Kiasan"
    				/>
    	<preference name="sireum-kiasan-location-of-dot-executable"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Location of Dot Executable"
    				type="string" 
    				default = ""
    				/>
    	<preference name="sireum-kiasan-theorem-prover"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Theorem prover"
    				type="choices" 
    				default = "1">
@@ -377,19 +377,19 @@ GPS.parse_xml ("""
    				<choice>Z3</choice> <!--  The default choice -->
 	</preference>
    	<preference name="sireum-kiasan-theorem-prover-bin-directory"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Theorem Prover Bin Directory"
    				type="string" 
    				default = ""
    				/>
    	<preference name="sireum-kiasan-generate-aunit"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Generate AUnit (Experimental)"
    				type="boolean" 
    				default = "False"
    				/>
    	<preference name="sireum-kiasan-generate-json-output"
-   				page="Sireum/Kiasan"
+   				page="Sireum Bakar (v1)/Kiasan"
    				label="Generate JSON Output (Experimental)"
    				type="boolean" 
    				default = "True"
