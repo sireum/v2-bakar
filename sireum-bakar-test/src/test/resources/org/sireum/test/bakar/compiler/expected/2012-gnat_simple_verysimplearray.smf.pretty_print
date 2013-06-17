@@ -2,6 +2,8 @@ verysimplearray.adb
 package VerySimpleArray;
 
 
+typealias Integer MyInt;
+
 typealias Integer Index;
 
 typealias _ARRAY_ Vector;
