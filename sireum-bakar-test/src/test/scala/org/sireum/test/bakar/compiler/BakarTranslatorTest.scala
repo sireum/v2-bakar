@@ -31,7 +31,7 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   //this.includes += "constraints"
   this.excludes += "gnat_jago"
 
-  this.excludes ++= Set("constraints", "dependence_test_suite_01", "in_range",
+  this.excludes ++= Set("faultintegrator", "constraints", "dependence_test_suite_01", "in_range",
     "misc_labeled", "misc_p_public", "misc_package_scope",
     "misc_recordshape", "misc_the_stack", "packagedemo_b", "simplemath1")
 
