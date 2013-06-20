@@ -19,12 +19,13 @@ import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
 @RunWith(classOf[JUnitRunner])
 class BakarTypeResolverTest extends BakarRewriterTest {
 
-  // record definition is in ads file
-  this.excludes ++= Set("recordtest01", "recordtest02", "case", "constraints", 
+  override def excludes = {
+    super.excludes ++= Set("recordtest01", "recordtest02", "case", "constraints",
       "dependence_test_suite_01", "faultintegrator", "in_range_name",
       "simplerecordtests", "packagedemo_b", "for_loops", "p_refinement",
       "quantifier")
-  
+  }
+
   override def generateExpected = false
 
   override def pipeline =
@@ -61,7 +62,7 @@ class BakarTypeResolverTest extends BakarRewriterTest {
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
     import BakarTypeResolverModule.ConsumerView._
-    for((k,v) <- job.bakarRef2TypeUriMap)
+    for ((k, v) <- job.bakarRef2TypeUriMap)
       w.write(s"$k -> $v\n")
     job.models foreach { m =>
       val x = NodePrettyPrinter.print(m)

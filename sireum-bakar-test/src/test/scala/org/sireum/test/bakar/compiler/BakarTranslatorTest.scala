@@ -26,14 +26,12 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorTest extends BakarTestFileFramework {
 
-  //this.includes += "case"
-  //this.excludes += "function_simple"
-  //this.includes += "constraints"
-  this.excludes += "gnat_jago"
-
-  this.excludes ++= Set("faultintegrator", "constraints", "dependence_test_suite_01", "in_range",
-    "misc_labeled", "misc_p_public", "misc_package_scope",
-    "misc_recordshape", "misc_the_stack", "packagedemo_b", "simplemath1")
+  override def excludes = {
+    super.excludes ++= Set("gnat_jago", "faultintegrator", "constraints",
+      "dependence_test_suite_01", "in_range", "misc_labeled", "misc_p_public",
+      "misc_package_scope", "misc_recordshape", "misc_the_stack",
+      "packagedemo_b", "simplemath1")
+  }
 
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
