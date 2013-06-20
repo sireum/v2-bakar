@@ -268,7 +268,7 @@ GPS.parse_xml ("""
     		shell_lang="python" 
     		shell_cmd="GPS.current_context().entity().category() in ['subprogram', 'package/namespace'] " />
   	</filter_and>
-	<action name="run Kiasan">
+	<action name="run Kiasan V1">
 		<filter id="Source editor in Ada" />
 		<shell lang="python">sireum_v1.run_kiasan_plugin()</shell>
 	</action>	
@@ -278,11 +278,11 @@ GPS.parse_xml ("""
 	</action>
     <submenu before="Window">
         <title>Sireum Bakar (v1)</title>
-        <menu action="run Kiasan">
+        <menu action="run Kiasan V1">
             <title>Run Kiasan</title>
         </menu>	            	
     </submenu>
-	<contextual action="run Kiasan" >
+	<contextual action="run Kiasan V1" >
     	<Title>Sireum Bakar (v1)/Run Kiasan</Title>
   	</contextual>
   	<button action="run Examiner">
