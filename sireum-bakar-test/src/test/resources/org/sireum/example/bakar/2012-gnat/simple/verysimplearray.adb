@@ -1,7 +1,8 @@
 package body VerySimpleArray is
 
+   subtype MyInt is Integer range 10  .. 20;
    subtype Index is Integer range 1 .. 5;
-   type Vector is array (Integer) of Index;
+   type Vector is array (Index) of MyInt;
 
    V : Vector;
 

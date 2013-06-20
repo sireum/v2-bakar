@@ -17,13 +17,6 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 
 @RunWith(classOf[JUnitRunner])
 class BakarProgramTest_OCaml extends BakarTestFileFramework {
-
-  //this.includes += "case"
-  //this.excludes += "function_simple"
-  //this.includes += "example"
-  //this.includes += "test_case_10"
-  //this.includes += "linear_div_with_loopInvariant"
-  //this.includes += "linear_div_fn"
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 

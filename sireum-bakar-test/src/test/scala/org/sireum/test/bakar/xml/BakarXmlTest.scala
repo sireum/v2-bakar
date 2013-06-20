@@ -23,10 +23,9 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 @RunWith(classOf[JUnitRunner])
 class BakarXmlTest extends BakarTestFileFramework {
 
-  //this.includes += "case"
-  //this.excludes += "function_simple"
-  //this.includes += "constraints"
-  this.includes += "misc"
+  override def includes = {
+    super.includes += "misc"
+  }
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 

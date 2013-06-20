@@ -22,8 +22,11 @@ class BakarSymbolResolverTest extends BakarRewriterTest {
 
   override def generateExpected = false
 
-  this.excludes ++= Set("case_statement", "faultin", "for_loops", "quantifiertest", "recordtest")
-    
+  override def excludes = {
+    super.excludes ++= 
+      Set("case_statement", "for_loops", "quantifiertest", "recordtest")
+  }
+  
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",

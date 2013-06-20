@@ -25,8 +25,8 @@ trait BakarTestFramework extends TestFramework {
 
   def disableIncludes = false
   def disableExcludes = false
-  val includes = msetEmpty[Regex]
-  val excludes = msetEmpty[Regex]
+  def includes = msetEmpty[Regex]
+  def excludes = msetEmpty[Regex]
 
   def accept(name : String, files : ISeq[FileResourceUri]) : Boolean = {
     return (disableIncludes || includes.isEmpty ||

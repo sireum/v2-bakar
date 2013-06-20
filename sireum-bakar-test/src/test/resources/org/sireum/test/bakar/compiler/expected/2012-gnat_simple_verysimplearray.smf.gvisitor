@@ -1,12 +1,18 @@
-Model(Some(verysimplearray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Ve
+Model(Some(verysimplearray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Ve
   Some(verysimplearray.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Li
-    PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())),
+  Vector(PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),Li
+    PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),List())),
       Some(NameDefinition(VerySimpleArray))
         NameDefinition(VerySimpleArray)
       List()
-      List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Vector),Vector(),NamedTypeSpe
+      List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec
+        TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+          NameDefinition(MyInt)
+          List()
+          NamedTypeSpec(NameUser(Integer),List())
+            NameUser(Integer)
+            List()
         TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))
           NameDefinition(Index)
           List()

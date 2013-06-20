@@ -24,12 +24,6 @@ import org.sireum.bakar.pilar.BakarPrettyPrinterModule
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
-
-  //this.includes += "case"
-  //this.excludes += "function_simple"
-  //this.includes += "binaryexpression"
-  //this.includes += "abspackage" 
-  //this.includes += "simplerecord.smf"
     
   override def pipeline =
     PipelineConfiguration(
