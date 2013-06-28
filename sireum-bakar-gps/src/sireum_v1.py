@@ -13,11 +13,19 @@ import subprocess
 import gtk, gobject
 
 
+class ProjectNotBuiltException(Exception):
+	def __init__(self, value):
+		self.value = value
+	def __str__(self):
+		return repr(self.value)
+	
+	
+
 def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
 	warnings.warn("Exception catching are based on guesses - most probably reasons of occurence.")
 	try:
-		project_path = get_project_path()	#normalized project path
+		project_path = get_spark_sources_path()	#normalized project path
 		remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
 		prepare_directories_for_reports(project_path, remove_previous_reports)	
 		run_kiasan_tool()
@@ -38,16 +46,17 @@ def run_kiasan_plugin():
 		win = GPS.MDI.get('kiasan')
 		win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
 		win.float(float=False)	# float=True: popup, float=False: GPS integrated window
-	except IndexError:
+	except ProjectNotBuiltException:
 		GPS.MDI.dialog("Build project, before run Kiasan.")
 	except AttributeError:
 		GPS.MDI.dialog("This file does not belongs to opened project.")
 
 
-def get_project_path():
-	""" Get project path from GPS API. """
+def get_spark_sources_path():
+	""" Get sources path. """
 	return os.path.dirname(GPS.current_context().project().file().name()).replace("\\", "/")
 
+		
 	
 def prepare_directories_for_reports(project_path, remove_previous_reports):
 	"""
@@ -65,27 +74,37 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 
 def run_kiasan_tool():
 	""" Runs Kiasan based on preferences and clicked entity. """	
-	# get package name (we assume that package_name = file_name_without_extension)
-	file_name = GPS.current_context().file().name().replace("\\","/")
-	match = re.search(r'(?<=\/)(\w+)\.ad[bs]', file_name)
-	package_name = match.groups()[0]
-	warnings.warn('Maybe better solution is fetch package from entities list? (like methods)')
 	
-	SIREUM_PATH = get_sireum_path()
+	# raise exception when project is not build, because then we cannot fetch package name or subprograms
+	if GPS.current_context().file().entities(False) == []:
+		raise ProjectNotBuiltException
 	
-	load_sireum_settings(SIREUM_PATH)
-	
-	# get methods as list
+	# get package_name and methods list
 	if GPS.current_context().entity().category() == "subprogram":
+		# get package name		
+		for entity in GPS.current_context().file().entities(False):
+			if entity.category() == 'package/namespace':
+				package_name = entity.name()
+	
+		# set methods_list to only one method
 		methods_list = [GPS.current_context().entity().name()]
+	
 	elif GPS.current_context().entity().category() == "package/namespace":
-		# fetch all methods from file (method=subprogram) 
+		# get package name
+		package_name = GPS.current_context().entity().name()
+	
+		# fetch all methods from file (method=subprogram)
 		methods_list = []
 		for entity in GPS.current_context().file().entities(False):
 			if entity.category() == 'subprogram':
 				methods_list.append(entity.name())
 	
-	source_paths = GPS.current_context().directory().replace("\\","/")
+	
+	SIREUM_PATH = get_sireum_path()
+	
+	load_sireum_settings(SIREUM_PATH)
+	
+	source_path = GPS.current_context().directory().replace("\\","/")
 	output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
 	
 	#init progress bar
@@ -95,7 +114,7 @@ def run_kiasan_tool():
 	win.float(float=True)	# float=True: popup, float=False: GPS integrated window
 	
 	# run Kiasan tool for each method except last one
-	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, False)	
+	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, False)	
 	method_no = 0
 	print 'got', len(methods_list)
 	for method in methods_list[:-1]:
@@ -108,7 +127,7 @@ def run_kiasan_tool():
 		subprocess.call(kiasan_run_cmd + [method])		
 	
 	# run Kiasan tool for last method and generate report
-	kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, True)
+	kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, True)
 	print " ".join(kiasan_run_cmd_with_report + [methods_list[-1]])
 	subprocess.call(kiasan_run_cmd_with_report + [methods_list[-1]])
 	
@@ -177,10 +196,10 @@ def load_sireum_settings(SIREUM_PATH):
 			theorem_prover.set(default_theorem_prover_path)
 	
 
-def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, generate_report):
+def get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, generate_report):
 	""" Create command for run Kiasan. """
 	kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse/lib/"	
-	spark_source_files = ",".join(get_spark_source_files())
+	spark_source_files = ",".join(get_spark_source_files(source_path))
 	
 	run_kiasan_command = []
 	if os.path.isdir(SIREUM_PATH + "/apps/platform/java"):
@@ -209,7 +228,7 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, 
 	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover").get())
 	run_kiasan_command.append("--topi-bin-dir")
 	run_kiasan_command.append(GPS.Preference("sireum-kiasan-theorem-prover-bin-directory").get())
-	run_kiasan_command.append("--source-paths=" + source_paths)
+	run_kiasan_command.append("--source-paths=" + source_path)
 	
 	
 	#run_kiasan_command.append("--source-files=" + package_name + ".adb" + "," + package_name + ".ads")
@@ -245,12 +264,16 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_paths, output_dir, 
 	return run_kiasan_command
 
 
-def get_spark_source_files():
-	""" Get SPARK source files using GPS API. """	
+def get_spark_source_files(source_path):
+	""" Get SPARK source files. """	
 	spark_files_list = []
-	project_files = GPS.current_context().project().sources()
-	for proj_file in project_files:
-		spark_files_list.append(os.path.basename(proj_file.name()))
+	for f in os.listdir(source_path):
+		if f.endswith(".adb") or f.endswith(".ads"):
+			spark_files_list.append(f)
+	# Get SPARK source files using GPS API - fetching all files
+	#project_files = GPS.current_context().project().sources()
+	#for proj_file in project_files:
+	#	spark_files_list.append(os.path.basename(proj_file.name()))
 	return spark_files_list
 
 
