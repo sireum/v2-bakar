@@ -25,6 +25,7 @@ def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
 	warnings.warn("Exception catching are based on guesses - most probably reasons of occurence.")
 	try:
+		raise Exception
 		project_path = get_spark_sources_path()	#normalized project path
 		remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
 		prepare_directories_for_reports(project_path, remove_previous_reports)	
@@ -107,7 +108,7 @@ def run_kiasan_tool():
 	source_path = GPS.current_context().directory().replace("\\","/")
 	output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
 	
-	#init progress bar
+	# init progress bar
 	win_pb, pb = init_progressbar()
 	GPS.MDI.add(win_pb, "KiasanProgress", "kiasanprogress")	
 	win = GPS.MDI.get('kiasanprogress')
