@@ -25,7 +25,6 @@ def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
 	warnings.warn("Exception catching are based on guesses - most probably reasons of occurence.")
 	try:
-		raise Exception
 		project_path = get_spark_sources_path()	#normalized project path
 		remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
 		prepare_directories_for_reports(project_path, remove_previous_reports)	
@@ -51,6 +50,8 @@ def run_kiasan_plugin():
 		GPS.MDI.dialog("Build project, before run Kiasan.")
 	except AttributeError:
 		GPS.MDI.dialog("This file does not belongs to opened project.")
+	except IOError:
+		GPS.MDI.dialog("Error: Kiasan report not generated.")
 
 
 def get_spark_sources_path():
@@ -84,7 +85,10 @@ def run_kiasan_tool():
 	if GPS.current_context().entity().category() == "subprogram":
 		# get package name		
 		for entity in GPS.current_context().file().entities(False):
-			if entity.category() == 'package/namespace':
+			warnings.warn("the second condition of below if is UGLY...but I didn't find the better way \
+			to check if entity is subprogram's package because file can have entities from external files")
+			if entity.category() == 'package/namespace' and \
+				entity.name().lower() == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
 				package_name = entity.name()
 	
 		# set methods_list to only one method
