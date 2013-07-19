@@ -15,8 +15,6 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   val DEBUG = false
 
   trait Context {
-    var genThreeAddress = false
-    val TEMP_VAR_PREFIX = "_t"
     val LOCATION_PREFIX = "l"
 
     var models = mlistEmpty[Model]
@@ -35,7 +33,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     }
 
     val globalUriMap = mmapEmpty[String, String]
-    
+
     var result : Any = null;
     def pushResult(o : Any, sloc : SourceLocation) {
       //assert(result == null);
@@ -125,18 +123,12 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       r
     }
 
-    var countTempVar = 0
-    def createPushTempVar : NameExp = {
-      countTempVar += 1
-      val name = TEMP_VAR_PREFIX + countTempVar
-      localsPush(LocalVarDecl(None, NameDefinition(name), TranslatorUtil.emptyAnnot))
-      NameExp(NameUser(name))
-    }
-
-    def newLocLabel = { 
+    def newLocLabel(s : SourceLocation) = {
       countLocation += 1
-      val n = this.LOCATION_PREFIX + countLocation
-      this.addResourceUri(NameDefinition(n), n)
+      val simpName = this.LOCATION_PREFIX + countLocation
+      val urlName = simpName + "_" +
+        s.getLine + "." + s.getCol + "_" + s.getEndline + "." + s.getEndcol
+      this.addResourceUri(NameDefinition(simpName), urlName)
     }
 
     def createEmptyLocation(locName : NameDefinition, annots : ISeq[Annotation] = TranslatorUtil.emptyAnnot) = {
@@ -147,8 +139,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ActionLocation(Some(locName), annots, a)
     }
 
-    def createPushLocation(a : Action, annots : ISeq[Annotation]) : LocationDecl = {
-      createPushLocation(newLocLabel, a, annots)
+    def createPushLocation(a : Action, annots : ISeq[Annotation], s : SourceLocation) : LocationDecl = {
+      createPushLocation(newLocLabel(s), a, annots)
     }
 
     def createPushLocation(locName : NameDefinition, a : Action, annots : ISeq[Annotation] = TranslatorUtil.emptyAnnot) : LocationDecl = {
@@ -157,23 +149,18 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       loc
     }
 
-    def createJumpLocation(j : Jump) = JumpLocation(Some(newLocLabel), TranslatorUtil.emptyAnnot, j)
+    def createJumpLocation(j : Jump, s : SourceLocation) =
+      JumpLocation(Some(newLocLabel(s)), TranslatorUtil.emptyAnnot, j)
 
-    def createGotoJumpLocation(target : NameUser, annots : ISeq[Annotation]) =
-      createJumpLocation(GotoJump(annots, target))
+    def createGotoJumpLocation(target : NameUser, annots : ISeq[Annotation], s : SourceLocation) =
+      createJumpLocation(GotoJump(annots, target), s)
 
-    def createPushAssignmentLocation(lhs : Exp, rhs : Exp, annots : ISeq[Annotation]) = {
-      createPushLocation(createAssignment(lhs, rhs, annots), TranslatorUtil.emptyAnnot)
+    def createPushAssignmentLocation(lhs : Exp, rhs : Exp, annots : ISeq[Annotation], s : SourceLocation) = {
+      createPushLocation(createAssignment(lhs, rhs, annots), TranslatorUtil.emptyAnnot, s)
     }
 
     def createAssignment(lhs : Exp, rhs : Exp, annots : ISeq[Annotation]) = {
       AssignAction(annots, lhs, ":=", rhs)
-    }
-
-    def assignToTemp(e : Exp) : NameExp = {
-      val tempVar = createPushTempVar
-      createPushLocation(createAssignment(tempVar, e, TranslatorUtil.emptyAnnot), TranslatorUtil.emptyAnnot)
-      tempVar
     }
 
     def handleUnaryExp(sloc : SourceLocation,
@@ -197,10 +184,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     }
 
     def handleExp(e : Exp) : Exp = {
-      if (this.genThreeAddress)
-        assignToTemp(e)
-      else
-        e
+      //if (this.genThreeAddress)
+      //  assignToTemp(e)
+      //else
+      e
     }
 
     def addProperty[T <: PropertyProvider](key : String, value : Any, pp : T) : T = {
@@ -436,24 +423,24 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       import org.sireum.pilar.symbol.Symbol
       val u = new URI(uri)
       val paths =
-        if (u.getPath.startsWith("/")) 
-          u.getPath.split("/").drop(1) 
+        if (u.getPath.startsWith("/"))
+          u.getPath.split("/").drop(1)
         else
           u.getPath.split("/")
 
       s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
       s
     }
-    
+
     def convertGlobal(name : String, uri : String) : (String, String) = {
       var i = uri.lastIndexOf("/")
-      assert (i > 0)
+      assert(i > 0)
       val returi = uri.substring(0, i + 1) + "@@" + uri.substring(i + 1)
-      
+
       this.globalUriMap(uri) = returi
-      
+
       ("@@" + name, returi)
-    } 
+    }
   }
 
   implicit def nd2nu(nd : NameDefinition) = NameUser(nd.name)
@@ -565,9 +552,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             case di : DefiningIdentifier =>
               val (sloc, defName, defUri, typ) = ctx.getName(di)
               //val name = NameDefinition("@@" + defName)
-              
+
               val (cdefName, cdefUri) = ctx.convertGlobal(defName, defUri)
-              
+
               val gvd = GlobalVarDecl(NameDefinition(cdefName), TranslatorUtil.emptyAnnot, typeSpec)
               gvd(URIS.REF_URI) = cdefUri
               packElems += gvd
@@ -681,16 +668,17 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             Some(nts)
           case None => {
             // ada procedure so add an empty return to the body
-            ctx.pushLocation(JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot,
-              ReturnJump(TranslatorUtil.emptyAnnot, None)))
+            ctx.pushLocation(
+              JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot,
+                ReturnJump(TranslatorUtil.emptyAnnot, None)))
             None
           }
         }
-        
+
         val locs = ctx.popLocationList.toList
-        for(i <- 0 to locs.size - 1)
+        for (i <- 0 to locs.size - 1)
           locs(i).index(i)
-        
+
         val body = ImplementedBody(ctx.localsPop.toList, locs, ivectorEmpty[CatchClause])
 
         val typeVars = ivectorEmpty[(NameDefinition, ISeq[Annotation])]
@@ -739,9 +727,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   def nameH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IdentifierEx(sloc, name, refUri, typUri) =>
       val nu = NameUser(name)
-      
+
       val srefUri = ctx.globalUriMap.getOrElse(refUri, refUri)
-      
+
       ctx.addResourceUri(nu, srefUri)
       this.addprop(nu, URIS.REF_URI, srefUri)
       this.addprop(nu, URIS.TYPE_URI, typUri)
@@ -798,18 +786,18 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       v(assignmentExpression)
       val rhs = ctx.popResult.asInstanceOf[Exp]
 
-      ctx.createPushAssignmentLocation(lhs, rhs, TranslatorUtil.emptyAnnot)
+      ctx.createPushAssignmentLocation(lhs, rhs, TranslatorUtil.emptyAnnot, sloc)
       false
     case o @ IfStatementEx(sloc, labelNames, statementPaths) =>
       val isSingle = statementPaths.getPaths.size == 1
-      val endLoc = ctx.newLocLabel
-      var gotoLoc = if (isSingle) endLoc else ctx.newLocLabel
+      val endLoc = ctx.newLocLabel(sloc)
+      var gotoLoc = if (isSingle) endLoc else ctx.newLocLabel(sloc)
 
         def render(sloc : SourceLocation, condExp : ExpressionClass, statements : StatementList, isIfElse : Boolean) = {
           if (isIfElse) {
             // #<gotoLoc>.
             ctx.pushLocation(ctx.createEmptyLocation(gotoLoc, TranslatorUtil.emptyAnnot))
-            gotoLoc = ctx.newLocLabel
+            gotoLoc = ctx.newLocLabel(sloc)
           }
 
           v(condExp)
@@ -819,7 +807,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           addprop(ne, URIS.TYPE_URI, StandardURIs.boolURI)
           val itj = IfThenJump(ne, TranslatorUtil.emptyAnnot, gotoLoc)
           val ij = IfJump(TranslatorUtil.emptyAnnot, ivector(itj), None)
-          val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, ij)
+          val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, ij)
           ctx.pushLocation(jl)
 
           // ... eval body statements
@@ -827,7 +815,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
           if (!isSingle) {
             // # goto endLoc;
-            val gl = ctx.createGotoJumpLocation(endLoc, TranslatorUtil.emptyAnnot)
+            val gl = ctx.createGotoJumpLocation(endLoc, TranslatorUtil.emptyAnnot, sloc)
             ctx.pushLocation(gl)
           }
         }
@@ -860,10 +848,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       whileCondition, loopStatements) =>
       if (DEBUG) println(o.getClass().getSimpleName())
 
-      val loopEndLabel = ctx.newLocLabel
+      val loopEndLabel = ctx.newLocLabel(sloc)
 
       // #loopStart.
-      val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel))
+      val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
 
       v(whileCondition)
 
@@ -872,13 +860,13 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       addprop(ne, URIS.TYPE_URI, StandardURIs.boolURI)
       val itj = IfThenJump(ne, TranslatorUtil.emptyAnnot, loopEndLabel)
       val ij = IfJump(TranslatorUtil.emptyAnnot, ivector(itj), None)
-      val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, ij)
+      val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, ij)
       ctx.pushLocation(jl)
 
       v(loopStatements)
 
       // # goto loopStart
-      val gl = ctx.pushLocation(ctx.createGotoJumpLocation(loopStart.name.get, TranslatorUtil.emptyAnnot))
+      val gl = ctx.pushLocation(ctx.createGotoJumpLocation(loopStart.name.get, TranslatorUtil.emptyAnnot, sloc))
 
       ctx.pushLocation(ctx.createEmptyLocation(loopEndLabel))
 
@@ -893,7 +881,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       v(returnExp)
 
       val rj = ReturnJump(TranslatorUtil.emptyAnnot, Some(ctx.popResult.asInstanceOf[Exp]))
-      val jl = JumpLocation(Some(ctx.newLocLabel), TranslatorUtil.emptyAnnot, rj)
+      val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, rj)
 
       ctx.pushLocation(jl)
       false
@@ -1046,7 +1034,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         v(a)
         val r = ctx.popResult.asInstanceOf[Exp]
         val aa = AssertAction(TranslatorUtil.emptyAnnot, r, None)
-        ctx.createPushLocation(aa, TranslatorUtil.emptyAnnot)
+        ctx.createPushLocation(aa, TranslatorUtil.emptyAnnot, sloc)
       }
       false
   }
