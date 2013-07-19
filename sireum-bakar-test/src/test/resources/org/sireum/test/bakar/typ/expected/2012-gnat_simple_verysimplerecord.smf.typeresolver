@@ -345,7 +345,11 @@ procedure Boolean Dummy
        </mcol.HashMap>""")
  {
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     return true;
 }
 
@@ -522,7 +526,11 @@ procedure Add (
   #rwl1.
     _t1 := 1ii;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     R.A
         @BAKAR_TYPE_URI
 
@@ -548,7 +556,11 @@ procedure Add (
            </org.sireum.bakar.symbol.FullTypeDecl>""")
      := _t0 + _t1;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }
 
@@ -706,7 +718,11 @@ procedure Del
     ;
 
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     T := RG.A
         @BAKAR_TYPE_URI
 
@@ -790,7 +806,11 @@ procedure Del
   #rwl5.
     _t5 := 7ii;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     RG.A
         @BAKAR_TYPE_URI
 
@@ -816,6 +836,10 @@ procedure Del
            </org.sireum.bakar.symbol.FullTypeDecl>""")
      := _t4 - _t5;
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     return;
 }

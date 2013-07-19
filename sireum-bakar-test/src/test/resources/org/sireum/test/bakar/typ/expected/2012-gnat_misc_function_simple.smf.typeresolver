@@ -286,7 +286,11 @@ procedure Integer F1 (
   #rwl3.
     _t3 := Y;
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     return _t2 + _t3;
 }
 
@@ -390,10 +394,18 @@ procedure P1 (
        </mcol.HashMap>""")
  {
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     B := F1 (M, N);
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }
 
@@ -515,9 +527,17 @@ procedure P2 (
   #rwl5.
     _t5 := C;
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     B := _t4 + _t5;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }

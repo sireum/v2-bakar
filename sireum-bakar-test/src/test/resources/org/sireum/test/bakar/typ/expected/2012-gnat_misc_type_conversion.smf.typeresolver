@@ -235,9 +235,17 @@ procedure Convert (
        </mcol.HashMap>""")
  {
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     X := Y;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }

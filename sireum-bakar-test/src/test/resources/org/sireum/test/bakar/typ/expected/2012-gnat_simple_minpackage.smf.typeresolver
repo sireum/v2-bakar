@@ -351,28 +351,60 @@ procedure Integer MinFunc (
   #rwl1.
     _t1 := Y;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     if !(_t0 >= _t1) then goto l2;
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     Min := Y;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     Max := X;
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     goto l1;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     // empty loc
 
-  #l7.
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     Min := X;
 
-  #l8.
+  #l8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     Max := Y;
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     // empty loc
 
   #rwl2.
@@ -417,9 +449,17 @@ procedure Integer MinFunc (
   #rwl15.
     _t15 := _t12 <= _t13;
 
-  #l9.
+  #l9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>8</int>""")
+  >
     assert _t14 &&& _t15;
 
-  #l10.
+  #l10.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>9</int>""")
+  >
     return Min;
 }

@@ -486,7 +486,11 @@ procedure Boolean Dummy
        </mcol.HashMap>""")
  {
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     return true;
 }
 
@@ -696,10 +700,18 @@ procedure Add (
        </mcol.HashMap>""")
  {
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     X[1ii] := X[2ii];
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }
 
@@ -921,7 +933,11 @@ procedure Del
     ;
 
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     T := V[1ii];
 
   #rwl0.
@@ -930,9 +946,17 @@ procedure Del
   #rwl1.
     _t1 := V[3ii];
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     V[2ii] := _t0 + _t1;
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     return;
 }

@@ -286,10 +286,18 @@ procedure R (
   #rwl3.
     _t3 := C;
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     X := _t2 + _t3;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }
 
@@ -431,7 +439,11 @@ procedure Integer incX (
   #rwl5.
     _t5 := 0ii;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     if !(_t4 == _t5) then goto l4;
 
   #rwl6.
@@ -440,13 +452,25 @@ procedure Integer incX (
   #rwl7.
     _t7 := 1ii;
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     result := _t6 + _t7;
 
-  #l7.
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     goto l3;
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     // empty loc
 
   #rwl8.
@@ -455,13 +479,25 @@ procedure Integer incX (
   #rwl9.
     _t9 := 1ii;
 
-  #l8.
+  #l8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     result := _t8 - _t9;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     // empty loc
 
-  #l9.
+  #l9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     return result;
 }
 
@@ -583,9 +619,17 @@ procedure Q (
   #rwl11.
     _t11 := incX (X);
 
-  #l10.
+  #l10.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     Z := _t10 + _t11;
 
-  #l11.
+  #l11.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }

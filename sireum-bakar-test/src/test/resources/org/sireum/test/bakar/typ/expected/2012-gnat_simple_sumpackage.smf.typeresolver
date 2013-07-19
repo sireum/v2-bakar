@@ -330,7 +330,11 @@ procedure Integer Sum (
     ;
 
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     R := 0ii;
 
   #rwl0.
@@ -339,7 +343,11 @@ procedure Integer Sum (
   #rwl1.
     _t1 := 0ii;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     if !(_t0 >= _t1) then goto l2;
 
   #rwl2.
@@ -348,10 +356,18 @@ procedure Integer Sum (
   #rwl3.
     _t3 := 1ii;
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     T := _t2 - _t3;
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     // empty loc
 
   #rwl4.
@@ -360,7 +376,11 @@ procedure Integer Sum (
   #rwl5.
     _t5 := 0ii;
 
-  #l7.
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     if !(_t4 >= _t5) then goto l5;
 
   #rwl6.
@@ -369,7 +389,11 @@ procedure Integer Sum (
   #rwl7.
     _t7 := 1ii;
 
-  #l8.
+  #l8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     R := _t6 + _t7;
 
   #rwl8.
@@ -378,13 +402,25 @@ procedure Integer Sum (
   #rwl9.
     _t9 := 1ii;
 
-  #l9.
+  #l9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     T := _t8 - _t9;
 
-  #l10.
+  #l10.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     goto l6;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>8</int>""")
+  >
     // empty loc
 
   #rwl10.
@@ -393,13 +429,25 @@ procedure Integer Sum (
   #rwl11.
     _t11 := R;
 
-  #l11.
+  #l11.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>9</int>""")
+  >
     assert _t10 == _t11;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>10</int>""")
+  >
     // empty loc
 
-  #l12.
+  #l12.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>11</int>""")
+  >
     return R;
 }
 
@@ -570,7 +618,11 @@ procedure Sum2 (
     ;
 
 
-  #l13.
+  #l13.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     R := 0ii;
 
   #rwl12.
@@ -579,7 +631,11 @@ procedure Sum2 (
   #rwl13.
     _t13 := 0ii;
 
-  #l15.
+  #l15.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     if !(_t12 >= _t13) then goto l14;
 
   #rwl14.
@@ -588,10 +644,18 @@ procedure Sum2 (
   #rwl15.
     _t15 := 1ii;
 
-  #l16.
+  #l16.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     T := _t14 - _t15;
 
-  #l18.
+  #l18.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     // empty loc
 
   #rwl16.
@@ -600,7 +664,11 @@ procedure Sum2 (
   #rwl17.
     _t17 := 0ii;
 
-  #l19.
+  #l19.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     if !(_t16 >= _t17) then goto l17;
 
   #rwl18.
@@ -609,7 +677,11 @@ procedure Sum2 (
   #rwl19.
     _t19 := 1ii;
 
-  #l20.
+  #l20.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     R := _t18 + _t19;
 
   #rwl20.
@@ -618,13 +690,25 @@ procedure Sum2 (
   #rwl21.
     _t21 := 1ii;
 
-  #l21.
+  #l21.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     T := _t20 - _t21;
 
-  #l22.
+  #l22.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     goto l18;
 
-  #l17.
+  #l17.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>8</int>""")
+  >
     // empty loc
 
   #rwl22.
@@ -633,12 +717,24 @@ procedure Sum2 (
   #rwl23.
     _t23 := R;
 
-  #l23.
+  #l23.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>9</int>""")
+  >
     assert _t22 == _t23;
 
-  #l14.
+  #l14.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>10</int>""")
+  >
     // empty loc
 
-  #l24.
+  #l24.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>11</int>""")
+  >
     return;
 }

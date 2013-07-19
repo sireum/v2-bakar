@@ -279,7 +279,11 @@ procedure Integer AbsFunc (
   #rwl1.
     _t1 := 0ii;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     if !(_t0 < _t1) then goto l2;
 
   #rwl2.
@@ -288,19 +292,39 @@ procedure Integer AbsFunc (
   #rwl3.
     _t3 := -(1ii);
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     r := _t2 * _t3;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     goto l1;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     // empty loc
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     r := x;
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     // empty loc
 
   #rwl4.
@@ -309,9 +333,17 @@ procedure Integer AbsFunc (
   #rwl5.
     _t5 := 0ii;
 
-  #l7.
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     assert _t4 >= _t5;
 
-  #l8.
+  #l8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     return r;
 }

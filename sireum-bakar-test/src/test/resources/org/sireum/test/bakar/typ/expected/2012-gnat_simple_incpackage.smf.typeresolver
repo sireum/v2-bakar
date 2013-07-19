@@ -267,7 +267,11 @@ procedure Integer Inc (
   #rwl1.
     _t1 := 1ii;
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     R := _t0 + _t1;
 
   #rwl2.
@@ -276,9 +280,17 @@ procedure Integer Inc (
   #rwl3.
     _t3 := X;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     assert _t2 > _t3;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     return R;
 }

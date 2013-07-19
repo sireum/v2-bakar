@@ -282,7 +282,11 @@ procedure P (
   #rwl1.
     _t1 := b;
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     b := _t0 + _t1;
 
   #rwl2.
@@ -291,10 +295,18 @@ procedure P (
   #rwl3.
     _t3 := b;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     c := _t2 + _t3;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     return;
 }
 
@@ -405,10 +417,18 @@ procedure helper (
     ;
 
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     arg0 := 1ii;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     return;
 }
 
@@ -534,10 +554,18 @@ procedure Q (
     ;
 
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     L1 := S;
 
-  #l7.
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     R := 5ii;
 
   #rwl4.
@@ -546,9 +574,17 @@ procedure Q (
   #rwl5.
     _t5 := L1;
 
-  #l8.
+  #l8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     T := _t4 + _t5;
 
-  #l9.
+  #l9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     return;
 }

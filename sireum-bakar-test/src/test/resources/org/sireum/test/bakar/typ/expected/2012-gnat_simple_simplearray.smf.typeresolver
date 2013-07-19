@@ -369,7 +369,11 @@ procedure Boolean Dummy
        </mcol.HashMap>""")
  {
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     return true;
 }
 
@@ -546,7 +550,11 @@ procedure Integer Max (
     ;
 
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     M := V[0ii];
 
   #rwl0.
@@ -555,15 +563,31 @@ procedure Integer Max (
   #rwl1.
     _t1 := M;
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     if !(_t0 > _t1) then goto l3;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     M := V[I];
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     // empty loc
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     return M;
 }

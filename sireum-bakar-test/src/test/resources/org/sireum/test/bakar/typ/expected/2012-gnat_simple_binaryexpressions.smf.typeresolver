@@ -319,7 +319,11 @@ procedure Integer X
        </mcol.HashMap>""")
  {
 
-  #l1.
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     return 1ii;
 }
 
@@ -546,7 +550,11 @@ procedure Integer Add (
   #rwl1.
     _t1 := 2ii;
 
-  #l2.
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     r0 := _t0 + _t1;
 
   #rwl2.
@@ -555,7 +563,11 @@ procedure Integer Add (
   #rwl3.
     _t3 := 1ii;
 
-  #l3.
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     r1 := _t2 + _t3;
 
   #rwl4.
@@ -564,7 +576,11 @@ procedure Integer Add (
   #rwl5.
     _t5 := J;
 
-  #l4.
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     r2 := _t4 + _t5;
 
   #rwl6.
@@ -573,7 +589,11 @@ procedure Integer Add (
   #rwl7.
     _t7 := I;
 
-  #l5.
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     r3 := _t6 + _t7;
 
   #rwl8.
@@ -582,7 +602,11 @@ procedure Integer Add (
   #rwl9.
     _t9 := J;
 
-  #l6.
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     r4 := _t8 + _t9;
 
   #rwl10.
@@ -591,7 +615,11 @@ procedure Integer Add (
   #rwl11.
     _t11 := I;
 
-  #l7.
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     r5 := _t10 + _t11;
 
   #rwl12.
@@ -600,7 +628,11 @@ procedure Integer Add (
   #rwl13.
     _t13 := 1ii;
 
-  #l8.
+  #l8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     r6 := _t12 + _t13;
 
   #rwl14.
@@ -609,10 +641,18 @@ procedure Integer Add (
   #rwl15.
     _t15 := r5;
 
-  #l9.
+  #l9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     assert _t14 == _t15;
 
-  #l10.
+  #l10.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>8</int>""")
+  >
     return r6;
 }
 
@@ -829,7 +869,11 @@ procedure Integer Sub (
   #rwl17.
     _t17 := 2ii;
 
-  #l11.
+  #l11.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     r0 := _t16 - _t17;
 
   #rwl18.
@@ -838,7 +882,11 @@ procedure Integer Sub (
   #rwl19.
     _t19 := 1ii;
 
-  #l12.
+  #l12.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     r1 := _t18 - _t19;
 
   #rwl20.
@@ -847,7 +895,11 @@ procedure Integer Sub (
   #rwl21.
     _t21 := J;
 
-  #l13.
+  #l13.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     r2 := _t20 - _t21;
 
   #rwl22.
@@ -856,7 +908,11 @@ procedure Integer Sub (
   #rwl23.
     _t23 := I;
 
-  #l14.
+  #l14.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     r3 := _t22 - _t23;
 
   #rwl24.
@@ -865,7 +921,11 @@ procedure Integer Sub (
   #rwl25.
     _t25 := J;
 
-  #l15.
+  #l15.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     r4 := _t24 - _t25;
 
   #rwl26.
@@ -874,7 +934,11 @@ procedure Integer Sub (
   #rwl27.
     _t27 := I;
 
-  #l16.
+  #l16.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     r5 := _t26 - _t27;
 
   #rwl28.
@@ -883,10 +947,18 @@ procedure Integer Sub (
   #rwl29.
     _t29 := 1ii;
 
-  #l17.
+  #l17.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     r6 := _t28 - _t29;
 
-  #l18.
+  #l18.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     return r6;
 }
 
@@ -1113,7 +1185,11 @@ procedure Integer Mult (
   #rwl31.
     _t31 := 2ii;
 
-  #l19.
+  #l19.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     r0 := _t30 * _t31;
 
   #rwl32.
@@ -1122,7 +1198,11 @@ procedure Integer Mult (
   #rwl33.
     _t33 := 1ii;
 
-  #l20.
+  #l20.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     r1 := _t32 * _t33;
 
   #rwl34.
@@ -1131,7 +1211,11 @@ procedure Integer Mult (
   #rwl35.
     _t35 := J;
 
-  #l21.
+  #l21.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     r2 := _t34 * _t35;
 
   #rwl36.
@@ -1140,7 +1224,11 @@ procedure Integer Mult (
   #rwl37.
     _t37 := I;
 
-  #l22.
+  #l22.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     r3 := _t36 * _t37;
 
   #rwl38.
@@ -1149,7 +1237,11 @@ procedure Integer Mult (
   #rwl39.
     _t39 := J;
 
-  #l23.
+  #l23.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     r4 := _t38 * _t39;
 
   #rwl40.
@@ -1158,7 +1250,11 @@ procedure Integer Mult (
   #rwl41.
     _t41 := I;
 
-  #l24.
+  #l24.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     r5 := _t40 * _t41;
 
   #rwl42.
@@ -1167,7 +1263,11 @@ procedure Integer Mult (
   #rwl43.
     _t43 := 1ii;
 
-  #l25.
+  #l25.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     r6 := _t42 * _t43;
 
   #rwl44.
@@ -1176,10 +1276,18 @@ procedure Integer Mult (
   #rwl45.
     _t45 := r5;
 
-  #l26.
+  #l26.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     assert _t44 == _t45;
 
-  #l27.
+  #l27.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>8</int>""")
+  >
     return r6;
 }
 
@@ -1396,7 +1504,11 @@ procedure Integer Division (
   #rwl47.
     _t47 := 2ii;
 
-  #l28.
+  #l28.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
     r0 := _t46 / _t47;
 
   #rwl48.
@@ -1405,7 +1517,11 @@ procedure Integer Division (
   #rwl49.
     _t49 := 1ii;
 
-  #l29.
+  #l29.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
     r1 := _t48 / _t49;
 
   #rwl50.
@@ -1414,7 +1530,11 @@ procedure Integer Division (
   #rwl51.
     _t51 := I;
 
-  #l30.
+  #l30.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     r2 := _t50 / _t51;
 
   #rwl52.
@@ -1423,7 +1543,11 @@ procedure Integer Division (
   #rwl53.
     _t53 := J;
 
-  #l31.
+  #l31.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
     r3 := _t52 / _t53;
 
   #rwl54.
@@ -1432,7 +1556,11 @@ procedure Integer Division (
   #rwl55.
     _t55 := I;
 
-  #l32.
+  #l32.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
     r4 := _t54 / _t55;
 
   #rwl56.
@@ -1441,7 +1569,11 @@ procedure Integer Division (
   #rwl57.
     _t57 := J;
 
-  #l33.
+  #l33.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
     r5 := _t56 / _t57;
 
   #rwl58.
@@ -1450,9 +1582,17 @@ procedure Integer Division (
   #rwl59.
     _t59 := 1ii;
 
-  #l34.
+  #l34.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
     r6 := _t58 / _t59;
 
-  #l35.
+  #l35.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
     return r6;
 }
