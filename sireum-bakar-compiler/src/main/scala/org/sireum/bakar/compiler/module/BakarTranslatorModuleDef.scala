@@ -133,7 +133,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       NameExp(NameUser(name))
     }
 
-    def newLocLabel = { countLocation += 1; NameDefinition(this.LOCATION_PREFIX + countLocation) }
+    def newLocLabel = { 
+      countLocation += 1
+      val n = this.LOCATION_PREFIX + countLocation
+      this.addResourceUri(NameDefinition(n), n)
+    }
 
     def createEmptyLocation(locName : NameDefinition, annots : ISeq[Annotation] = TranslatorUtil.emptyAnnot) = {
       EmptyLocation(Some(locName), annots)
@@ -428,12 +432,17 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
     }
 
-    def addResourceUri(s : org.sireum.pilar.symbol.Symbol, uri : String) {
+    def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s : T, uri : String) = {
       import org.sireum.pilar.symbol.Symbol
       val u = new URI(uri)
-      val paths = if (u.getPath.startsWith("/")) u.getPath.split("/").drop(1) else u.getPath.split("/")
+      val paths =
+        if (u.getPath.startsWith("/")) 
+          u.getPath.split("/").drop(1) 
+        else
+          u.getPath.split("/")
 
       s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
+      s
     }
     
     def convertGlobal(name : String, uri : String) : (String, String) = {
@@ -677,8 +686,12 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             None
           }
         }
-
-        val body = ImplementedBody(ctx.localsPop.toList, ctx.popLocationList.toList, ivectorEmpty[CatchClause])
+        
+        val locs = ctx.popLocationList.toList
+        for(i <- 0 to locs.size - 1)
+          locs(i).index(i)
+        
+        val body = ImplementedBody(ctx.localsPop.toList, locs, ivectorEmpty[CatchClause])
 
         val typeVars = ivectorEmpty[(NameDefinition, ISeq[Annotation])]
         val varArity = false
