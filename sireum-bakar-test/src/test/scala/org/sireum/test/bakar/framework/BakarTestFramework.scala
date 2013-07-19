@@ -82,11 +82,6 @@ trait BakarTestFileFramework extends BakarTestFramework {
   override def execute(testName : String, files : ISeq[FileResourceUri]) = {
     test(testName) {
       
-      if(!accept(testName, files)) {
-        // hack to get around initialization order
-        this.cancel("Canceling test")
-      }
-      
       val testNamelc = testName.toLowerCase
 
       val edir = new File(new URI(EXPECTED_DIR))
