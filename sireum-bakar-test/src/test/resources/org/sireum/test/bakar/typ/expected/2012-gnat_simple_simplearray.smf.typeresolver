@@ -382,6 +382,12 @@ procedure Integer Max (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/SimpleArray-1:9/Max+8:13/V+8:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 

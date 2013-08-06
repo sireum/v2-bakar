@@ -157,11 +157,23 @@ procedure R (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/P_Simple_Call_Two-1:9/R-11:13/X-11:15</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer Z
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/P_Simple_Call_Two-1:9/R-11:13/Z-11:30</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -322,11 +334,23 @@ procedure Q (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/P_Simple_Call_Two-1:9/Q-7:13/X-7:15</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer Z
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/P_Simple_Call_Two-1:9/Q-7:13/Z-7:30</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 

@@ -368,6 +368,12 @@ procedure Success0 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success0-3:14/O-3:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -478,11 +484,23 @@ procedure Success1 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success1+11:14/I+11:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success1+11:14/O+11:40</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -593,11 +611,23 @@ procedure Success2 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success2+19:14/I+19:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success2+19:14/O+19:40</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -722,11 +752,23 @@ procedure Success3 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success3+29:14/I+29:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success3+29:14/O+29:40</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -875,16 +917,34 @@ procedure Success4 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/I1+41:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/I2+41:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/O+41:45</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -1049,21 +1109,45 @@ procedure Success5 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/I1+53:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/I2+53:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/O1+53:45</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/O2+53:49</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -1242,21 +1326,45 @@ procedure Success6 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/I1+68:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/I2+68:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/O1+68:45</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/O2+68:49</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -1427,16 +1535,34 @@ procedure Success7 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/I1+83:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/I2+83:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/O+83:45</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -1612,16 +1738,34 @@ procedure Success8 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/I1+98:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/I2+98:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/O+98:45</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -1809,21 +1953,45 @@ procedure Success9 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I1+114:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I2+114:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I3
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I3+114:32</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/O+114:49</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -2062,26 +2230,56 @@ procedure Success10 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I1+135:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I2+135:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I3
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I3+135:33</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/O1+135:50</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/O2+135:54</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -2320,11 +2518,23 @@ procedure Success11 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success11+158:14/I1+158:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success11+158:14/O1+158:42</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -2551,16 +2761,34 @@ procedure Success12 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/I1+175:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/I2+175:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/O1+175:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -2824,16 +3052,34 @@ procedure Success13 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/I1+194:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/I2+194:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/O1+194:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -3155,11 +3401,23 @@ procedure Success14 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success14+214:14/I1+214:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success14+214:14/O1+214:42</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -3433,6 +3691,12 @@ procedure Success15 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success15+234:14/O1+234:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -3580,11 +3844,23 @@ procedure Success16 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success16+253:14/I1+253:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success16+253:14/O1+253:42</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -3732,16 +4008,34 @@ procedure Success17 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/I1+268:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/I2+268:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/O1+268:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -3926,16 +4220,34 @@ procedure Success18 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/I1+285:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/I2+285:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/O1+285:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -4099,16 +4411,34 @@ procedure Success19 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/I1+301:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/I2+301:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/O1+301:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -4256,11 +4586,23 @@ procedure Success20 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success20+329:14/I1+329:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success20+329:14/O1+329:42</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -4443,11 +4785,23 @@ procedure Success21 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success21+348:14/I1+348:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success21+348:14/O1+348:42</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -4660,16 +5014,34 @@ procedure Success22 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/I1+369:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/I2+369:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/O1+369:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -4889,16 +5261,34 @@ procedure Success23 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/I1+389:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/I2+389:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/O1+389:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -5132,11 +5522,23 @@ procedure Success24 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success24+412:14/I1+412:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success24+412:14/O1+412:42</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -5319,11 +5721,23 @@ procedure Success25 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success25+436:14/I1+436:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success25+436:14/O1+436:42</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -5506,16 +5920,34 @@ procedure Success26 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/I1+455:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/I2+455:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/O1+455:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -5742,16 +6174,34 @@ procedure Success27 (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/I1+473:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer I2
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/I2+473:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer O1
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/O1+473:46</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 

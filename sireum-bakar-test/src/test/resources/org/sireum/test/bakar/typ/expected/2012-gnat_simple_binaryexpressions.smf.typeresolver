@@ -332,11 +332,23 @@ procedure Integer Add (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Add+5:12/I+5:16</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer J
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Add+5:12/J+5:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -661,11 +673,23 @@ procedure Integer Sub (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Sub+20:12/I+20:16</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer J
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Sub+20:12/J+20:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -967,11 +991,23 @@ procedure Integer Mult (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Mult+35:12/I+35:17</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer J
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Mult+35:12/J+35:20</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
@@ -1296,11 +1332,23 @@ procedure Integer Division (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Division+50:12/I+50:21</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer J
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/BinaryExpressions-1:9/Division+50:12/J+50:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 

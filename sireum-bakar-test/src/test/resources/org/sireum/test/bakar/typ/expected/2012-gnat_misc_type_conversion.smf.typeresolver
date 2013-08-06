@@ -140,11 +140,23 @@ procedure Convert (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
         ,
         Integer X
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 

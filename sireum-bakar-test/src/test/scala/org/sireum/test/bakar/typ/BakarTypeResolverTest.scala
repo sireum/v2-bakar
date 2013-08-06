@@ -20,9 +20,8 @@ import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
 class BakarTypeResolverTest extends BakarRewriterTest {
 
   override def excludes = {
-    super.excludes ++= Set("recordtest01", "recordtest02", "case", "constraints",
-      "dependence_test_suite_01", "faultintegrator", "in_range_name",
-      "simplerecordtests", "packagedemo_b", "for_loops", "p_refinement",
+    super.excludes ++= Set("recordtest01", "recordtest02", "case",
+      "simplerecordtests", "for_loops", "p_refinement",
       "quantifier")
   }
 

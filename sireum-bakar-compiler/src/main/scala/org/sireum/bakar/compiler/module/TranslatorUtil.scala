@@ -7,6 +7,10 @@ import org.sireum.util._
 import org.sireum.bakar.symbol.FullTypeDecl
 import org.sireum.bakar.symbol.SignedIntegerTypeDef
 
+object BAKAR_KEYS {
+  val PARAM_INFO = "BAKAR_PARAM_INFO"
+}
+
 object URIS {
   val TYPE_MAP = "BAKAR_TYPE_MAP"
   val TYPE_DEF = "BAKAR_TYPE_DEF"

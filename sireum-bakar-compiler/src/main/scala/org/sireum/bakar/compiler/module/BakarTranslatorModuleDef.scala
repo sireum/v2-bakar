@@ -616,9 +616,15 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 val (sloc, defName, defUri, typ) = ctx.getName(pname)
                 val name = NameDefinition(pname.getDefName())
                 val typeSpec = Some(NamedTypeSpec(odv.name, ivectorEmpty[TypeSpec]))
+                
                 val pd = ParamDecl(typeSpec, name, TranslatorUtil.emptyAnnot)
                 pd(URIS.REF_URI) = defUri
                 params += pd
+                
+                import org.sireum.bakar.symbol.BakarSymbol._
+                pd.mode(mode)
+
+                
               case x =>
                 if (DEBUG) println("Not expecting: " + x)
                 assert(false)

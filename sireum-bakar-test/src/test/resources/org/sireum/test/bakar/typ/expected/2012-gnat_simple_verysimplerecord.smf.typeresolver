@@ -358,6 +358,12 @@ procedure Add (
             @BAKAR_REF_URI
 
               ("""<string sid="1">ada://parameter/SimpleRecord-1:9/Add+12:14/R+12:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
 )
     @BAKAR_REF_URI
 
