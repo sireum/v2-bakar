@@ -71,8 +71,11 @@ returnStmt(astnum, returnExp) ::= <<
 Sreturn ($astnum$, $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
 >>
 
-paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
-{ param_astnum = $astnum$; param_idents = [$ids; separator="; "$]; param_typenum = $theType$; param_mode = $mode$; param_init = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
+//paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
+//{ param_astnum = $astnum$; param_idents = [$ids; separator="; "$]; param_typenum = $theType$; param_mode = $mode$; param_init = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
+//>>
+paramSpecification(astnum, id, theType, mode, initExp) ::= <<
+{ param_astnum = $astnum$; param_ident = $id$; param_typenum = $theType$; param_mode = $mode$; param_init = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -87,8 +90,11 @@ aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 >>
 
 // +++++++++
-localVarDeclaration(astnum, ids, theType, init) ::= <<
-{ local_astnum = $astnum$; local_idents = [$ids; separator="; "$]; local_typenum = $theType$; local_init = $if(init)$(Some ($init$))$else$None$endif$ }
+//localVarDeclaration(astnum, ids, theType, init) ::= <<
+//{ local_astnum = $astnum$; local_idents = [$ids; separator="; "$]; local_typenum = $theType$; local_init = $if(init)$(Some ($init$))$else$None$endif$ }
+//>>
+localVarDeclaration(astnum, id, theType, init) ::= <<
+{ local_astnum = $astnum$; local_ident = $id$; local_typenum = $theType$; local_init = $if(init)$(Some ($init$))$else$None$endif$ }
 >>
 
 // ++++++
@@ -102,21 +108,16 @@ procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <
     $procName$;
   proc_specs =
     (* Procedure Body - Specification *)
-    $if(aspectSpecs)$
-    $aspectSpecs; separator="; \n"$$else$
-    None$endif$;
+    [$if(aspectSpecs)$
+    $aspectSpecs; separator="; \n"$$endif$];
   proc_params = 
     (* Procedure Body - Parameters *)
-    $if(params)$Some([
-      $params; separator="; \n"$
-    ])$else$
-    None$endif$;
+    [$if(params)$
+    $params; separator="; \n"$$endif$];
   proc_loc_idents = 
     (* Procedure Body - Local Defined Variables *)
-    $if(identDecls)$Some([
-      $identDecls; separator="; \n"$
-    ])$else$
-    None$endif$;
+    [$if(identDecls)$
+    $identDecls; separator="; \n"$$endif$];
   proc_body =
     (* Procedure Body - Body *)
     $procBody$
@@ -137,21 +138,16 @@ functionBody(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBod
     $returnT$;
   fn_specs = 
     (* Function Body - Specification *)
-    $if(aspectSpecs)$
-    $aspectSpecs; separator="; \n"$$else$
-    None$endif$;
+    [$if(aspectSpecs)$
+    $aspectSpecs; separator="; \n"$$endif$];
   fn_params = 
     (* Function Body - Parameters *)
-    $if(params)$Some([
-      $params; separator="; \n"$
-    ])$else$
-    None$endif$;
+    [$if(params)$
+    $params; separator="; \n"$$endif$];
   fn_loc_idents = 
     (* Function Body - Locally Defined Variables *)
-    $if(identDecls)$Some([
-      $identDecls; separator="; \n"$
-    ])$else$
-    None$endif$;
+    [$if(identDecls)$
+    $identDecls; separator="; \n"$$endif$];
   fn_body = 
     (* Function Body - Body *)
     $funcBody$

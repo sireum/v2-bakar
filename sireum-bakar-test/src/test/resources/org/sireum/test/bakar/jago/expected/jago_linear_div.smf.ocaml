@@ -13,18 +13,17 @@ CompilationUnit ( 1,
            (*Linear_Div*) 1;
         proc_specs =
           (* Procedure Body - Specification *)
-          None;
+          [];
         proc_params = 
           (* Procedure Body - Parameters *)
-          Some([
-                { param_astnum = 5; param_idents = [ (*Dividend*) 1]; param_typenum = 1; param_mode = In; param_init = None }; 
-                { param_astnum = 6; param_idents = [ (*Divisor*) 2]; param_typenum = 1; param_mode = In; param_init = None }; 
-                { param_astnum = 7; param_idents = [ (*Quotient*) 3]; param_typenum = 1; param_mode = Out; param_init = None }; 
-                { param_astnum = 8; param_idents = [ (*Remainder*) 4]; param_typenum = 1; param_mode = Out; param_init = None }
-              ]);
+          [
+          { param_astnum = 5; param_ident =  (*Dividend*) 1; param_typenum = 1; param_mode = In; param_init = None }; 
+          { param_astnum = 6; param_ident =  (*Divisor*) 2; param_typenum = 1; param_mode = In; param_init = None }; 
+          { param_astnum = 7; param_ident =  (*Quotient*) 3; param_typenum = 1; param_mode = Out; param_init = None }; 
+          { param_astnum = 8; param_ident =  (*Remainder*) 4; param_typenum = 1; param_mode = Out; param_init = None }];
         proc_loc_idents = 
           (* Procedure Body - Local Defined Variables *)
-              None;
+          [];
         proc_body =
           (* Procedure Body - Body *)
           Sseq (9,

@@ -8,16 +8,15 @@ CompilationUnit 1
           (* Procedure Body - Name *)
           (*Linear_Div_Complete*) 1
           (* Procedure Body - Specification *)
-          (None)
+          (nil)
           (* Procedure Body - Parameters *)
-          (Some(
-            mkparam_specification 5 ((*Dividend*) 1 :: nil) (1) (In) None :: 
-            mkparam_specification 6 ((*Divisor*) 2 :: nil) (1) (In) None :: 
-            mkparam_specification 7 ((*Quotient*) 3 :: nil) (1) (Out) None :: 
-            mkparam_specification 8 ((*Remainder*) 4 :: nil) (1) (Out) None :: nil
-          )) 
+          (
+          mkparam_specification 5 (*Dividend*) 1 (1) (In) None :: 
+          mkparam_specification 6 (*Divisor*) 2 (1) (In) None :: 
+          mkparam_specification 7 (*Quotient*) 3 (1) (Out) None :: 
+          mkparam_specification 8 (*Remainder*) 4 (1) (Out) None :: nil) 
           (* Procedure Body - Locally Defined Variables *)
-          (None)
+          (nil)
           (* Procedure Body - Body *) (
             Sseq 9 (
               Sassign 10 ((*Quotient*) 3) (Econst 11 (Ointconst 0)) ) ( 

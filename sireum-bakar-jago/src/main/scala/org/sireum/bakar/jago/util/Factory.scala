@@ -140,7 +140,7 @@ class Factory(stg: STGroupFile) {
       case "AN_OUT_MODE" => 
         Some("Out")
       case "AN_IN_OUT_MODE" =>
-        Some("In_Out")
+        Some("InOut")
       case _ => 
         None
     }
@@ -313,7 +313,8 @@ class Factory(stg: STGroupFile) {
   def buildParamSpecification(astnum: Int, ids: MList[String], theType: String, mode: String, initExp: Option[String]) = {
     val result = stg.getInstanceOf("paramSpecification")
     result.add("astnum", astnum)
-    buildListAttributes(result, "ids", ids: _*)
+    //buildListAttributes(result, "ids", ids: _*)
+    result.add("id", ids(0))
     val typeNum = getTypeNum(theType)
     result.add("theType", typeNum)
     result.add("mode", mode)
@@ -333,7 +334,8 @@ class Factory(stg: STGroupFile) {
   def buildIdentiferDecl(astnum: Int, ids: MList[String], theType: String, optionalInit: Option[String]) = {
     val result = stg.getInstanceOf("localVarDeclaration")
     result.add("astnum", astnum)
-    buildListAttributes(result, "ids", ids: _*)
+    //buildListAttributes(result, "ids", ids: _*)
+    result.add("id", ids(0));
     val theTypeNum = getTypeNum(theType)
     result.add("theType", theTypeNum)
     if(optionalInit.isDefined)

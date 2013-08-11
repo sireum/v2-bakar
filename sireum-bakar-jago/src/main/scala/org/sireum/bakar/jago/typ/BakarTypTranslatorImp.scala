@@ -199,7 +199,8 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     val annotation = Some("Local variables declarations used in the procedure/function body")
     val fields = List(
       buildFieldDecl("local_astnum", TypeNameSpace.AstNum),
-      buildFieldDecl("local_idents", buildListType(TypeNameSpace.IdNum)),
+      //buildFieldDecl("local_idents", buildListType(TypeNameSpace.IdNum)),
+      buildFieldDecl("local_ident", TypeNameSpace.IdNum),
       buildFieldDecl("local_typenum", TypeNameSpace.TypeNum),
       buildFieldDecl("local_init", buildOptionType(TypeNameSpace.Expression)))
     val varDecl = buildRecordType(typeName, annotation, fields : _*)
@@ -210,7 +211,8 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     val typeName = TypeNameSpace.ParameterSpecification
     val fields = List(
       buildFieldDecl("param_astnum", TypeNameSpace.AstNum),
-      buildFieldDecl("param_idents", buildListType(TypeNameSpace.IdNum)),
+      //buildFieldDecl("param_idents", buildListType(TypeNameSpace.IdNum)),
+      buildFieldDecl("param_ident", TypeNameSpace.IdNum),
       buildFieldDecl("param_typenum", TypeNameSpace.TypeNum),
       buildFieldDecl("param_mode", TypeNameSpace.ModeT),
       buildFieldDecl("param_init", buildOptionType(TypeNameSpace.Expression)))
@@ -278,9 +280,9 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     val fields = List(
       buildFieldDecl("proc_astnum", TypeNameSpace.AstNum),
       buildFieldDecl("proc_name", TypeNameSpace.ProcNum),
-      buildFieldDecl("proc_specs", buildOptionType(buildListType(TypeNameSpace.AspectSpecification))),
-      buildFieldDecl("proc_params", buildOptionType(buildListType(TypeNameSpace.ParameterSpecification))),
-      buildFieldDecl("proc_loc_idents", buildOptionType(buildListType(TypeNameSpace.LocalVariableDeclaration))),
+      buildFieldDecl("proc_specs", buildListType(TypeNameSpace.AspectSpecification)),
+      buildFieldDecl("proc_params", buildListType(TypeNameSpace.ParameterSpecification)),
+      buildFieldDecl("proc_loc_idents", buildListType(TypeNameSpace.LocalVariableDeclaration)),
       buildFieldDecl("proc_body", TypeNameSpace.Statement))
     val procBodyDecl = buildRecordType(typeName, None, fields : _*)
     ctx.addNewTypeDecl(procBodyDecl)
@@ -317,9 +319,9 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
       buildFieldDecl("fn_astnum", TypeNameSpace.AstNum),
       buildFieldDecl("fn_name", TypeNameSpace.ProcNum),
       buildFieldDecl("fn_ret_type", TypeNameSpace.Type),
-      buildFieldDecl("fn_specs", buildOptionType(buildListType(TypeNameSpace.AspectSpecification))),
-      buildFieldDecl("fn_params", buildOptionType(buildListType(TypeNameSpace.ParameterSpecification))),
-      buildFieldDecl("fn_loc_idents", buildOptionType(buildListType(TypeNameSpace.LocalVariableDeclaration))),
+      buildFieldDecl("fn_specs", buildListType(TypeNameSpace.AspectSpecification)),
+      buildFieldDecl("fn_params", buildListType(TypeNameSpace.ParameterSpecification)),
+      buildFieldDecl("fn_loc_idents", buildListType(TypeNameSpace.LocalVariableDeclaration)),
       buildFieldDecl("fn_body", TypeNameSpace.Statement))
     val fnBodyDecl = buildRecordType(typeName, annotation, fields : _*)
     ctx.addNewTypeDecl(fnBodyDecl)
@@ -426,7 +428,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     val annotation = None
     val constructors = mlistEmpty[String]
     constructors += buildTypeConstructor(TypeNameSpace.Constant, "Ointconst", TypeNameSpace.Integer(option))
-    //constructors += buildTypeConstructor(TypeNameSpace.Constant, "Oboolconst", TypeNameSpace.Bool)
+    constructors += buildTypeConstructor(TypeNameSpace.Constant, "Oboolconst", TypeNameSpace.Bool)
     val constantDecl = buildTypeDeclaration(TypeNameSpace.Constant, annotation, constructors : _*)
     ctx.addNewTypeDecl(constantDecl)
   }
@@ -452,13 +454,16 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
           val xelems = a.asInstanceOf[XmlElements]
           val binOps = mlistEmpty[String]
           val unOps = mlistEmpty[String]
-          val binopTrans = Map[String, String]("MultiplyOperator" -> "Omul", "DivideOperator" -> "Odiv",
+          val binopTrans = Map[String, String]("PlusOperator" -> "Oadd", "MinusOperator" -> "Osub", 
+              "MultiplyOperator" -> "Omul", "DivideOperator" -> "Odiv",
             // "ModOperator" -> "Omod", "RemOperator" -> "ARem", "ExponentiateOperator" -> "AExpon",
-            "PlusOperator" -> "Oadd", "MinusOperator" -> "Osub", // "ConcatenateOperator" -> "Oand", // &
+            // "ConcatenateOperator" -> "Oand", // &
             "AndOperator" -> "Oand", "OrOperator" -> "Oor", "XorOperator" -> "Oxor",
-            "EqualOperator" -> "Ceq", "GreaterThanOperator" -> "Cgt", "GreaterThanOrEqualOperator" -> "Cge",
-            "LessThanOperator" -> "Clt", "LessThanOrEqualOperator" -> "Cle", "NotEqualOperator" -> "Cne")
-          val unopTrans = Map[String, String]("UnaryPlusOperator" -> "Oposint", "UnaryMinusOperator" -> "Onegint")
+            "EqualOperator" -> "Ceq", "NotEqualOperator" -> "Cne", 
+            "GreaterThanOperator" -> "Cgt", "GreaterThanOrEqualOperator" -> "Cge",
+            "LessThanOperator" -> "Clt", "LessThanOrEqualOperator" -> "Cle")
+          val unopTrans = Map[String, String]("UnaryPlusOperator" -> "Oposint", "UnaryMinusOperator" -> "Onegint",
+              "NotOperator" -> "Onot")
           for (elem <- xelems.value) {
             for (m <- elem.getClass.getDeclaredMethods if m.getName() == "type") {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]

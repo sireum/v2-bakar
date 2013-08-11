@@ -5,7 +5,8 @@ Require Export Coq.Strings.String.
 
 Inductive mode: Type := 
     | In: mode
-    | Out: mode.
+    | Out: mode
+    | InOut: mode.
 
 Inductive typ: Type := 
     | Tint: typ
@@ -31,10 +32,12 @@ Record type_table: Type := mktype_table{
 }.
 
 Inductive constant: Type := 
-	| Ointconst: nat -> constant.
+	| Ointconst: nat -> constant
+	| Oboolconst: bool -> constant.
 
 Inductive unary_operation: Type := 
 	| Onegint: unary_operation
+	| Onot: unary_operation
 	| Oposint: unary_operation.
 
 Inductive binary_operation: Type := 
@@ -69,7 +72,7 @@ Inductive stmt: Type :=
 
 Record param_specification: Type := mkparam_specification{
 	param_astnum: astnum;
-	param_idents: list idnum;
+	param_ident: idnum;
 	param_typenum: typenum;
 	param_mode: mode;
 	param_init: option (expr)
@@ -84,7 +87,7 @@ Record aspect_specification: Type := mkaspect_specification{
 (* Local variables declarations used in the procedure/function body *)
 Record local_declaration: Type := mklocal_declaration{
 	local_astnum: astnum;
-	local_idents: list idnum;
+	local_ident: idnum;
 	local_typenum: typenum;
 	local_init: option (expr)
 }.
@@ -92,9 +95,9 @@ Record local_declaration: Type := mklocal_declaration{
 Record procedure_body: Type := mkprocedure_body{
 	proc_astnum: astnum;
 	proc_name: procnum;
-	proc_specs: option (list aspect_specification);
-	proc_params: option (list param_specification);
-	proc_loc_idents: option (list local_declaration);
+	proc_specs: list aspect_specification;
+	proc_params: list param_specification;
+	proc_loc_idents: list local_declaration;
 	proc_body: stmt
 }.
 
@@ -102,9 +105,9 @@ Record function_body: Type := mkfunction_body{
 	fn_astnum: astnum;
 	fn_name: procnum;
 	fn_ret_type: typ;
-	fn_specs: option (list aspect_specification);
-	fn_params: option (list param_specification);
-	fn_loc_idents: option (list local_declaration);
+	fn_specs: list aspect_specification;
+	fn_params: list param_specification;
+	fn_loc_idents: list local_declaration;
 	fn_body: stmt
 }.
 

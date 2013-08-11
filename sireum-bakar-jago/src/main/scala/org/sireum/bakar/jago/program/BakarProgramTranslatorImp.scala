@@ -50,7 +50,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       x match {
         case UnaryMinusOperatorEx(_) => Some("Onegint")
         case UnaryPlusOperatorEx(_)  => Some("Oposint")
-        // case NotOperatorEx(_)        => Some("NotExp")
+        case NotOperatorEx(_)        => Some("Onot")
         case _                       => None
       }
     }
@@ -68,11 +68,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         case XorOperatorEx                   => Some("Oxor")
 
         case EqualOperatorEx(_)              => Some("Ceq")
+        case NotEqualOperatorEx(_)           => Some("Cne")
         case GreaterThanOperatorEx(_)        => Some("Cgt")
         case GreaterThanOrEqualOperatorEx(_) => Some("Cge")
         case LessThanOperatorEx(_)           => Some("Clt")
         case LessThanOrEqualOperatorEx(_)    => Some("Cle")
-        case NotEqualOperatorEx(_)           => Some("Cne")
 
         case DivideOperatorEx(_)             => Some("Odiv")
         case MinusOperatorEx(_)              => Some("Osub")

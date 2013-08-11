@@ -21,7 +21,8 @@ Require Export Coq.Strings.String.
 basicTypes() ::= <<
 Inductive mode: Type := 
     | In: mode
-    | Out: mode.
+    | Out: mode
+    | InOut: mode.
 
 Inductive typ: Type := 
     | Tint: typ

@@ -10,6 +10,7 @@ basicTypes() ::= <<
 type mode = 
     | In
     | Out
+    | InOut
 
 type typ = 
     | Tint

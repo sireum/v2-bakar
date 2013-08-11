@@ -16,19 +16,17 @@ CompilationUnit ( 1,
           Tint;
         fn_specs = 
           (* Function Body - Specification *)
-          None;
+          [];
         fn_params = 
           (* Function Body - Parameters *)
-          Some([
-                { param_astnum = 5; param_idents = [ (*Dividend*) 1]; param_typenum = 1; param_mode = In; param_init = None }; 
-                { param_astnum = 6; param_idents = [ (*Divisor*) 2]; param_typenum = 1; param_mode = In; param_init = None }
-              ]);
+          [
+          { param_astnum = 5; param_ident =  (*Dividend*) 1; param_typenum = 1; param_mode = In; param_init = None }; 
+          { param_astnum = 6; param_ident =  (*Divisor*) 2; param_typenum = 1; param_mode = In; param_init = None }];
         fn_loc_idents = 
           (* Function Body - Locally Defined Variables *)
-          Some([
-                { local_astnum = 7; local_idents = [ (*Quotient*) 3]; local_typenum = 1; local_init = (Some (Econst (8, 0))) }; 
-                { local_astnum = 9; local_idents = [ (*Remainder*) 4]; local_typenum = 1; local_init = None }
-              ]);
+          [
+          { local_astnum = 7; local_ident =  (*Quotient*) 3; local_typenum = 1; local_init = (Some (Econst (8, 0))) }; 
+          { local_astnum = 9; local_ident =  (*Remainder*) 4; local_typenum = 1; local_init = None }];
         fn_body = 
           (* Function Body - Body *)
           Sseq (10,

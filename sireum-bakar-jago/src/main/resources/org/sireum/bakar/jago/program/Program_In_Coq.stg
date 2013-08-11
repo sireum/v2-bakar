@@ -69,8 +69,11 @@ returnStmt(astnum, returnExp) ::= <<
 Sreturn $astnum$ $if(returnExp)$(Some ($returnExp$))$else$None$endif$
 >>
 
-paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
-mkparam_specification $astnum$ ($ids; separator=" :: "$ :: nil) ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$(Some ($initExp$))$else$None$endif$
+//paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
+//mkparam_specification $astnum$ ($ids; separator=" :: "$ :: nil) ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$(Some ($initExp$))$else$None$endif$
+//>>
+paramSpecification(astnum, id, theType, mode, initExp) ::= <<
+mkparam_specification $astnum$ $id$ ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$(Some ($initExp$))$else$None$endif$
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -81,8 +84,11 @@ mkaspect_specification $astnum$
   ($aspectDef$)
 >>
 
-localVarDeclaration(astnum, ids, theType, init) ::= <<
-mklocal_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$(Some ($init$))$else$None$endif$
+//localVarDeclaration(astnum, ids, theType, init) ::= <<
+//mklocal_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$(Some ($init$))$else$None$endif$
+//>>
+localVarDeclaration(astnum, id, theType, init) ::= <<
+mklocal_declaration $astnum$ $id$ $theType$ $if(init)$(Some ($init$))$else$None$endif$
 >>
 
 procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
@@ -91,15 +97,13 @@ mkprocedure_body $astnum$
   $procName$
   (* Procedure Body - Specification *)
   ($if(aspectSpecs)$
-  $aspectSpecs; separator=" :: \n"$ :: nil$else$None$endif$)
+  $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
   (* Procedure Body - Parameters *)
-  ($if(params)$Some(
-    $params; separator=" :: \n"$ :: nil
-  )$else$None$endif$) 
+  ($if(params)$
+  $params; separator=" :: \n"$ :: $endif$nil) 
   (* Procedure Body - Locally Defined Variables *)
-  ($if(identDecls)$Some(
-    $identDecls; separator=" :: \n"$ :: nil
-  )$else$None$endif$)
+  ($if(identDecls)$
+  $identDecls; separator=" :: \n"$ :: $endif$nil)
   (* Procedure Body - Body *) (
     $procBody$
   )
@@ -113,15 +117,13 @@ mkfunction_body $astnum$
   ($returnT$) 
   (* Function Body - Specification *)
   ($if(aspectSpecs)$
-  $aspectSpecs; separator=" :: \n"$ :: nil$else$None$endif$)
+  $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
   (* Function Body - Parameters *)
-  ($if(params)$Some(
-    $params; separator=" :: \n"$ :: nil
-  )$else$None$endif$)
+  ($if(params)$
+  $params; separator=" :: \n"$ :: $endif$nil)
   (* Function Body - Local Defined Variables *)
-  ($if(identDecls)$Some(
-    $identDecls; separator=" :: \n"$ :: nil
-  )$else$None$endif$)
+  ($if(identDecls)$
+  $identDecls; separator=" :: \n"$ :: $endif$nil)
   (* Function Body - Body *) (
     $funcBody$
   )

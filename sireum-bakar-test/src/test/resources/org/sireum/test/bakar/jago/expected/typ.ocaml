@@ -1,6 +1,7 @@
 type mode = 
     | In
     | Out
+    | InOut
 
 type typ = 
     | Tint
@@ -26,10 +27,12 @@ type type_table = {
 }
 
 type constant = 
-	int
+	| Ointconst of int
+	| Oboolconst of bool
 
 type unary_operation = 
 	| Onegint 
+	| Onot 
 	| Oposint 
 
 type binary_operation = 
@@ -64,7 +67,7 @@ type stmt =
 
 type param_specification = {
 	param_astnum: astnum;
-	param_idents: idnum list;
+	param_ident: idnum;
 	param_typenum: typenum;
 	param_mode: mode;
 	param_init: (expr) option 
@@ -79,7 +82,7 @@ type aspect_specification = {
 (* Local variables declarations used in the procedure/function body *)
 type local_declaration = {
 	local_astnum: astnum;
-	local_idents: idnum list;
+	local_ident: idnum;
 	local_typenum: typenum;
 	local_init: (expr) option 
 }
@@ -87,9 +90,9 @@ type local_declaration = {
 type procedure_body = {
 	proc_astnum: astnum;
 	proc_name: procnum;
-	proc_specs: (aspect_specification list) option;
-	proc_params: (param_specification list) option;
-	proc_loc_idents: (local_declaration list) option;
+	proc_specs: aspect_specification list;
+	proc_params: param_specification list;
+	proc_loc_idents: local_declaration list;
 	proc_body: stmt 
 }
 
@@ -97,9 +100,9 @@ type function_body = {
 	fn_astnum: astnum;
 	fn_name: procnum;
 	fn_ret_type: typ;
-	fn_specs: (aspect_specification list) option;
-	fn_params: (param_specification list) option;
-	fn_loc_idents: (local_declaration list) option;
+	fn_specs: aspect_specification list;
+	fn_params: param_specification list;
+	fn_loc_idents: local_declaration list;
 	fn_body: stmt 
 }
 

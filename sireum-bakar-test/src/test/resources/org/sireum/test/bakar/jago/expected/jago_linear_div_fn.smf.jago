@@ -10,17 +10,15 @@ CompilationUnit 1
           (* Function Body - Return Type *) 
           (Tint) 
           (* Function Body - Specification *)
-          (None)
+          (nil)
           (* Function Body - Parameters *)
-          (Some(
-            mkparam_specification 5 ((*Dividend*) 1 :: nil) (1) (In) None :: 
-            mkparam_specification 6 ((*Divisor*) 2 :: nil) (1) (In) None :: nil
-          ))
+          (
+          mkparam_specification 5 (*Dividend*) 1 (1) (In) None :: 
+          mkparam_specification 6 (*Divisor*) 2 (1) (In) None :: nil)
           (* Function Body - Local Defined Variables *)
-          (Some(
-            mklocal_declaration 7 ((*Quotient*) 3 :: nil) 1 (Some (Econst 8 (Ointconst 0))) :: 
-            mklocal_declaration 9 ((*Remainder*) 4 :: nil) 1 None :: nil
-          ))
+          (
+          mklocal_declaration 7 (*Quotient*) 3 1 (Some (Econst 8 (Ointconst 0))) :: 
+          mklocal_declaration 9 (*Remainder*) 4 1 None :: nil)
           (* Function Body - Body *) (
             Sseq 10 (
               Sassign 11 ((*Remainder*) 4) (Evar 12 (*Dividend*) 1) ) ( 

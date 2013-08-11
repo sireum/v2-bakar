@@ -8,16 +8,14 @@ CompilationUnit 1
           (* Procedure Body - Name *)
           (*Test_Case_10*) 1
           (* Procedure Body - Specification *)
-          (None)
+          (nil)
           (* Procedure Body - Parameters *)
-          (Some(
-            mkparam_specification 5 ((*I1*) 1 :: (*I2*) 2 :: (*I3*) 3 :: nil) (1) (In) None :: 
-            mkparam_specification 6 ((*O1*) 4 :: (*O2*) 5 :: nil) (1) (Out) None :: nil
-          )) 
+          (
+          mkparam_specification 5 (*I1*) 1 (1) (In) None :: 
+          mkparam_specification 6 (*O1*) 4 (1) (Out) None :: nil) 
           (* Procedure Body - Locally Defined Variables *)
-          (Some(
-            mklocal_declaration 7 ((*L1*) 6 :: (*L2*) 7 :: nil) 1 None :: nil
-          ))
+          (
+          mklocal_declaration 7 (*L1*) 6 1 None :: nil)
           (* Procedure Body - Body *) (
             Sseq 8 (
               Sassign 9 ((*L2*) 7) (Econst 10 (Ointconst 5)) ) ( 

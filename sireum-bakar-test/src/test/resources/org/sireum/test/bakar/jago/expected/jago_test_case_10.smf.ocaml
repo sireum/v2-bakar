@@ -13,18 +13,16 @@ CompilationUnit ( 1,
            (*Test_Case_10*) 1;
         proc_specs =
           (* Procedure Body - Specification *)
-          None;
+          [];
         proc_params = 
           (* Procedure Body - Parameters *)
-          Some([
-                { param_astnum = 5; param_idents = [ (*I1*) 1;  (*I2*) 2;  (*I3*) 3]; param_typenum = 1; param_mode = In; param_init = None }; 
-                { param_astnum = 6; param_idents = [ (*O1*) 4;  (*O2*) 5]; param_typenum = 1; param_mode = Out; param_init = None }
-              ]);
+          [
+          { param_astnum = 5; param_ident =  (*I1*) 1; param_typenum = 1; param_mode = In; param_init = None }; 
+          { param_astnum = 6; param_ident =  (*O1*) 4; param_typenum = 1; param_mode = Out; param_init = None }];
         proc_loc_idents = 
           (* Procedure Body - Local Defined Variables *)
-          Some([
-                { local_astnum = 7; local_idents = [ (*L1*) 6;  (*L2*) 7]; local_typenum = 1; local_init = None }
-              ]);
+          [
+          { local_astnum = 7; local_ident =  (*L1*) 6; local_typenum = 1; local_init = None }];
         proc_body =
           (* Procedure Body - Body *)
           Sseq (8,
