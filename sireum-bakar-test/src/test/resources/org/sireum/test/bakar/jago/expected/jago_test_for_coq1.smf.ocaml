@@ -1,0 +1,87 @@
+(* Compilation Unit *)
+CompilationUnit ( 1,
+  (* Compilation Unit - Unit Declaration *)
+  UnitDecl( 2,
+    (* Procedure Body Declaration *)
+    Sproc( 3,
+      { 
+        proc_astnum = 
+          (* Procedure Body - AST Number *)
+          4;
+        proc_name = 
+          (* Procedure Body - Name *)
+           (*Test_for_Coq1*) 1;
+        proc_specs =
+          (* Procedure Body - Specification *)
+          [];
+        proc_params = 
+          (* Procedure Body - Parameters *)
+          [];
+        proc_loc_idents = 
+          (* Procedure Body - Local Defined Variables *)
+          [
+          { local_astnum = 5; local_ident =  (*N*) 1; local_typenum = 2; local_init = (Some (Econst (6, 25))) }; 
+          { local_astnum = 7; local_ident =  (*Result*) 2; local_typenum = 3; local_init = None }; 
+          { local_astnum = 8; local_ident =  (*I*) 3; local_typenum = 2; local_init = None }; 
+          { local_astnum = 9; local_ident =  (*X*) 4; local_typenum = 2; local_init = None }];
+        proc_body =
+          (* Procedure Body - Body *)
+          Sseq (10,
+            Sassign (11,  (*Result*) 2, Econst (12, true)),
+            Sseq (13,
+              Sifthen (14, Ebinop (15, Cle, Evar (16,  (*N*) 1), Econst (17, 1)),
+                Sassign (18,  (*Result*) 2, Econst (19, false))
+              ),
+              Sseq (20,
+                Sassign (21,  (*I*) 3, Econst (22, 0)),
+                Swhile (23, Ebinop (24, Cle, Ebinop (25, Omul, Evar (26,  (*I*) 3), Evar (27,  (*I*) 3)), Evar (28,  (*N*) 1)),
+                  Sseq (29,
+                    Sassign (30,  (*X*) 4, Ebinop (31, Odiv, Evar (32,  (*N*) 1), Evar (33,  (*I*) 3))),
+                    Sseq (34,
+                      Sifthen (35, Ebinop (36, Ceq, Evar (37,  (*N*) 1), Ebinop (38, Omul, Evar (39,  (*X*) 4), Evar (40,  (*I*) 3))),
+                        Sassign (41,  (*Result*) 2, Econst (42, false))
+                      ),
+                      Sassign (43,  (*I*) 3, Ebinop (44, Oadd, Evar (45,  (*I*) 3), Econst (46, 1))) ) )
+                ) ) ) )
+      }
+    )
+  ),  
+  (* Compilation Unit - Type Table *)
+  {
+    tt_exptype_table = 
+      (* Expression AstNum --> TypeNum *) 
+      [
+        (6, 1) ;
+        (12, 3) ;
+        (15, 3) ;
+        (16, 2) ;
+        (17, 1) ;
+        (19, 3) ;
+        (22, 1) ;
+        (24, 3) ;
+        (25, 2) ;
+        (26, 2) ;
+        (27, 2) ;
+        (28, 2) ;
+        (31, 2) ;
+        (32, 2) ;
+        (33, 2) ;
+        (36, 3) ;
+        (37, 2) ;
+        (38, 2) ;
+        (39, 2) ;
+        (40, 2) ;
+        (42, 3) ;
+        (44, 2) ;
+        (45, 2) ;
+        (46, 1)
+      ];
+    tt_typename_table = 
+      (* TypeNum --> (Type URI * (Type Declaration AST Num) Option) *) 
+      [
+        (1, ("universal_integer", None)) ;
+        (2, ("ada://ordinary_type/Standard-1:1/Integer-1:1", None)) ;
+        (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1", None))
+      ]
+  }
+)
