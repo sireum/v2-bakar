@@ -4,13 +4,19 @@ import os
 import pygtk
 pygtk.require('2.0')
 import gtk
-import re
 import warnings
 import kiasan_v1.gui
 import kiasan_v1.logic
 import urllib
 import subprocess
-import gtk, gobject
+import threading
+import gobject
+
+# global vars - EVILNESS!!!
+cancel = False
+kiasan_jar_is_running = False
+gobject.threads_init()
+
 
 
 class ProjectNotBuiltException(Exception):
@@ -28,30 +34,62 @@ def run_kiasan_plugin():
 		project_path = get_spark_sources_path()	#normalized project path
 		remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
 		prepare_directories_for_reports(project_path, remove_previous_reports)	
-		run_kiasan_tool()
 		
-		#read generated json
-		kiasan_logic = kiasan_v1.logic.KiasanLogic()
-		report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
-		report_file_url = urllib.pathname2url(report_file_path)
-		report = kiasan_logic.extract_report_file(report_file_url)
+		# raise exception when project is not build, because then we cannot fetch package name or subprograms
+		if GPS.current_context().file().entities(False) == []:
+			raise ProjectNotBuiltException	
 		
-		# load data into GUI
-		gui = kiasan_v1.gui.KiasanGUI(report)
+		if GPS.current_context().entity().category() == "subprogram":
+			# get package name		
+			for entity in GPS.current_context().file().entities(False):
+				warnings.warn("the second condition of below if is UGLY...but I didn't find the better way \
+				to check if entity is subprogram's package because file can have entities from external files")
+				if entity.category() == 'package/namespace' and \
+					entity.name().lower() == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
+					package_name = entity.name()
+			# set methods_list to only one method
+			methods_list = [GPS.current_context().entity().name()]	
+		elif GPS.current_context().entity().category() == "package/namespace":
+			# get package name
+			package_name = GPS.current_context().entity().name()	
+			# fetch all methods from file (method=subprogram)
+			methods_list = []
+			for entity in GPS.current_context().file().entities(False):
+				if entity.category() == 'subprogram':
+					methods_list.append(entity.name())	
 		
-		# attach GUI to GPS
-		if GPS.MDI.get('kiasan') is not None:
-			GPS.MDI.get('kiasan').hide()	# hide previous Kiasan results
-		GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
-		win = GPS.MDI.get('kiasan')
-		win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
+		SIREUM_PATH = get_sireum_path()	
+		load_sireum_settings(SIREUM_PATH)	
+		source_path = GPS.current_context().directory().replace("\\","/")
+		output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
+		kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, False)
+		kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, True)
+		
+		# init progress bar
+		win_pb, pb, info_label = init_progressbar()
+		GPS.MDI.add(win_pb, "KiasanProgress", "kiasanprogress")	
+		win = GPS.MDI.get('kiasanprogress')
 		win.float(float=False)	# float=True: popup, float=False: GPS integrated window
-	except ProjectNotBuiltException:
+		t = threading.Thread(target=run_kiasan_alasysis_async, args=(pb,project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list))
+		t.start()		
+		print 'async fired'
+		
+	except ProjectNotBuiltException as e:
+		print "ProjectNotBuiltException({0}): {1}".format(e.errno, e.strerror)
 		GPS.MDI.dialog("Build project, before run Kiasan.")
-	except AttributeError:
+		print "AttributeError:" + e.message
+	except AttributeError as e:
+		print dir(e)
+		print "AttributeError:" + e.message
 		GPS.MDI.dialog("This file does not belongs to opened project.")
-	except IOError:
+	except IOError as e:
 		GPS.MDI.dialog("Error: Kiasan report not generated.")
+		print "AttributeError:" + e.message
+	except Exception as e:
+		print "AttributeError:" + e.message
+	
+	print 'no exception'
+		
 
 
 def get_spark_sources_path():
@@ -74,70 +112,92 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 		os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
 
 
-def run_kiasan_tool():
-	""" Runs Kiasan based on preferences and clicked entity. """	
-	
-	# raise exception when project is not build, because then we cannot fetch package name or subprograms
-	if GPS.current_context().file().entities(False) == []:
-		raise ProjectNotBuiltException
-	
+def run_kiasan_alasysis_async(pb, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):	
+	""" Runs Kiasan analysis based on preferences and clicked entity. """
 	# get package_name and methods list
-	if GPS.current_context().entity().category() == "subprogram":
-		# get package name		
-		for entity in GPS.current_context().file().entities(False):
-			warnings.warn("the second condition of below if is UGLY...but I didn't find the better way \
-			to check if entity is subprogram's package because file can have entities from external files")
-			if entity.category() == 'package/namespace' and \
-				entity.name().lower() == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
-				package_name = entity.name()
 	
-		# set methods_list to only one method
-		methods_list = [GPS.current_context().entity().name()]
-	
-	elif GPS.current_context().entity().category() == "package/namespace":
-		# get package name
-		package_name = GPS.current_context().entity().name()
-	
-		# fetch all methods from file (method=subprogram)
-		methods_list = []
-		for entity in GPS.current_context().file().entities(False):
-			if entity.category() == 'subprogram':
-				methods_list.append(entity.name())
-	
-	
-	SIREUM_PATH = get_sireum_path()
-	
-	load_sireum_settings(SIREUM_PATH)
-	
-	source_path = GPS.current_context().directory().replace("\\","/")
-	output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
-	
-	# init progress bar
-	win_pb, pb = init_progressbar()
-	GPS.MDI.add(win_pb, "KiasanProgress", "kiasanprogress")	
-	win = GPS.MDI.get('kiasanprogress')
-	win.float(float=True)	# float=True: popup, float=False: GPS integrated window
-	
-	# run Kiasan tool for each method except last one
-	kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, False)	
-	method_no = 0
-	print 'got', len(methods_list)
-	for method in methods_list[:-1]:
-		#update progress bar
-		pb.set_fraction(float(method_no)/len(methods_list))
-		pb.set_text(str(float(method_no)*100/len(methods_list)) + " %")
-		method_no += 1
-		#run kiasan
-		print " ".join(kiasan_run_cmd + [method])
-		subprocess.call(kiasan_run_cmd + [method])		
-	
-	# run Kiasan tool for last method and generate report
-	kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, True)
-	print " ".join(kiasan_run_cmd_with_report + [methods_list[-1]])
-	subprocess.call(kiasan_run_cmd_with_report + [methods_list[-1]])
-	
-	#update progress bar and hide progress it
-	GPS.MDI.get('kiasanprogress').hide()
+	try:
+		print 'running kiasan...'
+		# run Kiasan tool for each method except last one
+			
+		method_no = 0	# for progress bar
+		global cancel	# for cancel action
+		global kiasan_jar_is_running
+		cancel = False
+		print 'starting the loop...'
+		for method in methods_list[:-1]:
+			if cancel:
+				break
+			#update progress bar
+			method_no += 1
+			pb.set_fraction(float(method_no)/len(methods_list))
+			pb.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")		
+			while gtk.events_pending():
+				gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
+			
+			# run kiasan		
+			kiasan_jar_is_running = True
+			#t = threading.Thread(target=run_kiasan, args=(kiasan_run_cmd, method))		
+			#t.start()		
+	# 		while kiasan_jar_is_running:
+	# 			while gtk.events_pending():
+	# 				gtk.main_iteration()		
+	# 			if cancel:
+	# 				info_label.set_text("\nCancelling...\n")
+					#glib.idle_add(info_label.set_text, "Cancelling...")
+				#print "is running", kiasan_jar_is_running, "cancel:", cancel		
+			#print 'finished'
+			#t.join()
+			#print 'after join'
+			#print "is running", kiasan_jar_is_running, "cancel:", cancel
+			run_kiasan(kiasan_run_cmd, method)
+			
+		
+		# run Kiasan tool for last method and generate report
+		if not cancel:			
+			print " ".join(kiasan_run_cmd_with_report + [methods_list[-1]])
+			subprocess.call(kiasan_run_cmd_with_report + [methods_list[-1]])
+		
+		print 'after running kiasan...'
+		
+		#update progress bar and hide it
+		GPS.MDI.get('kiasanprogress').hide()
+		
+		#read generated json
+		kiasan_logic = kiasan_v1.logic.KiasanLogic()
+		report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
+		report_file_url = urllib.pathname2url(report_file_path)
+		report = kiasan_logic.extract_report_file(report_file_url)
+		
+		# load data into GUI
+		gui = kiasan_v1.gui.KiasanGUI(report)
+		
+		# attach GUI to GPS
+		if GPS.MDI.get('kiasan') is not None:
+			GPS.MDI.get('kiasan').hide()	# hide previous Kiasan results
+		GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
+		win = GPS.MDI.get('kiasan')
+		win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
+		win.float(float=False)	# float=True: popup, float=False: GPS integrated window
+	except Exception as e:
+		print "AttributeError:" + e.message
+
+
+
+def run_kiasan(kiasan_run_cmd, method):
+	""" Single Kiasan run. """
+	global kiasan_jar_is_running
+	print " ".join(kiasan_run_cmd + [method])	
+	subprocess.call(kiasan_run_cmd + [method])
+	kiasan_jar_is_running = False
+
+
+
+
+def cancel(widget, info_label):
+	global cancel
+	cancel = True
+	info_label.set_text("\nCancelling...\n")
 
 
 def init_progressbar():
@@ -146,8 +206,18 @@ def init_progressbar():
 	progressbar = gtk.ProgressBar()
 	
 	pane.add1(progressbar)
+	
+	info_pane = gtk.VPaned()
+	pane.add2(info_pane)
+	
+	info_label = gtk.Label("\nKiasan is running...\n")
+	info_pane.add1(info_label)
+	
+	cancel_button = gtk.Button("Cancel")
+	cancel_button.connect("clicked", cancel, info_label)
+	info_pane.add2(cancel_button)
 
-	return pane, progressbar
+	return pane, progressbar, info_label
 
 
 def get_sireum_path():
@@ -315,7 +385,7 @@ GPS.parse_xml ("""
   	</contextual>
   	<button action="run Examiner">
     	<title>Run Examiner</title>
-    	<pixmap>%s/share/gps/icons/other/run_examiner.png</pixmap>
+    	<pixmap>""" + GPS.get_system_dir() + """/share/gps/icons/other/run_examiner.png</pixmap>
   	</button>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"
@@ -422,6 +492,4 @@ GPS.parse_xml ("""
    				type="boolean" 
    				default = "True"
    				/>
-"""
-% GPS.get_system_dir()
-)
+""")
