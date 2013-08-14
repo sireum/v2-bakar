@@ -1,50 +1,50 @@
 (* Compilation Unit *)
-CompilationUnit ( 1,
+Library_Unit ( 1,
   (* Compilation Unit - Unit Declaration *)
-  UnitDecl( 2,
+  Library_Subprogram( 2,
     (* Function Body Declaration *)
-    Sfunc( 3,
+    Function( 3,
       {
-        fn_astnum =   
+        function_astnum =   
           (* Function Body - AST Number *)
           4; 
-        fn_name =
+        function_name =
           (* Function Body - Name *)
            (*Gcd*) 1;
-        fn_ret_type = 
+        function_result_subtype = 
           (* Function Body - Return Type *)
-          Tint;
-        fn_specs = 
+          Integer;
+        function_contracts = 
           (* Function Body - Specification *)
           [];
-        fn_params = 
+        function_parameter_profile = 
           (* Function Body - Parameters *)
           [
-          { param_astnum = 5; param_ident =  (*M*) 1; param_typenum = 1; param_mode = In; param_init = None }; 
-          { param_astnum = 6; param_ident =  (*N*) 2; param_typenum = 1; param_mode = In; param_init = None }];
-        fn_loc_idents = 
+          { parameter_astnum = 5; parameter_name =  (*M*) 1; parameter_subtype_mark = 1; parameter_mode = In; parameter_default_expression = None }; 
+          { parameter_astnum = 6; parameter_name =  (*N*) 2; parameter_subtype_mark = 1; parameter_mode = In; parameter_default_expression = None }];
+        function_declarative_part = 
           (* Function Body - Locally Defined Variables *)
           [
-          { local_astnum = 7; local_ident =  (*C*) 3; local_typenum = 1; local_init = None }; 
-          { local_astnum = 8; local_ident =  (*T*) 5; local_typenum = 1; local_init = None }; 
-          { local_astnum = 9; local_ident =  (*R*) 6; local_typenum = 1; local_init = None }];
-        fn_body = 
-          (* Function Body - Body *)
-          Sseq (10,
-            Sassign (11,  (*C*) 3, Evar (12,  (*M*) 1)),
-            Sseq (13,
-              Sassign (14,  (*D*) 4, Evar (15,  (*N*) 2)),
-              Sseq (16,
-                Swhile (17, Ebinop (18, Cne, Evar (19,  (*D*) 4), Econst (20, 0)),
-                  Sseq (21,
-                    Sassign (22,  (*T*) 5, Ebinop (23, Odiv, Evar (24,  (*C*) 3), Evar (25,  (*D*) 4))),
-                    Sseq (26,
-                      Sassign (27,  (*R*) 6, Ebinop (28, Osub, Evar (29,  (*C*) 3), Ebinop (30, Omul, Evar (31,  (*T*) 5), Evar (32,  (*D*) 4)))),
-                      Sseq (33,
-                        Sassign (34,  (*C*) 3, Evar (35,  (*D*) 4)),
-                        Sassign (36,  (*D*) 4, Evar (37,  (*R*) 6)) ) ) )
+          { declaration_astnum = 7; object_name =  (*C*) 3; object_nominal_subtype = 1; initialization_expression = None }; 
+          { declaration_astnum = 8; object_name =  (*T*) 5; object_nominal_subtype = 1; initialization_expression = None }; 
+          { declaration_astnum = 9; object_name =  (*R*) 6; object_nominal_subtype = 1; initialization_expression = None }];
+        function_statements = 
+          (* Function Body - Statements *)
+          S_Sequence (10,
+            S_Assignment (11,  (*C*) 3, E_Identifier (12,  (*M*) 1)),
+            S_Sequence (13,
+              S_Assignment (14,  (*D*) 4, E_Identifier (15,  (*N*) 2)),
+              S_Sequence (16,
+                S_While_Loop (17, E_Binary_Operation (18, Not_Equal, E_Identifier (19,  (*D*) 4), E_Literal (20, Integer_Literal 0)),
+                  S_Sequence (21,
+                    S_Assignment (22,  (*T*) 5, E_Binary_Operation (23, Divide, E_Identifier (24,  (*C*) 3), E_Identifier (25,  (*D*) 4))),
+                    S_Sequence (26,
+                      S_Assignment (27,  (*R*) 6, E_Binary_Operation (28, Minus, E_Identifier (29,  (*C*) 3), E_Binary_Operation (30, Multiply, E_Identifier (31,  (*T*) 5), E_Identifier (32,  (*D*) 4)))),
+                      S_Sequence (33,
+                        S_Assignment (34,  (*C*) 3, E_Identifier (35,  (*D*) 4)),
+                        S_Assignment (36,  (*D*) 4, E_Identifier (37,  (*R*) 6)) ) ) )
                 ),
-                Sreturn (38, (Some (Evar (39,  (*C*) 3)))) ) ) )
+                S_Return (38, (Some (E_Identifier (39,  (*C*) 3)))) ) ) )
       }
     )
   ),  

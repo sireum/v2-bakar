@@ -1,21 +1,11 @@
 
 bakarJagoTypes(typeDeclarations) ::= <<
-$basicTypes()$
+$numberTypes()$
 
 $typeDeclarations; separator="\n\n"$
 >>
 
-// type pkgnum = int
-basicTypes() ::= <<
-type mode = 
-    | In
-    | Out
-    | InOut
-
-type typ = 
-    | Tint
-    | Tbool
-
+numberTypes() ::= <<
 type astnum = int
 
 type idnum = int
@@ -34,6 +24,19 @@ type type_table = {
     tt_exptype_table: (astnum * typenum) list;
     tt_typename_table: (typenum * (typeuri * typedeclnum option)) list
 }
+>>
+
+basicTypes() ::= <<
+type type = 
+    | Boolean
+    | Integer
+>>
+
+modes() ::= <<
+type mode = 
+    | In
+    | Out
+    | In_Out
 >>
 
 typeDeclaration(typeName, constructors, annotation) ::= <<

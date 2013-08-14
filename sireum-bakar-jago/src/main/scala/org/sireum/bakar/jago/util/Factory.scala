@@ -140,7 +140,7 @@ class Factory(stg: STGroupFile) {
       case "AN_OUT_MODE" => 
         Some("Out")
       case "AN_IN_OUT_MODE" =>
-        Some("InOut")
+        Some("In_Out")
       case _ => 
         None
     }
@@ -214,27 +214,27 @@ class Factory(stg: STGroupFile) {
     result.render()    
   }
   
-  def buildConstant(theType: String, constVal: String) = {
-    val mTrans = Map[String, String]("integer" -> "Ointconst", "boolean" -> "Oboolconst")
+  def buildLiteral(theType: String, theLiteral: String) = {
+    val mTrans = Map[String, String]("integer" -> "Integer_Literal", "boolean" -> "Boolean_Literal")
     var o: Option[String] = None
     for(e <- mTrans if !(o.isDefined)) {
       if(theType.toLowerCase.contains(e._1))
         o = Some(e._2)
     }
     
-    val result = stg.getInstanceOf("constant")
+    val result = stg.getInstanceOf("literal")
     if(o.isDefined)
       result.add("theType", o.get)
-    result.add("constVal", constVal.toLowerCase) // transform bool value "False" to "false"
+    result.add("theLiteral", theLiteral.toLowerCase) // transform bool value "False" to "false"
     result.render()
   }
   
-  def buildConstantExpr(astnum: Int, theType: String, constVal: String) = {
+  def buildLiteralExpr(astnum: Int, theType: String, theLiteral: String) = {
     buildExpTypeTable(astnum, theType)
-    val result = stg.getInstanceOf("constantExpr")
+    val result = stg.getInstanceOf("literalExpr")
     result.add("astnum", astnum)
-    val o = buildConstant(theType, constVal)
-    result.add("constVal", o)
+    val o = buildLiteral(theType, theLiteral)
+    result.add("litval", o)
     result.render()
   }
   
@@ -246,7 +246,7 @@ class Factory(stg: STGroupFile) {
   }
   
   def buildSeqStmt(seq_astnum: Int, stmt1: String, stmt2: String): String = {
-    // use "Sseq" to make the statements in sequence
+    // use "S_Sequence" to make the statements in sequence
     if(stmt2 == null){
       stmt1
     }else{
@@ -331,8 +331,8 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  def buildIdentiferDecl(astnum: Int, ids: MList[String], theType: String, optionalInit: Option[String]) = {
-    val result = stg.getInstanceOf("localVarDeclaration")
+  def buildObjectDecl(astnum: Int, ids: MList[String], theType: String, optionalInit: Option[String]) = {
+    val result = stg.getInstanceOf("objectDeclaration")
     result.add("astnum", astnum)
     //buildListAttributes(result, "ids", ids: _*)
     result.add("id", ids(0));
@@ -437,6 +437,16 @@ class Factory(stg: STGroupFile) {
       result.add("typeDeclarations", typeDecl)
     result.render()
   }  
+  
+  def buildBasicTypes =  {
+    val result = stg.getInstanceOf("basicTypes")
+    result.render()
+  }
+  
+  def buildModes =  {
+    val result = stg.getInstanceOf("modes")
+    result.render()
+  }
 
   /**
    * If the Coq type is defined by singleton inductive, its extracted OCaml type will be optimized, for example:

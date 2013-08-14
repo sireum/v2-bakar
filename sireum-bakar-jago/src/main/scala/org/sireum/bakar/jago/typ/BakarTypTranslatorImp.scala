@@ -83,7 +83,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
 
     val annotation : Option[String] = None
     val constructors = mlistEmpty[String]
-    constructors += buildTypeConstructor(TypeNameSpace.CompilationUnit, "CompilationUnit", TypeNameSpace.AstNum,
+    constructors += buildTypeConstructor(TypeNameSpace.CompilationUnit, "Library_Unit", TypeNameSpace.AstNum,
       TypeNameSpace.UnitDeclaration, TypeNameSpace.TypeTable)
     val cuDecl = buildTypeDeclaration(TypeNameSpace.CompilationUnit, annotation, constructors : _*)
     ctx.addNewTypeDecl(cuDecl)
@@ -115,7 +115,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     //val annotation: Option[String] = Some("compilation unit can be either package_declaration or package_body_declaration")
     val annotation : Option[String] = None
     val constructors = mlistEmpty[String]
-    constructors += buildTypeConstructor(TypeNameSpace.UnitDeclaration, "UnitDecl", TypeNameSpace.AstNum, TypeNameSpace.SubProgram)
+    constructors += buildTypeConstructor(TypeNameSpace.UnitDeclaration, "Library_Subprogram", TypeNameSpace.AstNum, TypeNameSpace.SubProgram)
     //List("PackageDeclaration", TypeNameSpace.AstNum, TypeNameSpace.PackageDeclaration, TypeNameSpace.UnitDeclaration), 
     //List("PackageBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.PackageBodyDecl, TypeNameSpace.UnitDeclaration)
     val pkgDecl = buildTypeDeclaration(TypeNameSpace.UnitDeclaration, annotation, constructors : _*)
@@ -183,8 +183,9 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
           // create a subprogram type for both procedure and function
           val annotation : Option[String] = None
           val constructors = mlistEmpty[String]
-          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sproc", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBody)
-          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Sfunc", TypeNameSpace.AstNum, TypeNameSpace.FunctionBody)
+          // Notice: "function" is a keyword in OCaml; 
+          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Procedure", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBody)
+          constructors += buildTypeConstructor(TypeNameSpace.SubProgram, "Function", TypeNameSpace.AstNum, TypeNameSpace.FunctionBody)
           //List("PackageDeclaration", TypeNameSpace.AstNum, TypeNameSpace.PackageDeclaration, TypeNameSpace.UnitDeclaration), 
           //List("PackageBodyDecl", TypeNameSpace.AstNum, TypeNameSpace.PackageBodyDecl, TypeNameSpace.UnitDeclaration)
           val subprogramDecl = buildTypeDeclaration(TypeNameSpace.SubProgram, annotation, constructors : _*)
@@ -194,15 +195,15 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     }
   }
 
-  def trans_variable_declaration {
-    val typeName = TypeNameSpace.LocalVariableDeclaration
-    val annotation = Some("Local variables declarations used in the procedure/function body")
+  def trans_object_declaration {
+    val typeName = TypeNameSpace.ObjectDeclaration
+    val annotation = Some("variables declarations in procedure/function")
     val fields = List(
-      buildFieldDecl("local_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("declaration_astnum", TypeNameSpace.AstNum),
       //buildFieldDecl("local_idents", buildListType(TypeNameSpace.IdNum)),
-      buildFieldDecl("local_ident", TypeNameSpace.IdNum),
-      buildFieldDecl("local_typenum", TypeNameSpace.TypeNum),
-      buildFieldDecl("local_init", buildOptionType(TypeNameSpace.Expression)))
+      buildFieldDecl("object_name", TypeNameSpace.IdNum),
+      buildFieldDecl("object_nominal_subtype", TypeNameSpace.TypeNum),
+      buildFieldDecl("initialization_expression", buildOptionType(TypeNameSpace.Expression)))
     val varDecl = buildRecordType(typeName, annotation, fields : _*)
     ctx.addNewTypeDecl(varDecl)
   }
@@ -210,12 +211,12 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
   def trans_parameter_specification {
     val typeName = TypeNameSpace.ParameterSpecification
     val fields = List(
-      buildFieldDecl("param_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("parameter_astnum", TypeNameSpace.AstNum),
       //buildFieldDecl("param_idents", buildListType(TypeNameSpace.IdNum)),
-      buildFieldDecl("param_ident", TypeNameSpace.IdNum),
-      buildFieldDecl("param_typenum", TypeNameSpace.TypeNum),
-      buildFieldDecl("param_mode", TypeNameSpace.ModeT),
-      buildFieldDecl("param_init", buildOptionType(TypeNameSpace.Expression)))
+      buildFieldDecl("parameter_name", TypeNameSpace.IdNum),
+      buildFieldDecl("parameter_subtype_mark", TypeNameSpace.TypeNum),
+      buildFieldDecl("parameter_mode", TypeNameSpace.ModeT),
+      buildFieldDecl("parameter_default_expression", buildOptionType(TypeNameSpace.Expression)))
     val paramDecl = buildRecordType(typeName, None, fields : _*)
     ctx.addNewTypeDecl(paramDecl)
   }
@@ -252,7 +253,10 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
   def trans_procedurebody_declaration {
     val procBody = classOf[ProcedureBodyDeclaration]
     // define the type definition order in Coq
-    var orders = List("bodyStatementsQl", "parameterProfileQl", "aspectSpecificationsQl", "bodyDeclarativeItemsQl")
+    // to make the generated language defined in the same order as they are 
+    // defined in Ada 2012 RM, ""bodyDeclarativeItemsQl"" is defined first,
+    // and then "parameterProfileQl";
+    var orders = List("bodyStatementsQl", "bodyDeclarativeItemsQl", "parameterProfileQl", "aspectSpecificationsQl")
     var seen = Set[String]()
     var fTrans = Map[String, String => Unit]()
     for (f <- procBody.getDeclaredFields) {
@@ -270,7 +274,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         case "aspectSpecificationsQl" =>
           trans_procedure_aspectspecs
         case "bodyDeclarativeItemsQl" =>
-          trans_variable_declaration
+          trans_object_declaration
       }
     }
     // create procedure annotations: Global, Pre, Post, ...
@@ -278,12 +282,12 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     // create the Coq type for procedure body declaration
     val typeName = TypeNameSpace.ProcedureBody
     val fields = List(
-      buildFieldDecl("proc_astnum", TypeNameSpace.AstNum),
-      buildFieldDecl("proc_name", TypeNameSpace.ProcNum),
-      buildFieldDecl("proc_specs", buildListType(TypeNameSpace.AspectSpecification)),
-      buildFieldDecl("proc_params", buildListType(TypeNameSpace.ParameterSpecification)),
-      buildFieldDecl("proc_loc_idents", buildListType(TypeNameSpace.LocalVariableDeclaration)),
-      buildFieldDecl("proc_body", TypeNameSpace.Statement))
+      buildFieldDecl("procedure_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("procedure_name", TypeNameSpace.ProcNum),
+      buildFieldDecl("procedure_contracts", buildListType(TypeNameSpace.AspectSpecification)),
+      buildFieldDecl("procedure_parameter_profile", buildListType(TypeNameSpace.ParameterSpecification)),
+      buildFieldDecl("procedure_declarative_part", buildListType(TypeNameSpace.ObjectDeclaration)),
+      buildFieldDecl("procedure_statements", TypeNameSpace.Statement))
     val procBodyDecl = buildRecordType(typeName, None, fields : _*)
     ctx.addNewTypeDecl(procBodyDecl)
   }
@@ -316,13 +320,13 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     val typeName = TypeNameSpace.FunctionBody
     val annotation = None
     val fields = List(
-      buildFieldDecl("fn_astnum", TypeNameSpace.AstNum),
-      buildFieldDecl("fn_name", TypeNameSpace.ProcNum),
-      buildFieldDecl("fn_ret_type", TypeNameSpace.Type),
-      buildFieldDecl("fn_specs", buildListType(TypeNameSpace.AspectSpecification)),
-      buildFieldDecl("fn_params", buildListType(TypeNameSpace.ParameterSpecification)),
-      buildFieldDecl("fn_loc_idents", buildListType(TypeNameSpace.LocalVariableDeclaration)),
-      buildFieldDecl("fn_body", TypeNameSpace.Statement))
+      buildFieldDecl("function_astnum", TypeNameSpace.AstNum),
+      buildFieldDecl("function_name", TypeNameSpace.ProcNum),
+      buildFieldDecl("function_result_subtype", TypeNameSpace.Type),
+      buildFieldDecl("function_contracts", buildListType(TypeNameSpace.AspectSpecification)),
+      buildFieldDecl("function_parameter_profile", buildListType(TypeNameSpace.ParameterSpecification)),
+      buildFieldDecl("function_declarative_part", buildListType(TypeNameSpace.ObjectDeclaration)),
+      buildFieldDecl("function_statements", TypeNameSpace.Statement))
     val fnBodyDecl = buildRecordType(typeName, annotation, fields : _*)
     ctx.addNewTypeDecl(fnBodyDecl)
   }
@@ -340,24 +344,24 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
               val tc = mtype.getSimpleName() match {
                 case "AssignmentStatement" =>
                   trans_expression
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sassign", TypeNameSpace.AstNum,
+                  buildTypeConstructor(TypeNameSpace.Statement, "S_Assignment", TypeNameSpace.AstNum,
                     TypeNameSpace.IdNum, TypeNameSpace.Expression)
                 case "IfStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sifthen", TypeNameSpace.AstNum,
+                  buildTypeConstructor(TypeNameSpace.Statement, "S_If", TypeNameSpace.AstNum,
                     TypeNameSpace.Expression, TypeNameSpace.Statement)
                 case "WhileLoopStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Swhile", TypeNameSpace.AstNum,
+                  buildTypeConstructor(TypeNameSpace.Statement, "S_While_Loop", TypeNameSpace.AstNum,
                     TypeNameSpace.Expression, TypeNameSpace.Statement)
                 case "BlockStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sseq", TypeNameSpace.AstNum,
+                  buildTypeConstructor(TypeNameSpace.Statement, "S_Sequence", TypeNameSpace.AstNum,
                     TypeNameSpace.Statement, TypeNameSpace.Statement)
                 case "AssertPragma" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sassert", TypeNameSpace.AstNum, TypeNameSpace.Expression)
+                  buildTypeConstructor(TypeNameSpace.Statement, "S_Assert", TypeNameSpace.AstNum, TypeNameSpace.Expression)
                 case "ImplementationDefinedPragma" =>
                   // loop invariant is defined through this data structure
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sloopinvariant", TypeNameSpace.AstNum, TypeNameSpace.Expression)
+                  buildTypeConstructor(TypeNameSpace.Statement, "S_Loop_Invariant", TypeNameSpace.AstNum, TypeNameSpace.Expression)
                 case "ReturnStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "Sreturn", TypeNameSpace.AstNum, buildOptionType(TypeNameSpace.Expression))
+                  buildTypeConstructor(TypeNameSpace.Statement, "S_Return", TypeNameSpace.AstNum, buildOptionType(TypeNameSpace.Expression))
                 //                case "NullStatement" =>
                 //                  createConstructor("CSkip", TypeNameSpace.StatementT)   
                 //                case "ForLoopStatement" =>
@@ -379,6 +383,11 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         }
       }
     }
+    // in order to make the generated language defined in the same order
+    // as they are defined in the Ada 2012 RM, we add the mode definition 
+    // after the definition of statement;
+    val modes = buildModes
+    ctx.addNewTypeDecl(modes);
   }
 
   def trans_expression {
@@ -394,14 +403,14 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
               val tc = mtype.getSimpleName() match {
                 case "IntegerLiteral" =>
                   trans_literal
-                  buildTypeConstructor(TypeNameSpace.Expression, "Econst", TypeNameSpace.AstNum, TypeNameSpace.Constant)
+                  buildTypeConstructor(TypeNameSpace.Expression, "E_Literal", TypeNameSpace.AstNum, TypeNameSpace.Literal)
                 case "Identifier" =>
-                  buildTypeConstructor(TypeNameSpace.Expression, "Evar", TypeNameSpace.AstNum, TypeNameSpace.IdNum)
+                  buildTypeConstructor(TypeNameSpace.Expression, "E_Identifier", TypeNameSpace.AstNum, TypeNameSpace.IdNum)
                 case "FunctionCall" =>
                   trans_functioncall
-                  val btc = buildTypeConstructor(TypeNameSpace.Expression, "Ebinop", TypeNameSpace.AstNum,
+                  val btc = buildTypeConstructor(TypeNameSpace.Expression, "E_Binary_Operation", TypeNameSpace.AstNum,
                     TypeNameSpace.BinaryOp, TypeNameSpace.Expression, TypeNameSpace.Expression)
-                  val utc = buildTypeConstructor(TypeNameSpace.Expression, "Eunop", TypeNameSpace.AstNum,
+                  val utc = buildTypeConstructor(TypeNameSpace.Expression, "E_Unary_Operation", TypeNameSpace.AstNum,
                     TypeNameSpace.UnaryOp, TypeNameSpace.Expression)
                   typeConstructors += btc
                   typeConstructors += utc
@@ -427,9 +436,9 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     // constant type
     val annotation = None
     val constructors = mlistEmpty[String]
-    constructors += buildTypeConstructor(TypeNameSpace.Constant, "Ointconst", TypeNameSpace.Integer(option))
-    constructors += buildTypeConstructor(TypeNameSpace.Constant, "Oboolconst", TypeNameSpace.Bool)
-    val constantDecl = buildTypeDeclaration(TypeNameSpace.Constant, annotation, constructors : _*)
+    constructors += buildTypeConstructor(TypeNameSpace.Literal, "Integer_Literal", TypeNameSpace.Integer(option))
+    constructors += buildTypeConstructor(TypeNameSpace.Literal, "Boolean_Literal", TypeNameSpace.Bool)
+    val constantDecl = buildTypeDeclaration(TypeNameSpace.Literal, annotation, constructors : _*)
     ctx.addNewTypeDecl(constantDecl)
   }
 
@@ -454,16 +463,16 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
           val xelems = a.asInstanceOf[XmlElements]
           val binOps = mlistEmpty[String]
           val unOps = mlistEmpty[String]
-          val binopTrans = Map[String, String]("PlusOperator" -> "Oadd", "MinusOperator" -> "Osub", 
-              "MultiplyOperator" -> "Omul", "DivideOperator" -> "Odiv",
-            // "ModOperator" -> "Omod", "RemOperator" -> "ARem", "ExponentiateOperator" -> "AExpon",
-            // "ConcatenateOperator" -> "Oand", // &
-            "AndOperator" -> "Oand", "OrOperator" -> "Oor", "XorOperator" -> "Oxor",
-            "EqualOperator" -> "Ceq", "NotEqualOperator" -> "Cne", 
-            "GreaterThanOperator" -> "Cgt", "GreaterThanOrEqualOperator" -> "Cge",
-            "LessThanOperator" -> "Clt", "LessThanOrEqualOperator" -> "Cle")
-          val unopTrans = Map[String, String]("UnaryPlusOperator" -> "Oposint", "UnaryMinusOperator" -> "Onegint",
-              "NotOperator" -> "Onot")
+          val binopTrans = Map[String, String]("PlusOperator" -> "Plus", "MinusOperator" -> "Minus", 
+              "MultiplyOperator" -> "Multiply", "DivideOperator" -> "Divide",
+            // "ModOperator" -> "Mod", "RemOperator" -> "Rem", "ExponentiateOperator" -> "Exponentiate",
+            // "ConcatenateOperator" -> "Concatenate", // &
+            "AndOperator" -> "And", "OrOperator" -> "Or", // "XorOperator" -> "Xor",
+            "EqualOperator" -> "Equal", "NotEqualOperator" -> "Not_Equal", 
+            "GreaterThanOperator" -> "Greater_Than", "GreaterThanOrEqualOperator" -> "Greater_Than_Or_Equal",
+            "LessThanOperator" -> "Less_Than", "LessThanOrEqualOperator" -> "Less_Than_Or_Equal")
+          val unopTrans = Map[String, String]("UnaryPlusOperator" -> "Unary_Plus", "UnaryMinusOperator" -> "Unary_Minus",
+              "NotOperator" -> "Not")
           for (elem <- xelems.value) {
             for (m <- elem.getClass.getDeclaredMethods if m.getName() == "type") {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
@@ -488,6 +497,11 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         }
       }
     }
+    // in order to make the generated language defined in the same order
+    // as they are defined in the Ada 2012 RM, we add the basic types 
+    // (boolean and integer) definition after binary operator;
+    val basic_types = buildBasicTypes
+    ctx.addNewTypeDecl(basic_types);
   }  
 
   trans_compilatoin_unit

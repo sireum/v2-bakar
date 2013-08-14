@@ -1,43 +1,43 @@
 (* Compilation Unit *)
-CompilationUnit ( 1,
+Library_Unit ( 1,
   (* Compilation Unit - Unit Declaration *)
-  UnitDecl( 2,
+  Library_Subprogram( 2,
     (* Procedure Body Declaration *)
-    Sproc( 3,
+    Procedure( 3,
       { 
-        proc_astnum = 
+        procedure_astnum = 
           (* Procedure Body - AST Number *)
           4;
-        proc_name = 
+        procedure_name = 
           (* Procedure Body - Name *)
            (*Linear_Div_With_LoopInvariant*) 1;
-        proc_specs =
+        procedure_contracts =
           (* Procedure Body - Specification *)
           [];
-        proc_params = 
+        procedure_parameter_profile = 
           (* Procedure Body - Parameters *)
           [
-          { param_astnum = 5; param_ident =  (*Dividend*) 1; param_typenum = 1; param_mode = In; param_init = None }; 
-          { param_astnum = 6; param_ident =  (*Divisor*) 2; param_typenum = 1; param_mode = In; param_init = None }; 
-          { param_astnum = 7; param_ident =  (*Quotient*) 3; param_typenum = 1; param_mode = Out; param_init = None }; 
-          { param_astnum = 8; param_ident =  (*Remainder*) 4; param_typenum = 1; param_mode = Out; param_init = None }];
-        proc_loc_idents = 
-          (* Procedure Body - Local Defined Variables *)
+          { parameter_astnum = 5; parameter_name =  (*Dividend*) 1; parameter_subtype_mark = 1; parameter_mode = In; parameter_default_expression = None }; 
+          { parameter_astnum = 6; parameter_name =  (*Divisor*) 2; parameter_subtype_mark = 1; parameter_mode = In; parameter_default_expression = None }; 
+          { parameter_astnum = 7; parameter_name =  (*Quotient*) 3; parameter_subtype_mark = 1; parameter_mode = Out; parameter_default_expression = None }; 
+          { parameter_astnum = 8; parameter_name =  (*Remainder*) 4; parameter_subtype_mark = 1; parameter_mode = Out; parameter_default_expression = None }];
+        procedure_declarative_part = 
+          (* Procedure Body - Variable Declarations *)
           [];
-        proc_body =
-          (* Procedure Body - Body *)
-          Sseq (9,
-            Sassign (10,  (*Quotient*) 3, Econst (11, 0)),
-            Sseq (12,
-              Sassign (13,  (*Remainder*) 4, Evar (14,  (*Dividend*) 1)),
-              Swhile (15, Ebinop (16, Cge, Evar (17,  (*Remainder*) 4), Evar (18,  (*Divisor*) 2)),
-                Sseq (19,
-                  Sloopinvariant (20, Ebinop (21, Oand, Ebinop (22, Oand, Ebinop (23, Cge, Evar (24,  (*Remainder*) 4), Econst (25, 0)), Ebinop (26, Cge, Evar (27,  (*Quotient*) 3), Econst (28, 0))), Ebinop (29, Ceq, Ebinop (30, Oadd, Ebinop (31, Omul, Evar (32,  (*Divisor*) 2), Evar (33,  (*Quotient*) 3)), Evar (34,  (*Remainder*) 4)), Evar (35,  (*Dividend*) 1)))),
-                  Sseq (36,
-                    Sassign (37,  (*Quotient*) 3, Ebinop (38, Oadd, Evar (39,  (*Quotient*) 3), Econst (40, 1))),
-                    Sseq (41,
-                      Sassign (42,  (*Quotient*) 3, Ebinop (43, Oadd, Evar (44,  (*Quotient*) 3), Econst (45, 1))),
-                      Sassign (46,  (*Remainder*) 4, Ebinop (47, Osub, Evar (48,  (*Remainder*) 4), Evar (49,  (*Divisor*) 2))) ) ) )
+        procedure_statements =
+          (* Procedure Body - Statements *)
+          S_Sequence (9,
+            S_Assignment (10,  (*Quotient*) 3, E_Literal (11, Integer_Literal 0)),
+            S_Sequence (12,
+              S_Assignment (13,  (*Remainder*) 4, E_Identifier (14,  (*Dividend*) 1)),
+              S_While_Loop (15, E_Binary_Operation (16, Greater_Than_Or_Equal, E_Identifier (17,  (*Remainder*) 4), E_Identifier (18,  (*Divisor*) 2)),
+                S_Sequence (19,
+                  S_Loop_Invariant (20, E_Binary_Operation (21, And, E_Binary_Operation (22, And, E_Binary_Operation (23, Greater_Than_Or_Equal, E_Identifier (24,  (*Remainder*) 4), E_Literal (25, Integer_Literal 0)), E_Binary_Operation (26, Greater_Than_Or_Equal, E_Identifier (27,  (*Quotient*) 3), E_Literal (28, Integer_Literal 0))), E_Binary_Operation (29, Equal, E_Binary_Operation (30, Plus, E_Binary_Operation (31, Multiply, E_Identifier (32,  (*Divisor*) 2), E_Identifier (33,  (*Quotient*) 3)), E_Identifier (34,  (*Remainder*) 4)), E_Identifier (35,  (*Dividend*) 1)))),
+                  S_Sequence (36,
+                    S_Assignment (37,  (*Quotient*) 3, E_Binary_Operation (38, Plus, E_Identifier (39,  (*Quotient*) 3), E_Literal (40, Integer_Literal 1))),
+                    S_Sequence (41,
+                      S_Assignment (42,  (*Quotient*) 3, E_Binary_Operation (43, Plus, E_Identifier (44,  (*Quotient*) 3), E_Literal (45, Integer_Literal 1))),
+                      S_Assignment (46,  (*Remainder*) 4, E_Binary_Operation (47, Minus, E_Identifier (48,  (*Remainder*) 4), E_Identifier (49,  (*Divisor*) 2))) ) ) )
               ) ) )
       }
     )

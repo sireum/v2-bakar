@@ -1,47 +1,47 @@
 (* Compilation Unit *)
-CompilationUnit ( 1,
+Library_Unit ( 1,
   (* Compilation Unit - Unit Declaration *)
-  UnitDecl( 2,
+  Library_Subprogram( 2,
     (* Function Body Declaration *)
-    Sfunc( 3,
+    Function( 3,
       {
-        fn_astnum =   
+        function_astnum =   
           (* Function Body - AST Number *)
           4; 
-        fn_name =
+        function_name =
           (* Function Body - Name *)
            (*Linear_Div_Fn*) 1;
-        fn_ret_type = 
+        function_result_subtype = 
           (* Function Body - Return Type *)
-          Tint;
-        fn_specs = 
+          Integer;
+        function_contracts = 
           (* Function Body - Specification *)
           [];
-        fn_params = 
+        function_parameter_profile = 
           (* Function Body - Parameters *)
           [
-          { param_astnum = 5; param_ident =  (*Dividend*) 1; param_typenum = 1; param_mode = In; param_init = None }; 
-          { param_astnum = 6; param_ident =  (*Divisor*) 2; param_typenum = 1; param_mode = In; param_init = None }];
-        fn_loc_idents = 
+          { parameter_astnum = 5; parameter_name =  (*Dividend*) 1; parameter_subtype_mark = 1; parameter_mode = In; parameter_default_expression = None }; 
+          { parameter_astnum = 6; parameter_name =  (*Divisor*) 2; parameter_subtype_mark = 1; parameter_mode = In; parameter_default_expression = None }];
+        function_declarative_part = 
           (* Function Body - Locally Defined Variables *)
           [
-          { local_astnum = 7; local_ident =  (*Quotient*) 3; local_typenum = 1; local_init = (Some (Econst (8, 0))) }; 
-          { local_astnum = 9; local_ident =  (*Remainder*) 4; local_typenum = 1; local_init = None }];
-        fn_body = 
-          (* Function Body - Body *)
-          Sseq (10,
-            Sassign (11,  (*Remainder*) 4, Evar (12,  (*Dividend*) 1)),
-            Sseq (13,
-              Swhile (14, Ebinop (15, Cge, Evar (16,  (*Remainder*) 4), Evar (17,  (*Divisor*) 2)),
-                Sseq (18,
-                  Sloopinvariant (19, Ebinop (20, Oand, Ebinop (21, Oand, Ebinop (22, Cge, Evar (23,  (*Remainder*) 4), Econst (24, 0)), Ebinop (25, Cge, Evar (26,  (*Quotient*) 3), Econst (27, 0))), Ebinop (28, Ceq, Ebinop (29, Oadd, Ebinop (30, Omul, Evar (31,  (*Divisor*) 2), Evar (32,  (*Quotient*) 3)), Evar (33,  (*Remainder*) 4)), Evar (34,  (*Dividend*) 1)))),
-                  Sseq (35,
-                    Sassign (36,  (*Quotient*) 3, Ebinop (37, Oadd, Evar (38,  (*Quotient*) 3), Econst (39, 1))),
-                    Sseq (40,
-                      Sassign (41,  (*Quotient*) 3, Ebinop (42, Oadd, Evar (43,  (*Quotient*) 3), Econst (44, 1))),
-                      Sassign (45,  (*Remainder*) 4, Ebinop (46, Osub, Evar (47,  (*Remainder*) 4), Evar (48,  (*Divisor*) 2))) ) ) )
+          { declaration_astnum = 7; object_name =  (*Quotient*) 3; object_nominal_subtype = 1; initialization_expression = (Some (E_Literal (8, Integer_Literal 0))) }; 
+          { declaration_astnum = 9; object_name =  (*Remainder*) 4; object_nominal_subtype = 1; initialization_expression = None }];
+        function_statements = 
+          (* Function Body - Statements *)
+          S_Sequence (10,
+            S_Assignment (11,  (*Remainder*) 4, E_Identifier (12,  (*Dividend*) 1)),
+            S_Sequence (13,
+              S_While_Loop (14, E_Binary_Operation (15, Greater_Than_Or_Equal, E_Identifier (16,  (*Remainder*) 4), E_Identifier (17,  (*Divisor*) 2)),
+                S_Sequence (18,
+                  S_Loop_Invariant (19, E_Binary_Operation (20, And, E_Binary_Operation (21, And, E_Binary_Operation (22, Greater_Than_Or_Equal, E_Identifier (23,  (*Remainder*) 4), E_Literal (24, Integer_Literal 0)), E_Binary_Operation (25, Greater_Than_Or_Equal, E_Identifier (26,  (*Quotient*) 3), E_Literal (27, Integer_Literal 0))), E_Binary_Operation (28, Equal, E_Binary_Operation (29, Plus, E_Binary_Operation (30, Multiply, E_Identifier (31,  (*Divisor*) 2), E_Identifier (32,  (*Quotient*) 3)), E_Identifier (33,  (*Remainder*) 4)), E_Identifier (34,  (*Dividend*) 1)))),
+                  S_Sequence (35,
+                    S_Assignment (36,  (*Quotient*) 3, E_Binary_Operation (37, Plus, E_Identifier (38,  (*Quotient*) 3), E_Literal (39, Integer_Literal 1))),
+                    S_Sequence (40,
+                      S_Assignment (41,  (*Quotient*) 3, E_Binary_Operation (42, Plus, E_Identifier (43,  (*Quotient*) 3), E_Literal (44, Integer_Literal 1))),
+                      S_Assignment (45,  (*Remainder*) 4, E_Binary_Operation (46, Minus, E_Identifier (47,  (*Remainder*) 4), E_Identifier (48,  (*Divisor*) 2))) ) ) )
               ),
-              Sreturn (49, (Some (Evar (50,  (*Remainder*) 4)))) ) )
+              S_Return (49, (Some (E_Identifier (50,  (*Remainder*) 4)))) ) )
       }
     )
   ),  

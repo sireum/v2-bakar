@@ -111,8 +111,8 @@ object TranslatorUtil {
   def getReturnType(typeUri : String) : String = {
     val typ = typeUri.toLowerCase()
     typ match {
-      case "integer" => "Tint"
-      case "boolean" => "Tbool"
+      case "integer" => "Integer"
+      case "boolean" => "Boolean"
       case _ => ""
     }
   }

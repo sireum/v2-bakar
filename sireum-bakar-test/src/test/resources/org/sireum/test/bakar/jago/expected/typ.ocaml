@@ -1,12 +1,3 @@
-type mode = 
-    | In
-    | Out
-    | InOut
-
-type typ = 
-    | Tint
-    | Tbool
-
 type astnum = int
 
 type idnum = int
@@ -26,92 +17,100 @@ type type_table = {
     tt_typename_table: (typenum * (typeuri * typedeclnum option)) list
 }
 
-type constant = 
-	| Ointconst of int
-	| Oboolconst of bool
+type literal = 
+	| Integer_Literal of int
+	| Boolean_Literal of bool
 
-type unary_operation = 
-	| Onegint 
-	| Onot 
-	| Oposint 
+type unary_operator = 
+	| Not 
+	| Unary_Minus 
+	| Unary_Plus 
 
-type binary_operation = 
-	| Ceq 
-	| Cge 
-	| Cgt 
-	| Cle 
-	| Clt 
-	| Cne 
-	| Oadd 
-	| Oand 
-	| Odiv 
-	| Omul 
-	| Oor 
-	| Osub 
-	| Oxor 
+type binary_operator = 
+	| And 
+	| Divide 
+	| Equal 
+	| Greater_Than 
+	| Greater_Than_Or_Equal 
+	| Less_Than 
+	| Less_Than_Or_Equal 
+	| Minus 
+	| Multiply 
+	| Not_Equal 
+	| Or 
+	| Plus 
 
-type expr = 
-	| Econst of astnum * constant
-	| Evar of astnum * idnum
-	| Ebinop of astnum * binary_operation * expr * expr
-	| Eunop of astnum * unary_operation * expr
+type type = 
+    | Boolean
+    | Integer
 
-type stmt = 
-	| Sassign of astnum * idnum * expr
-	| Sifthen of astnum * expr * stmt
-	| Swhile of astnum * expr * stmt
-	| Sseq of astnum * stmt * stmt
-	| Sreturn of astnum * (expr) option
-	| Sassert of astnum * expr
-	| Sloopinvariant of astnum * expr
+type expression = 
+	| E_Literal of astnum * literal
+	| E_Identifier of astnum * idnum
+	| E_Binary_Operation of astnum * binary_operator * expression * expression
+	| E_Unary_Operation of astnum * unary_operator * expression
 
-type param_specification = {
-	param_astnum: astnum;
-	param_ident: idnum;
-	param_typenum: typenum;
-	param_mode: mode;
-	param_init: (expr) option 
+type statement = 
+	| S_Assignment of astnum * idnum * expression
+	| S_If of astnum * expression * statement
+	| S_While_Loop of astnum * expression * statement
+	| S_Sequence of astnum * statement * statement
+	| S_Return of astnum * (expression) option
+	| S_Assert of astnum * expression
+	| S_Loop_Invariant of astnum * expression
+
+type mode = 
+    | In
+    | Out
+    | In_Out
+
+(* variables declarations in procedure/function *)
+type object_declaration = {
+	declaration_astnum: astnum;
+	object_name: idnum;
+	object_nominal_subtype: typenum;
+	initialization_expression: (expression) option 
+}
+
+type parameter_specification = {
+	parameter_astnum: astnum;
+	parameter_name: idnum;
+	parameter_subtype_mark: typenum;
+	parameter_mode: mode;
+	parameter_default_expression: (expression) option 
 }
 
 type aspect_specification = {
 	aspect_astnum: astnum;
 	aspect_mark: aspectnum;
-	aspect_definition: expr 
-}
-
-(* Local variables declarations used in the procedure/function body *)
-type local_declaration = {
-	local_astnum: astnum;
-	local_ident: idnum;
-	local_typenum: typenum;
-	local_init: (expr) option 
+	aspect_definition: expression 
 }
 
 type procedure_body = {
-	proc_astnum: astnum;
-	proc_name: procnum;
-	proc_specs: aspect_specification list;
-	proc_params: param_specification list;
-	proc_loc_idents: local_declaration list;
-	proc_body: stmt 
+	procedure_astnum: astnum;
+	procedure_name: procnum;
+	procedure_contracts: aspect_specification list;
+	procedure_parameter_profile: parameter_specification list;
+	procedure_declarative_part: object_declaration list;
+	procedure_statements: statement 
 }
 
 type function_body = {
-	fn_astnum: astnum;
-	fn_name: procnum;
-	fn_ret_type: typ;
-	fn_specs: aspect_specification list;
-	fn_params: param_specification list;
-	fn_loc_idents: local_declaration list;
-	fn_body: stmt 
+	function_astnum: astnum;
+	function_name: procnum;
+	function_result_subtype: type;
+	function_contracts: aspect_specification list;
+	function_parameter_profile: parameter_specification list;
+	function_declarative_part: object_declaration list;
+	function_statements: statement 
 }
 
 type subprogram = 
-	| Sproc of astnum * procedure_body
-	| Sfunc of astnum * function_body
+	| Procedure of astnum * procedure_body
+	| Function of astnum * function_body
 
-type unit_declaration = 
-	| UnitDecl of astnum * subprogram
+type library_unit_declaration = 
+	| Library_Subprogram of astnum * subprogram
 
 type compilation_unit = 
-	| CompilationUnit of astnum * unit_declaration * type_table
+	| Library_Unit of astnum * library_unit_declaration * type_table

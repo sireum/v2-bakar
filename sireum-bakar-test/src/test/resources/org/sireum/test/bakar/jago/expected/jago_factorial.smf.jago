@@ -1,33 +1,33 @@
 (* Compilation Unit *)
-CompilationUnit 1
+Library_Unit 1
   (* Compilation Unit - Unit Declaration *) (
-    UnitDecl 2 (
+    Library_Subprogram 2 (
       (* Function Body Declaration *)
-      Sfunc 3 (
+      Function 3 (
         mkfunction_body 4
           (* Function Body - Name *)
           (*Factorial*) 1
           (* Function Body - Return Type *) 
-          (Tint) 
+          (Integer) 
           (* Function Body - Specification *)
           (nil)
           (* Function Body - Parameters *)
           (
-          mkparam_specification 5 (*N*) 1 (1) (In) None :: nil)
+          mkparameter_specification 5 (*N*) 1 (1) (In) None :: nil)
           (* Function Body - Local Defined Variables *)
           (
-          mklocal_declaration 6 (*Result*) 2 1 (Some (Econst 7 (Ointconst 1))) :: 
-          mklocal_declaration 8 (*T*) 3 1 None :: nil)
-          (* Function Body - Body *) (
-            Sseq 9 (
-              Sassign 10 ((*T*) 3) (Evar 11 (*N*) 1) ) ( 
-              Sseq 12 (
-                Swhile 13 (Ebinop 14 Cgt (Evar 15 (*T*) 3) (Econst 16 (Ointconst 0))) (
-                    Sseq 17 (
-                      Sassign 18 ((*Result*) 2) (Ebinop 19 Omul (Evar 20 (*Result*) 2) (Evar 21 (*T*) 3)) ) ( 
-                      Sassign 22 ((*T*) 3) (Ebinop 23 Osub (Evar 24 (*T*) 3) (Econst 25 (Ointconst 1))) )
+          mkobject_declaration 6 (*Result*) 2 1 (Some (E_Literal 7 (Integer_Literal 1))) :: 
+          mkobject_declaration 8 (*T*) 3 1 None :: nil)
+          (* Function Body - Statements *) (
+            S_Sequence 9 (
+              S_Assignment 10 ((*T*) 3) (E_Identifier 11 (*N*) 1) ) ( 
+              S_Sequence 12 (
+                S_While_Loop 13 (E_Binary_Operation 14 Greater_Than (E_Identifier 15 (*T*) 3) (E_Literal 16 (Integer_Literal 0))) (
+                    S_Sequence 17 (
+                      S_Assignment 18 ((*Result*) 2) (E_Binary_Operation 19 Multiply (E_Identifier 20 (*Result*) 2) (E_Identifier 21 (*T*) 3)) ) ( 
+                      S_Assignment 22 ((*T*) 3) (E_Binary_Operation 23 Minus (E_Identifier 24 (*T*) 3) (E_Literal 25 (Integer_Literal 1))) )
                   ) ) ( 
-                Sreturn 26 (Some (Evar 27 (*Result*) 2)) ) )
+                S_Return 26 (Some (E_Identifier 27 (*Result*) 2)) ) )
           )
       )
     )

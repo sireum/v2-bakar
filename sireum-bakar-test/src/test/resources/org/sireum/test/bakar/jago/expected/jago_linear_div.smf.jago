@@ -1,9 +1,9 @@
 (* Compilation Unit *)
-CompilationUnit 1
+Library_Unit 1
   (* Compilation Unit - Unit Declaration *) (
-    UnitDecl 2 (
+    Library_Subprogram 2 (
       (* Procedure Body Declaration *)
-      Sproc 3 (
+      Procedure 3 (
         mkprocedure_body 4
           (* Procedure Body - Name *)
           (*Linear_Div*) 1
@@ -11,23 +11,23 @@ CompilationUnit 1
           (nil)
           (* Procedure Body - Parameters *)
           (
-          mkparam_specification 5 (*Dividend*) 1 (1) (In) None :: 
-          mkparam_specification 6 (*Divisor*) 2 (1) (In) None :: 
-          mkparam_specification 7 (*Quotient*) 3 (1) (Out) None :: 
-          mkparam_specification 8 (*Remainder*) 4 (1) (Out) None :: nil) 
-          (* Procedure Body - Locally Defined Variables *)
+          mkparameter_specification 5 (*Dividend*) 1 (1) (In) None :: 
+          mkparameter_specification 6 (*Divisor*) 2 (1) (In) None :: 
+          mkparameter_specification 7 (*Quotient*) 3 (1) (Out) None :: 
+          mkparameter_specification 8 (*Remainder*) 4 (1) (Out) None :: nil) 
+          (* Procedure Body - Variable Declarations *)
           (nil)
-          (* Procedure Body - Body *) (
-            Sseq 9 (
-              Sassign 10 ((*Quotient*) 3) (Econst 11 (Ointconst 0)) ) ( 
-              Sseq 12 (
-                Sassign 13 ((*Remainder*) 4) (Evar 14 (*Dividend*) 1) ) ( 
-                Swhile 15 (Ebinop 16 Cge (Evar 17 (*Remainder*) 4) (Evar 18 (*Divisor*) 2)) (
-                    Sseq 19 (
-                      Sassign 20 ((*Quotient*) 3) (Ebinop 21 Oadd (Evar 22 (*Quotient*) 3) (Econst 23 (Ointconst 1))) ) ( 
-                      Sseq 24 (
-                        Sassign 25 ((*Quotient*) 3) (Ebinop 26 Oadd (Evar 27 (*Quotient*) 3) (Econst 28 (Ointconst 1))) ) ( 
-                        Sassign 29 ((*Remainder*) 4) (Ebinop 30 Osub (Evar 31 (*Remainder*) 4) (Evar 32 (*Divisor*) 2)) ) )
+          (* Procedure Body - Statements *) (
+            S_Sequence 9 (
+              S_Assignment 10 ((*Quotient*) 3) (E_Literal 11 (Integer_Literal 0)) ) ( 
+              S_Sequence 12 (
+                S_Assignment 13 ((*Remainder*) 4) (E_Identifier 14 (*Dividend*) 1) ) ( 
+                S_While_Loop 15 (E_Binary_Operation 16 Greater_Than_Or_Equal (E_Identifier 17 (*Remainder*) 4) (E_Identifier 18 (*Divisor*) 2)) (
+                    S_Sequence 19 (
+                      S_Assignment 20 ((*Quotient*) 3) (E_Binary_Operation 21 Plus (E_Identifier 22 (*Quotient*) 3) (E_Literal 23 (Integer_Literal 1))) ) ( 
+                      S_Sequence 24 (
+                        S_Assignment 25 ((*Quotient*) 3) (E_Binary_Operation 26 Plus (E_Identifier 27 (*Quotient*) 3) (E_Literal 28 (Integer_Literal 1))) ) ( 
+                        S_Assignment 29 ((*Remainder*) 4) (E_Binary_Operation 30 Minus (E_Identifier 31 (*Remainder*) 4) (E_Identifier 32 (*Divisor*) 2)) ) )
                   ) ) )
           )
       )

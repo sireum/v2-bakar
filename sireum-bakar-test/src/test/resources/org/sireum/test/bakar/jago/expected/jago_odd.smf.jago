@@ -1,33 +1,33 @@
 (* Compilation Unit *)
-CompilationUnit 1
+Library_Unit 1
   (* Compilation Unit - Unit Declaration *) (
-    UnitDecl 2 (
+    Library_Subprogram 2 (
       (* Function Body Declaration *)
-      Sfunc 3 (
+      Function 3 (
         mkfunction_body 4
           (* Function Body - Name *)
           (*Odd*) 1
           (* Function Body - Return Type *) 
-          (Tint) 
+          (Integer) 
           (* Function Body - Specification *)
           (nil)
           (* Function Body - Parameters *)
           (
-          mkparam_specification 5 (*X*) 1 (1) (In) None :: nil)
+          mkparameter_specification 5 (*X*) 1 (1) (In) None :: nil)
           (* Function Body - Local Defined Variables *)
           (
-          mklocal_declaration 6 (*Result*) 2 1 None :: 
-          mklocal_declaration 7 (*T*) 3 1 None :: nil)
-          (* Function Body - Body *) (
-            Sseq 8 (
-              Sassign 9 ((*Result*) 2) (Econst 10 (Ointconst 1)) ) ( 
-              Sseq 11 (
-                Sassign 12 ((*T*) 3) (Ebinop 13 Odiv (Evar 14 (*X*) 1) (Econst 15 (Ointconst 2))) ) ( 
-                Sseq 16 (
-                  Sifthen 17 (Ebinop 18 Ceq (Evar 19 (*X*) 1) (Ebinop 20 Omul (Evar 21 (*T*) 3) (Econst 22 (Ointconst 2)))) (
-                      Sassign 23 ((*Result*) 2) (Econst 24 (Ointconst 0))
+          mkobject_declaration 6 (*Result*) 2 1 None :: 
+          mkobject_declaration 7 (*T*) 3 1 None :: nil)
+          (* Function Body - Statements *) (
+            S_Sequence 8 (
+              S_Assignment 9 ((*Result*) 2) (E_Literal 10 (Integer_Literal 1)) ) ( 
+              S_Sequence 11 (
+                S_Assignment 12 ((*T*) 3) (E_Binary_Operation 13 Divide (E_Identifier 14 (*X*) 1) (E_Literal 15 (Integer_Literal 2))) ) ( 
+                S_Sequence 16 (
+                  S_If 17 (E_Binary_Operation 18 Equal (E_Identifier 19 (*X*) 1) (E_Binary_Operation 20 Multiply (E_Identifier 21 (*T*) 3) (E_Literal 22 (Integer_Literal 2)))) (
+                      S_Assignment 23 ((*Result*) 2) (E_Literal 24 (Integer_Literal 0))
                     ) ) ( 
-                  Sreturn 25 (Some (Evar 26 (*Result*) 2)) ) ) )
+                  S_Return 25 (Some (E_Identifier 26 (*Result*) 2)) ) ) )
           )
       )
     )
