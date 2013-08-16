@@ -3,6 +3,11 @@ package org.sireum.bakar.jago.util
 import org.sireum.bakar.jago.typ
 import org.sireum.option.TypeTarget
 
+/**
+ * Notice: "type", "or" are keyword in OCaml, so the generated language
+ *         should use other names;
+ */
+
 object TypeNameSpace {
   val ProgramTransTemplate_Coq = "Program_In_Coq.stg"
   val ProgramTransTemplate_OCaml = "Program_In_Ocaml.stg"
@@ -14,7 +19,7 @@ object TypeNameSpace {
   def Integer(option: TypeTarget.Type) = {
     option match {
       case TypeTarget.Coq =>
-        "nat"
+        "Z"
       case TypeTarget.Ocaml => 
         "int"
     }
@@ -29,28 +34,27 @@ object TypeNameSpace {
   val TypeUri = "typeuri"
   val TypeTable = "type_table"
   
-  val Type = "typ"
+  val Type = "type"
   val Bool = "bool"
   val String = "string"
-  val Constant = "constant"
+  val Literal = "literal"
   val Predicate = "predicate"
-  val BoolExp = "boolean_exp"
-  val Expression = "expr"
-  val BinaryOp = "binary_operation"
-  val UnaryOp = "unary_operation"
-  val Statement = "stmt"
+  val Expression = "expression"
+  val BinaryOp = "binary_operator"
+  val UnaryOp = "unary_operator"
+  val Statement = "statement"
   
   val ModeT = "mode"
-  val LocalVariableDeclaration = "local_declaration"
+  val ObjectDeclaration = "object_declaration"
   val GlobalVariableDeclaration = "global_declaration"
   val AspectSpecification = "aspect_specification"
-  val ParameterSpecification = "param_specification"
+  val ParameterSpecification = "parameter_specification"
   val ProcedureBody = "procedure_body"
   val FunctionBody = "function_body" // "function" is a reserved key word in OCaml
   val SubProgram = "subprogram"
   val PackageBodyDecl = "package_body"
   val PackageDeclaration = "package_declaration"
-  val UnitDeclaration = "unit_declaration"
+  val UnitDeclaration = "library_unit_declaration"
   val CompilationUnit = "compilation_unit"
    
   val Assert = "assert" // LoopInvariant

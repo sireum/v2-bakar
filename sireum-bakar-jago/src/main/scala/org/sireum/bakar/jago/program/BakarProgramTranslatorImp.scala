@@ -50,7 +50,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       x match {
         case UnaryMinusOperatorEx(_) => Some("Onegint")
         case UnaryPlusOperatorEx(_)  => Some("Oposint")
-        // case NotOperatorEx(_)        => Some("NotExp")
+        case NotOperatorEx(_)        => Some("Onot")
         case _                       => None
       }
     }
@@ -63,23 +63,23 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       }
       val x = o.asInstanceOf[ExpressionClass].getExpression().asInstanceOf[Any]
       x match {
-        case AndOperatorEx(_)                => Some("Oand")
-        case OrOperatorEx(_)                 => Some("Oor")
-        case XorOperatorEx                   => Some("Oxor")
+        case AndOperatorEx(_)                => Some("And")
+        case OrOperatorEx(_)                 => Some("Or")
+        case XorOperatorEx                   => Some("Xor")
 
-        case EqualOperatorEx(_)              => Some("Ceq")
-        case GreaterThanOperatorEx(_)        => Some("Cgt")
-        case GreaterThanOrEqualOperatorEx(_) => Some("Cge")
-        case LessThanOperatorEx(_)           => Some("Clt")
-        case LessThanOrEqualOperatorEx(_)    => Some("Cle")
-        case NotEqualOperatorEx(_)           => Some("Cne")
+        case EqualOperatorEx(_)              => Some("Equal")
+        case NotEqualOperatorEx(_)           => Some("Not_Equal")
+        case GreaterThanOperatorEx(_)        => Some("Greater_Than")
+        case GreaterThanOrEqualOperatorEx(_) => Some("Greater_Than_Or_Equal")
+        case LessThanOperatorEx(_)           => Some("Less_Than")
+        case LessThanOrEqualOperatorEx(_)    => Some("Less_Than_Or_Equal")
 
-        case DivideOperatorEx(_)             => Some("Odiv")
-        case MinusOperatorEx(_)              => Some("Osub")
-        case MultiplyOperatorEx(_)           => Some("Omul")
-        case PlusOperatorEx(_)               => Some("Oadd")
-        //        case RemOperatorEx(_)                => Some("ARem")
-        //        case ModOperatorEx                   => Some("AMod")
+        case DivideOperatorEx(_)             => Some("Divide")
+        case MinusOperatorEx(_)              => Some("Minus")
+        case MultiplyOperatorEx(_)           => Some("Multiply")
+        case PlusOperatorEx(_)               => Some("Plus")
+        //        case RemOperatorEx(_)                => Some("Rem")
+        //        case ModOperatorEx                   => Some("Mod")
         case _ =>
           None
       }
@@ -106,7 +106,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val unit_astnum = factory.next_astnum
       v(unitDeclaration)
       val bodyDecl = ctx.popResult
-      val unitDecl = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", bodyDecl.asInstanceOf[String])
+      val unitDecl = factory.buildUnitDeclaration(unit_astnum, "Library_Subprogram", bodyDecl.asInstanceOf[String])
       val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
       ctx.addToResults(cu)
 
@@ -258,7 +258,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val procedureBody = factory.buildProcedureBody(procbody_astnum, m.mname, m.aspectSpecs, m.params, m.localIdents, m.mbody)
         val annotation = Some("Procedure")
 
-        val result = factory.buildSubProgram(method_astnum, "Sproc", procedureBody, annotation)
+        val result = factory.buildSubProgram(method_astnum, "Procedure", procedureBody, annotation)
         ctx.pushResult(result)
 
         false
@@ -275,7 +275,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val functionBody = factory.buildFunctionBody(fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localIdents, m.mbody)
         val annotation = Some("Function")
 
-        val result = factory.buildSubProgram(method_astnum, "Sfunc", functionBody, annotation)
+        val result = factory.buildSubProgram(method_astnum, "Function", functionBody, annotation)
         ctx.pushResult(result)
 
         false
@@ -306,7 +306,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           Some(getExpressionStr(ctx.popResult))
         }
 
-      ctx.pushResult(factory.buildIdentiferDecl(astnum, declItems, theType.get, optionalInitExp))
+      ctx.pushResult(factory.buildObjectDecl(astnum, declItems, theType.get, optionalInitExp))
       false
   }
 
@@ -480,10 +480,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   def getExpressionStr(e : Any) : String = {
     e match {
       case o @ IntegerLiteralEx(sloc, litVal, theType) =>
-        val value = litVal.replaceAll("_", "") // litval could look like 3_500
-        factory.buildConstantExpr(factory.next_astnum, theType, value)
+        val literal = litVal.replaceAll("_", "") // litval could look like 3_500
+        factory.buildLiteralExpr(factory.next_astnum, theType, literal)
       case o @ EnumerationLiteralEx(sloc, refName, ref, theType) =>
-        factory.buildConstantExpr(factory.next_astnum, theType, refName)
+        factory.buildLiteralExpr(factory.next_astnum, theType, refName)
       case o @ IdentifierEx(sloc, refName, ref, theType) =>
         // identifier can be variable name or package/procedure name, <theType> is null if it's function name
         factory.buildIdExpr(factory.next_astnum, theType, refName, ref)

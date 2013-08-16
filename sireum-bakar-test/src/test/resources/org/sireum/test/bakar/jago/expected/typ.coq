@@ -3,14 +3,6 @@ Require Export Coq.Lists.List.
 Require Export Coq.Bool.Bool.
 Require Export Coq.Strings.String.
 
-Inductive mode: Type := 
-    | In: mode
-    | Out: mode.
-
-Inductive typ: Type := 
-    | Tint: typ
-    | Tbool: typ.
-
 Definition astnum := nat.
 
 Definition idnum := nat.
@@ -30,90 +22,100 @@ Record type_table: Type := mktype_table{
     tt_typename_table: list (typenum * (typeuri * option typedeclnum))
 }.
 
-Inductive constant: Type := 
-	| Ointconst: nat -> constant.
+Inductive literal: Type := 
+	| Integer_Literal: Z -> literal
+	| Boolean_Literal: bool -> literal.
 
-Inductive unary_operation: Type := 
-	| Onegint: unary_operation
-	| Oposint: unary_operation.
+Inductive unary_operator: Type := 
+	| Not: unary_operator
+	| Unary_Minus: unary_operator
+	| Unary_Plus: unary_operator.
 
-Inductive binary_operation: Type := 
-	| Ceq: binary_operation
-	| Cge: binary_operation
-	| Cgt: binary_operation
-	| Cle: binary_operation
-	| Clt: binary_operation
-	| Cne: binary_operation
-	| Oadd: binary_operation
-	| Oand: binary_operation
-	| Odiv: binary_operation
-	| Omul: binary_operation
-	| Oor: binary_operation
-	| Osub: binary_operation
-	| Oxor: binary_operation.
+Inductive binary_operator: Type := 
+	| And: binary_operator
+	| Divide: binary_operator
+	| Equal: binary_operator
+	| Greater_Than: binary_operator
+	| Greater_Than_Or_Equal: binary_operator
+	| Less_Than: binary_operator
+	| Less_Than_Or_Equal: binary_operator
+	| Minus: binary_operator
+	| Multiply: binary_operator
+	| Not_Equal: binary_operator
+	| Or: binary_operator
+	| Plus: binary_operator.
 
-Inductive expr: Type := 
-	| Econst: astnum -> constant -> expr
-	| Evar: astnum -> idnum -> expr
-	| Ebinop: astnum -> binary_operation -> expr -> expr -> expr
-	| Eunop: astnum -> unary_operation -> expr -> expr.
+Inductive type: Type := 
+    | Boolean: type
+    | Integer: type.
 
-Inductive stmt: Type := 
-	| Sassign: astnum -> idnum -> expr -> stmt
-	| Sifthen: astnum -> expr -> stmt -> stmt
-	| Swhile: astnum -> expr -> stmt -> stmt
-	| Sseq: astnum -> stmt -> stmt -> stmt
-	| Sreturn: astnum -> option (expr) -> stmt
-	| Sassert: astnum -> expr -> stmt
-	| Sloopinvariant: astnum -> expr -> stmt.
+Inductive expression: Type := 
+	| E_Literal: astnum -> literal -> expression
+	| E_Identifier: astnum -> idnum -> expression
+	| E_Binary_Operation: astnum -> binary_operator -> expression -> expression -> expression
+	| E_Unary_Operation: astnum -> unary_operator -> expression -> expression.
 
-Record param_specification: Type := mkparam_specification{
-	param_astnum: astnum;
-	param_idents: list idnum;
-	param_typenum: typenum;
-	param_mode: mode;
-	param_init: option (expr)
+Inductive statement: Type := 
+	| S_Assignment: astnum -> idnum -> expression -> statement
+	| S_If: astnum -> expression -> statement -> statement
+	| S_While_Loop: astnum -> expression -> statement -> statement
+	| S_Sequence: astnum -> statement -> statement -> statement
+	| S_Return: astnum -> option (expression) -> statement
+	| S_Assert: astnum -> expression -> statement
+	| S_Loop_Invariant: astnum -> expression -> statement.
+
+Inductive mode: Type := 
+    | In: mode
+    | Out: mode
+    | In_Out: mode.
+
+(* variables declarations in procedure/function *)
+Record object_declaration: Type := mkobject_declaration{
+	declaration_astnum: astnum;
+	object_name: idnum;
+	object_nominal_subtype: typenum;
+	initialization_expression: option (expression)
+}.
+
+Record parameter_specification: Type := mkparameter_specification{
+	parameter_astnum: astnum;
+	parameter_name: idnum;
+	parameter_subtype_mark: typenum;
+	parameter_mode: mode;
+	parameter_default_expression: option (expression)
 }.
 
 Record aspect_specification: Type := mkaspect_specification{
 	aspect_astnum: astnum;
 	aspect_mark: aspectnum;
-	aspect_definition: expr
-}.
-
-(* Local variables declarations used in the procedure/function body *)
-Record local_declaration: Type := mklocal_declaration{
-	local_astnum: astnum;
-	local_idents: list idnum;
-	local_typenum: typenum;
-	local_init: option (expr)
+	aspect_definition: expression
 }.
 
 Record procedure_body: Type := mkprocedure_body{
-	proc_astnum: astnum;
-	proc_name: procnum;
-	proc_specs: option (list aspect_specification);
-	proc_params: option (list param_specification);
-	proc_loc_idents: option (list local_declaration);
-	proc_body: stmt
+	procedure_astnum: astnum;
+	procedure_name: procnum;
+	procedure_contracts: list aspect_specification;
+	procedure_parameter_profile: list parameter_specification;
+	procedure_declarative_part: list object_declaration;
+	procedure_statements: statement
 }.
 
 Record function_body: Type := mkfunction_body{
-	fn_astnum: astnum;
-	fn_name: procnum;
-	fn_ret_type: typ;
-	fn_specs: option (list aspect_specification);
-	fn_params: option (list param_specification);
-	fn_loc_idents: option (list local_declaration);
-	fn_body: stmt
+	function_astnum: astnum;
+	function_name: procnum;
+	function_result_subtype: type;
+	function_contracts: list aspect_specification;
+	function_parameter_profile: list parameter_specification;
+	function_declarative_part: list object_declaration;
+	function_statements: statement
 }.
 
 Inductive subprogram: Type := 
-	| Sproc: astnum -> procedure_body -> subprogram
-	| Sfunc: astnum -> function_body -> subprogram.
+	| Procedure: astnum -> procedure_body -> subprogram
+	| Function: astnum -> function_body -> subprogram.
 
-Inductive unit_declaration: Type := 
-	| UnitDecl: astnum -> subprogram -> unit_declaration.
+Inductive library_unit_declaration: Type := 
+	| Library_Subprogram: astnum -> subprogram -> library_unit_declaration.
 
 Inductive compilation_unit: Type := 
-	| CompilationUnit: astnum -> unit_declaration -> type_table -> compilation_unit.
+	| Library_Unit: astnum -> library_unit_declaration -> type_table -> compilation_unit.

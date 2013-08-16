@@ -1,33 +1,31 @@
 (* Compilation Unit *)
-CompilationUnit 1
+Library_Unit 1
   (* Compilation Unit - Unit Declaration *) (
-    UnitDecl 2 (
+    Library_Subprogram 2 (
       (* Function Body Declaration *)
-      Sfunc 3 (
+      Function 3 (
         mkfunction_body 4
           (* Function Body - Name *)
           (*Min*) 1
           (* Function Body - Return Type *) 
-          (Tint) 
+          (Integer) 
           (* Function Body - Specification *)
-          (None)
+          (nil)
           (* Function Body - Parameters *)
-          (Some(
-            mkparam_specification 5 ((*X*) 1 :: nil) (1) (In) None :: 
-            mkparam_specification 6 ((*Y*) 2 :: nil) (1) (In) None :: nil
-          ))
+          (
+          mkparameter_specification 5 (*X*) 1 (1) (In) None :: 
+          mkparameter_specification 6 (*Y*) 2 (1) (In) None :: nil)
           (* Function Body - Local Defined Variables *)
-          (Some(
-            mklocal_declaration 7 ((*Result*) 3 :: nil) 1 None :: nil
-          ))
-          (* Function Body - Body *) (
-            Sseq 8 (
-              Sassign 9 ((*Result*) 3) (Evar 10 (*X*) 1) ) ( 
-              Sseq 11 (
-                Sifthen 12 (Ebinop 13 Cgt (Evar 14 (*X*) 1) (Evar 15 (*Y*) 2)) (
-                    Sassign 16 ((*Result*) 3) (Evar 17 (*Y*) 2)
+          (
+          mkobject_declaration 7 (*Result*) 3 1 None :: nil)
+          (* Function Body - Statements *) (
+            S_Sequence 8 (
+              S_Assignment 9 ((*Result*) 3) (E_Identifier 10 (*X*) 1) ) ( 
+              S_Sequence 11 (
+                S_If 12 (E_Binary_Operation 13 Greater_Than (E_Identifier 14 (*X*) 1) (E_Identifier 15 (*Y*) 2)) (
+                    S_Assignment 16 ((*Result*) 3) (E_Identifier 17 (*Y*) 2)
                   ) ) ( 
-                Sreturn 18 (Some (Evar 19 (*Result*) 3)) ) )
+                S_Return 18 (Some (E_Identifier 19 (*Result*) 3)) ) )
           )
       )
     )

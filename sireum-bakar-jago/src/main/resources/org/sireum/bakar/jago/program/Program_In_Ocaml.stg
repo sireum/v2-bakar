@@ -5,11 +5,11 @@ $if(value)$Some($value$)$else$None$endif$
 >>
 
 binaryExpr(astnum, op, loperand, roperand) ::= <<
-Ebinop ($astnum$, $op$, $loperand$, $roperand$)
+E_Binary_Operation ($astnum$, $op$, $loperand$, $roperand$)
 >>
 
 unaryExpr(astnum, op, operand) ::= <<
-Eunop ($astnum$, $op$, $operand$)
+E_Unary_Operation ($astnum$, $op$, $operand$)
 >>
 
 // identifier is either (1) Bid nat; or (2) Aid nat 
@@ -18,19 +18,19 @@ $theType$ $if(annotation)$(*$annotation$*)$endif$ $id$
 >>
 
 identifierExpr(astnum, id) ::= <<
-Evar ($astnum$, $id$)
+E_Identifier ($astnum$, $id$)
 >>
 
-// Inductive constant: Type := 
-//     | Ointconst: nat -> constant
-// the type is "Ointconst", the value is of type nat
+// Inductive literal: Type := 
+//     | Integer_Literal: nat -> constant
+// the type is "Integer_Literal", the value is of type nat
 // $if(theType)$$theType$ $endif$$constVal$
-constant(theType, constVal) ::= <<
-$constVal$
+literal(theType, theLiteral) ::= <<
+$theType$ $theLiteral$
 >>
 
-constantExpr(astnum, constVal) ::= <<
-Econst ($astnum$, $constVal$)
+literalExpr(astnum, litval) ::= <<
+E_Literal ($astnum$, $litval$)
 >>
 
 // procedureCall(procName, args) ::= <<
@@ -38,41 +38,44 @@ Econst ($astnum$, $constVal$)
 // >>
 
 seqStmt(astnum, stmt1, stmt2) ::= <<
-Sseq ($astnum$,
+S_Sequence ($astnum$,
   $stmt1$,
   $stmt2$ )
 >>
 
 assertStmt(astnum, assertExp) ::= <<
-Sassert ($astnum$, $assertExp$)
+S_Assert ($astnum$, $assertExp$)
 >>	
 
 loopInvariantStmt(astnum, invariantExp) ::= <<
-Sloopinvariant ($astnum$, $invariantExp$)
+S_Loop_Invariant ($astnum$, $invariantExp$)
 >>
 
 whileStmt(astnum, cond, loopBody) ::= <<
-Swhile ($astnum$, $cond$,
+S_While_Loop ($astnum$, $cond$,
   $loopBody$
 )
 >>
 
 ifStmt(astnum, cond, ifBody) ::= <<
-Sifthen ($astnum$, $cond$,
+S_If ($astnum$, $cond$,
   $ifBody$
 )
 >>
 
 assignStmt(astnum, lhs, rhs) ::= <<
-Sassign ($astnum$, $lhs$, $rhs$)
+S_Assignment ($astnum$, $lhs$, $rhs$)
 >>
 
 returnStmt(astnum, returnExp) ::= <<
-Sreturn ($astnum$, $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
+S_Return ($astnum$, $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
 >>
 
-paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
-{ param_astnum = $astnum$; param_idents = [$ids; separator="; "$]; param_typenum = $theType$; param_mode = $mode$; param_init = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
+//paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
+//{ parameter_astnum = $astnum$; parameter_names = [$ids; separator="; "$]; parameter_subtype_mark = $theType$; parameter_mode = $mode$; parameter_default_expression = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
+//>>
+paramSpecification(astnum, id, theType, mode, initExp) ::= <<
+{ parameter_astnum = $astnum$; parameter_name = $id$; parameter_subtype_mark = $theType$; parameter_mode = $mode$; parameter_default_expression = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -87,38 +90,36 @@ aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 >>
 
 // +++++++++
-localVarDeclaration(astnum, ids, theType, init) ::= <<
-{ local_astnum = $astnum$; local_idents = [$ids; separator="; "$]; local_typenum = $theType$; local_init = $if(init)$(Some ($init$))$else$None$endif$ }
+//objectDeclaration(astnum, ids, theType, init) ::= <<
+//{ declaration_astnum = $astnum$; object_names = [$ids; separator="; "$]; object_nominal_subtype = $theType$; initialization_expression = $if(init)$(Some ($init$))$else$None$endif$ }
+//>>
+objectDeclaration(astnum, id, theType, init) ::= <<
+{ declaration_astnum = $astnum$; object_name = $id$; object_nominal_subtype = $theType$; initialization_expression = $if(init)$(Some ($init$))$else$None$endif$ }
 >>
 
 // ++++++
 procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
 { 
-  proc_astnum = 
+  procedure_astnum = 
     (* Procedure Body - AST Number *)
     $astnum$;
-  proc_name = 
+  procedure_name = 
     (* Procedure Body - Name *)
     $procName$;
-  proc_specs =
+  procedure_contracts =
     (* Procedure Body - Specification *)
-    $if(aspectSpecs)$
-    $aspectSpecs; separator="; \n"$$else$
-    None$endif$;
-  proc_params = 
+    [$if(aspectSpecs)$
+    $aspectSpecs; separator="; \n"$$endif$];
+  procedure_parameter_profile = 
     (* Procedure Body - Parameters *)
-    $if(params)$Some([
-      $params; separator="; \n"$
-    ])$else$
-    None$endif$;
-  proc_loc_idents = 
-    (* Procedure Body - Local Defined Variables *)
-    $if(identDecls)$Some([
-      $identDecls; separator="; \n"$
-    ])$else$
-    None$endif$;
-  proc_body =
-    (* Procedure Body - Body *)
+    [$if(params)$
+    $params; separator="; \n"$$endif$];
+  procedure_declarative_part = 
+    (* Procedure Body - Variable Declarations *)
+    [$if(identDecls)$
+    $identDecls; separator="; \n"$$endif$];
+  procedure_statements =
+    (* Procedure Body - Statements *)
     $procBody$
 }
 >>
@@ -126,39 +127,34 @@ procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <
 // ++++
 functionBody(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
 {
-  fn_astnum =   
+  function_astnum =   
     (* Function Body - AST Number *)
     $astnum$; 
-  fn_name =
+  function_name =
     (* Function Body - Name *)
     $funcName$;
-  fn_ret_type = 
+  function_result_subtype = 
     (* Function Body - Return Type *)
     $returnT$;
-  fn_specs = 
+  function_contracts = 
     (* Function Body - Specification *)
-    $if(aspectSpecs)$
-    $aspectSpecs; separator="; \n"$$else$
-    None$endif$;
-  fn_params = 
+    [$if(aspectSpecs)$
+    $aspectSpecs; separator="; \n"$$endif$];
+  function_parameter_profile = 
     (* Function Body - Parameters *)
-    $if(params)$Some([
-      $params; separator="; \n"$
-    ])$else$
-    None$endif$;
-  fn_loc_idents = 
+    [$if(params)$
+    $params; separator="; \n"$$endif$];
+  function_declarative_part = 
     (* Function Body - Locally Defined Variables *)
-    $if(identDecls)$Some([
-      $identDecls; separator="; \n"$
-    ])$else$
-    None$endif$;
-  fn_body = 
-    (* Function Body - Body *)
+    [$if(identDecls)$
+    $identDecls; separator="; \n"$$endif$];
+  function_statements = 
+    (* Function Body - Statements *)
     $funcBody$
 }
 >>
 
-// <Sproc procedure_body> or <Sfunc function_body>
+// <Procedure procedure_body> or <Function function_body>
 subProgram(astnum, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
 $kind$( $astnum$,
@@ -191,7 +187,7 @@ $kind$( $astnum$,
 
 compilationUnit(astnum, unitDecl, unitExpTypeTable, unitTypeNameTable) ::= <<
 (* Compilation Unit *)
-CompilationUnit ( $astnum$,
+Library_Unit ( $astnum$,
   (* Compilation Unit - Unit Declaration *)
   $unitDecl$,  
   (* Compilation Unit - Type Table *)

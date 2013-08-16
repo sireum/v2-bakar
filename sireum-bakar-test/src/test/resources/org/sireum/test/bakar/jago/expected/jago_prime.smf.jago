@@ -1,44 +1,42 @@
 (* Compilation Unit *)
-CompilationUnit 1
+Library_Unit 1
   (* Compilation Unit - Unit Declaration *) (
-    UnitDecl 2 (
+    Library_Subprogram 2 (
       (* Function Body Declaration *)
-      Sfunc 3 (
+      Function 3 (
         mkfunction_body 4
           (* Function Body - Name *)
           (*Prime*) 1
           (* Function Body - Return Type *) 
-          (Tint) 
+          (Integer) 
           (* Function Body - Specification *)
-          (None)
+          (nil)
           (* Function Body - Parameters *)
-          (Some(
-            mkparam_specification 5 ((*N*) 1 :: nil) (1) (In) None :: nil
-          ))
+          (
+          mkparameter_specification 5 (*N*) 1 (1) (In) None :: nil)
           (* Function Body - Local Defined Variables *)
-          (Some(
-            mklocal_declaration 6 ((*Result*) 2 :: nil) 1 None :: 
-            mklocal_declaration 7 ((*I*) 3 :: nil) 1 None :: 
-            mklocal_declaration 8 ((*T*) 4 :: nil) 1 None :: nil
-          ))
-          (* Function Body - Body *) (
-            Sseq 9 (
-              Sassign 10 ((*Result*) 2) (Econst 11 (Ointconst 0)) ) ( 
-              Sseq 12 (
-                Sifthen 13 (Ebinop 14 Oor (Ebinop 15 Ceq (Evar 16 (*N*) 1) (Econst 17 (Ointconst 1))) (Ebinop 18 Ceq (Evar 19 (*N*) 1) (Econst 20 (Ointconst 2)))) (
-                    Sassign 21 ((*Result*) 2) (Econst 22 (Ointconst 1))
+          (
+          mkobject_declaration 6 (*Result*) 2 1 None :: 
+          mkobject_declaration 7 (*I*) 3 1 None :: 
+          mkobject_declaration 8 (*T*) 4 1 None :: nil)
+          (* Function Body - Statements *) (
+            S_Sequence 9 (
+              S_Assignment 10 ((*Result*) 2) (E_Literal 11 (Integer_Literal 0)) ) ( 
+              S_Sequence 12 (
+                S_If 13 (E_Binary_Operation 14 Or (E_Binary_Operation 15 Equal (E_Identifier 16 (*N*) 1) (E_Literal 17 (Integer_Literal 1))) (E_Binary_Operation 18 Equal (E_Identifier 19 (*N*) 1) (E_Literal 20 (Integer_Literal 2)))) (
+                    S_Assignment 21 ((*Result*) 2) (E_Literal 22 (Integer_Literal 1))
                   ) ) ( 
-                Sseq 23 (
-                  Sassign 24 ((*I*) 3) (Econst 25 (Ointconst 2)) ) ( 
-                  Sseq 26 (
-                    Swhile 27 (Ebinop 28 Oand (Ebinop 29 Clt (Evar 30 (*I*) 3) (Evar 31 (*N*) 1)) (Ebinop 32 Ceq (Evar 33 (*Result*) 2) (Econst 34 (Ointconst 0)))) (
-                        Sseq 35 (
-                          Sassign 36 ((*T*) 4) (Ebinop 37 Odiv (Evar 38 (*N*) 1) (Evar 39 (*I*) 3)) ) ( 
-                          Sifthen 40 (Ebinop 41 Ceq (Evar 42 (*N*) 1) (Ebinop 43 Omul (Evar 44 (*T*) 4) (Evar 45 (*I*) 3))) (
-                              Sassign 46 ((*Result*) 2) (Econst 47 (Ointconst 1))
+                S_Sequence 23 (
+                  S_Assignment 24 ((*I*) 3) (E_Literal 25 (Integer_Literal 2)) ) ( 
+                  S_Sequence 26 (
+                    S_While_Loop 27 (E_Binary_Operation 28 And (E_Binary_Operation 29 Less_Than (E_Identifier 30 (*I*) 3) (E_Identifier 31 (*N*) 1)) (E_Binary_Operation 32 Equal (E_Identifier 33 (*Result*) 2) (E_Literal 34 (Integer_Literal 0)))) (
+                        S_Sequence 35 (
+                          S_Assignment 36 ((*T*) 4) (E_Binary_Operation 37 Divide (E_Identifier 38 (*N*) 1) (E_Identifier 39 (*I*) 3)) ) ( 
+                          S_If 40 (E_Binary_Operation 41 Equal (E_Identifier 42 (*N*) 1) (E_Binary_Operation 43 Multiply (E_Identifier 44 (*T*) 4) (E_Identifier 45 (*I*) 3))) (
+                              S_Assignment 46 ((*Result*) 2) (E_Literal 47 (Integer_Literal 1))
                             ) )
                       ) ) ( 
-                    Sreturn 48 (Some (Evar 49 (*Result*) 2)) ) ) ) )
+                    S_Return 48 (Some (E_Identifier 49 (*Result*) 2)) ) ) ) )
           )
       )
     )

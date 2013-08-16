@@ -1,36 +1,35 @@
 (* Compilation Unit *)
-CompilationUnit 1
+Library_Unit 1
   (* Compilation Unit - Unit Declaration *) (
-    UnitDecl 2 (
+    Library_Subprogram 2 (
       (* Procedure Body Declaration *)
-      Sproc 3 (
+      Procedure 3 (
         mkprocedure_body 4
           (* Procedure Body - Name *)
           (*Linear_Div_With_LoopInvariant*) 1
           (* Procedure Body - Specification *)
-          (None)
+          (nil)
           (* Procedure Body - Parameters *)
-          (Some(
-            mkparam_specification 5 ((*Dividend*) 1 :: nil) (1) (In) None :: 
-            mkparam_specification 6 ((*Divisor*) 2 :: nil) (1) (In) None :: 
-            mkparam_specification 7 ((*Quotient*) 3 :: nil) (1) (Out) None :: 
-            mkparam_specification 8 ((*Remainder*) 4 :: nil) (1) (Out) None :: nil
-          )) 
-          (* Procedure Body - Locally Defined Variables *)
-          (None)
-          (* Procedure Body - Body *) (
-            Sseq 9 (
-              Sassign 10 ((*Quotient*) 3) (Econst 11 (Ointconst 0)) ) ( 
-              Sseq 12 (
-                Sassign 13 ((*Remainder*) 4) (Evar 14 (*Dividend*) 1) ) ( 
-                Swhile 15 (Ebinop 16 Cge (Evar 17 (*Remainder*) 4) (Evar 18 (*Divisor*) 2)) (
-                    Sseq 19 (
-                      Sloopinvariant 20 (Ebinop 21 Oand (Ebinop 22 Oand (Ebinop 23 Cge (Evar 24 (*Remainder*) 4) (Econst 25 (Ointconst 0))) (Ebinop 26 Cge (Evar 27 (*Quotient*) 3) (Econst 28 (Ointconst 0)))) (Ebinop 29 Ceq (Ebinop 30 Oadd (Ebinop 31 Omul (Evar 32 (*Divisor*) 2) (Evar 33 (*Quotient*) 3)) (Evar 34 (*Remainder*) 4)) (Evar 35 (*Dividend*) 1))) ) ( 
-                      Sseq 36 (
-                        Sassign 37 ((*Quotient*) 3) (Ebinop 38 Oadd (Evar 39 (*Quotient*) 3) (Econst 40 (Ointconst 1))) ) ( 
-                        Sseq 41 (
-                          Sassign 42 ((*Quotient*) 3) (Ebinop 43 Oadd (Evar 44 (*Quotient*) 3) (Econst 45 (Ointconst 1))) ) ( 
-                          Sassign 46 ((*Remainder*) 4) (Ebinop 47 Osub (Evar 48 (*Remainder*) 4) (Evar 49 (*Divisor*) 2)) ) ) )
+          (
+          mkparameter_specification 5 (*Dividend*) 1 (1) (In) None :: 
+          mkparameter_specification 6 (*Divisor*) 2 (1) (In) None :: 
+          mkparameter_specification 7 (*Quotient*) 3 (1) (Out) None :: 
+          mkparameter_specification 8 (*Remainder*) 4 (1) (Out) None :: nil) 
+          (* Procedure Body - Variable Declarations *)
+          (nil)
+          (* Procedure Body - Statements *) (
+            S_Sequence 9 (
+              S_Assignment 10 ((*Quotient*) 3) (E_Literal 11 (Integer_Literal 0)) ) ( 
+              S_Sequence 12 (
+                S_Assignment 13 ((*Remainder*) 4) (E_Identifier 14 (*Dividend*) 1) ) ( 
+                S_While_Loop 15 (E_Binary_Operation 16 Greater_Than_Or_Equal (E_Identifier 17 (*Remainder*) 4) (E_Identifier 18 (*Divisor*) 2)) (
+                    S_Sequence 19 (
+                      S_Loop_Invariant 20 (E_Binary_Operation 21 And (E_Binary_Operation 22 And (E_Binary_Operation 23 Greater_Than_Or_Equal (E_Identifier 24 (*Remainder*) 4) (E_Literal 25 (Integer_Literal 0))) (E_Binary_Operation 26 Greater_Than_Or_Equal (E_Identifier 27 (*Quotient*) 3) (E_Literal 28 (Integer_Literal 0)))) (E_Binary_Operation 29 Equal (E_Binary_Operation 30 Plus (E_Binary_Operation 31 Multiply (E_Identifier 32 (*Divisor*) 2) (E_Identifier 33 (*Quotient*) 3)) (E_Identifier 34 (*Remainder*) 4)) (E_Identifier 35 (*Dividend*) 1))) ) ( 
+                      S_Sequence 36 (
+                        S_Assignment 37 ((*Quotient*) 3) (E_Binary_Operation 38 Plus (E_Identifier 39 (*Quotient*) 3) (E_Literal 40 (Integer_Literal 1))) ) ( 
+                        S_Sequence 41 (
+                          S_Assignment 42 ((*Quotient*) 3) (E_Binary_Operation 43 Plus (E_Identifier 44 (*Quotient*) 3) (E_Literal 45 (Integer_Literal 1))) ) ( 
+                          S_Assignment 46 ((*Remainder*) 4) (E_Binary_Operation 47 Minus (E_Identifier 48 (*Remainder*) 4) (E_Identifier 49 (*Divisor*) 2)) ) ) )
                   ) ) )
           )
       )

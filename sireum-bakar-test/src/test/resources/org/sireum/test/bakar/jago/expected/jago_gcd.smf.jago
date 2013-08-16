@@ -1,43 +1,41 @@
 (* Compilation Unit *)
-CompilationUnit 1
+Library_Unit 1
   (* Compilation Unit - Unit Declaration *) (
-    UnitDecl 2 (
+    Library_Subprogram 2 (
       (* Function Body Declaration *)
-      Sfunc 3 (
+      Function 3 (
         mkfunction_body 4
           (* Function Body - Name *)
           (*Gcd*) 1
           (* Function Body - Return Type *) 
-          (Tint) 
+          (Integer) 
           (* Function Body - Specification *)
-          (None)
+          (nil)
           (* Function Body - Parameters *)
-          (Some(
-            mkparam_specification 5 ((*M*) 1 :: nil) (1) (In) None :: 
-            mkparam_specification 6 ((*N*) 2 :: nil) (1) (In) None :: nil
-          ))
+          (
+          mkparameter_specification 5 (*M*) 1 (1) (In) None :: 
+          mkparameter_specification 6 (*N*) 2 (1) (In) None :: nil)
           (* Function Body - Local Defined Variables *)
-          (Some(
-            mklocal_declaration 7 ((*C*) 3 :: (*D*) 4 :: nil) 1 None :: 
-            mklocal_declaration 8 ((*T*) 5 :: nil) 1 None :: 
-            mklocal_declaration 9 ((*R*) 6 :: nil) 1 None :: nil
-          ))
-          (* Function Body - Body *) (
-            Sseq 10 (
-              Sassign 11 ((*C*) 3) (Evar 12 (*M*) 1) ) ( 
-              Sseq 13 (
-                Sassign 14 ((*D*) 4) (Evar 15 (*N*) 2) ) ( 
-                Sseq 16 (
-                  Swhile 17 (Ebinop 18 Cne (Evar 19 (*D*) 4) (Econst 20 (Ointconst 0))) (
-                      Sseq 21 (
-                        Sassign 22 ((*T*) 5) (Ebinop 23 Odiv (Evar 24 (*C*) 3) (Evar 25 (*D*) 4)) ) ( 
-                        Sseq 26 (
-                          Sassign 27 ((*R*) 6) (Ebinop 28 Osub (Evar 29 (*C*) 3) (Ebinop 30 Omul (Evar 31 (*T*) 5) (Evar 32 (*D*) 4))) ) ( 
-                          Sseq 33 (
-                            Sassign 34 ((*C*) 3) (Evar 35 (*D*) 4) ) ( 
-                            Sassign 36 ((*D*) 4) (Evar 37 (*R*) 6) ) ) )
+          (
+          mkobject_declaration 7 (*C*) 3 1 None :: 
+          mkobject_declaration 8 (*T*) 5 1 None :: 
+          mkobject_declaration 9 (*R*) 6 1 None :: nil)
+          (* Function Body - Statements *) (
+            S_Sequence 10 (
+              S_Assignment 11 ((*C*) 3) (E_Identifier 12 (*M*) 1) ) ( 
+              S_Sequence 13 (
+                S_Assignment 14 ((*D*) 4) (E_Identifier 15 (*N*) 2) ) ( 
+                S_Sequence 16 (
+                  S_While_Loop 17 (E_Binary_Operation 18 Not_Equal (E_Identifier 19 (*D*) 4) (E_Literal 20 (Integer_Literal 0))) (
+                      S_Sequence 21 (
+                        S_Assignment 22 ((*T*) 5) (E_Binary_Operation 23 Divide (E_Identifier 24 (*C*) 3) (E_Identifier 25 (*D*) 4)) ) ( 
+                        S_Sequence 26 (
+                          S_Assignment 27 ((*R*) 6) (E_Binary_Operation 28 Minus (E_Identifier 29 (*C*) 3) (E_Binary_Operation 30 Multiply (E_Identifier 31 (*T*) 5) (E_Identifier 32 (*D*) 4))) ) ( 
+                          S_Sequence 33 (
+                            S_Assignment 34 ((*C*) 3) (E_Identifier 35 (*D*) 4) ) ( 
+                            S_Assignment 36 ((*D*) 4) (E_Identifier 37 (*R*) 6) ) ) )
                     ) ) ( 
-                  Sreturn 38 (Some (Evar 39 (*C*) 3)) ) ) )
+                  S_Return 38 (Some (E_Identifier 39 (*C*) 3)) ) ) )
           )
       )
     )

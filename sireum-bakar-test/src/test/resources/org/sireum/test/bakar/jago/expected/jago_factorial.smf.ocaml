@@ -1,44 +1,42 @@
 (* Compilation Unit *)
-CompilationUnit ( 1,
+Library_Unit ( 1,
   (* Compilation Unit - Unit Declaration *)
-  UnitDecl( 2,
+  Library_Subprogram( 2,
     (* Function Body Declaration *)
-    Sfunc( 3,
+    Function( 3,
       {
-        fn_astnum =   
+        function_astnum =   
           (* Function Body - AST Number *)
           4; 
-        fn_name =
+        function_name =
           (* Function Body - Name *)
            (*Factorial*) 1;
-        fn_ret_type = 
+        function_result_subtype = 
           (* Function Body - Return Type *)
-          Tint;
-        fn_specs = 
+          Integer;
+        function_contracts = 
           (* Function Body - Specification *)
-          None;
-        fn_params = 
+          [];
+        function_parameter_profile = 
           (* Function Body - Parameters *)
-          Some([
-                { param_astnum = 5; param_idents = [ (*N*) 1]; param_typenum = 1; param_mode = In; param_init = None }
-              ]);
-        fn_loc_idents = 
+          [
+          { parameter_astnum = 5; parameter_name =  (*N*) 1; parameter_subtype_mark = 1; parameter_mode = In; parameter_default_expression = None }];
+        function_declarative_part = 
           (* Function Body - Locally Defined Variables *)
-          Some([
-                { local_astnum = 6; local_idents = [ (*Result*) 2]; local_typenum = 1; local_init = (Some (Econst (7, 1))) }; 
-                { local_astnum = 8; local_idents = [ (*T*) 3]; local_typenum = 1; local_init = None }
-              ]);
-        fn_body = 
-          (* Function Body - Body *)
-          Sseq (9,
-            Sassign (10,  (*T*) 3, Evar (11,  (*N*) 1)),
-            Sseq (12,
-              Swhile (13, Ebinop (14, Cgt, Evar (15,  (*T*) 3), Econst (16, 0)),
-                Sseq (17,
-                  Sassign (18,  (*Result*) 2, Ebinop (19, Omul, Evar (20,  (*Result*) 2), Evar (21,  (*T*) 3))),
-                  Sassign (22,  (*T*) 3, Ebinop (23, Osub, Evar (24,  (*T*) 3), Econst (25, 1))) )
+          [
+          { declaration_astnum = 6; object_name =  (*Result*) 2; object_nominal_subtype = 1; initialization_expression = (Some (E_Literal (7, Integer_Literal 1))) }; 
+          { declaration_astnum = 8; object_name =  (*T*) 3; object_nominal_subtype = 1; initialization_expression = None }];
+        function_statements = 
+          (* Function Body - Statements *)
+          S_Sequence (9,
+            S_Assignment (10,  (*T*) 3, E_Identifier (11,  (*N*) 1)),
+            S_Sequence (12,
+              S_While_Loop (13, E_Binary_Operation (14, Greater_Than, E_Identifier (15,  (*T*) 3), E_Literal (16, Integer_Literal 0)),
+                S_Sequence (17,
+                  S_Assignment (18,  (*Result*) 2, E_Binary_Operation (19, Multiply, E_Identifier (20,  (*Result*) 2), E_Identifier (21,  (*T*) 3))),
+                  S_Assignment (22,  (*T*) 3, E_Binary_Operation (23, Minus, E_Identifier (24,  (*T*) 3), E_Literal (25, Integer_Literal 1))) )
               ),
-              Sreturn (26, (Some (Evar (27,  (*Result*) 2)))) ) )
+              S_Return (26, (Some (E_Identifier (27,  (*Result*) 2)))) ) )
       }
     )
   ),  
