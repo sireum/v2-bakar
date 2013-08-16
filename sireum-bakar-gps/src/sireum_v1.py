@@ -9,13 +9,8 @@ import kiasan_v1.gui
 import kiasan_v1.logic
 import urllib
 import subprocess
-import threading
 import gobject
-
-# global vars - EVILNESS!!!
-cancel = False
-kiasan_jar_is_running = False
-gobject.threads_init()
+import traceback
 
 
 
@@ -66,30 +61,27 @@ def run_kiasan_plugin():
 		kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, True)
 		
 		# init progress bar
-		win_pb, pb, info_label = init_progressbar()
-		GPS.MDI.add(win_pb, "KiasanProgress", "kiasanprogress")	
+		win_pb, progressbar = init_progressbar()
+		GPS.MDI.add(win_pb, "Kiasan", "kiasanprogress")	
 		win = GPS.MDI.get('kiasanprogress')
+		win.split(reuse=True)	# reuse=True: bottom from code window, reuse=False: top from code window
 		win.float(float=False)	# float=True: popup, float=False: GPS integrated window
-		t = threading.Thread(target=run_kiasan_alasysis_async, args=(pb,project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list))
-		t.start()		
-		print 'async fired'
-		
+		gobject.threads_init()
+		gobject.idle_add(run_kiasan_alasysis_async, progressbar, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+
 	except ProjectNotBuiltException as e:
 		print "ProjectNotBuiltException({0}): {1}".format(e.errno, e.strerror)
 		GPS.MDI.dialog("Build project, before run Kiasan.")
-		print "AttributeError:" + e.message
+		traceback.print_exc()
 	except AttributeError as e:
 		print dir(e)
 		print "AttributeError:" + e.message
 		GPS.MDI.dialog("This file does not belongs to opened project.")
-	except IOError as e:
+	except IOError:
 		GPS.MDI.dialog("Error: Kiasan report not generated.")
-		print "AttributeError:" + e.message
-	except Exception as e:
-		print "AttributeError:" + e.message
-	
-	print 'no exception'
-		
+		traceback.print_exc()
+	except Exception:
+		traceback.print_exc()		
 
 
 def get_spark_sources_path():
@@ -112,58 +104,40 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 		os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
 
 
-def run_kiasan_alasysis_async(pb, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):	
+def run_kiasan_alasysis_async(progressbar, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):	
 	""" Runs Kiasan analysis based on preferences and clicked entity. """
 	# get package_name and methods list
 	
 	try:
-		print 'running kiasan...'
-		# run Kiasan tool for each method except last one
-			
 		method_no = 0	# for progress bar
-		global cancel	# for cancel action
-		global kiasan_jar_is_running
-		cancel = False
-		print 'starting the loop...'
-		for method in methods_list[:-1]:
-			if cancel:
-				break
+		# run Kiasan tool for each method except last one
+		for method in methods_list[:-1]:			
+			
 			#update progress bar
-			method_no += 1
-			pb.set_fraction(float(method_no)/len(methods_list))
-			pb.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")		
+			progressbar.set_fraction(float(method_no)/len(methods_list))
+			progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
 			while gtk.events_pending():
-				gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
-			
-			# run kiasan		
-			kiasan_jar_is_running = True
-			#t = threading.Thread(target=run_kiasan, args=(kiasan_run_cmd, method))		
-			#t.start()		
-	# 		while kiasan_jar_is_running:
-	# 			while gtk.events_pending():
-	# 				gtk.main_iteration()		
-	# 			if cancel:
-	# 				info_label.set_text("\nCancelling...\n")
-					#glib.idle_add(info_label.set_text, "Cancelling...")
-				#print "is running", kiasan_jar_is_running, "cancel:", cancel		
-			#print 'finished'
-			#t.join()
-			#print 'after join'
-			#print "is running", kiasan_jar_is_running, "cancel:", cancel
+				gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation	
+			method_no += 1
 			run_kiasan(kiasan_run_cmd, method)
+					
+		#update progress bar	
+		progressbar.set_fraction(float(method_no)/len(methods_list))
+		progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
+		while gtk.events_pending():
+				gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
+		method_no += 1
+		
 			
+		# run kiasan on last method with report
 		
-		# run Kiasan tool for last method and generate report
-		if not cancel:			
-			print " ".join(kiasan_run_cmd_with_report + [methods_list[-1]])
-			subprocess.call(kiasan_run_cmd_with_report + [methods_list[-1]])
-		
-		print 'after running kiasan...'
-		
-		#update progress bar and hide it
-		GPS.MDI.get('kiasanprogress').hide()
-		
-		#read generated json
+		run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
+		progressbar.set_fraction(float(method_no)/len(methods_list))
+		progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
+		while gtk.events_pending():
+				gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
+						
+		# read generated json
 		kiasan_logic = kiasan_v1.logic.KiasanLogic()
 		report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
 		report_file_url = urllib.pathname2url(report_file_path)
@@ -171,53 +145,50 @@ def run_kiasan_alasysis_async(pb, project_path, kiasan_run_cmd, kiasan_run_cmd_w
 		
 		# load data into GUI
 		gui = kiasan_v1.gui.KiasanGUI(report)
-		
+			
 		# attach GUI to GPS
 		if GPS.MDI.get('kiasan') is not None:
 			GPS.MDI.get('kiasan').hide()	# hide previous Kiasan results
 		GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
 		win = GPS.MDI.get('kiasan')
-		win.split(reuse=True) # reuse=True: bottom from code window, reuse=False: top from code window
+		win.split(reuse=False) # reuse=True: bottom from code window, reuse=False: top from code window
 		win.float(float=False)	# float=True: popup, float=False: GPS integrated window
-	except Exception as e:
-		print "AttributeError:" + e.message
+		
+		# hide progressbar
+		GPS.MDI.get('kiasanprogress').hide()
+	except Exception:
+		traceback.print_exc()
 
 
 
 def run_kiasan(kiasan_run_cmd, method):
 	""" Single Kiasan run. """
-	global kiasan_jar_is_running
-	print " ".join(kiasan_run_cmd + [method])	
+	print " ".join(kiasan_run_cmd + [method])
 	subprocess.call(kiasan_run_cmd + [method])
-	kiasan_jar_is_running = False
-
-
-
-
-def cancel(widget, info_label):
-	global cancel
-	cancel = True
-	info_label.set_text("\nCancelling...\n")
-
+		
 
 def init_progressbar():
-	pane = gtk.VPaned()
+	main_box = gtk.VBox()
 
 	progressbar = gtk.ProgressBar()
-	
-	pane.add1(progressbar)
-	
-	info_pane = gtk.VPaned()
-	pane.add2(info_pane)
-	
-	info_label = gtk.Label("\nKiasan is running...\n")
-	info_pane.add1(info_label)
-	
-	cancel_button = gtk.Button("Cancel")
-	cancel_button.connect("clicked", cancel, info_label)
-	info_pane.add2(cancel_button)
 
-	return pane, progressbar, info_label
+	progressbar_box = gtk.HBox(False, 20)
+	main_box.pack_start(progressbar_box, False, False, 20)
+	progressbar_box.pack_start(progressbar)
+
+	info_box = gtk.VBox()
+	main_box.pack_start(info_box, False, False, 10)
+	
+	info_label = gtk.Label("Kiasan is running...")
+	info_box.pack_start(info_label)
+	
+	#cancel_box = gtk.HBox()
+	#info_box.pack_start(cancel_box)
+	#cancel_button = gtk.Button("Cancel")
+	#cancel_button.connect("clicked", cancel_counting, info_label)
+	#cancel_box.pack_start(cancel_button, False, False, 20)
+
+	return main_box, progressbar
 
 
 def get_sireum_path():
@@ -345,16 +316,7 @@ def get_spark_source_files(source_path):
 	for f in os.listdir(source_path):
 		if f.endswith(".adb") or f.endswith(".ads"):
 			spark_files_list.append(f)
-	# Get SPARK source files using GPS API - fetching all files
-	#project_files = GPS.current_context().project().sources()
-	#for proj_file in project_files:
-	#	spark_files_list.append(os.path.basename(proj_file.name()))
 	return spark_files_list
-
-
-def run_examiner(current_file):
-	import spark_support
-	spark_support.spark.examine_file(current_file)
 
 
 
@@ -370,10 +332,6 @@ GPS.parse_xml ("""
 		<filter id="Source editor in Ada" />
 		<shell lang="python">sireum_v1.run_kiasan_plugin()</shell>
 	</action>	
-	<action name="run Examiner">
-		<filter id="Source editor in Ada" />
-		<shell lang="python">sireum_v1.run_examiner(GPS.current_context().file())</shell>		
-	</action>
     <submenu before="Window">
         <title>Sireum Bakar (v1)</title>
         <menu action="run Kiasan V1">
@@ -383,10 +341,6 @@ GPS.parse_xml ("""
 	<contextual action="run Kiasan V1" >
     	<Title>Sireum Bakar (v1)/Run Kiasan</Title>
   	</contextual>
-  	<button action="run Examiner">
-    	<title>Run Examiner</title>
-    	<pixmap>""" + GPS.get_system_dir() + """/share/gps/icons/other/run_examiner.png</pixmap>
-  	</button>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"
    				page = "Sireum Bakar (v1)/Kiasan"
