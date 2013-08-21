@@ -226,7 +226,7 @@ procedure Boolean Dummy
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+         <string sid="1">verysimplerecord.adb</string>
          <int>10</int>
          <int>4</int>
          <int>10</int>
@@ -375,7 +375,7 @@ procedure Add (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+         <string sid="1">verysimplerecord.adb</string>
          <int>12</int>
          <int>4</int>
          <int>15</int>
@@ -518,7 +518,7 @@ procedure Add (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+             <string sid="1">verysimplerecord.adb</string>
              <int>14</int>
              <int>14</int>
              <int>14</int>
@@ -554,7 +554,7 @@ procedure Add (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+             <string sid="1">verysimplerecord.adb</string>
              <int>14</int>
              <int>7</int>
              <int>14</int>
@@ -590,7 +590,7 @@ procedure Del
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+         <string sid="1">verysimplerecord.adb</string>
          <int>17</int>
          <int>4</int>
          <int>22</int>
@@ -752,7 +752,7 @@ procedure Del
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+             <string sid="1">verysimplerecord.adb</string>
              <int>20</int>
              <int>11</int>
              <int>20</int>
@@ -781,7 +781,7 @@ procedure Del
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+             <string sid="1">verysimplerecord.adb</string>
              <int>21</int>
              <int>14</int>
              <int>21</int>
@@ -810,7 +810,7 @@ procedure Del
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+             <string sid="1">verysimplerecord.adb</string>
              <int>21</int>
              <int>21</int>
              <int>21</int>
@@ -849,7 +849,7 @@ procedure Del
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
+             <string sid="1">verysimplerecord.adb</string>
              <int>21</int>
              <int>6</int>
              <int>21</int>

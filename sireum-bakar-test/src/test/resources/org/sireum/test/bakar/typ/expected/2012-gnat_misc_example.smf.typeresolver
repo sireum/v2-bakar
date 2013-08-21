@@ -174,7 +174,7 @@ procedure add (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/example.adb</string>
+         <string>example.adb</string>
          <int>4</int>
          <int>3</int>
          <int>8</int>
@@ -322,7 +322,7 @@ procedure foo (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/example.adb</string>
+         <string>example.adb</string>
          <int>10</int>
          <int>3</int>
          <int>19</int>

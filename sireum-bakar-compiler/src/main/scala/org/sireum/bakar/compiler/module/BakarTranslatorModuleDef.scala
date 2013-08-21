@@ -17,6 +17,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   trait Context {
     val LOCATION_PREFIX = "l"
 
+    var regression = false
+    
     var fileUri : String = null
     
     var models = mlistEmpty[Model]
@@ -36,6 +38,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
     val globalUriMap = mmapEmpty[String, String]
 
+    def purifyPath(s : FileResourceUri) = {
+      if(!regression) s
+      else s.substring(s.lastIndexOf("/") + 1)
+    }
+    
     var result : Any = null;
     def pushResult(o : Any, sloc : SourceLocation) {
       //assert(result == null);
@@ -43,7 +50,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       o match {
         case x : PropertyProvider =>
           import org.sireum.util.SourceLocation._
-          x at (this.fileUri, sloc.getLine, sloc.getCol(), sloc.getEndline(), sloc.getEndcol())
+          x at (purifyPath(this.fileUri), sloc.getLine, sloc.getCol(), sloc.getEndline(), sloc.getEndcol())
         case _ =>
       }
 
@@ -1062,6 +1069,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     this.stackLocationList.push(mlistEmpty[LocationDecl])
   }
 
+  ctx.regression = this.regression
+  
   val b = Visitor.build(
     Visitor.first(
       ivector(

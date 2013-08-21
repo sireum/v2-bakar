@@ -43,7 +43,7 @@ typealias Integer SmallInt
                  <entry>
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                     <string sid="4">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                     <string sid="4">simplerecord.adb</string>
                      <int>3</int>
                      <int>39</int>
                      <int>3</int>
@@ -377,7 +377,7 @@ procedure Boolean Dummy
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+         <string sid="1">simplerecord.adb</string>
          <int>16</int>
          <int>4</int>
          <int>16</int>
@@ -507,7 +507,7 @@ procedure Boolean Dummy
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="18" size="5">
-                         <string sid="15">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="15">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -646,7 +646,7 @@ procedure Add (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+         <string sid="1">simplerecord.adb</string>
          <int>18</int>
          <int>4</int>
          <int>21</int>
@@ -776,7 +776,7 @@ procedure Add (
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="18" size="5">
-                         <string sid="15">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="15">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -898,7 +898,7 @@ procedure Add (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>20</int>
              <int>14</int>
              <int>20</int>
@@ -928,7 +928,7 @@ procedure Add (
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                         <string sid="4">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="4">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -997,7 +997,7 @@ procedure Add (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>20</int>
              <int>7</int>
              <int>20</int>
@@ -1027,7 +1027,7 @@ procedure Add (
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                         <string sid="4">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="4">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -1118,7 +1118,7 @@ procedure NAdd (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+         <string sid="1">simplerecord.adb</string>
          <int>23</int>
          <int>4</int>
          <int>26</int>
@@ -1248,7 +1248,7 @@ procedure NAdd (
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="18" size="5">
-                         <string sid="15">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="15">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -1380,7 +1380,7 @@ procedure NAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>25</int>
              <int>6</int>
              <int>25</int>
@@ -1431,7 +1431,7 @@ procedure NAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>25</int>
              <int>6</int>
              <int>25</int>
@@ -1485,7 +1485,7 @@ procedure NAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>25</int>
              <int>16</int>
              <int>25</int>
@@ -1559,7 +1559,7 @@ procedure NAdd (
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                         <string sid="4">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="4">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -1648,7 +1648,7 @@ procedure NAdd (
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                         <string sid="4">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="4">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -1710,7 +1710,7 @@ procedure NAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>25</int>
              <int>6</int>
              <int>25</int>
@@ -1761,7 +1761,7 @@ procedure NAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>25</int>
              <int>6</int>
              <int>25</int>
@@ -1844,7 +1844,7 @@ procedure AAdd (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+         <string sid="1">simplerecord.adb</string>
          <int>28</int>
          <int>4</int>
          <int>31</int>
@@ -1974,7 +1974,7 @@ procedure AAdd (
                      <entry>
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="18" size="5">
-                         <string sid="15">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+                         <string sid="15">simplerecord.adb</string>
                          <int>3</int>
                          <int>39</int>
                          <int>3</int>
@@ -2101,7 +2101,7 @@ procedure AAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>30</int>
              <int>6</int>
              <int>30</int>
@@ -2126,7 +2126,7 @@ procedure AAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>30</int>
              <int>6</int>
              <int>30</int>
@@ -2167,7 +2167,7 @@ procedure AAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>30</int>
              <int>6</int>
              <int>30</int>
@@ -2192,7 +2192,7 @@ procedure AAdd (
         @util.loc
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplerecord.adb</string>
+             <string sid="1">simplerecord.adb</string>
              <int>30</int>
              <int>6</int>
              <int>30</int>

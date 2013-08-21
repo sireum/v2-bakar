@@ -174,7 +174,7 @@ procedure Q (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/p_complex.adb</string>
+         <string>p_complex.adb</string>
          <int>60</int>
          <int>3</int>
          <int>64</int>

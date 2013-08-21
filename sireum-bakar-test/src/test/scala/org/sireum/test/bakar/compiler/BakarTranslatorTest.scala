@@ -38,6 +38,7 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   override def pre(c : Configuration) : Boolean = {
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
+    BakarTranslatorModule.setRegression(c.job.properties, true)
     return true;
   }
 

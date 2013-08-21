@@ -382,7 +382,7 @@ procedure Success0 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>4</int>
          <int>4</int>
          <int>8</int>
@@ -512,7 +512,7 @@ procedure Success1 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>11</int>
          <int>4</int>
          <int>16</int>
@@ -642,7 +642,7 @@ procedure Success2 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>19</int>
          <int>4</int>
          <int>26</int>
@@ -786,7 +786,7 @@ procedure Success3 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>29</int>
          <int>4</int>
          <int>38</int>
@@ -965,7 +965,7 @@ procedure Success4 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>41</int>
          <int>4</int>
          <int>50</int>
@@ -1171,7 +1171,7 @@ procedure Success5 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>53</int>
          <int>4</int>
          <int>65</int>
@@ -1391,7 +1391,7 @@ procedure Success6 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>68</int>
          <int>4</int>
          <int>80</int>
@@ -1592,7 +1592,7 @@ procedure Success7 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>83</int>
          <int>4</int>
          <int>95</int>
@@ -1798,7 +1798,7 @@ procedure Success8 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>98</int>
          <int>4</int>
          <int>111</int>
@@ -2027,7 +2027,7 @@ procedure Success9 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>114</int>
          <int>4</int>
          <int>132</int>
@@ -2318,7 +2318,7 @@ procedure Success10 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>135</int>
          <int>4</int>
          <int>155</int>
@@ -2576,7 +2576,7 @@ procedure Success11 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>158</int>
          <int>4</int>
          <int>171</int>
@@ -2833,7 +2833,7 @@ procedure Success12 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>175</int>
          <int>4</int>
          <int>191</int>
@@ -3127,7 +3127,7 @@ procedure Success13 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>194</int>
          <int>4</int>
          <int>211</int>
@@ -3468,7 +3468,7 @@ procedure Success14 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>214</int>
          <int>4</int>
          <int>230</int>
@@ -3750,7 +3750,7 @@ procedure Success15 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>234</int>
          <int>4</int>
          <int>249</int>
@@ -3917,7 +3917,7 @@ procedure Success16 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>253</int>
          <int>4</int>
          <int>264</int>
@@ -4095,7 +4095,7 @@ procedure Success17 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>268</int>
          <int>4</int>
          <int>282</int>
@@ -4310,7 +4310,7 @@ procedure Success18 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>285</int>
          <int>4</int>
          <int>298</int>
@@ -4504,7 +4504,7 @@ procedure Success19 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>301</int>
          <int>4</int>
          <int>316</int>
@@ -4671,7 +4671,7 @@ procedure Success20 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>329</int>
          <int>4</int>
          <int>343</int>
@@ -4873,7 +4873,7 @@ procedure Success21 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>348</int>
          <int>4</int>
          <int>364</int>
@@ -5116,7 +5116,7 @@ procedure Success22 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>369</int>
          <int>4</int>
          <int>386</int>
@@ -5366,7 +5366,7 @@ procedure Success23 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>389</int>
          <int>4</int>
          <int>408</int>
@@ -5619,7 +5619,7 @@ procedure Success24 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>412</int>
          <int>4</int>
          <int>427</int>
@@ -5821,7 +5821,7 @@ procedure Success25 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>436</int>
          <int>4</int>
          <int>451</int>
@@ -6034,7 +6034,7 @@ procedure Success26 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>455</int>
          <int>4</int>
          <int>469</int>
@@ -6291,7 +6291,7 @@ procedure Success27 (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/dependence_test_suite_02.adb</string>
+         <string sid="1">dependence_test_suite_02.adb</string>
          <int>473</int>
          <int>4</int>
          <int>485</int>

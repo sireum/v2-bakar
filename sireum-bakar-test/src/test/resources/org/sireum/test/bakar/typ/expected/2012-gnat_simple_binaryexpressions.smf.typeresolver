@@ -237,7 +237,7 @@ procedure Integer X
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
+         <string sid="1">binaryexpressions.adb</string>
          <int>3</int>
          <int>3</int>
          <int>3</int>
@@ -360,7 +360,7 @@ procedure Integer Add (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
+         <string sid="1">binaryexpressions.adb</string>
          <int>5</int>
          <int>3</int>
          <int>18</int>
@@ -704,7 +704,7 @@ procedure Integer Sub (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
+         <string sid="1">binaryexpressions.adb</string>
          <int>20</int>
          <int>3</int>
          <int>33</int>
@@ -1025,7 +1025,7 @@ procedure Integer Mult (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
+         <string sid="1">binaryexpressions.adb</string>
          <int>35</int>
          <int>3</int>
          <int>48</int>
@@ -1369,7 +1369,7 @@ procedure Integer Division (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
+         <string sid="1">binaryexpressions.adb</string>
          <int>50</int>
          <int>3</int>
          <int>63</int>
