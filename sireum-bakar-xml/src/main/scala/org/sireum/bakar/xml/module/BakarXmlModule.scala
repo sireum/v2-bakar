@@ -1,8 +1,5 @@
 package org.sireum.bakar.xml.module
 
-import scala.Array.apply
-import org.sireum.option.PipelineMode.apply
-import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.util.FileResourceUri
 import org.sireum.util.IMap
 import org.sireum.option.PipelineMode
@@ -11,6 +8,7 @@ import org.sireum.pipeline.Input
 import org.sireum.pipeline.Produce
 import org.sireum.pipeline.Output
 import org.sireum.bakar.xml.CompilationUnit
+import org.sireum.util.Exec
 
 case class Gnat2XMLWrapper(
   title : String = "Gnat2XML Wrapper Module",
@@ -30,11 +28,13 @@ case class ParseGnat2XML(
 
 object Gnat2XMLWrapper {
   def main(args : Array[String]) {
-    val opt = PipelineMode()
-    opt.classNames = Array(ParseGnat2XML.getClass.getName.dropRight(1))
-    opt.dir = "./src/main/scala/org/sireum/bakar/xml/module"
-    opt.genClassName = "BakarXmlModulesCore"
+    val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
+    val destdir = "./src/main/scala/org/sireum/bakar/xml/module"    
+    val cnames = Array(ParseGnat2XML.getClass.getName.dropRight(1))
 
-    ModuleGenerator.run(opt)
+    val e = new Exec()
+    e.env("CLASSPATH") = System.getProperty("java.class.path")
+    val args = List(sireum, "tools", "pipeline", "-d", destdir, cnames(0))    
+    println(e.run(10000, args, None, None))
   }
 }
