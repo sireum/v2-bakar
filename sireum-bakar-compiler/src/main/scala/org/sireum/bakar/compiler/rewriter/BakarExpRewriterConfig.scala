@@ -57,7 +57,13 @@ class BakarRewriter {
   }
 
   def newLabel = {
-    val ret = NameDefinition(locPrefix + lcounter)
+    import org.sireum.pilar.symbol.Symbol
+    import java.net.URI
+    
+    val s = locPrefix + lcounter
+    val ret = NameDefinition(s)
+    val uri = new URI(s)
+    ret.uri(uri.getScheme, uri.getAuthority, uri.getPath().split("/").toList, s)
     lcounter += 1
     Some(ret)
   }

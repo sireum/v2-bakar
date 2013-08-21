@@ -175,10 +175,13 @@ procedure R (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/p_simple_call.adb</string>
          <int>6</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>9</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -325,10 +328,13 @@ procedure Integer incX (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/p_simple_call.adb</string>
          <int>11</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>22</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -542,10 +548,13 @@ procedure Q (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/misc/p_simple_call.adb</string>
          <int>24</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>29</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 

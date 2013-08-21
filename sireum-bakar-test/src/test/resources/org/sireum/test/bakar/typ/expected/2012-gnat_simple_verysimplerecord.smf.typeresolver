@@ -225,10 +225,13 @@ procedure Boolean Dummy
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
          <int>10</int>
          <int>4</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>10</int>
+         <int>65</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -371,10 +374,13 @@ procedure Add (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
          <int>12</int>
          <int>4</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>15</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -511,10 +517,13 @@ procedure Add (
 
         @util.loc
 
-          ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
              <int>14</int>
              <int>14</int>
-           </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+             <int>14</int>
+             <int>16</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
         @BAKAR_TYPE_DEF
 
@@ -544,10 +553,13 @@ procedure Add (
 
         @util.loc
 
-          ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
              <int>14</int>
              <int>7</int>
-           </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+             <int>14</int>
+             <int>9</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
         @BAKAR_TYPE_DEF
 
@@ -577,10 +589,13 @@ procedure Del
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
          <int>17</int>
          <int>4</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>22</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -736,10 +751,13 @@ procedure Del
 
         @util.loc
 
-          ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
              <int>20</int>
              <int>11</int>
-           </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+             <int>20</int>
+             <int>14</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
         @BAKAR_TYPE_DEF
 
@@ -762,10 +780,13 @@ procedure Del
 
         @util.loc
 
-          ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
              <int>21</int>
              <int>14</int>
-           </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+             <int>21</int>
+             <int>17</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
         @BAKAR_TYPE_DEF
 
@@ -788,10 +809,13 @@ procedure Del
 
         @util.loc
 
-          ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
              <int>21</int>
              <int>21</int>
-           </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+             <int>21</int>
+             <int>24</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
         @BAKAR_TYPE_DEF
 
@@ -824,10 +848,13 @@ procedure Del
 
         @util.loc
 
-          ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/verysimplerecord.adb</string>
              <int>21</int>
              <int>6</int>
-           </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+             <int>21</int>
+             <int>9</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
         @BAKAR_TYPE_DEF
 

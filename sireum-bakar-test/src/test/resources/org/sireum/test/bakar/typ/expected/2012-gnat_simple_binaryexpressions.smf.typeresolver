@@ -236,10 +236,13 @@ procedure Integer X
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
          <int>3</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>3</int>
+         <int>53</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -356,10 +359,13 @@ procedure Integer Add (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
          <int>5</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>18</int>
+         <int>10</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -697,10 +703,13 @@ procedure Integer Sub (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
          <int>20</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>33</int>
+         <int>10</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -1015,10 +1024,13 @@ procedure Integer Mult (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
          <int>35</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>48</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -1356,10 +1368,13 @@ procedure Integer Division (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/binaryexpressions.adb</string>
          <int>50</int>
          <int>3</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>63</int>
+         <int>15</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 

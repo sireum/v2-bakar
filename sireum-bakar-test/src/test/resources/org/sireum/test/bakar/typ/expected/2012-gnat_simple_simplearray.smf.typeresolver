@@ -26,10 +26,13 @@ typealias Integer Index
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="4" size="2">
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="4">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplearray.adb</string>
                    <int>3</int>
                    <int>35</int>
-                 </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                   <int>3</int>
+                   <int>35</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
            </org.sireum.pilar.ast.LiteralExp>
@@ -46,10 +49,13 @@ typealias Integer Index
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="6" size="2">
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
+                   <string srefid="4"/>
                    <int>3</int>
                    <int>40</int>
-                 </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                   <int>3</int>
+                   <int>40</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
            </org.sireum.pilar.ast.LiteralExp>
@@ -225,10 +231,13 @@ procedure Boolean Dummy
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplearray.adb</string>
          <int>6</int>
          <int>4</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>6</int>
+         <int>65</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -301,10 +310,13 @@ procedure Boolean Dummy
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="12" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
+                       <string sid="9">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplearray.adb</string>
                        <int>3</int>
                        <int>35</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>35</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>
@@ -321,10 +333,13 @@ procedure Boolean Dummy
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="14" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="14" size="5">
+                       <string srefid="9"/>
                        <int>3</int>
                        <int>40</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>40</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>
@@ -332,10 +347,10 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.SubTypeDecl>
          </entry>
          <entry>
-           <string sid="9">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <string sid="10">ada://subtype/Standard-1:1/Natural-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="15" size="3">
-             <string sid="10">standard::natural</string>
-             <string srefid="9"/>
+             <string sid="11">standard::natural</string>
+             <string srefid="10"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="16" size="3">
                <string>myint</string>
                <none/>
@@ -344,10 +359,10 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="11">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <string sid="12">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="17" size="3">
-             <string sid="12">standard::boolean</string>
-             <string srefid="11"/>
+             <string sid="13">standard::boolean</string>
+             <string srefid="12"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="18" size="3">
                <string>myint</string>
                <none/>
@@ -356,7 +371,7 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="13">ada://ordinary_type/SimpleArray-1:9/Vector+4:9</string>
+           <string sid="14">ada://ordinary_type/SimpleArray-1:9/Vector+4:9</string>
            <org.sireum.bakar.symbol.ConstrainedArrayDef cid="19" size="4">
              <string></string>
              <int>1</int>
@@ -395,10 +410,13 @@ procedure Integer Max (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplearray.adb</string>
          <int>8</int>
          <int>4</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>18</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -471,10 +489,13 @@ procedure Integer Max (
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="12" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
+                       <string sid="9">file:/Users/belt/Documents/workspace-v2/sireum-bakar/sireum-bakar-test/src/test/resources/org/sireum/example/bakar/2012-gnat/simple/simplearray.adb</string>
                        <int>3</int>
                        <int>35</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>35</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>
@@ -491,10 +512,13 @@ procedure Integer Max (
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="14" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="14" size="5">
+                       <string srefid="9"/>
                        <int>3</int>
                        <int>40</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>40</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>
@@ -502,10 +526,10 @@ procedure Integer Max (
            </org.sireum.bakar.symbol.SubTypeDecl>
          </entry>
          <entry>
-           <string sid="9">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <string sid="10">ada://subtype/Standard-1:1/Natural-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="15" size="3">
-             <string sid="10">standard::natural</string>
-             <string srefid="9"/>
+             <string sid="11">standard::natural</string>
+             <string srefid="10"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="16" size="3">
                <string>myint</string>
                <none/>
@@ -514,10 +538,10 @@ procedure Integer Max (
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="11">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <string sid="12">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="17" size="3">
-             <string sid="12">standard::boolean</string>
-             <string srefid="11"/>
+             <string sid="13">standard::boolean</string>
+             <string srefid="12"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="18" size="3">
                <string>myint</string>
                <none/>
@@ -526,7 +550,7 @@ procedure Integer Max (
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="13">ada://ordinary_type/SimpleArray-1:9/Vector+4:9</string>
+           <string sid="14">ada://ordinary_type/SimpleArray-1:9/Vector+4:9</string>
            <org.sireum.bakar.symbol.ConstrainedArrayDef cid="19" size="4">
              <string></string>
              <int>1</int>
