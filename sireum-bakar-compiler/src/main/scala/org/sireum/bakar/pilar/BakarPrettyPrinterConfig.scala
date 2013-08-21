@@ -4,8 +4,8 @@ import org.sireum.util.ISeq
 import org.sireum.pipeline.Input
 import org.sireum.pipeline.Produce
 import org.sireum.pilar.ast.Model
-import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.option.PipelineMode
+import org.sireum.util.Exec
 
 case class BakarPrettyPrinter(
   title : String = "BakarPrettyPrinter",
@@ -16,11 +16,17 @@ case class BakarPrettyPrinter(
 
 object BakarPrettyPrinter {
   def main(args : Array[String]) {
-    val opt = PipelineMode()
-    opt.classNames = Array(BakarPrettyPrinter.getClass.getName.dropRight(1))
-    opt.dir = "./src/main/scala/org/sireum/bakar/pilar"
-    opt.genClassName = "BakarPrettyPrinterCore"
+    val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
+    val destdir = "./src/main/scala/org/sireum/bakar/pilar"    
+    val cnames = Array(BakarPrettyPrinter.getClass.getName.dropRight(1))
 
-    ModuleGenerator.run(opt)
+    val args = List(sireum, "tools", "pipeline", "-d", destdir, cnames(0))
+
+    val e = new Exec()
+    // current sireum dist may not have the needed sireum classes so use 
+    // eclipse's classpath instead
+    e.env("CLASSPATH") = System.getProperty("java.class.path")
+
+    println(e.run(10000, args, None, None))
   }
 }

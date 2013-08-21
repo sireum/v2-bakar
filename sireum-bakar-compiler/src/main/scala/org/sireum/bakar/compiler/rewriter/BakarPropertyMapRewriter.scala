@@ -4,7 +4,7 @@ import org.sireum.util.ISeq
 import org.sireum.pipeline.Output
 import org.sireum.pipeline.Input
 import org.sireum.pilar.ast._
-import org.sireum.pipeline.gen.ModuleGenerator
+//import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.option.PipelineMode
 import org.sireum.pipeline.PipelineJobModuleInfo
 import org.sireum.pipeline.PipelineJob
@@ -58,10 +58,17 @@ case class BakarPropertyMapRewriter(
 
 object BakarPropertyMapRewriter {
   def main(args : Array[String]) {
-    val opt = PipelineMode()
-    opt.classNames = Array(BakarPropertyMapRewriter.getClass.getName.dropRight(1))
-    opt.dir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"
+    val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
+    val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"    
+    val cnames = Array(BakarPropertyMapRewriter.getClass.getName.dropRight(1))
 
-    ModuleGenerator.run(opt)
+    val args = List(sireum, "tools", "pipeline", "-d", destdir, cnames(0))
+
+    val e = new Exec()
+    // current sireum dist may not have the needed sireum classes so use 
+    // eclipse's classpath instead
+    e.env("CLASSPATH") = System.getProperty("java.class.path")
+
+    println(e.run(10000, args, None, None))
   }
 }

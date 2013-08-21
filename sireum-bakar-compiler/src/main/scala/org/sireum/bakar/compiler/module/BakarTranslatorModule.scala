@@ -15,6 +15,7 @@ object BakarTranslatorModule extends PipelineModule {
   def title = "Bakar Vistor"
   def origin = classOf[BakarTranslator]
 
+  val globalRegressionKey = "Global.regression"
   val globalParseGnat2XMLresultsKey = "Global.parseGnat2XMLresults"
   val globalModelsKey = "Global.models"
 
@@ -34,92 +35,138 @@ object BakarTranslatorModule extends PipelineModule {
   }
 
   override def initialize(job : PipelineJob) {
+    if(!(job ? BakarTranslatorModule.globalRegressionKey)) {
+      val regression = Class.forName("org.sireum.bakar.compiler.module.BakarTranslator").getDeclaredMethod("$lessinit$greater$default$3").invoke(null).asInstanceOf[scala.Boolean]
+      setRegression(job.propertyMap, regression)
+    }
   }
 
   override def validPipeline(stage : PipelineStage, job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
     val deps = ilist[PipelineModule]()
     deps.foreach(d =>
-      if (stage.modules.contains(d)) {
+      if(stage.modules.contains(d)){
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
+            "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
         )
       }
     )
     return tags
   }
 
-  def inputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def inputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
+    var _regression : scala.Option[AnyRef] = None
+    var _regressionKey : scala.Option[String] = None
+
+    val keylistregression = List(BakarTranslatorModule.globalRegressionKey)
+    keylistregression.foreach(key => 
+      if(job ? key) { 
+        if(_regression.isEmpty) {
+          _regression = Some(job(key))
+          _regressionKey = Some(key)
+        }
+        if(!(job(key).asInstanceOf[AnyRef] eq _regression.get)) {
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': 'regression' keys '" + _regressionKey.get + " and '" + key + "' point to different objects.")
+        }
+      }
+    )
+
+    _regression match{
+      case Some(x) =>
+        if(!x.isInstanceOf[scala.Boolean]){
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': Wrong type found for 'regression'.  Expecting 'scala.Boolean' but found '" + x.getClass.toString + "'")
+        }
+      case None =>
+        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+          "Input error for '" + this.title + "': No value found for 'regression'")       
+    }
     var _parseGnat2XMLresults : scala.Option[AnyRef] = None
     var _parseGnat2XMLresultsKey : scala.Option[String] = None
 
     val keylistparseGnat2XMLresults = List(BakarTranslatorModule.globalParseGnat2XMLresultsKey)
-    keylistparseGnat2XMLresults.foreach(key =>
-      if (job ? key) {
-        if (_parseGnat2XMLresults.isEmpty) {
+    keylistparseGnat2XMLresults.foreach(key => 
+      if(job ? key) { 
+        if(_parseGnat2XMLresults.isEmpty) {
           _parseGnat2XMLresults = Some(job(key))
           _parseGnat2XMLresultsKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _parseGnat2XMLresults.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _parseGnat2XMLresults.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'parseGnat2XMLresults' keys '" + _parseGnat2XMLresultsKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _parseGnat2XMLresults match {
+    _parseGnat2XMLresults match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]) {
+        if(!x.isInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'parseGnat2XMLresults'.  Expecting 'scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'parseGnat2XMLresults'")
+          "Input error for '" + this.title + "': No value found for 'parseGnat2XMLresults'")       
     }
     return tags
   }
 
-  def outputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def outputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    if (!(job ? BakarTranslatorModule.globalModelsKey)) {
+    if(!(job ? BakarTranslatorModule.globalModelsKey)) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': No entry found for 'models'. Expecting (BakarTranslatorModule.globalModelsKey)")
+        "Output error for '" + this.title + "': No entry found for 'models'. Expecting (BakarTranslatorModule.globalModelsKey)") 
     }
 
-    if (job ? BakarTranslatorModule.globalModelsKey && !job(BakarTranslatorModule.globalModelsKey).isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': Wrong type found for BakarTranslatorModule.globalModelsKey.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" +
-          job(BakarTranslatorModule.globalModelsKey).getClass.toString + "'")
-    }
+    if(job ? BakarTranslatorModule.globalModelsKey && !job(BakarTranslatorModule.globalModelsKey).isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for BakarTranslatorModule.globalModelsKey.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" + 
+        job(BakarTranslatorModule.globalModelsKey).getClass.toString + "'")
+    } 
     return tags
   }
 
-  def getParseGnat2XMLresults(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = {
-    if (options.contains(BakarTranslatorModule.globalParseGnat2XMLresultsKey)) {
-      return options(BakarTranslatorModule.globalParseGnat2XMLresultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]
+  def getRegression (options : scala.collection.Map[Property.Key, Any]) : scala.Boolean = {
+    if (options.contains(BakarTranslatorModule.globalRegressionKey)) {
+       return options(BakarTranslatorModule.globalRegressionKey).asInstanceOf[scala.Boolean]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setParseGnat2XMLresults(options : MMap[Property.Key, Any], parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) : MMap[Property.Key, Any] = {
+  def setRegression (options : MMap[Property.Key, Any], regression : scala.Boolean) : MMap[Property.Key, Any] = {
+
+    options(BakarTranslatorModule.globalRegressionKey) = regression
+
+    return options
+  }
+
+  def getParseGnat2XMLresults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = {
+    if (options.contains(BakarTranslatorModule.globalParseGnat2XMLresultsKey)) {
+       return options(BakarTranslatorModule.globalParseGnat2XMLresultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setParseGnat2XMLresults (options : MMap[Property.Key, Any], parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) : MMap[Property.Key, Any] = {
 
     options(BakarTranslatorModule.globalParseGnat2XMLresultsKey) = parseGnat2XMLresults
 
     return options
   }
 
-  def getModels(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
+  def getModels (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
     if (options.contains(BakarTranslatorModule.globalModelsKey)) {
-      return options(BakarTranslatorModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
+       return options(BakarTranslatorModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setModels(options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
+  def setModels (options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
 
     options(BakarTranslatorModule.globalModelsKey) = models
 
@@ -127,14 +174,18 @@ object BakarTranslatorModule extends PipelineModule {
   }
 
   object ConsumerView {
-    implicit class BakarTranslatorModuleConsumerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarTranslatorModuleConsumerView (val job : PropertyProvider) extends AnyVal {
+      def regression : scala.Boolean = BakarTranslatorModule.getRegression(job.propertyMap)
       def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarTranslatorModule.getModels(job.propertyMap)
     }
   }
 
   object ProducerView {
-    implicit class BakarTranslatorModuleProducerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarTranslatorModuleProducerView (val job : PropertyProvider) extends AnyVal {
+
+      def regression_=(regression : scala.Boolean) { BakarTranslatorModule.setRegression(job.propertyMap, regression) }
+      def regression : scala.Boolean = BakarTranslatorModule.getRegression(job.propertyMap)
 
       def parseGnat2XMLresults_=(parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) { BakarTranslatorModule.setParseGnat2XMLresults(job.propertyMap, parseGnat2XMLresults) }
       def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
@@ -148,7 +199,10 @@ object BakarTranslatorModule extends PipelineModule {
 trait BakarTranslatorModule {
   def job : PipelineJob
 
+  def regression : scala.Boolean = BakarTranslatorModule.getRegression(job.propertyMap)
+
   def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+
 
   def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarTranslatorModule.setModels(job.propertyMap, models) }
   def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarTranslatorModule.getModels(job.propertyMap)
