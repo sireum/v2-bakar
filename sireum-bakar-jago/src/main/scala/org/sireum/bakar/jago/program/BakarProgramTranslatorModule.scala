@@ -41,128 +41,128 @@ object BakarProgramTranslatorModule extends PipelineModule {
     val tags = marrayEmpty[Tag]
     val deps = ilist[PipelineModule]()
     deps.foreach(d =>
-      if (stage.modules.contains(d)) {
+      if(stage.modules.contains(d)){
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
+            "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
         )
       }
     )
     return tags
   }
 
-  def inputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def inputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
     var _jagoProgramTarget : scala.Option[AnyRef] = None
     var _jagoProgramTargetKey : scala.Option[String] = None
 
     val keylistjagoProgramTarget = List(BakarProgramTranslatorModule.globalJagoProgramTargetKey)
-    keylistjagoProgramTarget.foreach(key =>
-      if (job ? key) {
-        if (_jagoProgramTarget.isEmpty) {
+    keylistjagoProgramTarget.foreach(key => 
+      if(job ? key) { 
+        if(_jagoProgramTarget.isEmpty) {
           _jagoProgramTarget = Some(job(key))
           _jagoProgramTargetKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _jagoProgramTarget.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _jagoProgramTarget.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'jagoProgramTarget' keys '" + _jagoProgramTargetKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _jagoProgramTarget match {
+    _jagoProgramTarget match{
       case Some(x) =>
-        if (!x.isInstanceOf[org.sireum.option.ProgramTarget.Type]) {
+        if(!x.isInstanceOf[org.sireum.option.ProgramTarget.Type]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'jagoProgramTarget'.  Expecting 'org.sireum.option.ProgramTarget.Type' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'jagoProgramTarget'")
+          "Input error for '" + this.title + "': No value found for 'jagoProgramTarget'")       
     }
     var _parseGnat2XMLresults : scala.Option[AnyRef] = None
     var _parseGnat2XMLresultsKey : scala.Option[String] = None
 
     val keylistparseGnat2XMLresults = List(BakarProgramTranslatorModule.globalParseGnat2XMLresultsKey)
-    keylistparseGnat2XMLresults.foreach(key =>
-      if (job ? key) {
-        if (_parseGnat2XMLresults.isEmpty) {
+    keylistparseGnat2XMLresults.foreach(key => 
+      if(job ? key) { 
+        if(_parseGnat2XMLresults.isEmpty) {
           _parseGnat2XMLresults = Some(job(key))
           _parseGnat2XMLresultsKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _parseGnat2XMLresults.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _parseGnat2XMLresults.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'parseGnat2XMLresults' keys '" + _parseGnat2XMLresultsKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _parseGnat2XMLresults match {
+    _parseGnat2XMLresults match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]) {
+        if(!x.isInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'parseGnat2XMLresults'.  Expecting 'scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'parseGnat2XMLresults'")
+          "Input error for '" + this.title + "': No value found for 'parseGnat2XMLresults'")       
     }
     return tags
   }
 
-  def outputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def outputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    if (!(job ? BakarProgramTranslatorModule.jagoProgramResultsKey)) {
+    if(!(job ? BakarProgramTranslatorModule.jagoProgramResultsKey)) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': No entry found for 'jagoProgramResults'. Expecting (BakarProgramTranslatorModule.jagoProgramResultsKey)")
+        "Output error for '" + this.title + "': No entry found for 'jagoProgramResults'. Expecting (BakarProgramTranslatorModule.jagoProgramResultsKey)") 
     }
 
-    if (job ? BakarProgramTranslatorModule.jagoProgramResultsKey && !job(BakarProgramTranslatorModule.jagoProgramResultsKey).isInstanceOf[scala.collection.immutable.Seq[java.lang.String]]) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': Wrong type found for BakarProgramTranslatorModule.jagoProgramResultsKey.  Expecting 'scala.collection.immutable.Seq[java.lang.String]' but found '" +
-          job(BakarProgramTranslatorModule.jagoProgramResultsKey).getClass.toString + "'")
-    }
+    if(job ? BakarProgramTranslatorModule.jagoProgramResultsKey && !job(BakarProgramTranslatorModule.jagoProgramResultsKey).isInstanceOf[scala.collection.immutable.Seq[java.lang.String]]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for BakarProgramTranslatorModule.jagoProgramResultsKey.  Expecting 'scala.collection.immutable.Seq[java.lang.String]' but found '" + 
+        job(BakarProgramTranslatorModule.jagoProgramResultsKey).getClass.toString + "'")
+    } 
     return tags
   }
 
-  def getJagoProgramTarget(options : scala.collection.Map[Property.Key, Any]) : org.sireum.option.ProgramTarget.Type = {
+  def getJagoProgramTarget (options : scala.collection.Map[Property.Key, Any]) : org.sireum.option.ProgramTarget.Type = {
     if (options.contains(BakarProgramTranslatorModule.globalJagoProgramTargetKey)) {
-      return options(BakarProgramTranslatorModule.globalJagoProgramTargetKey).asInstanceOf[org.sireum.option.ProgramTarget.Type]
+       return options(BakarProgramTranslatorModule.globalJagoProgramTargetKey).asInstanceOf[org.sireum.option.ProgramTarget.Type]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setJagoProgramTarget(options : MMap[Property.Key, Any], jagoProgramTarget : org.sireum.option.ProgramTarget.Type) : MMap[Property.Key, Any] = {
+  def setJagoProgramTarget (options : MMap[Property.Key, Any], jagoProgramTarget : org.sireum.option.ProgramTarget.Type) : MMap[Property.Key, Any] = {
 
     options(BakarProgramTranslatorModule.globalJagoProgramTargetKey) = jagoProgramTarget
 
     return options
   }
 
-  def getParseGnat2XMLresults(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = {
+  def getParseGnat2XMLresults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = {
     if (options.contains(BakarProgramTranslatorModule.globalParseGnat2XMLresultsKey)) {
-      return options(BakarProgramTranslatorModule.globalParseGnat2XMLresultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]
+       return options(BakarProgramTranslatorModule.globalParseGnat2XMLresultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setParseGnat2XMLresults(options : MMap[Property.Key, Any], parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) : MMap[Property.Key, Any] = {
+  def setParseGnat2XMLresults (options : MMap[Property.Key, Any], parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) : MMap[Property.Key, Any] = {
 
     options(BakarProgramTranslatorModule.globalParseGnat2XMLresultsKey) = parseGnat2XMLresults
 
     return options
   }
 
-  def getJagoProgramResults(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[java.lang.String] = {
+  def getJagoProgramResults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[java.lang.String] = {
     if (options.contains(BakarProgramTranslatorModule.jagoProgramResultsKey)) {
-      return options(BakarProgramTranslatorModule.jagoProgramResultsKey).asInstanceOf[scala.collection.immutable.Seq[java.lang.String]]
+       return options(BakarProgramTranslatorModule.jagoProgramResultsKey).asInstanceOf[scala.collection.immutable.Seq[java.lang.String]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setJagoProgramResults(options : MMap[Property.Key, Any], jagoProgramResults : scala.collection.immutable.Seq[java.lang.String]) : MMap[Property.Key, Any] = {
+  def setJagoProgramResults (options : MMap[Property.Key, Any], jagoProgramResults : scala.collection.immutable.Seq[java.lang.String]) : MMap[Property.Key, Any] = {
 
     options(jagoProgramResultsKey) = jagoProgramResults
 
@@ -170,7 +170,7 @@ object BakarProgramTranslatorModule extends PipelineModule {
   }
 
   object ConsumerView {
-    implicit class BakarProgramTranslatorModuleConsumerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarProgramTranslatorModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def jagoProgramTarget : org.sireum.option.ProgramTarget.Type = BakarProgramTranslatorModule.getJagoProgramTarget(job.propertyMap)
       def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarProgramTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
       def jagoProgramResults : scala.collection.immutable.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
@@ -178,7 +178,7 @@ object BakarProgramTranslatorModule extends PipelineModule {
   }
 
   object ProducerView {
-    implicit class BakarProgramTranslatorModuleProducerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarProgramTranslatorModuleProducerView (val job : PropertyProvider) extends AnyVal {
 
       def jagoProgramTarget_=(jagoProgramTarget : org.sireum.option.ProgramTarget.Type) { BakarProgramTranslatorModule.setJagoProgramTarget(job.propertyMap, jagoProgramTarget) }
       def jagoProgramTarget : org.sireum.option.ProgramTarget.Type = BakarProgramTranslatorModule.getJagoProgramTarget(job.propertyMap)
@@ -198,6 +198,7 @@ trait BakarProgramTranslatorModule {
   def jagoProgramTarget : org.sireum.option.ProgramTarget.Type = BakarProgramTranslatorModule.getJagoProgramTarget(job.propertyMap)
 
   def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarProgramTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+
 
   def jagoProgramResults_=(jagoProgramResults : scala.collection.immutable.Seq[java.lang.String]) { BakarProgramTranslatorModule.setJagoProgramResults(job.propertyMap, jagoProgramResults) }
   def jagoProgramResults : scala.collection.immutable.Seq[java.lang.String] = BakarProgramTranslatorModule.getJagoProgramResults(job.propertyMap)
