@@ -80,6 +80,11 @@ class BakarRewriter {
     e(URIS.TYPE_URI)
   }
   
+  def copyMap[T <: PilarAstNode](orig : T, n : T) : T = {
+    n.propertyMap ++= orig.propertyMap
+    n
+  }
+  
   val rewriter = Rewriter.build[LocationDecl]({
     case l : LocationDecl => l
     case b @ BinaryExp(o, l, r) =>
@@ -93,7 +98,7 @@ class BakarRewriter {
       val re = newTempVar("FIXME", rtype)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, re, ":=", r))
 
-      val be = BinaryExp(o, le, re)
+      val be = copyMap(b, BinaryExp(o, le, re))
       be(URIS.TYPE_URI) = btype
       be
     case e @ AccessExp(NameExp(NameUser(n)), attributeName) => e
@@ -107,7 +112,7 @@ class BakarRewriter {
           postlocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, exp, ":=", te))
         case _ =>
       }
-      val ae = AccessExp(te, attributeName)
+      val ae = copyMap(e, AccessExp(te, attributeName))
       ae(URIS.TYPE_URI) = etype
       ae
     case e @ IndexingExp(NameExp(NameUser(n)), indices) => e
@@ -122,9 +127,8 @@ class BakarRewriter {
         case _ =>
       }
 
-      val ie = IndexingExp(te, indices)
+      val ie = copyMap(e, IndexingExp(te, indices))
       ie(URIS.TYPE_URI) = etype
-      ie.propertyMap ++= e.propertyMap
       ie
     
     // the rest of these are sanity checks
@@ -168,7 +172,7 @@ class BakarRewriter {
             val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
             val modpd = ProcedureDecl(methName, a, tv, params, rt, va,
               ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses))
-            modpd.propertyMap ++= pd.propertyMap
+            copyMap(pd, modpd)
             elems :+= modpd
             
             this.newTempVars = ilistEmpty[LocalVarDecl]
@@ -192,13 +196,11 @@ object BakarExpRewriter {
   def main(args : Array[String]) {
     val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
     val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"    
-    val cnames = Array(BakarExpRewriter.getClass.getName.dropRight(1))
+    val cname = BakarExpRewriter.getClass.getName.dropRight(1)
 
-    val args = List(sireum, "tools", "pipeline", "-d", destdir, cnames(0))
+    val args = List(sireum, "tools", "pipeline", "-d", destdir, cname)
 
     val e = new Exec()
-    // current sireum dist may not have the needed sireum classes so use 
-    // eclipse's classpath instead
     e.env("CLASSPATH") = System.getProperty("java.class.path")
 
     println(e.run(10000, args, None, None))

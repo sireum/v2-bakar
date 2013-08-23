@@ -42,18 +42,28 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       if(!regression) s
       else s.substring(s.lastIndexOf("/") + 1)
     }
-    
-    var result : Any = null;
-    def pushResult(o : Any, sloc : SourceLocation) {
-      //assert(result == null);
-
+        
+    def handleLoc(s : SourceLocation) : Location =
+      new BeginEndLineColumnLocation {
+        var lineBegin = s.getLine
+        var columnBegin = s.getCol
+        var lineEnd = s.getEndline
+        var columnEnd = s.getEndcol
+      }
+        
+    def addSourceLoc[T <: PilarAstNode](o : T, sloc : SourceLocation) : T = {
       o match {
         case x : PropertyProvider =>
           import org.sireum.util.SourceLocation._
           x at (purifyPath(this.fileUri), sloc.getLine, sloc.getCol(), sloc.getEndline(), sloc.getEndcol())
         case _ =>
       }
-
+      o
+    }
+    
+    var result : Any = null;
+    def pushResult[T <: PilarAstNode](o : T, sloc : SourceLocation) {
+      addSourceLoc(o, sloc)
       result = o
     }
 
@@ -174,12 +184,12 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
     def handleUnaryExp(sloc : SourceLocation,
                        op : UnaryOp, exp : Exp, theType : String) : Exp = {
-      handleExp(addProperty(URIS.TYPE_URI, theType, UnaryExp(op, exp)))
+      addSourceLoc(handleExp(addProperty(URIS.TYPE_URI, theType, UnaryExp(op, exp))), sloc)
     }
 
     def handleBE(sloc : SourceLocation,
                  op : BinaryOp, lhs : Exp, rhs : Exp, theType : String) : Exp = {
-      handleExp(addProperty(URIS.TYPE_URI, theType, BinaryExp(op, lhs, rhs)))
+      addSourceLoc(handleExp(addProperty(URIS.TYPE_URI, theType, BinaryExp(op, lhs, rhs))), sloc)
     }
 
     def handleBE(v : => BVisitor, sloc : SourceLocation,
@@ -295,7 +305,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                         }
                     }
                     val (csloc, cname, curi, ctype) = this.getName(names.getDefiningNames.head)
-                    components(cname) = ComponentDef(curi, typeName.get, typeUri.get, handleLoc(csloc))
+                    components(cname) = ComponentDef(curi, typeName.get, typeUri.get,
+                        handleLoc(csloc))
                   case x =>
                     if (DEBUG) Console.err.println("Not expecting component decl " + x)
                     assert(false)
@@ -316,14 +327,6 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       assert(false)
       None
     }
-
-    def handleLoc(s : SourceLocation) : Location =
-      new BeginEndLineColumnLocation {
-        var lineBegin = s.getLine
-        var columnBegin = s.getCol
-        var lineEnd = s.getEndline
-        var columnEnd = s.getEndcol
-      }
 
     def handleType(o : Base, v : => BVisitor) : Option[PackageElement] = {
       o match {

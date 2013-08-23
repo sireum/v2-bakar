@@ -1536,6 +1536,16 @@ procedure NAdd (
 
           ("""<string sid="1">ada://subtype/SimpleRecord-1:9/SmallInt+3:12</string>""")
 
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">simplerecord.adb</string>
+             <int>25</int>
+             <int>16</int>
+             <int>25</int>
+             <int>21</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
         @BAKAR_TYPE_DEF
 
           ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
@@ -1624,6 +1634,16 @@ procedure NAdd (
         @BAKAR_TYPE_URI
 
           ("""<string sid="1">ada://subtype/SimpleRecord-1:9/SmallInt+3:12</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">simplerecord.adb</string>
+             <int>25</int>
+             <int>6</int>
+             <int>25</int>
+             <int>11</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
         @BAKAR_TYPE_DEF
 
