@@ -7,7 +7,6 @@
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-lib"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-option"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-pipeline"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/sireum-tools"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-util"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

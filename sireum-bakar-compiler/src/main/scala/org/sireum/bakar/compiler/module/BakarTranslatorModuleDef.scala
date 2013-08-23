@@ -17,6 +17,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   trait Context {
     val LOCATION_PREFIX = "l"
 
+    var regression = false
+    
+    var fileUri : String = null
+    
     var models = mlistEmpty[Model]
 
     var unhandledSet = msetEmpty[String]
@@ -34,14 +38,19 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
     val globalUriMap = mmapEmpty[String, String]
 
+    def purifyPath(s : FileResourceUri) = {
+      if(!regression) s
+      else s.substring(s.lastIndexOf("/") + 1)
+    }
+    
     var result : Any = null;
     def pushResult(o : Any, sloc : SourceLocation) {
       //assert(result == null);
 
       o match {
         case x : PropertyProvider =>
-          import LineColumnLocation._
-          x at (sloc.getLine, sloc.getCol)
+          import org.sireum.util.SourceLocation._
+          x at (purifyPath(this.fileUri), sloc.getLine, sloc.getCol(), sloc.getEndline(), sloc.getEndcol())
         case _ =>
       }
 
@@ -1060,6 +1069,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     this.stackLocationList.push(mlistEmpty[LocationDecl])
   }
 
+  ctx.regression = this.regression
+  
   val b = Visitor.build(
     Visitor.first(
       ivector(
@@ -1073,7 +1084,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       )))
 
   this.parseGnat2XMLresults.foreach {
-    case (key, value) => {
+    case (fileUri, value) => {
+      ctx.fileUri = fileUri
       b(value)
     }
   }

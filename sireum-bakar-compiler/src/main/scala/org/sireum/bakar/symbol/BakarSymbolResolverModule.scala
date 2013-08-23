@@ -36,17 +36,17 @@ object BakarSymbolResolverModule extends PipelineModule {
   }
 
   override def initialize(job : PipelineJob) {
-    if (!(job ? BakarSymbolResolverModule.globalParallelKey)) {
+    if(!(job ? BakarSymbolResolverModule.globalParallelKey)) {
       val parallel = Class.forName("org.sireum.bakar.symbol.BakarSymbolResolver").getDeclaredMethod("$lessinit$greater$default$2").invoke(null).asInstanceOf[scala.Boolean]
       setParallel(job.propertyMap, parallel)
     }
 
-    if (!(job ? BakarSymbolResolverModule.globalHasExistingSymbolTableKey)) {
+    if(!(job ? BakarSymbolResolverModule.globalHasExistingSymbolTableKey)) {
       val hasExistingSymbolTable = Class.forName("org.sireum.bakar.symbol.BakarSymbolResolver").getDeclaredMethod("$lessinit$greater$default$4").invoke(null).asInstanceOf[scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]]
       setHasExistingSymbolTable(job.propertyMap, hasExistingSymbolTable)
     }
 
-    if (!(job ? BakarSymbolResolverModule.globalHasExistingModelsKey)) {
+    if(!(job ? BakarSymbolResolverModule.globalHasExistingModelsKey)) {
       val hasExistingModels = Class.forName("org.sireum.bakar.symbol.BakarSymbolResolver").getDeclaredMethod("$lessinit$greater$default$5").invoke(null).asInstanceOf[scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]]
       setHasExistingModels(job.propertyMap, hasExistingModels)
     }
@@ -56,223 +56,223 @@ object BakarSymbolResolverModule extends PipelineModule {
     val tags = marrayEmpty[Tag]
     val deps = ilist[PipelineModule]()
     deps.foreach(d =>
-      if (stage.modules.contains(d)) {
+      if(stage.modules.contains(d)){
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
+            "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
         )
       }
     )
     return tags
   }
 
-  def inputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def inputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
     var _parallel : scala.Option[AnyRef] = None
     var _parallelKey : scala.Option[String] = None
 
     val keylistparallel = List(BakarSymbolResolverModule.globalParallelKey)
-    keylistparallel.foreach(key =>
-      if (job ? key) {
-        if (_parallel.isEmpty) {
+    keylistparallel.foreach(key => 
+      if(job ? key) { 
+        if(_parallel.isEmpty) {
           _parallel = Some(job(key))
           _parallelKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _parallel.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _parallel.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'parallel' keys '" + _parallelKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _parallel match {
+    _parallel match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.Boolean]) {
+        if(!x.isInstanceOf[scala.Boolean]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'parallel'.  Expecting 'scala.Boolean' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'parallel'")
+          "Input error for '" + this.title + "': No value found for 'parallel'")       
     }
     var _models : scala.Option[AnyRef] = None
     var _modelsKey : scala.Option[String] = None
 
     val keylistmodels = List(BakarSymbolResolverModule.globalModelsKey)
-    keylistmodels.foreach(key =>
-      if (job ? key) {
-        if (_models.isEmpty) {
+    keylistmodels.foreach(key => 
+      if(job ? key) { 
+        if(_models.isEmpty) {
           _models = Some(job(key))
           _modelsKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _models.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _models.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'models' keys '" + _modelsKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _models match {
+    _models match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) {
+        if(!x.isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'models'.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'models'")
+          "Input error for '" + this.title + "': No value found for 'models'")       
     }
     var _hasExistingSymbolTable : scala.Option[AnyRef] = None
     var _hasExistingSymbolTableKey : scala.Option[String] = None
 
     val keylisthasExistingSymbolTable = List(BakarSymbolResolverModule.globalHasExistingSymbolTableKey)
-    keylisthasExistingSymbolTable.foreach(key =>
-      if (job ? key) {
-        if (_hasExistingSymbolTable.isEmpty) {
+    keylisthasExistingSymbolTable.foreach(key => 
+      if(job ? key) { 
+        if(_hasExistingSymbolTable.isEmpty) {
           _hasExistingSymbolTable = Some(job(key))
           _hasExistingSymbolTableKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _hasExistingSymbolTable.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _hasExistingSymbolTable.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'hasExistingSymbolTable' keys '" + _hasExistingSymbolTableKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _hasExistingSymbolTable match {
+    _hasExistingSymbolTable match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]]) {
+        if(!x.isInstanceOf[scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'hasExistingSymbolTable'.  Expecting 'scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'hasExistingSymbolTable'")
+          "Input error for '" + this.title + "': No value found for 'hasExistingSymbolTable'")       
     }
     var _hasExistingModels : scala.Option[AnyRef] = None
     var _hasExistingModelsKey : scala.Option[String] = None
 
     val keylisthasExistingModels = List(BakarSymbolResolverModule.globalHasExistingModelsKey)
-    keylisthasExistingModels.foreach(key =>
-      if (job ? key) {
-        if (_hasExistingModels.isEmpty) {
+    keylisthasExistingModels.foreach(key => 
+      if(job ? key) { 
+        if(_hasExistingModels.isEmpty) {
           _hasExistingModels = Some(job(key))
           _hasExistingModelsKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _hasExistingModels.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _hasExistingModels.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'hasExistingModels' keys '" + _hasExistingModelsKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _hasExistingModels match {
+    _hasExistingModels match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]]) {
+        if(!x.isInstanceOf[scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'hasExistingModels'.  Expecting 'scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'hasExistingModels'")
+          "Input error for '" + this.title + "': No value found for 'hasExistingModels'")       
     }
     return tags
   }
 
-  def outputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def outputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    if (!(job ? BakarSymbolResolverModule.globalModelsKey)) {
+    if(!(job ? BakarSymbolResolverModule.globalModelsKey)) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': No entry found for 'models'. Expecting (BakarSymbolResolverModule.globalModelsKey)")
+        "Output error for '" + this.title + "': No entry found for 'models'. Expecting (BakarSymbolResolverModule.globalModelsKey)") 
     }
 
-    if (job ? BakarSymbolResolverModule.globalModelsKey && !job(BakarSymbolResolverModule.globalModelsKey).isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) {
+    if(job ? BakarSymbolResolverModule.globalModelsKey && !job(BakarSymbolResolverModule.globalModelsKey).isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for BakarSymbolResolverModule.globalModelsKey.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" + 
+        job(BakarSymbolResolverModule.globalModelsKey).getClass.toString + "'")
+    } 
+
+    if(!(job ? BakarSymbolResolverModule.globalSymbolTableKey)) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': Wrong type found for BakarSymbolResolverModule.globalModelsKey.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" +
-          job(BakarSymbolResolverModule.globalModelsKey).getClass.toString + "'")
+        "Output error for '" + this.title + "': No entry found for 'symbolTable'. Expecting (BakarSymbolResolverModule.globalSymbolTableKey)") 
     }
 
-    if (!(job ? BakarSymbolResolverModule.globalSymbolTableKey)) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': No entry found for 'symbolTable'. Expecting (BakarSymbolResolverModule.globalSymbolTableKey)")
-    }
-
-    if (job ? BakarSymbolResolverModule.globalSymbolTableKey && !job(BakarSymbolResolverModule.globalSymbolTableKey).isInstanceOf[org.sireum.bakar.symbol.BakarSymbolTable]) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': Wrong type found for BakarSymbolResolverModule.globalSymbolTableKey.  Expecting 'org.sireum.bakar.symbol.BakarSymbolTable' but found '" +
-          job(BakarSymbolResolverModule.globalSymbolTableKey).getClass.toString + "'")
-    }
+    if(job ? BakarSymbolResolverModule.globalSymbolTableKey && !job(BakarSymbolResolverModule.globalSymbolTableKey).isInstanceOf[org.sireum.bakar.symbol.BakarSymbolTable]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for BakarSymbolResolverModule.globalSymbolTableKey.  Expecting 'org.sireum.bakar.symbol.BakarSymbolTable' but found '" + 
+        job(BakarSymbolResolverModule.globalSymbolTableKey).getClass.toString + "'")
+    } 
     return tags
   }
 
-  def getParallel(options : scala.collection.Map[Property.Key, Any]) : scala.Boolean = {
+  def getParallel (options : scala.collection.Map[Property.Key, Any]) : scala.Boolean = {
     if (options.contains(BakarSymbolResolverModule.globalParallelKey)) {
-      return options(BakarSymbolResolverModule.globalParallelKey).asInstanceOf[scala.Boolean]
+       return options(BakarSymbolResolverModule.globalParallelKey).asInstanceOf[scala.Boolean]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setParallel(options : MMap[Property.Key, Any], parallel : scala.Boolean) : MMap[Property.Key, Any] = {
+  def setParallel (options : MMap[Property.Key, Any], parallel : scala.Boolean) : MMap[Property.Key, Any] = {
 
     options(BakarSymbolResolverModule.globalParallelKey) = parallel
 
     return options
   }
 
-  def getModels(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
+  def getModels (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
     if (options.contains(BakarSymbolResolverModule.globalModelsKey)) {
-      return options(BakarSymbolResolverModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
+       return options(BakarSymbolResolverModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setModels(options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
+  def setModels (options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
 
     options(BakarSymbolResolverModule.globalModelsKey) = models
 
     return options
   }
 
-  def getHasExistingSymbolTable(options : scala.collection.Map[Property.Key, Any]) : scala.Option[org.sireum.bakar.symbol.BakarSymbolTable] = {
+  def getHasExistingSymbolTable (options : scala.collection.Map[Property.Key, Any]) : scala.Option[org.sireum.bakar.symbol.BakarSymbolTable] = {
     if (options.contains(BakarSymbolResolverModule.globalHasExistingSymbolTableKey)) {
-      return options(BakarSymbolResolverModule.globalHasExistingSymbolTableKey).asInstanceOf[scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]]
+       return options(BakarSymbolResolverModule.globalHasExistingSymbolTableKey).asInstanceOf[scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setHasExistingSymbolTable(options : MMap[Property.Key, Any], hasExistingSymbolTable : scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]) : MMap[Property.Key, Any] = {
+  def setHasExistingSymbolTable (options : MMap[Property.Key, Any], hasExistingSymbolTable : scala.Option[org.sireum.bakar.symbol.BakarSymbolTable]) : MMap[Property.Key, Any] = {
 
     options(BakarSymbolResolverModule.globalHasExistingSymbolTableKey) = hasExistingSymbolTable
 
     return options
   }
 
-  def getHasExistingModels(options : scala.collection.Map[Property.Key, Any]) : scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]] = {
+  def getHasExistingModels (options : scala.collection.Map[Property.Key, Any]) : scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]] = {
     if (options.contains(BakarSymbolResolverModule.globalHasExistingModelsKey)) {
-      return options(BakarSymbolResolverModule.globalHasExistingModelsKey).asInstanceOf[scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]]
+       return options(BakarSymbolResolverModule.globalHasExistingModelsKey).asInstanceOf[scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setHasExistingModels(options : MMap[Property.Key, Any], hasExistingModels : scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) : MMap[Property.Key, Any] = {
+  def setHasExistingModels (options : MMap[Property.Key, Any], hasExistingModels : scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) : MMap[Property.Key, Any] = {
 
     options(BakarSymbolResolverModule.globalHasExistingModelsKey) = hasExistingModels
 
     return options
   }
 
-  def getSymbolTable(options : scala.collection.Map[Property.Key, Any]) : org.sireum.bakar.symbol.BakarSymbolTable = {
+  def getSymbolTable (options : scala.collection.Map[Property.Key, Any]) : org.sireum.bakar.symbol.BakarSymbolTable = {
     if (options.contains(BakarSymbolResolverModule.globalSymbolTableKey)) {
-      return options(BakarSymbolResolverModule.globalSymbolTableKey).asInstanceOf[org.sireum.bakar.symbol.BakarSymbolTable]
+       return options(BakarSymbolResolverModule.globalSymbolTableKey).asInstanceOf[org.sireum.bakar.symbol.BakarSymbolTable]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setSymbolTable(options : MMap[Property.Key, Any], symbolTable : org.sireum.bakar.symbol.BakarSymbolTable) : MMap[Property.Key, Any] = {
+  def setSymbolTable (options : MMap[Property.Key, Any], symbolTable : org.sireum.bakar.symbol.BakarSymbolTable) : MMap[Property.Key, Any] = {
 
     options(BakarSymbolResolverModule.globalSymbolTableKey) = symbolTable
 
@@ -280,7 +280,7 @@ object BakarSymbolResolverModule extends PipelineModule {
   }
 
   object ConsumerView {
-    implicit class BakarSymbolResolverModuleConsumerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarSymbolResolverModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def parallel : scala.Boolean = BakarSymbolResolverModule.getParallel(job.propertyMap)
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarSymbolResolverModule.getModels(job.propertyMap)
       def hasExistingSymbolTable : scala.Option[org.sireum.bakar.symbol.BakarSymbolTable] = BakarSymbolResolverModule.getHasExistingSymbolTable(job.propertyMap)
@@ -290,7 +290,7 @@ object BakarSymbolResolverModule extends PipelineModule {
   }
 
   object ProducerView {
-    implicit class BakarSymbolResolverModuleProducerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarSymbolResolverModuleProducerView (val job : PropertyProvider) extends AnyVal {
 
       def parallel_=(parallel : scala.Boolean) { BakarSymbolResolverModule.setParallel(job.propertyMap, parallel) }
       def parallel : scala.Boolean = BakarSymbolResolverModule.getParallel(job.propertyMap)
@@ -315,12 +315,14 @@ trait BakarSymbolResolverModule {
 
   def parallel : scala.Boolean = BakarSymbolResolverModule.getParallel(job.propertyMap)
 
+
   def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarSymbolResolverModule.setModels(job.propertyMap, models) }
   def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarSymbolResolverModule.getModels(job.propertyMap)
 
   def hasExistingSymbolTable : scala.Option[org.sireum.bakar.symbol.BakarSymbolTable] = BakarSymbolResolverModule.getHasExistingSymbolTable(job.propertyMap)
 
   def hasExistingModels : scala.Option[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]] = BakarSymbolResolverModule.getHasExistingModels(job.propertyMap)
+
 
   def symbolTable_=(symbolTable : org.sireum.bakar.symbol.BakarSymbolTable) { BakarSymbolResolverModule.setSymbolTable(job.propertyMap, symbolTable) }
   def symbolTable : org.sireum.bakar.symbol.BakarSymbolTable = BakarSymbolResolverModule.getSymbolTable(job.propertyMap)

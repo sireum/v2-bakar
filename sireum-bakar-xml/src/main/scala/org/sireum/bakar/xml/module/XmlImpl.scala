@@ -67,7 +67,7 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   //println(result1)
 
   val g2xargs = ivector(Util.gnat2xml, "-I" + dirs.mkString(","), "-v",
-    "-m" + baseDestDir.getAbsolutePath()) ++ sfiles ++ ivector("-cargs", "-gnatd.V")
+    "-m" + baseDestDir.getAbsolutePath()) ++ sfiles ++ ivector("-cargs", "-gnataa-gnatd.V")
 
   // fix to resolve an issue when eclipse is run under a sireum distro on mac.
   // DYLD_FALLBACK_LIBRARY_PATH is set which causes gnat2xml to fail so we'll

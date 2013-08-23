@@ -26,10 +26,13 @@ typealias Integer Index
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="4" size="2">
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>simplearray.adb</string>
                    <int>3</int>
                    <int>35</int>
-                 </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                   <int>3</int>
+                   <int>35</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
            </org.sireum.pilar.ast.LiteralExp>
@@ -46,10 +49,13 @@ typealias Integer Index
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="6" size="2">
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
+                   <string>simplearray.adb</string>
                    <int>3</int>
                    <int>40</int>
-                 </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                   <int>3</int>
+                   <int>40</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
            </org.sireum.pilar.ast.LiteralExp>
@@ -225,10 +231,13 @@ procedure Boolean Dummy
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>simplearray.adb</string>
          <int>6</int>
          <int>4</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>6</int>
+         <int>65</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -301,10 +310,13 @@ procedure Boolean Dummy
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="12" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
+                       <string>simplearray.adb</string>
                        <int>3</int>
                        <int>35</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>35</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>
@@ -321,10 +333,13 @@ procedure Boolean Dummy
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="14" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="14" size="5">
+                       <string>simplearray.adb</string>
                        <int>3</int>
                        <int>40</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>40</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>
@@ -395,10 +410,13 @@ procedure Integer Max (
 
     @util.loc
 
-      ("""<org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl cid="1" size="2">
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>simplearray.adb</string>
          <int>8</int>
          <int>4</int>
-       </org.sireum.util.LineColumnLocation_-LineColumnLocationWithAtImpl>""")
+         <int>18</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 
     @BAKAR_TYPE_MAP
 
@@ -471,10 +489,13 @@ procedure Integer Max (
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="12" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
+                       <string>simplearray.adb</string>
                        <int>3</int>
                        <int>35</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>35</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>
@@ -491,10 +512,13 @@ procedure Integer Max (
                    </entry>
                    <entry>
                      <string>util.loc</string>
-                     <org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl cid="14" size="2">
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="14" size="5">
+                       <string>simplearray.adb</string>
                        <int>3</int>
                        <int>40</int>
-                     </org.sireum.util.LineColumnLocation__-LineColumnLocationWithAtImpl>
+                       <int>3</int>
+                       <int>40</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.LiteralExp>

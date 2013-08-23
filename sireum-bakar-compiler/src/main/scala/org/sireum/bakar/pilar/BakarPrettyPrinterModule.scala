@@ -39,86 +39,86 @@ object BakarPrettyPrinterModule extends PipelineModule {
     val tags = marrayEmpty[Tag]
     val deps = ilist[PipelineModule]()
     deps.foreach(d =>
-      if (stage.modules.contains(d)) {
+      if(stage.modules.contains(d)){
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
+            "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
         )
       }
     )
     return tags
   }
 
-  def inputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def inputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
     var _models : scala.Option[AnyRef] = None
     var _modelsKey : scala.Option[String] = None
 
     val keylistmodels = List(BakarPrettyPrinterModule.globalModelsKey)
-    keylistmodels.foreach(key =>
-      if (job ? key) {
-        if (_models.isEmpty) {
+    keylistmodels.foreach(key => 
+      if(job ? key) { 
+        if(_models.isEmpty) {
           _models = Some(job(key))
           _modelsKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _models.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _models.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'models' keys '" + _modelsKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _models match {
+    _models match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]) {
+        if(!x.isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'models'.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'models'")
+          "Input error for '" + this.title + "': No value found for 'models'")       
     }
     return tags
   }
 
-  def outputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def outputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    if (!(job ? BakarPrettyPrinterModule.resultsKey)) {
+    if(!(job ? BakarPrettyPrinterModule.resultsKey)) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': No entry found for 'results'. Expecting (BakarPrettyPrinterModule.resultsKey)")
+        "Output error for '" + this.title + "': No entry found for 'results'. Expecting (BakarPrettyPrinterModule.resultsKey)") 
     }
 
-    if (job ? BakarPrettyPrinterModule.resultsKey && !job(BakarPrettyPrinterModule.resultsKey).isInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': Wrong type found for BakarPrettyPrinterModule.resultsKey.  Expecting 'scala.collection.immutable.Map[java.lang.String, java.lang.String]' but found '" +
-          job(BakarPrettyPrinterModule.resultsKey).getClass.toString + "'")
-    }
+    if(job ? BakarPrettyPrinterModule.resultsKey && !job(BakarPrettyPrinterModule.resultsKey).isInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for BakarPrettyPrinterModule.resultsKey.  Expecting 'scala.collection.immutable.Map[java.lang.String, java.lang.String]' but found '" + 
+        job(BakarPrettyPrinterModule.resultsKey).getClass.toString + "'")
+    } 
     return tags
   }
 
-  def getModels(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
+  def getModels (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
     if (options.contains(BakarPrettyPrinterModule.globalModelsKey)) {
-      return options(BakarPrettyPrinterModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
+       return options(BakarPrettyPrinterModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setModels(options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
+  def setModels (options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
 
     options(BakarPrettyPrinterModule.globalModelsKey) = models
 
     return options
   }
 
-  def getResults(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, java.lang.String] = {
+  def getResults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, java.lang.String] = {
     if (options.contains(BakarPrettyPrinterModule.resultsKey)) {
-      return options(BakarPrettyPrinterModule.resultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]
+       return options(BakarPrettyPrinterModule.resultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setResults(options : MMap[Property.Key, Any], results : scala.collection.immutable.Map[java.lang.String, java.lang.String]) : MMap[Property.Key, Any] = {
+  def setResults (options : MMap[Property.Key, Any], results : scala.collection.immutable.Map[java.lang.String, java.lang.String]) : MMap[Property.Key, Any] = {
 
     options(resultsKey) = results
 
@@ -126,14 +126,14 @@ object BakarPrettyPrinterModule extends PipelineModule {
   }
 
   object ConsumerView {
-    implicit class BakarPrettyPrinterModuleConsumerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarPrettyPrinterModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarPrettyPrinterModule.getModels(job.propertyMap)
       def results : scala.collection.immutable.Map[java.lang.String, java.lang.String] = BakarPrettyPrinterModule.getResults(job.propertyMap)
     }
   }
 
   object ProducerView {
-    implicit class BakarPrettyPrinterModuleProducerView(val job : PropertyProvider) extends AnyVal {
+    implicit class BakarPrettyPrinterModuleProducerView (val job : PropertyProvider) extends AnyVal {
 
       def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarPrettyPrinterModule.setModels(job.propertyMap, models) }
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarPrettyPrinterModule.getModels(job.propertyMap)
@@ -148,6 +148,7 @@ trait BakarPrettyPrinterModule {
   def job : PipelineJob
 
   def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarPrettyPrinterModule.getModels(job.propertyMap)
+
 
   def results_=(results : scala.collection.immutable.Map[java.lang.String, java.lang.String]) { BakarPrettyPrinterModule.setResults(job.propertyMap, results) }
   def results : scala.collection.immutable.Map[java.lang.String, java.lang.String] = BakarPrettyPrinterModule.getResults(job.propertyMap)

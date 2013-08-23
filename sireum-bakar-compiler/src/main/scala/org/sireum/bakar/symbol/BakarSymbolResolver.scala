@@ -4,7 +4,6 @@ import org.sireum.pipeline.Input
 import org.sireum.pipeline.Output
 import org.sireum.util._
 import org.sireum.pilar.ast.Model
-import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.option.PipelineMode
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineJobModuleInfo
@@ -62,10 +61,17 @@ case class BakarSymbolResolver(
 
 object BakarSymbolResolver {
   def main(args : Array[String]) {
-    val opt = PipelineMode()
-    opt.classNames = Array(BakarSymbolResolver.getClass.getName.dropRight(1))
-    opt.dir = "./src/main/scala/org/sireum/bakar/symbol"
+    val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
+    val destdir = "./src/main/scala/org/sireum/bakar/symbol"    
+    val cnames = Array(BakarSymbolResolver.getClass.getName.dropRight(1))
 
-    ModuleGenerator.run(opt)
+    val args = List(sireum, "tools", "pipeline", "-d", destdir, cnames(0))
+
+    val e = new Exec()
+    // current sireum dist may not have the needed sireum classes so use 
+    // eclipse's classpath instead
+    e.env("CLASSPATH") = System.getProperty("java.class.path")
+
+    println(e.run(10000, args, None, None))
   }
 }
