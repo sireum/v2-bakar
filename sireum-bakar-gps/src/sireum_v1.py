@@ -24,7 +24,6 @@ class ProjectNotBuiltException(Exception):
 
 def run_kiasan_plugin():
 	"""This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
-	warnings.warn("Exception catching are based on guesses - most probably reasons of occurence.")
 	try:
 		project_path = get_spark_sources_path()	#normalized project path
 		remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
@@ -125,17 +124,16 @@ def run_kiasan_alasysis_async(progressbar, project_path, kiasan_run_cmd, kiasan_
 		progressbar.set_fraction(float(method_no)/len(methods_list))
 		progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
 		while gtk.events_pending():
-				gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
+			gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
 		method_no += 1
 		
-			
 		# run kiasan on last method with report
 		
 		run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
 		progressbar.set_fraction(float(method_no)/len(methods_list))
 		progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
 		while gtk.events_pending():
-				gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
+			gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
 						
 		# read generated json
 		kiasan_logic = kiasan_v1.logic.KiasanLogic()
