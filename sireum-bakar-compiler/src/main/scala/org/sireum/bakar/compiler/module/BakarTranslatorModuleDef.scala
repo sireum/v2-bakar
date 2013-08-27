@@ -627,6 +627,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               case pname : DefiningIdentifier =>
                 val (sloc, defName, defUri, typ) = ctx.getName(pname)
                 val name = NameDefinition(pname.getDefName())
+                ctx.addResourceUri(name, defUri)
                 val typeSpec = Some(NamedTypeSpec(odv.name, ivectorEmpty[TypeSpec]))
                 
                 val pd = ParamDecl(typeSpec, name, TranslatorUtil.emptyAnnot)
