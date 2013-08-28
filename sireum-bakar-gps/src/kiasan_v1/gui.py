@@ -61,7 +61,7 @@ class KiasanGUI:
                                   gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_STRING) #@UndefinedVariable-is not a problem
-            
+
         for package in report:
             iteration = tree_store.append(None)
             tree_store.set(iteration,
@@ -295,14 +295,19 @@ class KiasanGUI:
         # add call stack frames
         pre_stack_frames = pre_tree_store.append(pre_parent, ["Call Stack Frames", COLORS["DEFAULT"]])
         post_stack_frames = post_tree_store.append(post_parent, ["Call Stack Frames", COLORS["DEFAULT"]])
-                
-        pre_frames_count = 0
+        
+        # process frames existing in pre- and post state
         for pre_frame, post_frame in zip(pre_state._frames, post_state._frames):
-            pre_frames_count += 1
             color = COLORS["DEFAULT"] if pre_frame._line_num == post_frame._line_num else COLORS["CHANGED"]
             pre_stack_frame = pre_tree_store.append(pre_stack_frames, [str(pre_frame._line_num) + ":" + pre_frame._name, COLORS["DEFAULT"]])
             post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, color])            
-            self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_stack_frame, post_stack_frame, pre_frame._variables, post_frame._variables, COLORS)            
+            self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_stack_frame, post_stack_frame, pre_frame._variables, post_frame._variables, COLORS)
+            
+        # process new frames (existing only in post state)
+        for post_frame in post_state._frames[len(pre_state._frames):]:
+            color = COLORS["NEW"]
+            post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, color])
+            self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_stack_frame, post_stack_frame, None, post_frame._variables, COLORS)
         
         return pre_tree_store, post_tree_store
                 
