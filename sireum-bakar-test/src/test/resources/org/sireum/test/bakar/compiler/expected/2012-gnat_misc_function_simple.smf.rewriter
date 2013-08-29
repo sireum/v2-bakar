@@ -46,7 +46,7 @@ procedure P1 (
         Integer N) {
 
   #l2.
-    B := F1 (M, N);
+    @@B := F1 (M, N);
 
   #l3.
     return;
@@ -67,7 +67,7 @@ procedure P2 (
     _t5 := C;
 
   #l4.
-    B := _t4 + _t5;
+    @@B := _t4 + _t5;
 
   #l5.
     return;

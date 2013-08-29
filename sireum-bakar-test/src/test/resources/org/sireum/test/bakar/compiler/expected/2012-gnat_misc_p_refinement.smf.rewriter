@@ -27,7 +27,7 @@ procedure Q (
     _t0 := X;
 
   #rwl1.
-    _t1 := B;
+    _t1 := @@B;
 
   #l1.
     Z := _t0 + _t1;

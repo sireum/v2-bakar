@@ -744,7 +744,7 @@ procedure Del
 
         ("""<int>0</int>""")
   >
-    T := RG.A
+    T := @@RG.A
         @BAKAR_TYPE_URI
 
           ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
@@ -773,7 +773,7 @@ procedure Del
     ;
 
   #rwl2.
-    _t2 := RG.B
+    _t2 := @@RG.B
         @BAKAR_TYPE_URI
 
           ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
@@ -802,7 +802,7 @@ procedure Del
     ;
 
   #rwl3.
-    _t3 := RG.A
+    _t3 := @@RG.A
         @BAKAR_TYPE_URI
 
           ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
@@ -841,7 +841,7 @@ procedure Del
 
         ("""<int>1</int>""")
   >
-    RG.A
+    @@RG.A
         @BAKAR_TYPE_URI
 
           ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")

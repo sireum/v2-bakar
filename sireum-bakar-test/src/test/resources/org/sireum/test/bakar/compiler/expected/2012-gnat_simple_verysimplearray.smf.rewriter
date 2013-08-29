@@ -45,16 +45,16 @@ procedure Del {
 
 
   #l4.
-    T := V[1ii];
+    T := @@V[1ii];
 
   #rwl0.
     _t0 := T;
 
   #rwl1.
-    _t1 := V[3ii];
+    _t1 := @@V[3ii];
 
   #l5.
-    V[2ii] := _t0 + _t1;
+    @@V[2ii] := _t0 + _t1;
 
   #l6.
     return;

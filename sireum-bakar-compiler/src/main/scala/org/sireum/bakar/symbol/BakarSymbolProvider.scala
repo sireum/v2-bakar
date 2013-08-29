@@ -49,6 +49,10 @@ object BakarSymbolTable {
         assert(!tables.attributeTable.contains(a))
         tables.attributeTable(a) = a
         false
+      case a : GlobalVarDecl =>
+        assert(!tables.globalVarTable.contains(a))
+        tables.globalVarTable(a) = a
+        false
       case p : ProcedureDecl =>
         assert(p ? URIS.REF_URI)
         val uri = p(URIS.REF_URI).asInstanceOf[ResourceUri]

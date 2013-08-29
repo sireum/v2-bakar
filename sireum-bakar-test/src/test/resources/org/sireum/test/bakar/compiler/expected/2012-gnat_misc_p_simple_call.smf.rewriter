@@ -28,7 +28,7 @@ procedure R (
     _t0 := Y;
 
   #rwl1.
-    _t1 := B;
+    _t1 := @@B;
 
   #rwl2.
     _t2 := _t0 + _t1;

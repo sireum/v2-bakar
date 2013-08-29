@@ -44,10 +44,10 @@ procedure Del {
 
 
   #l4.
-    T := V[1ii];
+    T := @@V[1ii];
 
   #l5.
-    V[2ii] := T + V[3ii];
+    @@V[2ii] := T + @@V[3ii];
 
   #l6.
     return;

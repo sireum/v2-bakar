@@ -275,7 +275,7 @@ procedure Q (
     _t0 := X;
 
   #rwl1.
-    _t1 := B;
+    _t1 := @@B;
 
   #l1.<
       @org.sireum.pilar.ast.LocationDecl

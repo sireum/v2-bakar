@@ -21,7 +21,7 @@ procedure R (
         Integer Z) {
 
   #l1.
-    Z := X + Y + B + C;
+    Z := X + Y + @@B + C;
 
   #l2.
     return;

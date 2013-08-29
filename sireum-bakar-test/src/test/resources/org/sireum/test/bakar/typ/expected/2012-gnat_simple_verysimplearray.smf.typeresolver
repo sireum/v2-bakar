@@ -1001,20 +1001,20 @@ procedure Del
 
         ("""<int>0</int>""")
   >
-    T := V[1ii];
+    T := @@V[1ii];
 
   #rwl0.
     _t0 := T;
 
   #rwl1.
-    _t1 := V[3ii];
+    _t1 := @@V[3ii];
 
   #l5.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>1</int>""")
   >
-    V[2ii] := _t0 + _t1;
+    @@V[2ii] := _t0 + _t1;
 
   #l6.<
       @org.sireum.pilar.ast.LocationDecl

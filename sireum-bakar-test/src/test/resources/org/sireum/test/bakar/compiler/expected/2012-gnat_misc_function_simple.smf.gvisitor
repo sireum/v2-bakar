@@ -112,17 +112,17 @@ Model(Some(function_simple.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
               NameDefinition(N)
               List()
           None
-          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(B)),:=,CallExp(NameExp(NameUser(F1
+          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(@@B)),:=,CallExp(NameExp(NameUser(
             List()
-            List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(B)),:=,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameEx
-              ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(B)),:=,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(Nam
+            List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(@@B)),:=,CallExp(NameExp(NameUser(F1)),TupleExp(List(Name
+              ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(@@B)),:=,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(N
                 Some(NameDefinition(l2))
                   NameDefinition(l2)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(B)),:=,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(N))))))
+                AssignAction(Vector(),NameExp(NameUser(@@B)),:=,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(N))))))
                   List()
-                  NameExp(NameUser(B))
-                    NameUser(B)
+                  NameExp(NameUser(@@B))
+                    NameUser(@@B)
                   CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(N)))))
                     NameExp(NameUser(F1))
                       NameUser(F1)
@@ -160,17 +160,17 @@ Model(Some(function_simple.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
               NameDefinition(N)
               List()
           None
-          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l4)),Vector(),AssignAction(Vector(),NameExp(NameUser(B)),:=,BinaryExp(+,CallExp(NameExp
+          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l4)),Vector(),AssignAction(Vector(),NameExp(NameUser(@@B)),:=,BinaryExp(+,CallExp(NameE
             List()
-            List(ActionLocation(Some(NameDefinition(l4)),Vector(),AssignAction(Vector(),NameExp(NameUser(B)),:=,BinaryExp(+,CallExp(NameExp(NameUser(F1)),TupleExp
-              ActionLocation(Some(NameDefinition(l4)),Vector(),AssignAction(Vector(),NameExp(NameUser(B)),:=,BinaryExp(+,CallExp(NameExp(NameUser(F1)),TupleExp(List
+            List(ActionLocation(Some(NameDefinition(l4)),Vector(),AssignAction(Vector(),NameExp(NameUser(@@B)),:=,BinaryExp(+,CallExp(NameExp(NameUser(F1)),TupleE
+              ActionLocation(Some(NameDefinition(l4)),Vector(),AssignAction(Vector(),NameExp(NameUser(@@B)),:=,BinaryExp(+,CallExp(NameExp(NameUser(F1)),TupleExp(Li
                 Some(NameDefinition(l4))
                   NameDefinition(l4)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(B)),:=,BinaryExp(+,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(N))))),Na
+                AssignAction(Vector(),NameExp(NameUser(@@B)),:=,BinaryExp(+,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(N))))),
                   List()
-                  NameExp(NameUser(B))
-                    NameUser(B)
+                  NameExp(NameUser(@@B))
+                    NameUser(@@B)
                   BinaryExp(+,CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(N))))),NameExp(NameUser(C)))
                     CallExp(NameExp(NameUser(F1)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(N)))))
                       NameExp(NameUser(F1))

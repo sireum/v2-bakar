@@ -45,10 +45,10 @@ procedure Del {
 
 
   #l4.
-    T := RG.A;
+    T := @@RG.A;
 
   #l5.
-    RG.A := RG.B - RG.A - 7ii;
+    @@RG.A := @@RG.B - @@RG.A - 7ii;
 
   #l6.
     return;

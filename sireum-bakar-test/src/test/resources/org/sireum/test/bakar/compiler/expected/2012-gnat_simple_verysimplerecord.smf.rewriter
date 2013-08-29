@@ -58,13 +58,13 @@ procedure Del {
 
 
   #l4.
-    T := RG.A;
+    T := @@RG.A;
 
   #rwl2.
-    _t2 := RG.B;
+    _t2 := @@RG.B;
 
   #rwl3.
-    _t3 := RG.A;
+    _t3 := @@RG.A;
 
   #rwl4.
     _t4 := _t2 - _t3;
@@ -73,7 +73,7 @@ procedure Del {
     _t5 := 7ii;
 
   #l5.
-    RG.A := _t4 - _t5;
+    @@RG.A := _t4 - _t5;
 
   #l6.
     return;

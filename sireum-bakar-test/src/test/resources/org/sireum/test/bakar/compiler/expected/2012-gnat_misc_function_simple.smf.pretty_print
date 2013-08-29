@@ -29,7 +29,7 @@ procedure P1 (
         Integer N) {
 
   #l2.
-    B := F1 (M, N);
+    @@B := F1 (M, N);
 
   #l3.
     return;
@@ -40,7 +40,7 @@ procedure P2 (
         Integer N) {
 
   #l4.
-    B := F1 (M, N) + C;
+    @@B := F1 (M, N) + C;
 
   #l5.
     return;

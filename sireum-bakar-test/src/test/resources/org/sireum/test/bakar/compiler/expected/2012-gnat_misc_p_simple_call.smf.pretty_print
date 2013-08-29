@@ -20,7 +20,7 @@ procedure R (
         Integer X) {
 
   #l1.
-    X := Y + B + C;
+    X := Y + @@B + C;
 
   #l2.
     return;

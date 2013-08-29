@@ -21,7 +21,7 @@ procedure Q (
         Integer Z) {
 
   #l1.
-    Z := X + B;
+    Z := X + @@B;
 
   #l2.
     return;
