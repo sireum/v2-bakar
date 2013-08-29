@@ -31,7 +31,7 @@ class BakarRewriter {
 
   val SCHEME = "ada"
   val TEMP_VAR_TYPE = "variable_temp"
-  
+
   val eannot = ilistEmpty[Annotation]
   def newTempVar(typeName : String, typeUri : String) = {
     import org.sireum.pilar.symbol.Symbol
@@ -39,17 +39,13 @@ class BakarRewriter {
     val name = tempVarPrefix + tcounter
     val path = ilist(this.currentPackage, this.currentMethod, name)
     val uri = SCHEME + "://" + TEMP_VAR_TYPE + "/" + path.mkString("/")
-    
-    val tvtnu = NameUser(typeName)
-    tvtnu(URIS.REF_URI) = typeUri
-    val nts = Some(NamedTypeSpec(tvtnu, ilistEmpty[TypeSpec]))
-    val lvd = LocalVarDecl(nts, NameDefinition(name), ilistEmpty[Annotation])
-    lvd(URIS.REF_URI) = uri
+
+    val nts = Some(NamedTypeSpec(URIS.addResourceUri(NameUser(typeName), typeUri), ilistEmpty[TypeSpec]))
+    val lname = URIS.addResourceUri(NameDefinition(name), uri)
+    val lvd = LocalVarDecl(nts, lname, ilistEmpty[Annotation])
     this.newTempVars :+= lvd
-    
-    val nu = NameUser(name)
-    nu.uri("ada", "variable_temp", path, uri)
-    val ret = NameExp(nu)
+
+    val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
     ret(URIS.TYPE_URI) = typeUri
     tcounter += 1
     ret
@@ -58,7 +54,7 @@ class BakarRewriter {
   def newLabel = {
     import org.sireum.pilar.symbol.Symbol
     import java.net.URI
-    
+
     val s = locPrefix + lcounter
     val ret = NameDefinition(s)
     val uri = new URI(s)
@@ -74,24 +70,24 @@ class BakarRewriter {
 
   var currentPackage : String = null
   var currentMethod : String = null
-  
+
   def getTypeUri(e : Exp) : String = {
-    assert (e ? URIS.TYPE_URI)
+    assert(e ? URIS.TYPE_URI)
     e(URIS.TYPE_URI)
   }
-  
+
   def copyMap[T <: PilarAstNode](orig : T, n : T) : T = {
     n.propertyMap ++= orig.propertyMap
     n
   }
-  
+
   val rewriter = Rewriter.build[LocationDecl]({
     case l : LocationDecl => l
     case b @ BinaryExp(o, l, r) =>
       val btype = getTypeUri(b)
       val ltype = getTypeUri(l)
       val rtype = getTypeUri(r)
-      
+
       val le = newTempVar("FIXME", ltype)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, le, ":=", l))
 
@@ -130,27 +126,27 @@ class BakarRewriter {
       val ie = copyMap(e, IndexingExp(te, indices))
       ie(URIS.TYPE_URI) = etype
       ie
-    
+
     // the rest of these are sanity checks
     case te : TupleExp => te // tuple exp don't need a type
     case e : Exp =>
-      assert (e ? URIS.TYPE_URI)
+      assert(e ? URIS.TYPE_URI)
       e
-  },  Rewriter.TraversalMode.BOTTOM_UP, true)
+  }, Rewriter.TraversalMode.BOTTOM_UP, true)
 
   def rewrite(m : Model) : Model = {
     var packages = ilistEmpty[PackageDecl]
     Visitor.build({
-      case p @ PackageDecl (packName, _, elements) =>
+      case p @ PackageDecl(packName, _, elements) =>
         var elems = ivectorEmpty[PackageElement]
         this.currentPackage = packName.get.name
         elements.foreach {
           case pd @ ProcedureDecl(methName, a, tv, params, rt, va, body : ImplementedBody) => {
 
             var locmap = ilinkedMapEmpty[LocationDecl, (ISeq[LocationDecl], ISeq[LocationDecl])]
-            
+
             this.currentMethod = methName.name
-            
+
             for (l <- body.locations) {
               clhs = None
               l match {
@@ -174,7 +170,7 @@ class BakarRewriter {
               ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses))
             copyMap(pd, modpd)
             elems :+= modpd
-            
+
             this.newTempVars = ilistEmpty[LocalVarDecl]
           }
           case o => elems :+= o
@@ -195,7 +191,7 @@ case class BakarExpRewriter(
 object BakarExpRewriter {
   def main(args : Array[String]) {
     val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
-    val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"    
+    val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"
     val cname = BakarExpRewriter.getClass.getName.dropRight(1)
 
     val args = List(sireum, "tools", "pipeline", "-d", destdir, cname)

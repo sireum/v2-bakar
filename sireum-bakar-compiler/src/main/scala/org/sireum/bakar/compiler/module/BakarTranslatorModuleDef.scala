@@ -424,16 +424,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     }
 
     def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s : T, uri : String) = {
-      import org.sireum.pilar.symbol.Symbol
-      val u = new URI(uri)
-      val paths =
-        if (u.getPath.startsWith("/"))
-          u.getPath.split("/").drop(1)
-        else
-          u.getPath.split("/")
-
-      s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
-      s
+      URIS.addResourceUri(s, uri)
     }
 
     /**
@@ -595,7 +586,6 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               
               val name = ctx.addResourceUri(NameDefinition(cdefName), cdefUri)
               val gvd = GlobalVarDecl(name, TranslatorUtil.emptyAnnot, typeSpec)
-              gvd(URIS.REF_URI) = cdefUri
               packElems += gvd
             case x =>
               if (DEBUG) Console.err.println("Not Expecting: " + x)
@@ -634,8 +624,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         import FileLineColumnLocation._
         assert(names.getDefiningNames().length == 1)
         val (sloc, methodDefName, methodDefUri, methodTypeUri) = ctx.getName(names.getDefiningNames.get(0))
-        val mname = NameDefinition(methodDefName)
-        mname at ("NEED_FILE_URI", sloc.getLine(), sloc.getCol())
+        val mname = ctx.addResourceUri(NameDefinition(methodDefName), methodDefUri)
+        mname at (ctx.fileUri, sloc.getLine(), sloc.getCol())
 
         val params = mlistEmpty[ParamDecl]
         paramProfile.getParameterSpecifications().foreach {
@@ -686,9 +676,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             names.getDefiningNames().foreach {
               case di : DefiningIdentifier =>
                 val (sloc, defName, defUri, typ) = ctx.getName(di)
-                val name = NameDefinition(defName)
+                val name = ctx.addResourceUri(NameDefinition(defName), defUri)
                 val lvd = LocalVarDecl(typeSpec, name, TranslatorUtil.emptyAnnot)
-                lvd(URIS.REF_URI) = defUri
                 ctx.localsPush(lvd)
               case x =>
                 if (DEBUG) println("Not expecting: " + x)

@@ -98,13 +98,13 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
   for (m <- this.models) {
     val v = Visitor.build {
       case o @ GlobalVarDecl(name, _, Some(NamedTypeSpec(nu, _))) =>
-        addMapping(o, nu)
+        refUri2typeUri(name.uri) = nu.uri
         false
       case o @ ParamDecl(Some(NamedTypeSpec(nu, _)), name, _) =>
-        addMapping(o, nu)
+        refUri2typeUri(name.uri) = nu.uri
         false
       case o @ LocalVarDecl(Some(NamedTypeSpec(nu, _)), name, _) =>
-        addMapping(o, nu)
+        refUri2typeUri(name.uri) = nu.uri
         false
       case o @ NameExp(nu) =>
         import org.sireum.pilar.symbol.Symbol

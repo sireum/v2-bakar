@@ -6,6 +6,7 @@ import org.sireum.pilar.ast._
 import org.sireum.util._
 import org.sireum.bakar.symbol.FullTypeDecl
 import org.sireum.bakar.symbol.SignedIntegerTypeDef
+import java.net.URI
 
 object BAKAR_KEYS {
   val PARAM_INFO = "BAKAR_PARAM_INFO"
@@ -16,6 +17,19 @@ object URIS {
   val TYPE_DEF = "BAKAR_TYPE_DEF"
   val TYPE_URI = "BAKAR_TYPE_URI"
   val REF_URI = "BAKAR_REF_URI"
+
+  def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s : T, uri : String) = {
+    import org.sireum.pilar.symbol.Symbol
+    val u = new URI(uri)
+    val paths =
+      if (u.getPath.startsWith("/"))
+        u.getPath.split("/").drop(1)
+      else
+        u.getPath.split("/")
+
+    s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
+    s
+  }
 }
 
 object Attribute {

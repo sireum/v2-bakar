@@ -24,9 +24,9 @@ object BakarSymbolTable {
             parallel : Boolean) =
     buildSymbolTable(models, stpConstructor, parallel)
 
-  implicit def getUri(p : PilarAstNode) = {
+  implicit def getUri(p : PilarAstNode) : ResourceUri = {
     assert(p ? URIS.REF_URI)
-    p(URIS.REF_URI).asInstanceOf[ResourceUri]
+    p(URIS.REF_URI)
   }
 
   def buildSymbolTable(models : ISeq[Model],
@@ -50,40 +50,38 @@ object BakarSymbolTable {
         tables.attributeTable(a) = a
         false
       case a : GlobalVarDecl =>
-        assert(!tables.globalVarTable.contains(a))
-        tables.globalVarTable(a) = a
+        val uri = a.name.uri
+        assert(!tables.globalVarTable.contains(uri))
+        tables.globalVarTable(uri) = a
         false
       case p : ProcedureDecl =>
-        assert(p ? URIS.REF_URI)
-        val uri = p(URIS.REF_URI).asInstanceOf[ResourceUri]
+        val procUri = p.name.uri
+        
+        assert(!tables.procedureTable.contains(procUri))
+        tables.procedureTable(procUri) = procUri +: mlistEmpty[ResourceUri]
+        tables.procedureAbsTable(procUri) = p
 
-        assert(!tables.procedureTable.contains(uri))
-        tables.procedureTable(uri) = uri +: mlistEmpty[ResourceUri]
-        tables.procedureAbsTable(uri) = p
-
-        val bpst = bst.procedureSymbolTableProducer(uri)
+        val bpst = bst.procedureSymbolTableProducer(procUri)
         val ptables = bpst.tables
 
         for (param <- p.params) {
-          assert(param ? URIS.REF_URI)
-          val puri = param(URIS.REF_URI).asInstanceOf[ResourceUri]
-          ptables.params += puri
-          assert(!ptables.localVarTable.contains(puri))
-          ptables.localVarTable(puri) = param
+          val paramUri = param.name.uri
+          ptables.params += paramUri
+          assert(!ptables.localVarTable.contains(paramUri))
+          ptables.localVarTable(paramUri) = param
         }
 
         p.body match {
           case im : ImplementedBody =>
             for (lv <- im.locals) {
-              assert(!ptables.localVarTable.contains(lv))
-              ptables.localVarTable(lv) = lv
+              val locUri = lv.name.uri
+              assert(!ptables.localVarTable.contains(locUri))
+              ptables.localVarTable(locUri) = lv
             }
 
             val bstd = new BodySymbolTableData()
             var index = 0
             for (loc <- im.locations) {
-
-              assert(loc.name.isDefined)
               val luri = loc.name.get.uri
               assert(!bstd.locationTable.contains(luri))
               bstd.locationTable(luri) = loc
@@ -203,11 +201,8 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
 
   def isVar(e : NameExp) : Boolean = {
     import org.sireum.pilar.symbol.Symbol
-    val name = e.name
-    val u = name.uri
-    val ret = u.startsWith("ada://variable") || u.startsWith("ada://parameter")
-    ret
-    //name ? URIS.REF_URI && (name(URIS.REF_URI).asInstanceOf[String].contains("local"))
+    val uri = e.name.uri
+    uri.startsWith("ada://variable") || uri.startsWith("ada://parameter") || H.isGlobalVar(uri)
   }
 
   def procedureUri(e : NameExp) : Option[ResourceUri] = {
@@ -221,13 +216,11 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
   def initLocation(procUri : ResourceUri) : Option[ResourceUri] = {
     val pst = bst.procedureSymbolTable(procUri)
     val ld = pst.location(0)
-    //ld.name.map { nd => nd.uri }
     Some(ld.name.get.name)
   }
 
   def location(s : S, nu : NameUser) : S = {
     val pst = bst.procedureSymbolTable(s.callStack.head.procedure)
-    //val ld = pst.location(nu.uri)
     val ld = pst.location(nu.name)
     s.location(Some(ld.name.get.name), ld.index)
   }
@@ -251,9 +244,7 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
 
   def isFieldAccess(f : NameUser) : Boolean = {
     import org.sireum.pilar.symbol.Symbol
-    val u = f.uri
-    val ret = u.startsWith("ada://component")
-    ret
+    f.uri.startsWith("ada://component")
   }
   
   def funUri(e : NameExp) : Option[ResourceUri] = None
