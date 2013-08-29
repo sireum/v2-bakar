@@ -84,7 +84,7 @@ object BakarSymbolTable {
             for (loc <- im.locations) {
 
               assert(loc.name.isDefined)
-              val luri = loc.name.get.name
+              val luri = loc.name.get.uri
               assert(!bstd.locationTable.contains(luri))
               bstd.locationTable(luri) = loc
 
