@@ -221,7 +221,7 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
 
   def location(s : S, nu : NameUser) : S = {
     val pst = bst.procedureSymbolTable(s.callStack.head.procedure)
-    val ld = pst.location(nu.name)
+    val ld = pst.location(nu.uri)
     s.location(Some(ld.name.get.name), ld.index)
   }
 

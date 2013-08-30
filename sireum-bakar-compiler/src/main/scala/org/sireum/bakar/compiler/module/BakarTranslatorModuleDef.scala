@@ -474,7 +474,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     }
   }
 
-  implicit def nd2nu(nd : NameDefinition) = NameUser(nd.name)
+  implicit def nd2nu(nd : NameDefinition) = {
+    val nu = NameUser(nd.name)
+    nu.propertyMap ++= nd.propertyMap
+    nu
+  }
 
   implicit def addprop[T <: PropertyProvider](pp : T, key : String, value : Any, required : Boolean = false) : T = {
     if (value == null || value == "null" || value == "") {
