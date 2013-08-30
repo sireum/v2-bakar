@@ -259,16 +259,8 @@ procedure add (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/example/add/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/example/add/_t1</string>""")
-    ;
+    FIXME _t0;
+    FIXME _t1;
 
 
   #rwl0.
@@ -407,31 +399,11 @@ procedure foo (
        </mcol.HashMap>""")
  {
   local
-    Integer M
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/Example-1:9/foo-5:15/M+12:3</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/example/foo/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/example/foo/_t3</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/example/foo/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/example/foo/_t5</string>""")
-    ;
+    Integer M;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #l3.<

@@ -212,11 +212,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-global Rec @@RG
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://variable/SimpleRecord-1:9/@@RG+8:4</string>""")
-;
+global Rec @@RG;
 
 procedure Boolean Dummy
     @BAKAR_REF_URI
@@ -497,16 +493,8 @@ procedure Add (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Add/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Add/_t1</string>""")
-    ;
+    FIXME _t0;
+    FIXME _t1;
 
 
   #rwl0.
@@ -712,31 +700,11 @@ procedure Del
        </mcol.HashMap>""")
  {
   local
-    Integer T
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/SimpleRecord-1:9/Del+17:14/T+18:6</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Del/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Del/_t3</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Del/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Del/_t5</string>""")
-    ;
+    Integer T;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #l4.<

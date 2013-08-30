@@ -275,26 +275,10 @@ procedure P (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/ProcedureTest01/P/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/ProcedureTest01/P/_t1</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/ProcedureTest01/P/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/ProcedureTest01/P/_t3</string>""")
-    ;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
 
 
   #rwl0.
@@ -446,11 +430,7 @@ procedure helper (
        </mcol.HashMap>""")
  {
   local
-    Integer arg0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/ProcedureTest01-1:9/helper-7:13/arg0+11:5</string>""")
-    ;
+    Integer arg0;
 
 
   #l4.<
@@ -594,21 +574,9 @@ procedure Q (
        </mcol.HashMap>""")
  {
   local
-    Integer L1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/ProcedureTest01-1:9/Q-11:13/L1+18:6</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/ProcedureTest01/Q/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/ProcedureTest01/Q/_t5</string>""")
-    ;
+    Integer L1;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #l6.<

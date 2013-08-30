@@ -445,121 +445,29 @@ procedure Integer Add (
        </mcol.HashMap>""")
  {
   local
-    Integer r0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r0+7:5</string>""")
-    ;
-    Integer r1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r1+7:9</string>""")
-    ;
-    Integer r2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r2+7:13</string>""")
-    ;
-    Integer r3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r3+7:17</string>""")
-    ;
-    Integer r4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r4+7:21</string>""")
-    ;
-    Integer r5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r5+7:25</string>""")
-    ;
-    Integer r6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Add+5:12/r6+7:29</string>""")
-    ;
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t1</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t3</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t5</string>""")
-    ;
-    FIXME _t6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t6</string>""")
-    ;
-    FIXME _t7
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t7</string>""")
-    ;
-    FIXME _t8
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t8</string>""")
-    ;
-    FIXME _t9
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t9</string>""")
-    ;
-    FIXME _t10
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t10</string>""")
-    ;
-    FIXME _t11
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t11</string>""")
-    ;
-    FIXME _t12
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t12</string>""")
-    ;
-    FIXME _t13
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t13</string>""")
-    ;
-    FIXME _t14
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t14</string>""")
-    ;
-    FIXME _t15
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Add/_t15</string>""")
-    ;
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
 
 
   #rwl0.
@@ -789,111 +697,27 @@ procedure Integer Sub (
        </mcol.HashMap>""")
  {
   local
-    Integer r0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r0+22:5</string>""")
-    ;
-    Integer r1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r1+22:9</string>""")
-    ;
-    Integer r2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r2+22:13</string>""")
-    ;
-    Integer r3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r3+22:17</string>""")
-    ;
-    Integer r4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r4+22:21</string>""")
-    ;
-    Integer r5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r5+22:25</string>""")
-    ;
-    Integer r6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Sub+20:12/r6+22:29</string>""")
-    ;
-    FIXME _t16
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t16</string>""")
-    ;
-    FIXME _t17
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t17</string>""")
-    ;
-    FIXME _t18
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t18</string>""")
-    ;
-    FIXME _t19
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t19</string>""")
-    ;
-    FIXME _t20
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t20</string>""")
-    ;
-    FIXME _t21
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t21</string>""")
-    ;
-    FIXME _t22
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t22</string>""")
-    ;
-    FIXME _t23
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t23</string>""")
-    ;
-    FIXME _t24
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t24</string>""")
-    ;
-    FIXME _t25
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t25</string>""")
-    ;
-    FIXME _t26
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t26</string>""")
-    ;
-    FIXME _t27
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t27</string>""")
-    ;
-    FIXME _t28
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t28</string>""")
-    ;
-    FIXME _t29
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Sub/_t29</string>""")
-    ;
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+    FIXME _t16;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+    FIXME _t28;
+    FIXME _t29;
 
 
   #rwl16.
@@ -1110,121 +934,29 @@ procedure Integer Mult (
        </mcol.HashMap>""")
  {
   local
-    Integer r0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r0+37:5</string>""")
-    ;
-    Integer r1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r1+37:9</string>""")
-    ;
-    Integer r2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r2+37:13</string>""")
-    ;
-    Integer r3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r3+37:17</string>""")
-    ;
-    Integer r4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r4+37:21</string>""")
-    ;
-    Integer r5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r5+37:25</string>""")
-    ;
-    Integer r6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Mult+35:12/r6+37:29</string>""")
-    ;
-    FIXME _t30
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t30</string>""")
-    ;
-    FIXME _t31
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t31</string>""")
-    ;
-    FIXME _t32
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t32</string>""")
-    ;
-    FIXME _t33
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t33</string>""")
-    ;
-    FIXME _t34
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t34</string>""")
-    ;
-    FIXME _t35
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t35</string>""")
-    ;
-    FIXME _t36
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t36</string>""")
-    ;
-    FIXME _t37
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t37</string>""")
-    ;
-    FIXME _t38
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t38</string>""")
-    ;
-    FIXME _t39
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t39</string>""")
-    ;
-    FIXME _t40
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t40</string>""")
-    ;
-    FIXME _t41
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t41</string>""")
-    ;
-    FIXME _t42
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t42</string>""")
-    ;
-    FIXME _t43
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t43</string>""")
-    ;
-    FIXME _t44
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t44</string>""")
-    ;
-    FIXME _t45
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Mult/_t45</string>""")
-    ;
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+    FIXME _t30;
+    FIXME _t31;
+    FIXME _t32;
+    FIXME _t33;
+    FIXME _t34;
+    FIXME _t35;
+    FIXME _t36;
+    FIXME _t37;
+    FIXME _t38;
+    FIXME _t39;
+    FIXME _t40;
+    FIXME _t41;
+    FIXME _t42;
+    FIXME _t43;
+    FIXME _t44;
+    FIXME _t45;
 
 
   #rwl30.
@@ -1454,111 +1186,27 @@ procedure Integer Division (
        </mcol.HashMap>""")
  {
   local
-    Integer r0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r0+52:5</string>""")
-    ;
-    Integer r1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r1+52:9</string>""")
-    ;
-    Integer r2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r2+52:13</string>""")
-    ;
-    Integer r3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r3+52:17</string>""")
-    ;
-    Integer r4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r4+52:21</string>""")
-    ;
-    Integer r5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r5+52:25</string>""")
-    ;
-    Integer r6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/BinaryExpressions-1:9/Division+50:12/r6+52:29</string>""")
-    ;
-    FIXME _t46
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t46</string>""")
-    ;
-    FIXME _t47
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t47</string>""")
-    ;
-    FIXME _t48
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t48</string>""")
-    ;
-    FIXME _t49
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t49</string>""")
-    ;
-    FIXME _t50
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t50</string>""")
-    ;
-    FIXME _t51
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t51</string>""")
-    ;
-    FIXME _t52
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t52</string>""")
-    ;
-    FIXME _t53
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t53</string>""")
-    ;
-    FIXME _t54
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t54</string>""")
-    ;
-    FIXME _t55
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t55</string>""")
-    ;
-    FIXME _t56
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t56</string>""")
-    ;
-    FIXME _t57
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t57</string>""")
-    ;
-    FIXME _t58
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t58</string>""")
-    ;
-    FIXME _t59
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/BinaryExpressions/Division/_t59</string>""")
-    ;
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+    FIXME _t46;
+    FIXME _t47;
+    FIXME _t48;
+    FIXME _t49;
+    FIXME _t50;
+    FIXME _t51;
+    FIXME _t52;
+    FIXME _t53;
+    FIXME _t54;
+    FIXME _t55;
+    FIXME _t56;
+    FIXME _t57;
+    FIXME _t58;
+    FIXME _t59;
 
 
   #rwl46.

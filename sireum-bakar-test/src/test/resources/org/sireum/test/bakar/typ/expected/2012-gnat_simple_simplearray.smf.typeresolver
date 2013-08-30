@@ -563,21 +563,9 @@ procedure Integer Max (
        </mcol.HashMap>""")
  {
   local
-    Integer M
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/SimpleArray-1:9/Max+8:13/M+9:7</string>""")
-    ;
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleArray/Max/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleArray/Max/_t1</string>""")
-    ;
+    Integer M;
+    FIXME _t0;
+    FIXME _t1;
 
 
   #l2.<

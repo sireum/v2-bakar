@@ -252,16 +252,8 @@ procedure Q (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/PackageDemo_A/Q/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/PackageDemo_A/Q/_t1</string>""")
-    ;
+    FIXME _t0;
+    FIXME _t1;
 
 
   #rwl0.

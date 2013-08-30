@@ -146,11 +146,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-global Integer @@B
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://variable/Function_Simple-1:9/@@B+3:3</string>""")
-;
+global Integer @@B;
 
 procedure Integer F1 (
         Integer X
@@ -267,26 +263,10 @@ procedure Integer F1 (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Function_Simple/F1/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Function_Simple/F1/_t1</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Function_Simple/F1/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Function_Simple/F1/_t3</string>""")
-    ;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
 
 
   #rwl0.
@@ -554,16 +534,8 @@ procedure P2 (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Function_Simple/P2/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Function_Simple/P2/_t5</string>""")
-    ;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #rwl4.

@@ -151,11 +151,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-global Integer @@B
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://variable/P_Simple_Call-1:9/@@B+4:3</string>""")
-;
+global Integer @@B;
 
 procedure R (
         Integer X
@@ -261,26 +257,10 @@ procedure R (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/R/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/R/_t1</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/R/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/R/_t3</string>""")
-    ;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
 
 
   #rwl0.
@@ -414,41 +394,13 @@ procedure Integer incX (
        </mcol.HashMap>""")
  {
   local
-    Integer result
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/P_Simple_Call-1:9/incX+11:12/result+14:5</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/incX/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/incX/_t5</string>""")
-    ;
-    FIXME _t6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/incX/_t6</string>""")
-    ;
-    FIXME _t7
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/incX/_t7</string>""")
-    ;
-    FIXME _t8
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/incX/_t8</string>""")
-    ;
-    FIXME _t9
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/incX/_t9</string>""")
-    ;
+    Integer result;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
 
 
   #rwl4.
@@ -634,16 +586,8 @@ procedure Q (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t10
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/Q/_t10</string>""")
-    ;
-    FIXME _t11
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/P_Simple_Call/Q/_t11</string>""")
-    ;
+    FIXME _t10;
+    FIXME _t11;
 
 
   #rwl10.

@@ -877,16 +877,8 @@ procedure Add (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Add/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/Add/_t1</string>""")
-    ;
+    FIXME _t0;
+    FIXME _t1;
 
 
   #rwl0.
@@ -1349,26 +1341,10 @@ procedure NAdd (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/NAdd/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/NAdd/_t3</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/NAdd/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/NAdd/_t5</string>""")
-    ;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #rwl2.
@@ -2095,21 +2071,9 @@ procedure AAdd (
        </mcol.HashMap>""")
  {
   local
-    FIXME _t6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/AAdd/_t6</string>""")
-    ;
-    FIXME _t7
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/AAdd/_t7</string>""")
-    ;
-    FIXME _t8
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/SimpleRecord/AAdd/_t8</string>""")
-    ;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
 
 
   #rwl7.

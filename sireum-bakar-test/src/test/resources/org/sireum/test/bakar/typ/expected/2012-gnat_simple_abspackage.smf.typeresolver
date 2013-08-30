@@ -245,41 +245,13 @@ procedure Integer AbsFunc (
        </mcol.HashMap>""")
  {
   local
-    Integer r
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/AbsPackage-1:9/AbsFunc-2:14/r+4:5</string>""")
-    ;
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t1</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t3</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/AbsPackage/AbsFunc/_t5</string>""")
-    ;
+    Integer r;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
 
 
   #rwl0.

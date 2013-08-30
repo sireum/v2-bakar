@@ -268,96 +268,24 @@ procedure Integer MinFunc (
        </mcol.HashMap>""")
  {
   local
-    Integer Min
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/Minpackage-1:9/MinFunc-2:12/Min+3:7</string>""")
-    ;
-    Integer Max
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable/Minpackage-1:9/MinFunc-2:12/Max+3:12</string>""")
-    ;
-    FIXME _t0
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t0</string>""")
-    ;
-    FIXME _t1
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t1</string>""")
-    ;
-    FIXME _t2
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t2</string>""")
-    ;
-    FIXME _t3
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t3</string>""")
-    ;
-    FIXME _t4
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t4</string>""")
-    ;
-    FIXME _t5
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t5</string>""")
-    ;
-    FIXME _t6
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t6</string>""")
-    ;
-    FIXME _t7
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t7</string>""")
-    ;
-    FIXME _t8
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t8</string>""")
-    ;
-    FIXME _t9
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t9</string>""")
-    ;
-    FIXME _t10
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t10</string>""")
-    ;
-    FIXME _t11
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t11</string>""")
-    ;
-    FIXME _t12
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t12</string>""")
-    ;
-    FIXME _t13
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t13</string>""")
-    ;
-    FIXME _t14
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t14</string>""")
-    ;
-    FIXME _t15
-        @BAKAR_REF_URI
-
-          ("""<string sid="1">ada://variable_temp/Minpackage/MinFunc/_t15</string>""")
-    ;
+    Integer Min;
+    Integer Max;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
 
 
   #rwl0.
