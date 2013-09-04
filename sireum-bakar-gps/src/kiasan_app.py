@@ -1,8 +1,8 @@
 import pygtk
 pygtk.require('2.0')
 import gtk
-from kiasan.logic import KiasanLogic
-from kiasan.gui import KiasanGUI 
+from kiasan_v1.logic import KiasanLogic
+from kiasan_v1.gui import KiasanGUI 
 
 if __name__=="__main__":
     
@@ -13,7 +13,8 @@ if __name__=="__main__":
 #    if response == gtk.RESPONSE_OK:
         # parse report file
 #        report_file = dialog.get_filename()
-        report_file = "/Users/jj/Documents/workspace/sireum-bakar/sireum-bakar-gps/src/kiasan/test/test_projects/test_proj5/.sireum/kiasan/kiasan_sireum_report.json"
+        #report_file = "/Users/jj/Documents/workspace/sireum-bakar/sireum-bakar-gps/src/kiasan/test/test_projects/test_proj5/.sireum/kiasan/kiasan_sireum_report.json"
+        report_file = "/Users/jj/SkyDrive/workspace/abs_sample/.sireum/kiasan/kiasan_sireum_report.json"
 #        dialog.destroy()
         logic = KiasanLogic()
         report = logic.extract_report_file(report_file)

@@ -33,7 +33,7 @@ class Package(Entity):
         
     def __init__(self, package_name, package_dir):
         #Entity.__init__(self, report_dict)
-        
+        # process report.json
         self.extract_methods(package_dir)       
 
 
@@ -53,11 +53,12 @@ class Package(Entity):
 class Method(Entity):
     """ Class represents method row """    
     def __init__(self, method_name, method_dir):
+        pass
         #Entity.__init__(self, report_dict) 
-        self._cases_headers = []
-        self._cases = {}
-        self.extract_cases_headers(report_dict)
-        self.extract_file_coverage(report_dict)
+        #self._cases_headers = []
+        #self._cases = {}
+        #self.extract_cases_headers(report_dict)
+        #self.extract_file_coverage(report_dict)
         
         
     def extract_cases_headers(self, report_dict):   
@@ -209,23 +210,58 @@ class CaseState:
         
     def __init__(self):
         self._name = ""
-        self._globals = {}
-        self._frames = []
+        self.lookup_variables = {}
+        #self._globals = self.get_globals(json_dict['globalStore']['entry'])
+        #self._frames = self.get_call_stack_frames(json_dict['callStack']['org.sireum.pilar.state.BasicCallFrame'])
     
+    
+    def get_globals(self, json_list):
+        global_variables = self.get_variables(json_list)
+        return global_variables
+    
+    
+    def get_call_stack_frames(self, json_dict):   
+        pass 
+    
+    
+    def get_call_stack_frame(self, json_dict):
+        call_stack_frame = CallStackFrame()
+        call_stack_frame.lookup_variables = self.get_variables(json_dict['store']['entry'])
+        call_stack_frame.name = json_dict['procedure']['$']
+        call_stack_frame.line_number = json_dict['locationIndex']['$']
+        return call_stack_frame
+    
+    
+    def get_variables(self, json_list):
+        variables = []
+        for variable_dict in json_list:            
+            for k, v in variable_dict.iteritems():
+                if k == 'string':
+                    variable = StateVariable(v['@sid'])
+                    variable.name = v['$']
+                else:
+                    if '@trefid' in v.keys():
+                        variable.symbolic_value = self.lookup_variables[v['@trefid']].symbolic_value
+                        variable.concrete_value = self.lookup_variables[v['@trefid']].concrete_value
+                    elif('@value' in v.keys()):
+                        variable.concrete_value = v['@value']
+                    else:
+                        variable.symbolic_value = v['@num']
+            variables.append(variable)
+            self.lookup_variables[variable.sid] = variable # add to dict for ref lookup
+        return variables
+
         
         
-class CaseStateFrame:
-    """ Class represents pre/post state frames of specific case """
-    
-    def __init__(self):
-        self._variables = {}
+class CallStackFrame:
+    """ Class represents pre/post state frame of specific case """
+    pass    
         
 
-
-class CaseMethod:
-    """ Class represents method in CaseStateFrame """
+class StateVariable:
+    """ Class represents variable in CallStackFrame """
+    def __init__(self, sid):
+        self.sid = sid
+        self.symbolic_value = None
+        self.concrete_value = None
     
-    def __init__(self):
-        self._name = ""
-        self._lineNum = 0
-        
