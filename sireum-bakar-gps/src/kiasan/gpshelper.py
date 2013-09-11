@@ -1,14 +1,15 @@
 import warnings
 import GPS
-           
+
 def remove_highlight_from_file(file_name):
     """ Remove highlighted lines from file
     file_name -- path to file with highlighted lines
-    """
+    """    
     gps_file = GPS.File(file_name)
-    old_lines = GPS.Message.list(file=gps_file, category="kiasan_highlight")
-    for line in old_lines:
-        line.remove()
+    buf = GPS.EditorBuffer.get(gps_file)
+    overlays = get_overlays(buf)
+    for overlay in overlays.values():
+        buf.remove_overlay(overlay)
         
 
 def highlight(file_name, coverage):
@@ -17,25 +18,27 @@ def highlight(file_name, coverage):
     file_name -- path to file (in which lines should be highlighted)
     coverage -- array with lines for highlighting
     """
-    full_cover = GPS.Style("Full covered lines")
-    full_cover.set_background ("#7fff00")   # a green background
-    
-    partial_cover = GPS.Style("Partially covered lines")
-    partial_cover.set_background ("#7fffb0")   # a blue-green background
-    
-    case_cover = GPS.Style("Case lines")
-    case_cover.set_background("#c1c4f9")
-    
-    gps_file = GPS.File(file_name)     
-    
+    gps_file = GPS.File(file_name)
+    buf = GPS.EditorBuffer.get(gps_file)
+    overlays = get_overlays(buf)    
     for i in range(1,len(coverage)):
-        if coverage[i] == "Full":
-            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "full cover", 2)
-            line.set_style(full_cover)      
-        elif coverage[i] == "Partial":
-            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "partial cover", 2)
-            line.set_style(partial_cover)
-        elif coverage[i] == "Case":
-            line = GPS.Message("kiasan_highlight", gps_file, i, 1, "case cover", 2)
-            line.set_style(case_cover)
+        if coverage[i] in overlays:
+            buf.apply_overlay(overlays[coverage[i]], GPS.EditorLocation(buf, i, 1), GPS.EditorLocation(buf, i, 1).end_of_line())
     
+
+def get_overlays(buf):
+    overlays = {}
+    
+    full_overlay = buf.create_overlay("full_cover")
+    full_overlay.set_property("background", "#7fff00")
+    overlays['Full'] = full_overlay
+    
+    partial_overlay = buf.create_overlay("partial_cover")
+    partial_overlay.set_property("background", "#7fffb0")
+    overlays['Partial'] = partial_overlay
+    
+    case_overlay = buf.create_overlay("case_cover")
+    case_overlay.set_property("background", "#c1c4f9")
+    overlays['Case'] = case_overlay
+    
+    return overlays

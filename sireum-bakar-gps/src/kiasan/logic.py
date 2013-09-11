@@ -14,6 +14,8 @@ class KiasanLogic:
             package_dir = kiasan_result_dir + "/" + package_name
             packages.append(Package(package_name, package_dir))
         
+        return packages
+        
     
     
     def extract_report_file(self, report_file_url):

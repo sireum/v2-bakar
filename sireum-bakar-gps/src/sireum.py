@@ -1,3 +1,6 @@
+#!/usr/bin/python
+#-*- coding: utf-8 -*-
+
 from __future__ import division
 import GPS
 import os
@@ -138,7 +141,7 @@ def run_kiasan_alasysis_async(progressbar, project_path, kiasan_run_cmd, kiasan_
         # process results
         kiasan_logic = kiasan.logic.KiasanLogic()
         kiasan_results_dir = project_path + "/kreport"
-        report = kiasan_logic.get_report(kiasan_result_dir)
+        report = kiasan_logic.get_report(kiasan_results_dir)
         
         # read generated json
 #         kiasan_logic = kiasan_v1.logic.KiasanLogic()
@@ -182,7 +185,7 @@ def init_progressbar():
     info_box = gtk.VBox()
     main_box.pack_start(info_box, False, False, 10)
     
-    info_label = gtk.Label("Kiasan is running...")
+    info_label = gtk.Label(u"Kiasan is running...")
     info_box.pack_start(info_label)
     
     #cancel_box = gtk.HBox()
@@ -247,7 +250,7 @@ def load_sireum_settings(SIREUM_PATH):
 
 def get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, generate_report):
     """ Create command for run Kiasan. """
-    warnings.warn('SIREUM must be in the PATH')
+    warnings.warn('SIREUM_HOME must be in the PATH')
     #kiasan_lib_dir = SIREUM_PATH + "/apps/bakarv1/eclipse/plugins/org.sireum.spark.eclipse/lib/"
     spark_source_files = ",".join(get_spark_source_files(source_path))
     
