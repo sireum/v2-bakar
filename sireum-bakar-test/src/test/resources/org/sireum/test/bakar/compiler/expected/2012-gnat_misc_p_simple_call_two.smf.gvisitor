@@ -120,12 +120,29 @@ Model(Some(p_simple_call_two.adb),Vector(),Vector(PackageDecl(Some(NameDefinitio
               NameDefinition(Z)
               List()
           None
-          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l3)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUse
+          ImplementedBody(List(),List(JumpLocation(Some(NameDefinition(l3)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(N
             List()
-            List(ActionLocation(Some(NameDefinition(l3)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUser(Z)),NameExp(NameUser(
-              ActionLocation(Some(NameDefinition(l3)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUser(Z)),NameExp(NameUser(X))))
+            List(JumpLocation(Some(NameDefinition(l3)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(X)), NameExp(Na
+              JumpLocation(Some(NameDefinition(l3)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(X)), NameExp(NameUse
                 Some(NameDefinition(l3))
                   NameDefinition(l3)
+                List()
+                CallJump(Vector(),None,CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(X)), NameExp(NameUser(Z))))),None)
+                  List()
+                  None
+                  CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(X)), NameExp(NameUser(Z)))))
+                    NameExp(NameUser(R))
+                      NameUser(R)
+                    TupleExp(List(NameExp(NameUser(X)), NameExp(NameUser(Z))))
+                      List(NameExp(NameUser(X)), NameExp(NameUser(Z)))
+                        NameExp(NameUser(X))
+                          NameUser(X)
+                        NameExp(NameUser(Z))
+                          NameUser(Z)
+                  None
+              ActionLocation(Some(NameDefinition(l4)),Vector(),AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUser(Z)),NameExp(NameUser(X))))
+                Some(NameDefinition(l4))
+                  NameDefinition(l4)
                 List()
                 AssignAction(Vector(),NameExp(NameUser(Z)),:=,BinaryExp(+,NameExp(NameUser(Z)),NameExp(NameUser(X))))
                   List()
@@ -136,9 +153,9 @@ Model(Some(p_simple_call_two.adb),Vector(),Vector(PackageDecl(Some(NameDefinitio
                       NameUser(Z)
                     NameExp(NameUser(X))
                       NameUser(X)
-              JumpLocation(Some(NameDefinition(l4)),Vector(),ReturnJump(Vector(),None))
-                Some(NameDefinition(l4))
-                  NameDefinition(l4)
+              JumpLocation(Some(NameDefinition(l5)),Vector(),ReturnJump(Vector(),None))
+                Some(NameDefinition(l5))
+                  NameDefinition(l5)
                 List()
                 ReturnJump(Vector(),None)
                   List()

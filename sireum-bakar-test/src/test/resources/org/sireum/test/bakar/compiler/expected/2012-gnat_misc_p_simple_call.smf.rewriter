@@ -99,19 +99,26 @@ procedure Q (
         Integer X,
         Integer Z) {
   local
+    FIXME _tcomp0;
     FIXME _t10;
     FIXME _t11;
 
+
+  #l10.
+    call R (Z);
+
+  #l11.
+    call _tcomp0 := incX (X);
 
   #rwl10.
     _t10 := Z;
 
   #rwl11.
-    _t11 := incX (X);
+    _t11 := _tcomp0;
 
-  #l10.
+  #l12.
     Z := _t10 + _t11;
 
-  #l11.
+  #l13.
     return;
 }

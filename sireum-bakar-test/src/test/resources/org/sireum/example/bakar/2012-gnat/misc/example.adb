@@ -1,5 +1,5 @@
 
-package body example is
+package body Example is
 
   procedure add (x : in out Integer; y : in Integer)
   is
@@ -17,4 +17,4 @@ package body example is
      A := A + 2;
      B := B + 5;
   end foo;
-end example;
+end Example;

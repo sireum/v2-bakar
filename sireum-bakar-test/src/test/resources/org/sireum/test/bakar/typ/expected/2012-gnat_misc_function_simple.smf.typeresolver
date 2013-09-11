@@ -2,6 +2,7 @@ ada://variable_temp/Function_Simple/F1/_t2 -> ada://ordinary_type/Standard-1:1/I
 ada://parameter/Function_Simple-1:9/P2+18:13/N+18:31 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/P1/Function_Simple/_tcomp0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Function_Simple/F1/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Function_Simple-1:9/P1+10:13/M+10:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Function_Simple-1:9/@@B+3:3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
@@ -9,6 +10,7 @@ ada://variable_temp/Function_Simple/P2/_t4 -> ada://ordinary_type/Standard-1:1/I
 ada://variable_temp/Function_Simple/F1/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Function_Simple-1:9/P1+10:13/N+10:31 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Function_Simple/F1/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/P2/Function_Simple/_tcomp1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Function_Simple/P2/_t5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package Function_Simple;
@@ -403,18 +405,28 @@ procedure P1 (
          </entry>
        </mcol.HashMap>""")
  {
+  local
+    FIXME _tcomp0;
+
 
   #l2.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>0</int>""")
   >
-    @@B := F1 (M, N);
+    call _tcomp0 := F1 (M, N);
 
   #l3.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>1</int>""")
+  >
+    @@B := _tcomp0;
+
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
   >
     return;
 }
@@ -534,27 +546,35 @@ procedure P2 (
        </mcol.HashMap>""")
  {
   local
+    FIXME _tcomp1;
     FIXME _t4;
     FIXME _t5;
 
 
-  #rwl4.
-    _t4 := F1 (M, N);
-
-  #rwl5.
-    _t5 := C;
-
-  #l4.<
+  #l5.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>0</int>""")
   >
-    @@B := _t4 + _t5;
+    call _tcomp1 := F1 (M, N);
 
-  #l5.<
+  #rwl4.
+    _t4 := _tcomp1;
+
+  #rwl5.
+    _t5 := C;
+
+  #l6.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>1</int>""")
+  >
+    @@B := _t4 + _t5;
+
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
   >
     return;
 }

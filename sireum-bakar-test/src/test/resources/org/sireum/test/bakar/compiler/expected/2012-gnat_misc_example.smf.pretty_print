@@ -1,5 +1,5 @@
 example.adb
-package example;
+package Example;
 
 
 typealias Boolean standard::boolean;
@@ -36,11 +36,17 @@ procedure foo (
     M := 3ii;
 
   #l4.
-    A := A + 2ii;
+    call add (A, M);
 
   #l5.
-    B := B + 5ii;
+    call add (B, 5ii);
 
   #l6.
+    A := A + 2ii;
+
+  #l7.
+    B := B + 5ii;
+
+  #l8.
     return;
 }

@@ -3,4 +3,4 @@ package Example is
     --# derives x from x,y;
 
     procedure foo ( A : in out Integer; B : in out Integer );
-end example;
+end Example;

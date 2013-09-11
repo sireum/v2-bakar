@@ -35,6 +35,8 @@ class BakarXmlTest extends BakarTestFileFramework {
     return true;
   }
 
+  override def generateExpected = false
+  
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
@@ -51,7 +53,6 @@ class BakarXmlTest extends BakarTestFileFramework {
       )
     )
 
-  override def generateExpected = false
   override def outputSuffix = "g2xml"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {

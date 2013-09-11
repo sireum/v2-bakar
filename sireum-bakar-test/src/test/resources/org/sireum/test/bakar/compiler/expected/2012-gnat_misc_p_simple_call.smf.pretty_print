@@ -57,10 +57,19 @@ procedure Integer incX (
 procedure Q (
         Integer X,
         Integer Z) {
+  local
+    FIXME _tcomp0;
+
 
   #l10.
-    Z := Z + incX (X);
+    call R (Z);
 
   #l11.
+    call _tcomp0 := incX (X);
+
+  #l12.
+    Z := Z + _tcomp0;
+
+  #l13.
     return;
 }

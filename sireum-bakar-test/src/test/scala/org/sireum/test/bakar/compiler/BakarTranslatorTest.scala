@@ -27,7 +27,7 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 class BakarTranslatorTest extends BakarTestFileFramework {
 
   override def excludes = {
-    super.excludes ++= Set("gnat_jago", "faultintegrator", "constraints",
+    super.excludes ++= Set("kiasan", "gnat_jago", "faultintegrator", "constraints",
       "dependence_test_suite_01", "in_range", "misc_labeled", "misc_p_public",
       "misc_package_scope", "misc_recordshape", "misc_the_stack",
       "packagedemo_b", "simplemath1")

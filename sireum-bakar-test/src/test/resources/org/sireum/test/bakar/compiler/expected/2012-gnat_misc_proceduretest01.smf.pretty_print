@@ -40,6 +40,9 @@ procedure helper (
     arg0 := 1ii;
 
   #l5.
+    call P (arg0, x, y);
+
+  #l6.
     return;
 }
 
@@ -51,15 +54,18 @@ procedure Q (
     Integer L1;
 
 
-  #l6.
+  #l7.
     L1 := S;
 
-  #l7.
-    R := 5ii;
-
   #l8.
-    T := T + L1;
+    call P (2ii, L1, T);
 
   #l9.
+    R := 5ii;
+
+  #l10.
+    T := T + L1;
+
+  #l11.
     return;
 }

@@ -206,11 +206,20 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
   }
 
   def procedureUri(e : NameExp) : Option[ResourceUri] = {
-    val name = e.name
+    import org.sireum.pilar.symbol.Symbol
+    val uri = e.name.uri
+    
+    if(uri.startsWith("ada://function")) 
+      Some(uri)
+    else
+      None
+      
+    /*
     if (name ? URIS.REF_URI && name(URIS.REF_URI).asInstanceOf[String].contains("proc"))
       Some(name(URIS.REF_URI).asInstanceOf[String])
     else
       None
+    */
   }
 
   def initLocation(procUri : ResourceUri) : Option[ResourceUri] = {

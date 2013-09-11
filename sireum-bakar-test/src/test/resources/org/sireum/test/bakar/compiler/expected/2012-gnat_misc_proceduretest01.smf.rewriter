@@ -57,6 +57,9 @@ procedure helper (
     arg0 := 1ii;
 
   #l5.
+    call P (arg0, x, y);
+
+  #l6.
     return;
 }
 
@@ -70,10 +73,13 @@ procedure Q (
     FIXME _t5;
 
 
-  #l6.
+  #l7.
     L1 := S;
 
-  #l7.
+  #l8.
+    call P (2ii, L1, T);
+
+  #l9.
     R := 5ii;
 
   #rwl4.
@@ -82,9 +88,9 @@ procedure Q (
   #rwl5.
     _t5 := L1;
 
-  #l8.
+  #l10.
     T := _t4 + _t5;
 
-  #l9.
+  #l11.
     return;
 }

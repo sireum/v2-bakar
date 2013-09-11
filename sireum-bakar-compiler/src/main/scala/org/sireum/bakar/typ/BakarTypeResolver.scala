@@ -105,13 +105,7 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         false
       case o @ LocalVarDecl(Some(NamedTypeSpec(nu, _)), name, _) =>
         refUri2typeUri(name.uri) = nu.uri
-        false
-      case o @ NameExp(nu) =>
-        import org.sireum.pilar.symbol.Symbol
-        assert (o ? URIS.TYPE_URI)
-        assert (nu.hasResourceInfo)
-        false
-      
+        false      
       case o @ AccessExp(exp, nu) =>
         import org.sireum.pilar.symbol.Symbol
         assert (nu ? URIS.REF_URI)
@@ -123,6 +117,14 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         //assert(!refUri2typeUri.contains(refUri))
         refUri2typeUri(refUri) = typUri
         false
+
+      // sanity checks
+      case o @ NameExp(nu) =>
+        import org.sireum.pilar.symbol.Symbol
+        assert (nu.uri.startsWith("ada://procedure") || o ? URIS.TYPE_URI)
+        assert (nu.hasResourceInfo)
+        false
+        
     }
     v(m)
   }

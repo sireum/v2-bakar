@@ -27,21 +27,33 @@ procedure Integer F1 (
 procedure P1 (
         Integer M,
         Integer N) {
+  local
+    FIXME _tcomp0;
+
 
   #l2.
-    @@B := F1 (M, N);
+    call _tcomp0 := F1 (M, N);
 
   #l3.
+    @@B := _tcomp0;
+
+  #l4.
     return;
 }
 
 procedure P2 (
         Integer M,
         Integer N) {
+  local
+    FIXME _tcomp1;
 
-  #l4.
-    @@B := F1 (M, N) + C;
 
   #l5.
+    call _tcomp1 := F1 (M, N);
+
+  #l6.
+    @@B := _tcomp1 + C;
+
+  #l7.
     return;
 }

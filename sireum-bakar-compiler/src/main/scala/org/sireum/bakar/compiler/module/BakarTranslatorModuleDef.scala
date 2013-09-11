@@ -36,9 +36,31 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       l
     }
 
+    var nameStack = mstackEmpty[String]
+    def pushNameStack(s : String) = nameStack.push(s)
+    def popNameStack = nameStack.pop
+    
     val globalUriMap = mmapEmpty[ResourceUri, ResourceUri]
     val globalNameMap = mmapEmpty[ResourceUri, String] 
+    
+    var tempVarCounter = 0
+    def genTempVar(typeName : String, typeUri : ResourceUri) = {
+      val tempVarPrefix = "_tcomp"  
+      val name = tempVarPrefix + tempVarCounter
+      tempVarCounter += 1
+      val path = this.nameStack.toList :+ name
+      val uri = "ada://variable_temp/" + path.mkString("/")
       
+      val nts = Some(NamedTypeSpec(URIS.addResourceUri(NameUser(typeName), typeUri), ilistEmpty))
+      val lname = URIS.addResourceUri(NameDefinition(name), uri)
+      val lvd = LocalVarDecl(nts, lname, ilistEmpty)
+      this.localsPush(lvd)
+
+      val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
+      ret(URIS.TYPE_URI) = typeUri
+      ret
+    }
+    
     def purifyPath(s : FileResourceUri) = {
       if (!regression) s
       else s.substring(s.lastIndexOf("/") + 1)
@@ -545,9 +567,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
 
       assert(names.getDefiningNames().length == 1)
-      val di = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier]
-      val pname = NameDefinition(di.getDefName())
-
+      val (pnameLoc, _pname, _puri, _) = ctx.getName(names.getDefiningNames.head)
+      val pname = URIS.addResourceUri(NameDefinition(_pname), _puri)
+      ctx.pushNameStack(_pname)
+      
       val packElems = mlistEmpty[PackageElement]
 
       for (td <- TranslatorUtil.getTypeDeclarations(bodyDecItems)) {
@@ -606,6 +629,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       val pack = PackageDecl(Some(pname), TranslatorUtil.emptyAnnot, packElems.toList)
       ctx.pushResult(pack, sloc)
 
+      ctx.popNameStack
       false
   }
 
@@ -631,6 +655,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         val mname = ctx.addResourceUri(NameDefinition(methodDefName), methodDefUri)
         mname at (ctx.fileUri, sloc.getLine(), sloc.getCol())
 
+        ctx.pushNameStack(methodDefName)
+        
         val params = mlistEmpty[ParamDecl]
         paramProfile.getParameterSpecifications().foreach {
           case ps @ ParameterSpecificationEx(sloc, pnames, _hasAliased, _hasNullEx,
@@ -771,6 +797,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               case _ => throw new RuntimeException("Not hanlding aspect: " + m)
             }
         }
+        ctx.popNameStack
         pd
       }
 
@@ -968,11 +995,26 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       ctx.pushLocation(jl)
       false
+    case o @ ProcedureCallStatementEx(sloc, labelNames, calledName, params, isPrefixNotation) =>
+      assert (ctx.isEmpty(isPrefixNotation.getIsPrefixNotation))
+      val (nloc, name, nameUri, typ) = ctx.getName(calledName)
+      
+      val plist = mlistEmpty[Exp]
+      for(p <- params.getAssociations) {
+        v(p)
+        plist += ctx.popResult.asInstanceOf[Exp]
+      }
+
+      val ce = CallExp(NameExp(ctx.addResourceUri(NameUser(name), nameUri)), TupleExp(plist.toList))
+      val cj = CallJump(TranslatorUtil.emptyAnnot, None, ce, None)
+      val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, cj)
+      
+      ctx.pushLocation(jl)
+      false
     case o @ (NullStatementEx(_) |
       BlockStatementEx(_) |
       BlockStatementEx(_) |
       GotoStatementEx(_) |
-      ProcedureCallStatementEx(_) |
       AcceptStatementEx(_) |
       ExtendedReturnStatementEx(_) |
       EntryCallStatementEx(_) |
@@ -1021,16 +1063,24 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         ctx.pushResult(ue, sloc)
       } else {
         v(prefix)
-        val mname = ctx.popResult.asInstanceOf[Exp] match {
+        val mname = ctx.popResult match {
           case ne @ NameExp(nu) =>
             // the name of the method is an identifier and has no type
             if (!(ne ? URIS.TYPE_URI)) addprop(ne, URIS.TYPE_URI, callExpType, true)
             ne
           case _ => throw new RuntimeException("Unexpected")
         }
+        
         val ce = CallExp(mname, TupleExp(plist.toList))
         this.addprop(ce, URIS.TYPE_URI, callExpType, true)
-        ctx.pushResult(ctx.handleExp(ce), sloc)
+                
+        val tempVar = ctx.genTempVar("FIXME", callExpType)
+        val lhs = Some(tempVar)
+        val cj = CallJump(TranslatorUtil.emptyAnnot, lhs, ce, None)
+        val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, cj)
+        ctx.pushLocation(jl)
+        
+        ctx.pushResult(ctx.handleExp(tempVar), sloc)
       }
 
       false

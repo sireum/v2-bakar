@@ -445,6 +445,13 @@ procedure helper (
 
         ("""<int>1</int>""")
   >
+    call P (arg0, x, y);
+
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
     return;
 }
 
@@ -579,17 +586,24 @@ procedure Q (
     FIXME _t5;
 
 
-  #l6.<
+  #l7.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>0</int>""")
   >
     L1 := S;
 
-  #l7.<
+  #l8.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>1</int>""")
+  >
+    call P (2ii, L1, T);
+
+  #l9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
   >
     R := 5ii;
 
@@ -599,17 +613,17 @@ procedure Q (
   #rwl5.
     _t5 := L1;
 
-  #l8.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>2</int>""")
-  >
-    T := _t4 + _t5;
-
-  #l9.<
+  #l10.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>3</int>""")
+  >
+    T := _t4 + _t5;
+
+  #l11.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
   >
     return;
 }

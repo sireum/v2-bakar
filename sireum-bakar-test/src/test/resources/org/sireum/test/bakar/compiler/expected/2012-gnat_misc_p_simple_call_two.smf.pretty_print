@@ -32,8 +32,11 @@ procedure Q (
         Integer Z) {
 
   #l3.
-    Z := Z + X;
+    call R (X, Z);
 
   #l4.
+    Z := Z + X;
+
+  #l5.
     return;
 }

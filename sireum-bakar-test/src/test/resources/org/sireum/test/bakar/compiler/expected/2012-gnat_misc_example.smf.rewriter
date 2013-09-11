@@ -1,4 +1,4 @@
-package example;
+package Example;
 
 
 typealias Boolean standard::boolean;
@@ -48,13 +48,19 @@ procedure foo (
   #l3.
     M := 3ii;
 
+  #l4.
+    call add (A, M);
+
+  #l5.
+    call add (B, 5ii);
+
   #rwl2.
     _t2 := A;
 
   #rwl3.
     _t3 := 2ii;
 
-  #l4.
+  #l6.
     A := _t2 + _t3;
 
   #rwl4.
@@ -63,9 +69,9 @@ procedure foo (
   #rwl5.
     _t5 := 5ii;
 
-  #l5.
+  #l7.
     B := _t4 + _t5;
 
-  #l6.
+  #l8.
     return;
 }

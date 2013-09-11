@@ -423,23 +423,30 @@ procedure Q (
     FIXME _t7;
 
 
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
+    call R (X, Z);
+
   #rwl6.
     _t6 := Z;
 
   #rwl7.
     _t7 := X;
 
-  #l3.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>0</int>""")
-  >
-    Z := _t6 + _t7;
-
   #l4.<
       @org.sireum.pilar.ast.LocationDecl
 
         ("""<int>1</int>""")
+  >
+    Z := _t6 + _t7;
+
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
   >
     return;
 }

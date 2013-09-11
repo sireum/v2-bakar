@@ -24,7 +24,7 @@ example.adb
               <endline>2</endline>
               <endcol>20</endcol>
             </sloc>
-            <defName>example</defName>
+            <defName>Example</defName>
             <def>ada://package_body/Example-1:9</def>
             <type>null</type>
           </org.sireum.bakar.xml.DefiningIdentifier>
@@ -1142,8 +1142,8 @@ example.adb
   <unitKind>A_Package_Body</unitKind>
   <unitClass>A_Public_Body</unitClass>
   <unitOrigin>An_Application_Unit</unitOrigin>
-  <unitFullName>example</unitFullName>
-  <defName>example</defName>
+  <unitFullName>Example</unitFullName>
+  <defName>Example</defName>
   <sourceFile>example.adb</sourceFile>
 </org.sireum.bakar.xml.CompilationUnit>
 

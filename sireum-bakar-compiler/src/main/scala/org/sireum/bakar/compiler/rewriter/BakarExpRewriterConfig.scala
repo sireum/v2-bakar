@@ -129,7 +129,15 @@ class BakarRewriter {
 
     // the rest of these are sanity checks
     case te : TupleExp => te // tuple exp don't need a type
+    case e @ CallExp(NameExp(n), _) =>
+      assert(n.uri.startsWith("ada://procedure") || e ? URIS.TYPE_URI)
+      e
+    case e @ NameExp(n) =>
+      assert(n.uri.startsWith("ada://procedure") || e ? URIS.TYPE_URI)
+      e
     case e : Exp =>
+      if(!(e ? URIS.TYPE_URI)) 
+        print (e)
       assert(e ? URIS.TYPE_URI)
       e
   }, Rewriter.TraversalMode.BOTTOM_UP, true)
