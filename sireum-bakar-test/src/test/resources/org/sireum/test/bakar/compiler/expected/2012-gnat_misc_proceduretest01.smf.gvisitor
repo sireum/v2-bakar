@@ -146,13 +146,13 @@ Model(Some(proceduretest01.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
                   NameExp(NameUser(arg0))
                     NameUser(arg0)
                   LiteralExp(INTEGER,1,1ii)
-              JumpLocation(Some(NameDefinition(l5)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(P)),TupleExp(List(NameExp(NameUser(arg0)), NameExp(Name
+              JumpLocation(Some(NameDefinition(l5)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(P)),TupleExp(List(NameExp(NameUser(arg0)), NameExp(
                 Some(NameDefinition(l5))
                   NameDefinition(l5)
                 List()
-                CallJump(Vector(),None,CallExp(NameExp(NameUser(P)),TupleExp(List(NameExp(NameUser(arg0)), NameExp(NameUser(x)), NameExp(NameUser(y))))),None)
+                CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(P)),TupleExp(List(NameExp(NameUser(arg0)), NameExp(NameUser(x)), NameExp(NameUser(y))))),None)
                   List()
-                  None
+                  List()
                   CallExp(NameExp(NameUser(P)),TupleExp(List(NameExp(NameUser(arg0)), NameExp(NameUser(x)), NameExp(NameUser(y)))))
                     NameExp(NameUser(P))
                       NameUser(P)
@@ -220,13 +220,13 @@ Model(Some(proceduretest01.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
                     NameUser(L1)
                   NameExp(NameUser(S))
                     NameUser(S)
-              JumpLocation(Some(NameDefinition(l8)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(P)),TupleExp(List(LiteralExp(INTEGER,2,2ii), NameExp(Na
+              JumpLocation(Some(NameDefinition(l8)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(P)),TupleExp(List(LiteralExp(INTEGER,2,2ii), NameEx
                 Some(NameDefinition(l8))
                   NameDefinition(l8)
                 List()
-                CallJump(Vector(),None,CallExp(NameExp(NameUser(P)),TupleExp(List(LiteralExp(INTEGER,2,2ii), NameExp(NameUser(L1)), NameExp(NameUser(T))))),None)
+                CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(P)),TupleExp(List(LiteralExp(INTEGER,2,2ii), NameExp(NameUser(L1)), NameExp(NameUser(T))))),None)
                   List()
-                  None
+                  List()
                   CallExp(NameExp(NameUser(P)),TupleExp(List(LiteralExp(INTEGER,2,2ii), NameExp(NameUser(L1)), NameExp(NameUser(T)))))
                     NameExp(NameUser(P))
                       NameUser(P)

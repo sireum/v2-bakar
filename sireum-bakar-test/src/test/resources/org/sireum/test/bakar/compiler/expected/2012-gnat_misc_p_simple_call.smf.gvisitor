@@ -210,14 +210,14 @@ Model(Some(p_simple_call.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(P_
                     List()
                 NameDefinition(_tcomp0)
                 List()
-            List(JumpLocation(Some(NameDefinition(l10)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(Z))))),None)),
-              JumpLocation(Some(NameDefinition(l10)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(Z))))),None))
+            List(JumpLocation(Some(NameDefinition(l10)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(Z))))),Non
+              JumpLocation(Some(NameDefinition(l10)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(Z))))),None))
                 Some(NameDefinition(l10))
                   NameDefinition(l10)
                 List()
-                CallJump(Vector(),None,CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(Z))))),None)
+                CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(Z))))),None)
                   List()
-                  None
+                  List()
                   CallExp(NameExp(NameUser(R)),TupleExp(List(NameExp(NameUser(Z)))))
                     NameExp(NameUser(R))
                       NameUser(R)
@@ -226,13 +226,13 @@ Model(Some(p_simple_call.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(P_
                         NameExp(NameUser(Z))
                           NameUser(Z)
                   None
-              JumpLocation(Some(NameDefinition(l11)),Vector(),CallJump(Vector(),Some(NameExp(NameUser(_tcomp0))),CallExp(NameExp(NameUser(incX)),TupleExp(List(NameE
+              JumpLocation(Some(NameDefinition(l11)),Vector(),CallJump(Vector(),Vector(NameExp(NameUser(_tcomp0))),CallExp(NameExp(NameUser(incX)),TupleExp(List(Nam
                 Some(NameDefinition(l11))
                   NameDefinition(l11)
                 List()
-                CallJump(Vector(),Some(NameExp(NameUser(_tcomp0))),CallExp(NameExp(NameUser(incX)),TupleExp(List(NameExp(NameUser(X))))),None)
+                CallJump(Vector(),Vector(NameExp(NameUser(_tcomp0))),CallExp(NameExp(NameUser(incX)),TupleExp(List(NameExp(NameUser(X))))),None)
                   List()
-                  Some(NameExp(NameUser(_tcomp0)))
+                  Vector(NameExp(NameUser(_tcomp0)))
                     NameExp(NameUser(_tcomp0))
                       NameUser(_tcomp0)
                   CallExp(NameExp(NameUser(incX)),TupleExp(List(NameExp(NameUser(X)))))

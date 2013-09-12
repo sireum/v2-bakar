@@ -126,13 +126,13 @@ Model(Some(example.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Example)
                   NameExp(NameUser(M))
                     NameUser(M)
                   LiteralExp(INTEGER,3,3ii)
-              JumpLocation(Some(NameDefinition(l4)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(A)), NameExp(NameU
+              JumpLocation(Some(NameDefinition(l4)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(A)), NameExp(N
                 Some(NameDefinition(l4))
                   NameDefinition(l4)
                 List()
-                CallJump(Vector(),None,CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(A)), NameExp(NameUser(M))))),None)
+                CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(A)), NameExp(NameUser(M))))),None)
                   List()
-                  None
+                  List()
                   CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(A)), NameExp(NameUser(M)))))
                     NameExp(NameUser(add))
                       NameUser(add)
@@ -143,13 +143,13 @@ Model(Some(example.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Example)
                         NameExp(NameUser(M))
                           NameUser(M)
                   None
-              JumpLocation(Some(NameDefinition(l5)),Vector(),CallJump(Vector(),None,CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(B)), LiteralExp(IN
+              JumpLocation(Some(NameDefinition(l5)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(B)), LiteralEx
                 Some(NameDefinition(l5))
                   NameDefinition(l5)
                 List()
-                CallJump(Vector(),None,CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(B)), LiteralExp(INTEGER,5,5ii)))),None)
+                CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(B)), LiteralExp(INTEGER,5,5ii)))),None)
                   List()
-                  None
+                  List()
                   CallExp(NameExp(NameUser(add)),TupleExp(List(NameExp(NameUser(B)), LiteralExp(INTEGER,5,5ii))))
                     NameExp(NameUser(add))
                       NameUser(add)
