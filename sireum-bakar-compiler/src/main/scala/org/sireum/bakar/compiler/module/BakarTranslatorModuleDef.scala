@@ -1006,7 +1006,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
 
       val ce = CallExp(NameExp(ctx.addResourceUri(NameUser(name), nameUri)), TupleExp(plist.toList))
-      val cj = CallJump(TranslatorUtil.emptyAnnot, None, ce, None)
+      val cj = CallJump(TranslatorUtil.emptyAnnot, ivectorEmpty, ce, None)
       val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, cj)
       
       ctx.pushLocation(jl)
@@ -1075,8 +1075,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         this.addprop(ce, URIS.TYPE_URI, callExpType, true)
                 
         val tempVar = ctx.genTempVar("FIXME", callExpType)
-        val lhs = Some(tempVar)
-        val cj = CallJump(TranslatorUtil.emptyAnnot, lhs, ce, None)
+        val lhss = ivector(tempVar)
+        val cj = CallJump(TranslatorUtil.emptyAnnot, lhss, ce, None)
         val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, cj)
         ctx.pushLocation(jl)
         
