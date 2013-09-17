@@ -31,7 +31,8 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   override def excludes = {
     super.excludes ++= Set("constraints", "dependence_test_suite_01",
       "faultintegrator", "in_range", "misc_labeled", "misc_p_public",
-      "misc_package_scope", "packagedemo_b", "misc_recordshape", "misc_the_stack")
+      "misc_package_scope", "packagedemo_b", "misc_recordshape", 
+      "simplemath1", "misc_the_stack")
   }
 
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
