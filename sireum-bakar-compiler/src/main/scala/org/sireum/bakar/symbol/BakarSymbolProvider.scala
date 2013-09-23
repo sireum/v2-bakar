@@ -1,6 +1,7 @@
 package org.sireum.bakar.symbol
 
 import org.sireum.pilar.eval.SymbolProvider
+import org.sireum.pilar.symbol.Symbol
 import org.sireum.util.ResourceUri
 import org.sireum.pilar.ast._
 import org.sireum.pilar.symbol.SymbolTable
@@ -194,32 +195,25 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
   }
 }
 
+final case class TupleValue(values : ISeq[Value]) extends Value
 
 class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends SymbolProvider[S]
 {
   val bst = st.get.asInstanceOf[BakarSymbolTable]
 
   def isVar(e : NameExp) : Boolean = {
-    import org.sireum.pilar.symbol.Symbol
     val uri = e.name.uri
     uri.startsWith("ada://variable") || uri.startsWith("ada://parameter") || H.isGlobalVar(uri)
   }
-
+  
+  def funUri(e : NameExp) : Option[ResourceUri] = None
+  
   def procedureUri(e : NameExp) : Option[ResourceUri] = {
-    import org.sireum.pilar.symbol.Symbol
     val uri = e.name.uri
     
-    if(uri.startsWith("ada://function")) 
+    if(uri.startsWith("ada://function") || uri.startsWith("ada://procedure"))
       Some(uri)
-    else
-      None
-      
-    /*
-    if (name ? URIS.REF_URI && name(URIS.REF_URI).asInstanceOf[String].contains("proc"))
-      Some(name(URIS.REF_URI).asInstanceOf[String])
-    else
-      None
-    */
+    else None
   }
 
   def initLocation(procUri : ResourceUri) : Option[ResourceUri] = {
@@ -239,22 +233,26 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
     val ld = pst.locations(s.callStack.head.locationIndex + 1)
     s.location(Some(ld.name.get.name), ld.index)
   }
-
+  
   def initStore(s : S, procUri : ResourceUri, args : Value*) : State.Store = {
     val store : MMap[ResourceUri, Value] = mmapEmpty
-    val pst = bst.procedureSymbolTable(procUri)
-    val params = pst.params
-    val numOfParams = params.size
-    assert(args.size == numOfParams)
-    for (i <- 0 until numOfParams)
-      store(params(i)) = args(i)
+    val params = bst.procedureSymbolTable(procUri).params
+
+    // TODO: perhaps only assign to OUT moded params??
+    var i = 0;
+    args.foreach {
+      case a : TupleValue =>
+        for(arg <- a.values) {
+          store(params(i)) = arg
+          i += 1
+        }
+      case a => 
+        store(params(i)) = a
+        i += 1
+    }
+    assert (i == params.size)
     store.toMap
   }
 
-  def isFieldAccess(f : NameUser) : Boolean = {
-    import org.sireum.pilar.symbol.Symbol
-    f.uri.startsWith("ada://component")
-  }
-  
-  def funUri(e : NameExp) : Option[ResourceUri] = None
+  def isFieldAccess(f : NameUser) : Boolean = f.uri.startsWith("ada://component")
 }

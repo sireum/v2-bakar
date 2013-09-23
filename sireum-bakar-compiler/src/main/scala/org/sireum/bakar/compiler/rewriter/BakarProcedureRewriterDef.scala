@@ -47,7 +47,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
 
       if (!_lhss.isEmpty) cp(cj, CallJump(a, _lhss, ce, jump))
       else cj
-  })
+  }, Rewriter.TraversalMode.TOP_DOWN, true)
 
   this.models = this.models.map(m => rewriter(m).asInstanceOf[Model])
 }
