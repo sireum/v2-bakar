@@ -1170,6 +1170,14 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         ctx.createPushLocation(aa, TranslatorUtil.emptyAnnot, sloc)
       }
       false
+    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgAssociations, pragmaName) if (pragmaName.toLowerCase == "assume") =>
+      for (a <- pragmaArgAssociations.getAssociations()) {
+        v(a)
+        val r = ctx.popResult.asInstanceOf[Exp]
+        val aa = AssumeAction(TranslatorUtil.emptyAnnot, r)
+        ctx.createPushLocation(aa, TranslatorUtil.emptyAnnot, sloc)
+      }      
+      false
   }
 
   def everythingElseH(ctx : Context, v : => BVisitor) : VisitorFunction = {
