@@ -1,29 +1,39 @@
 package body Sort is
-
+      
    subtype Index_Type is Integer range 1 .. 3;
    type Vector is array(Index_Type) of Integer;
-
+   
+   --A : Vector;
+    
    function Dummy return Boolean is begin return True; end Dummy;
 
-   procedure InsertionSort (A : in out Vector)
+   procedure SelectionSort (A : in out Vector)
+    --with global => (In_Out => (A))
    is
-      Value : Integer;
-      J : Integer;
-      I : Index_Type;
+     Min : Integer;
+     Temp : Integer;
+     Pos : Integer;
+     I : Integer;
    begin
-      I := 1;
-      while(I <= 3) loop
-        Value := A(I);
-        J := I - 1;
-        while J >= 1 loop        
-          if(A(J) > Value) then
-            A(J + 1) := A(J);
-          end if;
-          J := J - 1;            
-        end loop;
-        A(J + 1) := Value;
-        I := I + 1;
-      end loop;
-   end InsertionSort;
+     Pos := 1;
+     while(Pos >= 1 and Pos <= 3) loop
+       Min := Pos;
+       I := Pos + 1;
+       while (I >= Pos + 1 and I <= 3) loop
+         if A(I) < A(Min) then
+           Min := I;   
+         end if;
+         I := I + 1; 
+       end loop; 
+        
+       if Pos /= Min then
+         Temp := A(Pos);
+         A(Pos) := A(Min);
+         A(Min) := Temp; 
+       end if;
+        
+       Pos := Pos + 1;
+    end loop;
+   end SelectionSort; 
 
 end Sort;
