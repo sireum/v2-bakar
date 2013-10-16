@@ -109,7 +109,7 @@ class Method(Entity):
         case_state._globals = dict(base_elements.items() + ref_elements.items())
         
         for stack_frame_dict in case_state_dict["optCallFrames"]:
-            stack_frame = CaseStateFrame()
+            stack_frame = CallStackFrame()
             stack_frame._name = stack_frame_dict["location"]["name"]
             stack_frame._line_num = stack_frame_dict["line"]
             
@@ -198,35 +198,62 @@ class CaseHeader:
 class Case:
     """ class represents case with pre and post state """  
     
-    def __init__(self):
-        self._pre_state = None
-        self._post_state = None
-        self._files_coverage = None
+    def __init__(self, case_file_uri):
+        self.case_file_uri = case_file_uri
+        self.pre_state = None
+        self.post_state = None
+        self.files_coverage = None
+                
+            
+    def get_pre_and_post_state(self):
+        case_file = urllib.urlopen(self.case_file_uri)
+        case_file_str = case_file.read()
+        case_dict = json.loads(case_file_str)
+        self.post_state = self.get_post_state(case_dict['org.sireum.bakar.kiasan.state.KiasanStateWithHeapAndContext'])
+        self.pre_state = self.get_pre_state(case_dict['org.sireum.bakar.kiasan.state.KiasanStateWithHeapAndContext'], self.post_state.lookup_variables)
+                    
+    
+    def get_post_state(self, case_dict):
+        self.post_state = CaseState()
+        self.post_state.global_variables = self.post_state.get_globals(case_dict['globalStore'])
+        self.post_state.stack_frames = self.post_state.get_call_stack_frames(case_dict['callStack'])
+        
+    
+    def get_pre_state(self, case_dict):
+        for entry in case_dict['properties']['entry']:
+            if entry['icol.WrappedString']['self'] == '.prestate':
+                case_dict = entry['org.sireum.bakar.kiasan.state.KiasanStateWithHeapAndContext']
+                break
+        self.pre_state = CaseState(self.post_state.lookup_variables)
+        self.pre_state.global_variables = self.pre_state.get_globals(case_dict['globalStore'])
+        self.pre_state.stack_frames = self.pre_state.get_call_stack_frames(case_dict['callStack'])
 
 
 
 class CaseState:
     """ Class represents pre/post state of specific case """
         
-    def __init__(self):
+    def __init__(self, lookup_variables=None):
         self._name = ""
-        self.lookup_variables = {}
-        #self._globals = self.get_globals(json_dict['globalStore']['entry'])
-        #self._frames = self.get_call_stack_frames(json_dict['callStack']['org.sireum.pilar.state.BasicCallFrame'])
-    
+        print lookup_variables
+        self.lookup_variables = lookup_variables if lookup_variables != None else {}
+        
     
     def get_globals(self, json_list):
         global_variables = self.get_variables(json_list)
         return global_variables
     
     
-    def get_call_stack_frames(self, json_dict):   
-        pass 
+    def get_call_stack_frames(self, json_dict):
+        call_stack_frames = []
+        for call_stack_frame in json_dict:
+            call_stack_frames.append(self.get_call_stack_frame(call_stack_frame))
+        return call_stack_frames
     
     
     def get_call_stack_frame(self, json_dict):
         call_stack_frame = CallStackFrame()
-        call_stack_frame.lookup_variables = self.get_variables(json_dict['store']['entry'])
+        call_stack_frame.variables = self.get_variables(json_dict['store']['entry'])
         call_stack_frame.name = json_dict['procedure']['$']
         call_stack_frame.line_number = json_dict['locationIndex']['$']
         return call_stack_frame

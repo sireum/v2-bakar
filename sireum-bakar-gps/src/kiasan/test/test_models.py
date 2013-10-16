@@ -40,15 +40,15 @@ class TestModels(unittest.TestCase):
         frame = case_state.get_call_stack_frame(json_dict)
         
         # assert
-        self.assertEqual(len(frame.lookup_variables), 6)
+        self.assertEqual(len(frame.variables), 6)
                 
-        self.assertEqual(frame.lookup_variables[0].name, "ada://variable_temp/AbsPackage/AbsFunc/_t1")
-        self.assertEqual(frame.lookup_variables[0].symbolic_value, None)
-        self.assertEqual(frame.lookup_variables[0].concrete_value, '0')
+        self.assertEqual(frame.variables[0].name, "ada://variable_temp/AbsPackage/AbsFunc/_t1")
+        self.assertEqual(frame.variables[0].symbolic_value, None)
+        self.assertEqual(frame.variables[0].concrete_value, '0')
         
-        self.assertEqual(frame.lookup_variables[1].name, "ada://variable_temp/AbsPackage/AbsFunc/_t0")
-        self.assertEqual(frame.lookup_variables[1].symbolic_value, '1')
-        self.assertEqual(frame.lookup_variables[1].concrete_value, None)
+        self.assertEqual(frame.variables[1].name, "ada://variable_temp/AbsPackage/AbsFunc/_t0")
+        self.assertEqual(frame.variables[1].symbolic_value, '1')
+        self.assertEqual(frame.variables[1].concrete_value, None)
         
         self.assertEqual(frame.line_number, '12')   # line number (location in pilar)
         self.assertEqual("ada://function_body/AbsPackage-1:9/AbsFunc-2:14", frame.name) # subprogram/frame name
@@ -81,3 +81,15 @@ class TestModels(unittest.TestCase):
         
         # assert
         self.assertEqual(len(case_state.lookup_variables), 8)
+        
+        
+    def test_get_case(self):
+        # arrange
+        case = models.Case('/Users/jj/SkyDrive/workspace/globals_sample/kreport/globals/readglobal/cases/0post.json')
+                 
+        # act
+        case.get_pre_and_post_state()
+         
+        # assert
+        self.assertNotEqual(case.pre_state, None)
+        self.assertNotEqual(case.post_state, None)
