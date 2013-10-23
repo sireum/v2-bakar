@@ -25,8 +25,6 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
     var unhandledSet = msetEmpty[String]
 
-
-    
     var countLocation = 0
     var stackLocationList = mstackEmpty[MList[LocationDecl]]
     def pushLocationList = {
@@ -46,7 +44,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     def pushExitLocation(s : LocationDecl) = exitLocations.push(s)
     def popExitLocation = exitLocations.pop
     def peekExitLocation = exitLocations.top
-    
+
     val globalUriMap = mmapEmpty[ResourceUri, ResourceUri]
     val globalNameMap = mmapEmpty[ResourceUri, String]
 
@@ -349,6 +347,13 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       None
     }
 
+    def handleAttribute(attr : String, typeName : NameExp, typUri : String) = {
+      val ts = addprop(TypeExp(NamedTypeSpec(typeName.name, ivectorEmpty)), URIS.TYPE_URI, typUri)
+      val ne = NameExp(NameUser(attr))
+      val ce = addprop(CallExp(ne, ts), URIS.TYPE_URI, typUri)
+      ce
+    }
+
     def handleType(o : Base, v : => BVisitor) : Option[PackageElement] = {
       o match {
         case otd @ OrdinaryTypeDeclarationEx(sloc, names, discriminantPart,
@@ -485,7 +490,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       b.propertyMap ++= a.propertyMap
       b
     }
-    
+
     def rewriteName(uri : ResourceUri, name : String) = globalNameMap.getOrElse(uri, name)
     def rewriteUri(uri : ResourceUri) : ResourceUri = globalUriMap.getOrElse(uri, uri)
 
@@ -972,7 +977,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       assert(labelNames.getDefiningNames().isEmpty())
 
       // TODO: currently ignoring statementIdentifier
-      
+
       // #loopStart.
       val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
 
@@ -980,15 +985,15 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ctx.pushExitLocation(endLoc)
 
       v(loopStatements)
-      
-       // # goto loopStart
+
+      // # goto loopStart
       val gl = ctx.pushLocation(ctx.createGotoJumpLocation(loopStart.name.get, TranslatorUtil.emptyAnnot, sloc))
 
       ctx.pushLocation(endLoc)
-      
+
       val _exit = ctx.popExitLocation
       assert(_exit == endLoc)
-      
+
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier,
       whileCondition, loopStatements) =>
@@ -1018,7 +1023,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ctx.pushLocation(endLoc)
       val _exit = ctx.popExitLocation
       assert(_exit == endLoc)
-      
+
       false
     case o @ ForLoopStatementEx(sloc, labelnames, statementIdentifier,
       forLoopParameterSpecification, loopStatements) =>
@@ -1029,26 +1034,26 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         case lps @ LoopParameterSpecificationEx(sloc, names, hasRev, range) =>
           assert(names.getDefiningNames.size == 1)
 
-          def unique(s : String, i : Int = -1) : String = {
-            if(ctx.locals.find(e => (i == -1 && e.name.name == s) || e.name.name == s + i).isDefined)
-              unique(s, i + 1)
-            else if(i == -1) s  else s + i
-          }
-          
+            def unique(s : String, i : Int = -1) : String = {
+              if (ctx.locals.find(e => (i == -1 && e.name.name == s) || e.name.name == s + i).isDefined)
+                unique(s, i + 1)
+              else if (i == -1) s else s + i
+            }
+
           v(names.getDefiningNames().head)
           var iterNE = ctx.popResult.asInstanceOf[NameExp]
 
           val uiter = unique(iterNE.name.name)
-          if(uiter != iterNE.name.name){
-            iterNE = ctx.copyPropertyMap(iterNE, 
-                NameExp(ctx.copyPropertyMap(iterNE.name, NameUser(uiter))))
+          if (uiter != iterNE.name.name) {
+            iterNE = ctx.copyPropertyMap(iterNE,
+              NameExp(ctx.copyPropertyMap(iterNE.name, NameUser(uiter))))
           }
-          
+
           val isRev = !ctx.isEmpty(hasRev.getHasReverse())
 
           val endLoc = ctx.createEmptyLocation(ctx.newLocLabel(sloc), TranslatorUtil.emptyAnnot)
           ctx.pushExitLocation(endLoc)
-          
+
           range.getDiscreteSubtypeDefinition match {
             case DiscreteSubtypeIndicationAsSubtypeDefinitionEx(rsloc, mark, constraint) =>
 
@@ -1073,21 +1078,25 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
                       (lb, hb)
                     case RangeAttributeReferenceEx(rsloc, rangeAttribute) =>
+                      // TODO:
                       (null, null)
                   }
                 } else {
                   // $First ^Mark .. $Last ^Mark
-                  (null, null)
+                  val lb = ctx.handleAttribute("$FIRST", markNE, markURI)
+                  val hb = ctx.handleAttribute("$LAST", markNE, markURI)
+                  (lb, hb)
                 }
 
-              // assign low and high bound to temp variables.
-              // NOTE: in ADA the loop bounds are fixed by the initial values of the
-              //       low and high ranges assigned to the iter var.
+              // NOTE: in ADA the loop bounds are fixed by the initial values of 
+              //       the low and high ranges assigned to the iter var.  So we
+              //       assign the low/high bound exp to temp vars since their
+              //       interpretation could change during the loop
               val lowtemp = ctx.genTempVar(markNE.name.name, markURI)
               ctx.createPushAssignmentLocation(lowtemp, lowBound, TranslatorUtil.emptyAnnot, sloc)
               val hightemp = ctx.genTempVar(markNE.name.name, markURI)
               ctx.createPushAssignmentLocation(hightemp, highBound, TranslatorUtil.emptyAnnot, sloc)
-              
+
               // null range check
               val be = ctx.handleBE(sloc, PilarAstUtil.GT_BINOP, lowtemp, hightemp, StandardURIs.boolURI)
               val itj = IfThenJump(be, TranslatorUtil.emptyAnnot, endLoc.name.get)
@@ -1105,8 +1114,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               v(loopStatements)
 
               // end of loop check
-              val endbe = ctx.handleBE(sloc, PilarAstUtil.EQ_BINOP, iterNE, 
-                  if(isRev) lowtemp else hightemp, markURI)
+              val endbe = ctx.handleBE(sloc, PilarAstUtil.EQ_BINOP, iterNE,
+                if (isRev) lowtemp else hightemp, markURI)
               val enditj = IfThenJump(endbe, TranslatorUtil.emptyAnnot, endLoc.name.get)
               val endij = IfJump(TranslatorUtil.emptyAnnot, ivector(enditj), None)
               val endCheck = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, endij)
@@ -1157,20 +1166,20 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       assert(labelNames.getDefiningNames().isEmpty())
 
       // TODO: currently ignoring exitLoopName
-      
-      if(!ctx.isEmpty(exitCond.getExpression())) {
+
+      if (!ctx.isEmpty(exitCond.getExpression())) {
         v(exitCond)
         val c = ctx.popResult.asInstanceOf[Exp]
-        
+
         val exitItj = IfThenJump(c, TranslatorUtil.emptyAnnot, ctx.peekExitLocation.name.get)
         val exitIj = IfJump(TranslatorUtil.emptyAnnot, ivector(exitItj), None)
         val exitJl = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, exitIj)
         ctx.pushLocation(exitJl)
-        
+
       } else {
         ctx.pushLocation(ctx.createGotoJumpLocation(ctx.peekExitLocation.name.get, TranslatorUtil.emptyAnnot, sloc))
       }
-      false 
+      false
     case o @ (NullStatementEx(_) |
       BlockStatementEx(_) |
       BlockStatementEx(_) |
@@ -1193,6 +1202,25 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ) =>
       if (DEBUG) println("statementH: need to handle " + o.getClass().getSimpleName())
       true
+  }
+
+  def attributeH(ctx : Context, v : => BVisitor) : VisitorFunction = {
+    case o @ FirstAttributeEx(sloc, prefix, attributeId, attributeExp, typ) =>
+      assert(attributeExp.getExpressions().isEmpty())
+
+      v(prefix)
+      val p = ctx.popResult.asInstanceOf[NameExp]
+
+      ctx.pushResult(ctx.handleAttribute("$FIRST", p, typ), sloc)
+      false
+    case o @ LastAttributeEx(sloc, prefix, attributeId, attributeExp, typ) =>
+      assert(attributeExp.getExpressions().isEmpty())
+
+      v(prefix)
+      val p = ctx.popResult.asInstanceOf[NameExp]
+
+      ctx.pushResult(ctx.handleAttribute("$LAST", p, typ), sloc)
+      false
   }
 
   def expressionH(ctx : Context, v : => BVisitor) : VisitorFunction = {
@@ -1366,6 +1394,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         expressionH(ctx, theVisitor),
         contractsH(ctx, theVisitor),
         nameH(ctx, theVisitor),
+        attributeH(ctx, theVisitor),
         everythingElseH(ctx, theVisitor)
       )))
 
