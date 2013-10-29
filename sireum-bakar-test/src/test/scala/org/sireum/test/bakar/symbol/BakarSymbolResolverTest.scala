@@ -56,25 +56,20 @@ class BakarSymbolResolverTest extends BakarRewriterTest {
       PipelineStage(
         "symbol resolver stage",
         false,
-        BakarSymbolResolverModule)
-        /*        
+        BakarSymbolResolverModule),   
       PipelineStage(
         "prop map rewriter",
         false,
         BakarPropertyMapRewriterModule)
-        */
     )
 
   override def outputSuffix = "symbolresolver"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
-    /*
     import BakarTypeResolverModule.ConsumerView._
     job.models foreach { m =>
       val x = NodePrettyPrinter.print(m)
-      println(x)
       w.write(x)
     }
-    */
   }
 }

@@ -1,0 +1,25 @@
+package Type_Conversion;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+procedure Convert (
+        Float Y,
+        Integer X) {
+
+  #l1.
+    X := Y;
+
+  #l2.
+    return (X);
+}

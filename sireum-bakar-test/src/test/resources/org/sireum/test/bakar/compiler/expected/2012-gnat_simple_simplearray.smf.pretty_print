@@ -28,20 +28,50 @@ procedure Integer Max (
         Vector V) {
   local
     Integer M;
+    Index I;
+    Index _tcomp0;
+    Index _tcomp1;
 
 
   #l2.
     M := V[0ii];
 
   #l4.
-    if !(V[I] > M) then goto l3;
+    _tcomp0 := attribute__uif__first ^Index;
 
   #l5.
+    _tcomp1 := attribute__uif__last ^Index;
+
+  #l6.
+    if _tcomp0 > _tcomp1 then goto l3;
+
+  #l7.
+    I := _tcomp0;
+
+  #l8.
+    // empty loc
+
+  #l10.
+    if !(V[I] > M) then goto l9;
+
+  #l11.
     M := V[I];
+
+  #l9.
+    // empty loc
+
+  #l12.
+    if I == _tcomp1 then goto l3;
+
+  #l13.
+    I := I + 1ii;
+
+  #l14.
+    goto l8;
 
   #l3.
     // empty loc
 
-  #l6.
+  #l15.
     return M;
 }

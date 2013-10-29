@@ -57,7 +57,7 @@ object BakarSymbolTable {
         false
       case p : ProcedureDecl =>
         val procUri = p.name.uri
-        
+
         assert(!tables.procedureTable.contains(procUri))
         tables.procedureTable(procUri) = procUri +: mlistEmpty[ResourceUri]
         tables.procedureAbsTable(procUri) = p
@@ -197,21 +197,21 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
 
 final case class TupleValue(values : ISeq[Value]) extends Value
 
-class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends SymbolProvider[S]
-{
+class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends SymbolProvider[S] {
   val bst = st.get.asInstanceOf[BakarSymbolTable]
 
   def isVar(e : NameExp) : Boolean = {
     val uri = e.name.uri
-    uri.startsWith("ada://variable") || uri.startsWith("ada://parameter") || H.isGlobalVar(uri)
+    uri.startsWith("ada://variable") || uri.startsWith("ada://parameter") ||
+      uri.startsWith("ada://loop_parameter") || H.isGlobalVar(uri)
   }
-  
+
   def funUri(e : NameExp) : Option[ResourceUri] = None
-  
+
   def procedureUri(e : NameExp) : Option[ResourceUri] = {
     val uri = e.name.uri
-    
-    if(uri.startsWith("ada://function") || uri.startsWith("ada://procedure"))
+
+    if (uri.startsWith("ada://function") || uri.startsWith("ada://procedure"))
       Some(uri)
     else None
   }
@@ -233,7 +233,7 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
     val ld = pst.locations(s.callStack.head.locationIndex + 1)
     s.location(Some(ld.name.get.name), ld.index)
   }
-  
+
   def initStore(s : S, procUri : ResourceUri, args : Value*) : State.Store = {
     val store : MMap[ResourceUri, Value] = mmapEmpty
     val params = bst.procedureSymbolTable(procUri).params
@@ -242,15 +242,15 @@ class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends S
     var i = 0;
     args.foreach {
       case a : TupleValue =>
-        for(arg <- a.values) {
+        for (arg <- a.values) {
           store(params(i)) = arg
           i += 1
         }
-      case a => 
+      case a =>
         store(params(i)) = a
         i += 1
     }
-    assert (i == params.size)
+    assert(i == params.size)
     store.toMap
   }
 

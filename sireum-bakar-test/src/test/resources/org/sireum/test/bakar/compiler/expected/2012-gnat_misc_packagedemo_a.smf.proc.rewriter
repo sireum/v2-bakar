@@ -1,0 +1,25 @@
+package PackageDemo_A;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + 2ii;
+
+  #l2.
+    return (Z);
+}

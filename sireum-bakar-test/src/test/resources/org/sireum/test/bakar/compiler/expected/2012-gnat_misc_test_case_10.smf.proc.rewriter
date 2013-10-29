@@ -1,0 +1,71 @@
+package Test_Case_10;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+procedure P1 (
+        Integer I1,
+        Integer I2,
+        Integer I3,
+        Integer O1,
+        Integer O2) {
+  local
+    Integer L1;
+    Integer L2;
+
+
+  #l1.
+    L2 := 5ii;
+
+  #l2.
+    L1 := I3;
+
+  #l3.
+    O2 := L1;
+
+  #l4.
+    L1 := I2;
+
+  #l5.
+    L1 := I1 + I2;
+
+  #l7.
+    if !(L1 > 5ii) then goto l6;
+
+  #l10.
+    if !(I1 < 0ii) then goto l9;
+
+  #l11.
+    L2 := 8ii;
+
+  #l12.
+    goto l8;
+
+  #l9.
+    // empty loc
+
+  #l13.
+    L2 := 7ii;
+
+  #l8.
+    // empty loc
+
+  #l6.
+    // empty loc
+
+  #l14.
+    O1 := L2;
+
+  #l15.
+    return (O1, O2);
+}

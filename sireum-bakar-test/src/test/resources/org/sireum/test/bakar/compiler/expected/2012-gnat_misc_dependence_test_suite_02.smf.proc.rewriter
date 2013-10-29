@@ -1,4 +1,3 @@
-dependence_test_suite_02.adb
 package Dependence_Test_Suite_02;
 
 
@@ -21,7 +20,7 @@ procedure Success0 (
     O := 5ii;
 
   #l2.
-    return;
+    return (O);
 }
 
 procedure Success1 (
@@ -32,7 +31,7 @@ procedure Success1 (
     O := I;
 
   #l4.
-    return;
+    return (O);
 }
 
 procedure Success2 (
@@ -49,7 +48,7 @@ procedure Success2 (
     O := L;
 
   #l7.
-    return;
+    return (O);
 }
 
 procedure Success3 (
@@ -74,7 +73,7 @@ procedure Success3 (
     O := L3;
 
   #l12.
-    return;
+    return (O);
 }
 
 procedure Success4 (
@@ -100,7 +99,7 @@ procedure Success4 (
     O := L3;
 
   #l17.
-    return;
+    return (O);
 }
 
 procedure Success5 (
@@ -133,7 +132,7 @@ procedure Success5 (
     O1 := L3;
 
   #l24.
-    return;
+    return (O1, O2);
 }
 
 procedure Success6 (
@@ -164,7 +163,7 @@ procedure Success6 (
     // empty loc
 
   #l32.
-    return;
+    return (O1, O2);
 }
 
 procedure Success7 (
@@ -197,7 +196,7 @@ procedure Success7 (
     // empty loc
 
   #l40.
-    return;
+    return (O);
 }
 
 procedure Success8 (
@@ -234,7 +233,7 @@ procedure Success8 (
     O := L2;
 
   #l49.
-    return;
+    return (O);
 }
 
 procedure Success9 (
@@ -287,7 +286,7 @@ procedure Success9 (
     O := L2;
 
   #l63.
-    return;
+    return (O);
 }
 
 procedure Success10 (
@@ -341,7 +340,7 @@ procedure Success10 (
     O1 := L2;
 
   #l77.
-    return;
+    return (O1, O2);
 }
 
 procedure Success11 (
@@ -380,7 +379,7 @@ procedure Success11 (
     O1 := Sum;
 
   #l87.
-    return;
+    return (O1);
 }
 
 procedure Success12 (
@@ -429,7 +428,7 @@ procedure Success12 (
     O1 := Sum;
 
   #l100.
-    return;
+    return (O1);
 }
 
 procedure Success13 (
@@ -488,7 +487,7 @@ procedure Success13 (
     O1 := Sum;
 
   #l116.
-    return;
+    return (O1);
 }
 
 procedure Success14 (
@@ -538,7 +537,7 @@ procedure Success14 (
     O1 := Sum + L2;
 
   #l129.
-    return;
+    return (O1);
 }
 
 procedure Success15 (
@@ -587,7 +586,7 @@ procedure Success15 (
     O1 := Sum;
 
   #l142.
-    return;
+    return (O1);
 }
 
 procedure Success16 (
@@ -637,7 +636,7 @@ procedure Success16 (
     O1 := Sum;
 
   #l155.
-    return;
+    return (O1);
 }
 
 procedure Success17 (
@@ -697,7 +696,7 @@ procedure Success17 (
     O1 := Sum;
 
   #l171.
-    return;
+    return (O1);
 }
 
 procedure Success18 (
@@ -778,7 +777,7 @@ procedure Success18 (
     O1 := Sum;
 
   #l193.
-    return;
+    return (O1);
 }
 
 procedure Success19 (
@@ -829,7 +828,7 @@ procedure Success19 (
     O1 := Sum;
 
   #l206.
-    return;
+    return (O1);
 }
 
 procedure Success20 (
@@ -868,7 +867,7 @@ procedure Success20 (
     O1 := Sum;
 
   #l216.
-    return;
+    return (O1);
 }
 
 procedure Success21 (
@@ -913,7 +912,7 @@ procedure Success21 (
     O1 := Sum;
 
   #l228.
-    return;
+    return (O1);
 }
 
 procedure Success22 (
@@ -962,7 +961,7 @@ procedure Success22 (
     O1 := Sum;
 
   #l241.
-    return;
+    return (O1);
 }
 
 procedure Success23 (
@@ -1021,7 +1020,7 @@ procedure Success23 (
     O1 := Sum;
 
   #l257.
-    return;
+    return (O1);
 }
 
 procedure Success24 (
@@ -1063,7 +1062,7 @@ procedure Success24 (
     O1 := Sum;
 
   #l268.
-    return;
+    return (O1);
 }
 
 procedure Success25 (
@@ -1102,7 +1101,7 @@ procedure Success25 (
     O1 := Sum;
 
   #l278.
-    return;
+    return (O1);
 }
 
 procedure Success26 (
@@ -1145,7 +1144,7 @@ procedure Success26 (
     O1 := Sum;
 
   #l289.
-    return;
+    return (O1);
 }
 
 procedure Success27 (
@@ -1199,5 +1198,5 @@ procedure Success27 (
     O1 := Sum;
 
   #l303.
-    return;
+    return (O1);
 }

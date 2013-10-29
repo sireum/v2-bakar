@@ -754,26 +754,80 @@ procedure Success15 (
         Integer O1) {
   local
     Integer Sum;
+    Integer J;
+    Integer _tcomp0;
+    Integer _tcomp1;
     FIXME _t52;
     FIXME _t53;
+    FIXME _t54;
+    FIXME _t55;
+    FIXME _t56;
+    FIXME _t57;
+    FIXME _t58;
+    FIXME _t59;
 
 
   #l130.
     Sum := 0ii;
 
-  #rwl52.
-    _t52 := Sum;
-
-  #rwl53.
-    _t53 := J;
-
-  #l131.
-    Sum := _t52 + _t53;
-
   #l132.
-    O1 := Sum;
+    _tcomp0 := 1ii;
 
   #l133.
+    _tcomp1 := 10ii;
+
+  #rwl52.
+    _t52 := _tcomp0;
+
+  #rwl53.
+    _t53 := _tcomp1;
+
+  #l134.
+    if _t52 > _t53 then goto l131;
+
+  #l135.
+    J := _tcomp0;
+
+  #l136.
+    // empty loc
+
+  #rwl54.
+    _t54 := Sum;
+
+  #rwl55.
+    _t55 := J;
+
+  #l137.
+    Sum := _t54 + _t55;
+
+  #rwl56.
+    _t56 := J;
+
+  #rwl57.
+    _t57 := _tcomp1;
+
+  #l138.
+    if _t56 == _t57 then goto l131;
+
+  #rwl58.
+    _t58 := J;
+
+  #rwl59.
+    _t59 := 1ii;
+
+  #l139.
+    J := _t58 + _t59;
+
+  #l140.
+    goto l136;
+
+  #l131.
+    // empty loc
+
+  #l141.
+    O1 := Sum;
+
+  #l142.
     return;
 }
 
@@ -782,26 +836,80 @@ procedure Success16 (
         Integer O1) {
   local
     Integer Sum;
-    FIXME _t54;
-    FIXME _t55;
+    Integer J;
+    Integer _tcomp2;
+    Integer _tcomp3;
+    FIXME _t60;
+    FIXME _t61;
+    FIXME _t62;
+    FIXME _t63;
+    FIXME _t64;
+    FIXME _t65;
+    FIXME _t66;
+    FIXME _t67;
 
 
-  #l134.
+  #l143.
     Sum := 0ii;
 
-  #rwl54.
-    _t54 := Sum;
+  #l145.
+    _tcomp2 := 1ii;
 
-  #rwl55.
-    _t55 := J;
+  #l146.
+    _tcomp3 := I1;
 
-  #l135.
-    Sum := _t54 + _t55;
+  #rwl60.
+    _t60 := _tcomp2;
 
-  #l136.
+  #rwl61.
+    _t61 := _tcomp3;
+
+  #l147.
+    if _t60 > _t61 then goto l144;
+
+  #l148.
+    J := _tcomp3;
+
+  #l149.
+    // empty loc
+
+  #rwl62.
+    _t62 := Sum;
+
+  #rwl63.
+    _t63 := J;
+
+  #l150.
+    Sum := _t62 + _t63;
+
+  #rwl64.
+    _t64 := J;
+
+  #rwl65.
+    _t65 := _tcomp2;
+
+  #l151.
+    if _t64 == _t65 then goto l144;
+
+  #rwl66.
+    _t66 := J;
+
+  #rwl67.
+    _t67 := 1ii;
+
+  #l152.
+    J := _t66 - _t67;
+
+  #l153.
+    goto l149;
+
+  #l144.
+    // empty loc
+
+  #l154.
     O1 := Sum;
 
-  #l137.
+  #l155.
     return;
 }
 
@@ -811,43 +919,97 @@ procedure Success17 (
         Integer O1) {
   local
     Integer Sum;
-    FIXME _t56;
-    FIXME _t57;
-    FIXME _t58;
-    FIXME _t59;
+    Integer J;
+    Integer _tcomp4;
+    Integer _tcomp5;
+    FIXME _t68;
+    FIXME _t69;
+    FIXME _t70;
+    FIXME _t71;
+    FIXME _t72;
+    FIXME _t73;
+    FIXME _t74;
+    FIXME _t75;
+    FIXME _t76;
+    FIXME _t77;
 
 
-  #l138.
+  #l156.
     Sum := 0ii;
 
-  #rwl56.
-    _t56 := Sum;
+  #l158.
+    _tcomp4 := 1ii;
 
-  #rwl57.
-    _t57 := J;
+  #l159.
+    _tcomp5 := I1;
 
-  #l139.
-    Sum := _t56 + _t57;
+  #rwl68.
+    _t68 := _tcomp4;
 
-  #rwl58.
-    _t58 := Sum;
+  #rwl69.
+    _t69 := _tcomp5;
 
-  #rwl59.
-    _t59 := I2;
+  #l160.
+    if _t68 > _t69 then goto l157;
 
-  #l141.
-    if !(_t58 > _t59) then goto l140;
+  #l161.
+    J := _tcomp4;
 
-  #l142.
-    Sum := 0ii;
-
-  #l140.
+  #l162.
     // empty loc
 
-  #l143.
+  #rwl70.
+    _t70 := Sum;
+
+  #rwl71.
+    _t71 := J;
+
+  #l163.
+    Sum := _t70 + _t71;
+
+  #rwl72.
+    _t72 := Sum;
+
+  #rwl73.
+    _t73 := I2;
+
+  #l165.
+    if !(_t72 > _t73) then goto l164;
+
+  #l166.
+    Sum := 0ii;
+
+  #l164.
+    // empty loc
+
+  #rwl74.
+    _t74 := J;
+
+  #rwl75.
+    _t75 := _tcomp5;
+
+  #l167.
+    if _t74 == _t75 then goto l157;
+
+  #rwl76.
+    _t76 := J;
+
+  #rwl77.
+    _t77 := 1ii;
+
+  #l168.
+    J := _t76 + _t77;
+
+  #l169.
+    goto l162;
+
+  #l157.
+    // empty loc
+
+  #l170.
     O1 := Sum;
 
-  #l144.
+  #l171.
     return;
 }
 
@@ -857,235 +1019,16 @@ procedure Success18 (
         Integer O1) {
   local
     Integer Sum;
-    FIXME _t60;
-    FIXME _t61;
-    FIXME _t62;
-    FIXME _t63;
-
-
-  #l145.
-    Sum := 0ii;
-
-  #rwl60.
-    _t60 := J1;
-
-  #rwl61.
-    _t61 := J2;
-
-  #rwl62.
-    _t62 := Sum;
-
-  #rwl63.
-    _t63 := _t60 * _t61;
-
-  #l146.
-    Sum := _t62 + _t63;
-
-  #l147.
-    O1 := Sum;
-
-  #l148.
-    return;
-}
-
-procedure Success19 (
-        Integer I1,
-        Integer I2,
-        Integer O1) {
-  local
-    Integer Sum;
-    FIXME _t64;
-    FIXME _t65;
-
-
-  #l149.
-    Sum := 0ii;
-
-  #rwl64.
-    _t64 := Sum;
-
-  #rwl65.
-    _t65 := J1;
-
-  #l150.
-    Sum := _t64 + _t65;
-
-  #l151.
-    O1 := Sum;
-
-  #l152.
-    return;
-}
-
-procedure Success20 (
-        Integer I1,
-        Integer O1) {
-  local
-    Integer Sum;
-    Integer J;
-    FIXME _t66;
-    FIXME _t67;
-    FIXME _t68;
-    FIXME _t69;
-
-
-  #l153.
-    J := 1ii;
-
-  #l154.
-    Sum := 0ii;
-
-  #rwl66.
-    _t66 := Sum;
-
-  #rwl67.
-    _t67 := J;
-
-  #l155.
-    Sum := _t66 + _t67;
-
-  #rwl68.
-    _t68 := J;
-
-  #rwl69.
-    _t69 := 1ii;
-
-  #l156.
-    J := _t68 + _t69;
-
-  #l157.
-    O1 := Sum;
-
-  #l158.
-    return;
-}
-
-procedure Success21 (
-        Integer I1,
-        Integer O1) {
-  local
-    Integer Sum;
-    Integer J;
-    FIXME _t70;
-    FIXME _t71;
-    FIXME _t72;
-    FIXME _t73;
-    FIXME _t74;
-    FIXME _t75;
-
-
-  #l159.
-    J := 1ii;
-
-  #l160.
-    Sum := 0ii;
-
-  #rwl70.
-    _t70 := Sum;
-
-  #rwl71.
-    _t71 := J;
-
-  #l161.
-    Sum := _t70 + _t71;
-
-  #rwl72.
-    _t72 := J;
-
-  #rwl73.
-    _t73 := 1ii;
-
-  #l162.
-    J := _t72 + _t73;
-
-  #rwl74.
-    _t74 := J;
-
-  #rwl75.
-    _t75 := I1;
-
-  #l164.
-    if !(_t74 >= _t75) then goto l163;
-
-  #l163.
-    // empty loc
-
-  #l165.
-    O1 := Sum;
-
-  #l166.
-    return;
-}
-
-procedure Success22 (
-        Integer I1,
-        Integer I2,
-        Integer O1) {
-  local
-    Integer Sum;
-    Integer J;
-    FIXME _t76;
-    FIXME _t77;
+    Integer J1;
+    Integer _tcomp6;
+    Integer _tcomp7;
+    Integer J2;
+    Integer _tcomp8;
+    Integer _tcomp9;
     FIXME _t78;
     FIXME _t79;
     FIXME _t80;
     FIXME _t81;
-
-
-  #l167.
-    J := 1ii;
-
-  #l168.
-    Sum := 0ii;
-
-  #rwl76.
-    _t76 := Sum;
-
-  #rwl77.
-    _t77 := J;
-
-  #l169.
-    Sum := _t76 + _t77;
-
-  #rwl78.
-    _t78 := Sum;
-
-  #rwl79.
-    _t79 := I2;
-
-  #l171.
-    if !(_t78 > _t79) then goto l170;
-
-  #l172.
-    Sum := 0ii;
-
-  #l170.
-    // empty loc
-
-  #rwl80.
-    _t80 := J;
-
-  #rwl81.
-    _t81 := 1ii;
-
-  #l173.
-    J := _t80 + _t81;
-
-  #l174.
-    O1 := Sum;
-
-  #l175.
-    return;
-}
-
-procedure Success23 (
-        Integer I1,
-        Integer I2,
-        Integer O1) {
-  local
-    Integer Sum;
-    Integer J1;
-    Integer J2;
     FIXME _t82;
     FIXME _t83;
     FIXME _t84;
@@ -1094,16 +1037,56 @@ procedure Success23 (
     FIXME _t87;
     FIXME _t88;
     FIXME _t89;
+    FIXME _t90;
+    FIXME _t91;
+    FIXME _t92;
+    FIXME _t93;
 
+
+  #l172.
+    Sum := 0ii;
+
+  #l174.
+    _tcomp6 := 1ii;
+
+  #l175.
+    _tcomp7 := I1;
+
+  #rwl78.
+    _t78 := _tcomp6;
+
+  #rwl79.
+    _t79 := _tcomp7;
 
   #l176.
-    J1 := 1ii;
+    if _t78 > _t79 then goto l173;
 
   #l177.
-    J2 := 1ii;
+    J1 := _tcomp6;
 
   #l178.
-    Sum := 0ii;
+    // empty loc
+
+  #l180.
+    _tcomp8 := 1ii;
+
+  #l181.
+    _tcomp9 := I2;
+
+  #rwl80.
+    _t80 := _tcomp8;
+
+  #rwl81.
+    _t81 := _tcomp9;
+
+  #l182.
+    if _t80 > _t81 then goto l179;
+
+  #l183.
+    J2 := _tcomp8;
+
+  #l184.
+    // empty loc
 
   #rwl82.
     _t82 := J1;
@@ -1117,31 +1100,480 @@ procedure Success23 (
   #rwl85.
     _t85 := _t82 * _t83;
 
-  #l179.
+  #l185.
     Sum := _t84 + _t85;
 
   #rwl86.
     _t86 := J2;
 
   #rwl87.
-    _t87 := 1ii;
+    _t87 := _tcomp9;
 
-  #l180.
-    J2 := _t86 + _t87;
+  #l186.
+    if _t86 == _t87 then goto l179;
 
   #rwl88.
-    _t88 := J1;
+    _t88 := J2;
 
   #rwl89.
     _t89 := 1ii;
 
-  #l181.
-    J1 := _t88 + _t89;
+  #l187.
+    J2 := _t88 + _t89;
 
-  #l182.
+  #l188.
+    goto l184;
+
+  #l179.
+    // empty loc
+
+  #rwl90.
+    _t90 := J1;
+
+  #rwl91.
+    _t91 := _tcomp7;
+
+  #l189.
+    if _t90 == _t91 then goto l173;
+
+  #rwl92.
+    _t92 := J1;
+
+  #rwl93.
+    _t93 := 1ii;
+
+  #l190.
+    J1 := _t92 + _t93;
+
+  #l191.
+    goto l178;
+
+  #l173.
+    // empty loc
+
+  #l192.
     O1 := Sum;
 
-  #l183.
+  #l193.
+    return;
+}
+
+procedure Success19 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J1;
+    Integer _tcomp10;
+    Integer _tcomp11;
+    FIXME _t94;
+    FIXME _t95;
+    FIXME _t96;
+    FIXME _t97;
+    FIXME _t98;
+    FIXME _t99;
+    FIXME _t100;
+    FIXME _t101;
+    FIXME _t102;
+    FIXME _t103;
+    FIXME _t104;
+    FIXME _t105;
+
+
+  #l194.
+    Sum := 0ii;
+
+  #rwl94.
+    _t94 := Sum;
+
+  #rwl95.
+    _t95 := 1ii;
+
+  #l196.
+    _tcomp10 := _t94 + _t95;
+
+  #rwl96.
+    _t96 := I1;
+
+  #rwl97.
+    _t97 := I2;
+
+  #l197.
+    _tcomp11 := _t96 * _t97;
+
+  #rwl98.
+    _t98 := _tcomp10;
+
+  #rwl99.
+    _t99 := _tcomp11;
+
+  #l198.
+    if _t98 > _t99 then goto l195;
+
+  #l199.
+    J1 := _tcomp10;
+
+  #l200.
+    // empty loc
+
+  #rwl100.
+    _t100 := Sum;
+
+  #rwl101.
+    _t101 := J1;
+
+  #l201.
+    Sum := _t100 + _t101;
+
+  #rwl102.
+    _t102 := J1;
+
+  #rwl103.
+    _t103 := _tcomp11;
+
+  #l202.
+    if _t102 == _t103 then goto l195;
+
+  #rwl104.
+    _t104 := J1;
+
+  #rwl105.
+    _t105 := 1ii;
+
+  #l203.
+    J1 := _t104 + _t105;
+
+  #l204.
+    goto l200;
+
+  #l195.
+    // empty loc
+
+  #l205.
+    O1 := Sum;
+
+  #l206.
+    return;
+}
+
+procedure Success20 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+    FIXME _t106;
+    FIXME _t107;
+    FIXME _t108;
+    FIXME _t109;
+    FIXME _t110;
+    FIXME _t111;
+
+
+  #l207.
+    J := 1ii;
+
+  #l208.
+    Sum := 0ii;
+
+  #l209.
+    // empty loc
+
+  #rwl106.
+    _t106 := Sum;
+
+  #rwl107.
+    _t107 := J;
+
+  #l211.
+    Sum := _t106 + _t107;
+
+  #rwl108.
+    _t108 := J;
+
+  #rwl109.
+    _t109 := 1ii;
+
+  #l212.
+    J := _t108 + _t109;
+
+  #rwl110.
+    _t110 := J;
+
+  #rwl111.
+    _t111 := I1;
+
+  #l213.
+    if _t110 >= _t111 then goto l210;
+
+  #l214.
+    goto l209;
+
+  #l210.
+    // empty loc
+
+  #l215.
+    O1 := Sum;
+
+  #l216.
+    return;
+}
+
+procedure Success21 (
+        Integer I1,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+    FIXME _t112;
+    FIXME _t113;
+    FIXME _t114;
+    FIXME _t115;
+    FIXME _t116;
+    FIXME _t117;
+
+
+  #l217.
+    J := 1ii;
+
+  #l218.
+    Sum := 0ii;
+
+  #l219.
+    // empty loc
+
+  #rwl112.
+    _t112 := Sum;
+
+  #rwl113.
+    _t113 := J;
+
+  #l221.
+    Sum := _t112 + _t113;
+
+  #rwl114.
+    _t114 := J;
+
+  #rwl115.
+    _t115 := 1ii;
+
+  #l222.
+    J := _t114 + _t115;
+
+  #rwl116.
+    _t116 := J;
+
+  #rwl117.
+    _t117 := I1;
+
+  #l224.
+    if !(_t116 >= _t117) then goto l223;
+
+  #l225.
+    goto l220;
+
+  #l223.
+    // empty loc
+
+  #l226.
+    goto l219;
+
+  #l220.
+    // empty loc
+
+  #l227.
+    O1 := Sum;
+
+  #l228.
+    return;
+}
+
+procedure Success22 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J;
+    FIXME _t118;
+    FIXME _t119;
+    FIXME _t120;
+    FIXME _t121;
+    FIXME _t122;
+    FIXME _t123;
+    FIXME _t124;
+    FIXME _t125;
+
+
+  #l229.
+    J := 1ii;
+
+  #l230.
+    Sum := 0ii;
+
+  #l231.
+    // empty loc
+
+  #rwl118.
+    _t118 := J;
+
+  #rwl119.
+    _t119 := I1;
+
+  #l233.
+    if _t118 > _t119 then goto l232;
+
+  #rwl120.
+    _t120 := Sum;
+
+  #rwl121.
+    _t121 := J;
+
+  #l234.
+    Sum := _t120 + _t121;
+
+  #rwl122.
+    _t122 := Sum;
+
+  #rwl123.
+    _t123 := I2;
+
+  #l236.
+    if !(_t122 > _t123) then goto l235;
+
+  #l237.
+    Sum := 0ii;
+
+  #l235.
+    // empty loc
+
+  #rwl124.
+    _t124 := J;
+
+  #rwl125.
+    _t125 := 1ii;
+
+  #l238.
+    J := _t124 + _t125;
+
+  #l239.
+    goto l231;
+
+  #l232.
+    // empty loc
+
+  #l240.
+    O1 := Sum;
+
+  #l241.
+    return;
+}
+
+procedure Success23 (
+        Integer I1,
+        Integer I2,
+        Integer O1) {
+  local
+    Integer Sum;
+    Integer J1;
+    Integer J2;
+    FIXME _t126;
+    FIXME _t127;
+    FIXME _t128;
+    FIXME _t129;
+    FIXME _t130;
+    FIXME _t131;
+    FIXME _t132;
+    FIXME _t133;
+    FIXME _t134;
+    FIXME _t135;
+    FIXME _t136;
+    FIXME _t137;
+
+
+  #l242.
+    J1 := 1ii;
+
+  #l243.
+    J2 := 1ii;
+
+  #l244.
+    Sum := 0ii;
+
+  #l245.
+    // empty loc
+
+  #l247.
+    // empty loc
+
+  #rwl126.
+    _t126 := J1;
+
+  #rwl127.
+    _t127 := J2;
+
+  #rwl128.
+    _t128 := Sum;
+
+  #rwl129.
+    _t129 := _t126 * _t127;
+
+  #l249.
+    Sum := _t128 + _t129;
+
+  #rwl130.
+    _t130 := J2;
+
+  #rwl131.
+    _t131 := I2;
+
+  #l250.
+    if _t130 > _t131 then goto l248;
+
+  #rwl132.
+    _t132 := J2;
+
+  #rwl133.
+    _t133 := 1ii;
+
+  #l251.
+    J2 := _t132 + _t133;
+
+  #l252.
+    goto l247;
+
+  #l248.
+    // empty loc
+
+  #rwl134.
+    _t134 := J1;
+
+  #rwl135.
+    _t135 := 1ii;
+
+  #l253.
+    J1 := _t134 + _t135;
+
+  #rwl136.
+    _t136 := J1;
+
+  #rwl137.
+    _t137 := I1;
+
+  #l254.
+    if _t136 > _t137 then goto l246;
+
+  #l255.
+    goto l245;
+
+  #l246.
+    // empty loc
+
+  #l256.
+    O1 := Sum;
+
+  #l257.
     return;
 }
 
@@ -1151,40 +1583,87 @@ procedure Success24 (
   local
     Integer Sum;
     Integer J;
-    FIXME _t90;
-    FIXME _t91;
-    FIXME _t92;
-    FIXME _t93;
+    FIXME _t138;
+    FIXME _t139;
+    FIXME _t140;
+    FIXME _t141;
+    FIXME _t142;
+    FIXME _t143;
+    FIXME _t144;
+    FIXME _t145;
+    FIXME _t146;
+    FIXME _t147;
+    FIXME _t148;
+    FIXME _t149;
 
 
-  #l184.
+  #l258.
     J := 1ii;
 
-  #l185.
+  #l259.
     Sum := 0ii;
 
-  #rwl90.
-    _t90 := Sum;
+  #l260.
+    // empty loc
 
-  #rwl91.
-    _t91 := J;
+  #rwl138.
+    _t138 := Sum;
 
-  #l186.
-    Sum := _t90 + _t91;
+  #rwl139.
+    _t139 := J;
 
-  #rwl92.
-    _t92 := J;
+  #l262.
+    Sum := _t138 + _t139;
 
-  #rwl93.
-    _t93 := 1ii;
+  #rwl140.
+    _t140 := Sum;
 
-  #l187.
-    J := _t92 + _t93;
+  #rwl141.
+    _t141 := J;
 
-  #l188.
+  #rwl142.
+    _t142 := 100ii;
+
+  #rwl143.
+    _t143 := J;
+
+  #rwl144.
+    _t144 := _t140 - _t141;
+
+  #rwl145.
+    _t145 := _t142 + _t143;
+
+  #l263.
+    if _t144 > _t145 then goto l261;
+
+  #rwl146.
+    _t146 := J;
+
+  #rwl147.
+    _t147 := 1ii;
+
+  #l264.
+    J := _t146 + _t147;
+
+  #rwl148.
+    _t148 := J;
+
+  #rwl149.
+    _t149 := I1;
+
+  #l265.
+    if _t148 > _t149 then goto l261;
+
+  #l266.
+    goto l260;
+
+  #l261.
+    // empty loc
+
+  #l267.
     O1 := Sum;
 
-  #l189.
+  #l268.
     return;
 }
 
@@ -1194,40 +1673,60 @@ procedure Success25 (
   local
     Integer Sum;
     Integer J;
-    FIXME _t94;
-    FIXME _t95;
-    FIXME _t96;
-    FIXME _t97;
+    FIXME _t150;
+    FIXME _t151;
+    FIXME _t152;
+    FIXME _t153;
+    FIXME _t154;
+    FIXME _t155;
 
 
-  #l190.
+  #l269.
     J := 1ii;
 
-  #l191.
+  #l270.
     Sum := 0ii;
 
-  #rwl94.
-    _t94 := Sum;
+  #l271.
+    // empty loc
 
-  #rwl95.
-    _t95 := J;
+  #rwl150.
+    _t150 := Sum;
 
-  #l192.
-    Sum := _t94 + _t95;
+  #rwl151.
+    _t151 := J;
 
-  #rwl96.
-    _t96 := J;
+  #l273.
+    Sum := _t150 + _t151;
 
-  #rwl97.
-    _t97 := 1ii;
+  #rwl152.
+    _t152 := J;
 
-  #l193.
-    J := _t96 + _t97;
+  #rwl153.
+    _t153 := 1ii;
 
-  #l194.
+  #l274.
+    J := _t152 + _t153;
+
+  #rwl154.
+    _t154 := J;
+
+  #rwl155.
+    _t155 := I1;
+
+  #l275.
+    if _t154 >= _t155 then goto l272;
+
+  #l276.
+    goto l271;
+
+  #l272.
+    // empty loc
+
+  #l277.
     O1 := Sum;
 
-  #l195.
+  #l278.
     return;
 }
 
@@ -1238,60 +1737,71 @@ procedure Success26 (
   local
     Integer Sum;
     Integer J;
-    FIXME _t98;
-    FIXME _t99;
-    FIXME _t100;
-    FIXME _t101;
-    FIXME _t102;
-    FIXME _t103;
+    FIXME _t156;
+    FIXME _t157;
+    FIXME _t158;
+    FIXME _t159;
+    FIXME _t160;
+    FIXME _t161;
+    FIXME _t162;
+    FIXME _t163;
 
 
-  #l196.
+  #l279.
     J := 1ii;
 
-  #l197.
+  #l280.
     Sum := 0ii;
 
-  #l199.
+  #l282.
     // empty loc
 
-  #rwl98.
-    _t98 := J;
+  #rwl156.
+    _t156 := J;
 
-  #rwl99.
-    _t99 := I1;
+  #rwl157.
+    _t157 := I1;
 
-  #l200.
-    if !(_t98 <= _t99) then goto l198;
+  #l283.
+    if !(_t156 <= _t157) then goto l281;
 
-  #rwl100.
-    _t100 := Sum;
+  #rwl158.
+    _t158 := Sum;
 
-  #rwl101.
-    _t101 := J;
+  #rwl159.
+    _t159 := J;
 
-  #l201.
-    Sum := _t100 + _t101;
+  #l284.
+    Sum := _t158 + _t159;
 
-  #rwl102.
-    _t102 := J;
+  #rwl160.
+    _t160 := Sum;
 
-  #rwl103.
-    _t103 := 1ii;
+  #rwl161.
+    _t161 := I2;
 
-  #l202.
-    J := _t102 + _t103;
+  #l285.
+    if _t160 > _t161 then goto l281;
 
-  #l203.
-    goto l199;
+  #rwl162.
+    _t162 := J;
 
-  #l198.
+  #rwl163.
+    _t163 := 1ii;
+
+  #l286.
+    J := _t162 + _t163;
+
+  #l287.
+    goto l282;
+
+  #l281.
     // empty loc
 
-  #l204.
+  #l288.
     O1 := Sum;
 
-  #l205.
+  #l289.
     return;
 }
 
@@ -1301,25 +1811,90 @@ procedure Success27 (
         Integer O1) {
   local
     Integer Sum;
-    FIXME _t104;
-    FIXME _t105;
+    Integer J;
+    Integer _tcomp12;
+    Integer _tcomp13;
+    FIXME _t164;
+    FIXME _t165;
+    FIXME _t166;
+    FIXME _t167;
+    FIXME _t168;
+    FIXME _t169;
+    FIXME _t170;
+    FIXME _t171;
+    FIXME _t172;
+    FIXME _t173;
 
 
-  #l206.
+  #l290.
     Sum := 0ii;
 
-  #rwl104.
-    _t104 := Sum;
+  #l292.
+    _tcomp12 := 1ii;
 
-  #rwl105.
-    _t105 := J;
+  #l293.
+    _tcomp13 := I1;
 
-  #l207.
-    Sum := _t104 + _t105;
+  #rwl164.
+    _t164 := _tcomp12;
 
-  #l208.
+  #rwl165.
+    _t165 := _tcomp13;
+
+  #l294.
+    if _t164 > _t165 then goto l291;
+
+  #l295.
+    J := _tcomp12;
+
+  #l296.
+    // empty loc
+
+  #rwl166.
+    _t166 := Sum;
+
+  #rwl167.
+    _t167 := J;
+
+  #l297.
+    Sum := _t166 + _t167;
+
+  #rwl168.
+    _t168 := Sum;
+
+  #rwl169.
+    _t169 := I2;
+
+  #l298.
+    if _t168 > _t169 then goto l291;
+
+  #rwl170.
+    _t170 := J;
+
+  #rwl171.
+    _t171 := _tcomp13;
+
+  #l299.
+    if _t170 == _t171 then goto l291;
+
+  #rwl172.
+    _t172 := J;
+
+  #rwl173.
+    _t173 := 1ii;
+
+  #l300.
+    J := _t172 + _t173;
+
+  #l301.
+    goto l296;
+
+  #l291.
+    // empty loc
+
+  #l302.
     O1 := Sum;
 
-  #l209.
+  #l303.
     return;
 }

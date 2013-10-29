@@ -36,6 +36,12 @@ object Attribute {
   val ATTRIBUTE_MAP = "ATTRIBUTE_MAP"
   val FIRST = "FIRST"
   val LAST = "LAST"
+  
+  val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
+  val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
+  
+  val attributeURIprefix = "ada://procedure/__uif/"
+    
 }
 
 object StandardURIs {

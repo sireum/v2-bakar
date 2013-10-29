@@ -88,8 +88,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
                               val (lvd, tempVar) = RewriteUtil.createTempVar("FIXME", iuri, newPath)
                               newTempLocals +:= lvd
                               prelocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
-                                AssignAction(ilist(Annotation(NameUser("IN"), ivectorEmpty)),
-                                  tempVar, ":=", index))
+                                AssignAction(ivectorEmpty, tempVar, ":=", index))
                               tempVar
                             }
                             cp(ie, IndexingExp(rewriteComplexExp(e), modIndices))
@@ -100,8 +99,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
                     val modArg = cp(args(i), rewriteComplexExp(args(i)))
 
                     postlocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
-                      AssignAction(ilist(Annotation(NameUser("OUT"), ivectorEmpty)),
-                        modArg, ":=", lhsTempVar))
+                      AssignAction(ivectorEmpty, modArg, ":=", lhsTempVar))
 
                     modArgs :+= modArg
                   } else {

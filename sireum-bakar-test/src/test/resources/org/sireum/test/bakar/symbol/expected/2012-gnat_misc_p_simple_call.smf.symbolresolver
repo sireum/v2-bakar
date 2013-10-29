@@ -1,0 +1,869 @@
+package P_Simple_Call;
+
+
+typealias Boolean standard::boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::boolean</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
+
+typealias Integer standard::integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::integer</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
+
+typealias Integer standard::natural
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::natural</string>
+         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer standard::positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::positive</string>
+         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float standard::float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>standard::float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias Integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+global Integer @@B;
+
+procedure R (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P_Simple_Call-1:9/R-11:13/X-11:15</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/P_Simple_Call-1:9/R-11:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">p_simple_call.adb</string>
+         <int>6</int>
+         <int>3</int>
+         <int>9</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+             <string sid="2">standard::positive</string>
+             <string srefid="1"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="3">ada://ordinary_type/universal_integer</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
+             <string sid="4">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="5">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="5" size="3">
+             <string sid="6">standard::integer</string>
+             <string srefid="5"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="7">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="7" size="3">
+             <string>standard::float</string>
+             <string srefid="7"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::natural</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="10">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="11">standard::boolean</string>
+             <string srefid="10"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
+
+  #rwl0.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
+    _t0 := Y
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl0</some>
+             <int>0</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
+    _t1 := @@B
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl1</some>
+             <int>1</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
+    _t2 := _t0 + _t1
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl2</some>
+             <int>2</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
+    _t3 := C
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl3</some>
+             <int>3</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l1.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
+    X := _t2 + _t3
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l1_8.6_8.22</some>
+             <int>4</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l2.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
+    return
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l2_6.13_6.13</some>
+             <int>5</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+}
+
+procedure Integer incX (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P_Simple_Call-1:9/incX+11:12/X+11:17</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/P_Simple_Call-1:9/incX+11:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">p_simple_call.adb</string>
+         <int>11</int>
+         <int>3</int>
+         <int>22</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+             <string sid="2">standard::positive</string>
+             <string srefid="1"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="3">ada://ordinary_type/universal_integer</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
+             <string sid="4">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="5">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="5" size="3">
+             <string sid="6">standard::integer</string>
+             <string srefid="5"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="7">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="7" size="3">
+             <string>standard::float</string>
+             <string srefid="7"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::natural</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="10">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="11">standard::boolean</string>
+             <string srefid="10"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+  local
+    Integer result;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+
+
+  #rwl4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
+    _t4 := X
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl4</some>
+             <int>0</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
+    _t5 := 0ii
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl5</some>
+             <int>1</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l5.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
+    if !(_t4 == _t5) then goto l4
+
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l5_16.5_17.22</some>
+             <int>2</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
+    _t6 := X
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl6</some>
+             <int>3</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
+    _t7 := 1ii
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl7</some>
+             <int>4</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l6.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
+    result := _t6 + _t7
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l6_17.7_17.22</some>
+             <int>5</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l7.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>6</int>""")
+  >
+    goto l3
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l7_16.5_17.22</some>
+             <int>6</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l4.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>7</int>""")
+  >
+    // empty loc
+
+  #rwl8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>8</int>""")
+  >
+    _t8 := X
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl8</some>
+             <int>8</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>9</int>""")
+  >
+    _t9 := 1ii
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl9</some>
+             <int>9</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l8.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>10</int>""")
+  >
+    result := _t8 - _t9
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l8_19.7_19.22</some>
+             <int>10</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l3.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>11</int>""")
+  >
+    // empty loc
+
+  #l9.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>12</int>""")
+  >
+    return result
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l9_21.5_21.18</some>
+             <int>12</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+}
+
+procedure Q (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P_Simple_Call-1:9/Q-7:13/X-7:15</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+        ,
+        Integer Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P_Simple_Call-1:9/Q-7:13/Z-7:30</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/P_Simple_Call-1:9/Q-7:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">p_simple_call.adb</string>
+         <int>24</int>
+         <int>3</int>
+         <int>29</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+             <string sid="2">standard::positive</string>
+             <string srefid="1"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="3">ada://ordinary_type/universal_integer</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
+             <string sid="4">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="5">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="5" size="3">
+             <string sid="6">standard::integer</string>
+             <string srefid="5"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="7">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="7" size="3">
+             <string>standard::float</string>
+             <string srefid="7"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::natural</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="10">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="11">standard::boolean</string>
+             <string srefid="10"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+  local
+    FIXME _tcomp0;
+    FIXME _t10;
+    FIXME _t11;
+
+
+  #l10.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>0</int>""")
+  >
+    (
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l10_27.6_27.10</some>
+             <int>0</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    )
+
+    call R (Z);
+
+  #l11.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>1</int>""")
+  >
+    (
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l11_28.15_28.21</some>
+             <int>1</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    )
+
+    call _tcomp0 := incX (X);
+
+  #rwl10.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>2</int>""")
+  >
+    _t10 := Z
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl10</some>
+             <int>2</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #rwl11.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>3</int>""")
+  >
+    _t11 := _tcomp0
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">rwl11</some>
+             <int>3</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l12.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>4</int>""")
+  >
+    Z := _t10 + _t11
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l12_28.6_28.22</some>
+             <int>4</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+
+  #l13.<
+      @org.sireum.pilar.ast.LocationDecl
+
+        ("""<int>5</int>""")
+  >
+    return
+        @org.sireum.pilar.ast.Command
+
+          ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
+             <some etype="string">l13_24.13_24.13</some>
+             <int>5</int>
+             <int>0</int>
+             <int>0</int>
+           </org.sireum.pilar.ast.Command_-CommandInfo>""")
+    ;
+}

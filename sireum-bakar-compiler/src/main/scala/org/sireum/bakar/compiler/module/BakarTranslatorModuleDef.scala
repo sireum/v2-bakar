@@ -349,7 +349,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
     def handleAttribute(attr : String, typeName : NameExp, typUri : String) = {
       val ts = addprop(TypeExp(NamedTypeSpec(typeName.name, ivectorEmpty)), URIS.TYPE_URI, typUri)
-      val ne = NameExp(NameUser(attr))
+      val nu = addResourceUri(NameUser(attr), Attribute.attributeURIprefix + attr)
+      val ne = NameExp(nu)
       val ce = addprop(CallExp(ne, ts), URIS.TYPE_URI, typUri)
       ce
     }
@@ -1061,6 +1062,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               val markNE = ctx.popResult.asInstanceOf[NameExp]
               val markURI : String = markNE.name(URIS.REF_URI)
 
+              addprop(iterNE, URIS.TYPE_URI, markURI)
+              
               // introduce a local variable for iterVar
               val typeSpec = Some(NamedTypeSpec(markNE.name, ivectorEmpty[TypeSpec]))
               val lvd = LocalVarDecl(typeSpec, iterNE.name, TranslatorUtil.emptyAnnot)
@@ -1083,8 +1086,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                   }
                 } else {
                   // $First ^Mark .. $Last ^Mark
-                  val lb = ctx.handleAttribute("$FIRST", markNE, markURI)
-                  val hb = ctx.handleAttribute("$LAST", markNE, markURI)
+                  val lb = ctx.handleAttribute(Attribute.ATTRIBUTE_UIF_FIRST, markNE, markURI)
+                  val hb = ctx.handleAttribute(Attribute.ATTRIBUTE_UIF_LAST, markNE, markURI)
                   (lb, hb)
                 }
 
@@ -1121,9 +1124,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               val endCheck = JumpLocation(Some(ctx.newLocLabel(sloc)), TranslatorUtil.emptyAnnot, endij)
               ctx.pushLocation(endCheck)
 
+              val ONE = addprop(LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii"), URIS.TYPE_URI, StandardURIs.universalIntURI)
+              
               // increment/decrement iter var
               val incbe = ctx.handleBE(sloc, if (isRev) PilarAstUtil.SUB_BINOP else PilarAstUtil.PLUS_UNOP,
-                iterNE, LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii"), StandardURIs.boolURI)
+                iterNE, ONE, StandardURIs.boolURI)
               ctx.createPushAssignmentLocation(iterNE, incbe, TranslatorUtil.emptyAnnot, sloc)
 
               // goto start
@@ -1211,7 +1216,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       v(prefix)
       val p = ctx.popResult.asInstanceOf[NameExp]
 
-      ctx.pushResult(ctx.handleAttribute("$FIRST", p, typ), sloc)
+      ctx.pushResult(ctx.handleAttribute(Attribute.ATTRIBUTE_UIF_FIRST, p, typ), sloc)
       false
     case o @ LastAttributeEx(sloc, prefix, attributeId, attributeExp, typ) =>
       assert(attributeExp.getExpressions().isEmpty())
@@ -1219,7 +1224,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       v(prefix)
       val p = ctx.popResult.asInstanceOf[NameExp]
 
-      ctx.pushResult(ctx.handleAttribute("$LAST", p, typ), sloc)
+      ctx.pushResult(ctx.handleAttribute(Attribute.ATTRIBUTE_UIF_LAST, p, typ), sloc)
       false
   }
 

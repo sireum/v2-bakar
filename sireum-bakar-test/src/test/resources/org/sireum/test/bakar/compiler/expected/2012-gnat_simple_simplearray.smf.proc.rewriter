@@ -30,14 +30,6 @@ procedure Integer Max (
     Index I;
     Index _tcomp0;
     Index _tcomp1;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
 
 
   #l2.
@@ -49,14 +41,8 @@ procedure Integer Max (
   #l5.
     _tcomp1 := attribute__uif__last ^Index;
 
-  #rwl0.
-    _t0 := _tcomp0;
-
-  #rwl1.
-    _t1 := _tcomp1;
-
   #l6.
-    if _t0 > _t1 then goto l3;
+    if _tcomp0 > _tcomp1 then goto l3;
 
   #l7.
     I := _tcomp0;
@@ -64,14 +50,8 @@ procedure Integer Max (
   #l8.
     // empty loc
 
-  #rwl2.
-    _t2 := V[I];
-
-  #rwl3.
-    _t3 := M;
-
   #l10.
-    if !(_t2 > _t3) then goto l9;
+    if !(V[I] > M) then goto l9;
 
   #l11.
     M := V[I];
@@ -79,23 +59,11 @@ procedure Integer Max (
   #l9.
     // empty loc
 
-  #rwl4.
-    _t4 := I;
-
-  #rwl5.
-    _t5 := _tcomp1;
-
   #l12.
-    if _t4 == _t5 then goto l3;
-
-  #rwl6.
-    _t6 := I;
-
-  #rwl7.
-    _t7 := 1ii;
+    if I == _tcomp1 then goto l3;
 
   #l13.
-    I := _t6 + _t7;
+    I := I + 1ii;
 
   #l14.
     goto l8;

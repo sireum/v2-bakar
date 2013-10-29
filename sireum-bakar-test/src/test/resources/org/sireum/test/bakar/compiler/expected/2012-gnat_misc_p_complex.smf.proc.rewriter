@@ -1,0 +1,27 @@
+package P_Complex;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+global Integer @@B;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + @@B;
+
+  #l2.
+    return (Z);
+}

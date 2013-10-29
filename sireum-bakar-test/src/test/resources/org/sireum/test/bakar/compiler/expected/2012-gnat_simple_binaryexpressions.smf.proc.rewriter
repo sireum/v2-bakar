@@ -1,0 +1,178 @@
+package BinaryExpressions;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+procedure Integer X {
+
+  #l1.
+    return 1ii;
+}
+
+procedure Integer Add (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #l2.
+    r0 := 1ii + 2ii;
+
+  #l3.
+    r1 := I + 1ii;
+
+  #l4.
+    r2 := I + J;
+
+  #l5.
+    r3 := I + I;
+
+  #l6.
+    r4 := J + J;
+
+  #l7.
+    r5 := J + I;
+
+  #l8.
+    r6 := J + 1ii;
+
+  #l9.
+    assert r2 == r5;
+
+  #l10.
+    return r6;
+}
+
+procedure Integer Sub (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #l11.
+    r0 := 1ii - 2ii;
+
+  #l12.
+    r1 := I - 1ii;
+
+  #l13.
+    r2 := I - J;
+
+  #l14.
+    r3 := I - I;
+
+  #l15.
+    r4 := J - J;
+
+  #l16.
+    r5 := J - I;
+
+  #l17.
+    r6 := J - 1ii;
+
+  #l18.
+    return r6;
+}
+
+procedure Integer Mult (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #l19.
+    r0 := 1ii * 2ii;
+
+  #l20.
+    r1 := I * 1ii;
+
+  #l21.
+    r2 := I * J;
+
+  #l22.
+    r3 := I * I;
+
+  #l23.
+    r4 := J * J;
+
+  #l24.
+    r5 := J * I;
+
+  #l25.
+    r6 := J * 1ii;
+
+  #l26.
+    assert r2 == r5;
+
+  #l27.
+    return r6;
+}
+
+procedure Integer Division (
+        Integer I,
+        Integer J) {
+  local
+    Integer r0;
+    Integer r1;
+    Integer r2;
+    Integer r3;
+    Integer r4;
+    Integer r5;
+    Integer r6;
+
+
+  #l28.
+    r0 := 1ii / 2ii;
+
+  #l29.
+    r1 := I / 1ii;
+
+  #l30.
+    r2 := I / I;
+
+  #l31.
+    r3 := I / J;
+
+  #l32.
+    r4 := J / I;
+
+  #l33.
+    r5 := J / J;
+
+  #l34.
+    r6 := J / 1ii;
+
+  #l35.
+    return r6;
+}

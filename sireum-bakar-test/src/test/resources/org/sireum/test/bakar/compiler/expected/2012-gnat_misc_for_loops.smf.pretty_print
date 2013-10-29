@@ -16,37 +16,339 @@ typealias Integer universal_integer;
 
 procedure Stupid (
         Index_Range Z) {
+  local
+    Index_Range I;
+    Index_Range _tcomp0;
+    Index_Range _tcomp1;
+    Index_Range I0;
+    Index_Range _tcomp2;
+    Index_Range _tcomp3;
+    Index_Range I1;
+    Index_Range _tcomp4;
+    Index_Range _tcomp5;
+    Index_Range I2;
+    Index_Range _tcomp6;
+    Index_Range _tcomp7;
+    Index_Range I3;
+    Index_Range _tcomp8;
+    Index_Range _tcomp9;
+    Index_Range I4;
+    Index_Range _tcomp10;
+    Index_Range _tcomp11;
+    Index_Range I5;
+    Index_Range _tcomp12;
+    Index_Range _tcomp13;
+    Index_Range I6;
+    Index_Range _tcomp14;
+    Index_Range _tcomp15;
+    Index_Range I7;
+    Index_Range _tcomp16;
+    Index_Range _tcomp17;
+    Index_Range I8;
+    Index_Range _tcomp18;
+    Index_Range _tcomp19;
 
-  #l1.
-    A[I] := 1ii;
 
   #l2.
-    A[I] := 1ii;
+    _tcomp0 := attribute__uif__first ^Index_Range;
 
   #l3.
-    A[I] := 1ii;
+    _tcomp1 := attribute__uif__last ^Index_Range;
 
   #l4.
-    A[I] := 1ii;
+    if _tcomp0 > _tcomp1 then goto l1;
 
   #l5.
-    A[I] := A[I];
+    I := _tcomp0;
 
   #l6.
-    A[I] := A[I];
+    // empty loc
 
   #l7.
-    A[I] := A[I];
+    A[I] := 1ii;
 
   #l8.
-    A[I] := A[I];
+    if I == _tcomp1 then goto l1;
 
   #l9.
-    A[I] := A[I];
+    I := I + 1ii;
 
   #l10.
-    A[I] := A[I];
+    goto l6;
+
+  #l1.
+    // empty loc
+
+  #l12.
+    _tcomp2 := attribute__uif__first ^Index_Range;
+
+  #l13.
+    _tcomp3 := attribute__uif__last ^Index_Range;
+
+  #l14.
+    if _tcomp2 > _tcomp3 then goto l11;
+
+  #l15.
+    I0 := _tcomp3;
+
+  #l16.
+    // empty loc
+
+  #l17.
+    A[I] := 1ii;
+
+  #l18.
+    if I0 == _tcomp2 then goto l11;
+
+  #l19.
+    I0 := I0 - 1ii;
+
+  #l20.
+    goto l16;
 
   #l11.
+    // empty loc
+
+  #l22.
+    _tcomp4 := 1ii;
+
+  #l23.
+    _tcomp5 := 3ii;
+
+  #l24.
+    if _tcomp4 > _tcomp5 then goto l21;
+
+  #l25.
+    I1 := _tcomp4;
+
+  #l26.
+    // empty loc
+
+  #l27.
+    A[I] := 1ii;
+
+  #l28.
+    if I1 == _tcomp5 then goto l21;
+
+  #l29.
+    I1 := I1 + 1ii;
+
+  #l30.
+    goto l26;
+
+  #l21.
+    // empty loc
+
+  #l32.
+    _tcomp6 := 1ii;
+
+  #l33.
+    _tcomp7 := Z;
+
+  #l34.
+    if _tcomp6 > _tcomp7 then goto l31;
+
+  #l35.
+    I2 := _tcomp7;
+
+  #l36.
+    // empty loc
+
+  #l37.
+    A[I] := 1ii;
+
+  #l38.
+    if I2 == _tcomp6 then goto l31;
+
+  #l39.
+    I2 := I2 - 1ii;
+
+  #l40.
+    goto l36;
+
+  #l31.
+    // empty loc
+
+  #l42.
+    _tcomp8 := attribute__uif__first ^Index_Range + 10ii;
+
+  #l43.
+    _tcomp9 := Z;
+
+  #l44.
+    if _tcomp8 > _tcomp9 then goto l41;
+
+  #l45.
+    I3 := _tcomp8;
+
+  #l46.
+    // empty loc
+
+  #l47.
+    A[I] := A[I];
+
+  #l48.
+    if I3 == _tcomp9 then goto l41;
+
+  #l49.
+    I3 := I3 + 1ii;
+
+  #l50.
+    goto l46;
+
+  #l41.
+    // empty loc
+
+  #l52.
+    _tcomp10 := attribute__uif__first ^Index_Range + 10ii;
+
+  #l53.
+    _tcomp11 := Z;
+
+  #l54.
+    if _tcomp10 > _tcomp11 then goto l51;
+
+  #l55.
+    I4 := _tcomp11;
+
+  #l56.
+    // empty loc
+
+  #l57.
+    A[I] := A[I];
+
+  #l58.
+    if I4 == _tcomp10 then goto l51;
+
+  #l59.
+    I4 := I4 - 1ii;
+
+  #l60.
+    goto l56;
+
+  #l51.
+    // empty loc
+
+  #l62.
+    _tcomp12 := ;
+
+  #l63.
+    _tcomp13 := ;
+
+  #l64.
+    if _tcomp12 > _tcomp13 then goto l61;
+
+  #l65.
+    I5 := _tcomp12;
+
+  #l66.
+    // empty loc
+
+  #l67.
+    A[I] := A[I];
+
+  #l68.
+    if I5 == _tcomp13 then goto l61;
+
+  #l69.
+    I5 := I5 + 1ii;
+
+  #l70.
+    goto l66;
+
+  #l61.
+    // empty loc
+
+  #l72.
+    _tcomp14 := ;
+
+  #l73.
+    _tcomp15 := ;
+
+  #l74.
+    if _tcomp14 > _tcomp15 then goto l71;
+
+  #l75.
+    I6 := _tcomp15;
+
+  #l76.
+    // empty loc
+
+  #l77.
+    A[I] := A[I];
+
+  #l78.
+    if I6 == _tcomp14 then goto l71;
+
+  #l79.
+    I6 := I6 - 1ii;
+
+  #l80.
+    goto l76;
+
+  #l71.
+    // empty loc
+
+  #l82.
+    _tcomp16 := ;
+
+  #l83.
+    _tcomp17 := ;
+
+  #l84.
+    if _tcomp16 > _tcomp17 then goto l81;
+
+  #l85.
+    I7 := _tcomp16;
+
+  #l86.
+    // empty loc
+
+  #l87.
+    A[I] := A[I];
+
+  #l88.
+    if I7 == _tcomp17 then goto l81;
+
+  #l89.
+    I7 := I7 + 1ii;
+
+  #l90.
+    goto l86;
+
+  #l81.
+    // empty loc
+
+  #l92.
+    _tcomp18 := ;
+
+  #l93.
+    _tcomp19 := ;
+
+  #l94.
+    if _tcomp18 > _tcomp19 then goto l91;
+
+  #l95.
+    I8 := _tcomp19;
+
+  #l96.
+    // empty loc
+
+  #l97.
+    A[I] := A[I];
+
+  #l98.
+    if I8 == _tcomp18 then goto l91;
+
+  #l99.
+    I8 := I8 - 1ii;
+
+  #l100.
+    goto l96;
+
+  #l91.
+    // empty loc
+
+  #l101.
     return;
 }
