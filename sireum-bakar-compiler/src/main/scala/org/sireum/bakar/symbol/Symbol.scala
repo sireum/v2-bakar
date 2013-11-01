@@ -117,7 +117,7 @@ trait DiscreteTypeDef extends ScalarTypeDef
 
 case class EnumerationTypeDef(
   val id : String,
-  val elems : ISeq[String]) extends DiscreteTypeDef
+  val elems : ISeq[(String, ResourceUri)]) extends DiscreteTypeDef
 
 trait IntegerTypeDef extends ScalarTypeDef
 

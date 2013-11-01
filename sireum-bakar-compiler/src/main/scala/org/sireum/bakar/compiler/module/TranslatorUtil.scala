@@ -36,17 +36,18 @@ object Attribute {
   val ATTRIBUTE_MAP = "ATTRIBUTE_MAP"
   val FIRST = "FIRST"
   val LAST = "LAST"
-  
+
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
-  
+
   val attributeURIprefix = "ada://procedure/__uif/"
-    
+
 }
 
 object StandardURIs {
   val universalIntURI = "ada://ordinary_type/universal_integer".intern
-
+  val universalRealURI = "ada://ordinary_type/universal_real".intern
+  
   val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1".intern
   val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1".intern
   val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1".intern
@@ -57,8 +58,7 @@ object StandardURIs {
 
 object StandardTypeDefs {
   def createType(typName : String, baseType : String, typURI : String) : TypeAliasDecl = {
-    val tad = TypeAliasDecl(NameDefinition(typName),
-      TranslatorUtil.emptyAnnot,
+    val tad = TypeAliasDecl(NameDefinition(typName), ivectorEmpty,
       NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec])
     )
 
@@ -72,7 +72,8 @@ object StandardTypeDefs {
   }
 
   val UniversalInteger = createType("universal_integer", "Integer", StandardURIs.universalIntURI)
-
+  val UniversalReal = createType("universal_real", "Float", StandardURIs.universalRealURI)
+  
   val StandardBoolean = createType("standard::boolean", "Boolean", StandardURIs.boolURI)
   val StandardInteger = createType("standard::integer", "Integer", StandardURIs.integerURI)
   val StandardNatural = createType("standard::natural", "Integer", StandardURIs.naturalURI)
@@ -82,24 +83,28 @@ object StandardTypeDefs {
 }
 
 object TranslatorUtil {
-  val emptyAnnot = ivectorEmpty[Annotation]
 
-  def getTypeDeclarations(e : ElementList) = {
-    e.getElements().filter {
+  def getTypeDeclarations(e : java.util.List[Base]) = {
+    e.filter {
       case x : OrdinaryTypeDeclaration         => true
       case x : IncompleteTypeDeclaration       => true
       case x : PrivateTypeDeclaration          => true
       case x : SubtypeDeclaration              => true
-      case x : ProtectedTypeDeclaration        => true
-      case x : TaggedIncompleteTypeDeclaration => true
-      case x : FormalIncompleteTypeDeclaration => true
-      case x : FormalTypeDeclaration           => true
+
+      //case x : TaggedIncompleteTypeDeclaration => true
+      //case x : FormalIncompleteTypeDeclaration => true
+      //case x : FormalTypeDeclaration           => true
+
+      // the following type declarations are not permitted in SPARK 2014
+      case x : TaskTypeDeclaration             => false
+      case x : ProtectedTypeDeclaration        => false
+      case x : PrivateExtensionDeclaration     => false
       case _                                   => false
     }
   }
 
-  def getConstantDeclarations(e : ElementList) = {
-    e.getElements().filter {
+  def getConstantDeclarations(e : java.util.List[Base]) = {
+    e.filter {
       case x : RealNumberDeclaration       => true
       case x : IntegerNumberDeclaration    => true
       case x : DeferredConstantDeclaration => true
@@ -108,14 +113,14 @@ object TranslatorUtil {
     }
   }
 
-  def getGlobalDeclarations(el : ElementList) = {
-    for (e <- el.getElements() if e.isInstanceOf[VariableDeclaration]) yield {
+  def getGlobalDeclarations(el : java.util.List[Base]) = {
+    for (e <- el if e.isInstanceOf[VariableDeclaration]) yield {
       e.asInstanceOf[VariableDeclaration]
     }
   }
 
-  def getMethodDeclarations(e : ElementList) = {
-    e.getElements().filter {
+  def getMethodDeclarations(e : java.util.List[Base]) = {
+    e.filter {
       case o : ProcedureDeclaration        => true
       case o : ProcedureBodyDeclaration    => true
       case o : FunctionDeclaration         => true
