@@ -2,18 +2,6 @@ for_loops.adb
 package for_loops;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Stupid (
         Index_Range Z) {
   local
@@ -352,3 +340,52 @@ procedure Stupid (
   #l101.
     return;
 }
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+for_loops.ads
+package for_loops;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Index_Range;
+
+typealias _ARRAY_ Vector;
+
+global Vector @@A;
+
+procedure $$sinit {
+
+  #l102.
+    @@A := 1ii;
+
+  #l103.
+    return;
+}
+
+const $CONST {
+  aFloatConst = (Float)  + ;
+
+  aIntConst = (Integer) 1ii + 3ii;
+}
+
+procedure Stupid (
+        Index_Range Z) {
+
+}
+

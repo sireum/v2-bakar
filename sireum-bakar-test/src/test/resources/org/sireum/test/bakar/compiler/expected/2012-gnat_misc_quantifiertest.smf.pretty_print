@@ -2,6 +2,29 @@ quantifiertest.adb
 package QuantifierTest;
 
 
+procedure $$binit {
+
+  #l1.
+    V := 0ii;
+
+  #l2.
+    return;
+}
+
+procedure dummy (
+        Index I) {
+
+  #l3.
+    V[I] := V[I] + 3ii;
+
+  #l4.
+    return;
+}
+
+fake/standard.ads
+package Standard;
+
+
 typealias Boolean standard::boolean;
 
 typealias Integer standard::integer;
@@ -14,12 +37,20 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
+typealias Float universal_real;
+
+quantifiertest.ads
+package QuantifierTest;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Index;
+
+typealias _ARRAY_ Vector;
+
+global Vector @@V;
+
 procedure dummy (
         Index I) {
 
-  #l1.
-    V[I] := V[I] + 3ii;
-
-  #l2.
-    return;
 }
+

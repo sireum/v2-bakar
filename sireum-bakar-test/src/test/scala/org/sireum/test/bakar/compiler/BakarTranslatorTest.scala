@@ -25,7 +25,9 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorTest extends BakarTestFileFramework {
-
+  
+  override def generateExpected = false
+  
   override def includes = super.includes ++= Set("gnat_misc", "gnat_simple")
 
   override def excludes = {
@@ -43,8 +45,6 @@ class BakarTranslatorTest extends BakarTestFileFramework {
     BakarTranslatorModule.setRegression(c.job.properties, true)
     return true;
   }
-
-  override def generateExpected = false
 
   override def pipeline =
     PipelineConfiguration(

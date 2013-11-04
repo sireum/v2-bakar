@@ -1,18 +1,6 @@
 package RecordTest02;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Test01 (
         Object Q) {
   local
@@ -55,4 +43,40 @@ procedure Test02 (
 
   #l9.
     return;
+}package RecordTest02;
+
+
+record Object {
+
+  Float X;
+
+  Float Y;
 }
+
+procedure Test01 (
+        Object Q) {
+
+}
+
+procedure Test02 (
+        Float I1,
+        Float I2,
+        Float O1,
+        Float O2) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

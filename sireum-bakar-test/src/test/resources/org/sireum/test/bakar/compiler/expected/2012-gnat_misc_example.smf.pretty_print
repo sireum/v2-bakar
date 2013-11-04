@@ -2,18 +2,6 @@ example.adb
 package Example;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure add (
         Integer x,
         Integer y) {
@@ -50,3 +38,38 @@ procedure foo (
   #l8.
     return;
 }
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+example.ads
+package Example;
+
+
+procedure add (
+        Integer x,
+        Integer y) {
+
+}
+
+procedure foo (
+        Integer A,
+        Integer B) {
+
+}
+

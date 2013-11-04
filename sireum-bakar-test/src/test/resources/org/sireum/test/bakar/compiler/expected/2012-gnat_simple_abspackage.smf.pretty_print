@@ -2,18 +2,6 @@ abspackage.adb
 package AbsPackage;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Integer AbsFunc (
         Integer x) {
   local
@@ -44,3 +32,31 @@ procedure Integer AbsFunc (
   #l8.
     return r;
 }
+
+abspackage.ads
+package AbsPackage;
+
+
+procedure Integer AbsFunc (
+        Integer x) {
+
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+

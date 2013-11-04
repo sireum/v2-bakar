@@ -1,6 +1,25 @@
 package Type_Conversion;
 
 
+procedure Convert (
+        Float Y,
+        Integer X) {
+
+  #l1.
+    X := Y;
+
+  #l2.
+    return (X);
+}package Type_Conversion;
+
+
+procedure Convert (
+        Float Y,
+        Integer X) {
+
+}package Standard;
+
+
 typealias Boolean standard::boolean;
 
 typealias Integer standard::integer;
@@ -13,13 +32,4 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
-procedure Convert (
-        Float Y,
-        Integer X) {
-
-  #l1.
-    X := Y;
-
-  #l2.
-    return (X);
-}
+typealias Float universal_real;

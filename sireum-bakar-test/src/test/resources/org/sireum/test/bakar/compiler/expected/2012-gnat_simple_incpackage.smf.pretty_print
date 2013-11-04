@@ -1,5 +1,14 @@
-incpackage.adb
+incpackage.ads
 package IncPackage;
+
+
+procedure Integer Inc (
+        Integer X) {
+
+}
+
+fake/standard.ads
+package Standard;
 
 
 typealias Boolean standard::boolean;
@@ -13,6 +22,12 @@ typealias Integer standard::positive;
 typealias Float standard::float;
 
 typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+incpackage.adb
+package IncPackage;
+
 
 procedure Integer Inc (
         Integer X) {
@@ -29,3 +44,4 @@ procedure Integer Inc (
   #l3.
     return R;
 }
+

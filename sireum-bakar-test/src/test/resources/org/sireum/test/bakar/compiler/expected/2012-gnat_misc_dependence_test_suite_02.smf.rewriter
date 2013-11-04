@@ -1,18 +1,6 @@
 package Dependence_Test_Suite_02;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Success0 (
         Integer O) {
 
@@ -1897,4 +1885,25 @@ procedure Success27 (
 
   #l303.
     return;
-}
+}package Dependence_Test_Suite_02;
+
+
+procedure Success0 (
+        Integer O) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

@@ -1,5 +1,19 @@
-p_refinement.adb
+p_refinement.ads
 package P_Refinement;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}
+
+fake/standard.ads
+package Standard;
 
 
 typealias Boolean standard::boolean;
@@ -14,15 +28,37 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
+typealias Float universal_real;
+
+p_refinement.adb
+package P_Refinement;
+
+
 global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
 
 procedure Q (
         Integer X,
         Integer Z) {
 
-  #l1.
+  #l5.
     Z := X + @@B;
 
-  #l2.
+  #l6.
     return;
 }
+

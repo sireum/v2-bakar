@@ -1,5 +1,5 @@
-minpackage.adb
-package Minpackage;
+fake/standard.ads
+package Standard;
 
 
 typealias Boolean standard::boolean;
@@ -13,6 +13,12 @@ typealias Integer standard::positive;
 typealias Float standard::float;
 
 typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+minpackage.adb
+package Minpackage;
+
 
 procedure Integer MinFunc (
         Integer X,
@@ -52,3 +58,14 @@ procedure Integer MinFunc (
   #l10.
     return Min;
 }
+
+minpackage.ads
+package Minpackage;
+
+
+procedure Integer MinFunc (
+        Integer X,
+        Integer Y) {
+
+}
+

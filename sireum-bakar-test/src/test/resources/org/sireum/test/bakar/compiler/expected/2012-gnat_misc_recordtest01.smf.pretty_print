@@ -2,17 +2,17 @@ recordtest01.adb
 package RecordTest01;
 
 
-typealias Boolean standard::boolean;
+procedure $$binit {
 
-typealias Integer standard::integer;
+  #l1.
+    anObject := 2ii;
 
-typealias Integer standard::natural;
+  #l2.
+    aNestedObject := 2ii;
 
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
+  #l3.
+    return;
+}
 
 procedure Test01 (
         Object Q) {
@@ -20,16 +20,16 @@ procedure Test01 (
     Integer T;
 
 
-  #l1.
+  #l4.
     T := Q.X;
 
-  #l2.
+  #l5.
     Q.X := Q.Y;
 
-  #l3.
+  #l6.
     Q.Y := T;
 
-  #l4.
+  #l7.
     return;
 }
 
@@ -42,18 +42,62 @@ procedure Test02 (
     NestedObject Q;
 
 
-  #l5.
+  #l8.
     Q.O.X := I1;
 
-  #l6.
+  #l9.
     Q.O.Y := I2;
 
-  #l7.
+  #l10.
     O1 := Q.O.X;
 
-  #l8.
+  #l11.
     O2 := Q.O.Y;
 
-  #l9.
+  #l12.
     return;
 }
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+recordtest01.ads
+package RecordTest01;
+
+
+record Object {
+
+  Integer X;
+
+  Integer Y;
+}
+
+record NestedObject {
+
+  Object O;
+}
+
+global NestedObject @@aNestedObject;
+
+global Object @@anObject;
+
+procedure Test01 (
+        Object Q) {
+
+}
+

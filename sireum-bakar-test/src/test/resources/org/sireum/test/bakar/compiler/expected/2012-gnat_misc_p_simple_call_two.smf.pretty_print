@@ -2,6 +2,72 @@ p_simple_call_two.adb
 package P_Simple_Call_Two;
 
 
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
+
+procedure R (
+        Integer X,
+        Integer Z) {
+
+  #l5.
+    Z := X + Y + @@B + C;
+
+  #l6.
+    return;
+}
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l7.
+    call R (X, Z);
+
+  #l8.
+    Z := Z + X;
+
+  #l9.
+    return;
+}
+
+p_simple_call_two.ads
+package P_Simple_Call_Two;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}
+
+procedure R (
+        Integer X,
+        Integer Z) {
+
+}
+
+fake/standard.ads
+package Standard;
+
+
 typealias Boolean standard::boolean;
 
 typealias Integer standard::integer;
@@ -14,29 +80,5 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
-global Integer @@B;
+typealias Float universal_real;
 
-procedure R (
-        Integer X,
-        Integer Z) {
-
-  #l1.
-    Z := X + Y + @@B + C;
-
-  #l2.
-    return;
-}
-
-procedure Q (
-        Integer X,
-        Integer Z) {
-
-  #l3.
-    call R (X, Z);
-
-  #l4.
-    Z := Z + X;
-
-  #l5.
-    return;
-}

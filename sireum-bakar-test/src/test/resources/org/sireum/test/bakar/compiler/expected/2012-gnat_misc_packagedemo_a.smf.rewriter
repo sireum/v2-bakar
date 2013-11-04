@@ -1,18 +1,6 @@
 package PackageDemo_A;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Q (
         Integer X,
         Integer Z) {
@@ -32,4 +20,26 @@ procedure Q (
 
   #l2.
     return;
-}
+}package PackageDemo_A;
+
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

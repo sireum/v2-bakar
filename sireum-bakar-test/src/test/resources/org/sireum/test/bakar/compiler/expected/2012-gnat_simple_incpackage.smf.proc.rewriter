@@ -1,18 +1,6 @@
 package IncPackage;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Integer Inc (
         Integer X) {
   local
@@ -27,4 +15,25 @@ procedure Integer Inc (
 
   #l3.
     return R;
-}
+}package IncPackage;
+
+
+procedure Integer Inc (
+        Integer X) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

@@ -1,17 +1,14 @@
 package QuantifierTest;
 
 
-typealias Boolean standard::boolean;
+procedure $$binit {
 
-typealias Integer standard::integer;
+  #l1.
+    V := 0ii;
 
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
+  #l2.
+    return;
+}
 
 procedure dummy (
         Index I) {
@@ -26,9 +23,36 @@ procedure dummy (
   #rwl1.
     _t1 := 3ii;
 
-  #l1.
+  #l3.
     V[I] := _t0 + _t1;
 
-  #l2.
+  #l4.
     return;
-}
+}package QuantifierTest;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Index;
+
+typealias _ARRAY_ Vector;
+
+global Vector @@V;
+
+procedure dummy (
+        Index I) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

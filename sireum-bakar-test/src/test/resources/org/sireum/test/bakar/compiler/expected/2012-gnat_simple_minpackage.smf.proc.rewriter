@@ -1,18 +1,6 @@
 package Minpackage;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Integer MinFunc (
         Integer X,
         Integer Y) {
@@ -50,4 +38,26 @@ procedure Integer MinFunc (
 
   #l10.
     return Min;
-}
+}package Minpackage;
+
+
+procedure Integer MinFunc (
+        Integer X,
+        Integer Y) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

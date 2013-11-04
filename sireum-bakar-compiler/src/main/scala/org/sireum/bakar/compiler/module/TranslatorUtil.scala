@@ -32,6 +32,10 @@ object URIS {
   }
 }
 
+object PackageURIs {
+  val initProcedureURIprefix = "ada://procedure/__init/" 
+}
+
 object Attribute {
   val ATTRIBUTE_MAP = "ATTRIBUTE_MAP"
   val FIRST = "FIRST"
@@ -41,7 +45,6 @@ object Attribute {
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
 
   val attributeURIprefix = "ada://procedure/__uif/"
-
 }
 
 object StandardURIs {

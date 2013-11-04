@@ -1,5 +1,5 @@
-proceduretest01.adb
-package ProcedureTest01;
+fake/standard.ads
+package Standard;
 
 
 typealias Boolean standard::boolean;
@@ -13,6 +13,12 @@ typealias Integer standard::positive;
 typealias Float standard::float;
 
 typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+proceduretest01.adb
+package ProcedureTest01;
+
 
 procedure P (
         Integer a,
@@ -69,3 +75,28 @@ procedure Q (
   #l11.
     return;
 }
+
+proceduretest01.ads
+package ProcedureTest01;
+
+
+procedure P (
+        Integer a,
+        Integer b,
+        Integer c) {
+
+}
+
+procedure helper (
+        Integer x,
+        Integer y) {
+
+}
+
+procedure Q (
+        Integer S,
+        Integer T,
+        Integer R) {
+
+}
+

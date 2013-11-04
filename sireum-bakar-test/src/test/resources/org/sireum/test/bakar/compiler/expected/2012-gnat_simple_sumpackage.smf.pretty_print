@@ -2,18 +2,6 @@ sumpackage.adb
 package SumPackage;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Integer Sum (
         Integer N) {
   local
@@ -101,3 +89,31 @@ procedure Sum2 (
   #l24.
     return;
 }
+
+sumpackage.ads
+package SumPackage;
+
+
+procedure Integer Sum (
+        Integer N) {
+
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+

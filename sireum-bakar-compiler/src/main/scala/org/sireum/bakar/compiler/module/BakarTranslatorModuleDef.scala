@@ -185,13 +185,18 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
     }
 
-    def newLocLabel(s : SourceLocation) = {
+    /**
+     * assumes <code>s</code> will ensure the locations label's uri is unique
+     */
+    def newLocLabel(s : String) : NameDefinition = {
       countLocation += 1
       val simpName = this.LOCATION_PREFIX + countLocation
-      val urlName = simpName + "_" +
-        s.getLine + "." + s.getCol + "_" + s.getEndline + "." + s.getEndcol
+      val urlName = simpName + "_" + s
       this.addResourceUri(NameDefinition(simpName), urlName)
-    }
+    } 
+      
+    def newLocLabel(s : SourceLocation) : NameDefinition = 
+      newLocLabel(s.getLine + "." + s.getCol + "_" + s.getEndline + "." + s.getEndcol)
 
     def createEmptyLocation(locName : NameDefinition, annots : ISeq[Annotation] = ivectorEmpty) = {
       EmptyLocation(Some(locName), annots)
@@ -578,6 +583,25 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   }
 
   def packageH(ctx : Context, v : => BVisitor) : VisitorFunction = {
+  
+    def createPackageInitProcedure(locs : MList[LocationDecl], isSpec : Boolean = false) = {
+      val name = if(isSpec) "$$sinit"
+       else  "$$binit"
+
+      val path = (ctx.contextStack.map(_._2)).toList :+ name
+      val uri = PackageURIs.initProcedureURIprefix + path.mkString("/")
+      
+      val nd = ctx.addResourceUri(NameDefinition(name), uri)
+      
+      locs += JumpLocation(Some(ctx.newLocLabel(path.mkString("_"))), ivectorEmpty,
+                ReturnJump(ivectorEmpty, None))
+                
+      ProcedureDecl(nd, ivectorEmpty,
+          ivectorEmpty, ivectorEmpty, None, false,
+          ImplementedBody(ivectorEmpty, locs.toList, ivectorEmpty))
+    }
+  
+    {
     case o @ CompilationUnitEx(sloc, contextClauseElements, unitDeclaration,
       pragmasAfter, unitKind, unitClass, unitOrigin, unitFullName, defName, sourceFile) =>
 
@@ -642,9 +666,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       if (!_ll.isEmpty) {
         // create an init procedure
-        packElems += ProcedureDecl(NameDefinition("$$sinit"), ivectorEmpty,
-          ivectorEmpty, ivectorEmpty, None, false,
-          ImplementedBody(ivectorEmpty, _ll.toList, ivectorEmpty))
+        packElems += createPackageInitProcedure(_ll, true)
       }
 
       val publicConstants = TranslatorUtil.getConstantDeclarations(visiblePartDecItems.getDeclarativeItems)
@@ -713,6 +735,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         packElems ++= ctx.getDummyReturnValue(ctx.popResult)
       }
 
+      // process package init block
       v(bodyStatements)
 
       val _ll = ctx.popLocationList
@@ -720,9 +743,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       if (!_ll.isEmpty) {
         // create an init procedure
-        packElems += ProcedureDecl(NameDefinition("$$binit"), ivectorEmpty,
-          ivectorEmpty, ivectorEmpty, None, false,
-          ImplementedBody(ivectorEmpty, _ll.toList, ivectorEmpty))
+        packElems += createPackageInitProcedure(_ll, false) 
+
       }
 
       for (m <- TranslatorUtil.getMethodDeclarations(bodyDecItems.getElements)) {
@@ -759,7 +781,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             LocalVarDecl(typeSpec, name, ivectorEmpty)
 
           if (!ctx.isEmpty(initExpr.getExpression)) {
-            var lhs = NameExp(ctx.addResourceUri(NameUser(cdefName), cdefUri))
+            var lhs = addprop(NameExp(ctx.addResourceUri(NameUser(cdefName), cdefUri)),
+                URIS.TYPE_URI, typ)
             v(initExpr.getExpression)
             val rhs = ctx.popResult.asInstanceOf[Exp]
             ctx.createPushAssignmentLocation(lhs, rhs, ivectorEmpty, sloc)
@@ -798,6 +821,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       }
       ctx.pushResult(ctx.setDummyReturn(constElems), sloc1)
       false
+    }
   }
 
   def methodH(ctx : Context, v : => BVisitor) : VisitorFunction = {

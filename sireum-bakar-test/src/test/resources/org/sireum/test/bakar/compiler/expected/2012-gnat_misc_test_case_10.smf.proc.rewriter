@@ -1,18 +1,6 @@
 package Test_Case_10;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure P1 (
         Integer I1,
         Integer I2,
@@ -68,4 +56,29 @@ procedure P1 (
 
   #l15.
     return (O1, O2);
-}
+}package Test_Case_10;
+
+
+procedure P1 (
+        Integer I1,
+        Integer I2,
+        Integer I3,
+        Integer O1,
+        Integer O2) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

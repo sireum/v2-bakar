@@ -9,18 +9,6 @@ record Rec {
   Integer B;
 }
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 global Rec @@RG;
 
 procedure Boolean Dummy {
@@ -53,3 +41,30 @@ procedure Del {
   #l6.
     return;
 }
+
+verysimplerecord.ads
+package SimpleRecord;
+
+
+procedure Boolean Dummy {
+
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+

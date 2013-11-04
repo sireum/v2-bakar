@@ -2,18 +2,6 @@ binaryexpressions.adb
 package BinaryExpressions;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Integer X {
 
   #l1.
@@ -177,3 +165,30 @@ procedure Integer Division (
   #l35.
     return r6;
 }
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+binaryexpressions.ads
+package BinaryExpressions;
+
+
+procedure Integer X {
+
+}
+

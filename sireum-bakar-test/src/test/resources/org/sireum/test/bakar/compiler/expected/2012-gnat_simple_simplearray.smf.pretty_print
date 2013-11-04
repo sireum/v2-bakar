@@ -1,10 +1,14 @@
-simplearray.adb
+simplearray.ads
 package SimpleArray;
 
 
-typealias Integer Index;
+procedure Boolean Dummy {
 
-typealias _ARRAY_ Vector;
+}
+
+fake/standard.ads
+package Standard;
+
 
 typealias Boolean standard::boolean;
 
@@ -17,6 +21,16 @@ typealias Integer standard::positive;
 typealias Float standard::float;
 
 typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+simplearray.adb
+package SimpleArray;
+
+
+typealias Integer Index;
+
+typealias _ARRAY_ Vector;
 
 procedure Boolean Dummy {
 
@@ -75,3 +89,4 @@ procedure Integer Max (
   #l15.
     return M;
 }
+

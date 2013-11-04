@@ -1,19 +1,22 @@
 package P_Simple_Call;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
 
 procedure R (
         Integer X) {
@@ -36,10 +39,10 @@ procedure R (
   #rwl3.
     _t3 := C;
 
-  #l1.
+  #l5.
     X := _t2 + _t3;
 
-  #l2.
+  #l6.
     return;
 }
 
@@ -61,8 +64,8 @@ procedure Integer incX (
   #rwl5.
     _t5 := 0ii;
 
-  #l5.
-    if !(_t4 == _t5) then goto l4;
+  #l9.
+    if !(_t4 == _t5) then goto l8;
 
   #rwl6.
     _t6 := X;
@@ -70,13 +73,13 @@ procedure Integer incX (
   #rwl7.
     _t7 := 1ii;
 
-  #l6.
+  #l10.
     result := _t6 + _t7;
 
-  #l7.
-    goto l3;
+  #l11.
+    goto l7;
 
-  #l4.
+  #l8.
     // empty loc
 
   #rwl8.
@@ -85,13 +88,13 @@ procedure Integer incX (
   #rwl9.
     _t9 := 1ii;
 
-  #l8.
+  #l12.
     result := _t8 - _t9;
 
-  #l3.
+  #l7.
     // empty loc
 
-  #l9.
+  #l13.
     return result;
 }
 
@@ -104,10 +107,10 @@ procedure Q (
     FIXME _t11;
 
 
-  #l10.
+  #l14.
     call R (Z);
 
-  #l11.
+  #l15.
     call _tcomp0 := incX (X);
 
   #rwl10.
@@ -116,9 +119,40 @@ procedure Q (
   #rwl11.
     _t11 := _tcomp0;
 
-  #l12.
+  #l16.
     Z := _t10 + _t11;
 
-  #l13.
+  #l17.
     return;
+}package P_Simple_Call;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
 }
+
+procedure R (
+        Integer X) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

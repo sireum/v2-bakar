@@ -24,6 +24,8 @@ import org.sireum.bakar.pilar.BakarPrettyPrinterModule
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
+
+  override def generateExpected = false
     
   override def pipeline =
     PipelineConfiguration(
@@ -49,8 +51,6 @@ class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
         BakarPrettyPrinterModule
       )
     )
-
-  override def generateExpected = false
   
   override def outputSuffix = "pretty_print"
 
@@ -60,6 +60,7 @@ class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
       w.write(x._1)
       w.write("\n")
       w.write(x._2)
+      w.write("\n\n")      
     }
   }
 }

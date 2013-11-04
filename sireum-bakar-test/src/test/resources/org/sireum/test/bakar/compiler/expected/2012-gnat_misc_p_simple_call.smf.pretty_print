@@ -1,5 +1,24 @@
-p_simple_call.adb
+p_simple_call.ads
 package P_Simple_Call;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}
+
+procedure R (
+        Integer X) {
+
+}
+
+fake/standard.ads
+package Standard;
 
 
 typealias Boolean standard::boolean;
@@ -14,15 +33,36 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
+typealias Float universal_real;
+
+p_simple_call.adb
+package P_Simple_Call;
+
+
 global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
 
 procedure R (
         Integer X) {
 
-  #l1.
+  #l5.
     X := Y + @@B + C;
 
-  #l2.
+  #l6.
     return;
 }
 
@@ -32,25 +72,25 @@ procedure Integer incX (
     Integer result;
 
 
-  #l5.
-    if !(X == 0ii) then goto l4;
+  #l9.
+    if !(X == 0ii) then goto l8;
 
-  #l6.
+  #l10.
     result := X + 1ii;
 
-  #l7.
-    goto l3;
-
-  #l4.
-    // empty loc
+  #l11.
+    goto l7;
 
   #l8.
-    result := X - 1ii;
-
-  #l3.
     // empty loc
 
-  #l9.
+  #l12.
+    result := X - 1ii;
+
+  #l7.
+    // empty loc
+
+  #l13.
     return result;
 }
 
@@ -61,15 +101,16 @@ procedure Q (
     FIXME _tcomp0;
 
 
-  #l10.
+  #l14.
     call R (Z);
 
-  #l11.
+  #l15.
     call _tcomp0 := incX (X);
 
-  #l12.
+  #l16.
     Z := Z + _tcomp0;
 
-  #l13.
+  #l17.
     return;
 }
+

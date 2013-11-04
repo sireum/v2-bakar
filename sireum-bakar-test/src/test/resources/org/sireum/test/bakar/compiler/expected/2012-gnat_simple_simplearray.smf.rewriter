@@ -5,18 +5,6 @@ typealias Integer Index;
 
 typealias _ARRAY_ Vector;
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Boolean Dummy {
 
   #l1.
@@ -105,4 +93,24 @@ procedure Integer Max (
 
   #l15.
     return M;
-}
+}package SimpleArray;
+
+
+procedure Boolean Dummy {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

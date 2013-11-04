@@ -1,5 +1,15 @@
-type_conversion.adb
+type_conversion.ads
 package Type_Conversion;
+
+
+procedure Convert (
+        Float Y,
+        Integer X) {
+
+}
+
+fake/standard.ads
+package Standard;
 
 
 typealias Boolean standard::boolean;
@@ -14,6 +24,12 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
+typealias Float universal_real;
+
+type_conversion.adb
+package Type_Conversion;
+
+
 procedure Convert (
         Float Y,
         Integer X) {
@@ -24,3 +40,4 @@ procedure Convert (
   #l2.
     return;
 }
+

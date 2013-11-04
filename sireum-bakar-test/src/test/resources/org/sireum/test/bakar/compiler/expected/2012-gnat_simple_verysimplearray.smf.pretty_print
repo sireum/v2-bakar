@@ -1,12 +1,14 @@
-verysimplearray.adb
+verysimplearray.ads
 package VerySimpleArray;
 
 
-typealias Integer MyInt;
+procedure Boolean Dummy {
 
-typealias Integer Index;
+}
 
-typealias _ARRAY_ Vector;
+fake/standard.ads
+package Standard;
+
 
 typealias Boolean standard::boolean;
 
@@ -19,6 +21,18 @@ typealias Integer standard::positive;
 typealias Float standard::float;
 
 typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+verysimplearray.adb
+package VerySimpleArray;
+
+
+typealias Integer MyInt;
+
+typealias Integer Index;
+
+typealias _ARRAY_ Vector;
 
 global Vector @@V;
 
@@ -52,3 +66,4 @@ procedure Del {
   #l6.
     return;
 }
+

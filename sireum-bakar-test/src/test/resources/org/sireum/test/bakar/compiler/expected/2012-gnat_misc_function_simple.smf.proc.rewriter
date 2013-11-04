@@ -1,6 +1,77 @@
 package Function_Simple;
 
 
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+
+  #l5.
+    return X + Z + Y;
+}
+
+procedure P1 (
+        Integer M,
+        Integer N) {
+  local
+    FIXME _tcomp0;
+
+
+  #l6.
+    call _tcomp0 := F1 (M, N);
+
+  #l7.
+    @@B := _tcomp0;
+
+  #l8.
+    return;
+}
+
+procedure P2 (
+        Integer M,
+        Integer N) {
+  local
+    FIXME _tcomp1;
+
+
+  #l9.
+    call _tcomp1 := F1 (M, N);
+
+  #l10.
+    @@B := _tcomp1 + C;
+
+  #l11.
+    return;
+}package Function_Simple;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+
+}package Standard;
+
+
 typealias Boolean standard::boolean;
 
 typealias Integer standard::integer;
@@ -13,46 +84,4 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
-global Integer @@B;
-
-procedure Integer F1 (
-        Integer X,
-        Integer Z) {
-
-  #l1.
-    return X + Z + Y;
-}
-
-procedure P1 (
-        Integer M,
-        Integer N) {
-  local
-    FIXME _tcomp0;
-
-
-  #l2.
-    call _tcomp0 := F1 (M, N);
-
-  #l3.
-    @@B := _tcomp0;
-
-  #l4.
-    return;
-}
-
-procedure P2 (
-        Integer M,
-        Integer N) {
-  local
-    FIXME _tcomp1;
-
-
-  #l5.
-    call _tcomp1 := F1 (M, N);
-
-  #l6.
-    @@B := _tcomp1 + C;
-
-  #l7.
-    return;
-}
+typealias Float universal_real;

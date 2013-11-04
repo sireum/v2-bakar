@@ -2,18 +2,6 @@ dependence_test_suite_02.adb
 package Dependence_Test_Suite_02;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Success0 (
         Integer O) {
 
@@ -1201,3 +1189,31 @@ procedure Success27 (
   #l303.
     return;
 }
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+dependence_test_suite_02.ads
+package Dependence_Test_Suite_02;
+
+
+procedure Success0 (
+        Integer O) {
+
+}
+

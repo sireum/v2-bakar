@@ -1,18 +1,6 @@
 package ProcedureTest01;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure P (
         Integer a,
         Integer b,
@@ -93,4 +81,40 @@ procedure Q (
 
   #l11.
     return;
+}package ProcedureTest01;
+
+
+procedure P (
+        Integer a,
+        Integer b,
+        Integer c) {
+
 }
+
+procedure helper (
+        Integer x,
+        Integer y) {
+
+}
+
+procedure Q (
+        Integer S,
+        Integer T,
+        Integer R) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

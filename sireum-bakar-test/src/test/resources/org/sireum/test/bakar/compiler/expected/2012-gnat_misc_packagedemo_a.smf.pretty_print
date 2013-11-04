@@ -2,6 +2,31 @@ packagedemo_a.adb
 package PackageDemo_A;
 
 
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + 2ii;
+
+  #l2.
+    return;
+}
+
+packagedemo_a.ads
+package PackageDemo_A;
+
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}
+
+fake/standard.ads
+package Standard;
+
+
 typealias Boolean standard::boolean;
 
 typealias Integer standard::integer;
@@ -14,13 +39,5 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
-procedure Q (
-        Integer X,
-        Integer Z) {
+typealias Float universal_real;
 
-  #l1.
-    Z := X + 2ii;
-
-  #l2.
-    return;
-}

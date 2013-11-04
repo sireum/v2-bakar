@@ -1,19 +1,22 @@
 package P_Refinement;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
 
 procedure Q (
         Integer X,
@@ -29,9 +32,35 @@ procedure Q (
   #rwl1.
     _t1 := @@B;
 
-  #l1.
+  #l5.
     Z := _t0 + _t1;
 
-  #l2.
+  #l6.
     return;
-}
+}package P_Refinement;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

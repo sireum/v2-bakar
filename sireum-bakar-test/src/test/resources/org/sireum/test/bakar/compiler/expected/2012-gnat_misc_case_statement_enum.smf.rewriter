@@ -1,18 +1,6 @@
 package Case_Statement_Enum;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Activity isWorkDay (
         Week d) {
   local
@@ -36,4 +24,35 @@ procedure Activity isWorkDay (
 
   #l6.
     return ret;
-}
+}package Case_Statement_Enum;
+
+
+typealias _ENUMERATION_TYPE_ Week;
+
+typealias Week WeekDay;
+
+typealias WeekDay HumpDay;
+
+typealias Week WeekEnd;
+
+typealias _ENUMERATION_TYPE_ Activity;
+
+procedure Activity isWorkDay (
+        Week d) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

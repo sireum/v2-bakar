@@ -1,18 +1,6 @@
 package Case_Statement_Int;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Activity isWorkDay (
         Integer d) {
   local
@@ -36,4 +24,31 @@ procedure Activity isWorkDay (
 
   #l6.
     return ret;
-}
+}package Case_Statement_Int;
+
+
+typealias _ENUMERATION_TYPE_ Activity;
+
+typealias Integer IntType;
+
+typealias Integer SixType;
+
+procedure Activity isWorkDay (
+        Integer d) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

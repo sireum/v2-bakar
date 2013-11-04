@@ -1,19 +1,22 @@
 package P_Simple_Call_Two;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
 
 procedure R (
         Integer X,
@@ -45,10 +48,10 @@ procedure R (
   #rwl5.
     _t5 := C;
 
-  #l1.
+  #l5.
     Z := _t4 + _t5;
 
-  #l2.
+  #l6.
     return;
 }
 
@@ -60,7 +63,7 @@ procedure Q (
     FIXME _t7;
 
 
-  #l3.
+  #l7.
     call R (X, Z);
 
   #rwl6.
@@ -69,9 +72,41 @@ procedure Q (
   #rwl7.
     _t7 := X;
 
-  #l4.
+  #l8.
     Z := _t6 + _t7;
 
-  #l5.
+  #l9.
     return;
+}package P_Simple_Call_Two;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
 }
+
+procedure R (
+        Integer X,
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

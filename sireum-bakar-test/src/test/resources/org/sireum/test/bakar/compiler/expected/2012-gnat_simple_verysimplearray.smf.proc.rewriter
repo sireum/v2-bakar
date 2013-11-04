@@ -7,18 +7,6 @@ typealias Integer Index;
 
 typealias _ARRAY_ Vector;
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 global Vector @@V;
 
 procedure Boolean Dummy {
@@ -50,4 +38,24 @@ procedure Del {
 
   #l6.
     return;
-}
+}package VerySimpleArray;
+
+
+procedure Boolean Dummy {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

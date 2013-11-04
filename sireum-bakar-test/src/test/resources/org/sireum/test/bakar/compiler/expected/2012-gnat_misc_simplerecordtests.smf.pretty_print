@@ -1,5 +1,26 @@
-simplerecordtests.adb
+simplerecordtests.ads
 package SimpleRecordTests;
+
+
+record Object {
+
+  Float X;
+
+  Float Y;
+}
+
+record NestedObject {
+
+  Object O;
+}
+
+procedure Test01 (
+        Object Q) {
+
+}
+
+fake/standard.ads
+package Standard;
 
 
 typealias Boolean standard::boolean;
@@ -13,6 +34,12 @@ typealias Integer standard::positive;
 typealias Float standard::float;
 
 typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+simplerecordtests.adb
+package SimpleRecordTests;
+
 
 procedure Test01 (
         Object Q) {
@@ -82,3 +109,4 @@ procedure Test03 (
   #l14.
     return;
 }
+
