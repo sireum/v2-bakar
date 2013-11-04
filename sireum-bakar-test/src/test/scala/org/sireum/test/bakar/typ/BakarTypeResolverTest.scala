@@ -19,13 +19,13 @@ import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
 @RunWith(classOf[JUnitRunner])
 class BakarTypeResolverTest extends BakarRewriterTest {
 
+  override def generateExpected = false
+    
   override def excludes = {
     super.excludes ++= Set("recordtest01", "recordtest02", "case",
       "simplerecordtests", "for_loops", "p_refinement",
       "quantifier")
   }
-
-  override def generateExpected = false
 
   override def pipeline =
     PipelineConfiguration(

@@ -115,7 +115,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
             }
           }
 
-        val modLocs = newlocs.map(rewriteCallJumps(_)).flatten
+        val modLocs = newlocs.flatMap(rewriteCallJumps(_))
         val modLocals = locals ++ newTempLocals
 
         cp(pd, ProcedureDecl(procName, a, t, params, None, v, cp(ib, ImplementedBody(modLocals, modLocs, cc))))

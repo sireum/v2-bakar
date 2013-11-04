@@ -159,139 +159,17 @@ typealias _ARRAY_ Vector
       ("""<string sid="1">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>""")
 ;
 
-typealias Boolean standard::boolean
-    @BAKAR_TYPE_DEF
+global Vector @@V
+    @util.loc
 
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::boolean</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">verysimplearray.adb</string>
+         <int>7</int>
+         <int>4</int>
+         <int>7</int>
+         <int>4</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
-
-typealias Integer standard::integer
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::integer</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-;
-
-typealias Integer standard::natural
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::natural</string>
-         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-;
-
-typealias Integer standard::positive
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::positive</string>
-         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-;
-
-typealias Float standard::float
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>standard::float</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-;
-
-typealias Integer universal_integer
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">universal_integer</string>
-         <string sid="2">ada://ordinary_type/universal_integer</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-;
-
-global Vector @@V;
 
 procedure Boolean Dummy
     @BAKAR_REF_URI
@@ -448,10 +326,10 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.SubTypeDecl>
          </entry>
          <entry>
-           <string srefid="6"/>
+           <string sid="9">ada://ordinary_type/universal_real</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="17" size="3">
-             <string sid="9">standard::integer</string>
-             <string srefid="6"/>
+             <string>universal_real</string>
+             <string srefid="9"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="18" size="3">
                <string>myint</string>
                <none/>
@@ -460,10 +338,10 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="10">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <string srefid="6"/>
            <org.sireum.bakar.symbol.FullTypeDecl cid="19" size="3">
-             <string>standard::float</string>
-             <string srefid="10"/>
+             <string sid="10">standard::integer</string>
+             <string srefid="6"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="20" size="3">
                <string>myint</string>
                <none/>
@@ -472,9 +350,9 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="11">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <string sid="11">ada://ordinary_type/Standard-1:1/Float-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="21" size="3">
-             <string sid="12">standard::natural</string>
+             <string>standard::float</string>
              <string srefid="11"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="22" size="3">
                <string>myint</string>
@@ -484,10 +362,10 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="13">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <string sid="12">ada://subtype/Standard-1:1/Natural-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="23" size="3">
-             <string sid="14">standard::boolean</string>
-             <string srefid="13"/>
+             <string sid="13">standard::natural</string>
+             <string srefid="12"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="24" size="3">
                <string>myint</string>
                <none/>
@@ -496,8 +374,20 @@ procedure Boolean Dummy
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="15">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>
-           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="25" size="4">
+           <string sid="14">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="25" size="3">
+             <string sid="15">standard::boolean</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="26" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="16">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="27" size="4">
              <string></string>
              <int>1</int>
              <string srefid="5"/>
@@ -509,11 +399,7 @@ procedure Boolean Dummy
        </mcol.HashMap>""")
  {
 
-  #l1.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>0</int>""")
-  >
+  #l1.
     return true;
 }
 
@@ -528,6 +414,16 @@ procedure Add (
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
                  <__paramMode>IN_OUT</__paramMode>
                </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">verysimplearray.adb</string>
+                 <int>11</int>
+                 <int>18</int>
+                 <int>11</int>
+                 <int>18</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
@@ -683,10 +579,10 @@ procedure Add (
            </org.sireum.bakar.symbol.SubTypeDecl>
          </entry>
          <entry>
-           <string srefid="6"/>
+           <string sid="9">ada://ordinary_type/universal_real</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="17" size="3">
-             <string sid="9">standard::integer</string>
-             <string srefid="6"/>
+             <string>universal_real</string>
+             <string srefid="9"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="18" size="3">
                <string>myint</string>
                <none/>
@@ -695,10 +591,10 @@ procedure Add (
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="10">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <string srefid="6"/>
            <org.sireum.bakar.symbol.FullTypeDecl cid="19" size="3">
-             <string>standard::float</string>
-             <string srefid="10"/>
+             <string sid="10">standard::integer</string>
+             <string srefid="6"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="20" size="3">
                <string>myint</string>
                <none/>
@@ -707,9 +603,9 @@ procedure Add (
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="11">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <string sid="11">ada://ordinary_type/Standard-1:1/Float-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="21" size="3">
-             <string sid="12">standard::natural</string>
+             <string>standard::float</string>
              <string srefid="11"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="22" size="3">
                <string>myint</string>
@@ -719,10 +615,10 @@ procedure Add (
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="13">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <string sid="12">ada://subtype/Standard-1:1/Natural-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="23" size="3">
-             <string sid="14">standard::boolean</string>
-             <string srefid="13"/>
+             <string sid="13">standard::natural</string>
+             <string srefid="12"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="24" size="3">
                <string>myint</string>
                <none/>
@@ -731,8 +627,20 @@ procedure Add (
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="15">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>
-           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="25" size="4">
+           <string sid="14">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="25" size="3">
+             <string sid="15">standard::boolean</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="26" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="16">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="27" size="4">
              <string></string>
              <int>1</int>
              <string srefid="5"/>
@@ -744,18 +652,10 @@ procedure Add (
        </mcol.HashMap>""")
  {
 
-  #l2.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>0</int>""")
-  >
+  #l2.
     X[1ii] := X[2ii];
 
-  #l3.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>1</int>""")
-  >
+  #l3.
     return;
 }
 
@@ -914,10 +814,10 @@ procedure Del
            </org.sireum.bakar.symbol.SubTypeDecl>
          </entry>
          <entry>
-           <string srefid="6"/>
+           <string sid="9">ada://ordinary_type/universal_real</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="17" size="3">
-             <string sid="9">standard::integer</string>
-             <string srefid="6"/>
+             <string>universal_real</string>
+             <string srefid="9"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="18" size="3">
                <string>myint</string>
                <none/>
@@ -926,10 +826,10 @@ procedure Del
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="10">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <string srefid="6"/>
            <org.sireum.bakar.symbol.FullTypeDecl cid="19" size="3">
-             <string>standard::float</string>
-             <string srefid="10"/>
+             <string sid="10">standard::integer</string>
+             <string srefid="6"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="20" size="3">
                <string>myint</string>
                <none/>
@@ -938,9 +838,9 @@ procedure Del
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="11">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <string sid="11">ada://ordinary_type/Standard-1:1/Float-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="21" size="3">
-             <string sid="12">standard::natural</string>
+             <string>standard::float</string>
              <string srefid="11"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="22" size="3">
                <string>myint</string>
@@ -950,10 +850,10 @@ procedure Del
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="13">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <string sid="12">ada://subtype/Standard-1:1/Natural-1:1</string>
            <org.sireum.bakar.symbol.FullTypeDecl cid="23" size="3">
-             <string sid="14">standard::boolean</string>
-             <string srefid="13"/>
+             <string sid="13">standard::natural</string>
+             <string srefid="12"/>
              <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="24" size="3">
                <string>myint</string>
                <none/>
@@ -962,8 +862,20 @@ procedure Del
            </org.sireum.bakar.symbol.FullTypeDecl>
          </entry>
          <entry>
-           <string sid="15">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>
-           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="25" size="4">
+           <string sid="14">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="25" size="3">
+             <string sid="15">standard::boolean</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="26" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="16">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="27" size="4">
              <string></string>
              <int>1</int>
              <string srefid="5"/>
@@ -975,16 +887,22 @@ procedure Del
        </mcol.HashMap>""")
  {
   local
-    Integer T;
+    Integer T
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">verysimplearray.adb</string>
+             <int>17</int>
+             <int>6</int>
+             <int>17</int>
+             <int>6</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
     FIXME _t0;
     FIXME _t1;
 
 
-  #l4.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>0</int>""")
-  >
+  #l4.
     T := @@V[1ii];
 
   #rwl0.
@@ -993,17 +911,395 @@ procedure Del
   #rwl1.
     _t1 := @@V[3ii];
 
-  #l5.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>1</int>""")
-  >
+  #l5.
     @@V[2ii] := _t0 + _t1;
 
-  #l6.<
-      @org.sireum.pilar.ast.LocationDecl
-
-        ("""<int>2</int>""")
-  >
+  #l6.
     return;
-}
+}package VerySimpleArray;
+
+
+procedure Boolean Dummy
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/VerySimpleArray-1:9/Dummy-3:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">verysimplearray.ads</string>
+         <int>3</int>
+         <int>4</int>
+         <int>3</int>
+         <int>33</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+             <string sid="2">standard::positive</string>
+             <string srefid="1"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="3">ada://ordinary_type/universal_integer</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
+             <string sid="4">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="5">ada://subtype/VerySimpleArray-1:9/MyInt+3:12</string>
+           <org.sireum.bakar.symbol.SubTypeDecl cid="5" size="4">
+             <string>MyInt</string>
+             <string srefid="5"/>
+             <string sid="6">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+             <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="6" size="2">
+               <org.sireum.pilar.ast.LiteralExp cid="7" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>10</bigInteger>
+                 </scala.math.BigInt>
+                 <string>10ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="3"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                       <string sid="7">verysimplearray.adb</string>
+                       <int>3</int>
+                       <int>35</int>
+                       <int>3</int>
+                       <int>36</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+               <org.sireum.pilar.ast.LiteralExp cid="9" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>20</bigInteger>
+                 </scala.math.BigInt>
+                 <string>20ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="3"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="10" size="5">
+                       <string srefid="7"/>
+                       <int>3</int>
+                       <int>42</int>
+                       <int>3</int>
+                       <int>43</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+             </some>
+           </org.sireum.bakar.symbol.SubTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/VerySimpleArray-1:9/Index+4:12</string>
+           <org.sireum.bakar.symbol.SubTypeDecl cid="11" size="4">
+             <string>Index</string>
+             <string srefid="8"/>
+             <string srefid="6"/>
+             <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="12" size="2">
+               <org.sireum.pilar.ast.LiteralExp cid="13" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>1</bigInteger>
+                 </scala.math.BigInt>
+                 <string>1ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="3"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="14" size="5">
+                       <string srefid="7"/>
+                       <int>4</int>
+                       <int>35</int>
+                       <int>4</int>
+                       <int>35</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+               <org.sireum.pilar.ast.LiteralExp cid="15" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>5</bigInteger>
+                 </scala.math.BigInt>
+                 <string>5ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="3"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="16" size="5">
+                       <string srefid="7"/>
+                       <int>4</int>
+                       <int>40</int>
+                       <int>4</int>
+                       <int>40</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+             </some>
+           </org.sireum.bakar.symbol.SubTypeDecl>
+         </entry>
+         <entry>
+           <string sid="9">ada://ordinary_type/universal_real</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="17" size="3">
+             <string>universal_real</string>
+             <string srefid="9"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="18" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="6"/>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="19" size="3">
+             <string sid="10">standard::integer</string>
+             <string srefid="6"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="20" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="11">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="21" size="3">
+             <string>standard::float</string>
+             <string srefid="11"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="22" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="12">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="23" size="3">
+             <string sid="13">standard::natural</string>
+             <string srefid="12"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="24" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="14">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="25" size="3">
+             <string sid="15">standard::boolean</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="26" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="16">ada://ordinary_type/VerySimpleArray-1:9/Vector+5:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="27" size="4">
+             <string></string>
+             <int>1</int>
+             <string srefid="5"/>
+             <ivector ttype="ivector">
+               <string srefid="8"/>
+             </ivector>
+           </org.sireum.bakar.symbol.ConstrainedArrayDef>
+         </entry>
+       </mcol.HashMap>""")
+ {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::boolean</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
+
+typealias Integer standard::integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::integer</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
+
+typealias Integer standard::natural
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::natural</string>
+         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer standard::positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::positive</string>
+         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float standard::float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>standard::float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias Integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+typealias Float universal_real
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>universal_real</string>
+         <string sid="1">ada://ordinary_type/universal_real</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
