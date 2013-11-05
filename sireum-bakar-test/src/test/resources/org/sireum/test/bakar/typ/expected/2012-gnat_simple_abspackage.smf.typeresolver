@@ -1,11 +1,11 @@
-ada://variable_temp/AbsPackage/AbsFunc/_t5 -> ada://ordinary_type/universal_integer
-ada://variable_temp/AbsPackage/AbsFunc/_t1 -> ada://ordinary_type/universal_integer
-ada://variable_temp/AbsPackage/AbsFunc/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/AbsPackage/AbsFunc/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/AbsPackage/AbsFunc/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/AbsPackage/AbsFunc/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable/AbsPackage-1:9/AbsFunc-2:14/r+4:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/AbsPackage-1:9/AbsFunc-2:14/r+4:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t1 -> ada://ordinary_type/universal_integer
+ada://variable_temp/AbsPackage/AbsFunc/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/AbsPackage/AbsFunc/_t5 -> ada://ordinary_type/universal_integer
 package AbsPackage;
 
 

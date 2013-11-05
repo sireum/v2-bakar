@@ -1,6 +1,6 @@
 ada://parameter/PackageDemo_A-1:9/Q-2:13/X-2:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/PackageDemo_A/Q/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/PackageDemo_A-1:9/Q-2:13/Z-2:30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/PackageDemo_A/Q/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/PackageDemo_A/Q/_t1 -> ada://ordinary_type/universal_integer
 package PackageDemo_A;
 

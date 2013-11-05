@@ -606,7 +606,7 @@ global Vector @@A;
 procedure $$sinit {
 
   #l102.
-    @@A := 1ii;
+    @@A := 11111ii;
 
   #l103.
     return;

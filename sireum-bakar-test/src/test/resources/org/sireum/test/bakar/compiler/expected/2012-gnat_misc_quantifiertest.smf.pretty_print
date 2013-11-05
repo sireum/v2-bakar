@@ -5,7 +5,7 @@ package QuantifierTest;
 procedure $$binit {
 
   #l1.
-    V := 0ii;
+    V := 11111ii;
 
   #l2.
     return;

@@ -32,8 +32,15 @@ object URIS {
   }
 }
 
+object VariableURIs {
+  val tempVarPrefix = "ada://variable__temp/"
+}
+
 object PackageURIs {
-  val initProcedureURIprefix = "ada://procedure/__init/" 
+  val standardPackageURI = "ada://package__default/standard"
+    
+  val initBodyProcedureURIprefix = "ada://procedure_body__package_init/" 
+  val initSpecProcedureURIprefix = "ada://procedure__package_init/" 
 }
 
 object Attribute {
@@ -44,7 +51,7 @@ object Attribute {
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
 
-  val attributeURIprefix = "ada://procedure/__uif/"
+  val attributeURIprefix = "ada://procedure__uif/"
 }
 
 object StandardURIs {

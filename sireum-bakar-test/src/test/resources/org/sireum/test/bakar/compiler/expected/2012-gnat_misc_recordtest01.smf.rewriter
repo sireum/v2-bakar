@@ -4,10 +4,10 @@ package RecordTest01;
 procedure $$binit {
 
   #l1.
-    anObject := 2ii;
+    anObject := 11111ii;
 
   #l2.
-    aNestedObject := 2ii;
+    aNestedObject := 11111ii;
 
   #l3.
     return;

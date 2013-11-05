@@ -1,16 +1,16 @@
-ada://variable_temp/SimpleArray/Max/_t0 -> ada://subtype/SimpleArray-1:9/Index+3:12
-ada://variable_temp/SimpleArray/Max/_t7 -> ada://ordinary_type/universal_integer
 ada://loop_parameter/SimpleArray-1:9/Max+8:13/I+12:11 -> ada://subtype/SimpleArray-1:9/Index+3:12
-ada://variable_temp/SimpleArray/Max/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/Max/SimpleArray/_tcomp0 -> ada://subtype/SimpleArray-1:9/Index+3:12
-ada://variable_temp/Max/SimpleArray/_tcomp1 -> ada://subtype/SimpleArray-1:9/Index+3:12
-ada://variable_temp/SimpleArray/Max/_t2 -> ada://subtype/SimpleArray-1:9/Index+3:12
-ada://variable/SimpleArray-1:9/Max+8:13/M+9:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/SimpleArray/Max/_t5 -> ada://subtype/SimpleArray-1:9/Index+3:12
 ada://parameter/SimpleArray-1:9/Max+8:13/V+8:18 -> ada://ordinary_type/SimpleArray-1:9/Vector+4:9
+ada://variable/SimpleArray-1:9/Max+8:13/M+9:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/Max/SimpleArray/_tcomp0 -> ada://subtype/SimpleArray-1:9/Index+3:12
+ada://variable__temp/Max/SimpleArray/_tcomp1 -> ada://subtype/SimpleArray-1:9/Index+3:12
+ada://variable_temp/SimpleArray/Max/_t0 -> ada://subtype/SimpleArray-1:9/Index+3:12
 ada://variable_temp/SimpleArray/Max/_t1 -> ada://subtype/SimpleArray-1:9/Index+3:12
-ada://variable_temp/SimpleArray/Max/_t6 -> ada://subtype/SimpleArray-1:9/Index+3:12
+ada://variable_temp/SimpleArray/Max/_t2 -> ada://subtype/SimpleArray-1:9/Index+3:12
+ada://variable_temp/SimpleArray/Max/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/SimpleArray/Max/_t4 -> ada://subtype/SimpleArray-1:9/Index+3:12
+ada://variable_temp/SimpleArray/Max/_t5 -> ada://subtype/SimpleArray-1:9/Index+3:12
+ada://variable_temp/SimpleArray/Max/_t6 -> ada://subtype/SimpleArray-1:9/Index+3:12
+ada://variable_temp/SimpleArray/Max/_t7 -> ada://ordinary_type/universal_integer
 package SimpleArray;
 
 

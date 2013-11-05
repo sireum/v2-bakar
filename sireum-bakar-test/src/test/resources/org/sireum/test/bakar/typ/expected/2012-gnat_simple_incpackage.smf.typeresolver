@@ -1,9 +1,9 @@
-ada://variable_temp/IncPackage/Inc/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/IncPackage/Inc/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/IncPackage-1:9/Inc-2:13/X-2:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/IncPackage-1:9/Inc-2:13/R+4:6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/IncPackage/Inc/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/IncPackage/Inc/_t1 -> ada://ordinary_type/universal_integer
 ada://variable_temp/IncPackage/Inc/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/IncPackage/Inc/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 package IncPackage;
 
 
