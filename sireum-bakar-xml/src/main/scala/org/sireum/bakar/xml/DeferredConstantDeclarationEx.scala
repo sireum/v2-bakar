@@ -9,7 +9,8 @@ object DeferredConstantDeclarationEx {
       o.getNamesQl(),
       o.getHasAliasedQ(),
       o.getObjectDeclarationViewQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

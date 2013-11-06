@@ -8,7 +8,8 @@ object DerivedTypeDefinitionEx {
       o.getSloc(),
       o.getHasAbstractQ(),
       o.getHasLimitedQ(),
-      o.getParentSubtypeIndicationQ()
+      o.getParentSubtypeIndicationQ(),
+      o.getChecks()
     )
   }
 }

@@ -5,7 +5,8 @@ import org.sireum.util._
 object TaggedEx {
   def unapply(o : org.sireum.bakar.xml.Tagged) = {
     Some(
-      o.getSloc()
+      o.getSloc(),
+      o.getChecks()
     )
   }
 }

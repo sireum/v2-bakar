@@ -6,7 +6,8 @@ object FormalTaskInterfaceEx {
   def unapply(o : org.sireum.bakar.xml.FormalTaskInterface) = {
     Some(
       o.getSloc(),
-      o.getDefinitionInterfaceListQl()
+      o.getDefinitionInterfaceListQl(),
+      o.getChecks()
     )
   }
 }

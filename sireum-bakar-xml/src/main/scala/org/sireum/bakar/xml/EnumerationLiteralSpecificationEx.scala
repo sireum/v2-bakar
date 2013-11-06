@@ -6,7 +6,8 @@ object EnumerationLiteralSpecificationEx {
   def unapply(o : org.sireum.bakar.xml.EnumerationLiteralSpecification) = {
     Some(
       o.getSloc(),
-      o.getNamesQl()
+      o.getNamesQl(),
+      o.getChecks()
     )
   }
 }

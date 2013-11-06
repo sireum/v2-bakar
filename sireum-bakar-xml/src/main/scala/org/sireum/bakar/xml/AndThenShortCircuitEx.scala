@@ -8,7 +8,8 @@ object AndThenShortCircuitEx {
       o.getSloc(),
       o.getShortCircuitOperationLeftExpressionQ(),
       o.getShortCircuitOperationRightExpressionQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

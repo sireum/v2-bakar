@@ -3,6 +3,7 @@ package org.sireum.bakar.xml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -21,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="names_ql" type="{}Defining_Name_List"/>
  *         &lt;element name="specification_subtype_definition_q" type="{}Discrete_Subtype_Definition_Class"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="checks" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -44,6 +46,8 @@ public class EntryIndexSpecification
     protected DefiningNameList namesQl;
     @XmlElement(name = "specification_subtype_definition_q", required = true)
     protected DiscreteSubtypeDefinitionClass specificationSubtypeDefinitionQ;
+    @XmlAttribute(name = "checks")
+    protected String checks;
 
     /**
      * Gets the value of the sloc property.
@@ -115,6 +119,30 @@ public class EntryIndexSpecification
      */
     public void setSpecificationSubtypeDefinitionQ(DiscreteSubtypeDefinitionClass value) {
         this.specificationSubtypeDefinitionQ = value;
+    }
+
+    /**
+     * Gets the value of the checks property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChecks() {
+        return checks;
+    }
+
+    /**
+     * Sets the value of the checks property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChecks(String value) {
+        this.checks = value;
     }
 
 }

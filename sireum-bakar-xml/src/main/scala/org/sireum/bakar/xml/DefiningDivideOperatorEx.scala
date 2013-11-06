@@ -8,7 +8,8 @@ object DefiningDivideOperatorEx {
       o.getSloc(),
       o.getDefName(),
       o.getDef(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

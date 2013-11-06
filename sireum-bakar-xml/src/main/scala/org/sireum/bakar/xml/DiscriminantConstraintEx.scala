@@ -6,7 +6,8 @@ object DiscriminantConstraintEx {
   def unapply(o : org.sireum.bakar.xml.DiscriminantConstraint) = {
     Some(
       o.getSloc(),
-      o.getDiscriminantAssociationsQl()
+      o.getDiscriminantAssociationsQl(),
+      o.getChecks()
     )
   }
 }

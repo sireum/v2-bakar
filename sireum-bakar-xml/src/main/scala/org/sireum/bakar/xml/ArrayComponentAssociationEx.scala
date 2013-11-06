@@ -7,7 +7,8 @@ object ArrayComponentAssociationEx {
     Some(
       o.getSloc(),
       o.getArrayComponentChoicesQl(),
-      o.getComponentExpressionQ()
+      o.getComponentExpressionQ(),
+      o.getChecks()
     )
   }
 }

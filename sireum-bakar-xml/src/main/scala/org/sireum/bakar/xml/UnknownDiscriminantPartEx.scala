@@ -5,7 +5,8 @@ import org.sireum.util._
 object UnknownDiscriminantPartEx {
   def unapply(o : org.sireum.bakar.xml.UnknownDiscriminantPart) = {
     Some(
-      o.getSloc()
+      o.getSloc(),
+      o.getChecks()
     )
   }
 }

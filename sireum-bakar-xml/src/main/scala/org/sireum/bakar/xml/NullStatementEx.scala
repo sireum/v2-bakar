@@ -6,7 +6,8 @@ object NullStatementEx {
   def unapply(o : org.sireum.bakar.xml.NullStatement) = {
     Some(
       o.getSloc(),
-      o.getLabelNamesQl()
+      o.getLabelNamesQl(),
+      o.getChecks()
     )
   }
 }

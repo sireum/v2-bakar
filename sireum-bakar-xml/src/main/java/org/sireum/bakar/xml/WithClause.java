@@ -3,6 +3,7 @@ package org.sireum.bakar.xml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
@@ -45,6 +46,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;/element>
  *         &lt;element name="clause_names_ql" type="{}Name_List"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="checks" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -71,6 +73,8 @@ public class WithClause
     protected WithClause.HasPrivateQ hasPrivateQ;
     @XmlElement(name = "clause_names_ql", required = true)
     protected NameList clauseNamesQl;
+    @XmlAttribute(name = "checks")
+    protected String checks;
 
     /**
      * Gets the value of the sloc property.
@@ -166,6 +170,30 @@ public class WithClause
      */
     public void setClauseNamesQl(NameList value) {
         this.clauseNamesQl = value;
+    }
+
+    /**
+     * Gets the value of the checks property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChecks() {
+        return checks;
+    }
+
+    /**
+     * Sets the value of the checks property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChecks(String value) {
+        this.checks = value;
     }
 
 

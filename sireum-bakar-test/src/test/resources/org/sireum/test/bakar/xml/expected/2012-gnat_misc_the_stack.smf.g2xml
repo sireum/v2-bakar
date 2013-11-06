@@ -937,6 +937,7 @@ the_stack.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</type>
+                      <checks>do_range_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -981,6 +982,7 @@ the_stack.adb
                             <refName>Pointer</refName>
                             <ref>ada://variable/The_Stack-1:9/Pointer+11:4</ref>
                             <type>ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</type>
+                            <checks>do_range_check</checks>
                           </org.sireum.bakar.xml.Identifier>
                         </expressions>
                       </indexExpressionsQl>
@@ -1177,6 +1179,7 @@ the_stack.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_range_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -1355,6 +1358,7 @@ the_stack.adb
                             <refName>Pointer</refName>
                             <ref>ada://variable/The_Stack-1:9/Pointer+11:4</ref>
                             <type>ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</type>
+                            <checks>do_range_check</checks>
                           </org.sireum.bakar.xml.Identifier>
                         </expressions>
                       </indexExpressionsQl>
@@ -1490,6 +1494,7 @@ the_stack.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</type>
+                      <checks>do_range_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -1669,6 +1674,7 @@ the_stack.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_range_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>

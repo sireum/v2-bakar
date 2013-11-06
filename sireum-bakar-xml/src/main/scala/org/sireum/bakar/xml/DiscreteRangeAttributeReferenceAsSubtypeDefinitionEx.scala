@@ -6,7 +6,8 @@ object DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx {
   def unapply(o : org.sireum.bakar.xml.DiscreteRangeAttributeReferenceAsSubtypeDefinition) = {
     Some(
       o.getSloc(),
-      o.getRangeAttributeQ()
+      o.getRangeAttributeQ(),
+      o.getChecks()
     )
   }
 }

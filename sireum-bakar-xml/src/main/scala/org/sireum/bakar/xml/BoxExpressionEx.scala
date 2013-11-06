@@ -6,7 +6,8 @@ object BoxExpressionEx {
   def unapply(o : org.sireum.bakar.xml.BoxExpression) = {
     Some(
       o.getSloc(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

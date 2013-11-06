@@ -10,7 +10,8 @@ object ProcedureBodyStubEx {
       o.getIsNotOverridingDeclarationQ(),
       o.getNamesQl(),
       o.getParameterProfileQl(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

@@ -7,7 +7,8 @@ object CodeStatementEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getQualifiedExpressionQ()
+      o.getQualifiedExpressionQ(),
+      o.getChecks()
     )
   }
 }

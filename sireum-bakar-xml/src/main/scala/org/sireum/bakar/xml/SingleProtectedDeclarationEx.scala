@@ -9,7 +9,8 @@ object SingleProtectedDeclarationEx {
       o.getNamesQl(),
       o.getAspectSpecificationsQl(),
       o.getDeclarationInterfaceListQl(),
-      o.getObjectDeclarationViewQ()
+      o.getObjectDeclarationViewQ(),
+      o.getChecks()
     )
   }
 }

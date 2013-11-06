@@ -10,7 +10,8 @@ object GenericPackageDeclarationEx {
       o.getNamesQl(),
       o.getAspectSpecificationsQl(),
       o.getVisiblePartDeclarativeItemsQl(),
-      o.getPrivatePartDeclarativeItemsQl()
+      o.getPrivatePartDeclarativeItemsQl(),
+      o.getChecks()
     )
   }
 }

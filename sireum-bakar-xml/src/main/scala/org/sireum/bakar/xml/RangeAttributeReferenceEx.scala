@@ -6,7 +6,8 @@ object RangeAttributeReferenceEx {
   def unapply(o : org.sireum.bakar.xml.RangeAttributeReference) = {
     Some(
       o.getSloc(),
-      o.getRangeAttributeQ()
+      o.getRangeAttributeQ(),
+      o.getChecks()
     )
   }
 }

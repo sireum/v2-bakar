@@ -8,7 +8,8 @@ object SubtypeDeclarationEx {
       o.getSloc(),
       o.getNamesQl(),
       o.getTypeDeclarationViewQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

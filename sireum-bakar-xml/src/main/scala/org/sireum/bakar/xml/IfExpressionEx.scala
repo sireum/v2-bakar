@@ -7,7 +7,8 @@ object IfExpressionEx {
     Some(
       o.getSloc(),
       o.getExpressionPathsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

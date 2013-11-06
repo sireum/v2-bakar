@@ -10,7 +10,8 @@ object ProtectedTypeDeclarationEx {
       o.getDiscriminantPartQ(),
       o.getAspectSpecificationsQl(),
       o.getDeclarationInterfaceListQl(),
-      o.getTypeDeclarationViewQ()
+      o.getTypeDeclarationViewQ(),
+      o.getChecks()
     )
   }
 }

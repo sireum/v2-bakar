@@ -7,7 +7,8 @@ object ComponentDefinitionEx {
     Some(
       o.getSloc(),
       o.getHasAliasedQ(),
-      o.getComponentDefinitionViewQ()
+      o.getComponentDefinitionViewQ(),
+      o.getChecks()
     )
   }
 }

@@ -9,7 +9,8 @@ object WhileLoopStatementEx {
       o.getLabelNamesQl(),
       o.getStatementIdentifierQ(),
       o.getWhileConditionQ(),
-      o.getLoopStatementsQl()
+      o.getLoopStatementsQl(),
+      o.getChecks()
     )
   }
 }

@@ -9,7 +9,8 @@ object AnonymousAccessToProtectedFunctionEx {
       o.getHasNullExclusionQ(),
       o.getAccessToSubprogramParameterProfileQl(),
       o.getIsNotNullReturnQ(),
-      o.getAccessToFunctionResultProfileQ()
+      o.getAccessToFunctionResultProfileQ(),
+      o.getChecks()
     )
   }
 }

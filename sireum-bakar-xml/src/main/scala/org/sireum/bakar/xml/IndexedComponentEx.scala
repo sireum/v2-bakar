@@ -8,7 +8,8 @@ object IndexedComponentEx {
       o.getSloc(),
       o.getPrefixQ(),
       o.getIndexExpressionsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

@@ -7,7 +7,8 @@ object RecordComponentAssociationEx {
     Some(
       o.getSloc(),
       o.getRecordComponentChoicesQl(),
-      o.getComponentExpressionQ()
+      o.getComponentExpressionQ(),
+      o.getChecks()
     )
   }
 }

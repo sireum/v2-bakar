@@ -8,7 +8,8 @@ object DefiningRemOperatorEx {
       o.getSloc(),
       o.getDefName(),
       o.getDef(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

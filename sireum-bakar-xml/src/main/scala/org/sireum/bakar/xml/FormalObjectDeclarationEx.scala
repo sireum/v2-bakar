@@ -11,7 +11,8 @@ object FormalObjectDeclarationEx {
       o.getObjectDeclarationViewQ(),
       o.getInitializationExpressionQ(),
       o.getAspectSpecificationsQl(),
-      o.getMode()
+      o.getMode(),
+      o.getChecks()
     )
   }
 }

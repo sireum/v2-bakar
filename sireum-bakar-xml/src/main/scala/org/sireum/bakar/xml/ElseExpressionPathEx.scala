@@ -6,7 +6,8 @@ object ElseExpressionPathEx {
   def unapply(o : org.sireum.bakar.xml.ElseExpressionPath) = {
     Some(
       o.getSloc(),
-      o.getDependentExpressionQ()
+      o.getDependentExpressionQ(),
+      o.getChecks()
     )
   }
 }

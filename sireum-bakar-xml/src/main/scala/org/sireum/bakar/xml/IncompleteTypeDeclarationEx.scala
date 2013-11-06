@@ -8,7 +8,8 @@ object IncompleteTypeDeclarationEx {
       o.getSloc(),
       o.getNamesQl(),
       o.getDiscriminantPartQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

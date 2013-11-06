@@ -8,7 +8,8 @@ object ModelAttributeEx {
       o.getSloc(),
       o.getPrefixQ(),
       o.getAttributeDesignatorIdentifierQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

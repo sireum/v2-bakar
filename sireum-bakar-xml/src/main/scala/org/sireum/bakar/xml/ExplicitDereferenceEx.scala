@@ -7,7 +7,8 @@ object ExplicitDereferenceEx {
     Some(
       o.getSloc(),
       o.getPrefixQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

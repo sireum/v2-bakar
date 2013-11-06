@@ -10,7 +10,8 @@ object FormalProcedureDeclarationEx {
       o.getParameterProfileQl(),
       o.getFormalSubprogramDefaultQ(),
       o.getHasAbstractQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

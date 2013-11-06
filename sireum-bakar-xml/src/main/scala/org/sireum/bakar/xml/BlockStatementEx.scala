@@ -10,7 +10,8 @@ object BlockStatementEx {
       o.getStatementIdentifierQ(),
       o.getBlockDeclarativeItemsQl(),
       o.getBlockStatementsQl(),
-      o.getBlockExceptionHandlersQl()
+      o.getBlockExceptionHandlersQl(),
+      o.getChecks()
     )
   }
 }

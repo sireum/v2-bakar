@@ -9,7 +9,8 @@ object OrdinaryTypeDeclarationEx {
       o.getNamesQl(),
       o.getDiscriminantPartQ(),
       o.getTypeDeclarationViewQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

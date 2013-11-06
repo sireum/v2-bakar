@@ -8,7 +8,8 @@ object ForAllQuantifiedExpressionEx {
       o.getSloc(),
       o.getIteratorSpecificationQ(),
       o.getPredicateQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

@@ -7,7 +7,8 @@ object ParenthesizedExpressionEx {
     Some(
       o.getSloc(),
       o.getExpressionParenthesizedQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

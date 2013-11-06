@@ -7,7 +7,8 @@ object EntryIndexSpecificationEx {
     Some(
       o.getSloc(),
       o.getNamesQl(),
-      o.getSpecificationSubtypeDefinitionQ()
+      o.getSpecificationSubtypeDefinitionQ(),
+      o.getChecks()
     )
   }
 }

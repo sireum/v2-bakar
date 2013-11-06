@@ -8,7 +8,8 @@ object SelectedComponentEx {
       o.getSloc(),
       o.getPrefixQ(),
       o.getSelectorQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

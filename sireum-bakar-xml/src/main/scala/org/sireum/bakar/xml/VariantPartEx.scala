@@ -7,7 +7,8 @@ object VariantPartEx {
     Some(
       o.getSloc(),
       o.getDiscriminantDirectNameQ(),
-      o.getVariantsQl()
+      o.getVariantsQl(),
+      o.getChecks()
     )
   }
 }

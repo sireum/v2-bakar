@@ -9,7 +9,8 @@ object FormalIncompleteTypeDeclarationEx {
       o.getNamesQl(),
       o.getDiscriminantPartQ(),
       o.getHasTaggedQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

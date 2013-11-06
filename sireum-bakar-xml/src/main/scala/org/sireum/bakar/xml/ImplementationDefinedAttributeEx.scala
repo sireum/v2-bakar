@@ -9,7 +9,8 @@ object ImplementationDefinedAttributeEx {
       o.getPrefixQ(),
       o.getAttributeDesignatorIdentifierQ(),
       o.getAttributeDesignatorExpressionsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

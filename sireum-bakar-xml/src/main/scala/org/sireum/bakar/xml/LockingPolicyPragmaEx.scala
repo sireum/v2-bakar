@@ -7,7 +7,8 @@ object LockingPolicyPragmaEx {
     Some(
       o.getSloc(),
       o.getPragmaArgumentAssociationsQl(),
-      o.getPragmaName()
+      o.getPragmaName(),
+      o.getChecks()
     )
   }
 }

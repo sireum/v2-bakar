@@ -7,7 +7,8 @@ object PositionalArrayAggregateEx {
     Some(
       o.getSloc(),
       o.getArrayComponentAssociationsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

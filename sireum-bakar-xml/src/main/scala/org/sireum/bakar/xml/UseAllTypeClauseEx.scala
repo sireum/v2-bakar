@@ -6,7 +6,8 @@ object UseAllTypeClauseEx {
   def unapply(o : org.sireum.bakar.xml.UseAllTypeClause) = {
     Some(
       o.getSloc(),
-      o.getClauseNamesQl()
+      o.getClauseNamesQl(),
+      o.getChecks()
     )
   }
 }

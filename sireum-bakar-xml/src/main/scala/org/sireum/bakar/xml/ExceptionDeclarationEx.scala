@@ -7,7 +7,8 @@ object ExceptionDeclarationEx {
     Some(
       o.getSloc(),
       o.getNamesQl(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

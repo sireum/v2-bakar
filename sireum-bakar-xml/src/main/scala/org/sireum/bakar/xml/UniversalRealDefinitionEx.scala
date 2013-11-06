@@ -5,7 +5,8 @@ import org.sireum.util._
 object UniversalRealDefinitionEx {
   def unapply(o : org.sireum.bakar.xml.UniversalRealDefinition) = {
     Some(
-      o.getSloc()
+      o.getSloc(),
+      o.getChecks()
     )
   }
 }

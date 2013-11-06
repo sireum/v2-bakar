@@ -9,7 +9,8 @@ object ElementIteratorSpecificationEx {
       o.getNamesQl(),
       o.getSubtypeIndicationQ(),
       o.getHasReverseQ(),
-      o.getIterationSchemeNameQ()
+      o.getIterationSchemeNameQ(),
+      o.getChecks()
     )
   }
 }

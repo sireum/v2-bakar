@@ -7,7 +7,8 @@ object DelayUntilStatementEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getDelayExpressionQ()
+      o.getDelayExpressionQ(),
+      o.getChecks()
     )
   }
 }

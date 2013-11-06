@@ -9,7 +9,8 @@ object DiscriminantSpecificationEx {
       o.getNamesQl(),
       o.getHasNullExclusionQ(),
       o.getObjectDeclarationViewQ(),
-      o.getInitializationExpressionQ()
+      o.getInitializationExpressionQ(),
+      o.getChecks()
     )
   }
 }

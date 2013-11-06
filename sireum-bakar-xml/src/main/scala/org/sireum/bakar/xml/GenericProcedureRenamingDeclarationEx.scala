@@ -8,7 +8,8 @@ object GenericProcedureRenamingDeclarationEx {
       o.getSloc(),
       o.getNamesQl(),
       o.getRenamedEntityQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

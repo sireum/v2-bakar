@@ -8,7 +8,8 @@ object ExceptionHandlerEx {
       o.getSloc(),
       o.getChoiceParameterSpecificationQ(),
       o.getExceptionChoicesQl(),
-      o.getHandlerStatementsQl()
+      o.getHandlerStatementsQl(),
+      o.getChecks()
     )
   }
 }

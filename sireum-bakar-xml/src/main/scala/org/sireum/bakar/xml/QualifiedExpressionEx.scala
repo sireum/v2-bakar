@@ -8,7 +8,8 @@ object QualifiedExpressionEx {
       o.getSloc(),
       o.getConvertedOrQualifiedSubtypeMarkQ(),
       o.getConvertedOrQualifiedExpressionQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

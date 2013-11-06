@@ -8,7 +8,8 @@ object ExtensionAggregateEx {
       o.getSloc(),
       o.getExtensionAggregateExpressionQ(),
       o.getRecordComponentAssociationsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

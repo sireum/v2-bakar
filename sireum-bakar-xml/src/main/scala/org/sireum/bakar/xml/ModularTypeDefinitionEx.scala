@@ -6,7 +6,8 @@ object ModularTypeDefinitionEx {
   def unapply(o : org.sireum.bakar.xml.ModularTypeDefinition) = {
     Some(
       o.getSloc(),
-      o.getModStaticExpressionQ()
+      o.getModStaticExpressionQ(),
+      o.getChecks()
     )
   }
 }

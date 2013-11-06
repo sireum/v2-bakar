@@ -7,7 +7,8 @@ object ElsifExpressionPathEx {
     Some(
       o.getSloc(),
       o.getConditionExpressionQ(),
-      o.getDependentExpressionQ()
+      o.getDependentExpressionQ(),
+      o.getChecks()
     )
   }
 }

@@ -11,7 +11,8 @@ object FormalDerivedTypeDefinitionEx {
       o.getHasSynchronizedQ(),
       o.getSubtypeMarkQ(),
       o.getDefinitionInterfaceListQl(),
-      o.getHasPrivateQ()
+      o.getHasPrivateQ(),
+      o.getChecks()
     )
   }
 }

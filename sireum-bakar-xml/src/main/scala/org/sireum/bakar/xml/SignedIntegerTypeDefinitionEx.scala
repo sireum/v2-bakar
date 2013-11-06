@@ -6,7 +6,8 @@ object SignedIntegerTypeDefinitionEx {
   def unapply(o : org.sireum.bakar.xml.SignedIntegerTypeDefinition) = {
     Some(
       o.getSloc(),
-      o.getIntegerConstraintQ()
+      o.getIntegerConstraintQ(),
+      o.getChecks()
     )
   }
 }

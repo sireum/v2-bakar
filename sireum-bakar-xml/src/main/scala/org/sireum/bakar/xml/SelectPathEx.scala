@@ -7,7 +7,8 @@ object SelectPathEx {
     Some(
       o.getSloc(),
       o.getGuardQ(),
-      o.getSequenceOfStatementsQl()
+      o.getSequenceOfStatementsQl(),
+      o.getChecks()
     )
   }
 }

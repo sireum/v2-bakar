@@ -679,8 +679,10 @@ constraints.adb
                                                 <refName>dayVar</refName>
                                                 <ref>ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37</ref>
                                                 <type>ada://ordinary_type/Constraints-1:9/Day-8:8</type>
+                                                <checks>do_range_check</checks>
                                               </expression>
                                             </actualParameterQ>
+                                            <checks>do_range_check</checks>
                                           </org.sireum.bakar.xml.ParameterAssociation>
                                         </associations>
                                       </functionCallParametersQl>

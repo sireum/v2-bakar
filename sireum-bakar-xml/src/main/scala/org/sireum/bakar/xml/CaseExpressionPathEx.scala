@@ -7,7 +7,8 @@ object CaseExpressionPathEx {
     Some(
       o.getSloc(),
       o.getCasePathAlternativeChoicesQl(),
-      o.getDependentExpressionQ()
+      o.getDependentExpressionQ(),
+      o.getChecks()
     )
   }
 }

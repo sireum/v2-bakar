@@ -9,7 +9,8 @@ object SubtypeIndicationEx {
       o.getHasAliasedQ(),
       o.getHasNullExclusionQ(),
       o.getSubtypeMarkQ(),
-      o.getSubtypeConstraintQ()
+      o.getSubtypeConstraintQ(),
+      o.getChecks()
     )
   }
 }

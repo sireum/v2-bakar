@@ -13,7 +13,8 @@ object FunctionDeclarationEx {
       o.getIsNotNullReturnQ(),
       o.getResultProfileQ(),
       o.getHasAbstractQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

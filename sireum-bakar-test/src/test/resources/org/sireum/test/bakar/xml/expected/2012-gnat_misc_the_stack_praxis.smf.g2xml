@@ -840,6 +840,7 @@ the_stack_praxis.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</type>
+                      <checks>do_range_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -884,6 +885,7 @@ the_stack_praxis.adb
                             <refName>Pointer</refName>
                             <ref>ada://variable/The_Stack_Praxis-1:9/Pointer+10:4</ref>
                             <type>ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</type>
+                            <checks>do_range_check</checks>
                           </org.sireum.bakar.xml.Identifier>
                         </expressions>
                       </indexExpressionsQl>
@@ -1079,6 +1081,7 @@ the_stack_praxis.adb
                             <refName>Pointer</refName>
                             <ref>ada://variable/The_Stack_Praxis-1:9/Pointer+10:4</ref>
                             <type>ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</type>
+                            <checks>do_range_check</checks>
                           </org.sireum.bakar.xml.Identifier>
                         </expressions>
                       </indexExpressionsQl>
@@ -1214,6 +1217,7 @@ the_stack_praxis.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</type>
+                      <checks>do_range_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>

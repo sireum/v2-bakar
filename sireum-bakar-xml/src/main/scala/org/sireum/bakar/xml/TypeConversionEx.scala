@@ -8,7 +8,8 @@ object TypeConversionEx {
       o.getSloc(),
       o.getConvertedOrQualifiedSubtypeMarkQ(),
       o.getConvertedOrQualifiedExpressionQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

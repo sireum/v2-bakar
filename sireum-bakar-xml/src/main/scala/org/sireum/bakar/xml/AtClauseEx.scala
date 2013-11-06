@@ -7,7 +7,8 @@ object AtClauseEx {
     Some(
       o.getSloc(),
       o.getRepresentationClauseNameQ(),
-      o.getRepresentationClauseExpressionQ()
+      o.getRepresentationClauseExpressionQ(),
+      o.getChecks()
     )
   }
 }

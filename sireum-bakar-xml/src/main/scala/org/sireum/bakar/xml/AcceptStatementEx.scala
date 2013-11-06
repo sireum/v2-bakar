@@ -11,7 +11,8 @@ object AcceptStatementEx {
       o.getAcceptEntryIndexQ(),
       o.getAcceptParametersQl(),
       o.getAcceptBodyStatementsQl(),
-      o.getAcceptBodyExceptionHandlersQl()
+      o.getAcceptBodyExceptionHandlersQl(),
+      o.getChecks()
     )
   }
 }

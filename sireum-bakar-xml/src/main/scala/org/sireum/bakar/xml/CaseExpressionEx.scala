@@ -8,7 +8,8 @@ object CaseExpressionEx {
       o.getSloc(),
       o.getCaseExpressionQ(),
       o.getExpressionPathsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

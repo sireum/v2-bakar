@@ -8,7 +8,8 @@ object RecordTypeDefinitionEx {
       o.getSloc(),
       o.getHasAbstractQ(),
       o.getHasLimitedQ(),
-      o.getRecordDefinitionQ()
+      o.getRecordDefinitionQ(),
+      o.getChecks()
     )
   }
 }

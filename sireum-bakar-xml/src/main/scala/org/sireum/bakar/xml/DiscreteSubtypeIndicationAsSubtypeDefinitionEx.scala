@@ -7,7 +7,8 @@ object DiscreteSubtypeIndicationAsSubtypeDefinitionEx {
     Some(
       o.getSloc(),
       o.getSubtypeMarkQ(),
-      o.getSubtypeConstraintQ()
+      o.getSubtypeConstraintQ(),
+      o.getChecks()
     )
   }
 }

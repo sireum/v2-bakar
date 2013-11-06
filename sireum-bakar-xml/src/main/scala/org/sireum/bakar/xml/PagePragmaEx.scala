@@ -7,7 +7,8 @@ object PagePragmaEx {
     Some(
       o.getSloc(),
       o.getPragmaArgumentAssociationsQl(),
-      o.getPragmaName()
+      o.getPragmaName(),
+      o.getChecks()
     )
   }
 }

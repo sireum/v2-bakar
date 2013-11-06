@@ -6,7 +6,8 @@ object FormalLimitedInterfaceEx {
   def unapply(o : org.sireum.bakar.xml.FormalLimitedInterface) = {
     Some(
       o.getSloc(),
-      o.getDefinitionInterfaceListQl()
+      o.getDefinitionInterfaceListQl(),
+      o.getChecks()
     )
   }
 }

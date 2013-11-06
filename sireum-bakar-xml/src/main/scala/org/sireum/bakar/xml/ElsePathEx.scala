@@ -6,7 +6,8 @@ object ElsePathEx {
   def unapply(o : org.sireum.bakar.xml.ElsePath) = {
     Some(
       o.getSloc(),
-      o.getSequenceOfStatementsQl()
+      o.getSequenceOfStatementsQl(),
+      o.getChecks()
     )
   }
 }

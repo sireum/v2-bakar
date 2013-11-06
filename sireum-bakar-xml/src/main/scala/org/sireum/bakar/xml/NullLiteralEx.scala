@@ -6,7 +6,8 @@ object NullLiteralEx {
   def unapply(o : org.sireum.bakar.xml.NullLiteral) = {
     Some(
       o.getSloc(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

@@ -8,7 +8,8 @@ object AssignmentStatementEx {
       o.getSloc(),
       o.getLabelNamesQl(),
       o.getAssignmentVariableNameQ(),
-      o.getAssignmentExpressionQ()
+      o.getAssignmentExpressionQ(),
+      o.getChecks()
     )
   }
 }

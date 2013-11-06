@@ -10,7 +10,8 @@ object FunctionCallEx {
       o.getFunctionCallParametersQl(),
       o.getIsPrefixCallQ(),
       o.getIsPrefixNotationQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

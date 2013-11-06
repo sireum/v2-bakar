@@ -7,7 +7,8 @@ object OrdinaryFixedPointDefinitionEx {
     Some(
       o.getSloc(),
       o.getDeltaExpressionQ(),
-      o.getRealRangeConstraintQ()
+      o.getRealRangeConstraintQ(),
+      o.getChecks()
     )
   }
 }

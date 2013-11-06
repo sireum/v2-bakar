@@ -12,7 +12,8 @@ object FunctionBodyStubEx {
       o.getParameterProfileQl(),
       o.getIsNotNullReturnQ(),
       o.getResultProfileQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

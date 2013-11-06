@@ -7,7 +7,8 @@ object DiscriminantAssociationEx {
     Some(
       o.getSloc(),
       o.getDiscriminantSelectorNamesQl(),
-      o.getDiscriminantExpressionQ()
+      o.getDiscriminantExpressionQ(),
+      o.getChecks()
     )
   }
 }

@@ -9,7 +9,8 @@ object PackageInstantiationEx {
       o.getNamesQl(),
       o.getGenericUnitNameQ(),
       o.getGenericActualPartQl(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

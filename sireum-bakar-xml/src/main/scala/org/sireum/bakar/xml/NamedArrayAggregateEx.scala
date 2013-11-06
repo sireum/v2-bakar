@@ -7,7 +7,8 @@ object NamedArrayAggregateEx {
     Some(
       o.getSloc(),
       o.getArrayComponentAssociationsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

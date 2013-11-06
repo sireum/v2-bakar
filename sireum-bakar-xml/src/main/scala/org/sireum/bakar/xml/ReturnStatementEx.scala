@@ -7,7 +7,8 @@ object ReturnStatementEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getReturnExpressionQ()
+      o.getReturnExpressionQ(),
+      o.getChecks()
     )
   }
 }

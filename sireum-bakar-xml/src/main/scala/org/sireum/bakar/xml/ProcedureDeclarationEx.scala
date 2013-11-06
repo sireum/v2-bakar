@@ -11,7 +11,8 @@ object ProcedureDeclarationEx {
       o.getNamesQl(),
       o.getParameterProfileQl(),
       o.getHasAbstractQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

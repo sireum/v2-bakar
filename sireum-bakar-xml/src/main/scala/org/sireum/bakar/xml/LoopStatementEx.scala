@@ -8,7 +8,8 @@ object LoopStatementEx {
       o.getSloc(),
       o.getLabelNamesQl(),
       o.getStatementIdentifierQ(),
-      o.getLoopStatementsQl()
+      o.getLoopStatementsQl(),
+      o.getChecks()
     )
   }
 }

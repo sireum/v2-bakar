@@ -7,7 +7,8 @@ object RealLiteralEx {
     Some(
       o.getSloc(),
       o.getLitVal(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

@@ -10,7 +10,8 @@ object VariableDeclarationEx {
       o.getHasAliasedQ(),
       o.getObjectDeclarationViewQ(),
       o.getInitializationExpressionQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

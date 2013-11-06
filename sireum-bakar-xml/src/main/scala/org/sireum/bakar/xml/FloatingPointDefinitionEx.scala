@@ -7,7 +7,8 @@ object FloatingPointDefinitionEx {
     Some(
       o.getSloc(),
       o.getDigitsExpressionQ(),
-      o.getRealRangeConstraintQ()
+      o.getRealRangeConstraintQ(),
+      o.getChecks()
     )
   }
 }

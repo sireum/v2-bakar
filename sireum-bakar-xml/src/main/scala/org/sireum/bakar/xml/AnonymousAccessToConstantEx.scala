@@ -7,7 +7,8 @@ object AnonymousAccessToConstantEx {
     Some(
       o.getSloc(),
       o.getHasNullExclusionQ(),
-      o.getAnonymousAccessToObjectSubtypeMarkQ()
+      o.getAnonymousAccessToObjectSubtypeMarkQ(),
+      o.getChecks()
     )
   }
 }

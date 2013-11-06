@@ -11,7 +11,8 @@ object EntryDeclarationEx {
       o.getNamesQl(),
       o.getEntryFamilyDefinitionQ(),
       o.getParameterProfileQl(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

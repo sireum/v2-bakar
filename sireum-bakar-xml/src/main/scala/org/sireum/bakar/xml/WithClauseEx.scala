@@ -8,7 +8,8 @@ object WithClauseEx {
       o.getSloc(),
       o.getHasLimitedQ(),
       o.getHasPrivateQ(),
-      o.getClauseNamesQl()
+      o.getClauseNamesQl(),
+      o.getChecks()
     )
   }
 }

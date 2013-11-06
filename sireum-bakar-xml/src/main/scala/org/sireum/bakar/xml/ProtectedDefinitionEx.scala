@@ -7,7 +7,8 @@ object ProtectedDefinitionEx {
     Some(
       o.getSloc(),
       o.getVisiblePartItemsQl(),
-      o.getPrivatePartItemsQl()
+      o.getPrivatePartItemsQl(),
+      o.getChecks()
     )
   }
 }

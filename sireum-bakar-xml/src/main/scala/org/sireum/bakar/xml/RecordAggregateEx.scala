@@ -7,7 +7,8 @@ object RecordAggregateEx {
     Some(
       o.getSloc(),
       o.getRecordComponentAssociationsQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

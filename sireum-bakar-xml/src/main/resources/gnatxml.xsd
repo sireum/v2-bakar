@@ -13,7 +13,7 @@
          License (EPL). See http://www.eclipse.org/legal/epl-v10.html
 
 
-         There are four sections below:
+         There are several sections below:
 
              Basic Types. General-purpose elements used everywhere.
 
@@ -70,6 +70,7 @@
       <xsd:attribute name="unit_full_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="source_file" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <!-- ================================================================ -->
@@ -2094,6 +2095,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="null_exclusion" type="Null_Exclusion"/>
@@ -2102,6 +2104,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="not_null_return" type="Not_Null_Return"/>
@@ -2110,6 +2113,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="reverse" type="Reverse"/>
@@ -2118,6 +2122,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="limited" type="Limited"/>
@@ -2126,6 +2131,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="synchronized" type="Synchronized"/>
@@ -2134,6 +2140,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="private" type="Private"/>
@@ -2142,6 +2149,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="abstract" type="Abstract"/>
@@ -2150,6 +2158,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="tagged" type="Tagged"/>
@@ -2158,6 +2167,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="overriding" type="Overriding"/>
@@ -2166,6 +2176,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="not_overriding" type="Not_Overriding"/>
@@ -2174,6 +2185,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="is_prefix_call" type="Is_Prefix_Call"/>
@@ -2182,6 +2194,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="is_prefix_notation" type="Is_Prefix_Notation"/>
@@ -2190,6 +2203,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <!-- ================================================================ -->
@@ -2204,6 +2218,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_character_literal" type="Defining_Character_Literal"/>
@@ -2215,6 +2230,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_enumeration_literal" type="Defining_Enumeration_Literal"/>
@@ -2226,6 +2242,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_and_operator" type="Defining_And_Operator"/>
@@ -2237,6 +2254,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_or_operator" type="Defining_Or_Operator"/>
@@ -2248,6 +2266,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_xor_operator" type="Defining_Xor_Operator"/>
@@ -2259,6 +2278,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_equal_operator" type="Defining_Equal_Operator"/>
@@ -2270,6 +2290,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_not_equal_operator" type="Defining_Not_Equal_Operator"/>
@@ -2281,6 +2302,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_less_than_operator" type="Defining_Less_Than_Operator"/>
@@ -2292,6 +2314,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_less_than_or_equal_operator" type="Defining_Less_Than_Or_Equal_Operator"/>
@@ -2303,6 +2326,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_greater_than_operator" type="Defining_Greater_Than_Operator"/>
@@ -2314,6 +2338,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_greater_than_or_equal_operator" type="Defining_Greater_Than_Or_Equal_Operator"/>
@@ -2325,6 +2350,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_plus_operator" type="Defining_Plus_Operator"/>
@@ -2336,6 +2362,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_minus_operator" type="Defining_Minus_Operator"/>
@@ -2347,6 +2374,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_concatenate_operator" type="Defining_Concatenate_Operator"/>
@@ -2358,6 +2386,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_unary_plus_operator" type="Defining_Unary_Plus_Operator"/>
@@ -2369,6 +2398,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_unary_minus_operator" type="Defining_Unary_Minus_Operator"/>
@@ -2380,6 +2410,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_multiply_operator" type="Defining_Multiply_Operator"/>
@@ -2391,6 +2422,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_divide_operator" type="Defining_Divide_Operator"/>
@@ -2402,6 +2434,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_mod_operator" type="Defining_Mod_Operator"/>
@@ -2413,6 +2446,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_rem_operator" type="Defining_Rem_Operator"/>
@@ -2424,6 +2458,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_exponentiate_operator" type="Defining_Exponentiate_Operator"/>
@@ -2435,6 +2470,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_abs_operator" type="Defining_Abs_Operator"/>
@@ -2446,6 +2482,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_not_operator" type="Defining_Not_Operator"/>
@@ -2457,6 +2494,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="defining_expanded_name" type="Defining_Expanded_Name"/>
@@ -2470,6 +2508,7 @@
       <xsd:attribute name="def_name" type="xsd:string" use="required"/>
       <xsd:attribute name="def" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <!-- ================================================================ -->
@@ -2484,6 +2523,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="and_operator" type="And_Operator"/>
@@ -2495,6 +2535,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="or_operator" type="Or_Operator"/>
@@ -2506,6 +2547,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="xor_operator" type="Xor_Operator"/>
@@ -2517,6 +2559,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="equal_operator" type="Equal_Operator"/>
@@ -2528,6 +2571,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="not_equal_operator" type="Not_Equal_Operator"/>
@@ -2539,6 +2583,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="less_than_operator" type="Less_Than_Operator"/>
@@ -2550,6 +2595,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="less_than_or_equal_operator" type="Less_Than_Or_Equal_Operator"/>
@@ -2561,6 +2607,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="greater_than_operator" type="Greater_Than_Operator"/>
@@ -2572,6 +2619,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="greater_than_or_equal_operator" type="Greater_Than_Or_Equal_Operator"/>
@@ -2583,6 +2631,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="plus_operator" type="Plus_Operator"/>
@@ -2594,6 +2643,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="minus_operator" type="Minus_Operator"/>
@@ -2605,6 +2655,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="concatenate_operator" type="Concatenate_Operator"/>
@@ -2616,6 +2667,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unary_plus_operator" type="Unary_Plus_Operator"/>
@@ -2627,6 +2679,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unary_minus_operator" type="Unary_Minus_Operator"/>
@@ -2638,6 +2691,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="multiply_operator" type="Multiply_Operator"/>
@@ -2649,6 +2703,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="divide_operator" type="Divide_Operator"/>
@@ -2660,6 +2715,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="mod_operator" type="Mod_Operator"/>
@@ -2671,6 +2727,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="rem_operator" type="Rem_Operator"/>
@@ -2682,6 +2739,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="exponentiate_operator" type="Exponentiate_Operator"/>
@@ -2693,6 +2751,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="abs_operator" type="Abs_Operator"/>
@@ -2704,6 +2763,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="not_operator" type="Not_Operator"/>
@@ -2715,6 +2775,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="character_literal" type="Character_Literal"/>
@@ -2726,6 +2787,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="enumeration_literal" type="Enumeration_Literal"/>
@@ -2737,6 +2799,7 @@
       <xsd:attribute name="ref_name" type="xsd:string" use="required"/>
       <xsd:attribute name="ref" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <!-- ================================================================ -->
@@ -2750,6 +2813,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="asynchronous_pragma" type="Asynchronous_Pragma"/>
@@ -2760,6 +2824,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="atomic_pragma" type="Atomic_Pragma"/>
@@ -2770,6 +2835,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="atomic_components_pragma" type="Atomic_Components_Pragma"/>
@@ -2780,6 +2846,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="attach_handler_pragma" type="Attach_Handler_Pragma"/>
@@ -2790,6 +2857,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="controlled_pragma" type="Controlled_Pragma"/>
@@ -2800,6 +2868,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="convention_pragma" type="Convention_Pragma"/>
@@ -2810,6 +2879,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discard_names_pragma" type="Discard_Names_Pragma"/>
@@ -2820,6 +2890,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="elaborate_pragma" type="Elaborate_Pragma"/>
@@ -2830,6 +2901,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="elaborate_all_pragma" type="Elaborate_All_Pragma"/>
@@ -2840,6 +2912,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="elaborate_body_pragma" type="Elaborate_Body_Pragma"/>
@@ -2850,6 +2923,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="export_pragma" type="Export_Pragma"/>
@@ -2860,6 +2934,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="import_pragma" type="Import_Pragma"/>
@@ -2870,6 +2945,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="inline_pragma" type="Inline_Pragma"/>
@@ -2880,6 +2956,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="inspection_point_pragma" type="Inspection_Point_Pragma"/>
@@ -2890,6 +2967,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="interrupt_handler_pragma" type="Interrupt_Handler_Pragma"/>
@@ -2900,6 +2978,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="interrupt_priority_pragma" type="Interrupt_Priority_Pragma"/>
@@ -2910,6 +2989,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="linker_options_pragma" type="Linker_Options_Pragma"/>
@@ -2920,6 +3000,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="list_pragma" type="List_Pragma"/>
@@ -2930,6 +3011,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="locking_policy_pragma" type="Locking_Policy_Pragma"/>
@@ -2940,6 +3022,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="normalize_scalars_pragma" type="Normalize_Scalars_Pragma"/>
@@ -2950,6 +3033,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="optimize_pragma" type="Optimize_Pragma"/>
@@ -2960,6 +3044,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="pack_pragma" type="Pack_Pragma"/>
@@ -2970,6 +3055,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="page_pragma" type="Page_Pragma"/>
@@ -2980,6 +3066,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="preelaborate_pragma" type="Preelaborate_Pragma"/>
@@ -2990,6 +3077,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="priority_pragma" type="Priority_Pragma"/>
@@ -3000,6 +3088,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="pure_pragma" type="Pure_Pragma"/>
@@ -3010,6 +3099,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="queuing_policy_pragma" type="Queuing_Policy_Pragma"/>
@@ -3020,6 +3110,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="remote_call_interface_pragma" type="Remote_Call_Interface_Pragma"/>
@@ -3030,6 +3121,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="remote_types_pragma" type="Remote_Types_Pragma"/>
@@ -3040,6 +3132,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="restrictions_pragma" type="Restrictions_Pragma"/>
@@ -3050,6 +3143,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="reviewable_pragma" type="Reviewable_Pragma"/>
@@ -3060,6 +3154,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="shared_passive_pragma" type="Shared_Passive_Pragma"/>
@@ -3070,6 +3165,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="storage_size_pragma" type="Storage_Size_Pragma"/>
@@ -3080,6 +3176,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="suppress_pragma" type="Suppress_Pragma"/>
@@ -3090,6 +3187,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="task_dispatching_policy_pragma" type="Task_Dispatching_Policy_Pragma"/>
@@ -3100,6 +3198,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="volatile_pragma" type="Volatile_Pragma"/>
@@ -3110,6 +3209,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="volatile_components_pragma" type="Volatile_Components_Pragma"/>
@@ -3120,6 +3220,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="assert_pragma" type="Assert_Pragma"/>
@@ -3130,6 +3231,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="assertion_policy_pragma" type="Assertion_Policy_Pragma"/>
@@ -3140,6 +3242,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="detect_blocking_pragma" type="Detect_Blocking_Pragma"/>
@@ -3150,6 +3253,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="no_return_pragma" type="No_Return_Pragma"/>
@@ -3160,6 +3264,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="partition_elaboration_policy_pragma" type="Partition_Elaboration_Policy_Pragma"/>
@@ -3170,6 +3275,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="preelaborable_initialization_pragma" type="Preelaborable_Initialization_Pragma"/>
@@ -3180,6 +3286,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="priority_specific_dispatching_pragma" type="Priority_Specific_Dispatching_Pragma"/>
@@ -3190,6 +3297,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="profile_pragma" type="Profile_Pragma"/>
@@ -3200,6 +3308,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="relative_deadline_pragma" type="Relative_Deadline_Pragma"/>
@@ -3210,6 +3319,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unchecked_union_pragma" type="Unchecked_Union_Pragma"/>
@@ -3220,6 +3330,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unsuppress_pragma" type="Unsuppress_Pragma"/>
@@ -3230,6 +3341,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="default_storage_pool_pragma" type="Default_Storage_Pool_Pragma"/>
@@ -3240,6 +3352,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="dispatching_domain_pragma" type="Dispatching_Domain_Pragma"/>
@@ -3250,6 +3363,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="cpu_pragma" type="Cpu_Pragma"/>
@@ -3260,6 +3374,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="independent_pragma" type="Independent_Pragma"/>
@@ -3270,6 +3385,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="independent_components_pragma" type="Independent_Components_Pragma"/>
@@ -3280,6 +3396,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="implementation_defined_pragma" type="Implementation_Defined_Pragma"/>
@@ -3290,6 +3407,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unknown_pragma" type="Unknown_Pragma"/>
@@ -3300,6 +3418,7 @@
          <xsd:element name="pragma_argument_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="pragma_name" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="ordinary_type_declaration" type="Ordinary_Type_Declaration"/>
@@ -3312,6 +3431,7 @@
          <xsd:element name="type_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="task_type_declaration" type="Task_Type_Declaration"/>
@@ -3325,6 +3445,7 @@
          <xsd:element name="declaration_interface_list_ql" type="Expression_List"/>
          <xsd:element name="type_declaration_view_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="protected_type_declaration" type="Protected_Type_Declaration"/>
@@ -3338,6 +3459,7 @@
          <xsd:element name="declaration_interface_list_ql" type="Expression_List"/>
          <xsd:element name="type_declaration_view_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="incomplete_type_declaration" type="Incomplete_Type_Declaration"/>
@@ -3349,6 +3471,7 @@
          <xsd:element name="discriminant_part_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="tagged_incomplete_type_declaration" type="Tagged_Incomplete_Type_Declaration"/>
@@ -3360,6 +3483,7 @@
          <xsd:element name="discriminant_part_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="private_type_declaration" type="Private_Type_Declaration"/>
@@ -3372,6 +3496,7 @@
          <xsd:element name="type_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="private_extension_declaration" type="Private_Extension_Declaration"/>
@@ -3384,6 +3509,7 @@
          <xsd:element name="type_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="subtype_declaration" type="Subtype_Declaration"/>
@@ -3395,6 +3521,7 @@
          <xsd:element name="type_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="variable_declaration" type="Variable_Declaration"/>
@@ -3415,6 +3542,7 @@
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="constant_declaration" type="Constant_Declaration"/>
@@ -3435,6 +3563,7 @@
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="deferred_constant_declaration" type="Deferred_Constant_Declaration"/>
@@ -3454,6 +3583,7 @@
          <xsd:element name="object_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="single_task_declaration" type="Single_Task_Declaration"/>
@@ -3466,6 +3596,7 @@
          <xsd:element name="declaration_interface_list_ql" type="Expression_List"/>
          <xsd:element name="object_declaration_view_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="single_protected_declaration" type="Single_Protected_Declaration"/>
@@ -3478,6 +3609,7 @@
          <xsd:element name="declaration_interface_list_ql" type="Expression_List"/>
          <xsd:element name="object_declaration_view_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="integer_number_declaration" type="Integer_Number_Declaration"/>
@@ -3488,6 +3620,7 @@
          <xsd:element name="names_ql" type="Defining_Name_List"/>
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="real_number_declaration" type="Real_Number_Declaration"/>
@@ -3498,6 +3631,7 @@
          <xsd:element name="names_ql" type="Defining_Name_List"/>
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="enumeration_literal_specification" type="Enumeration_Literal_Specification"/>
@@ -3507,6 +3641,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="names_ql" type="Defining_Name_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discriminant_specification" type="Discriminant_Specification"/>
@@ -3526,6 +3661,7 @@
          <xsd:element name="object_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="component_declaration" type="Component_Declaration"/>
@@ -3546,6 +3682,7 @@
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="loop_parameter_specification" type="Loop_Parameter_Specification"/>
@@ -3564,6 +3701,7 @@
          </xsd:element>
          <xsd:element name="specification_subtype_definition_q" type="Discrete_Subtype_Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generalized_iterator_specification" type="Generalized_Iterator_Specification"/>
@@ -3582,6 +3720,7 @@
          </xsd:element>
          <xsd:element name="iteration_scheme_name_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="element_iterator_specification" type="Element_Iterator_Specification"/>
@@ -3601,6 +3740,7 @@
          </xsd:element>
          <xsd:element name="iteration_scheme_name_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="procedure_declaration" type="Procedure_Declaration"/>
@@ -3636,6 +3776,7 @@
          </xsd:element>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="function_declaration" type="Function_Declaration"/>
@@ -3680,6 +3821,7 @@
          </xsd:element>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="parameter_specification" type="Parameter_Specification"/>
@@ -3708,6 +3850,7 @@
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="mode" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="procedure_body_declaration" type="Procedure_Body_Declaration"/>
@@ -3738,6 +3881,7 @@
          <xsd:element name="body_statements_ql" type="Statement_List"/>
          <xsd:element name="body_exception_handlers_ql" type="Exception_Handler_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="function_body_declaration" type="Function_Body_Declaration"/>
@@ -3777,6 +3921,7 @@
          <xsd:element name="body_statements_ql" type="Statement_List"/>
          <xsd:element name="body_exception_handlers_ql" type="Exception_Handler_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="return_variable_specification" type="Return_Variable_Specification"/>
@@ -3796,6 +3941,7 @@
          <xsd:element name="object_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="return_constant_specification" type="Return_Constant_Specification"/>
@@ -3815,6 +3961,7 @@
          <xsd:element name="object_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="initialization_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="null_procedure_declaration" type="Null_Procedure_Declaration"/>
@@ -3842,6 +3989,7 @@
          <xsd:element name="parameter_profile_ql" type="Parameter_Specification_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="expression_function_declaration" type="Expression_Function_Declaration"/>
@@ -3855,6 +4003,7 @@
          <xsd:element name="result_expression_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="package_declaration" type="Package_Declaration"/>
@@ -3867,6 +4016,7 @@
          <xsd:element name="visible_part_declarative_items_ql" type="Declarative_Item_List"/>
          <xsd:element name="private_part_declarative_items_ql" type="Declarative_Item_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="package_body_declaration" type="Package_Body_Declaration"/>
@@ -3880,6 +4030,7 @@
          <xsd:element name="body_statements_ql" type="Statement_List"/>
          <xsd:element name="body_exception_handlers_ql" type="Exception_Handler_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="object_renaming_declaration" type="Object_Renaming_Declaration"/>
@@ -3900,6 +4051,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="exception_renaming_declaration" type="Exception_Renaming_Declaration"/>
@@ -3911,6 +4063,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="package_renaming_declaration" type="Package_Renaming_Declaration"/>
@@ -3922,6 +4075,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="procedure_renaming_declaration" type="Procedure_Renaming_Declaration"/>
@@ -3950,6 +4104,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="function_renaming_declaration" type="Function_Renaming_Declaration"/>
@@ -3987,6 +4142,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generic_package_renaming_declaration" type="Generic_Package_Renaming_Declaration"/>
@@ -3998,6 +4154,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generic_procedure_renaming_declaration" type="Generic_Procedure_Renaming_Declaration"/>
@@ -4009,6 +4166,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generic_function_renaming_declaration" type="Generic_Function_Renaming_Declaration"/>
@@ -4020,6 +4178,7 @@
          <xsd:element name="renamed_entity_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="task_body_declaration" type="Task_Body_Declaration"/>
@@ -4033,6 +4192,7 @@
          <xsd:element name="body_statements_ql" type="Statement_List"/>
          <xsd:element name="body_exception_handlers_ql" type="Exception_Handler_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="protected_body_declaration" type="Protected_Body_Declaration"/>
@@ -4044,6 +4204,7 @@
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
          <xsd:element name="protected_operation_items_ql" type="Declaration_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="entry_declaration" type="Entry_Declaration"/>
@@ -4072,6 +4233,7 @@
          <xsd:element name="parameter_profile_ql" type="Parameter_Specification_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="entry_body_declaration" type="Entry_Body_Declaration"/>
@@ -4087,6 +4249,7 @@
          <xsd:element name="body_statements_ql" type="Statement_List"/>
          <xsd:element name="body_exception_handlers_ql" type="Exception_Handler_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="entry_index_specification" type="Entry_Index_Specification"/>
@@ -4097,6 +4260,7 @@
          <xsd:element name="names_ql" type="Defining_Name_List"/>
          <xsd:element name="specification_subtype_definition_q" type="Discrete_Subtype_Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="procedure_body_stub" type="Procedure_Body_Stub"/>
@@ -4124,6 +4288,7 @@
          <xsd:element name="parameter_profile_ql" type="Parameter_Specification_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="function_body_stub" type="Function_Body_Stub"/>
@@ -4160,6 +4325,7 @@
          <xsd:element name="result_profile_q" type="Element_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="package_body_stub" type="Package_Body_Stub"/>
@@ -4170,6 +4336,7 @@
          <xsd:element name="names_ql" type="Defining_Name_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="task_body_stub" type="Task_Body_Stub"/>
@@ -4180,6 +4347,7 @@
          <xsd:element name="names_ql" type="Defining_Name_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="protected_body_stub" type="Protected_Body_Stub"/>
@@ -4190,6 +4358,7 @@
          <xsd:element name="names_ql" type="Defining_Name_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="exception_declaration" type="Exception_Declaration"/>
@@ -4200,6 +4369,7 @@
          <xsd:element name="names_ql" type="Defining_Name_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="choice_parameter_specification" type="Choice_Parameter_Specification"/>
@@ -4209,6 +4379,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="names_ql" type="Defining_Name_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generic_procedure_declaration" type="Generic_Procedure_Declaration"/>
@@ -4221,6 +4392,7 @@
          <xsd:element name="parameter_profile_ql" type="Parameter_Specification_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generic_function_declaration" type="Generic_Function_Declaration"/>
@@ -4242,6 +4414,7 @@
          <xsd:element name="result_profile_q" type="Element_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generic_package_declaration" type="Generic_Package_Declaration"/>
@@ -4255,6 +4428,7 @@
          <xsd:element name="visible_part_declarative_items_ql" type="Declarative_Item_List"/>
          <xsd:element name="private_part_declarative_items_ql" type="Declarative_Item_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="package_instantiation" type="Package_Instantiation"/>
@@ -4267,6 +4441,7 @@
          <xsd:element name="generic_actual_part_ql" type="Association_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="procedure_instantiation" type="Procedure_Instantiation"/>
@@ -4295,6 +4470,7 @@
          <xsd:element name="generic_actual_part_ql" type="Association_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="function_instantiation" type="Function_Instantiation"/>
@@ -4323,6 +4499,7 @@
          <xsd:element name="generic_actual_part_ql" type="Association_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_object_declaration" type="Formal_Object_Declaration"/>
@@ -4344,6 +4521,7 @@
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
       <xsd:attribute name="mode" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_type_declaration" type="Formal_Type_Declaration"/>
@@ -4356,6 +4534,7 @@
          <xsd:element name="type_declaration_view_q" type="Definition_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_incomplete_type_declaration" type="Formal_Incomplete_Type_Declaration"/>
@@ -4375,6 +4554,7 @@
          </xsd:element>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_procedure_declaration" type="Formal_Procedure_Declaration"/>
@@ -4395,6 +4575,7 @@
          </xsd:element>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_function_declaration" type="Formal_Function_Declaration"/>
@@ -4424,6 +4605,7 @@
          </xsd:element>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_package_declaration" type="Formal_Package_Declaration"/>
@@ -4436,6 +4618,7 @@
          <xsd:element name="generic_actual_part_ql" type="Association_List"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_package_declaration_with_box" type="Formal_Package_Declaration_With_Box"/>
@@ -4447,6 +4630,7 @@
          <xsd:element name="generic_unit_name_q" type="Expression_Class"/>
          <xsd:element name="aspect_specifications_ql" type="Element_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="derived_type_definition" type="Derived_Type_Definition"/>
@@ -4472,6 +4656,7 @@
          </xsd:element>
          <xsd:element name="parent_subtype_indication_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="derived_record_extension_definition" type="Derived_Record_Extension_Definition"/>
@@ -4499,6 +4684,7 @@
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
          <xsd:element name="record_definition_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="enumeration_type_definition" type="Enumeration_Type_Definition"/>
@@ -4508,6 +4694,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="enumeration_literal_declarations_ql" type="Declaration_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="signed_integer_type_definition" type="Signed_Integer_Type_Definition"/>
@@ -4517,6 +4704,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="integer_constraint_q" type="Range_Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="modular_type_definition" type="Modular_Type_Definition"/>
@@ -4526,6 +4714,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="mod_static_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="root_integer_definition" type="Root_Integer_Definition"/>
@@ -4534,6 +4723,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="root_real_definition" type="Root_Real_Definition"/>
@@ -4542,6 +4732,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="universal_integer_definition" type="Universal_Integer_Definition"/>
@@ -4550,6 +4741,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="universal_real_definition" type="Universal_Real_Definition"/>
@@ -4558,6 +4750,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="universal_fixed_definition" type="Universal_Fixed_Definition"/>
@@ -4566,6 +4759,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="floating_point_definition" type="Floating_Point_Definition"/>
@@ -4576,6 +4770,7 @@
          <xsd:element name="digits_expression_q" type="Expression_Class"/>
          <xsd:element name="real_range_constraint_q" type="Range_Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="ordinary_fixed_point_definition" type="Ordinary_Fixed_Point_Definition"/>
@@ -4586,6 +4781,7 @@
          <xsd:element name="delta_expression_q" type="Expression_Class"/>
          <xsd:element name="real_range_constraint_q" type="Range_Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="decimal_fixed_point_definition" type="Decimal_Fixed_Point_Definition"/>
@@ -4597,6 +4793,7 @@
          <xsd:element name="digits_expression_q" type="Expression_Class"/>
          <xsd:element name="real_range_constraint_q" type="Range_Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unconstrained_array_definition" type="Unconstrained_Array_Definition"/>
@@ -4607,6 +4804,7 @@
          <xsd:element name="index_subtype_definitions_ql" type="Expression_List"/>
          <xsd:element name="array_component_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="constrained_array_definition" type="Constrained_Array_Definition"/>
@@ -4617,6 +4815,7 @@
          <xsd:element name="discrete_subtype_definitions_ql" type="Definition_List"/>
          <xsd:element name="array_component_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="record_type_definition" type="Record_Type_Definition"/>
@@ -4642,6 +4841,7 @@
          </xsd:element>
          <xsd:element name="record_definition_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="tagged_record_type_definition" type="Tagged_Record_Type_Definition"/>
@@ -4667,6 +4867,7 @@
          </xsd:element>
          <xsd:element name="record_definition_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="ordinary_interface" type="Ordinary_Interface"/>
@@ -4676,6 +4877,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="limited_interface" type="Limited_Interface"/>
@@ -4685,6 +4887,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="task_interface" type="Task_Interface"/>
@@ -4694,6 +4897,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="protected_interface" type="Protected_Interface"/>
@@ -4703,6 +4907,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="synchronized_interface" type="Synchronized_Interface"/>
@@ -4712,6 +4917,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="pool_specific_access_to_variable" type="Pool_Specific_Access_To_Variable"/>
@@ -4729,6 +4935,7 @@
          </xsd:element>
          <xsd:element name="access_to_object_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="access_to_variable" type="Access_To_Variable"/>
@@ -4746,6 +4953,7 @@
          </xsd:element>
          <xsd:element name="access_to_object_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="access_to_constant" type="Access_To_Constant"/>
@@ -4763,6 +4971,7 @@
          </xsd:element>
          <xsd:element name="access_to_object_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="access_to_procedure" type="Access_To_Procedure"/>
@@ -4780,6 +4989,7 @@
          </xsd:element>
          <xsd:element name="access_to_subprogram_parameter_profile_ql" type="Parameter_Specification_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="access_to_protected_procedure" type="Access_To_Protected_Procedure"/>
@@ -4797,6 +5007,7 @@
          </xsd:element>
          <xsd:element name="access_to_subprogram_parameter_profile_ql" type="Parameter_Specification_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="access_to_function" type="Access_To_Function"/>
@@ -4823,6 +5034,7 @@
          </xsd:element>
          <xsd:element name="access_to_function_result_profile_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="access_to_protected_function" type="Access_To_Protected_Function"/>
@@ -4849,6 +5061,7 @@
          </xsd:element>
          <xsd:element name="access_to_function_result_profile_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="subtype_indication" type="Subtype_Indication"/>
@@ -4875,6 +5088,7 @@
          <xsd:element name="subtype_mark_q" type="Expression_Class"/>
          <xsd:element name="subtype_constraint_q" type="Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="range_attribute_reference" type="Range_Attribute_Reference"/>
@@ -4884,6 +5098,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="range_attribute_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="simple_expression_range" type="Simple_Expression_Range"/>
@@ -4894,6 +5109,7 @@
          <xsd:element name="lower_bound_q" type="Expression_Class"/>
          <xsd:element name="upper_bound_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="digits_constraint" type="Digits_Constraint"/>
@@ -4904,6 +5120,7 @@
          <xsd:element name="digits_expression_q" type="Expression_Class"/>
          <xsd:element name="real_range_constraint_q" type="Range_Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="delta_constraint" type="Delta_Constraint"/>
@@ -4914,6 +5131,7 @@
          <xsd:element name="delta_expression_q" type="Expression_Class"/>
          <xsd:element name="real_range_constraint_q" type="Range_Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="index_constraint" type="Index_Constraint"/>
@@ -4923,6 +5141,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="discrete_ranges_ql" type="Discrete_Range_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discriminant_constraint" type="Discriminant_Constraint"/>
@@ -4932,6 +5151,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="discriminant_associations_ql" type="Discriminant_Association_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="component_definition" type="Component_Definition"/>
@@ -4949,6 +5169,7 @@
          </xsd:element>
          <xsd:element name="component_definition_view_q" type="Definition_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discrete_subtype_indication_as_subtype_definition" type="Discrete_Subtype_Indication_As_Subtype_Definition"/>
@@ -4959,6 +5180,7 @@
          <xsd:element name="subtype_mark_q" type="Expression_Class"/>
          <xsd:element name="subtype_constraint_q" type="Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discrete_range_attribute_reference_as_subtype_definition" type="Discrete_Range_Attribute_Reference_As_Subtype_Definition"/>
@@ -4968,6 +5190,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="range_attribute_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discrete_simple_expression_range_as_subtype_definition" type="Discrete_Simple_Expression_Range_As_Subtype_Definition"/>
@@ -4978,6 +5201,7 @@
          <xsd:element name="lower_bound_q" type="Expression_Class"/>
          <xsd:element name="upper_bound_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discrete_subtype_indication" type="Discrete_Subtype_Indication"/>
@@ -4988,6 +5212,7 @@
          <xsd:element name="subtype_mark_q" type="Expression_Class"/>
          <xsd:element name="subtype_constraint_q" type="Constraint_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discrete_range_attribute_reference" type="Discrete_Range_Attribute_Reference"/>
@@ -4997,6 +5222,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="range_attribute_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discrete_simple_expression_range" type="Discrete_Simple_Expression_Range"/>
@@ -5007,6 +5233,7 @@
          <xsd:element name="lower_bound_q" type="Expression_Class"/>
          <xsd:element name="upper_bound_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unknown_discriminant_part" type="Unknown_Discriminant_Part"/>
@@ -5015,6 +5242,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="known_discriminant_part" type="Known_Discriminant_Part"/>
@@ -5024,6 +5252,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="discriminants_ql" type="Discriminant_Specification_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="record_definition" type="Record_Definition"/>
@@ -5041,6 +5270,7 @@
          </xsd:element>
          <xsd:element name="record_components_ql" type="Record_Component_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="null_record_definition" type="Null_Record_Definition"/>
@@ -5049,6 +5279,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="null_component" type="Null_Component"/>
@@ -5057,6 +5288,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="variant_part" type="Variant_Part"/>
@@ -5067,6 +5299,7 @@
          <xsd:element name="discriminant_direct_name_q" type="Name_Class"/>
          <xsd:element name="variants_ql" type="Variant_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="variant" type="Variant"/>
@@ -5077,6 +5310,7 @@
          <xsd:element name="variant_choices_ql" type="Element_List"/>
          <xsd:element name="record_components_ql" type="Record_Component_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="others_choice" type="Others_Choice"/>
@@ -5085,6 +5319,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="anonymous_access_to_variable" type="Anonymous_Access_To_Variable"/>
@@ -5102,6 +5337,7 @@
          </xsd:element>
          <xsd:element name="anonymous_access_to_object_subtype_mark_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="anonymous_access_to_constant" type="Anonymous_Access_To_Constant"/>
@@ -5119,6 +5355,7 @@
          </xsd:element>
          <xsd:element name="anonymous_access_to_object_subtype_mark_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="anonymous_access_to_procedure" type="Anonymous_Access_To_Procedure"/>
@@ -5136,6 +5373,7 @@
          </xsd:element>
          <xsd:element name="access_to_subprogram_parameter_profile_ql" type="Parameter_Specification_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="anonymous_access_to_protected_procedure" type="Anonymous_Access_To_Protected_Procedure"/>
@@ -5153,6 +5391,7 @@
          </xsd:element>
          <xsd:element name="access_to_subprogram_parameter_profile_ql" type="Parameter_Specification_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="anonymous_access_to_function" type="Anonymous_Access_To_Function"/>
@@ -5179,6 +5418,7 @@
          </xsd:element>
          <xsd:element name="access_to_function_result_profile_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="anonymous_access_to_protected_function" type="Anonymous_Access_To_Protected_Function"/>
@@ -5205,6 +5445,7 @@
          </xsd:element>
          <xsd:element name="access_to_function_result_profile_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="private_type_definition" type="Private_Type_Definition"/>
@@ -5229,6 +5470,7 @@
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="tagged_private_type_definition" type="Tagged_Private_Type_Definition"/>
@@ -5253,6 +5495,7 @@
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="private_extension_definition" type="Private_Extension_Definition"/>
@@ -5287,6 +5530,7 @@
          <xsd:element name="ancestor_subtype_indication_q" type="Element_Class"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="task_definition" type="Task_Definition"/>
@@ -5297,6 +5541,7 @@
          <xsd:element name="visible_part_items_ql" type="Declarative_Item_List"/>
          <xsd:element name="private_part_items_ql" type="Declarative_Item_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="protected_definition" type="Protected_Definition"/>
@@ -5307,6 +5552,7 @@
          <xsd:element name="visible_part_items_ql" type="Declarative_Item_List"/>
          <xsd:element name="private_part_items_ql" type="Declarative_Item_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_private_type_definition" type="Formal_Private_Type_Definition"/>
@@ -5331,6 +5577,7 @@
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_tagged_private_type_definition" type="Formal_Tagged_Private_Type_Definition"/>
@@ -5355,6 +5602,7 @@
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_derived_type_definition" type="Formal_Derived_Type_Definition"/>
@@ -5397,6 +5645,7 @@
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_discrete_type_definition" type="Formal_Discrete_Type_Definition"/>
@@ -5405,6 +5654,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_signed_integer_type_definition" type="Formal_Signed_Integer_Type_Definition"/>
@@ -5413,6 +5663,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_modular_type_definition" type="Formal_Modular_Type_Definition"/>
@@ -5421,6 +5672,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_floating_point_definition" type="Formal_Floating_Point_Definition"/>
@@ -5429,6 +5681,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_ordinary_fixed_point_definition" type="Formal_Ordinary_Fixed_Point_Definition"/>
@@ -5437,6 +5690,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_decimal_fixed_point_definition" type="Formal_Decimal_Fixed_Point_Definition"/>
@@ -5445,6 +5699,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_ordinary_interface" type="Formal_Ordinary_Interface"/>
@@ -5454,6 +5709,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_limited_interface" type="Formal_Limited_Interface"/>
@@ -5463,6 +5719,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_task_interface" type="Formal_Task_Interface"/>
@@ -5472,6 +5729,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_protected_interface" type="Formal_Protected_Interface"/>
@@ -5481,6 +5739,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_synchronized_interface" type="Formal_Synchronized_Interface"/>
@@ -5490,6 +5749,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="definition_interface_list_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_unconstrained_array_definition" type="Formal_Unconstrained_Array_Definition"/>
@@ -5500,6 +5760,7 @@
          <xsd:element name="index_subtype_definitions_ql" type="Expression_List"/>
          <xsd:element name="array_component_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_constrained_array_definition" type="Formal_Constrained_Array_Definition"/>
@@ -5510,6 +5771,7 @@
          <xsd:element name="discrete_subtype_definitions_ql" type="Definition_List"/>
          <xsd:element name="array_component_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_pool_specific_access_to_variable" type="Formal_Pool_Specific_Access_To_Variable"/>
@@ -5527,6 +5789,7 @@
          </xsd:element>
          <xsd:element name="access_to_object_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_access_to_variable" type="Formal_Access_To_Variable"/>
@@ -5544,6 +5807,7 @@
          </xsd:element>
          <xsd:element name="access_to_object_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_access_to_constant" type="Formal_Access_To_Constant"/>
@@ -5561,6 +5825,7 @@
          </xsd:element>
          <xsd:element name="access_to_object_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_access_to_procedure" type="Formal_Access_To_Procedure"/>
@@ -5578,6 +5843,7 @@
          </xsd:element>
          <xsd:element name="access_to_subprogram_parameter_profile_ql" type="Parameter_Specification_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_access_to_protected_procedure" type="Formal_Access_To_Protected_Procedure"/>
@@ -5595,6 +5861,7 @@
          </xsd:element>
          <xsd:element name="access_to_subprogram_parameter_profile_ql" type="Parameter_Specification_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_access_to_function" type="Formal_Access_To_Function"/>
@@ -5621,6 +5888,7 @@
          </xsd:element>
          <xsd:element name="access_to_function_result_profile_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="formal_access_to_protected_function" type="Formal_Access_To_Protected_Function"/>
@@ -5647,6 +5915,7 @@
          </xsd:element>
          <xsd:element name="access_to_function_result_profile_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="aspect_specification" type="Aspect_Specification"/>
@@ -5657,6 +5926,7 @@
          <xsd:element name="aspect_mark_q" type="Element_Class"/>
          <xsd:element name="aspect_definition_q" type="Element_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="box_expression" type="Box_Expression"/>
@@ -5666,6 +5936,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="integer_literal" type="Integer_Literal"/>
@@ -5676,6 +5947,7 @@
       </xsd:sequence>
       <xsd:attribute name="lit_val" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="real_literal" type="Real_Literal"/>
@@ -5686,6 +5958,7 @@
       </xsd:sequence>
       <xsd:attribute name="lit_val" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="string_literal" type="String_Literal"/>
@@ -5696,6 +5969,7 @@
       </xsd:sequence>
       <xsd:attribute name="lit_val" type="xsd:string" use="required"/>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="explicit_dereference" type="Explicit_Dereference"/>
@@ -5706,6 +5980,7 @@
          <xsd:element name="prefix_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="function_call" type="Function_Call"/>
@@ -5733,6 +6008,7 @@
          </xsd:element>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="indexed_component" type="Indexed_Component"/>
@@ -5744,6 +6020,7 @@
          <xsd:element name="index_expressions_ql" type="Expression_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="slice" type="Slice"/>
@@ -5755,6 +6032,7 @@
          <xsd:element name="slice_range_q" type="Discrete_Range_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="selected_component" type="Selected_Component"/>
@@ -5766,6 +6044,7 @@
          <xsd:element name="selector_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="access_attribute" type="Access_Attribute"/>
@@ -5777,6 +6056,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="address_attribute" type="Address_Attribute"/>
@@ -5788,6 +6068,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="adjacent_attribute" type="Adjacent_Attribute"/>
@@ -5799,6 +6080,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="aft_attribute" type="Aft_Attribute"/>
@@ -5810,6 +6092,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="alignment_attribute" type="Alignment_Attribute"/>
@@ -5821,6 +6104,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="base_attribute" type="Base_Attribute"/>
@@ -5832,6 +6116,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="bit_order_attribute" type="Bit_Order_Attribute"/>
@@ -5843,6 +6128,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="body_version_attribute" type="Body_Version_Attribute"/>
@@ -5854,6 +6140,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="callable_attribute" type="Callable_Attribute"/>
@@ -5865,6 +6152,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="caller_attribute" type="Caller_Attribute"/>
@@ -5876,6 +6164,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="ceiling_attribute" type="Ceiling_Attribute"/>
@@ -5887,6 +6176,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="class_attribute" type="Class_Attribute"/>
@@ -5898,6 +6188,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="component_size_attribute" type="Component_Size_Attribute"/>
@@ -5909,6 +6200,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="compose_attribute" type="Compose_Attribute"/>
@@ -5920,6 +6212,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="constrained_attribute" type="Constrained_Attribute"/>
@@ -5931,6 +6224,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="copy_sign_attribute" type="Copy_Sign_Attribute"/>
@@ -5942,6 +6236,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="count_attribute" type="Count_Attribute"/>
@@ -5953,6 +6248,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="definite_attribute" type="Definite_Attribute"/>
@@ -5964,6 +6260,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="delta_attribute" type="Delta_Attribute"/>
@@ -5975,6 +6272,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="denorm_attribute" type="Denorm_Attribute"/>
@@ -5986,6 +6284,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="digits_attribute" type="Digits_Attribute"/>
@@ -5997,6 +6296,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="exponent_attribute" type="Exponent_Attribute"/>
@@ -6008,6 +6308,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="external_tag_attribute" type="External_Tag_Attribute"/>
@@ -6019,6 +6320,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="first_attribute" type="First_Attribute"/>
@@ -6031,6 +6333,7 @@
          <xsd:element name="attribute_designator_expressions_ql" type="Expression_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="first_bit_attribute" type="First_Bit_Attribute"/>
@@ -6042,6 +6345,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="floor_attribute" type="Floor_Attribute"/>
@@ -6053,6 +6357,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="fore_attribute" type="Fore_Attribute"/>
@@ -6064,6 +6369,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="fraction_attribute" type="Fraction_Attribute"/>
@@ -6075,6 +6381,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="identity_attribute" type="Identity_Attribute"/>
@@ -6086,6 +6393,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="image_attribute" type="Image_Attribute"/>
@@ -6097,6 +6405,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="input_attribute" type="Input_Attribute"/>
@@ -6108,6 +6417,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="last_attribute" type="Last_Attribute"/>
@@ -6120,6 +6430,7 @@
          <xsd:element name="attribute_designator_expressions_ql" type="Expression_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="last_bit_attribute" type="Last_Bit_Attribute"/>
@@ -6131,6 +6442,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="leading_part_attribute" type="Leading_Part_Attribute"/>
@@ -6142,6 +6454,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="length_attribute" type="Length_Attribute"/>
@@ -6154,6 +6467,7 @@
          <xsd:element name="attribute_designator_expressions_ql" type="Expression_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_attribute" type="Machine_Attribute"/>
@@ -6165,6 +6479,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_emax_attribute" type="Machine_Emax_Attribute"/>
@@ -6176,6 +6491,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_emin_attribute" type="Machine_Emin_Attribute"/>
@@ -6187,6 +6503,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_mantissa_attribute" type="Machine_Mantissa_Attribute"/>
@@ -6198,6 +6515,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_overflows_attribute" type="Machine_Overflows_Attribute"/>
@@ -6209,6 +6527,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_radix_attribute" type="Machine_Radix_Attribute"/>
@@ -6220,6 +6539,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_rounds_attribute" type="Machine_Rounds_Attribute"/>
@@ -6231,6 +6551,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="max_attribute" type="Max_Attribute"/>
@@ -6242,6 +6563,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="max_size_in_storage_elements_attribute" type="Max_Size_In_Storage_Elements_Attribute"/>
@@ -6253,6 +6575,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="min_attribute" type="Min_Attribute"/>
@@ -6264,6 +6587,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="model_attribute" type="Model_Attribute"/>
@@ -6275,6 +6599,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="model_emin_attribute" type="Model_Emin_Attribute"/>
@@ -6286,6 +6611,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="model_epsilon_attribute" type="Model_Epsilon_Attribute"/>
@@ -6297,6 +6623,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="model_mantissa_attribute" type="Model_Mantissa_Attribute"/>
@@ -6308,6 +6635,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="model_small_attribute" type="Model_Small_Attribute"/>
@@ -6319,6 +6647,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="modulus_attribute" type="Modulus_Attribute"/>
@@ -6330,6 +6659,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="output_attribute" type="Output_Attribute"/>
@@ -6341,6 +6671,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="partition_id_attribute" type="Partition_Id_Attribute"/>
@@ -6352,6 +6683,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="pos_attribute" type="Pos_Attribute"/>
@@ -6363,6 +6695,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="position_attribute" type="Position_Attribute"/>
@@ -6374,6 +6707,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="pred_attribute" type="Pred_Attribute"/>
@@ -6385,6 +6719,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="range_attribute" type="Range_Attribute"/>
@@ -6397,6 +6732,7 @@
          <xsd:element name="attribute_designator_expressions_ql" type="Expression_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="read_attribute" type="Read_Attribute"/>
@@ -6408,6 +6744,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="remainder_attribute" type="Remainder_Attribute"/>
@@ -6419,6 +6756,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="round_attribute" type="Round_Attribute"/>
@@ -6430,6 +6768,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="rounding_attribute" type="Rounding_Attribute"/>
@@ -6441,6 +6780,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="safe_first_attribute" type="Safe_First_Attribute"/>
@@ -6452,6 +6792,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="safe_last_attribute" type="Safe_Last_Attribute"/>
@@ -6463,6 +6804,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="scale_attribute" type="Scale_Attribute"/>
@@ -6474,6 +6816,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="scaling_attribute" type="Scaling_Attribute"/>
@@ -6485,6 +6828,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="signed_zeros_attribute" type="Signed_Zeros_Attribute"/>
@@ -6496,6 +6840,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="size_attribute" type="Size_Attribute"/>
@@ -6507,6 +6852,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="small_attribute" type="Small_Attribute"/>
@@ -6518,6 +6864,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="storage_pool_attribute" type="Storage_Pool_Attribute"/>
@@ -6529,6 +6876,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="storage_size_attribute" type="Storage_Size_Attribute"/>
@@ -6540,6 +6888,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="succ_attribute" type="Succ_Attribute"/>
@@ -6551,6 +6900,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="tag_attribute" type="Tag_Attribute"/>
@@ -6562,6 +6912,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="terminated_attribute" type="Terminated_Attribute"/>
@@ -6573,6 +6924,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="truncation_attribute" type="Truncation_Attribute"/>
@@ -6584,6 +6936,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unbiased_rounding_attribute" type="Unbiased_Rounding_Attribute"/>
@@ -6595,6 +6948,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unchecked_access_attribute" type="Unchecked_Access_Attribute"/>
@@ -6606,6 +6960,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="val_attribute" type="Val_Attribute"/>
@@ -6617,6 +6972,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="valid_attribute" type="Valid_Attribute"/>
@@ -6628,6 +6984,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="value_attribute" type="Value_Attribute"/>
@@ -6639,6 +6996,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="version_attribute" type="Version_Attribute"/>
@@ -6650,6 +7008,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="wide_image_attribute" type="Wide_Image_Attribute"/>
@@ -6661,6 +7020,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="wide_value_attribute" type="Wide_Value_Attribute"/>
@@ -6672,6 +7032,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="wide_width_attribute" type="Wide_Width_Attribute"/>
@@ -6683,6 +7044,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="width_attribute" type="Width_Attribute"/>
@@ -6694,6 +7056,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="write_attribute" type="Write_Attribute"/>
@@ -6705,6 +7068,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="machine_rounding_attribute" type="Machine_Rounding_Attribute"/>
@@ -6716,6 +7080,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="mod_attribute" type="Mod_Attribute"/>
@@ -6727,6 +7092,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="priority_attribute" type="Priority_Attribute"/>
@@ -6738,6 +7104,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="stream_size_attribute" type="Stream_Size_Attribute"/>
@@ -6749,6 +7116,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="wide_wide_image_attribute" type="Wide_Wide_Image_Attribute"/>
@@ -6760,6 +7128,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="wide_wide_value_attribute" type="Wide_Wide_Value_Attribute"/>
@@ -6771,6 +7140,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="wide_wide_width_attribute" type="Wide_Wide_Width_Attribute"/>
@@ -6782,6 +7152,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="max_alignment_for_allocation_attribute" type="Max_Alignment_For_Allocation_Attribute"/>
@@ -6793,6 +7164,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="overlaps_storage_attribute" type="Overlaps_Storage_Attribute"/>
@@ -6804,6 +7176,7 @@
          <xsd:element name="attribute_designator_identifier_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="implementation_defined_attribute" type="Implementation_Defined_Attribute"/>
@@ -6816,6 +7189,7 @@
          <xsd:element name="attribute_designator_expressions_ql" type="Expression_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="unknown_attribute" type="Unknown_Attribute"/>
@@ -6828,6 +7202,7 @@
          <xsd:element name="attribute_designator_expressions_ql" type="Expression_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="record_aggregate" type="Record_Aggregate"/>
@@ -6838,6 +7213,7 @@
          <xsd:element name="record_component_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="extension_aggregate" type="Extension_Aggregate"/>
@@ -6849,6 +7225,7 @@
          <xsd:element name="record_component_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="positional_array_aggregate" type="Positional_Array_Aggregate"/>
@@ -6859,6 +7236,7 @@
          <xsd:element name="array_component_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="named_array_aggregate" type="Named_Array_Aggregate"/>
@@ -6869,6 +7247,7 @@
          <xsd:element name="array_component_associations_ql" type="Association_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="and_then_short_circuit" type="And_Then_Short_Circuit"/>
@@ -6880,6 +7259,7 @@
          <xsd:element name="short_circuit_operation_right_expression_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="or_else_short_circuit" type="Or_Else_Short_Circuit"/>
@@ -6891,6 +7271,7 @@
          <xsd:element name="short_circuit_operation_right_expression_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="in_membership_test" type="In_Membership_Test"/>
@@ -6902,6 +7283,7 @@
          <xsd:element name="membership_test_choices_ql" type="Element_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="not_in_membership_test" type="Not_In_Membership_Test"/>
@@ -6913,6 +7295,7 @@
          <xsd:element name="membership_test_choices_ql" type="Element_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="null_literal" type="Null_Literal"/>
@@ -6922,6 +7305,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="parenthesized_expression" type="Parenthesized_Expression"/>
@@ -6932,6 +7316,7 @@
          <xsd:element name="expression_parenthesized_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="type_conversion" type="Type_Conversion"/>
@@ -6943,6 +7328,7 @@
          <xsd:element name="converted_or_qualified_expression_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="qualified_expression" type="Qualified_Expression"/>
@@ -6954,6 +7340,7 @@
          <xsd:element name="converted_or_qualified_expression_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="allocation_from_subtype" type="Allocation_From_Subtype"/>
@@ -6965,6 +7352,7 @@
          <xsd:element name="allocator_subtype_indication_q" type="Element_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="allocation_from_qualified_expression" type="Allocation_From_Qualified_Expression"/>
@@ -6976,6 +7364,7 @@
          <xsd:element name="allocator_qualified_expression_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="case_expression" type="Case_Expression"/>
@@ -6987,6 +7376,7 @@
          <xsd:element name="expression_paths_ql" type="Element_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="if_expression" type="If_Expression"/>
@@ -6997,6 +7387,7 @@
          <xsd:element name="expression_paths_ql" type="Element_List"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="for_all_quantified_expression" type="For_All_Quantified_Expression"/>
@@ -7008,6 +7399,7 @@
          <xsd:element name="predicate_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="for_some_quantified_expression" type="For_Some_Quantified_Expression"/>
@@ -7019,6 +7411,7 @@
          <xsd:element name="predicate_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="pragma_argument_association" type="Pragma_Argument_Association"/>
@@ -7029,6 +7422,7 @@
          <xsd:element name="formal_parameter_q" type="Element_Class"/>
          <xsd:element name="actual_parameter_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="discriminant_association" type="Discriminant_Association"/>
@@ -7039,6 +7433,7 @@
          <xsd:element name="discriminant_selector_names_ql" type="Expression_List"/>
          <xsd:element name="discriminant_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="record_component_association" type="Record_Component_Association"/>
@@ -7049,6 +7444,7 @@
          <xsd:element name="record_component_choices_ql" type="Expression_List"/>
          <xsd:element name="component_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="array_component_association" type="Array_Component_Association"/>
@@ -7059,6 +7455,7 @@
          <xsd:element name="array_component_choices_ql" type="Element_List"/>
          <xsd:element name="component_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="parameter_association" type="Parameter_Association"/>
@@ -7069,6 +7466,7 @@
          <xsd:element name="formal_parameter_q" type="Element_Class"/>
          <xsd:element name="actual_parameter_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="generic_association" type="Generic_Association"/>
@@ -7079,6 +7477,7 @@
          <xsd:element name="formal_parameter_q" type="Element_Class"/>
          <xsd:element name="actual_parameter_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="null_statement" type="Null_Statement"/>
@@ -7088,6 +7487,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="assignment_statement" type="Assignment_Statement"/>
@@ -7099,6 +7499,7 @@
          <xsd:element name="assignment_variable_name_q" type="Expression_Class"/>
          <xsd:element name="assignment_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="if_statement" type="If_Statement"/>
@@ -7109,6 +7510,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="statement_paths_ql" type="Path_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="case_statement" type="Case_Statement"/>
@@ -7120,6 +7522,7 @@
          <xsd:element name="case_expression_q" type="Expression_Class"/>
          <xsd:element name="statement_paths_ql" type="Path_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="loop_statement" type="Loop_Statement"/>
@@ -7131,6 +7534,7 @@
          <xsd:element name="statement_identifier_q" type="Defining_Name_Class"/>
          <xsd:element name="loop_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="while_loop_statement" type="While_Loop_Statement"/>
@@ -7143,6 +7547,7 @@
          <xsd:element name="while_condition_q" type="Expression_Class"/>
          <xsd:element name="loop_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="for_loop_statement" type="For_Loop_Statement"/>
@@ -7155,6 +7560,7 @@
          <xsd:element name="for_loop_parameter_specification_q" type="Declaration_Class"/>
          <xsd:element name="loop_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="block_statement" type="Block_Statement"/>
@@ -7168,6 +7574,7 @@
          <xsd:element name="block_statements_ql" type="Statement_List"/>
          <xsd:element name="block_exception_handlers_ql" type="Exception_Handler_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="exit_statement" type="Exit_Statement"/>
@@ -7179,6 +7586,7 @@
          <xsd:element name="exit_loop_name_q" type="Expression_Class"/>
          <xsd:element name="exit_condition_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="goto_statement" type="Goto_Statement"/>
@@ -7189,6 +7597,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="goto_label_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="procedure_call_statement" type="Procedure_Call_Statement"/>
@@ -7208,6 +7617,7 @@
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="return_statement" type="Return_Statement"/>
@@ -7218,6 +7628,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="return_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="extended_return_statement" type="Extended_Return_Statement"/>
@@ -7229,6 +7640,7 @@
          <xsd:element name="extended_return_statements_ql" type="Statement_List"/>
          <xsd:element name="extended_return_exception_handlers_ql" type="Exception_Handler_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="accept_statement" type="Accept_Statement"/>
@@ -7243,6 +7655,7 @@
          <xsd:element name="accept_body_statements_ql" type="Statement_List"/>
          <xsd:element name="accept_body_exception_handlers_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="entry_call_statement" type="Entry_Call_Statement"/>
@@ -7254,6 +7667,7 @@
          <xsd:element name="called_name_q" type="Expression_Class"/>
          <xsd:element name="call_statement_parameters_ql" type="Association_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="requeue_statement" type="Requeue_Statement"/>
@@ -7264,6 +7678,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="requeue_entry_name_q" type="Name_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="requeue_statement_with_abort" type="Requeue_Statement_With_Abort"/>
@@ -7274,6 +7689,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="requeue_entry_name_q" type="Name_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="delay_until_statement" type="Delay_Until_Statement"/>
@@ -7284,6 +7700,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="delay_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="delay_relative_statement" type="Delay_Relative_Statement"/>
@@ -7294,6 +7711,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="delay_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="terminate_alternative_statement" type="Terminate_Alternative_Statement"/>
@@ -7302,6 +7720,7 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="selective_accept_statement" type="Selective_Accept_Statement"/>
@@ -7312,6 +7731,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="statement_paths_ql" type="Path_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="timed_entry_call_statement" type="Timed_Entry_Call_Statement"/>
@@ -7322,6 +7742,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="statement_paths_ql" type="Path_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="conditional_entry_call_statement" type="Conditional_Entry_Call_Statement"/>
@@ -7332,6 +7753,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="statement_paths_ql" type="Path_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="asynchronous_select_statement" type="Asynchronous_Select_Statement"/>
@@ -7342,6 +7764,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="statement_paths_ql" type="Path_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="abort_statement" type="Abort_Statement"/>
@@ -7352,6 +7775,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="aborted_tasks_ql" type="Expression_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="raise_statement" type="Raise_Statement"/>
@@ -7363,6 +7787,7 @@
          <xsd:element name="raised_exception_q" type="Expression_Class"/>
          <xsd:element name="associated_message_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="code_statement" type="Code_Statement"/>
@@ -7373,6 +7798,7 @@
          <xsd:element name="label_names_ql" type="Defining_Name_List"/>
          <xsd:element name="qualified_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="if_path" type="If_Path"/>
@@ -7383,6 +7809,7 @@
          <xsd:element name="condition_expression_q" type="Expression_Class"/>
          <xsd:element name="sequence_of_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="elsif_path" type="Elsif_Path"/>
@@ -7393,6 +7820,7 @@
          <xsd:element name="condition_expression_q" type="Expression_Class"/>
          <xsd:element name="sequence_of_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="else_path" type="Else_Path"/>
@@ -7402,6 +7830,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="sequence_of_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="case_path" type="Case_Path"/>
@@ -7412,6 +7841,7 @@
          <xsd:element name="case_path_alternative_choices_ql" type="Element_List"/>
          <xsd:element name="sequence_of_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="select_path" type="Select_Path"/>
@@ -7422,6 +7852,7 @@
          <xsd:element name="guard_q" type="Expression_Class"/>
          <xsd:element name="sequence_of_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="or_path" type="Or_Path"/>
@@ -7432,6 +7863,7 @@
          <xsd:element name="guard_q" type="Expression_Class"/>
          <xsd:element name="sequence_of_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="then_abort_path" type="Then_Abort_Path"/>
@@ -7441,6 +7873,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="sequence_of_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="case_expression_path" type="Case_Expression_Path"/>
@@ -7451,6 +7884,7 @@
          <xsd:element name="case_path_alternative_choices_ql" type="Element_List"/>
          <xsd:element name="dependent_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="if_expression_path" type="If_Expression_Path"/>
@@ -7461,6 +7895,7 @@
          <xsd:element name="condition_expression_q" type="Expression_Class"/>
          <xsd:element name="dependent_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="elsif_expression_path" type="Elsif_Expression_Path"/>
@@ -7471,6 +7906,7 @@
          <xsd:element name="condition_expression_q" type="Expression_Class"/>
          <xsd:element name="dependent_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="else_expression_path" type="Else_Expression_Path"/>
@@ -7480,6 +7916,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="dependent_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="use_package_clause" type="Use_Package_Clause"/>
@@ -7489,6 +7926,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="clause_names_ql" type="Name_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="use_type_clause" type="Use_Type_Clause"/>
@@ -7498,6 +7936,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="clause_names_ql" type="Name_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="use_all_type_clause" type="Use_All_Type_Clause"/>
@@ -7507,6 +7946,7 @@
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="clause_names_ql" type="Name_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="with_clause" type="With_Clause"/>
@@ -7532,6 +7972,7 @@
          </xsd:element>
          <xsd:element name="clause_names_ql" type="Name_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="attribute_definition_clause" type="Attribute_Definition_Clause"/>
@@ -7542,6 +7983,7 @@
          <xsd:element name="representation_clause_name_q" type="Name_Class"/>
          <xsd:element name="representation_clause_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="enumeration_representation_clause" type="Enumeration_Representation_Clause"/>
@@ -7552,6 +7994,7 @@
          <xsd:element name="representation_clause_name_q" type="Name_Class"/>
          <xsd:element name="representation_clause_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="record_representation_clause" type="Record_Representation_Clause"/>
@@ -7563,6 +8006,7 @@
          <xsd:element name="mod_clause_expression_q" type="Expression_Class"/>
          <xsd:element name="component_clauses_ql" type="Component_Clause_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="at_clause" type="At_Clause"/>
@@ -7573,6 +8017,7 @@
          <xsd:element name="representation_clause_name_q" type="Name_Class"/>
          <xsd:element name="representation_clause_expression_q" type="Expression_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="component_clause" type="Component_Clause"/>
@@ -7584,6 +8029,7 @@
          <xsd:element name="component_clause_position_q" type="Expression_Class"/>
          <xsd:element name="component_clause_range_q" type="Discrete_Range_Class"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
    <xsd:element name="exception_handler" type="Exception_Handler"/>
@@ -7595,6 +8041,7 @@
          <xsd:element name="exception_choices_ql" type="Element_List"/>
          <xsd:element name="handler_statements_ql" type="Statement_List"/>
       </xsd:sequence>
+      <xsd:attribute name="checks" type="xsd:string"/>
    </xsd:complexType>
 
 </xsd:schema>

@@ -7,7 +7,8 @@ object DiscreteSimpleExpressionRangeAsSubtypeDefinitionEx {
     Some(
       o.getSloc(),
       o.getLowerBoundQ(),
-      o.getUpperBoundQ()
+      o.getUpperBoundQ(),
+      o.getChecks()
     )
   }
 }

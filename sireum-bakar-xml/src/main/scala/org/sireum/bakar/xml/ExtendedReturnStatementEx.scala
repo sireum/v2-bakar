@@ -8,7 +8,8 @@ object ExtendedReturnStatementEx {
       o.getSloc(),
       o.getReturnObjectDeclarationQ(),
       o.getExtendedReturnStatementsQl(),
-      o.getExtendedReturnExceptionHandlersQl()
+      o.getExtendedReturnExceptionHandlersQl(),
+      o.getChecks()
     )
   }
 }

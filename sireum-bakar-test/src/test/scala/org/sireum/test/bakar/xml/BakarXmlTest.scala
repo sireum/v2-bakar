@@ -23,6 +23,8 @@ import org.sireum.example.bakar.BakarExamplesAnchor
 @RunWith(classOf[JUnitRunner])
 class BakarXmlTest extends BakarTestFileFramework {
 
+  override def generateExpected = false
+  
   override def includes = {
     super.includes += "misc"
   }
@@ -34,8 +36,6 @@ class BakarXmlTest extends BakarTestFileFramework {
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
     return true;
   }
-
-  override def generateExpected = false
   
   override def pipeline =
     PipelineConfiguration(

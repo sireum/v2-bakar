@@ -7,7 +7,8 @@ object AspectSpecificationEx {
     Some(
       o.getSloc(),
       o.getAspectMarkQ(),
-      o.getAspectDefinitionQ()
+      o.getAspectDefinitionQ(),
+      o.getChecks()
     )
   }
 }

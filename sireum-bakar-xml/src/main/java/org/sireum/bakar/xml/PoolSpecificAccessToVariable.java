@@ -3,6 +3,7 @@ package org.sireum.bakar.xml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
@@ -33,6 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;/element>
  *         &lt;element name="access_to_object_definition_q" type="{}Element_Class"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="checks" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -56,6 +58,8 @@ public class PoolSpecificAccessToVariable
     protected PoolSpecificAccessToVariable.HasNullExclusionQ hasNullExclusionQ;
     @XmlElement(name = "access_to_object_definition_q", required = true)
     protected ElementClass accessToObjectDefinitionQ;
+    @XmlAttribute(name = "checks")
+    protected String checks;
 
     /**
      * Gets the value of the sloc property.
@@ -127,6 +131,30 @@ public class PoolSpecificAccessToVariable
      */
     public void setAccessToObjectDefinitionQ(ElementClass value) {
         this.accessToObjectDefinitionQ = value;
+    }
+
+    /**
+     * Gets the value of the checks property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChecks() {
+        return checks;
+    }
+
+    /**
+     * Sets the value of the checks property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChecks(String value) {
+        this.checks = value;
     }
 
 

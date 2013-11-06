@@ -6,7 +6,8 @@ object SynchronizedInterfaceEx {
   def unapply(o : org.sireum.bakar.xml.SynchronizedInterface) = {
     Some(
       o.getSloc(),
-      o.getDefinitionInterfaceListQl()
+      o.getDefinitionInterfaceListQl(),
+      o.getChecks()
     )
   }
 }

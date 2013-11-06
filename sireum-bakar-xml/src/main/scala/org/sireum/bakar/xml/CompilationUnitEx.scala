@@ -14,7 +14,8 @@ object CompilationUnitEx {
       o.getUnitOrigin(),
       o.getUnitFullName(),
       o.getDefName(),
-      o.getSourceFile()
+      o.getSourceFile(),
+      o.getChecks()
     )
   }
 }

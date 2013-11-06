@@ -7,7 +7,8 @@ object FormalConstrainedArrayDefinitionEx {
     Some(
       o.getSloc(),
       o.getDiscreteSubtypeDefinitionsQl(),
-      o.getArrayComponentDefinitionQ()
+      o.getArrayComponentDefinitionQ(),
+      o.getChecks()
     )
   }
 }

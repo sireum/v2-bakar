@@ -7,7 +7,8 @@ object FormalAccessToConstantEx {
     Some(
       o.getSloc(),
       o.getHasNullExclusionQ(),
-      o.getAccessToObjectDefinitionQ()
+      o.getAccessToObjectDefinitionQ(),
+      o.getChecks()
     )
   }
 }

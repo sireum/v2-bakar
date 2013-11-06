@@ -10,7 +10,8 @@ object DerivedRecordExtensionDefinitionEx {
       o.getHasLimitedQ(),
       o.getParentSubtypeIndicationQ(),
       o.getDefinitionInterfaceListQl(),
-      o.getRecordDefinitionQ()
+      o.getRecordDefinitionQ(),
+      o.getChecks()
     )
   }
 }

@@ -9,7 +9,8 @@ object GenericProcedureDeclarationEx {
       o.getGenericFormalPartQl(),
       o.getNamesQl(),
       o.getParameterProfileQl(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

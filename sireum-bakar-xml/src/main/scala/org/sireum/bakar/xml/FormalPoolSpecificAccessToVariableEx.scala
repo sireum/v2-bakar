@@ -7,7 +7,8 @@ object FormalPoolSpecificAccessToVariableEx {
     Some(
       o.getSloc(),
       o.getHasNullExclusionQ(),
-      o.getAccessToObjectDefinitionQ()
+      o.getAccessToObjectDefinitionQ(),
+      o.getChecks()
     )
   }
 }

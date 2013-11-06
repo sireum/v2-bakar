@@ -7,7 +7,8 @@ object CasePathEx {
     Some(
       o.getSloc(),
       o.getCasePathAlternativeChoicesQl(),
-      o.getSequenceOfStatementsQl()
+      o.getSequenceOfStatementsQl(),
+      o.getChecks()
     )
   }
 }

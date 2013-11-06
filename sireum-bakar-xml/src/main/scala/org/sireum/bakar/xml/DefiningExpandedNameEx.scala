@@ -10,7 +10,8 @@ object DefiningExpandedNameEx {
       o.getDefiningSelectorQ(),
       o.getDefName(),
       o.getDef(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

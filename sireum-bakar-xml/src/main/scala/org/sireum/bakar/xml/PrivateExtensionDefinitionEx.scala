@@ -10,7 +10,8 @@ object PrivateExtensionDefinitionEx {
       o.getHasLimitedQ(),
       o.getHasSynchronizedQ(),
       o.getAncestorSubtypeIndicationQ(),
-      o.getDefinitionInterfaceListQl()
+      o.getDefinitionInterfaceListQl(),
+      o.getChecks()
     )
   }
 }

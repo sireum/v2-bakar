@@ -11,7 +11,8 @@ object ProcedureRenamingDeclarationEx {
       o.getNamesQl(),
       o.getParameterProfileQl(),
       o.getRenamedEntityQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

@@ -8,7 +8,8 @@ object LoopParameterSpecificationEx {
       o.getSloc(),
       o.getNamesQl(),
       o.getHasReverseQ(),
-      o.getSpecificationSubtypeDefinitionQ()
+      o.getSpecificationSubtypeDefinitionQ(),
+      o.getChecks()
     )
   }
 }

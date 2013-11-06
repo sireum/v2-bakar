@@ -8,7 +8,8 @@ object DefiningPlusOperatorEx {
       o.getSloc(),
       o.getDefName(),
       o.getDef(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

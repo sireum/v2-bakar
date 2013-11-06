@@ -7,7 +7,8 @@ object FormalPrivateTypeDefinitionEx {
     Some(
       o.getSloc(),
       o.getHasAbstractQ(),
-      o.getHasLimitedQ()
+      o.getHasLimitedQ(),
+      o.getChecks()
     )
   }
 }

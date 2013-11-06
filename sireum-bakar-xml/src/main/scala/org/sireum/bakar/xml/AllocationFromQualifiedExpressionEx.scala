@@ -8,7 +8,8 @@ object AllocationFromQualifiedExpressionEx {
       o.getSloc(),
       o.getSubpoolNameQ(),
       o.getAllocatorQualifiedExpressionQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

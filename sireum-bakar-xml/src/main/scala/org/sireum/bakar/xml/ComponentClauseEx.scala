@@ -8,7 +8,8 @@ object ComponentClauseEx {
       o.getSloc(),
       o.getRepresentationClauseNameQ(),
       o.getComponentClausePositionQ(),
-      o.getComponentClauseRangeQ()
+      o.getComponentClauseRangeQ(),
+      o.getChecks()
     )
   }
 }

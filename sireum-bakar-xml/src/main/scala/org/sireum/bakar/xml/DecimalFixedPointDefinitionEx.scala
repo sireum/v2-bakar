@@ -8,7 +8,8 @@ object DecimalFixedPointDefinitionEx {
       o.getSloc(),
       o.getDeltaExpressionQ(),
       o.getDigitsExpressionQ(),
-      o.getRealRangeConstraintQ()
+      o.getRealRangeConstraintQ(),
+      o.getChecks()
     )
   }
 }

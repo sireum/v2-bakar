@@ -7,7 +7,8 @@ object VariantEx {
     Some(
       o.getSloc(),
       o.getVariantChoicesQl(),
-      o.getRecordComponentsQl()
+      o.getRecordComponentsQl(),
+      o.getChecks()
     )
   }
 }

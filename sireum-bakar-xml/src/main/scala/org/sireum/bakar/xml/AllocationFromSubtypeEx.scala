@@ -8,7 +8,8 @@ object AllocationFromSubtypeEx {
       o.getSloc(),
       o.getSubpoolNameQ(),
       o.getAllocatorSubtypeIndicationQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

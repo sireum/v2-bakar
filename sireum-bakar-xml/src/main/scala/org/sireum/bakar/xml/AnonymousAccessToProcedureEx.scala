@@ -7,7 +7,8 @@ object AnonymousAccessToProcedureEx {
     Some(
       o.getSloc(),
       o.getHasNullExclusionQ(),
-      o.getAccessToSubprogramParameterProfileQl()
+      o.getAccessToSubprogramParameterProfileQl(),
+      o.getChecks()
     )
   }
 }

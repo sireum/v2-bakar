@@ -7,7 +7,8 @@ object UnconstrainedArrayDefinitionEx {
     Some(
       o.getSloc(),
       o.getIndexSubtypeDefinitionsQl(),
-      o.getArrayComponentDefinitionQ()
+      o.getArrayComponentDefinitionQ(),
+      o.getChecks()
     )
   }
 }

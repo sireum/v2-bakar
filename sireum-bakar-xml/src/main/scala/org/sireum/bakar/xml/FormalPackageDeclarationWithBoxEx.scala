@@ -8,7 +8,8 @@ object FormalPackageDeclarationWithBoxEx {
       o.getSloc(),
       o.getNamesQl(),
       o.getGenericUnitNameQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

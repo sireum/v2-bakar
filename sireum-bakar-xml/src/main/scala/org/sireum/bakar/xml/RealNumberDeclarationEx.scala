@@ -7,7 +7,8 @@ object RealNumberDeclarationEx {
     Some(
       o.getSloc(),
       o.getNamesQl(),
-      o.getInitializationExpressionQ()
+      o.getInitializationExpressionQ(),
+      o.getChecks()
     )
   }
 }

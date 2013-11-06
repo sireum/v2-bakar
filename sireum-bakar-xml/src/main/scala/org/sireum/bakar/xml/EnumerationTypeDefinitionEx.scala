@@ -6,7 +6,8 @@ object EnumerationTypeDefinitionEx {
   def unapply(o : org.sireum.bakar.xml.EnumerationTypeDefinition) = {
     Some(
       o.getSloc(),
-      o.getEnumerationLiteralDeclarationsQl()
+      o.getEnumerationLiteralDeclarationsQl(),
+      o.getChecks()
     )
   }
 }

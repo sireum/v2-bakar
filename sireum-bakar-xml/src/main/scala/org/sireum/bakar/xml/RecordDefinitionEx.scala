@@ -7,7 +7,8 @@ object RecordDefinitionEx {
     Some(
       o.getSloc(),
       o.getHasLimitedQ(),
-      o.getRecordComponentsQl()
+      o.getRecordComponentsQl(),
+      o.getChecks()
     )
   }
 }

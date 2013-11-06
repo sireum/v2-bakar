@@ -12,7 +12,8 @@ object FormalFunctionDeclarationEx {
       o.getResultProfileQ(),
       o.getFormalSubprogramDefaultQ(),
       o.getHasAbstractQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

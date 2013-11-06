@@ -8,7 +8,8 @@ object ExitStatementEx {
       o.getSloc(),
       o.getLabelNamesQl(),
       o.getExitLoopNameQ(),
-      o.getExitConditionQ()
+      o.getExitConditionQ(),
+      o.getChecks()
     )
   }
 }

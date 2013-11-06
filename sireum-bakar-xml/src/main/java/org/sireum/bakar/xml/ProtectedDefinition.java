@@ -3,6 +3,7 @@ package org.sireum.bakar.xml;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -21,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="visible_part_items_ql" type="{}Declarative_Item_List"/>
  *         &lt;element name="private_part_items_ql" type="{}Declarative_Item_List"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="checks" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -44,6 +46,8 @@ public class ProtectedDefinition
     protected DeclarativeItemList visiblePartItemsQl;
     @XmlElement(name = "private_part_items_ql", required = true)
     protected DeclarativeItemList privatePartItemsQl;
+    @XmlAttribute(name = "checks")
+    protected String checks;
 
     /**
      * Gets the value of the sloc property.
@@ -115,6 +119,30 @@ public class ProtectedDefinition
      */
     public void setPrivatePartItemsQl(DeclarativeItemList value) {
         this.privatePartItemsQl = value;
+    }
+
+    /**
+     * Gets the value of the checks property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChecks() {
+        return checks;
+    }
+
+    /**
+     * Sets the value of the checks property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChecks(String value) {
+        this.checks = value;
     }
 
 }

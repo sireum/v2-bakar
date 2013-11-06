@@ -8,7 +8,8 @@ object EntryCallStatementEx {
       o.getSloc(),
       o.getLabelNamesQl(),
       o.getCalledNameQ(),
-      o.getCallStatementParametersQl()
+      o.getCallStatementParametersQl(),
+      o.getChecks()
     )
   }
 }

@@ -7,7 +7,8 @@ object IfStatementEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getStatementPathsQl()
+      o.getStatementPathsQl(),
+      o.getChecks()
     )
   }
 }

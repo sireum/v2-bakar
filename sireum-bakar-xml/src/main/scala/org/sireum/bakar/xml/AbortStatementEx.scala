@@ -7,7 +7,8 @@ object AbortStatementEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getAbortedTasksQl()
+      o.getAbortedTasksQl(),
+      o.getChecks()
     )
   }
 }

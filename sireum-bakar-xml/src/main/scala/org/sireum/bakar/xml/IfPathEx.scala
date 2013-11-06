@@ -7,7 +7,8 @@ object IfPathEx {
     Some(
       o.getSloc(),
       o.getConditionExpressionQ(),
-      o.getSequenceOfStatementsQl()
+      o.getSequenceOfStatementsQl(),
+      o.getChecks()
     )
   }
 }

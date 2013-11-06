@@ -8,7 +8,8 @@ object UnaryPlusOperatorEx {
       o.getSloc(),
       o.getRefName(),
       o.getRef(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

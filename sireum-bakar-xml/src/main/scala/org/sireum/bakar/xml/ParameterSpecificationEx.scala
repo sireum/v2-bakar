@@ -11,7 +11,8 @@ object ParameterSpecificationEx {
       o.getHasNullExclusionQ(),
       o.getObjectDeclarationViewQ(),
       o.getInitializationExpressionQ(),
-      o.getMode()
+      o.getMode(),
+      o.getChecks()
     )
   }
 }

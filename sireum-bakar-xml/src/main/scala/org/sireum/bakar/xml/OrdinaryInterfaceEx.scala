@@ -6,7 +6,8 @@ object OrdinaryInterfaceEx {
   def unapply(o : org.sireum.bakar.xml.OrdinaryInterface) = {
     Some(
       o.getSloc(),
-      o.getDefinitionInterfaceListQl()
+      o.getDefinitionInterfaceListQl(),
+      o.getChecks()
     )
   }
 }

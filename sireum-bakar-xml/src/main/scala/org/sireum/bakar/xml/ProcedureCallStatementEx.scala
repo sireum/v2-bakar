@@ -9,7 +9,8 @@ object ProcedureCallStatementEx {
       o.getLabelNamesQl(),
       o.getCalledNameQ(),
       o.getCallStatementParametersQl(),
-      o.getIsPrefixNotationQ()
+      o.getIsPrefixNotationQ(),
+      o.getChecks()
     )
   }
 }

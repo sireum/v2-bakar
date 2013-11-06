@@ -10,7 +10,8 @@ object ExpressionFunctionDeclarationEx {
       o.getParameterProfileQl(),
       o.getResultProfileQ(),
       o.getResultExpressionQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

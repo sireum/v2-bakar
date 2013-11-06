@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="membership_test_choices_ql" type="{}Element_List"/>
  *       &lt;/sequence>
  *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="checks" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -48,6 +49,8 @@ public class InMembershipTest
     protected ElementList membershipTestChoicesQl;
     @XmlAttribute(name = "type", required = true)
     protected String type;
+    @XmlAttribute(name = "checks")
+    protected String checks;
 
     /**
      * Gets the value of the sloc property.
@@ -143,6 +146,30 @@ public class InMembershipTest
      */
     public void setType(String value) {
         this.type = value;
+    }
+
+    /**
+     * Gets the value of the checks property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChecks() {
+        return checks;
+    }
+
+    /**
+     * Sets the value of the checks property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChecks(String value) {
+        this.checks = value;
     }
 
 }

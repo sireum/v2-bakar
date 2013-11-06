@@ -7,7 +7,8 @@ object RequeueStatementWithAbortEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getRequeueEntryNameQ()
+      o.getRequeueEntryNameQ(),
+      o.getChecks()
     )
   }
 }

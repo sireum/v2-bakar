@@ -7,7 +7,8 @@ object PragmaArgumentAssociationEx {
     Some(
       o.getSloc(),
       o.getFormalParameterQ(),
-      o.getActualParameterQ()
+      o.getActualParameterQ(),
+      o.getChecks()
     )
   }
 }

@@ -8,7 +8,8 @@ object GeneralizedIteratorSpecificationEx {
       o.getSloc(),
       o.getNamesQl(),
       o.getHasReverseQ(),
-      o.getIterationSchemeNameQ()
+      o.getIterationSchemeNameQ(),
+      o.getChecks()
     )
   }
 }

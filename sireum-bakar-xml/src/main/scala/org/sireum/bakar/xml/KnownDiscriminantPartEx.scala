@@ -6,7 +6,8 @@ object KnownDiscriminantPartEx {
   def unapply(o : org.sireum.bakar.xml.KnownDiscriminantPart) = {
     Some(
       o.getSloc(),
-      o.getDiscriminantsQl()
+      o.getDiscriminantsQl(),
+      o.getChecks()
     )
   }
 }

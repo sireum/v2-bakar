@@ -8,7 +8,8 @@ object RecordRepresentationClauseEx {
       o.getSloc(),
       o.getRepresentationClauseNameQ(),
       o.getModClauseExpressionQ(),
-      o.getComponentClausesQl()
+      o.getComponentClausesQl(),
+      o.getChecks()
     )
   }
 }

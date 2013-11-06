@@ -6,7 +6,8 @@ object ThenAbortPathEx {
   def unapply(o : org.sireum.bakar.xml.ThenAbortPath) = {
     Some(
       o.getSloc(),
-      o.getSequenceOfStatementsQl()
+      o.getSequenceOfStatementsQl(),
+      o.getChecks()
     )
   }
 }

@@ -8,7 +8,8 @@ object CaseStatementEx {
       o.getSloc(),
       o.getLabelNamesQl(),
       o.getCaseExpressionQ(),
-      o.getStatementPathsQl()
+      o.getStatementPathsQl(),
+      o.getChecks()
     )
   }
 }

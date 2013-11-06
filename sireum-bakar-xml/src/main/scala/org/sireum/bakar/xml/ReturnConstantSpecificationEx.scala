@@ -9,7 +9,8 @@ object ReturnConstantSpecificationEx {
       o.getNamesQl(),
       o.getHasAliasedQ(),
       o.getObjectDeclarationViewQ(),
-      o.getInitializationExpressionQ()
+      o.getInitializationExpressionQ(),
+      o.getChecks()
     )
   }
 }

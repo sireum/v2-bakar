@@ -7,7 +7,8 @@ object AsynchronousSelectStatementEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getStatementPathsQl()
+      o.getStatementPathsQl(),
+      o.getChecks()
     )
   }
 }

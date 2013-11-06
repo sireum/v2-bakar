@@ -9,7 +9,8 @@ object ForLoopStatementEx {
       o.getLabelNamesQl(),
       o.getStatementIdentifierQ(),
       o.getForLoopParameterSpecificationQ(),
-      o.getLoopStatementsQl()
+      o.getLoopStatementsQl(),
+      o.getChecks()
     )
   }
 }

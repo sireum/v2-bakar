@@ -15,7 +15,8 @@ object FunctionBodyDeclarationEx {
       o.getAspectSpecificationsQl(),
       o.getBodyDeclarativeItemsQl(),
       o.getBodyStatementsQl(),
-      o.getBodyExceptionHandlersQl()
+      o.getBodyExceptionHandlersQl(),
+      o.getChecks()
     )
   }
 }

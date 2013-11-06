@@ -8,7 +8,8 @@ object InMembershipTestEx {
       o.getSloc(),
       o.getMembershipTestExpressionQ(),
       o.getMembershipTestChoicesQl(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

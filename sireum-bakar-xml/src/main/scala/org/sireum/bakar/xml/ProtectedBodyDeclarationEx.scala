@@ -8,7 +8,8 @@ object ProtectedBodyDeclarationEx {
       o.getSloc(),
       o.getNamesQl(),
       o.getAspectSpecificationsQl(),
-      o.getProtectedOperationItemsQl()
+      o.getProtectedOperationItemsQl(),
+      o.getChecks()
     )
   }
 }

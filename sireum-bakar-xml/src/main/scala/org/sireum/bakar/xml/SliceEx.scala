@@ -8,7 +8,8 @@ object SliceEx {
       o.getSloc(),
       o.getPrefixQ(),
       o.getSliceRangeQ(),
-      o.getType()
+      o.getType(),
+      o.getChecks()
     )
   }
 }

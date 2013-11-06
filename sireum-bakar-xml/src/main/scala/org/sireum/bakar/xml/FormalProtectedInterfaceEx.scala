@@ -6,7 +6,8 @@ object FormalProtectedInterfaceEx {
   def unapply(o : org.sireum.bakar.xml.FormalProtectedInterface) = {
     Some(
       o.getSloc(),
-      o.getDefinitionInterfaceListQl()
+      o.getDefinitionInterfaceListQl(),
+      o.getChecks()
     )
   }
 }

@@ -7,7 +7,8 @@ object GotoStatementEx {
     Some(
       o.getSloc(),
       o.getLabelNamesQl(),
-      o.getGotoLabelQ()
+      o.getGotoLabelQ(),
+      o.getChecks()
     )
   }
 }

@@ -5,7 +5,8 @@ import org.sireum.util._
 object NullExclusionEx {
   def unapply(o : org.sireum.bakar.xml.NullExclusion) = {
     Some(
-      o.getSloc()
+      o.getSloc(),
+      o.getChecks()
     )
   }
 }

@@ -6,7 +6,8 @@ object IndexConstraintEx {
   def unapply(o : org.sireum.bakar.xml.IndexConstraint) = {
     Some(
       o.getSloc(),
-      o.getDiscreteRangesQl()
+      o.getDiscreteRangesQl(),
+      o.getChecks()
     )
   }
 }

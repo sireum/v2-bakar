@@ -12,7 +12,8 @@ object EntryBodyDeclarationEx {
       o.getEntryBarrierQ(),
       o.getBodyDeclarativeItemsQl(),
       o.getBodyStatementsQl(),
-      o.getBodyExceptionHandlersQl()
+      o.getBodyExceptionHandlersQl(),
+      o.getChecks()
     )
   }
 }

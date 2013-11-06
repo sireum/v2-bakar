@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;attribute name="unit_full_name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="def_name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="source_file" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="checks" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -67,6 +68,8 @@ public class CompilationUnit
     protected String defName;
     @XmlAttribute(name = "source_file", required = true)
     protected String sourceFile;
+    @XmlAttribute(name = "checks")
+    protected String checks;
 
     /**
      * Gets the value of the sloc property.
@@ -306,6 +309,30 @@ public class CompilationUnit
      */
     public void setSourceFile(String value) {
         this.sourceFile = value;
+    }
+
+    /**
+     * Gets the value of the checks property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChecks() {
+        return checks;
+    }
+
+    /**
+     * Sets the value of the checks property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChecks(String value) {
+        this.checks = value;
     }
 
 }

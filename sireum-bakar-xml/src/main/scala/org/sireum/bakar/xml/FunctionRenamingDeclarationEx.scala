@@ -13,7 +13,8 @@ object FunctionRenamingDeclarationEx {
       o.getIsNotNullReturnQ(),
       o.getResultProfileQ(),
       o.getRenamedEntityQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }

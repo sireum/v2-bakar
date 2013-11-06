@@ -8,7 +8,8 @@ object RaiseStatementEx {
       o.getSloc(),
       o.getLabelNamesQl(),
       o.getRaisedExceptionQ(),
-      o.getAssociatedMessageQ()
+      o.getAssociatedMessageQ(),
+      o.getChecks()
     )
   }
 }

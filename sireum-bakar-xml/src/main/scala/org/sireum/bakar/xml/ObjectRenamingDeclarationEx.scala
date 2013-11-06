@@ -10,7 +10,8 @@ object ObjectRenamingDeclarationEx {
       o.getHasNullExclusionQ(),
       o.getObjectDeclarationViewQ(),
       o.getRenamedEntityQ(),
-      o.getAspectSpecificationsQl()
+      o.getAspectSpecificationsQl(),
+      o.getChecks()
     )
   }
 }
