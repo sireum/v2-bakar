@@ -1,11 +1,11 @@
 (* *********************************************************************)
-(*                                                                                                *)
-(*              Formalization of SPARK 2014 Subset                      *)
-(*                                                                                                *)
-(*                Zhi Zhang, Kansas State University                        *)
-(*                                                                                                *)
-(*  Copyright and licence to be determined by KSU.                 *)
-(*                                                                                                *)
+(*                                                                     *)
+(*              Formalization of SPARK 2014 Subset                     *)
+(*                                                                     *)
+(*              Zhi Zhang, Kansas State University                     *)
+(*                                                                     *)
+(*         Copyright and licence to be determined by KSU.              *)
+(*                                                                     *)
 (* *********************************************************************)
 
 (** 
