@@ -1,7 +1,9 @@
 package org.sireum.bakar.symbol
 
+import org.sireum.pilar.ast.Exp
 import org.sireum.pilar.ast.ParamDecl
 import org.sireum.pilar.ast.ProcedureDecl
+import org.sireum.util.IMap
 import org.sireum.util.ISet
 import org.sireum.util.ResourceUri
 
@@ -10,9 +12,9 @@ object BakarSymbol {
   val INFO_PARAM = "BAKAR_PARAM_INFO"
   val INFO_PROCEDURE = "BAKAR_PROCEDURE_INFO"
 
-  implicit def pd2pi(p : ParamDecl) : ParamInfo = {
-    p.getPropertyOrElse(INFO_PARAM, {
-      val pi = new ParamInfo {
+  implicit def pd2pi(p : ParamDecl) : ParamInfo =
+    p.getPropertyOrElseUpdate(INFO_PARAM,
+      new ParamInfo {
         private var _paramMode : Mode = null
         def mode = _paramMode
         def mode(m : String) {
@@ -22,31 +24,38 @@ object BakarSymbol {
             case "AN_IN_OUT_MODE"                   => Mode.IN_OUT
           }
         }
-      }
-      p(INFO_PARAM) = pi
-      pi
-    })
-  }
+      })
 
-  implicit def proc2procInfo(p : ProcedureDecl) : ProcedureInfo = {
-    p.getPropertyOrElse(INFO_PROCEDURE, {
-      val pi = new ProcedureInfo {
-        private var _globalsin : Option[ISet[ResourceUri]] = None
-        private var _globalsout : Option[ISet[ResourceUri]] = None
-        private var _globalsproof : Option[ISet[ResourceUri]] = None
+  implicit def proc2procInfo(p : ProcedureDecl) : ProcedureInfo =
+    p.getPropertyOrElseUpdate(INFO_PROCEDURE,
+      new ProcedureInfo {
+        private var _depends : IMap[ResourceUri, ISet[ResourceUri]] = null
+        private var _globalsin : ISet[ResourceUri] = null
+        private var _globalsout : ISet[ResourceUri] = null
+        private var _globalsproof : ISet[ResourceUri] = null
+        private var _pre : Exp = null
+        private var _post : Exp = null
 
-        def globalsIn = _globalsin
-        def globalsOut = _globalsout
-        def globalsProof = _globalsproof
+        def wrap[T](t : T) = if (t == null) None else Some(t)
 
-        def globalsIn(o : ISet[ResourceUri]) = _globalsin = Some(o)
-        def globalsOut(o : ISet[ResourceUri]) = _globalsout = Some(o)
-        def globalsProof(o : ISet[ResourceUri]) = _globalsproof = Some(o)
-      }
-      p(INFO_PROCEDURE) = pi
-      pi
-    })
-  }
+        def depends = wrap(_depends)
+        def depends(o : IMap[ResourceUri, ISet[ResourceUri]]) = _depends = o
+
+        def globalsIn = wrap(_globalsin)
+        def globalsIn(o : ISet[ResourceUri]) = _globalsin = o
+        
+        def globalsOut = wrap(_globalsout)
+        def globalsOut(o : ISet[ResourceUri]) = _globalsout = o
+        
+        def globalsProof = wrap(_globalsproof)
+        def globalsProof(o : ISet[ResourceUri]) = _globalsproof = o
+
+        def pre = wrap(_pre)
+        def pre(o : Exp) = _pre = o
+        
+        def post = wrap(_post)
+        def post(o : Exp) = _post = o
+      })
 
   trait ParamInfo {
     def mode : Mode
@@ -54,6 +63,9 @@ object BakarSymbol {
   }
 
   trait ProcedureInfo {
+    def depends : Option[IMap[ResourceUri, ISet[ResourceUri]]]
+    def depends(o : IMap[ResourceUri, ISet[ResourceUri]])
+
     def globalsIn : Option[ISet[ResourceUri]]
     def globalsIn(o : ISet[ResourceUri])
 
@@ -62,5 +74,11 @@ object BakarSymbol {
 
     def globalsProof : Option[ISet[ResourceUri]]
     def globalsProof(o : ISet[ResourceUri])
+
+    def pre : Option[Exp]
+    def pre(o : Exp)
+
+    def post : Option[Exp]
+    def post(o : Exp)
   }
 }
