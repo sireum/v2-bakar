@@ -74,6 +74,7 @@ import org.sireum.bakar.xml.IdentifierEx
 import org.sireum.bakar.xml.IfExpressionEx
 import org.sireum.bakar.xml.IfPathEx
 import org.sireum.bakar.xml.IfStatementEx
+import org.sireum.bakar.xml.ImplementationDefinedAttributeEx
 import org.sireum.bakar.xml.ImplementationDefinedPragmaEx
 import org.sireum.bakar.xml.IndexedComponentEx
 import org.sireum.bakar.xml.IntegerLiteralEx
@@ -196,6 +197,7 @@ import org.sireum.util.FileLineColumnLocation.pp2flcl
 import org.sireum.util.FileResourceUri
 import org.sireum.util.IMap
 import org.sireum.util.ISeq
+import org.sireum.util.ISet
 import org.sireum.util.Location
 import org.sireum.util.MList
 import org.sireum.util.PropertyProvider
@@ -204,6 +206,7 @@ import org.sireum.util.SourceLocation.pp2sl
 import org.sireum.util.Visitor
 import org.sireum.util.VisitorFunction
 import org.sireum.util.ilistEmpty
+import org.sireum.util.imapEmpty
 import org.sireum.util.isetEmpty
 import org.sireum.util.ivector
 import org.sireum.util.ivectorEmpty
@@ -313,6 +316,10 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     }
 
     def processingPackage = this.contextStack.head._1 == CTX.PACKAGE
+
+    var _processingContract = false
+    def processingContract = _processingContract
+    def processingContract(isProcessing : Boolean) = _processingContract = isProcessing
 
     def purifyPath(s : FileResourceUri) = {
       if (!regression) s
@@ -1123,52 +1130,92 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
         pd(URIS.REF_URI) = methodDefUri
 
+        ctx.processingContract(true)
         aspectSpecs.getElements.foreach {
-          case as @ AspectSpecificationEx(sloc, mark, defs, checks) =>
+          case as @ AspectSpecificationEx(sloc, mark, aspectDef, checks) =>
             val (_, m, _, _) = ctx.getName(mark.getElement)
-            m.toLowerCase match {
-              case "global" =>
-                var ins = isetEmpty[ResourceUri]
-                var outs = isetEmpty[ResourceUri]
-                var proofs = isetEmpty[ResourceUri]
+            val ml = m.toLowerCase
 
-                defs.getElement match {
+            import org.sireum.bakar.symbol.BakarSymbol._
+            ml match {
+              case "contract_cases" =>
+                throw new RuntimeException("Not handling " + ml)
+              case "post" =>
+                v(aspectDef.getElement)
+                pd.post(ctx.popResult.asInstanceOf[Exp])
+              case "pre" =>
+                v(aspectDef.getElement)
+                pd.pre(ctx.popResult.asInstanceOf[Exp])
+              case "global" | "depends" =>
+
+                var assoc = ivectorEmpty[(ISet[String], ISet[String])]
+
+                aspectDef.getElement match {
                   case ra @ RecordAggregateEx(rasloc, associations, _, checks) =>
                     associations.getAssociations.foreach {
                       case rca @ RecordComponentAssociationEx(_, choices, exp, checks) =>
-                        var items = isetEmpty[ResourceUri]
-                        ctx.stripParens(exp.getExpression) match {
-                          case paa @ PositionalArrayAggregateEx(sloc, arrassoc, typ, checks) =>
-                            arrassoc.getAssociations.foreach {
-                              case ArrayComponentAssociationEx(_, _choices, _exp, checks) =>
-                                assert(_choices.getElements.isEmpty)
-                                val (_, _, refuri, _) = ctx.getName(ctx.stripParens(_exp.getExpression))
-                                items += refuri
-                            }
-                          case i @ IdentifierEx(_, refname, refuri, _, checks) =>
-                            items += ctx.rewriteUri(refuri)
-                        }
 
+                        def h(e : Any) : ISet[String] = {
+                            var ret = isetEmpty[String]
+                            e match {
+                              case paa @ PositionalArrayAggregateEx(sloc, arrassoc, typ, checks) =>
+                                arrassoc.getAssociations.foreach {
+                                  case ArrayComponentAssociationEx(_, _choices, _exp, checks) =>
+                                    assert(_choices.getElements.isEmpty)
+                                    val (_, _, refuri, _) = ctx.getName(ctx.stripParens(_exp.getExpression))
+                                    ret += ctx.rewriteUri(refuri)
+                                }
+                              case i @ IdentifierEx(_, refname, refuri, _, checks) =>
+                                ret += ctx.rewriteUri(refuri)
+                            }
+                            ret
+                          }
+
+                        val rhs = h(ctx.stripParens(exp.getExpression))
                         assert(choices.getExpressions.size == 1)
-                        val (_, mode, _, _) = ctx.getName(choices.getExpressions.head)
-                        mode.toLowerCase match {
-                          case "input"  => ins ++= items
-                          case "output" => outs ++= items
-                          case "in_out" =>
-                            ins ++= items
-                            outs ++= items
-                          case "proof_in" => proofs ++= items
-                        }
+                        val lhs = h(ctx.stripParens(choices.getExpressions.head))
+
+                        assoc +:= (lhs, rhs)
                     }
                 }
 
-                import org.sireum.bakar.symbol.BakarSymbol._
-                if (!ins.isEmpty) pd.globalsIn(ins)
-                if (!outs.isEmpty) pd.globalsOut(outs)
-                if (!proofs.isEmpty) pd.globalsProof(proofs)
-              case _ => throw new RuntimeException("Not hanlding aspect: " + m)
+                ml match {
+                  case "global" =>
+                    var ins = isetEmpty[ResourceUri]
+                    var outs = isetEmpty[ResourceUri]
+                    var proofs = isetEmpty[ResourceUri]
+
+                    for ((mode, values) <- assoc) {
+                      assert(mode.size == 1)
+                      mode.head.toLowerCase match {
+                        case "input"    => ins ++= values
+                        case "output"   => outs ++= values
+                        case "proof_in" => proofs ++= values
+                      }
+                    }
+                    if (!ins.isEmpty) pd.globalsIn(ins)
+                    if (!outs.isEmpty) pd.globalsOut(outs)
+                    if (!proofs.isEmpty) pd.globalsProof(proofs)
+
+                  case "depends" =>
+                    // FIXME: bug in asis/gnat2xml version 7.2.0w (20130829)
+                    // doesn't correctly handle the lhs of the following
+                    //   Depends => ((A, B) => (A, B))
+                    // rewrite to 
+                    //   Depends => (A => (A, B), (B => (A, B))
+
+                    var d = imapEmpty[ResourceUri, ISet[ResourceUri]]
+                    for ((outputs, inputs) <- assoc; out <- outputs) {
+                      d += (out -> inputs)
+                    }
+                    pd.depends(d)
+                  case x => throw new RuntimeException("Unexpected: " + x)
+                }
             }
+          case x => throw new RuntimeException("Unexpected: " + x)
         }
+        ctx.processingContract(false)
+
         ctx.popContext
         pd
       }
@@ -1612,6 +1659,24 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
       ctx.pushResult(ctx.handleAttribute(Attribute.ATTRIBUTE_UIF_LAST, p, typ), sloc)
       false
+    case o @ ImplementationDefinedAttributeEx(sloc, prefix, attId, attExp, typeUri, checks) =>
+      v(attId)
+      val p = ctx.popResult.asInstanceOf[NameExp]
+      val n = p.name.name.toLowerCase match {
+        case "old"    => Attribute.ATTRIBUTE_UIF_OLD
+        case "result" => Attribute.ATTRIBUTE_UIF_RESULT
+      }
+
+      v(prefix)
+      val exp = ctx.popResult.asInstanceOf[NameExp]
+
+      val nu = ctx.addResourceUri(NameUser(n), Attribute.attributeURIprefix + n)
+      val ne = NameExp(nu)
+      val ce = addprop(CallExp(ne, exp), URIS.TYPE_URI, typeUri)
+
+      ctx.pushResult(ce, sloc)
+
+      false
   }
 
   def expressionH(ctx : Context, v : => BVisitor) : VisitorFunction = {
@@ -1653,13 +1718,17 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         val ce = CallExp(mname, TupleExp(plist.toList))
         this.addprop(ce, URIS.TYPE_URI, callExpType, true)
 
-        val tempVar = ctx.genTempVar("FIXME", callExpType)
-        val lhss = ivector(tempVar)
-        val cj = CallJump(ivectorEmpty, lhss, ce, None)
-        val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, cj)
-        ctx.pushLocation(jl)
+        if (ctx.processingContract) {
+          ctx.pushResult(ctx.handleExp(ce), sloc)
+        } else {
+          val tempVar = ctx.genTempVar("FIXME", callExpType)
+          val lhss = ivector(tempVar)
+          val cj = CallJump(ivectorEmpty, lhss, ce, None)
+          val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, cj)
+          ctx.pushLocation(jl)
 
-        ctx.pushResult(ctx.handleExp(tempVar), sloc)
+          ctx.pushResult(ctx.handleExp(tempVar), sloc)
+        }
       }
 
       false
@@ -1680,14 +1749,19 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         case x                => println(x); x
       }
       false
-    case o @ EnumerationLiteralEx(sloc, refName, ref, typ, checks) =>
-      if (typ == StandardURIs.boolURI) {
+    case o @ EnumerationLiteralEx(sloc, refName, refUri, typeUri, checks) =>
+      if (typeUri == StandardURIs.boolURI) {
         val v = refName.toLowerCase() == "true"
         val le = LiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase())
         addprop(le, URIS.TYPE_URI, StandardURIs.boolURI)
         ctx.pushResult(le, sloc)
       } else {
-        if (DEBUG) Console.err.println("Not handling enumeration lit %s %s".format(typ, refName))
+        val nu = ctx.addResourceUri(NameUser(refName), refUri)
+        this.addprop(nu, URIS.REF_URI, refUri)
+        this.addprop(nu, URIS.TYPE_URI, typeUri)
+
+        val ne = this.addprop(NameExp(nu), URIS.TYPE_URI, typeUri)
+        ctx.pushResult(ne, sloc)
       }
       false
     case o @ AndThenShortCircuitEx(sloc, lhs, rhs, theType, checks) =>

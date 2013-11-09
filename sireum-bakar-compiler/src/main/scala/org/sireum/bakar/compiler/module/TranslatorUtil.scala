@@ -1,25 +1,19 @@
 package org.sireum.bakar.compiler.module
 
-import collection.JavaConversions._
-import org.sireum.bakar.xml._
-import org.sireum.pilar.ast._
-import org.sireum.util._
-import org.sireum.bakar.symbol.FullTypeDecl
-import org.sireum.bakar.symbol.SignedIntegerTypeDef
-import java.net.URI
-
 object BAKAR_KEYS {
   val PARAM_INFO = "BAKAR_PARAM_INFO"
 }
 
 object URIS {
+  import java.net.URI
+
   val TYPE_MAP = "BAKAR_TYPE_MAP"
   val TYPE_DEF = "BAKAR_TYPE_DEF"
   val TYPE_URI = "BAKAR_TYPE_URI"
   val REF_URI = "BAKAR_REF_URI"
 
   def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s : T, uri : String) = {
-    import org.sireum.pilar.symbol.Symbol
+
     val u = new URI(uri)
     val paths =
       if (u.getPath.startsWith("/"))
@@ -37,10 +31,16 @@ object VariableURIs {
 }
 
 object PackageURIs {
+  import org.sireum.util.ResourceUri
+
   val standardPackageURI = "ada://package__default/standard"
-    
-  val initBodyProcedureURIprefix = "ada://procedure_body__package_init/" 
-  val initSpecProcedureURIprefix = "ada://procedure__package_init/" 
+
+  val initBodyProcedureURIprefix = "ada://procedure_body__package_init/"
+  val initSpecProcedureURIprefix = "ada://procedure__package_init/"
+
+  def isPackageInitProcedure(u : ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
+  def isPackageBodyInitProcedure(u : ResourceUri) = u.startsWith(initBodyProcedureURIprefix)
+  def isPackageSpecInitProcedure(u : ResourceUri) = u.startsWith(initSpecProcedureURIprefix)
 }
 
 object Attribute {
@@ -50,6 +50,8 @@ object Attribute {
 
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
+  val ATTRIBUTE_UIF_OLD = "attribute__uif__old"
+  val ATTRIBUTE_UIF_RESULT = "attribute__uif__result"
 
   val attributeURIprefix = "ada://procedure__uif/"
 }
@@ -57,7 +59,7 @@ object Attribute {
 object StandardURIs {
   val universalIntURI = "ada://ordinary_type/universal_integer".intern
   val universalRealURI = "ada://ordinary_type/universal_real".intern
-  
+
   val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1".intern
   val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1".intern
   val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1".intern
@@ -67,6 +69,16 @@ object StandardURIs {
 }
 
 object StandardTypeDefs {
+  import org.sireum.util.ilistEmpty
+  import org.sireum.util.ivectorEmpty
+  import org.sireum.bakar.symbol.FullTypeDecl
+  import org.sireum.bakar.symbol.SignedIntegerTypeDef
+  import org.sireum.pilar.ast.NameDefinition
+  import org.sireum.pilar.ast.NameUser
+  import org.sireum.pilar.ast.NamedTypeSpec
+  import org.sireum.pilar.ast.TypeAliasDecl
+  import org.sireum.pilar.ast.TypeSpec
+
   def createType(typName : String, baseType : String, typURI : String) : TypeAliasDecl = {
     val tad = TypeAliasDecl(NameDefinition(typName), ivectorEmpty,
       NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec])
@@ -83,7 +95,7 @@ object StandardTypeDefs {
 
   val UniversalInteger = createType("universal_integer", "Integer", StandardURIs.universalIntURI)
   val UniversalReal = createType("universal_real", "Float", StandardURIs.universalRealURI)
-  
+
   val StandardBoolean = createType("standard::boolean", "Boolean", StandardURIs.boolURI)
   val StandardInteger = createType("standard::integer", "Integer", StandardURIs.integerURI)
   val StandardNatural = createType("standard::natural", "Integer", StandardURIs.naturalURI)
@@ -93,23 +105,48 @@ object StandardTypeDefs {
 }
 
 object TranslatorUtil {
+  import scala.collection.JavaConversions.asScalaBuffer
+  import org.sireum.bakar.xml.Base
+  import org.sireum.bakar.xml.ConstantDeclaration
+  import org.sireum.bakar.xml.DeferredConstantDeclaration
+  import org.sireum.bakar.xml.FunctionBodyDeclaration
+  import org.sireum.bakar.xml.FunctionDeclaration
+  import org.sireum.bakar.xml.GenericProcedureDeclaration
+  import org.sireum.bakar.xml.IncompleteTypeDeclaration
+  import org.sireum.bakar.xml.IntegerNumberDeclaration
+  import org.sireum.bakar.xml.NullProcedureDeclaration
+  import org.sireum.bakar.xml.OrdinaryTypeDeclaration
+  import org.sireum.bakar.xml.PrivateExtensionDeclaration
+  import org.sireum.bakar.xml.PrivateTypeDeclaration
+  import org.sireum.bakar.xml.ProcedureBodyDeclaration
+  import org.sireum.bakar.xml.ProcedureDeclaration
+  import org.sireum.bakar.xml.ProtectedTypeDeclaration
+  import org.sireum.bakar.xml.RealNumberDeclaration
+  import org.sireum.bakar.xml.SubtypeDeclaration
+  import org.sireum.bakar.xml.TaskTypeDeclaration
+  import org.sireum.bakar.xml.VariableDeclaration
+  import org.sireum.pilar.ast.NameDefinition
+  import org.sireum.pilar.ast.NameUser
+  import org.sireum.pilar.ast.NamedTypeSpec
+  import org.sireum.pilar.ast.TypeAliasDecl
+  import org.sireum.pilar.ast.TypeSpec
 
   def getTypeDeclarations(e : java.util.List[Base]) = {
     e.filter {
-      case x : OrdinaryTypeDeclaration         => true
-      case x : IncompleteTypeDeclaration       => true
-      case x : PrivateTypeDeclaration          => true
-      case x : SubtypeDeclaration              => true
+      case x : OrdinaryTypeDeclaration     => true
+      case x : IncompleteTypeDeclaration   => true
+      case x : PrivateTypeDeclaration      => true
+      case x : SubtypeDeclaration          => true
 
       //case x : TaggedIncompleteTypeDeclaration => true
       //case x : FormalIncompleteTypeDeclaration => true
       //case x : FormalTypeDeclaration           => true
 
       // the following type declarations are not permitted in SPARK 2014
-      case x : TaskTypeDeclaration             => false
-      case x : ProtectedTypeDeclaration        => false
-      case x : PrivateExtensionDeclaration     => false
-      case _                                   => false
+      case x : TaskTypeDeclaration         => false
+      case x : ProtectedTypeDeclaration    => false
+      case x : PrivateExtensionDeclaration => false
+      case _                               => false
     }
   }
 

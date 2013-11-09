@@ -9,19 +9,19 @@ procedure Activity isWorkDay (
 
 
   #l1.
-    ret := ;
+    ret := Work;
 
   #l2.
-    ret := ;
+    ret := Party;
 
   #l3.
-    ret := ;
+    ret := Party;
 
   #l4.
-    ret := ;
+    ret := Work;
 
   #l5.
-    ret := ;
+    ret := Drink;
 
   #l6.
     return ret;
