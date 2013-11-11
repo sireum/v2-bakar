@@ -516,7 +516,7 @@ procedure Add (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l3_12.14_12.16</some>
+             <some etype="string">l3_12.4_15.12</some>
              <int>3</int>
              <int>0</int>
              <int>0</int>
@@ -892,7 +892,7 @@ procedure Del
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l6_17.14_17.16</some>
+             <some etype="string">l6_17.4_22.11</some>
              <int>6</int>
              <int>0</int>
              <int>0</int>

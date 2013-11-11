@@ -173,7 +173,7 @@ procedure Convert (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l2_3.14_3.20</some>
+             <some etype="string">l2_3.4_7.15</some>
              <int>1</int>
              <int>0</int>
              <int>0</int>

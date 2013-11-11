@@ -209,7 +209,7 @@ procedure add (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l2_4.13_4.15</some>
+             <some etype="string">l2_4.3_8.10</some>
              <int>3</int>
              <int>0</int>
              <int>0</int>
@@ -538,7 +538,7 @@ procedure foo (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l8_10.13_10.15</some>
+             <some etype="string">l8_10.3_19.10</some>
              <int>9</int>
              <int>0</int>
              <int>0</int>

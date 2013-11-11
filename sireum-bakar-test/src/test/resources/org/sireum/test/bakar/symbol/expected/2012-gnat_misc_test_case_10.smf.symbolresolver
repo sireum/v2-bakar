@@ -545,7 +545,7 @@ procedure P1 (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l15_2.15_2.16</some>
+             <some etype="string">l15_2.5_21.11</some>
              <int>20</int>
              <int>0</int>
              <int>0</int>

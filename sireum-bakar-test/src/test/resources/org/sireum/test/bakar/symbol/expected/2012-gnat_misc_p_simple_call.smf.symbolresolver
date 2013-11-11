@@ -390,7 +390,7 @@ procedure R (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l6_6.13_6.13</some>
+             <some etype="string">l6_6.3_9.8</some>
              <int>5</int>
              <int>0</int>
              <int>0</int>
@@ -980,7 +980,7 @@ procedure Q (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l17_24.13_24.13</some>
+             <some etype="string">l17_24.3_29.8</some>
              <int>5</int>
              <int>0</int>
              <int>0</int>

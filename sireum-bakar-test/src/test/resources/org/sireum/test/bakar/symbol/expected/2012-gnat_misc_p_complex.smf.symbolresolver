@@ -377,7 +377,7 @@ procedure Q (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l6_60.13_60.13</some>
+             <some etype="string">l6_60.3_64.8</some>
              <int>3</int>
              <int>0</int>
              <int>0</int>

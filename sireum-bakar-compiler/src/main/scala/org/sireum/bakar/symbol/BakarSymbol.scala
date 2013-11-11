@@ -36,24 +36,24 @@ object BakarSymbol {
         private var _pre : Exp = null
         private var _post : Exp = null
 
-        def wrap[T](t : T) = if (t == null) None else Some(t)
+        implicit def wrap[T](t : T) = if (t == null) None else Some(t)
 
-        def depends = wrap(_depends)
+        def depends = _depends
         def depends(o : IMap[ResourceUri, ISet[ResourceUri]]) = _depends = o
 
-        def globalsIn = wrap(_globalsin)
+        def globalsIn = _globalsin
         def globalsIn(o : ISet[ResourceUri]) = _globalsin = o
         
-        def globalsOut = wrap(_globalsout)
+        def globalsOut = _globalsout
         def globalsOut(o : ISet[ResourceUri]) = _globalsout = o
         
-        def globalsProof = wrap(_globalsproof)
+        def globalsProof = _globalsproof
         def globalsProof(o : ISet[ResourceUri]) = _globalsproof = o
 
-        def pre = wrap(_pre)
+        def pre = _pre
         def pre(o : Exp) = _pre = o
         
-        def post = wrap(_post)
+        def post = _post
         def post(o : Exp) = _post = o
       })
 

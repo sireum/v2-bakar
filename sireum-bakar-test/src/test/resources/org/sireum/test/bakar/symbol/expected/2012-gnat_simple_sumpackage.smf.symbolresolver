@@ -1047,7 +1047,7 @@ procedure Sum2 (
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
-             <some etype="string">l24_20.13_20.16</some>
+             <some etype="string">l24_20.3_34.11</some>
              <int>23</int>
              <int>0</int>
              <int>0</int>
