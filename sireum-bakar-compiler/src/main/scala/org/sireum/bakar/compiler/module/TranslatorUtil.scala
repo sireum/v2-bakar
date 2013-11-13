@@ -51,8 +51,10 @@ object Attribute {
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
   val ATTRIBUTE_UIF_OLD = "attribute__uif__old"
+  val ATTRIBUTE_UIF_PRED = "attribute__uif__pred"
   val ATTRIBUTE_UIF_RESULT = "attribute__uif__result"
-
+  val ATTRIBUTE_UIF_SUCC = "attribute__uif__succ"
+  
   val attributeURIprefix = "ada://procedure__uif/"
 }
 
