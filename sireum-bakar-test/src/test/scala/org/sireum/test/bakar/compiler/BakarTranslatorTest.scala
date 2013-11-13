@@ -28,8 +28,8 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   
   override def generateExpected = false
   
-  override def includes = super.includes ++= Set("gnat_misc", "gnat_simple")
-
+  override def includes = super.includes ++= Set("gnat_misc", "gnat_simple", "spark2014")
+  
   override def excludes = {
     super.excludes ++= Set("constraints", "dependence_test_suite_01",
       "faultintegrator", "in_range", "misc_labeled", "misc_p_public",

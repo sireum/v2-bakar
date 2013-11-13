@@ -1,0 +1,757 @@
+sort_simple_contract.adb
+package Sort_Simple_Contract;
+
+
+procedure Boolean isSorted (
+        Vector Z) {
+  local
+    Boolean B;
+    Index_Type I;
+    Index_Type _tcomp0;
+    Index_Type _tcomp1;
+
+
+  #l2.
+    _tcomp0 := attribute__uif__first ^Index_Type;
+
+  #l3.
+    _tcomp1 := attribute__uif__last ^Index_Type - 1ii;
+
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
+
+  #l5.
+    I := _tcomp0;
+
+  #l6.
+    // empty loc
+
+  #l7.
+    B := Z[I] <= Z[I + 1ii];
+
+  #l8.
+    if !(B) then goto l1;
+
+  #l9.
+    if I == _tcomp1 then goto l1;
+
+  #l10.
+    I := I + 1ii;
+
+  #l11.
+    goto l6;
+
+  #l1.
+    // empty loc
+
+  #l12.
+    return B;
+}
+
+procedure Integer Num_Repetitions (
+        Vector A,
+        Integer E) {
+  local
+    Integer Result;
+    Index_Type I;
+    Index_Type _tcomp2;
+    Index_Type _tcomp3;
+
+
+  #l13.
+    Result := 0ii;
+
+  #l15.
+    _tcomp2 := attribute__uif__first ^Index_Type;
+
+  #l16.
+    _tcomp3 := attribute__uif__last ^Index_Type;
+
+  #l17.
+    if _tcomp2 > _tcomp3 then goto l14;
+
+  #l18.
+    I := _tcomp2;
+
+  #l19.
+    // empty loc
+
+  #l21.
+    if !(A[I] == E) then goto l20;
+
+  #l22.
+    Result := Result + 1ii;
+
+  #l20.
+    // empty loc
+
+  #l23.
+    if I == _tcomp3 then goto l14;
+
+  #l24.
+    I := I + 1ii;
+
+  #l25.
+    goto l19;
+
+  #l14.
+    // empty loc
+
+  #l26.
+    return Result;
+}
+
+procedure Boolean isSet (
+        Vector A) {
+  local
+    Boolean Result;
+    Index_Type I;
+    Index_Type _tcomp4;
+    Index_Type _tcomp5;
+    Index_Type J;
+    Index_Type _tcomp6;
+    Index_Type _tcomp7;
+
+
+  #l28.
+    _tcomp4 := attribute__uif__first ^Index_Type;
+
+  #l29.
+    _tcomp5 := attribute__uif__last ^Index_Type;
+
+  #l30.
+    if _tcomp4 > _tcomp5 then goto l27;
+
+  #l31.
+    I := _tcomp4;
+
+  #l32.
+    // empty loc
+
+  #l34.
+    _tcomp6 := attribute__uif__first ^Index_Type;
+
+  #l35.
+    _tcomp7 := attribute__uif__last ^Index_Type;
+
+  #l36.
+    if _tcomp6 > _tcomp7 then goto l33;
+
+  #l37.
+    J := _tcomp6;
+
+  #l38.
+    // empty loc
+
+  #l39.
+    Result := I == J ||| A[I] != A[J];
+
+  #l40.
+    if !(Result) then goto l33;
+
+  #l41.
+    if J == _tcomp7 then goto l33;
+
+  #l42.
+    J := J + 1ii;
+
+  #l43.
+    goto l38;
+
+  #l33.
+    // empty loc
+
+  #l44.
+    if !(Result) then goto l27;
+
+  #l45.
+    if I == _tcomp5 then goto l27;
+
+  #l46.
+    I := I + 1ii;
+
+  #l47.
+    goto l32;
+
+  #l27.
+    // empty loc
+
+  #l48.
+    return Result;
+}
+
+procedure Boolean isPerm (
+        Vector A,
+        Vector B) {
+  local
+    Boolean Result;
+    Index_Type I;
+    Index_Type _tcomp8;
+    Index_Type _tcomp9;
+    FIXME _tcomp10;
+    FIXME _tcomp11;
+
+
+  #l49.
+    Result := true;
+
+  #l51.
+    _tcomp8 := attribute__uif__first ^Index_Type;
+
+  #l52.
+    _tcomp9 := attribute__uif__last ^Index_Type;
+
+  #l53.
+    if _tcomp8 > _tcomp9 then goto l50;
+
+  #l54.
+    I := _tcomp8;
+
+  #l55.
+    // empty loc
+
+  #l57.
+    if !(I == attribute__uif__first ^Index_Type ||| A[I - 1ii] != A[I]) then goto l56;
+
+  #l58.
+    call _tcomp10 := Num_Repetitions (A, A[I]);
+
+  #l59.
+    call _tcomp11 := Num_Repetitions (B, A[I]);
+
+  #l60.
+    Result := _tcomp10 == _tcomp11;
+
+  #l56.
+    // empty loc
+
+  #l61.
+    if !(Result) then goto l50;
+
+  #l62.
+    if I == _tcomp9 then goto l50;
+
+  #l63.
+    I := I + 1ii;
+
+  #l64.
+    goto l55;
+
+  #l50.
+    // empty loc
+
+  #l65.
+    return Result;
+}
+
+procedure BubbleSort (
+        Vector A) {
+  local
+    Boolean Swapped;
+    Integer Temp;
+    Integer N;
+    Integer I;
+    Integer _tcomp12;
+    Integer _tcomp13;
+
+
+  #l66.
+    N := attribute__uif__last ^A;
+
+  #l67.
+    // empty loc
+
+  #l69.
+    Swapped := false;
+
+  #l71.
+    _tcomp12 := attribute__uif__first ^A;
+
+  #l72.
+    _tcomp13 := N - 1ii;
+
+  #l73.
+    if _tcomp12 > _tcomp13 then goto l70;
+
+  #l74.
+    I := _tcomp12;
+
+  #l75.
+    // empty loc
+
+  #l77.
+    if !(A[I] > A[I + 1ii]) then goto l76;
+
+  #l78.
+    Temp := A[I];
+
+  #l79.
+    A[I] := A[I + 1ii];
+
+  #l80.
+    A[I + 1ii] := Temp;
+
+  #l81.
+    Swapped := true;
+
+  #l76.
+    // empty loc
+
+  #l82.
+    if I == _tcomp13 then goto l70;
+
+  #l83.
+    I := I + 1ii;
+
+  #l84.
+    goto l75;
+
+  #l70.
+    // empty loc
+
+  #l85.
+    N := N - 1ii;
+
+  #l86.
+    if !(Swapped) then goto l68;
+
+  #l87.
+    goto l67;
+
+  #l68.
+    // empty loc
+
+  #l88.
+    return;
+}
+
+procedure dddd (
+        Integer I,
+        Integer J) {
+
+  #l89.
+    I := J;
+
+  #l90.
+    return;
+}
+
+procedure SwapElements (
+        Vector A,
+        Integer I,
+        Integer J) {
+  local
+    Integer Temp;
+
+
+  #l91.
+    Temp := A[I];
+
+  #l92.
+    A[I] := A[J];
+
+  #l93.
+    A[J] := Temp;
+
+  #l94.
+    return;
+}
+
+procedure BubbleSort_using_SwapElements (
+        Vector A) {
+  local
+    Boolean Swapped;
+    Integer N;
+    Integer I;
+    Integer _tcomp14;
+    Integer _tcomp15;
+
+
+  #l95.
+    N := attribute__uif__last ^A;
+
+  #l96.
+    // empty loc
+
+  #l98.
+    Swapped := false;
+
+  #l100.
+    _tcomp14 := attribute__uif__first ^A;
+
+  #l101.
+    _tcomp15 := N - 1ii;
+
+  #l102.
+    if _tcomp14 > _tcomp15 then goto l99;
+
+  #l103.
+    I := _tcomp14;
+
+  #l104.
+    // empty loc
+
+  #l106.
+    if !(A[I] > A[I + 1ii]) then goto l105;
+
+  #l107.
+    call SwapElements (A, I, I + 1ii);
+
+  #l108.
+    Swapped := true;
+
+  #l105.
+    // empty loc
+
+  #l109.
+    if I == _tcomp15 then goto l99;
+
+  #l110.
+    I := I + 1ii;
+
+  #l111.
+    goto l104;
+
+  #l99.
+    // empty loc
+
+  #l112.
+    N := N - 1ii;
+
+  #l113.
+    if !(Swapped) then goto l97;
+
+  #l114.
+    goto l96;
+
+  #l97.
+    // empty loc
+
+  #l115.
+    return;
+}
+
+procedure InsertionSort (
+        Vector A) {
+  local
+    Integer Value;
+    Natural J;
+    Integer I;
+    Integer _tcomp16;
+    Integer _tcomp17;
+
+
+  #l117.
+    _tcomp16 := attribute__uif__first ^A + 1ii;
+
+  #l118.
+    _tcomp17 := attribute__uif__last ^A;
+
+  #l119.
+    if _tcomp16 > _tcomp17 then goto l116;
+
+  #l120.
+    I := _tcomp16;
+
+  #l121.
+    // empty loc
+
+  #l122.
+    Value := A[I];
+
+  #l123.
+    J := I - 1ii;
+
+  #l125.
+    // empty loc
+
+  #l126.
+    if !(J >= attribute__uif__first ^A &&& A[J] > Value) then goto l124;
+
+  #l127.
+    A[J + 1ii] := A[J];
+
+  #l128.
+    J := J - 1ii;
+
+  #l129.
+    goto l125;
+
+  #l124.
+    // empty loc
+
+  #l130.
+    A[J + 1ii] := Value;
+
+  #l131.
+    if I == _tcomp17 then goto l116;
+
+  #l132.
+    I := I + 1ii;
+
+  #l133.
+    goto l121;
+
+  #l116.
+    // empty loc
+
+  #l134.
+    return;
+}
+
+procedure SelectionSort (
+        Vector A) {
+  local
+    Integer Min;
+    Integer Temp;
+    Index_Type Pos;
+    Index_Type _tcomp18;
+    Index_Type _tcomp19;
+    Index_Type I;
+    Index_Type _tcomp20;
+    Index_Type _tcomp21;
+
+
+  #l136.
+    _tcomp18 := attribute__uif__first ^Index_Type;
+
+  #l137.
+    _tcomp19 := attribute__uif__last ^Index_Type;
+
+  #l138.
+    if _tcomp18 > _tcomp19 then goto l135;
+
+  #l139.
+    Pos := _tcomp18;
+
+  #l140.
+    // empty loc
+
+  #l141.
+    Min := Pos;
+
+  #l143.
+    _tcomp20 := Pos + 1ii;
+
+  #l144.
+    _tcomp21 := attribute__uif__last ^Index_Type;
+
+  #l145.
+    if _tcomp20 > _tcomp21 then goto l142;
+
+  #l146.
+    I := _tcomp20;
+
+  #l147.
+    // empty loc
+
+  #l149.
+    if !(A[I] < A[Min]) then goto l148;
+
+  #l150.
+    Min := I;
+
+  #l148.
+    // empty loc
+
+  #l151.
+    if I == _tcomp21 then goto l142;
+
+  #l152.
+    I := I + 1ii;
+
+  #l153.
+    goto l147;
+
+  #l142.
+    // empty loc
+
+  #l155.
+    if !(Pos != Min) then goto l154;
+
+  #l156.
+    Temp := A[Pos];
+
+  #l157.
+    A[Pos] := A[Min];
+
+  #l158.
+    A[Min] := Temp;
+
+  #l154.
+    // empty loc
+
+  #l159.
+    if Pos == _tcomp19 then goto l135;
+
+  #l160.
+    Pos := Pos + 1ii;
+
+  #l161.
+    goto l140;
+
+  #l135.
+    // empty loc
+
+  #l162.
+    return;
+}
+
+procedure ShellSort (
+        Vector A) {
+  local
+    Natural Increment;
+    Index_Type J;
+    Integer Temp;
+    Index_Type I;
+    Index_Type _tcomp22;
+    Index_Type _tcomp23;
+
+
+  #l163.
+    Increment := attribute__uif__last ^Index_Type / 2ii;
+
+  #l165.
+    // empty loc
+
+  #l166.
+    if !(Increment > 0ii) then goto l164;
+
+  #l168.
+    _tcomp22 := Increment;
+
+  #l169.
+    _tcomp23 := attribute__uif__last ^Index_Type;
+
+  #l170.
+    if _tcomp22 > _tcomp23 then goto l167;
+
+  #l171.
+    I := _tcomp22;
+
+  #l172.
+    // empty loc
+
+  #l173.
+    J := I;
+
+  #l174.
+    Temp := A[I];
+
+  #l176.
+    // empty loc
+
+  #l177.
+    if !(J > Increment &&& A[J - Increment] > Temp) then goto l175;
+
+  #l178.
+    A[J] := A[J - Increment];
+
+  #l179.
+    J := J - Increment;
+
+  #l180.
+    goto l176;
+
+  #l175.
+    // empty loc
+
+  #l181.
+    A[J] := Temp;
+
+  #l182.
+    if I == _tcomp23 then goto l167;
+
+  #l183.
+    I := I + 1ii;
+
+  #l184.
+    goto l172;
+
+  #l167.
+    // empty loc
+
+  #l185.
+    Increment := Increment / 2ii;
+
+  #l186.
+    goto l165;
+
+  #l164.
+    // empty loc
+
+  #l187.
+    return;
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;
+
+sort_simple_contract.ads
+package Sort_Simple_Contract;
+
+
+typealias Integer Index_Type;
+
+typealias _ARRAY_ Vector;
+
+const $CONST {
+  Max_Elements = (Integer) 3ii;
+}
+
+procedure Boolean isSorted (
+        Vector Z) {
+
+}
+
+procedure Boolean isPerm (
+        Vector A,
+        Vector B) {
+
+}
+
+procedure Boolean isSet (
+        Vector A) {
+
+}
+
+procedure BubbleSort (
+        Vector A) {
+
+}
+
+procedure BubbleSort_using_SwapElements (
+        Vector A) {
+
+}
+
+procedure InsertionSort (
+        Vector A) {
+
+}
+
+procedure SelectionSort (
+        Vector A) {
+
+}
+
+procedure ShellSort (
+        Vector A) {
+
+}
+
