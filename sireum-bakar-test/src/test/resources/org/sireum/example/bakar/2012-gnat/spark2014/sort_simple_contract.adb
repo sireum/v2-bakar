@@ -1,5 +1,5 @@
 package body Sort_Simple_Contract is
- 
+
   function isSorted(Z : Vector) return Boolean is
     B : Boolean;
   begin
@@ -9,7 +9,7 @@ package body Sort_Simple_Contract is
     end loop;
     return B;
   end isSorted;
-  
+
   function Num_Repetitions(A : Vector; E : Integer) return Integer
   is
     Result : Integer := 0;
@@ -21,7 +21,7 @@ package body Sort_Simple_Contract is
     end loop;
     return Result;
   end Num_Repetitions;
-  
+
   function isSet(A : Vector) return Boolean
   is
     Result : Boolean;
@@ -35,9 +35,9 @@ package body Sort_Simple_Contract is
     end loop;
     return Result;
   end isSet;
-  
+
   function isPerm(A, B : Vector) return Boolean
-  is 
+  is
     Result : Boolean := True;
   begin
     for I in Index_Type loop
@@ -50,7 +50,7 @@ package body Sort_Simple_Contract is
     end loop;
     return Result;
   end isPerm;
-  
+
   procedure BubbleSort(A : in out Vector)
   is
     Swapped : Boolean;
@@ -58,7 +58,7 @@ package body Sort_Simple_Contract is
     N : Integer;
   begin
     N := A'Last;
-    loop 
+    loop
       Swapped := False;
       for I in Integer range A'First .. N - 1 loop
         if A(I) > A(I + 1) then
@@ -70,7 +70,7 @@ package body Sort_Simple_Contract is
       end loop;
       N := N - 1;
       exit when not Swapped;
-    end loop; 
+    end loop;
   end BubbleSort;
 
   procedure dddd(I, J : in out Integer) with
@@ -78,31 +78,31 @@ package body Sort_Simple_Contract is
   is begin
     I := J;
   end dddd;
-  
+
   procedure SwapElements(A : in out Vector; I, J : in Integer) with
-    Depends => (A => (A, I, J))--,
-    --Pre => I in A'Range and J in A'Range
+    Depends => (A => (A, I, J)),
+    Pre => I in A'Range and J in A'Range
     -- ASIS BUG: hangs when processing Update expressions
     --Post => A'Old = A'Update (I => A(J), J => A(I))
     --
     --# derives A from A, I, J;
     --# pre I in A'Range and J in A'Range;
-    --# post A~ = A[I => A(J); J => A(I)];    
-  is  
+    --# post A~ = A[I => A(J); J => A(I)];
+  is
     Temp : Integer;
   begin
     Temp := A(I);
     A(I) := A(J);
     A(J) := Temp;
   end SwapElements;
-  
+
   procedure BubbleSort_using_SwapElements(A : in out Vector)
   is
     Swapped : Boolean;
     N : Integer;
   begin
     N := A'Last;
-    loop 
+    loop
       Swapped := False;
       for I in Integer range A'First .. N - 1 loop
         if A(I) > A(I + 1) then
@@ -112,9 +112,9 @@ package body Sort_Simple_Contract is
       end loop;
       N := N - 1;
       exit when not Swapped;
-    end loop; 
+    end loop;
   end BubbleSort_using_SwapElements;
-  
+
   procedure InsertionSort (A : in out Vector)
   is
     Value : Integer;
@@ -130,7 +130,7 @@ package body Sort_Simple_Contract is
       A(J + 1) := Value;
     end loop;
   end InsertionSort;
-  
+
   procedure SelectionSort (A : in out Vector)
   is
     Min : Integer;
@@ -143,7 +143,7 @@ package body Sort_Simple_Contract is
           Min := I;
         end if;
       end loop;
-      
+
       if Pos /= Min then
         Temp := A(Pos);
         A(Pos) := A(Min);
@@ -151,7 +151,7 @@ package body Sort_Simple_Contract is
       end if;
     end loop;
   end SelectionSort;
-  
+
   procedure ShellSort (A : in out Vector) is
     Increment : Natural := Index_Type'Last / 2;
     J : Index_Type;
@@ -171,5 +171,5 @@ package body Sort_Simple_Contract is
       Increment := Increment / 2;
     end loop;
   end ShellSort;
-  
+
 end Sort_Simple_Contract;

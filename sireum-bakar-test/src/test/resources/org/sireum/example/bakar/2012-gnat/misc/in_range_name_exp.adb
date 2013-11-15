@@ -17,7 +17,7 @@ is
     end if;
     
     if ret then
-      ret := Z not in 3 .. 5;
+      ret := Z not in Positive | 4 | 5..7 | 3 + 5;
     end if;
     
     return ret;

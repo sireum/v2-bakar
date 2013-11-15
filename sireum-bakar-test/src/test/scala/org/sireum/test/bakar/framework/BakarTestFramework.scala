@@ -15,73 +15,67 @@ import org.scalatest.junit.JUnitTestFailedError
 
 trait BakarTestFramework extends TestFramework {
 
-  def BakarTest : this.type = this
+  def BakarTest: this.type = this
 
   val base = FileUtil.fileUri(this.getClass, "").replace("/bin/", "/src/test/resources/")
   def EXPECTED_DIR = base + "/expected/"
   def RESULTS_DIR = base + "/results/"
 
-  implicit def str2re(s : String) = s.r
+  implicit def str2re(s: String) = s.r
 
-  def disableIncludes = false
   def disableExcludes = false
-  def includes = msetEmpty[Regex]
-  def excludes = msetEmpty[Regex]
+  def disableIgnores = false
+  def disableIncludes = false
 
-  def accept(name : String, files : ISeq[FileResourceUri]) : Boolean = {
+  def excludes = msetEmpty[Regex]
+  def ignores = msetEmpty[Regex]
+  def includes = msetEmpty[Regex]
+
+  def accept(name: String, files: ISeq[FileResourceUri]): Boolean = {
     return (disableIncludes || includes.isEmpty ||
       includes.exists(r => r.findFirstMatchIn(name).isDefined)) &&
-      (disableExcludes || excludes.isEmpty ||
-        !excludes.exists(r => r.findFirstMatchIn(name).isDefined)
-      )
+      (disableIgnores || ignores.isEmpty ||
+        !ignores.exists(r => r.findFirstMatchIn(name).isDefined))
   }
 
-  def register(projects : ISeq[Project]) {
+  def register(projects: ISeq[Project]) {
     projects.foreach(p =>
-      if (accept(p.testName, p.files))
-        execute(p.testName, p.files)
-      else
-        reject(p.testName, p.files)
-    )
+      if (disableExcludes ||
+        !excludes.exists(r => r.findFirstMatchIn(p.testName).isDefined)) {
+        if (accept(p.testName, p.files))
+          execute(p.testName, p.files)
+        else
+          reject(p.testName, p.files)
+      })
   }
+  
+  def execute(testName: String, files: ISeq[FileResourceUri])
 
-  def register(map : MMap[String, ISeq[FileResourceUri]]) {
-    val sorted = isortedMapEmpty[String, ISeq[FileResourceUri]] ++ map
-    sorted.foreach(f =>
-      if (accept(f._1, f._2))
-        execute(f._1, f._2)
-      else
-        reject(f._1, f._2)
-    )
-  }
-
-  def execute(testName : String, files : ISeq[FileResourceUri])
-
-  def reject(testName : String, files : ISeq[FileResourceUri]) = {
+  def reject(testName: String, files: ISeq[FileResourceUri]) = {
     ignore(testName) {}
   }
 }
 
 trait BakarTestFileFramework extends BakarTestFramework {
   // abstract methods
-  def generateExpected : Boolean
-  def outputSuffix : String
-  def writeTestString(job : PipelineJob, w : Writer)
-  def pipeline : PipelineConfiguration
+  def generateExpected: Boolean
+  def outputSuffix: String
+  def writeTestString(job: PipelineJob, w: Writer)
+  def pipeline: PipelineConfiguration
 
-  def pre(c : Configuration) : Boolean = true
-  def post(c : Configuration) : Boolean = true
+  def pre(c: Configuration): Boolean = true
+  def post(c: Configuration): Boolean = true
 
   case class Configuration(
-    testName : String,
-    sources : ISeq[FileResourceUri],
-    expectedDir : File,
-    resultsDir : File,
-    job : PipelineJob)
+    testName: String,
+    sources: ISeq[FileResourceUri],
+    expectedDir: File,
+    resultsDir: File,
+    job: PipelineJob)
 
-  override def execute(testName : String, files : ISeq[FileResourceUri]) = {
+  override def execute(testName: String, files: ISeq[FileResourceUri]) = {
     test(testName) {
-      
+
       val testNamelc = testName.toLowerCase
 
       val edir = new File(new URI(EXPECTED_DIR))
@@ -133,22 +127,22 @@ trait BakarTestFileFramework extends BakarTestFramework {
             }
           }
         } catch {
-          case t : JUnitTestFailedError => throw(t)
-          case e : Throwable =>
+          case t: JUnitTestFailedError => throw (t)
+          case e: Throwable =>
             e.printStackTrace
             assert(false)
         }
       }
     }
 
-      def createGitIgnore(dir : File) {
-        try {
-          val fw = new FileWriter(new File(dir, ".gitignore"))
-          fw.write("*\n\n!.gitignore")
-          fw.close
-        } catch {
-          case e : Throwable => e.printStackTrace
-        }
+    def createGitIgnore(dir: File) {
+      try {
+        val fw = new FileWriter(new File(dir, ".gitignore"))
+        fw.write("*\n\n!.gitignore")
+        fw.close
+      } catch {
+        case e: Throwable => e.printStackTrace
       }
+    }
   }
 }
