@@ -196,7 +196,7 @@ package SimpleArray
          <string>simplearray.adb</string>
          <int>1</int>
          <int>1</int>
-         <int>19</int>
+         <int>22</int>
          <int>16</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
@@ -274,9 +274,9 @@ typealias _ARRAY_ Vector
       ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
          <string></string>
          <int>1</int>
-         <string sid="1">ada://subtype/SimpleArray-1:9/Index+3:12</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <ivector ttype="ivector">
-           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <string sid="2">ada://subtype/SimpleArray-1:9/Index+3:12</string>
          </ivector>
        </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
 
@@ -289,6 +289,54 @@ typealias _ARRAY_ Vector
       ("""<string sid="1">ada://ordinary_type/SimpleArray-1:9/Vector+4:9</string>""")
 ;
 
+global Vector @@A
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>simplearray.adb</string>
+         <int>6</int>
+         <int>4</int>
+         <int>6</int>
+         <int>4</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+global Vector @@B
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>simplearray.adb</string>
+         <int>7</int>
+         <int>4</int>
+         <int>7</int>
+         <int>4</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+procedure $$binit {
+
+  #l1.
+    @@A := `Vector {Vector iter => 
+        switch iter
+          case __positional0 => 0ii
+          case __positional1 => 1ii
+          case __positional2 => 2ii
+          case __positional3 => 3ii
+          default => 9ii};
+
+  #l2.
+    @@B := `Vector {Vector iter => 
+        switch iter
+          case 0ii => 0ii
+          case 1ii => 1ii
+          case 1ii + 1ii => 2ii
+          case 8ii / 2ii => 3ii
+          default => 9ii};
+
+  #l3.
+    return;
+}
+
 procedure Boolean Dummy
     @BAKAR_REF_URI
 
@@ -298,14 +346,14 @@ procedure Boolean Dummy
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string>simplearray.adb</string>
-         <int>6</int>
+         <int>9</int>
          <int>4</int>
-         <int>6</int>
+         <int>9</int>
          <int>65</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l1.
+  #l4.
     return true;
 }
 
@@ -313,7 +361,7 @@ procedure Integer Max (
         Vector V
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/SimpleArray-1:9/Max+8:13/V+8:18</string>""")
+              ("""<string sid="1">ada://parameter/SimpleArray-1:9/Max+11:13/V+11:18</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -325,23 +373,23 @@ procedure Integer Max (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string>simplearray.adb</string>
-                 <int>8</int>
+                 <int>11</int>
                  <int>18</int>
-                 <int>8</int>
+                 <int>11</int>
                  <int>18</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://function_body/SimpleArray-1:9/Max+8:13</string>""")
+      ("""<string sid="1">ada://function_body/SimpleArray-1:9/Max+11:13</string>""")
 
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string>simplearray.adb</string>
-         <int>8</int>
+         <int>11</int>
          <int>4</int>
-         <int>18</int>
+         <int>21</int>
          <int>11</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -351,9 +399,9 @@ procedure Integer Max (
 
           ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
              <string>simplearray.adb</string>
-             <int>9</int>
+             <int>12</int>
              <int>7</int>
-             <int>9</int>
+             <int>12</int>
              <int>7</int>
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
@@ -362,46 +410,46 @@ procedure Integer Max (
     Index _tcomp1;
 
 
-  #l2.
+  #l5.
     M := V[0ii];
 
-  #l4.
-    _tcomp0 := attribute__uif__first ^Index;
-
-  #l5.
-    _tcomp1 := attribute__uif__last ^Index;
-
-  #l6.
-    if _tcomp0 > _tcomp1 then goto l3;
-
   #l7.
-    I := _tcomp0;
+    _tcomp0 := attribute__uif__first `Index;
 
   #l8.
-    // empty loc
-
-  #l10.
-    if !(V[I] > M) then goto l9;
-
-  #l11.
-    M := V[I];
+    _tcomp1 := attribute__uif__last `Index;
 
   #l9.
+    if _tcomp0 > _tcomp1 then goto l6;
+
+  #l10.
+    I := _tcomp0;
+
+  #l11.
     // empty loc
 
-  #l12.
-    if I == _tcomp1 then goto l3;
-
   #l13.
-    I := I + 1ii;
+    if !(V[I] > M) then goto l12;
 
   #l14.
-    goto l8;
+    M := V[I];
 
-  #l3.
+  #l12.
     // empty loc
 
   #l15.
+    if I == _tcomp1 then goto l6;
+
+  #l16.
+    I := I + 1ii;
+
+  #l17.
+    goto l11;
+
+  #l6.
+    // empty loc
+
+  #l18.
     return M;
 }
 

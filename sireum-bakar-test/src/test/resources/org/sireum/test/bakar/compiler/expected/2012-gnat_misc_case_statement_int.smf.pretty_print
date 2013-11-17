@@ -62,22 +62,61 @@ procedure Activity isWorkDay (
     ;
 
 
-  #l1.
-    ret := Work;
-
-  #l2.
-    ret := Party;
-
   #l3.
-    ret := Party;
+    if !(attribute__uif__first `IntType <= d &&& d <= attribute__uif__last `IntType) then goto l2;
 
   #l4.
     ret := Work;
 
   #l5.
-    ret := Drink;
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l7.
+    if !(4ii <= d &&& d <= 5ii ||| attribute__uif__first `SixType <= d &&& d <= attribute__uif__last `SixType ||| d == 7ii) then goto l6;
+
+  #l8.
+    ret := Party;
+
+  #l9.
+    goto l1;
 
   #l6.
+    // empty loc
+
+  #l11.
+    if !(8ii <= d &&& d <= 9ii) then goto l10;
+
+  #l12.
+    ret := Party;
+
+  #l13.
+    goto l1;
+
+  #l10.
+    // empty loc
+
+  #l15.
+    if !(d == 10ii) then goto l14;
+
+  #l16.
+    ret := Work;
+
+  #l17.
+    goto l1;
+
+  #l14.
+    // empty loc
+
+  #l19.
+    ret := Drink;
+
+  #l1.
+    // empty loc
+
+  #l20.
     return ret;
 }
 
@@ -102,16 +141,16 @@ typealias _ENUMERATION_TYPE_ Activity
          <string></string>
          <ivector ttype="ivector">
            <pair>
-             <__1 class="string">Drink</__1>
-             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Drink-3:34</__2>
+             <__1 class="string">Work</__1>
+             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Work-3:21</__2>
            </pair>
            <pair>
              <__1 class="string">Party</__1>
              <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Party-3:27</__2>
            </pair>
            <pair>
-             <__1 class="string">Work</__1>
-             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Work-3:21</__2>
+             <__1 class="string">Drink</__1>
+             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Drink-3:34</__2>
            </pair>
          </ivector>
        </org.sireum.bakar.symbol.EnumerationTypeDef>""")

@@ -62,22 +62,64 @@ procedure Activity isWorkDay (
     ;
 
 
-  #l1.
-    ret := Work;
-
-  #l2.
-    ret := Sleep;
-
   #l3.
-    ret := Sleep;
+    if !(Mon <= d &&& d <= Tue) then goto l2;
 
   #l4.
-    ret := Party;
+    ret := Work;
 
   #l5.
-    ret := Drink;
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l7.
+    if !(attribute__uif__first `HumpDay <= d &&& d <= attribute__uif__last `HumpDay) then goto l6;
+
+  #l8.
+    ret := Sleep;
+
+  #l9.
+    goto l1;
 
   #l6.
+    // empty loc
+
+  #l11.
+    if !(d == Thur) then goto l10;
+
+  #l12.
+    ret := Sleep;
+
+  #l13.
+    goto l1;
+
+  #l10.
+    // empty loc
+
+  #l15.
+    if !(d == Fri ||| d == FriPart2) then goto l14;
+
+  #l16.
+    ret := Party;
+
+  #l17.
+    goto l1;
+
+  #l14.
+    // empty loc
+
+  #l19.
+    if !(attribute__uif__first `WeekEnd <= d &&& d <= attribute__uif__last `WeekEnd) then goto l1;
+
+  #l20.
+    ret := Drink;
+
+  #l1.
+    // empty loc
+
+  #l21.
     return ret;
 }
 
@@ -260,36 +302,36 @@ typealias _ENUMERATION_TYPE_ Week
          <string></string>
          <ivector ttype="ivector">
            <pair>
-             <__1 class="string">Sun</__1>
-             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sun-3:58</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Sat</__1>
-             <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sat-3:53</__2>
-           </pair>
-           <pair>
-             <__1 class="string">FriPart2</__1>
-             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/FriPart2-3:43</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Fri</__1>
-             <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Fri-3:38</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Thur</__1>
-             <__2 class="string" sid="5">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Thur-3:32</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Wed</__1>
-             <__2 class="string" sid="6">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Wed-3:27</__2>
+             <__1 class="string">Mon</__1>
+             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Mon-3:17</__2>
            </pair>
            <pair>
              <__1 class="string">Tue</__1>
-             <__2 class="string" sid="7">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Tue-3:22</__2>
+             <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Tue-3:22</__2>
            </pair>
            <pair>
-             <__1 class="string">Mon</__1>
-             <__2 class="string" sid="8">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Mon-3:17</__2>
+             <__1 class="string">Wed</__1>
+             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Wed-3:27</__2>
+           </pair>
+           <pair>
+             <__1 class="string">Thur</__1>
+             <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Thur-3:32</__2>
+           </pair>
+           <pair>
+             <__1 class="string">Fri</__1>
+             <__2 class="string" sid="5">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Fri-3:38</__2>
+           </pair>
+           <pair>
+             <__1 class="string">FriPart2</__1>
+             <__2 class="string" sid="6">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/FriPart2-3:43</__2>
+           </pair>
+           <pair>
+             <__1 class="string">Sat</__1>
+             <__2 class="string" sid="7">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sat-3:53</__2>
+           </pair>
+           <pair>
+             <__1 class="string">Sun</__1>
+             <__2 class="string" sid="8">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sun-3:58</__2>
            </pair>
          </ivector>
        </org.sireum.bakar.symbol.EnumerationTypeDef>""")
@@ -682,20 +724,20 @@ typealias _ENUMERATION_TYPE_ Activity
          <string></string>
          <ivector ttype="ivector">
            <pair>
-             <__1 class="string">Drink</__1>
-             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Drink-8:41</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Party</__1>
-             <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Party-8:34</__2>
+             <__1 class="string">Work</__1>
+             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Work-8:21</__2>
            </pair>
            <pair>
              <__1 class="string">Sleep</__1>
-             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Sleep-8:27</__2>
+             <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Sleep-8:27</__2>
            </pair>
            <pair>
-             <__1 class="string">Work</__1>
-             <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Work-8:21</__2>
+             <__1 class="string">Party</__1>
+             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Party-8:34</__2>
+           </pair>
+           <pair>
+             <__1 class="string">Drink</__1>
+             <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Drink-8:41</__2>
            </pair>
          </ivector>
        </org.sireum.bakar.symbol.EnumerationTypeDef>""")

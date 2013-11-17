@@ -221,7 +221,7 @@ procedure Boolean test (
 
 
   #l1.
-    ret := attribute__uif__first ^Natural <= Z &&& attribute__uif__last ^Natural <= Z;
+    ret := attribute__uif__first `Natural <= Z &&& Z <= attribute__uif__last `Natural;
 
   #l3.
     if !(ret) then goto l2;
@@ -236,7 +236,7 @@ procedure Boolean test (
     if !(ret) then goto l5;
 
   #l7.
-    ret := !(attribute__uif__first ^Positive <= Z &&& attribute__uif__last ^Positive <= Z);
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive);
 
   #l5.
     // empty loc
@@ -245,7 +245,7 @@ procedure Boolean test (
     if !(ret) then goto l8;
 
   #l10.
-    ret := !(attribute__uif__first ^Positive <= Z &&& attribute__uif__last ^Positive <= Z ||| Z == 4ii ||| 5ii <= Z &&& Z <= 7ii ||| Z == 3ii + 5ii);
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive ||| Z == 4ii ||| 5ii <= Z &&& Z <= 7ii ||| Z == 3ii + 5ii);
 
   #l8.
     // empty loc

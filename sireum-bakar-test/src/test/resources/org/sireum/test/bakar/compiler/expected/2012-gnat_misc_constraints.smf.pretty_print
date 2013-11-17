@@ -83,7 +83,7 @@ procedure foo (
     // empty loc
 
   #l7.
-    if !(attribute__uif__succ (^Day, dayVar) == Wed) then goto l6;
+    if !(attribute__uif__succ (`Day, dayVar) == Wed) then goto l6;
 
   #l8.
     a := a - 1ii;
@@ -293,32 +293,32 @@ typealias _ENUMERATION_TYPE_ Day
          <string></string>
          <ivector ttype="ivector">
            <pair>
-             <__1 class="string">Sun</__1>
-             <__2 class="string" sid="1">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sun-8:47</__2>
+             <__1 class="string">Mon</__1>
+             <__2 class="string" sid="1">ada://enumeration_literal/Constraints-1:9/Day-8:8/Mon-8:16</__2>
            </pair>
            <pair>
-             <__1 class="string">Sat</__1>
-             <__2 class="string" sid="2">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sat-8:42</__2>
+             <__1 class="string">Tue</__1>
+             <__2 class="string" sid="2">ada://enumeration_literal/Constraints-1:9/Day-8:8/Tue-8:21</__2>
            </pair>
            <pair>
-             <__1 class="string">Fri</__1>
-             <__2 class="string" sid="3">ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37</__2>
+             <__1 class="string">Wed</__1>
+             <__2 class="string" sid="3">ada://enumeration_literal/Constraints-1:9/Day-8:8/Wed-8:26</__2>
            </pair>
            <pair>
              <__1 class="string">Thur</__1>
              <__2 class="string" sid="4">ada://enumeration_literal/Constraints-1:9/Day-8:8/Thur-8:31</__2>
            </pair>
            <pair>
-             <__1 class="string">Wed</__1>
-             <__2 class="string" sid="5">ada://enumeration_literal/Constraints-1:9/Day-8:8/Wed-8:26</__2>
+             <__1 class="string">Fri</__1>
+             <__2 class="string" sid="5">ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37</__2>
            </pair>
            <pair>
-             <__1 class="string">Tue</__1>
-             <__2 class="string" sid="6">ada://enumeration_literal/Constraints-1:9/Day-8:8/Tue-8:21</__2>
+             <__1 class="string">Sat</__1>
+             <__2 class="string" sid="6">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sat-8:42</__2>
            </pair>
            <pair>
-             <__1 class="string">Mon</__1>
-             <__2 class="string" sid="7">ada://enumeration_literal/Constraints-1:9/Day-8:8/Mon-8:16</__2>
+             <__1 class="string">Sun</__1>
+             <__2 class="string" sid="7">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sun-8:47</__2>
            </pair>
          </ivector>
        </org.sireum.bakar.symbol.EnumerationTypeDef>""")

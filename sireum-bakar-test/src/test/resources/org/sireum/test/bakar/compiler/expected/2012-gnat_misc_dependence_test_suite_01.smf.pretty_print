@@ -265,7 +265,7 @@ procedure Success2 (
     O := L;
 
   #l9.
-    if !(I < attribute__uif__last ^History_Range) then goto l8;
+    if !(I < attribute__uif__last `History_Range) then goto l8;
 
   #l10.
     O := L;

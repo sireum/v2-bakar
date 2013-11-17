@@ -66,10 +66,10 @@ procedure Boolean isSorted (
 
 
   #l2.
-    _tcomp0 := attribute__uif__first ^Index_Type;
+    _tcomp0 := attribute__uif__first `Index_Type;
 
   #l3.
-    _tcomp1 := attribute__uif__last ^Index_Type - 1ii;
+    _tcomp1 := attribute__uif__last `Index_Type - 1ii;
 
   #l4.
     if _tcomp0 > _tcomp1 then goto l1;
@@ -180,10 +180,10 @@ procedure Integer Num_Repetitions (
     Result := 0ii;
 
   #l15.
-    _tcomp2 := attribute__uif__first ^Index_Type;
+    _tcomp2 := attribute__uif__first `Index_Type;
 
   #l16.
-    _tcomp3 := attribute__uif__last ^Index_Type;
+    _tcomp3 := attribute__uif__last `Index_Type;
 
   #l17.
     if _tcomp2 > _tcomp3 then goto l14;
@@ -276,10 +276,10 @@ procedure Boolean isSet (
 
 
   #l28.
-    _tcomp4 := attribute__uif__first ^Index_Type;
+    _tcomp4 := attribute__uif__first `Index_Type;
 
   #l29.
-    _tcomp5 := attribute__uif__last ^Index_Type;
+    _tcomp5 := attribute__uif__last `Index_Type;
 
   #l30.
     if _tcomp4 > _tcomp5 then goto l27;
@@ -291,10 +291,10 @@ procedure Boolean isSet (
     // empty loc
 
   #l34.
-    _tcomp6 := attribute__uif__first ^Index_Type;
+    _tcomp6 := attribute__uif__first `Index_Type;
 
   #l35.
-    _tcomp7 := attribute__uif__last ^Index_Type;
+    _tcomp7 := attribute__uif__last `Index_Type;
 
   #l36.
     if _tcomp6 > _tcomp7 then goto l33;
@@ -422,10 +422,10 @@ procedure Boolean isPerm (
     Result := true;
 
   #l51.
-    _tcomp8 := attribute__uif__first ^Index_Type;
+    _tcomp8 := attribute__uif__first `Index_Type;
 
   #l52.
-    _tcomp9 := attribute__uif__last ^Index_Type;
+    _tcomp9 := attribute__uif__last `Index_Type;
 
   #l53.
     if _tcomp8 > _tcomp9 then goto l50;
@@ -437,7 +437,7 @@ procedure Boolean isPerm (
     // empty loc
 
   #l57.
-    if !(I == attribute__uif__first ^Index_Type ||| A[I - 1ii] != A[I]) then goto l56;
+    if !(I == attribute__uif__first `Index_Type ||| A[I - 1ii] != A[I]) then goto l56;
 
   #l58.
     call _tcomp10 := Num_Repetitions (A, A[I]);
@@ -546,7 +546,7 @@ procedure BubbleSort (
 
 
   #l66.
-    N := attribute__uif__last ^A;
+    N := attribute__uif__last `A;
 
   #l67.
     // empty loc
@@ -555,7 +555,7 @@ procedure BubbleSort (
     Swapped := false;
 
   #l71.
-    _tcomp12 := attribute__uif__first ^A;
+    _tcomp12 := attribute__uif__first `A;
 
   #l72.
     _tcomp13 := N - 1ii;
@@ -667,17 +667,17 @@ procedure dddd (
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map2" mtype="imap">
            <entry>
-             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/J+76:21</string>
+             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/I+76:18</string>
              <iset ttype="iset">
-               <string sid="2">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/I+76:18</string>
                <string srefid="1"/>
+               <string sid="2">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/J+76:21</string>
              </iset>
            </entry>
            <entry>
              <string srefid="2"/>
              <iset ttype="iset">
-               <string srefid="2"/>
                <string srefid="1"/>
+               <string srefid="2"/>
              </iset>
            </entry>
          </__depends>
@@ -1349,7 +1349,7 @@ procedure BubbleSort_using_SwapElements (
 
 
   #l95.
-    N := attribute__uif__last ^A;
+    N := attribute__uif__last `A;
 
   #l96.
     // empty loc
@@ -1358,7 +1358,7 @@ procedure BubbleSort_using_SwapElements (
     Swapped := false;
 
   #l100.
-    _tcomp14 := attribute__uif__first ^A;
+    _tcomp14 := attribute__uif__first `A;
 
   #l101.
     _tcomp15 := N - 1ii;
@@ -1477,10 +1477,10 @@ procedure InsertionSort (
 
 
   #l117.
-    _tcomp16 := attribute__uif__first ^A + 1ii;
+    _tcomp16 := attribute__uif__first `A + 1ii;
 
   #l118.
-    _tcomp17 := attribute__uif__last ^A;
+    _tcomp17 := attribute__uif__last `A;
 
   #l119.
     if _tcomp16 > _tcomp17 then goto l116;
@@ -1501,7 +1501,7 @@ procedure InsertionSort (
     // empty loc
 
   #l126.
-    if !(J >= attribute__uif__first ^A &&& A[J] > Value) then goto l124;
+    if !(J >= attribute__uif__first `A &&& A[J] > Value) then goto l124;
 
   #l127.
     A[J + 1ii] := A[J];
@@ -1602,10 +1602,10 @@ procedure SelectionSort (
 
 
   #l136.
-    _tcomp18 := attribute__uif__first ^Index_Type;
+    _tcomp18 := attribute__uif__first `Index_Type;
 
   #l137.
-    _tcomp19 := attribute__uif__last ^Index_Type;
+    _tcomp19 := attribute__uif__last `Index_Type;
 
   #l138.
     if _tcomp18 > _tcomp19 then goto l135;
@@ -1623,7 +1623,7 @@ procedure SelectionSort (
     _tcomp20 := Pos + 1ii;
 
   #l144.
-    _tcomp21 := attribute__uif__last ^Index_Type;
+    _tcomp21 := attribute__uif__last `Index_Type;
 
   #l145.
     if _tcomp20 > _tcomp21 then goto l142;
@@ -1762,7 +1762,7 @@ procedure ShellSort (
 
 
   #l163.
-    Increment := attribute__uif__last ^Index_Type / 2ii;
+    Increment := attribute__uif__last `Index_Type / 2ii;
 
   #l165.
     // empty loc
@@ -1774,7 +1774,7 @@ procedure ShellSort (
     _tcomp22 := Increment;
 
   #l169.
-    _tcomp23 := attribute__uif__last ^Index_Type;
+    _tcomp23 := attribute__uif__last `Index_Type;
 
   #l170.
     if _tcomp22 > _tcomp23 then goto l167;

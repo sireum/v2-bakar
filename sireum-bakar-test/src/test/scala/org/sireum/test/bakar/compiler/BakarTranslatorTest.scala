@@ -28,13 +28,24 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   
   override def generateExpected = false
   
-  override def includes = super.includes ++= Set("gnat_misc", "gnat_simple", "spark2014")
+  //override def includes = super.includes ++= Set("faultin")
   
-  override def excludes = {
-    super.excludes ++= Set("constraints", "dependence_test_suite_01",
-      "faultintegrator", "in_range", "misc_labeled", "misc_p_public",
-      "misc_package_scope", "packagedemo_b", "misc_recordshape", 
-      "simplemath1", "misc_the_stack")
+  override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")
+  
+  override def ignores = {
+    super.ignores ++= Set(
+        //"constraints", 
+        //"dependence_test_suite_01",
+      //"faultintegrator", 
+      //"in_range", 
+      //"misc_labeled",
+      "misc_p_public",
+      "misc_package_scope", 
+      //"packagedemo_b", 
+      "misc_recordshape", 
+      //"simplemath1", 
+      "misc_the_stack"
+      )
   }
 
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))

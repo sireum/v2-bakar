@@ -21,6 +21,7 @@ import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.util.Visitor.VisitorStackProvider
 import org.sireum.pilar.ast.PilarAstNode
 import org.sireum.bakar.pilar.BakarPrettyPrinterModule
+import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
@@ -45,6 +46,10 @@ class BakarTranslatorPrettyPrinterTest extends BakarTranslatorTest {
         "translator stage",
         false,
         BakarTranslatorModule),
+      PipelineStage(
+        "prop map rewriter stage",
+        false,
+        BakarPropertyMapRewriterModule),
       PipelineStage(
         "pretty printer stage",
         false,

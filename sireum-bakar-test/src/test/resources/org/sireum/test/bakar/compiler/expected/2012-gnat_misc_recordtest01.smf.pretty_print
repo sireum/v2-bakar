@@ -15,10 +15,18 @@ package RecordTest01
 procedure $$binit {
 
   #l1.
-    anObject := 11111ii;
+    anObject := `Object {
+      __positional__ = 1ii,
+      __positional__ = 2ii
+    };
 
   #l2.
-    aNestedObject := 11111ii;
+    aNestedObject := `NestedObject {
+      O = `Object {
+        __positional__ = 1ii,
+        __positional__ = 2ii
+      }
+    };
 
   #l3.
     return;

@@ -13,27 +13,54 @@ Model(Some(recordtest01.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Rec
           List()
           List()
           None
-          ImplementedBody(Vector(),List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(anObject)),:=,LiteralExp(INTEGER
+          ImplementedBody(Vector(),List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(anObject)),:=,NewRecordExp(Named
             List()
-            List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(anObject)),:=,LiteralExp(INTEGER,11111,11111ii))), Action
-              ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(anObject)),:=,LiteralExp(INTEGER,11111,11111ii)))
+            List(ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(anObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(Object)
+              ActionLocation(Some(NameDefinition(l1)),Vector(),AssignAction(Vector(),NameExp(NameUser(anObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(Object),Vect
                 Some(NameDefinition(l1))
                   NameDefinition(l1)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(anObject)),:=,LiteralExp(INTEGER,11111,11111ii))
+                AssignAction(Vector(),NameExp(NameUser(anObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional_
                   List()
                   NameExp(NameUser(anObject))
                     NameUser(anObject)
-                  LiteralExp(INTEGER,11111,11111ii)
-              ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(aNestedObject)),:=,LiteralExp(INTEGER,11111,11111ii)))
+                  NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser
+                    NamedTypeSpec(NameUser(Object),Vector())
+                      NameUser(Object)
+                      List()
+                    Vector(AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,2,2ii)))
+                      AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,1,1ii))
+                        NameUser(__positional__)
+                        LiteralExp(INTEGER,1,1ii)
+                      AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,2,2ii))
+                        NameUser(__positional__)
+                        LiteralExp(INTEGER,2,2ii)
+              ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(aNestedObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(NestedO
                 Some(NameDefinition(l2))
                   NameDefinition(l2)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(aNestedObject)),:=,LiteralExp(INTEGER,11111,11111ii))
+                AssignAction(Vector(),NameExp(NameUser(aNestedObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(NestedObject),Vector()),Vector(AttributeInit(NameUser(O)
                   List()
                   NameExp(NameUser(aNestedObject))
                     NameUser(aNestedObject)
-                  LiteralExp(INTEGER,11111,11111ii)
+                  NewRecordExp(NamedTypeSpec(NameUser(NestedObject),Vector()),Vector(AttributeInit(NameUser(O),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vec
+                    NamedTypeSpec(NameUser(NestedObject),Vector())
+                      NameUser(NestedObject)
+                      List()
+                    Vector(AttributeInit(NameUser(O),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional__),LiteralExp(INTEGE
+                      AttributeInit(NameUser(O),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,1,1ii
+                        NameUser(O)
+                        NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser
+                          NamedTypeSpec(NameUser(Object),Vector())
+                            NameUser(Object)
+                            List()
+                          Vector(AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,2,2ii)))
+                            AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,1,1ii))
+                              NameUser(__positional__)
+                              LiteralExp(INTEGER,1,1ii)
+                            AttributeInit(NameUser(__positional__),LiteralExp(INTEGER,2,2ii))
+                              NameUser(__positional__)
+                              LiteralExp(INTEGER,2,2ii)
               JumpLocation(Some(NameDefinition(l3)),Vector(),ReturnJump(Vector(),None))
                 Some(NameDefinition(l3))
                   NameDefinition(l3)

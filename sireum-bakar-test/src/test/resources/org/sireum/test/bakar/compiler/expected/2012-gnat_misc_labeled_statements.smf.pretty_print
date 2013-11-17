@@ -178,10 +178,10 @@ procedure Integer Stupid (
 
 
   #l9.
-    _tcomp0 := attribute__uif__first ^Index_Range;
+    _tcomp0 := attribute__uif__first `Index_Range;
 
   #l10.
-    _tcomp1 := attribute__uif__last ^Index_Range;
+    _tcomp1 := attribute__uif__last `Index_Range;
 
   #l11.
     if _tcomp0 > _tcomp1 then goto l8;
@@ -216,31 +216,43 @@ procedure Integer Stupid (
   #l20.
     // empty loc
 
-  #l23.
+  #l25.
+    if !(J == 3ii) then goto l24;
+
+  #l26.
     J := J + 1ii;
 
+  #l27.
+    goto l23;
+
   #l24.
+    // empty loc
+
+  #l29.
     J := J;
 
-  #l25.
+  #l23.
+    // empty loc
+
+  #l30.
     goto l16;
 
   #l15.
     // empty loc
 
-  #l26.
+  #l31.
     if I == _tcomp1 then goto l8;
 
-  #l27.
+  #l32.
     I := I + 1ii;
 
-  #l28.
+  #l33.
     goto l13;
 
   #l8.
     // empty loc
 
-  #l29.
+  #l34.
     return J;
 }
 
