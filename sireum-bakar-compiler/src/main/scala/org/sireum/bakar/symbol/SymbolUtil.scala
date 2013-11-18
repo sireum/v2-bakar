@@ -8,7 +8,7 @@ object SymbolUtil {
     t match {
       case e : FullTypeDecl    => e.typeDef
       case e : SubTypeDecl     => getTypeDef(m(e.parentUri), m)
-      case e : PrivateTypeDecl => e.fullDeclartionDefinition
+      case e : PrivateTypeDecl => getTypeDef(m(e.fullDeclartionUri.get), m)
       case td : TypeDef        => td
     }
   }
