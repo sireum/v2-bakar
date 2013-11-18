@@ -515,7 +515,7 @@ procedure Integer Max (
 
         ("""<int>1</int>""")
   >
-    _tcomp0 := attribute__uif__first ^Index
+    _tcomp0 := attribute__uif__first `Index
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">
@@ -531,7 +531,7 @@ procedure Integer Max (
 
         ("""<int>2</int>""")
   >
-    _tcomp1 := attribute__uif__last ^Index
+    _tcomp1 := attribute__uif__last `Index
         @org.sireum.pilar.ast.Command
 
           ("""<org.sireum.pilar.ast.Command_-CommandInfo cid="1" size="4">

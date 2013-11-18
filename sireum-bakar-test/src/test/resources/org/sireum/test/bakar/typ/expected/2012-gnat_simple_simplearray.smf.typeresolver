@@ -498,10 +498,10 @@ procedure Integer Max (
     M := V[0ii];
 
   #l4.
-    _tcomp0 := attribute__uif__first ^Index;
+    _tcomp0 := attribute__uif__first `Index;
 
   #l5.
-    _tcomp1 := attribute__uif__last ^Index;
+    _tcomp1 := attribute__uif__last `Index;
 
   #rwl0.
     _t0 := _tcomp0;

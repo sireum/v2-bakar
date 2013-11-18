@@ -38,10 +38,10 @@ procedure Stupid (
 
 
   #l2.
-    _tcomp0 := attribute__uif__first ^Index_Range;
+    _tcomp0 := attribute__uif__first `Index_Range;
 
   #l3.
-    _tcomp1 := attribute__uif__last ^Index_Range;
+    _tcomp1 := attribute__uif__last `Index_Range;
 
   #l4.
     if _tcomp0 > _tcomp1 then goto l1;
@@ -68,10 +68,10 @@ procedure Stupid (
     // empty loc
 
   #l12.
-    _tcomp2 := attribute__uif__first ^Index_Range;
+    _tcomp2 := attribute__uif__first `Index_Range;
 
   #l13.
-    _tcomp3 := attribute__uif__last ^Index_Range;
+    _tcomp3 := attribute__uif__last `Index_Range;
 
   #l14.
     if _tcomp2 > _tcomp3 then goto l11;
@@ -158,7 +158,7 @@ procedure Stupid (
     // empty loc
 
   #l42.
-    _tcomp8 := attribute__uif__first ^Index_Range + 10ii;
+    _tcomp8 := attribute__uif__first `Index_Range + 10ii;
 
   #l43.
     _tcomp9 := Z;
@@ -188,7 +188,7 @@ procedure Stupid (
     // empty loc
 
   #l52.
-    _tcomp10 := attribute__uif__first ^Index_Range + 10ii;
+    _tcomp10 := attribute__uif__first `Index_Range + 10ii;
 
   #l53.
     _tcomp11 := Z;
