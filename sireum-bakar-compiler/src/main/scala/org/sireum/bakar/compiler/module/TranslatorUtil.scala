@@ -11,6 +11,8 @@ object URIS {
   val TYPE_DEF = "BAKAR_TYPE_DEF"
   val TYPE_URI = "BAKAR_TYPE_URI"
   val REF_URI = "BAKAR_REF_URI"
+    
+  val DUMMY_URI = "__DUMMY_URI__"
 
   def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s : T, uri : String) = {
 

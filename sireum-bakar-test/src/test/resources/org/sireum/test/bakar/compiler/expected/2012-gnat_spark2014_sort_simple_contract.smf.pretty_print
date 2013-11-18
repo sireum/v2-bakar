@@ -854,7 +854,7 @@ procedure SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>BAKAR_TYPE_URI</string>
-                     <string srefid="1"/>
+                     <string srefid="8"/>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.CallExp>
@@ -978,7 +978,7 @@ procedure SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>BAKAR_TYPE_URI</string>
-                     <string srefid="1"/>
+                     <string srefid="8"/>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.CallExp>
@@ -1076,7 +1076,7 @@ procedure SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>BAKAR_TYPE_URI</string>
-                     <string srefid="1"/>
+                     <string srefid="8"/>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.CallExp>
@@ -1200,7 +1200,7 @@ procedure SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>BAKAR_TYPE_URI</string>
-                     <string srefid="1"/>
+                     <string srefid="8"/>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.CallExp>

@@ -1,24 +1,16 @@
 package FaultIntegrator;
 
 
-typealias Boolean standard::boolean;
-
-typealias Integer standard::integer;
-
-typealias Integer standard::natural;
-
-typealias Integer standard::positive;
-
-typealias Float standard::float;
-
-typealias Integer universal_integer;
-
 procedure Init (
         T FI,
         Positive Threshold) {
 
   #l1.
-    FI := false;
+    FI := `T {
+      Limit = Threshold,
+      Counter = 0ii,
+      Tripped = false
+    };
 
   #l2.
     return;
@@ -116,4 +108,44 @@ procedure Test (
 
   #l20.
     return;
+}package FaultIntegrator;
+
+
+typealias _PRIVATE_TYPE_DECLARATION_ T;
+
+record T {
+
+  Positive Limit;
+
+  Natural Counter;
+
+  Boolean Tripped;
 }
+
+procedure Init (
+        T FI,
+        Positive Threshold) {
+
+}
+
+procedure Test (
+        T FI,
+        Boolean CurrentEvent,
+        Boolean IntegratedEvent) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

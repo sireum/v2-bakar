@@ -112,14 +112,14 @@ ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t108 -> ada://ordinary_t
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t109 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t110 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t111 -> ada://ordinary_type/universal_integer
-ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t90 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t90 -> ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t91 -> ada://ordinary_type/universal_integer
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t92 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t93 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t94 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t95 -> ada://ordinary_type/universal_integer
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t96 -> ada://subtype/Standard-1:1/Natural-1:1
-ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t97 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t97 -> ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t98 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Sort_Simple_Contract/InsertionSort/_t99 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable_temp/Sort_Simple_Contract/Num_Repetitions/_t12 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
@@ -150,7 +150,7 @@ ada://variable_temp/Sort_Simple_Contract/SelectionSort/_t126 -> ada://subtype/So
 ada://variable_temp/Sort_Simple_Contract/SelectionSort/_t127 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/SelectionSort/_t128 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/SelectionSort/_t129 -> ada://ordinary_type/universal_integer
-ada://variable_temp/Sort_Simple_Contract/ShellSort/_t130 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Sort_Simple_Contract/ShellSort/_t130 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/ShellSort/_t131 -> ada://ordinary_type/universal_integer
 ada://variable_temp/Sort_Simple_Contract/ShellSort/_t132 -> ada://subtype/Standard-1:1/Natural-1:1
 ada://variable_temp/Sort_Simple_Contract/ShellSort/_t133 -> ada://ordinary_type/universal_integer
@@ -177,7 +177,7 @@ ada://variable_temp/Sort_Simple_Contract/ShellSort/_t153 -> ada://ordinary_type/
 ada://variable_temp/Sort_Simple_Contract/isPerm/_t40 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isPerm/_t41 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isPerm/_t42 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
-ada://variable_temp/Sort_Simple_Contract/isPerm/_t43 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Sort_Simple_Contract/isPerm/_t43 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isPerm/_t44 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isPerm/_t45 -> ada://ordinary_type/universal_integer
 ada://variable_temp/Sort_Simple_Contract/isPerm/_t46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
@@ -208,7 +208,7 @@ ada://variable_temp/Sort_Simple_Contract/isSet/_t36 -> ada://subtype/Sort_Simple
 ada://variable_temp/Sort_Simple_Contract/isSet/_t37 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isSet/_t38 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isSet/_t39 -> ada://ordinary_type/universal_integer
-ada://variable_temp/Sort_Simple_Contract/isSorted/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Sort_Simple_Contract/isSorted/_t0 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isSorted/_t1 -> ada://ordinary_type/universal_integer
 ada://variable_temp/Sort_Simple_Contract/isSorted/_t10 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11
 ada://variable_temp/Sort_Simple_Contract/isSorted/_t11 -> ada://ordinary_type/universal_integer
@@ -465,10 +465,10 @@ procedure Boolean isSorted (
 
 
   #l2.
-    _tcomp0 := attribute__uif__first ^Index_Type;
+    _tcomp0 := attribute__uif__first `Index_Type;
 
   #rwl0.
-    _t0 := attribute__uif__last ^Index_Type;
+    _t0 := attribute__uif__last `Index_Type;
 
   #rwl1.
     _t1 := 1ii;
@@ -801,10 +801,10 @@ procedure Integer Num_Repetitions (
     Result := 0ii;
 
   #l15.
-    _tcomp2 := attribute__uif__first ^Index_Type;
+    _tcomp2 := attribute__uif__first `Index_Type;
 
   #l16.
-    _tcomp3 := attribute__uif__last ^Index_Type;
+    _tcomp3 := attribute__uif__last `Index_Type;
 
   #rwl12.
     _t12 := _tcomp2;
@@ -1121,10 +1121,10 @@ procedure Boolean isSet (
 
 
   #l28.
-    _tcomp4 := attribute__uif__first ^Index_Type;
+    _tcomp4 := attribute__uif__first `Index_Type;
 
   #l29.
-    _tcomp5 := attribute__uif__last ^Index_Type;
+    _tcomp5 := attribute__uif__last `Index_Type;
 
   #rwl22.
     _t22 := _tcomp4;
@@ -1142,10 +1142,10 @@ procedure Boolean isSet (
     // empty loc
 
   #l34.
-    _tcomp6 := attribute__uif__first ^Index_Type;
+    _tcomp6 := attribute__uif__first `Index_Type;
 
   #l35.
-    _tcomp7 := attribute__uif__last ^Index_Type;
+    _tcomp7 := attribute__uif__last `Index_Type;
 
   #rwl24.
     _t24 := _tcomp6;
@@ -1513,10 +1513,10 @@ procedure Boolean isPerm (
     Result := true;
 
   #l51.
-    _tcomp8 := attribute__uif__first ^Index_Type;
+    _tcomp8 := attribute__uif__first `Index_Type;
 
   #l52.
-    _tcomp9 := attribute__uif__last ^Index_Type;
+    _tcomp9 := attribute__uif__last `Index_Type;
 
   #rwl40.
     _t40 := _tcomp8;
@@ -1537,7 +1537,7 @@ procedure Boolean isPerm (
     _t42 := I;
 
   #rwl43.
-    _t43 := attribute__uif__first ^Index_Type;
+    _t43 := attribute__uif__first `Index_Type;
 
   #rwl44.
     _t44 := I;
@@ -1879,7 +1879,7 @@ procedure BubbleSort (
 
 
   #l66.
-    N := attribute__uif__last ^A;
+    N := attribute__uif__last `A;
 
   #l67.
     // empty loc
@@ -1888,7 +1888,7 @@ procedure BubbleSort (
     Swapped := false;
 
   #l71.
-    _tcomp12 := attribute__uif__first ^A;
+    _tcomp12 := attribute__uif__first `A;
 
   #rwl56.
     _t56 := N;
@@ -2054,17 +2054,17 @@ procedure dddd (
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map2" mtype="imap">
            <entry>
-             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/J+76:21</string>
+             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/I+76:18</string>
              <iset ttype="iset">
-               <string sid="2">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/I+76:18</string>
                <string srefid="1"/>
+               <string sid="2">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/J+76:21</string>
              </iset>
            </entry>
            <entry>
              <string srefid="2"/>
              <iset ttype="iset">
-               <string srefid="2"/>
                <string srefid="1"/>
+               <string srefid="2"/>
              </iset>
            </entry>
          </__depends>
@@ -2345,6 +2345,469 @@ procedure SwapElements (
              </iset>
            </entry>
          </__depends>
+         <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
+           <string>&amp;&amp;&amp;</string>
+           <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
+             <string>&amp;&amp;&amp;</string>
+             <org.sireum.pilar.ast.BinaryExp cid="3" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.CallExp cid="4" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="5" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="6" size="1">
+                     <string sid="4">attribute__uif__first</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                           <string>ada</string>
+                           <string>procedure__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="4"/>
+                           </ilist>
+                           <string sid="5">ada://procedure__uif/attribute__uif__first</string>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="8" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="9" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string sid="6">Sort_Simple_Contract-1:9</string>
+                             <string sid="7">SwapElements+82:13</string>
+                             <string>A+82:26</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string sid="8">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="8"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
+                         <string sid="9">sort_simple_contract.adb</string>
+                         <int>84</int>
+                         <int>17</int>
+                         <int>84</int>
+                         <int>17</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="8"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <org.sireum.pilar.ast.NameExp cid="12" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="13" size="1">
+                   <string>I</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="14" size="4">
+                         <string>ada</string>
+                         <string>parameter</string>
+                         <ilist ttype="ilist">
+                           <string srefid="6"/>
+                           <string srefid="7"/>
+                           <string>I+82:45</string>
+                         </ilist>
+                         <string srefid="2"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="10">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="10"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
+                       <string srefid="9"/>
+                       <int>84</int>
+                       <int>12</int>
+                       <int>84</int>
+                       <int>12</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string sid="11">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <org.sireum.pilar.ast.BinaryExp cid="16" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.NameExp crefid="12"/>
+               <org.sireum.pilar.ast.CallExp cid="17" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="18" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="19" size="1">
+                     <string sid="12">attribute__uif__last</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="20" size="4">
+                           <string>ada</string>
+                           <string>procedure__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="12"/>
+                           </ilist>
+                           <string sid="13">ada://procedure__uif/attribute__uif__last</string>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="21" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="22" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="23" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string srefid="6"/>
+                             <string srefid="7"/>
+                             <string>A+82:26</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="8"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="8"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="24" size="5">
+                         <string srefid="9"/>
+                         <int>84</int>
+                         <int>17</int>
+                         <int>84</int>
+                         <int>17</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="8"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="11"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="11"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="25" size="5">
+                   <string srefid="9"/>
+                   <int>84</int>
+                   <int>12</int>
+                   <int>84</int>
+                   <int>23</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.BinaryExp>
+           <org.sireum.pilar.ast.BinaryExp cid="26" size="3">
+             <string>&amp;&amp;&amp;</string>
+             <org.sireum.pilar.ast.BinaryExp cid="27" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.CallExp cid="28" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="29" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="30" size="1">
+                     <string srefid="4"/>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="31" size="4">
+                           <string>ada</string>
+                           <string>procedure__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="4"/>
+                           </ilist>
+                           <string srefid="5"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="32" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="33" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="34" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string srefid="6"/>
+                             <string srefid="7"/>
+                             <string>A+82:26</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="8"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="8"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="35" size="5">
+                         <string srefid="9"/>
+                         <int>84</int>
+                         <int>34</int>
+                         <int>84</int>
+                         <int>34</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="8"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <org.sireum.pilar.ast.NameExp cid="36" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="37" size="1">
+                   <string>J</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="38" size="4">
+                         <string>ada</string>
+                         <string>parameter</string>
+                         <ilist ttype="ilist">
+                           <string srefid="6"/>
+                           <string srefid="7"/>
+                           <string>J+82:48</string>
+                         </ilist>
+                         <string srefid="3"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="3"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="10"/>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="10"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="39" size="5">
+                       <string srefid="9"/>
+                       <int>84</int>
+                       <int>29</int>
+                       <int>84</int>
+                       <int>29</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="11"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <org.sireum.pilar.ast.BinaryExp cid="40" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.NameExp crefid="36"/>
+               <org.sireum.pilar.ast.CallExp cid="41" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="42" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="43" size="1">
+                     <string srefid="12"/>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="44" size="4">
+                           <string>ada</string>
+                           <string>procedure__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="12"/>
+                           </ilist>
+                           <string srefid="13"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="45" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="46" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="47" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string srefid="6"/>
+                             <string srefid="7"/>
+                             <string>A+82:26</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="8"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="8"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="48" size="5">
+                         <string srefid="9"/>
+                         <int>84</int>
+                         <int>34</int>
+                         <int>84</int>
+                         <int>34</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="8"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="11"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="11"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="49" size="5">
+                   <string srefid="9"/>
+                   <int>84</int>
+                   <int>29</int>
+                   <int>84</int>
+                   <int>40</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.BinaryExp>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string srefid="11"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="50" size="5">
+                 <string srefid="9"/>
+                 <int>84</int>
+                 <int>12</int>
+                 <int>84</int>
+                 <int>40</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </__pre>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -2817,7 +3280,7 @@ procedure BubbleSort_using_SwapElements (
 
 
   #l95.
-    N := attribute__uif__last ^A;
+    N := attribute__uif__last `A;
 
   #l96.
     // empty loc
@@ -2826,7 +3289,7 @@ procedure BubbleSort_using_SwapElements (
     Swapped := false;
 
   #l100.
-    _tcomp14 := attribute__uif__first ^A;
+    _tcomp14 := attribute__uif__first `A;
 
   #rwl74.
     _t74 := N;
@@ -3191,7 +3654,7 @@ procedure InsertionSort (
 
 
   #rwl90.
-    _t90 := attribute__uif__first ^A;
+    _t90 := attribute__uif__first `A;
 
   #rwl91.
     _t91 := 1ii;
@@ -3200,7 +3663,7 @@ procedure InsertionSort (
     _tcomp16 := _t90 + _t91;
 
   #l118.
-    _tcomp17 := attribute__uif__last ^A;
+    _tcomp17 := attribute__uif__last `A;
 
   #rwl92.
     _t92 := _tcomp16;
@@ -3236,7 +3699,7 @@ procedure InsertionSort (
     _t96 := J;
 
   #rwl97.
-    _t97 := attribute__uif__first ^A;
+    _t97 := attribute__uif__first `A;
 
   #rwl98.
     _t98 := A[J];
@@ -3576,10 +4039,10 @@ procedure SelectionSort (
 
 
   #l136.
-    _tcomp18 := attribute__uif__first ^Index_Type;
+    _tcomp18 := attribute__uif__first `Index_Type;
 
   #l137.
-    _tcomp19 := attribute__uif__last ^Index_Type;
+    _tcomp19 := attribute__uif__last `Index_Type;
 
   #rwl112.
     _t112 := _tcomp18;
@@ -3609,7 +4072,7 @@ procedure SelectionSort (
     _tcomp20 := _t114 + _t115;
 
   #l144.
-    _tcomp21 := attribute__uif__last ^Index_Type;
+    _tcomp21 := attribute__uif__last `Index_Type;
 
   #rwl116.
     _t116 := _tcomp20;
@@ -3990,7 +4453,7 @@ procedure ShellSort (
 
 
   #rwl130.
-    _t130 := attribute__uif__last ^Index_Type;
+    _t130 := attribute__uif__last `Index_Type;
 
   #rwl131.
     _t131 := 2ii;
@@ -4014,7 +4477,7 @@ procedure ShellSort (
     _tcomp22 := Increment;
 
   #l169.
-    _tcomp23 := attribute__uif__last ^Index_Type;
+    _tcomp23 := attribute__uif__last `Index_Type;
 
   #rwl134.
     _t134 := _tcomp22;

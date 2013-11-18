@@ -1,0 +1,1831 @@
+__DUMMY_URI__ -> __DUMMY_URI__
+ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/The_Stack_Praxis-1:9/@@Pointer+10:4 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
+ada://variable/The_Stack_Praxis-1:9/@@S+9:4 -> ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9
+ada://variable_temp/The_Stack_Praxis/Pop/_t2 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
+ada://variable_temp/The_Stack_Praxis/Pop/_t3 -> ada://ordinary_type/universal_integer
+ada://variable_temp/The_Stack_Praxis/Push/_t0 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
+ada://variable_temp/The_Stack_Praxis/Push/_t1 -> ada://ordinary_type/universal_integer
+package The_Stack_Praxis;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Pointer_Range
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SignedIntegerTypeDef cid="1" size="3">
+         <string></string>
+         <some etype="org.sireum.pilar.ast.LiteralExp" cid="2" size="3">
+           <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+           <scala.math.BigInt>
+             <bigInteger>0</bigInteger>
+           </scala.math.BigInt>
+           <string>0ii</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string sid="1">ada://ordinary_type/universal_integer</string>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string sid="2">the_stack_praxis.adb</string>
+                 <int>6</int>
+                 <int>32</int>
+                 <int>6</int>
+                 <int>32</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </some>
+         <some etype="org.sireum.pilar.ast.NameExp" cid="4" size="1">
+           <org.sireum.pilar.ast.NameUser cid="5" size="1">
+             <string>Stack_Size</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>pilar.symbol</string>
+                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="6" size="4">
+                   <string>ada</string>
+                   <string>integer_number</string>
+                   <ilist ttype="ilist">
+                     <string sid="3">The_Stack_Praxis-1:9</string>
+                     <string>Stack_Size+5:4</string>
+                   </ilist>
+                   <string sid="4">ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4</string>
+                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+               </entry>
+               <entry>
+                 <string>BAKAR_REF_URI</string>
+                 <string srefid="4"/>
+               </entry>
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="5">universal integer</string>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameUser>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string srefid="5"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="7" size="5">
+                 <string srefid="2"/>
+                 <int>6</int>
+                 <int>37</int>
+                 <int>6</int>
+                 <int>46</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </some>
+       </org.sireum.bakar.symbol.SignedIntegerTypeDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>""")
+;
+
+typealias Pointer_Range Index_Range
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+         <string>Index_Range</string>
+         <string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>
+         <string sid="2">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>
+         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1</bigInteger>
+             </scala.math.BigInt>
+             <string>1ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="3">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="4">the_stack_praxis.adb</string>
+                   <int>7</int>
+                   <int>47</int>
+                   <int>7</int>
+                   <int>47</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.NameExp cid="5" size="1">
+             <org.sireum.pilar.ast.NameUser cid="6" size="1">
+               <string>Stack_Size</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                     <string>ada</string>
+                     <string>integer_number</string>
+                     <ilist ttype="ilist">
+                       <string sid="5">The_Stack_Praxis-1:9</string>
+                       <string>Stack_Size+5:4</string>
+                     </ilist>
+                     <string sid="6">ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string sid="7">universal integer</string>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="7"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                   <string srefid="4"/>
+                   <int>7</int>
+                   <int>50</int>
+                   <int>7</int>
+                   <int>59</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </some>
+       </org.sireum.bakar.symbol.SubTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>""")
+;
+
+typealias _ARRAY_ Vector
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
+         <string></string>
+         <int>1</int>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <ivector ttype="ivector">
+           <string sid="2">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>
+         </ivector>
+       </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9</string>""")
+;
+
+const $CONST {
+  Stack_Size = (Integer) 100ii;
+}
+
+global Vector @@S
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.adb</string>
+         <int>9</int>
+         <int>4</int>
+         <int>9</int>
+         <int>4</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+global Pointer_Range @@Pointer
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.adb</string>
+         <int>10</int>
+         <int>4</int>
+         <int>10</int>
+         <int>10</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+procedure $$binit
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>
+           <org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+             <string>Index_Range</string>
+             <string srefid="1"/>
+             <string sid="2">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>
+             <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+               <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>1</bigInteger>
+                 </scala.math.BigInt>
+                 <string>1ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string sid="3">ada://ordinary_type/universal_integer</string>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                       <string sid="4">the_stack_praxis.adb</string>
+                       <int>7</int>
+                       <int>47</int>
+                       <int>7</int>
+                       <int>47</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+               <org.sireum.pilar.ast.NameExp cid="5" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="6" size="1">
+                   <string>Stack_Size</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                         <string>ada</string>
+                         <string>integer_number</string>
+                         <ilist ttype="ilist">
+                           <string sid="5">The_Stack_Praxis-1:9</string>
+                           <string>Stack_Size+5:4</string>
+                         </ilist>
+                         <string sid="6">ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4</string>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="6"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="7">universal integer</string>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                       <string srefid="4"/>
+                       <int>7</int>
+                       <int>50</int>
+                       <int>7</int>
+                       <int>59</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+             </some>
+           </org.sireum.bakar.symbol.SubTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::positive</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="3"/>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="10">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="2"/>
+           <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="13" size="3">
+             <string></string>
+             <some etype="org.sireum.pilar.ast.LiteralExp" cid="14" size="3">
+               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+               <scala.math.BigInt>
+                 <bigInteger>0</bigInteger>
+               </scala.math.BigInt>
+               <string>0ii</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>32</int>
+                     <int>6</int>
+                     <int>32</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+             <some etype="org.sireum.pilar.ast.NameExp" cid="16" size="1">
+               <org.sireum.pilar.ast.NameUser cid="17" size="1">
+                 <string>Stack_Size</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>pilar.symbol</string>
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="18" size="4">
+                       <string>ada</string>
+                       <string>integer_number</string>
+                       <ilist ttype="ilist">
+                         <string srefid="5"/>
+                         <string>Stack_Size+5:4</string>
+                       </ilist>
+                       <string srefid="6"/>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_REF_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameUser>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="7"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="19" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>37</int>
+                     <int>6</int>
+                     <int>46</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+           </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+         </entry>
+         <entry>
+           <string sid="11">ada://ordinary_type/universal_real</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="20" size="3">
+             <string>universal_real</string>
+             <string srefid="11"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="21" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="12">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="22" size="3">
+             <string sid="13">standard::integer</string>
+             <string srefid="12"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="23" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="14">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="24" size="3">
+             <string>standard::float</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="25" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="15">ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="26" size="4">
+             <string></string>
+             <int>1</int>
+             <string srefid="12"/>
+             <ivector ttype="ivector">
+               <string srefid="1"/>
+             </ivector>
+           </org.sireum.bakar.symbol.ConstrainedArrayDef>
+         </entry>
+         <entry>
+           <string sid="16">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="27" size="3">
+             <string sid="17">standard::natural</string>
+             <string srefid="16"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="28" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="18">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="29" size="3">
+             <string sid="19">standard::boolean</string>
+             <string srefid="18"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="30" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+
+  #l1.
+    @@Pointer := 0ii;
+
+  #l2.
+    @@S := `Vector {Vector iter => 
+        switch iter
+          case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
+    };
+
+  #l3.
+    return;
+}
+
+procedure Push (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">the_stack_praxis.adb</string>
+                 <int>12</int>
+                 <int>19</int>
+                 <int>12</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/The_Stack_Praxis-1:9/Push-5:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.adb</string>
+         <int>12</int>
+         <int>4</int>
+         <int>20</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>
+           <org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+             <string>Index_Range</string>
+             <string srefid="1"/>
+             <string sid="2">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>
+             <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+               <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>1</bigInteger>
+                 </scala.math.BigInt>
+                 <string>1ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string sid="3">ada://ordinary_type/universal_integer</string>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                       <string sid="4">the_stack_praxis.adb</string>
+                       <int>7</int>
+                       <int>47</int>
+                       <int>7</int>
+                       <int>47</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+               <org.sireum.pilar.ast.NameExp cid="5" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="6" size="1">
+                   <string>Stack_Size</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                         <string>ada</string>
+                         <string>integer_number</string>
+                         <ilist ttype="ilist">
+                           <string sid="5">The_Stack_Praxis-1:9</string>
+                           <string>Stack_Size+5:4</string>
+                         </ilist>
+                         <string sid="6">ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4</string>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="6"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="7">universal integer</string>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                       <string srefid="4"/>
+                       <int>7</int>
+                       <int>50</int>
+                       <int>7</int>
+                       <int>59</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+             </some>
+           </org.sireum.bakar.symbol.SubTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::positive</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="3"/>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="10">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="2"/>
+           <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="13" size="3">
+             <string></string>
+             <some etype="org.sireum.pilar.ast.LiteralExp" cid="14" size="3">
+               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+               <scala.math.BigInt>
+                 <bigInteger>0</bigInteger>
+               </scala.math.BigInt>
+               <string>0ii</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>32</int>
+                     <int>6</int>
+                     <int>32</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+             <some etype="org.sireum.pilar.ast.NameExp" cid="16" size="1">
+               <org.sireum.pilar.ast.NameUser cid="17" size="1">
+                 <string>Stack_Size</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>pilar.symbol</string>
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="18" size="4">
+                       <string>ada</string>
+                       <string>integer_number</string>
+                       <ilist ttype="ilist">
+                         <string srefid="5"/>
+                         <string>Stack_Size+5:4</string>
+                       </ilist>
+                       <string srefid="6"/>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_REF_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameUser>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="7"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="19" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>37</int>
+                     <int>6</int>
+                     <int>46</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+           </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+         </entry>
+         <entry>
+           <string sid="11">ada://ordinary_type/universal_real</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="20" size="3">
+             <string>universal_real</string>
+             <string srefid="11"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="21" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="12">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="22" size="3">
+             <string sid="13">standard::integer</string>
+             <string srefid="12"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="23" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="14">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="24" size="3">
+             <string>standard::float</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="25" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="15">ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="26" size="4">
+             <string></string>
+             <int>1</int>
+             <string srefid="12"/>
+             <ivector ttype="ivector">
+               <string srefid="1"/>
+             </ivector>
+           </org.sireum.bakar.symbol.ConstrainedArrayDef>
+         </entry>
+         <entry>
+           <string sid="16">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="27" size="3">
+             <string sid="17">standard::natural</string>
+             <string srefid="16"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="28" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="18">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="29" size="3">
+             <string sid="19">standard::boolean</string>
+             <string srefid="18"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="30" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #rwl0.
+    _t0 := @@Pointer;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #l4.
+    @@Pointer := _t0 + _t1;
+
+  #l5.
+    @@S[@@Pointer] := X;
+
+  #l6.
+    return;
+}
+
+procedure Pop (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">the_stack_praxis.adb</string>
+                 <int>23</int>
+                 <int>18</int>
+                 <int>23</int>
+                 <int>18</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/The_Stack_Praxis-1:9/Pop-9:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.adb</string>
+         <int>23</int>
+         <int>4</int>
+         <int>32</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>
+           <org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+             <string>Index_Range</string>
+             <string srefid="1"/>
+             <string sid="2">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>
+             <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+               <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>1</bigInteger>
+                 </scala.math.BigInt>
+                 <string>1ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string sid="3">ada://ordinary_type/universal_integer</string>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                       <string sid="4">the_stack_praxis.adb</string>
+                       <int>7</int>
+                       <int>47</int>
+                       <int>7</int>
+                       <int>47</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+               <org.sireum.pilar.ast.NameExp cid="5" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="6" size="1">
+                   <string>Stack_Size</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                         <string>ada</string>
+                         <string>integer_number</string>
+                         <ilist ttype="ilist">
+                           <string sid="5">The_Stack_Praxis-1:9</string>
+                           <string>Stack_Size+5:4</string>
+                         </ilist>
+                         <string sid="6">ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4</string>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="6"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="7">universal integer</string>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                       <string srefid="4"/>
+                       <int>7</int>
+                       <int>50</int>
+                       <int>7</int>
+                       <int>59</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+             </some>
+           </org.sireum.bakar.symbol.SubTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::positive</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="3"/>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="10">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="2"/>
+           <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="13" size="3">
+             <string></string>
+             <some etype="org.sireum.pilar.ast.LiteralExp" cid="14" size="3">
+               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+               <scala.math.BigInt>
+                 <bigInteger>0</bigInteger>
+               </scala.math.BigInt>
+               <string>0ii</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>32</int>
+                     <int>6</int>
+                     <int>32</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+             <some etype="org.sireum.pilar.ast.NameExp" cid="16" size="1">
+               <org.sireum.pilar.ast.NameUser cid="17" size="1">
+                 <string>Stack_Size</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>pilar.symbol</string>
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="18" size="4">
+                       <string>ada</string>
+                       <string>integer_number</string>
+                       <ilist ttype="ilist">
+                         <string srefid="5"/>
+                         <string>Stack_Size+5:4</string>
+                       </ilist>
+                       <string srefid="6"/>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_REF_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameUser>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="7"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="19" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>37</int>
+                     <int>6</int>
+                     <int>46</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+           </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+         </entry>
+         <entry>
+           <string sid="11">ada://ordinary_type/universal_real</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="20" size="3">
+             <string>universal_real</string>
+             <string srefid="11"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="21" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="12">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="22" size="3">
+             <string sid="13">standard::integer</string>
+             <string srefid="12"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="23" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="14">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="24" size="3">
+             <string>standard::float</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="25" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="15">ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="26" size="4">
+             <string></string>
+             <int>1</int>
+             <string srefid="12"/>
+             <ivector ttype="ivector">
+               <string srefid="1"/>
+             </ivector>
+           </org.sireum.bakar.symbol.ConstrainedArrayDef>
+         </entry>
+         <entry>
+           <string sid="16">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="27" size="3">
+             <string sid="17">standard::natural</string>
+             <string srefid="16"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="28" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="18">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="29" size="3">
+             <string sid="19">standard::boolean</string>
+             <string srefid="18"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="30" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+  local
+    FIXME _t2;
+    FIXME _t3;
+
+
+  #l7.
+    X := @@S[@@Pointer];
+
+  #rwl2.
+    _t2 := @@Pointer;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #l8.
+    @@Pointer := _t2 - _t3;
+
+  #l9.
+    return;
+}package The_Stack_Praxis;
+
+
+procedure Push (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">the_stack_praxis.ads</string>
+                 <int>5</int>
+                 <int>19</int>
+                 <int>5</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/The_Stack_Praxis-1:9/Push-5:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.ads</string>
+         <int>5</int>
+         <int>4</int>
+         <int>5</int>
+         <int>34</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>
+           <org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+             <string>Index_Range</string>
+             <string srefid="1"/>
+             <string sid="2">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>
+             <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+               <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>1</bigInteger>
+                 </scala.math.BigInt>
+                 <string>1ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string sid="3">ada://ordinary_type/universal_integer</string>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                       <string sid="4">the_stack_praxis.adb</string>
+                       <int>7</int>
+                       <int>47</int>
+                       <int>7</int>
+                       <int>47</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+               <org.sireum.pilar.ast.NameExp cid="5" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="6" size="1">
+                   <string>Stack_Size</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                         <string>ada</string>
+                         <string>integer_number</string>
+                         <ilist ttype="ilist">
+                           <string sid="5">The_Stack_Praxis-1:9</string>
+                           <string>Stack_Size+5:4</string>
+                         </ilist>
+                         <string sid="6">ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4</string>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="6"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="7">universal integer</string>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                       <string srefid="4"/>
+                       <int>7</int>
+                       <int>50</int>
+                       <int>7</int>
+                       <int>59</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+             </some>
+           </org.sireum.bakar.symbol.SubTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::positive</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="3"/>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="10">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="2"/>
+           <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="13" size="3">
+             <string></string>
+             <some etype="org.sireum.pilar.ast.LiteralExp" cid="14" size="3">
+               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+               <scala.math.BigInt>
+                 <bigInteger>0</bigInteger>
+               </scala.math.BigInt>
+               <string>0ii</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>32</int>
+                     <int>6</int>
+                     <int>32</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+             <some etype="org.sireum.pilar.ast.NameExp" cid="16" size="1">
+               <org.sireum.pilar.ast.NameUser cid="17" size="1">
+                 <string>Stack_Size</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>pilar.symbol</string>
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="18" size="4">
+                       <string>ada</string>
+                       <string>integer_number</string>
+                       <ilist ttype="ilist">
+                         <string srefid="5"/>
+                         <string>Stack_Size+5:4</string>
+                       </ilist>
+                       <string srefid="6"/>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_REF_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameUser>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="7"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="19" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>37</int>
+                     <int>6</int>
+                     <int>46</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+           </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+         </entry>
+         <entry>
+           <string sid="11">ada://ordinary_type/universal_real</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="20" size="3">
+             <string>universal_real</string>
+             <string srefid="11"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="21" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="12">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="22" size="3">
+             <string sid="13">standard::integer</string>
+             <string srefid="12"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="23" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="14">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="24" size="3">
+             <string>standard::float</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="25" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="15">ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="26" size="4">
+             <string></string>
+             <int>1</int>
+             <string srefid="12"/>
+             <ivector ttype="ivector">
+               <string srefid="1"/>
+             </ivector>
+           </org.sireum.bakar.symbol.ConstrainedArrayDef>
+         </entry>
+         <entry>
+           <string sid="16">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="27" size="3">
+             <string sid="17">standard::natural</string>
+             <string srefid="16"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="28" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="18">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="29" size="3">
+             <string sid="19">standard::boolean</string>
+             <string srefid="18"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="30" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+
+}
+
+procedure Pop (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">the_stack_praxis.ads</string>
+                 <int>9</int>
+                 <int>18</int>
+                 <int>9</int>
+                 <int>18</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/The_Stack_Praxis-1:9/Pop-9:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.ads</string>
+         <int>9</int>
+         <int>4</int>
+         <int>9</int>
+         <int>34</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_TYPE_MAP
+
+      ("""<mcol.HashMap mtype="mmap">
+         <entry>
+           <string sid="1">ada://subtype/The_Stack_Praxis-1:9/Index_Range+7:12</string>
+           <org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+             <string>Index_Range</string>
+             <string srefid="1"/>
+             <string sid="2">ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9</string>
+             <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+               <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                 <scala.math.BigInt>
+                   <bigInteger>1</bigInteger>
+                 </scala.math.BigInt>
+                 <string>1ii</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string sid="3">ada://ordinary_type/universal_integer</string>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                       <string sid="4">the_stack_praxis.adb</string>
+                       <int>7</int>
+                       <int>47</int>
+                       <int>7</int>
+                       <int>47</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.LiteralExp>
+               <org.sireum.pilar.ast.NameExp cid="5" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="6" size="1">
+                   <string>Stack_Size</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                         <string>ada</string>
+                         <string>integer_number</string>
+                         <ilist ttype="ilist">
+                           <string sid="5">The_Stack_Praxis-1:9</string>
+                           <string>Stack_Size+5:4</string>
+                         </ilist>
+                         <string sid="6">ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4</string>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="6"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="7">universal integer</string>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                       <string srefid="4"/>
+                       <int>7</int>
+                       <int>50</int>
+                       <int>7</int>
+                       <int>59</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+             </some>
+           </org.sireum.bakar.symbol.SubTypeDecl>
+         </entry>
+         <entry>
+           <string sid="8">ada://subtype/Standard-1:1/Positive-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
+             <string sid="9">standard::positive</string>
+             <string srefid="8"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="3"/>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
+             <string sid="10">universal_integer</string>
+             <string srefid="3"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string srefid="2"/>
+           <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="13" size="3">
+             <string></string>
+             <some etype="org.sireum.pilar.ast.LiteralExp" cid="14" size="3">
+               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+               <scala.math.BigInt>
+                 <bigInteger>0</bigInteger>
+               </scala.math.BigInt>
+               <string>0ii</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>32</int>
+                     <int>6</int>
+                     <int>32</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+             <some etype="org.sireum.pilar.ast.NameExp" cid="16" size="1">
+               <org.sireum.pilar.ast.NameUser cid="17" size="1">
+                 <string>Stack_Size</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>pilar.symbol</string>
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="18" size="4">
+                       <string>ada</string>
+                       <string>integer_number</string>
+                       <ilist ttype="ilist">
+                         <string srefid="5"/>
+                         <string>Stack_Size+5:4</string>
+                       </ilist>
+                       <string srefid="6"/>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_REF_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="7"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameUser>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="7"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="19" size="5">
+                     <string srefid="4"/>
+                     <int>6</int>
+                     <int>37</int>
+                     <int>6</int>
+                     <int>46</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </some>
+           </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+         </entry>
+         <entry>
+           <string sid="11">ada://ordinary_type/universal_real</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="20" size="3">
+             <string>universal_real</string>
+             <string srefid="11"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="21" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="12">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="22" size="3">
+             <string sid="13">standard::integer</string>
+             <string srefid="12"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="23" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="14">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="24" size="3">
+             <string>standard::float</string>
+             <string srefid="14"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="25" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="15">ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9</string>
+           <org.sireum.bakar.symbol.ConstrainedArrayDef cid="26" size="4">
+             <string></string>
+             <int>1</int>
+             <string srefid="12"/>
+             <ivector ttype="ivector">
+               <string srefid="1"/>
+             </ivector>
+           </org.sireum.bakar.symbol.ConstrainedArrayDef>
+         </entry>
+         <entry>
+           <string sid="16">ada://subtype/Standard-1:1/Natural-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="27" size="3">
+             <string sid="17">standard::natural</string>
+             <string srefid="16"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="28" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+         <entry>
+           <string sid="18">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+           <org.sireum.bakar.symbol.FullTypeDecl cid="29" size="3">
+             <string sid="19">standard::boolean</string>
+             <string srefid="18"/>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="30" size="3">
+               <string>myint</string>
+               <none/>
+               <none/>
+             </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+           </org.sireum.bakar.symbol.FullTypeDecl>
+         </entry>
+       </mcol.HashMap>""")
+ {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::boolean</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
+
+typealias Integer standard::integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::integer</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
+
+typealias Integer standard::natural
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::natural</string>
+         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer standard::positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::positive</string>
+         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float standard::float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>standard::float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias Integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+typealias Float universal_real
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>universal_real</string>
+         <string sid="1">ada://ordinary_type/universal_real</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;

@@ -1,0 +1,82 @@
+package P_Simple_Call_Two;
+
+
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
+
+procedure R (
+        Integer X,
+        Integer Z) {
+
+  #l5.
+    Z := X + Y + @@B + C;
+
+  #l6.
+    return (Z);
+}
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+  local
+    Integer _tbpr1;
+
+
+  #l7.
+    call _tbpr1 := R (X, Z);
+
+  #_lbpr2.
+    Z := _tbpr1;
+
+  #l8.
+    Z := Z + X;
+
+  #l9.
+    return (Z);
+}package P_Simple_Call_Two;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}
+
+procedure R (
+        Integer X,
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

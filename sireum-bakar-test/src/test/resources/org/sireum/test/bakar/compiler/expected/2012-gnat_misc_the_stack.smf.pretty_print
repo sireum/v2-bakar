@@ -926,8 +926,8 @@ procedure $$binit {
 
   #l3.
     @@AuditInfo := `AuditInfoType {
-      __positional__ = 0ii,
-      __positional__ = 0ii
+      __positional0 = 0ii,
+      __positional1 = 0ii
     };
 
   #l4.

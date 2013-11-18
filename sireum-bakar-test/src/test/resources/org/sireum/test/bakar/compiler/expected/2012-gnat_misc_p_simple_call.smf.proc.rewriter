@@ -1,0 +1,112 @@
+package P_Simple_Call;
+
+
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
+
+procedure R (
+        Integer X) {
+
+  #l5.
+    X := Y + @@B + C;
+
+  #l6.
+    return (X);
+}
+
+procedure Integer incX (
+        Integer X) {
+  local
+    Integer result;
+
+
+  #l9.
+    if !(X == 0ii) then goto l8;
+
+  #l10.
+    result := X + 1ii;
+
+  #l11.
+    goto l7;
+
+  #l8.
+    // empty loc
+
+  #l12.
+    result := X - 1ii;
+
+  #l7.
+    // empty loc
+
+  #l13.
+    return result;
+}
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+  local
+    FIXME _tcomp0;
+    Integer _tbpr1;
+
+
+  #l14.
+    call _tbpr1 := R (Z);
+
+  #_lbpr2.
+    Z := _tbpr1;
+
+  #l15.
+    call _tcomp0 := incX (X);
+
+  #l16.
+    Z := Z + _tcomp0;
+
+  #l17.
+    return (Z);
+}package P_Simple_Call;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}
+
+procedure R (
+        Integer X) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

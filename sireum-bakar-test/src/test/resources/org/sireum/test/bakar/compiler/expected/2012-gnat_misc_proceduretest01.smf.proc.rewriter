@@ -1,0 +1,110 @@
+package ProcedureTest01;
+
+
+procedure P (
+        Integer a,
+        Integer b,
+        Integer c) {
+
+  #l1.
+    b := a + b;
+
+  #l2.
+    c := a + b;
+
+  #l3.
+    return (b, c);
+}
+
+procedure helper (
+        Integer x,
+        Integer y) {
+  local
+    Integer arg0;
+    Integer _tbpr3;
+    Integer _tbpr1;
+
+
+  #l4.
+    arg0 := 1ii;
+
+  #l5.
+    call _tbpr1, _tbpr3 := P (arg0, x, y);
+
+  #_lbpr2.
+    x := _tbpr1;
+
+  #_lbpr4.
+    y := _tbpr3;
+
+  #l6.
+    return (x, y);
+}
+
+procedure Q (
+        Integer S,
+        Integer T,
+        Integer R) {
+  local
+    Integer L1;
+    Integer _tbpr3;
+    Integer _tbpr1;
+
+
+  #l7.
+    L1 := S;
+
+  #l8.
+    call _tbpr1, _tbpr3 := P (2ii, L1, T);
+
+  #_lbpr2.
+    L1 := _tbpr1;
+
+  #_lbpr4.
+    T := _tbpr3;
+
+  #l9.
+    R := 5ii;
+
+  #l10.
+    T := T + L1;
+
+  #l11.
+    return (T, R);
+}package ProcedureTest01;
+
+
+procedure P (
+        Integer a,
+        Integer b,
+        Integer c) {
+
+}
+
+procedure helper (
+        Integer x,
+        Integer y) {
+
+}
+
+procedure Q (
+        Integer S,
+        Integer T,
+        Integer R) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

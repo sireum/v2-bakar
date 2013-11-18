@@ -23,10 +23,10 @@ procedure Boolean isSorted (
 
 
   #l2.
-    _tcomp0 := attribute__uif__first ^Index_Type;
+    _tcomp0 := attribute__uif__first `Index_Type;
 
   #rwl0.
-    _t0 := attribute__uif__last ^Index_Type;
+    _t0 := attribute__uif__last `Index_Type;
 
   #rwl1.
     _t1 := 1ii;
@@ -119,10 +119,10 @@ procedure Integer Num_Repetitions (
     Result := 0ii;
 
   #l15.
-    _tcomp2 := attribute__uif__first ^Index_Type;
+    _tcomp2 := attribute__uif__first `Index_Type;
 
   #l16.
-    _tcomp3 := attribute__uif__last ^Index_Type;
+    _tcomp3 := attribute__uif__last `Index_Type;
 
   #rwl12.
     _t12 := _tcomp2;
@@ -219,10 +219,10 @@ procedure Boolean isSet (
 
 
   #l28.
-    _tcomp4 := attribute__uif__first ^Index_Type;
+    _tcomp4 := attribute__uif__first `Index_Type;
 
   #l29.
-    _tcomp5 := attribute__uif__last ^Index_Type;
+    _tcomp5 := attribute__uif__last `Index_Type;
 
   #rwl22.
     _t22 := _tcomp4;
@@ -240,10 +240,10 @@ procedure Boolean isSet (
     // empty loc
 
   #l34.
-    _tcomp6 := attribute__uif__first ^Index_Type;
+    _tcomp6 := attribute__uif__first `Index_Type;
 
   #l35.
-    _tcomp7 := attribute__uif__last ^Index_Type;
+    _tcomp7 := attribute__uif__last `Index_Type;
 
   #rwl24.
     _t24 := _tcomp6;
@@ -371,10 +371,10 @@ procedure Boolean isPerm (
     Result := true;
 
   #l51.
-    _tcomp8 := attribute__uif__first ^Index_Type;
+    _tcomp8 := attribute__uif__first `Index_Type;
 
   #l52.
-    _tcomp9 := attribute__uif__last ^Index_Type;
+    _tcomp9 := attribute__uif__last `Index_Type;
 
   #rwl40.
     _t40 := _tcomp8;
@@ -395,7 +395,7 @@ procedure Boolean isPerm (
     _t42 := I;
 
   #rwl43.
-    _t43 := attribute__uif__first ^Index_Type;
+    _t43 := attribute__uif__first `Index_Type;
 
   #rwl44.
     _t44 := I;
@@ -497,7 +497,7 @@ procedure BubbleSort (
 
 
   #l66.
-    N := attribute__uif__last ^A;
+    N := attribute__uif__last `A;
 
   #l67.
     // empty loc
@@ -506,7 +506,7 @@ procedure BubbleSort (
     Swapped := false;
 
   #l71.
-    _tcomp12 := attribute__uif__first ^A;
+    _tcomp12 := attribute__uif__first `A;
 
   #rwl56.
     _t56 := N;
@@ -679,7 +679,7 @@ procedure BubbleSort_using_SwapElements (
 
 
   #l95.
-    N := attribute__uif__last ^A;
+    N := attribute__uif__last `A;
 
   #l96.
     // empty loc
@@ -688,7 +688,7 @@ procedure BubbleSort_using_SwapElements (
     Swapped := false;
 
   #l100.
-    _tcomp14 := attribute__uif__first ^A;
+    _tcomp14 := attribute__uif__first `A;
 
   #rwl74.
     _t74 := N;
@@ -823,7 +823,7 @@ procedure InsertionSort (
 
 
   #rwl90.
-    _t90 := attribute__uif__first ^A;
+    _t90 := attribute__uif__first `A;
 
   #rwl91.
     _t91 := 1ii;
@@ -832,7 +832,7 @@ procedure InsertionSort (
     _tcomp16 := _t90 + _t91;
 
   #l118.
-    _tcomp17 := attribute__uif__last ^A;
+    _tcomp17 := attribute__uif__last `A;
 
   #rwl92.
     _t92 := _tcomp16;
@@ -868,7 +868,7 @@ procedure InsertionSort (
     _t96 := J;
 
   #rwl97.
-    _t97 := attribute__uif__first ^A;
+    _t97 := attribute__uif__first `A;
 
   #rwl98.
     _t98 := A[J];
@@ -978,10 +978,10 @@ procedure SelectionSort (
 
 
   #l136.
-    _tcomp18 := attribute__uif__first ^Index_Type;
+    _tcomp18 := attribute__uif__first `Index_Type;
 
   #l137.
-    _tcomp19 := attribute__uif__last ^Index_Type;
+    _tcomp19 := attribute__uif__last `Index_Type;
 
   #rwl112.
     _t112 := _tcomp18;
@@ -1011,7 +1011,7 @@ procedure SelectionSort (
     _tcomp20 := _t114 + _t115;
 
   #l144.
-    _tcomp21 := attribute__uif__last ^Index_Type;
+    _tcomp21 := attribute__uif__last `Index_Type;
 
   #rwl116.
     _t116 := _tcomp20;
@@ -1152,7 +1152,7 @@ procedure ShellSort (
 
 
   #rwl130.
-    _t130 := attribute__uif__last ^Index_Type;
+    _t130 := attribute__uif__last `Index_Type;
 
   #rwl131.
     _t131 := 2ii;
@@ -1176,7 +1176,7 @@ procedure ShellSort (
     _tcomp22 := Increment;
 
   #l169.
-    _tcomp23 := attribute__uif__last ^Index_Type;
+    _tcomp23 := attribute__uif__last `Index_Type;
 
   #rwl134.
     _t134 := _tcomp22;

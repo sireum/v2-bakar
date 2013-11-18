@@ -6,7 +6,7 @@ procedure Convert (
         Integer X) {
 
   #l1.
-    X := Y;
+    X := (Integer) Y;
 
   #l2.
     return;

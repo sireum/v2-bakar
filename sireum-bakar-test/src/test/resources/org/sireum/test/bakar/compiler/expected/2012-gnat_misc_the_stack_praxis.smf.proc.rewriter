@@ -1,0 +1,83 @@
+package The_Stack_Praxis;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Pointer_Range;
+
+typealias Pointer_Range Index_Range;
+
+typealias _ARRAY_ Vector;
+
+const $CONST {
+  Stack_Size = (Integer) 100ii;
+}
+
+global Vector @@S;
+
+global Pointer_Range @@Pointer;
+
+procedure $$binit {
+
+  #l1.
+    @@Pointer := 0ii;
+
+  #l2.
+    @@S := `Vector {Vector iter => 
+        switch iter
+          case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
+    };
+
+  #l3.
+    return;
+}
+
+procedure Push (
+        Integer X) {
+
+  #l4.
+    @@Pointer := @@Pointer + 1ii;
+
+  #l5.
+    @@S[@@Pointer] := X;
+
+  #l6.
+    return;
+}
+
+procedure Pop (
+        Integer X) {
+
+  #l7.
+    X := @@S[@@Pointer];
+
+  #l8.
+    @@Pointer := @@Pointer - 1ii;
+
+  #l9.
+    return (X);
+}package The_Stack_Praxis;
+
+
+procedure Push (
+        Integer X) {
+
+}
+
+procedure Pop (
+        Integer X) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

@@ -5,9 +5,37 @@ typealias Integer Index;
 
 typealias _ARRAY_ Vector;
 
-procedure Boolean Dummy {
+global Vector @@A;
+
+global Vector @@B;
+
+procedure $$binit {
 
   #l1.
+    @@A := `Vector {Vector iter => 
+        switch iter
+          case __positional0 => 0ii
+          case __positional1 => 1ii
+          case __positional2 => 2ii
+          case __positional3 => 3ii
+          default => 9ii};
+
+  #l2.
+    @@B := `Vector {Vector iter => 
+        switch iter
+          case 0ii => 0ii
+          case 1ii => 1ii
+          case 1ii + 1ii => 2ii
+          case 8ii / 2ii => 3ii
+          default => 9ii};
+
+  #l3.
+    return;
+}
+
+procedure Boolean Dummy {
+
+  #l4.
     return true;
 }
 
@@ -20,46 +48,46 @@ procedure Integer Max (
     Index _tcomp1;
 
 
-  #l2.
+  #l5.
     M := V[0ii];
 
-  #l4.
-    _tcomp0 := attribute__uif__first ^Index;
-
-  #l5.
-    _tcomp1 := attribute__uif__last ^Index;
-
-  #l6.
-    if _tcomp0 > _tcomp1 then goto l3;
-
   #l7.
-    I := _tcomp0;
+    _tcomp0 := attribute__uif__first `Index;
 
   #l8.
-    // empty loc
-
-  #l10.
-    if !(V[I] > M) then goto l9;
-
-  #l11.
-    M := V[I];
+    _tcomp1 := attribute__uif__last `Index;
 
   #l9.
+    if _tcomp0 > _tcomp1 then goto l6;
+
+  #l10.
+    I := _tcomp0;
+
+  #l11.
     // empty loc
 
-  #l12.
-    if I == _tcomp1 then goto l3;
-
   #l13.
-    I := I + 1ii;
+    if !(V[I] > M) then goto l12;
 
   #l14.
-    goto l8;
+    M := V[I];
 
-  #l3.
+  #l12.
     // empty loc
 
   #l15.
+    if I == _tcomp1 then goto l6;
+
+  #l16.
+    I := I + 1ii;
+
+  #l17.
+    goto l11;
+
+  #l6.
+    // empty loc
+
+  #l18.
     return M;
 }package SimpleArray;
 

@@ -1,31 +1,25 @@
 package org.sireum.test.bakar.typ
 
+import java.io.Writer
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import org.sireum.test.bakar.compiler.BakarRewriterTest
-import org.sireum.pipeline.PipelineConfiguration
+import org.sireum.bakar.compiler.module.BakarTranslatorModule
 import org.sireum.bakar.compiler.rewriter.BakarExpRewriterModule
-import java.io.Writer
-import org.sireum.pipeline.PipelineJob
-import org.sireum.pipeline.PipelineStage
-import org.sireum.pilar.pretty.NodePrettyPrinter
+import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
+import org.sireum.bakar.typ.BakarTypeResolverModule
+import org.sireum.bakar.typ.BakarTypeResolverModule.ConsumerView.BakarTypeResolverModuleConsumerView
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import org.sireum.bakar.compiler.module.BakarTranslatorModule
-import org.sireum.bakar.typ.BakarTypeResolver
-import org.sireum.bakar.typ.BakarTypeResolverModule
-import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
+import org.sireum.pilar.pretty.NodePrettyPrinter
+import org.sireum.pipeline.PipelineConfiguration
+import org.sireum.pipeline.PipelineJob
+import org.sireum.pipeline.PipelineStage
+import org.sireum.test.bakar.compiler.BakarRewriterTest
 
 @RunWith(classOf[JUnitRunner])
 class BakarTypeResolverTest extends BakarRewriterTest {
 
   override def generateExpected = false
-    
-  override def excludes = {
-    super.excludes ++= Set("recordtest01", "recordtest02", "case",
-      "simplerecordtests", "for_loops", "p_refinement",
-      "quantifier")
-  }
 
   override def pipeline =
     PipelineConfiguration(

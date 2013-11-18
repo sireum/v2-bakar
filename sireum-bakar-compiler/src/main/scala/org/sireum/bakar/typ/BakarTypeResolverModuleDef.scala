@@ -74,8 +74,10 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
     case o : Exp =>
       if (o ? URIS.TYPE_URI) {
         val auri : ResourceUri = o(URIS.TYPE_URI)
-        assert(typeMap.contains(auri))
-        o(URIS.TYPE_DEF) = typeMap(auri)
+        if(auri != URIS.DUMMY_URI) {
+          assert(typeMap.contains(auri))
+          o(URIS.TYPE_DEF) = typeMap(auri)
+        }
       }
       true
   }
@@ -122,9 +124,7 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       case o @ NameExp(nu) =>
         import org.sireum.pilar.symbol.Symbol
         assert (nu.uri.startsWith("ada://procedure") || o ? URIS.TYPE_URI)
-        assert (nu.hasResourceInfo)
         false
-        
     }
     v(m)
   }

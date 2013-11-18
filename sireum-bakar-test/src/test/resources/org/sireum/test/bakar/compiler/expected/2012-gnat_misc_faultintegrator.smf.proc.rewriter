@@ -1,0 +1,117 @@
+package FaultIntegrator;
+
+
+procedure Init (
+        T FI,
+        Positive Threshold) {
+
+  #l1.
+    FI := `T {
+      Limit = Threshold,
+      Counter = 0ii,
+      Tripped = false
+    };
+
+  #l2.
+    return (FI);
+}
+
+procedure Test (
+        T FI,
+        Boolean CurrentEvent,
+        Boolean IntegratedEvent) {
+
+  #l5.
+    if !(CurrentEvent) then goto l4;
+
+  #l8.
+    if !(FI.Counter == FI.Limit) then goto l7;
+
+  #l9.
+    FI.Tripped := true;
+
+  #l10.
+    goto l6;
+
+  #l7.
+    // empty loc
+
+  #l11.
+    FI.Counter := FI.Counter + 1ii;
+
+  #l6.
+    // empty loc
+
+  #l12.
+    goto l3;
+
+  #l4.
+    // empty loc
+
+  #l15.
+    if !(FI.Counter == 0ii) then goto l14;
+
+  #l16.
+    FI.Tripped := false;
+
+  #l17.
+    goto l13;
+
+  #l14.
+    // empty loc
+
+  #l18.
+    FI.Counter := FI.Counter - 1ii;
+
+  #l13.
+    // empty loc
+
+  #l3.
+    // empty loc
+
+  #l19.
+    IntegratedEvent := FI.Tripped;
+
+  #l20.
+    return (FI, IntegratedEvent);
+}package FaultIntegrator;
+
+
+typealias _PRIVATE_TYPE_DECLARATION_ T;
+
+record T {
+
+  Positive Limit;
+
+  Natural Counter;
+
+  Boolean Tripped;
+}
+
+procedure Init (
+        T FI,
+        Positive Threshold) {
+
+}
+
+procedure Test (
+        T FI,
+        Boolean CurrentEvent,
+        Boolean IntegratedEvent) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

@@ -1,0 +1,234 @@
+package The_Stack_Demonic;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Pointer_Range;
+
+typealias Pointer_Range Index_Range;
+
+typealias _ARRAY_ Vector;
+
+const $CONST {
+  Stack_Size = (Integer) 100ii;
+}
+
+global Vector @@S;
+
+global Pointer_Range @@Pointer;
+
+global AuditInfoType @@AuditInfo;
+
+procedure $$binit {
+
+  #l1.
+    @@Pointer := 0ii;
+
+  #l2.
+    @@S := `Vector {Vector iter => 
+        switch iter
+          case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
+    };
+
+  #l3.
+    @@AuditInfo := `AuditInfoType {
+      __positional0 = 0ii,
+      __positional1 = 0ii
+    };
+
+  #l4.
+    return;
+}
+
+procedure Push (
+        Integer X) {
+
+  #l5.
+    @@Pointer := @@Pointer + 1ii;
+
+  #l6.
+    @@S[@@Pointer] := X;
+
+  #l7.
+    @@AuditInfo.PushOps := @@AuditInfo.PushOps + 1ii;
+
+  #l8.
+    return;
+}
+
+procedure Pop (
+        Integer X) {
+
+  #l9.
+    X := @@S[@@Pointer];
+
+  #l10.
+    @@Pointer := @@Pointer - 1ii;
+
+  #l11.
+    @@AuditInfo.PopOps := @@AuditInfo.PopOps + 1ii;
+
+  #l12.
+    return (X);
+}
+
+procedure Boolean Value_Present (
+        Integer X) {
+  local
+    Boolean Result;
+    Index_Range I;
+    Index_Range _tcomp0;
+    Index_Range _tcomp1;
+
+
+  #l13.
+    Result := false;
+
+  #l15.
+    _tcomp0 := attribute__uif__first `Index_Range;
+
+  #l16.
+    _tcomp1 := attribute__uif__last `Index_Range;
+
+  #l17.
+    if _tcomp0 > _tcomp1 then goto l14;
+
+  #l18.
+    I := _tcomp0;
+
+  #l19.
+    // empty loc
+
+  #l21.
+    if !(@@S[I] == X) then goto l20;
+
+  #l22.
+    Result := true;
+
+  #l23.
+    goto l14;
+
+  #l20.
+    // empty loc
+
+  #l24.
+    if I == _tcomp1 then goto l14;
+
+  #l25.
+    I := I + 1ii;
+
+  #l26.
+    goto l19;
+
+  #l14.
+    // empty loc
+
+  #l27.
+    return Result;
+}
+
+procedure Index_Range Find_Stack_Pos (
+        Integer X) {
+  local
+    Index_Range Result_Pos;
+    Index_Range I;
+    Index_Range _tcomp2;
+    Index_Range _tcomp3;
+
+
+  #l28.
+    Result_Pos := attribute__uif__first `Index_Range;
+
+  #l30.
+    _tcomp2 := attribute__uif__first `Index_Range;
+
+  #l31.
+    _tcomp3 := attribute__uif__last `Index_Range;
+
+  #l32.
+    if _tcomp2 > _tcomp3 then goto l29;
+
+  #l33.
+    I := _tcomp2;
+
+  #l34.
+    // empty loc
+
+  #l36.
+    if !(@@S[I] == X) then goto l35;
+
+  #l37.
+    Result_Pos := I;
+
+  #l38.
+    goto l29;
+
+  #l35.
+    // empty loc
+
+  #l39.
+    if I == _tcomp3 then goto l29;
+
+  #l40.
+    I := I + 1ii;
+
+  #l41.
+    goto l34;
+
+  #l29.
+    // empty loc
+
+  #l42.
+    return Result_Pos;
+}package The_Stack_Demonic;
+
+
+typealias _PRIVATE_TYPE_DECLARATION_ StackID;
+
+typealias _ENUMERATION_TYPE_ Status;
+
+typealias Status BoundaryStatus;
+
+typealias Integer AuditCountType;
+
+record AuditInfoType {
+
+  AuditCountType PushOps;
+
+  AuditCountType PopOps;
+}
+
+typealias _SIGNED_INTEGER_TYPE_ StackID;
+
+const $CONST {
+  InitID = (StackID) __DEFERRED_CONSTANT__;
+
+  AuditCount_LowerLimit = (Integer) 0ii;
+
+  AuditCount_UpperLimit = (Integer) 200ii;
+
+  InitID = (StackID) 1ii;
+}
+
+procedure Push (
+        Integer X) {
+
+}
+
+procedure Pop (
+        Integer X) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

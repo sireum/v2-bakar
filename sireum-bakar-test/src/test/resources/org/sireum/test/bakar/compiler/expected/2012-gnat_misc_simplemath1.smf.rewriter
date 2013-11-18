@@ -1,20 +1,54 @@
 package SimpleMath1;
 
 
-typealias  standard::integer;
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    @@B := 0ii;
+
+  #l2.
+    return;
+}
 
 procedure Inc (
         Integer I) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
 
   #rwl0.
     _t0 := I;
 
   #rwl1.
-    _t1 := B;
+    _t1 := @@B;
 
-  #l1.
+  #l3.
     I := _t0 + _t1;
 
-  #l2.
+  #l4.
     return;
-}
+}package SimpleMath1;
+
+
+procedure Inc (
+        Integer I) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

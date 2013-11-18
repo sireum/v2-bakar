@@ -129,6 +129,8 @@ class BakarRewriter {
 
     // the rest of these are sanity checks
     case te : TupleExp => te // tuple exp don't need a type
+    case fe : FunExp => fe
+    case se : SwitchExp => se
     case e @ CallExp(NameExp(n), _) =>
       assert(n.uri.startsWith("ada://procedure") || e ? URIS.TYPE_URI)
       e

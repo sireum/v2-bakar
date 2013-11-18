@@ -2894,7 +2894,7 @@ for_loops.ads
               <line>9</line>
               <col>4</col>
               <endline>9</endline>
-              <endcol>38</endcol>
+              <endcol>57</endcol>
             </sloc>
             <namesQl>
               <definingNames>
@@ -2980,7 +2980,7 @@ for_loops.ads
                   <line>9</line>
                   <col>18</col>
                   <endline>9</endline>
-                  <endcol>37</endcol>
+                  <endcol>56</endcol>
                 </sloc>
                 <convertedOrQualifiedSubtypeMarkQ>
                   <expression class="org.sireum.bakar.xml.Identifier">
@@ -3001,7 +3001,7 @@ for_loops.ads
                       <line>9</line>
                       <col>25</col>
                       <endline>9</endline>
-                      <endcol>37</endcol>
+                      <endcol>56</endcol>
                     </sloc>
                     <arrayComponentAssociationsQl>
                       <associations>
@@ -3010,16 +3010,106 @@ for_loops.ads
                             <line>9</line>
                             <col>26</col>
                             <endline>9</endline>
-                            <endcol>36</endcol>
+                            <endcol>34</endcol>
+                          </sloc>
+                          <arrayComponentChoicesQl>
+                            <elements>
+                              <org.sireum.bakar.xml.DiscreteSimpleExpressionRange>
+                                <sloc>
+                                  <line>9</line>
+                                  <col>26</col>
+                                  <endline>9</endline>
+                                  <endcol>29</endcol>
+                                </sloc>
+                                <lowerBoundQ>
+                                  <expression class="org.sireum.bakar.xml.IntegerLiteral">
+                                    <sloc>
+                                      <line>9</line>
+                                      <col>26</col>
+                                      <endline>9</endline>
+                                      <endcol>26</endcol>
+                                    </sloc>
+                                    <litVal>1</litVal>
+                                    <type>universal integer</type>
+                                  </expression>
+                                </lowerBoundQ>
+                                <upperBoundQ>
+                                  <expression class="org.sireum.bakar.xml.IntegerLiteral">
+                                    <sloc>
+                                      <line>9</line>
+                                      <col>29</col>
+                                      <endline>9</endline>
+                                      <endcol>29</endcol>
+                                    </sloc>
+                                    <litVal>7</litVal>
+                                    <type>universal integer</type>
+                                  </expression>
+                                </upperBoundQ>
+                              </org.sireum.bakar.xml.DiscreteSimpleExpressionRange>
+                            </elements>
+                          </arrayComponentChoicesQl>
+                          <componentExpressionQ>
+                            <expression class="org.sireum.bakar.xml.IntegerLiteral">
+                              <sloc>
+                                <line>9</line>
+                                <col>34</col>
+                                <endline>9</endline>
+                                <endcol>34</endcol>
+                              </sloc>
+                              <litVal>2</litVal>
+                              <type>universal integer</type>
+                            </expression>
+                          </componentExpressionQ>
+                        </org.sireum.bakar.xml.ArrayComponentAssociation>
+                        <org.sireum.bakar.xml.ArrayComponentAssociation>
+                          <sloc>
+                            <line>9</line>
+                            <col>37</col>
+                            <endline>9</endline>
+                            <endcol>42</endcol>
+                          </sloc>
+                          <arrayComponentChoicesQl>
+                            <elements>
+                              <org.sireum.bakar.xml.IntegerLiteral>
+                                <sloc>
+                                  <line>9</line>
+                                  <col>37</col>
+                                  <endline>9</endline>
+                                  <endcol>38</endcol>
+                                </sloc>
+                                <litVal>11</litVal>
+                                <type>universal integer</type>
+                              </org.sireum.bakar.xml.IntegerLiteral>
+                            </elements>
+                          </arrayComponentChoicesQl>
+                          <componentExpressionQ>
+                            <expression class="org.sireum.bakar.xml.IntegerLiteral">
+                              <sloc>
+                                <line>9</line>
+                                <col>42</col>
+                                <endline>9</endline>
+                                <endcol>42</endcol>
+                              </sloc>
+                              <litVal>3</litVal>
+                              <type>universal integer</type>
+                            </expression>
+                          </componentExpressionQ>
+                        </org.sireum.bakar.xml.ArrayComponentAssociation>
+                        <org.sireum.bakar.xml.ArrayComponentAssociation>
+                          <sloc>
+                            <line>9</line>
+                            <col>45</col>
+                            <endline>9</endline>
+                            <endcol>55</endcol>
                           </sloc>
                           <arrayComponentChoicesQl>
                             <elements>
                               <org.sireum.bakar.xml.OthersChoice>
                                 <sloc>
                                   <line>9</line>
-                                  <col>26</col>
+                                  <col>45</col>
                                   <endline>9</endline>
-                                  <endcol>31</endcol>
+                                  <endcol>50</endcol>
                                 </sloc>
                               </org.sireum.bakar.xml.OthersChoice>
                             </elements>
@@ -3028,9 +3118,9 @@ for_loops.ads
                             <expression class="org.sireum.bakar.xml.IntegerLiteral">
                               <sloc>
                                 <line>9</line>
-                                <col>36</col>
+                                <col>55</col>
                                 <endline>9</endline>
-                                <endcol>36</endcol>
+                                <endcol>55</endcol>
                               </sloc>
                               <litVal>1</litVal>
                               <type>universal integer</type>

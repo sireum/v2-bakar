@@ -101,10 +101,10 @@ procedure Stupid (
 
 
   #l2.
-    _tcomp0 := attribute__uif__first ^Index_Range;
+    _tcomp0 := attribute__uif__first `Index_Range;
 
   #l3.
-    _tcomp1 := attribute__uif__last ^Index_Range;
+    _tcomp1 := attribute__uif__last `Index_Range;
 
   #rwl0.
     _t0 := _tcomp0;
@@ -149,10 +149,10 @@ procedure Stupid (
     // empty loc
 
   #l12.
-    _tcomp2 := attribute__uif__first ^Index_Range;
+    _tcomp2 := attribute__uif__first `Index_Range;
 
   #l13.
-    _tcomp3 := attribute__uif__last ^Index_Range;
+    _tcomp3 := attribute__uif__last `Index_Range;
 
   #rwl6.
     _t6 := _tcomp2;
@@ -293,7 +293,7 @@ procedure Stupid (
     // empty loc
 
   #rwl24.
-    _t24 := attribute__uif__first ^Index_Range;
+    _t24 := attribute__uif__first `Index_Range;
 
   #rwl25.
     _t25 := 10ii;
@@ -347,7 +347,7 @@ procedure Stupid (
     // empty loc
 
   #rwl32.
-    _t32 := attribute__uif__first ^Index_Range;
+    _t32 := attribute__uif__first `Index_Range;
 
   #rwl33.
     _t33 := 10ii;
@@ -606,14 +606,18 @@ global Vector @@A;
 procedure $$sinit {
 
   #l102.
-    @@A := 11111ii;
+    @@A := `Vector {Vector iter => 
+        switch iter
+          case (1ii, 7ii) => 2ii
+          case 11ii => 3ii
+          default => 1ii};
 
   #l103.
     return;
 }
 
 const $CONST {
-  aFloatConst = (Float)  + ;
+  aFloatConst = (Float) 3.0 + 7.3;
 
   aIntConst = (Integer) 1ii + 3ii;
 }

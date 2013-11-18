@@ -5,9 +5,55 @@ typealias Integer Index;
 
 typealias _ARRAY_ Vector;
 
-procedure Boolean Dummy {
+global Vector @@A;
+
+global Vector @@B;
+
+procedure $$binit {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
 
   #l1.
+    @@A := `Vector {Vector iter => 
+        switch iter
+          case __positional0 => 0ii
+          case __positional1 => 1ii
+          case __positional2 => 2ii
+          case __positional3 => 3ii
+          default => 9ii};
+
+  #rwl0.
+    _t0 := 1ii;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #rwl2.
+    _t2 := 8ii;
+
+  #rwl3.
+    _t3 := 2ii;
+
+  #l2.
+    @@B := `Vector {Vector iter => 
+        switch iter
+          case 0ii => 0ii
+          case 1ii => 1ii
+          case _t0 + _t1 => 2ii
+          case _t2 / _t3 => 3ii
+          default => 9ii};
+
+  #l3.
+    return;
+}
+
+procedure Boolean Dummy {
+
+  #l4.
     return true;
 }
 
@@ -18,80 +64,80 @@ procedure Integer Max (
     Index I;
     Index _tcomp0;
     Index _tcomp1;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
     FIXME _t4;
     FIXME _t5;
     FIXME _t6;
     FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
 
-
-  #l2.
-    M := V[0ii];
-
-  #l4.
-    _tcomp0 := attribute__uif__first ^Index;
 
   #l5.
-    _tcomp1 := attribute__uif__last ^Index;
-
-  #rwl0.
-    _t0 := _tcomp0;
-
-  #rwl1.
-    _t1 := _tcomp1;
-
-  #l6.
-    if _t0 > _t1 then goto l3;
+    M := V[0ii];
 
   #l7.
-    I := _tcomp0;
+    _tcomp0 := attribute__uif__first `Index;
 
   #l8.
-    // empty loc
-
-  #rwl2.
-    _t2 := V[I];
-
-  #rwl3.
-    _t3 := M;
-
-  #l10.
-    if !(_t2 > _t3) then goto l9;
-
-  #l11.
-    M := V[I];
-
-  #l9.
-    // empty loc
+    _tcomp1 := attribute__uif__last `Index;
 
   #rwl4.
-    _t4 := I;
+    _t4 := _tcomp0;
 
   #rwl5.
     _t5 := _tcomp1;
 
-  #l12.
-    if _t4 == _t5 then goto l3;
+  #l9.
+    if _t4 > _t5 then goto l6;
 
-  #rwl6.
-    _t6 := I;
+  #l10.
+    I := _tcomp0;
 
-  #rwl7.
-    _t7 := 1ii;
-
-  #l13.
-    I := _t6 + _t7;
-
-  #l14.
-    goto l8;
-
-  #l3.
+  #l11.
     // empty loc
 
+  #rwl6.
+    _t6 := V[I];
+
+  #rwl7.
+    _t7 := M;
+
+  #l13.
+    if !(_t6 > _t7) then goto l12;
+
+  #l14.
+    M := V[I];
+
+  #l12.
+    // empty loc
+
+  #rwl8.
+    _t8 := I;
+
+  #rwl9.
+    _t9 := _tcomp1;
+
   #l15.
+    if _t8 == _t9 then goto l6;
+
+  #rwl10.
+    _t10 := I;
+
+  #rwl11.
+    _t11 := 1ii;
+
+  #l16.
+    I := _t10 + _t11;
+
+  #l17.
+    goto l11;
+
+  #l6.
+    // empty loc
+
+  #l18.
     return M;
 }package SimpleArray;
 

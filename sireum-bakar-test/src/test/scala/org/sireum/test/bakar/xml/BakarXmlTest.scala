@@ -1,33 +1,29 @@
 package org.sireum.test.bakar.xml
+
+import com.thoughtworks.xstream.XStream
+import java.io.File
+import java.io.Writer
+import java.net.URI
 import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import java.io.Writer
-import org.sireum.pipeline.PipelineJob
-import org.sireum.util.FileUtil
-import java.io.File
-import java.net.URI
-import org.sireum.util.ISeq
-import org.sireum.util.FileResourceUri
-import com.thoughtworks.xstream.XStream
-import org.sireum.pipeline._
-import scala.Some.apply
-import org.scalatest.junit.JUnitRunner
-import scala.collection.immutable.TreeMap
-import org.sireum.test.bakar.framework.BakarTestFileFramework
 import org.sireum.example.bakar.BakarExamples
+import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.pipeline.PipelineConfiguration
+import org.sireum.pipeline.PipelineJob
+import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
-import org.sireum.example.bakar.BakarExamplesAnchor
-import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.test.bakar.framework.BakarTestFileFramework
+import org.sireum.util.FileUtil
+import scala.collection.immutable.TreeMap
 
 @RunWith(classOf[JUnitRunner])
 class BakarXmlTest extends BakarTestFileFramework {
 
   override def generateExpected = false
   
-  override def includes = {
-    super.includes += "misc"
-  }
+  override def includes = super.includes ++= Set("gnat_misc", "gnat_simple", "gnat_spark2014")
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 

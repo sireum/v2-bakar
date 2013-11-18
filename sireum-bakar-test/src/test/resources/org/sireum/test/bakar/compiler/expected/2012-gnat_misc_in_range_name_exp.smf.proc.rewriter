@@ -1,0 +1,63 @@
+package in_range_name_exp;
+
+
+procedure Boolean test (
+        Integer Z) {
+  local
+    Boolean ret;
+
+
+  #l1.
+    ret := attribute__uif__first `Natural <= Z &&& Z <= attribute__uif__last `Natural;
+
+  #l3.
+    if !(ret) then goto l2;
+
+  #l4.
+    ret := 1ii <= Z &&& Z <= 10ii;
+
+  #l2.
+    // empty loc
+
+  #l6.
+    if !(ret) then goto l5;
+
+  #l7.
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive);
+
+  #l5.
+    // empty loc
+
+  #l9.
+    if !(ret) then goto l8;
+
+  #l10.
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive ||| Z == 4ii ||| 5ii <= Z &&& Z <= 7ii ||| Z == 3ii + 5ii);
+
+  #l8.
+    // empty loc
+
+  #l11.
+    return ret;
+}package in_range_name_exp;
+
+
+procedure Boolean test (
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

@@ -31,24 +31,21 @@ trait BakarTestFramework extends TestFramework {
   def ignores = msetEmpty[Regex]
   def includes = msetEmpty[Regex]
 
-  def accept(name: String, files: ISeq[FileResourceUri]): Boolean = {
-    return (disableIncludes || includes.isEmpty ||
-      includes.exists(r => r.findFirstMatchIn(name).isDefined)) &&
-      (disableIgnores || ignores.isEmpty ||
-        !ignores.exists(r => r.findFirstMatchIn(name).isDefined))
-  }
+  def accept(name: String, files: ISeq[FileResourceUri]): Boolean = true
 
   def register(projects: ISeq[Project]) {
-    projects.foreach(p =>
-      if (disableExcludes ||
-        !excludes.exists(r => r.findFirstMatchIn(p.testName).isDefined)) {
-        if (accept(p.testName, p.files))
+    for(p <- projects) {
+      if ((disableIncludes || includes.isEmpty || includes.exists(r => r.findFirstMatchIn(p.testName).isDefined)) &&
+        (disableExcludes || !excludes.exists(r => r.findFirstMatchIn(p.testName).isDefined))) {
+        if (accept(p.testName, p.files) &&
+          (disableIgnores || !ignores.exists(r => r.findFirstMatchIn(p.testName).isDefined)))
           execute(p.testName, p.files)
         else
           reject(p.testName, p.files)
-      })
+      }
+    }
   }
-  
+
   def execute(testName: String, files: ISeq[FileResourceUri])
 
   def reject(testName: String, files: ISeq[FileResourceUri]) = {

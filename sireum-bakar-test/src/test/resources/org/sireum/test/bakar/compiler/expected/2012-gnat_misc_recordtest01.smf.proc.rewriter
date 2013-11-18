@@ -1,0 +1,103 @@
+package RecordTest01;
+
+
+procedure $$binit {
+
+  #l1.
+    anObject := `Object {
+      __positional0 = 1ii,
+      __positional1 = 2ii
+    };
+
+  #l2.
+    aNestedObject := `NestedObject {
+      O = `Object {
+        __positional0 = 1ii,
+        __positional1 = 2ii
+      }
+    };
+
+  #l3.
+    return;
+}
+
+procedure Test01 (
+        Object Q) {
+  local
+    Integer T;
+
+
+  #l4.
+    T := Q.X;
+
+  #l5.
+    Q.X := Q.Y;
+
+  #l6.
+    Q.Y := T;
+
+  #l7.
+    return (Q);
+}
+
+procedure Test02 (
+        Integer I1,
+        Integer I2,
+        Integer O1,
+        Integer O2) {
+  local
+    NestedObject Q;
+
+
+  #l8.
+    Q.O.X := I1;
+
+  #l9.
+    Q.O.Y := I2;
+
+  #l10.
+    O1 := Q.O.X;
+
+  #l11.
+    O2 := Q.O.Y;
+
+  #l12.
+    return (O1, O2);
+}package RecordTest01;
+
+
+record Object {
+
+  Integer X;
+
+  Integer Y;
+}
+
+record NestedObject {
+
+  Object O;
+}
+
+global NestedObject @@aNestedObject;
+
+global Object @@anObject;
+
+procedure Test01 (
+        Object Q) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

@@ -1,0 +1,76 @@
+package Constraints;
+
+
+procedure foo (
+        Integer a,
+        Day dayVar) {
+
+  #l3.
+    if !(!(dayVar == Tue)) then goto l2;
+
+  #l4.
+    a := a + 2ii;
+
+  #l5.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l7.
+    if !(attribute__uif__succ (`Day, dayVar) == Wed) then goto l6;
+
+  #l8.
+    a := a - 1ii;
+
+  #l9.
+    goto l1;
+
+  #l6.
+    // empty loc
+
+  #l10.
+    a := a * 1ii;
+
+  #l1.
+    // empty loc
+
+  #l11.
+    return (a);
+}package Constraints;
+
+
+typealias Integer Sub_Int;
+
+typealias _SIGNED_INTEGER_TYPE_ Int_Range;
+
+typealias _ENUMERATION_TYPE_ Day;
+
+typealias Day Weekday;
+
+const $CONST {
+  Int_Low_Const = (Sub_Int) 0ii;
+
+  Int_High_Const = (Integer) 100ii;
+}
+
+procedure foo (
+        Integer a,
+        Day dayVar) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

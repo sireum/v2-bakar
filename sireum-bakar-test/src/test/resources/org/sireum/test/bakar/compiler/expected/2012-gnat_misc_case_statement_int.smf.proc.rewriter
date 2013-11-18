@@ -1,0 +1,93 @@
+package Case_Statement_Int;
+
+
+procedure Activity isWorkDay (
+        Integer d) {
+  local
+    Activity ret;
+
+
+  #l3.
+    if !(attribute__uif__first `IntType <= d &&& d <= attribute__uif__last `IntType) then goto l2;
+
+  #l4.
+    ret := Work;
+
+  #l5.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l7.
+    if !(4ii <= d &&& d <= 5ii ||| attribute__uif__first `SixType <= d &&& d <= attribute__uif__last `SixType ||| d == 7ii) then goto l6;
+
+  #l8.
+    ret := Party;
+
+  #l9.
+    goto l1;
+
+  #l6.
+    // empty loc
+
+  #l11.
+    if !(8ii <= d &&& d <= 9ii) then goto l10;
+
+  #l12.
+    ret := Party;
+
+  #l13.
+    goto l1;
+
+  #l10.
+    // empty loc
+
+  #l15.
+    if !(d == 10ii) then goto l14;
+
+  #l16.
+    ret := Work;
+
+  #l17.
+    goto l1;
+
+  #l14.
+    // empty loc
+
+  #l19.
+    ret := Drink;
+
+  #l1.
+    // empty loc
+
+  #l20.
+    return ret;
+}package Case_Statement_Int;
+
+
+typealias _ENUMERATION_TYPE_ Activity;
+
+typealias Integer IntType;
+
+typealias Integer SixType;
+
+procedure Activity isWorkDay (
+        Integer d) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

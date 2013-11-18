@@ -568,7 +568,7 @@ in_range_name_exp.adb
                           <line>19</line>
                           <col>5</col>
                           <endline>20</endline>
-                          <endcol>29</endcol>
+                          <endcol>50</endcol>
                         </sloc>
                         <conditionExpressionQ>
                           <expression class="org.sireum.bakar.xml.Identifier">
@@ -590,7 +590,7 @@ in_range_name_exp.adb
                                 <line>20</line>
                                 <col>7</col>
                                 <endline>20</endline>
-                                <endcol>29</endcol>
+                                <endcol>50</endcol>
                               </sloc>
                               <labelNamesQl/>
                               <assignmentVariableNameQ>
@@ -612,7 +612,7 @@ in_range_name_exp.adb
                                     <line>20</line>
                                     <col>14</col>
                                     <endline>20</endline>
-                                    <endcol>28</endcol>
+                                    <endcol>49</endcol>
                                   </sloc>
                                   <membershipTestExpressionQ>
                                     <expression class="org.sireum.bakar.xml.Identifier">
@@ -629,22 +629,43 @@ in_range_name_exp.adb
                                   </membershipTestExpressionQ>
                                   <membershipTestChoicesQl>
                                     <elements>
-                                      <org.sireum.bakar.xml.SimpleExpressionRange>
+                                      <org.sireum.bakar.xml.Identifier>
                                         <sloc>
                                           <line>20</line>
                                           <col>23</col>
                                           <endline>20</endline>
-                                          <endcol>28</endcol>
+                                          <endcol>30</endcol>
+                                        </sloc>
+                                        <refName>Positive</refName>
+                                        <ref>ada://subtype/Standard-1:1/Positive-1:1</ref>
+                                        <type>null</type>
+                                      </org.sireum.bakar.xml.Identifier>
+                                      <org.sireum.bakar.xml.IntegerLiteral>
+                                        <sloc>
+                                          <line>20</line>
+                                          <col>34</col>
+                                          <endline>20</endline>
+                                          <endcol>34</endcol>
+                                        </sloc>
+                                        <litVal>4</litVal>
+                                        <type>universal integer</type>
+                                      </org.sireum.bakar.xml.IntegerLiteral>
+                                      <org.sireum.bakar.xml.SimpleExpressionRange>
+                                        <sloc>
+                                          <line>20</line>
+                                          <col>38</col>
+                                          <endline>20</endline>
+                                          <endcol>41</endcol>
                                         </sloc>
                                         <lowerBoundQ>
                                           <expression class="org.sireum.bakar.xml.IntegerLiteral">
                                             <sloc>
                                               <line>20</line>
-                                              <col>23</col>
+                                              <col>38</col>
                                               <endline>20</endline>
-                                              <endcol>23</endcol>
+                                              <endcol>38</endcol>
                                             </sloc>
-                                            <litVal>3</litVal>
+                                            <litVal>5</litVal>
                                             <type>universal integer</type>
                                           </expression>
                                         </lowerBoundQ>
@@ -652,15 +673,121 @@ in_range_name_exp.adb
                                           <expression class="org.sireum.bakar.xml.IntegerLiteral">
                                             <sloc>
                                               <line>20</line>
-                                              <col>28</col>
+                                              <col>41</col>
                                               <endline>20</endline>
-                                              <endcol>28</endcol>
+                                              <endcol>41</endcol>
                                             </sloc>
-                                            <litVal>5</litVal>
+                                            <litVal>7</litVal>
                                             <type>universal integer</type>
                                           </expression>
                                         </upperBoundQ>
                                       </org.sireum.bakar.xml.SimpleExpressionRange>
+                                      <org.sireum.bakar.xml.FunctionCall>
+                                        <sloc>
+                                          <line>20</line>
+                                          <col>45</col>
+                                          <endline>20</endline>
+                                          <endcol>49</endcol>
+                                        </sloc>
+                                        <prefixQ>
+                                          <expression class="org.sireum.bakar.xml.PlusOperator">
+                                            <sloc>
+                                              <line>20</line>
+                                              <col>47</col>
+                                              <endline>20</endline>
+                                              <endcol>47</endcol>
+                                            </sloc>
+                                            <refName>&quot;+&quot;</refName>
+                                            <ref>implicit declaration</ref>
+                                            <type>null</type>
+                                          </expression>
+                                        </prefixQ>
+                                        <functionCallParametersQl>
+                                          <associations>
+                                            <org.sireum.bakar.xml.ParameterAssociation>
+                                              <sloc>
+                                                <line>20</line>
+                                                <col>45</col>
+                                                <endline>20</endline>
+                                                <endcol>45</endcol>
+                                              </sloc>
+                                              <formalParameterQ>
+                                                <element class="org.sireum.bakar.xml.NotAnElement">
+                                                  <sloc>
+                                                    <line>1</line>
+                                                    <col>1</col>
+                                                    <endline>0</endline>
+                                                    <endcol>0</endcol>
+                                                  </sloc>
+                                                </element>
+                                              </formalParameterQ>
+                                              <actualParameterQ>
+                                                <expression class="org.sireum.bakar.xml.IntegerLiteral">
+                                                  <sloc>
+                                                    <line>20</line>
+                                                    <col>45</col>
+                                                    <endline>20</endline>
+                                                    <endcol>45</endcol>
+                                                  </sloc>
+                                                  <litVal>3</litVal>
+                                                  <type>universal integer</type>
+                                                </expression>
+                                              </actualParameterQ>
+                                            </org.sireum.bakar.xml.ParameterAssociation>
+                                            <org.sireum.bakar.xml.ParameterAssociation>
+                                              <sloc>
+                                                <line>20</line>
+                                                <col>49</col>
+                                                <endline>20</endline>
+                                                <endcol>49</endcol>
+                                              </sloc>
+                                              <formalParameterQ>
+                                                <element class="org.sireum.bakar.xml.NotAnElement">
+                                                  <sloc>
+                                                    <line>1</line>
+                                                    <col>1</col>
+                                                    <endline>0</endline>
+                                                    <endcol>0</endcol>
+                                                  </sloc>
+                                                </element>
+                                              </formalParameterQ>
+                                              <actualParameterQ>
+                                                <expression class="org.sireum.bakar.xml.IntegerLiteral">
+                                                  <sloc>
+                                                    <line>20</line>
+                                                    <col>49</col>
+                                                    <endline>20</endline>
+                                                    <endcol>49</endcol>
+                                                  </sloc>
+                                                  <litVal>5</litVal>
+                                                  <type>universal integer</type>
+                                                </expression>
+                                              </actualParameterQ>
+                                            </org.sireum.bakar.xml.ParameterAssociation>
+                                          </associations>
+                                        </functionCallParametersQl>
+                                        <isPrefixCallQ>
+                                          <isPrefixCall class="org.sireum.bakar.xml.NotAnElement">
+                                            <sloc>
+                                              <line>1</line>
+                                              <col>1</col>
+                                              <endline>0</endline>
+                                              <endcol>0</endcol>
+                                            </sloc>
+                                          </isPrefixCall>
+                                        </isPrefixCallQ>
+                                        <isPrefixNotationQ>
+                                          <isPrefixNotation class="org.sireum.bakar.xml.NotAnElement">
+                                            <sloc>
+                                              <line>1</line>
+                                              <col>1</col>
+                                              <endline>0</endline>
+                                              <endcol>0</endcol>
+                                            </sloc>
+                                          </isPrefixNotation>
+                                        </isPrefixNotationQ>
+                                        <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                      </org.sireum.bakar.xml.FunctionCall>
                                     </elements>
                                   </membershipTestChoicesQl>
                                   <type>ada://ordinary_type/Standard-1:1/Boolean-1:1</type>

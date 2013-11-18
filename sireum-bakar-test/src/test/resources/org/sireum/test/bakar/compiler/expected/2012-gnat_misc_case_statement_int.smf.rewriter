@@ -5,24 +5,191 @@ procedure Activity isWorkDay (
         Integer d) {
   local
     Activity ret;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+    FIXME _t28;
+    FIXME _t29;
+    FIXME _t30;
+    FIXME _t31;
 
 
-  #l1.
-    ret := Work;
+  #rwl0.
+    _t0 := attribute__uif__first `IntType;
 
-  #l2.
-    ret := Party;
+  #rwl1.
+    _t1 := d;
+
+  #rwl2.
+    _t2 := d;
+
+  #rwl3.
+    _t3 := attribute__uif__last `IntType;
+
+  #rwl4.
+    _t4 := _t0 <= _t1;
+
+  #rwl5.
+    _t5 := _t2 <= _t3;
 
   #l3.
-    ret := Party;
+    if !(_t4 &&& _t5) then goto l2;
 
   #l4.
     ret := Work;
 
   #l5.
-    ret := Drink;
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #rwl6.
+    _t6 := 4ii;
+
+  #rwl7.
+    _t7 := d;
+
+  #rwl8.
+    _t8 := d;
+
+  #rwl9.
+    _t9 := 5ii;
+
+  #rwl10.
+    _t10 := _t6 <= _t7;
+
+  #rwl11.
+    _t11 := _t8 <= _t9;
+
+  #rwl12.
+    _t12 := attribute__uif__first `SixType;
+
+  #rwl13.
+    _t13 := d;
+
+  #rwl14.
+    _t14 := d;
+
+  #rwl15.
+    _t15 := attribute__uif__last `SixType;
+
+  #rwl16.
+    _t16 := _t12 <= _t13;
+
+  #rwl17.
+    _t17 := _t14 <= _t15;
+
+  #rwl18.
+    _t18 := _t10 &&& _t11;
+
+  #rwl19.
+    _t19 := _t16 &&& _t17;
+
+  #rwl20.
+    _t20 := d;
+
+  #rwl21.
+    _t21 := 7ii;
+
+  #rwl22.
+    _t22 := _t18 ||| _t19;
+
+  #rwl23.
+    _t23 := _t20 == _t21;
+
+  #l7.
+    if !(_t22 ||| _t23) then goto l6;
+
+  #l8.
+    ret := Party;
+
+  #l9.
+    goto l1;
 
   #l6.
+    // empty loc
+
+  #rwl24.
+    _t24 := 8ii;
+
+  #rwl25.
+    _t25 := d;
+
+  #rwl26.
+    _t26 := d;
+
+  #rwl27.
+    _t27 := 9ii;
+
+  #rwl28.
+    _t28 := _t24 <= _t25;
+
+  #rwl29.
+    _t29 := _t26 <= _t27;
+
+  #l11.
+    if !(_t28 &&& _t29) then goto l10;
+
+  #l12.
+    ret := Party;
+
+  #l13.
+    goto l1;
+
+  #l10.
+    // empty loc
+
+  #rwl30.
+    _t30 := d;
+
+  #rwl31.
+    _t31 := 10ii;
+
+  #l15.
+    if !(_t30 == _t31) then goto l14;
+
+  #l16.
+    ret := Work;
+
+  #l17.
+    goto l1;
+
+  #l14.
+    // empty loc
+
+  #l19.
+    ret := Drink;
+
+  #l1.
+    // empty loc
+
+  #l20.
     return ret;
 }package Case_Statement_Int;
 

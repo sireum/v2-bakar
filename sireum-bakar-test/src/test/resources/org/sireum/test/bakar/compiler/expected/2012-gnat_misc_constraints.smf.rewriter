@@ -1,6 +1,108 @@
 package Constraints;
 
 
+procedure foo (
+        Integer a,
+        Day dayVar) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+
+
+  #rwl0.
+    _t0 := dayVar;
+
+  #rwl1.
+    _t1 := Tue;
+
+  #l3.
+    if !(!(_t0 == _t1)) then goto l2;
+
+  #rwl2.
+    _t2 := a;
+
+  #rwl3.
+    _t3 := 2ii;
+
+  #l4.
+    a := _t2 + _t3;
+
+  #l5.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #rwl4.
+    _t4 := attribute__uif__succ (`Day, dayVar);
+
+  #rwl5.
+    _t5 := Wed;
+
+  #l7.
+    if !(_t4 == _t5) then goto l6;
+
+  #rwl6.
+    _t6 := a;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l8.
+    a := _t6 - _t7;
+
+  #l9.
+    goto l1;
+
+  #l6.
+    // empty loc
+
+  #rwl8.
+    _t8 := a;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #l10.
+    a := _t8 * _t9;
+
+  #l1.
+    // empty loc
+
+  #l11.
+    return;
+}package Constraints;
+
+
+typealias Integer Sub_Int;
+
+typealias _SIGNED_INTEGER_TYPE_ Int_Range;
+
+typealias _ENUMERATION_TYPE_ Day;
+
+typealias Day Weekday;
+
+const $CONST {
+  Int_Low_Const = (Sub_Int) 0ii;
+
+  Int_High_Const = (Integer) 100ii;
+}
+
+procedure foo (
+        Integer a,
+        Day dayVar) {
+
+}package Standard;
+
+
 typealias Boolean standard::boolean;
 
 typealias Integer standard::integer;
@@ -13,40 +115,4 @@ typealias Float standard::float;
 
 typealias Integer universal_integer;
 
-procedure foo (
-        Integer a,
-        Day dayVar) {
-
-  #l3.
-    if !(!(dayVar == )) then goto l2;
-
-  #l4.
-    a := a + 2ii;
-
-  #l5.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l7.
-    if !(Succ (dayVar) == ) then goto l6;
-
-  #l8.
-    a := a - 1ii;
-
-  #l9.
-    goto l1;
-
-  #l6.
-    // empty loc
-
-  #l10.
-    a := a * 1ii;
-
-  #l1.
-    // empty loc
-
-  #l11.
-    return;
-}
+typealias Float universal_real;

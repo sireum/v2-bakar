@@ -16,15 +16,15 @@ procedure $$binit {
 
   #l1.
     anObject := `Object {
-      __positional__ = 1ii,
-      __positional__ = 2ii
+      __positional0 = 1ii,
+      __positional1 = 2ii
     };
 
   #l2.
     aNestedObject := `NestedObject {
       O = `Object {
-        __positional__ = 1ii,
-        __positional__ = 2ii
+        __positional0 = 1ii,
+        __positional1 = 2ii
       }
     };
 

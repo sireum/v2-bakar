@@ -1,0 +1,44 @@
+package SimpleMath1;
+
+
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    @@B := 0ii;
+
+  #l2.
+    return;
+}
+
+procedure Inc (
+        Integer I) {
+
+  #l3.
+    I := I + @@B;
+
+  #l4.
+    return (I);
+}package SimpleMath1;
+
+
+procedure Inc (
+        Integer I) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

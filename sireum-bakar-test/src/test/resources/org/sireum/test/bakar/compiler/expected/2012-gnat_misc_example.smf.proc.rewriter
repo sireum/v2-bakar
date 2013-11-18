@@ -1,0 +1,75 @@
+package Example;
+
+
+procedure add (
+        Integer x,
+        Integer y) {
+
+  #l1.
+    x := x + y;
+
+  #l2.
+    return (x);
+}
+
+procedure foo (
+        Integer A,
+        Integer B) {
+  local
+    Integer M;
+    Integer _tbpr3;
+    Integer _tbpr1;
+
+
+  #l3.
+    M := 3ii;
+
+  #l4.
+    call _tbpr1 := add (A, M);
+
+  #_lbpr2.
+    A := _tbpr1;
+
+  #l5.
+    call _tbpr3 := add (B, 5ii);
+
+  #_lbpr4.
+    B := _tbpr3;
+
+  #l6.
+    A := A + 2ii;
+
+  #l7.
+    B := B + 5ii;
+
+  #l8.
+    return (A, B);
+}package Example;
+
+
+procedure add (
+        Integer x,
+        Integer y) {
+
+}
+
+procedure foo (
+        Integer A,
+        Integer B) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

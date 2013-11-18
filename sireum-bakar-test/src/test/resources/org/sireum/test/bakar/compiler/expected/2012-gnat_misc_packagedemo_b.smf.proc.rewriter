@@ -1,0 +1,60 @@
+package PackageDemo_A;
+
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+  #l1.
+    Z := X + 2ii;
+
+  #l2.
+    return (Z);
+}package PackageDemo_A;
+
+
+procedure Q (
+        Integer X,
+        Integer Z) {
+
+}package PackageDemo_B;
+
+
+procedure T (
+        Integer M,
+        Integer Z) {
+  local
+    Integer _tbpr1;
+
+
+  #l4.
+    call _tbpr1 := PackageDemo_A::Q (M, Z);
+
+  #_lbpr2.
+    Z := _tbpr1;
+
+  #l5.
+    return (Z);
+}package PackageDemo_B;
+
+
+procedure T (
+        Integer M,
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

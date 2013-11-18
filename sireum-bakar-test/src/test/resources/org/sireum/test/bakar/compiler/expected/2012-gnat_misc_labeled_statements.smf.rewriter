@@ -1,0 +1,207 @@
+package Labeled_Statements;
+
+
+procedure P (
+        Integer I,
+        Integer J,
+        Boolean Ret) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #rwl0.
+    _t0 := I;
+
+  #rwl1.
+    _t1 := J;
+
+  #l3.
+    if !(_t0 > _t1) then goto l2;
+
+  #l4.
+    Ret := true;
+
+  #l5.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l6.
+    Ret := false;
+
+  #l1.
+    // empty loc
+
+  #l7.
+    return;
+}
+
+procedure Integer Stupid (
+        Index_Range Z) {
+  local
+    Integer J;
+    Boolean B;
+    Index_Range I;
+    Index_Range _tcomp0;
+    Index_Range _tcomp1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+
+
+  #l9.
+    _tcomp0 := attribute__uif__first `Index_Range;
+
+  #l10.
+    _tcomp1 := attribute__uif__last `Index_Range;
+
+  #rwl2.
+    _t2 := _tcomp0;
+
+  #rwl3.
+    _t3 := _tcomp1;
+
+  #l11.
+    if _t2 > _t3 then goto l8;
+
+  #l12.
+    I := _tcomp0;
+
+  #l13.
+    // empty loc
+
+  #l14.
+    J := 0ii;
+
+  #l16.
+    // empty loc
+
+  #rwl4.
+    _t4 := J;
+
+  #rwl5.
+    _t5 := Z;
+
+  #l17.
+    if !(_t4 < _t5) then goto l15;
+
+  #rwl6.
+    _t6 := J;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l18.
+    J := _t6 + _t7;
+
+  #l19.
+    call P (I, J, B);
+
+  #l21.
+    if !(B) then goto l20;
+
+  #l22.
+    goto l15;
+
+  #l20.
+    // empty loc
+
+  #rwl8.
+    _t8 := J;
+
+  #rwl9.
+    _t9 := 3ii;
+
+  #l25.
+    if !(_t8 == _t9) then goto l24;
+
+  #rwl10.
+    _t10 := J;
+
+  #rwl11.
+    _t11 := 1ii;
+
+  #l26.
+    J := _t10 + _t11;
+
+  #l27.
+    goto l23;
+
+  #l24.
+    // empty loc
+
+  #l29.
+    J := J;
+
+  #l23.
+    // empty loc
+
+  #l30.
+    goto l16;
+
+  #l15.
+    // empty loc
+
+  #rwl12.
+    _t12 := I;
+
+  #rwl13.
+    _t13 := _tcomp1;
+
+  #l31.
+    if _t12 == _t13 then goto l8;
+
+  #rwl14.
+    _t14 := I;
+
+  #rwl15.
+    _t15 := 1ii;
+
+  #l32.
+    I := _t14 + _t15;
+
+  #l33.
+    goto l13;
+
+  #l8.
+    // empty loc
+
+  #l34.
+    return J;
+}package Labeled_Statements;
+
+
+typealias Integer Index_Range;
+
+procedure Integer Stupid (
+        Index_Range Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

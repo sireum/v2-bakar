@@ -4,7 +4,9 @@ package QuantifierTest;
 procedure $$binit {
 
   #l1.
-    V := 11111ii;
+    V := `Vector {Vector iter => 
+        switch iter
+          default => 0ii};
 
   #l2.
     return;
