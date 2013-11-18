@@ -453,6 +453,7 @@ public class ObjectFactory {
     private final static QName _DiscriminantSpecification_QNAME = new QName("", "discriminant_specification");
     private final static QName _OrOperator_QNAME = new QName("", "or_operator");
     private final static QName _ElsifPath_QNAME = new QName("", "elsif_path");
+    private final static QName _RaiseExpression_QNAME = new QName("", "raise_expression");
     private final static QName _CharacterLiteral_QNAME = new QName("", "character_literal");
     private final static QName _StreamSizeAttribute_QNAME = new QName("", "stream_size_attribute");
     private final static QName _ControlledPragma_QNAME = new QName("", "controlled_pragma");
@@ -3926,6 +3927,14 @@ public class ObjectFactory {
      */
     public ElsifPath createElsifPath() {
         return new ElsifPath();
+    }
+
+    /**
+     * Create an instance of {@link RaiseExpression }
+     * 
+     */
+    public RaiseExpression createRaiseExpression() {
+        return new RaiseExpression();
     }
 
     /**
@@ -9075,6 +9084,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "", name = "elsif_path")
     public JAXBElement<ElsifPath> createElsifPath(ElsifPath value) {
         return new JAXBElement<ElsifPath>(_ElsifPath_QNAME, ElsifPath.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RaiseExpression }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "raise_expression")
+    public JAXBElement<RaiseExpression> createRaiseExpression(RaiseExpression value) {
+        return new JAXBElement<RaiseExpression>(_RaiseExpression_QNAME, RaiseExpression.class, null, value);
     }
 
     /**

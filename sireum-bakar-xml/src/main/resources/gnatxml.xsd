@@ -394,6 +394,7 @@
          <xsd:element ref="not_in_membership_test"/>
          <xsd:element ref="null_literal"/>
          <xsd:element ref="parenthesized_expression"/>
+         <xsd:element ref="raise_expression"/>
          <xsd:element ref="type_conversion"/>
          <xsd:element ref="qualified_expression"/>
          <xsd:element ref="allocation_from_subtype"/>
@@ -944,6 +945,7 @@
          <xsd:element ref="not_in_membership_test"/>
          <xsd:element ref="null_literal"/>
          <xsd:element ref="parenthesized_expression"/>
+         <xsd:element ref="raise_expression"/>
          <xsd:element ref="type_conversion"/>
          <xsd:element ref="qualified_expression"/>
          <xsd:element ref="allocation_from_subtype"/>
@@ -1426,6 +1428,7 @@
          <xsd:element ref="not_in_membership_test"/>
          <xsd:element ref="null_literal"/>
          <xsd:element ref="parenthesized_expression"/>
+         <xsd:element ref="raise_expression"/>
          <xsd:element ref="type_conversion"/>
          <xsd:element ref="qualified_expression"/>
          <xsd:element ref="allocation_from_subtype"/>
@@ -1985,6 +1988,7 @@
          <xsd:element ref="not_in_membership_test"/>
          <xsd:element ref="null_literal"/>
          <xsd:element ref="parenthesized_expression"/>
+         <xsd:element ref="raise_expression"/>
          <xsd:element ref="type_conversion"/>
          <xsd:element ref="qualified_expression"/>
          <xsd:element ref="allocation_from_subtype"/>
@@ -7314,6 +7318,18 @@
       <xsd:sequence>
          <xsd:element name="sloc" type="Source_Location"/>
          <xsd:element name="expression_parenthesized_q" type="Expression_Class"/>
+      </xsd:sequence>
+      <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="checks" type="xsd:string"/>
+   </xsd:complexType>
+
+   <xsd:element name="raise_expression" type="Raise_Expression"/>
+
+   <xsd:complexType name="Raise_Expression">
+      <xsd:sequence>
+         <xsd:element name="sloc" type="Source_Location"/>
+         <xsd:element name="raised_exception_q" type="Expression_Class"/>
+         <xsd:element name="associated_message_q" type="Expression_Class"/>
       </xsd:sequence>
       <xsd:attribute name="type" type="xsd:string" use="required"/>
       <xsd:attribute name="checks" type="xsd:string"/>

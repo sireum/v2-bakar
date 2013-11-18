@@ -336,6 +336,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element ref="{}not_in_membership_test"/>
  *         &lt;element ref="{}null_literal"/>
  *         &lt;element ref="{}parenthesized_expression"/>
+ *         &lt;element ref="{}raise_expression"/>
  *         &lt;element ref="{}type_conversion"/>
  *         &lt;element ref="{}qualified_expression"/>
  *         &lt;element ref="{}allocation_from_subtype"/>
@@ -732,6 +733,7 @@ public class ElementList
         @XmlElement(name = "not_in_membership_test", type = NotInMembershipTest.class),
         @XmlElement(name = "null_literal", type = NullLiteral.class),
         @XmlElement(name = "parenthesized_expression", type = ParenthesizedExpression.class),
+        @XmlElement(name = "raise_expression", type = RaiseExpression.class),
         @XmlElement(name = "type_conversion", type = TypeConversion.class),
         @XmlElement(name = "qualified_expression", type = QualifiedExpression.class),
         @XmlElement(name = "allocation_from_subtype", type = AllocationFromSubtype.class),
@@ -1187,6 +1189,7 @@ public class ElementList
      * {@link NotInMembershipTest }
      * {@link NullLiteral }
      * {@link ParenthesizedExpression }
+     * {@link RaiseExpression }
      * {@link TypeConversion }
      * {@link QualifiedExpression }
      * {@link AllocationFromSubtype }
