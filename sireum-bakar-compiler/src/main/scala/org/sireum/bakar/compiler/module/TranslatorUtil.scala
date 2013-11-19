@@ -50,6 +50,7 @@ object Attribute {
   val FIRST = "FIRST"
   val LAST = "LAST"
 
+  val ATTRIBUTE_UIF_ARRAY_UPDATE = "attribute__uif__array_update"
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
   val ATTRIBUTE_UIF_OLD = "attribute__uif__old"

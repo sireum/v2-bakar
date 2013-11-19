@@ -148,6 +148,7 @@ import org.sireum.bakar.xml.TimedEntryCallStatementEx
 import org.sireum.bakar.xml.TypeConversionEx
 import org.sireum.bakar.xml.UnaryMinusOperatorEx
 import org.sireum.bakar.xml.UnaryPlusOperatorEx
+import org.sireum.bakar.xml.UnknownAttributeEx
 import org.sireum.bakar.xml.VariableDeclarationEx
 import org.sireum.bakar.xml.WhileLoopStatementEx
 import org.sireum.bakar.xml.XorOperatorEx
@@ -191,6 +192,7 @@ import org.sireum.pilar.ast.NameDefinition
 import org.sireum.pilar.ast.NameExp
 import org.sireum.pilar.ast.NameUser
 import org.sireum.pilar.ast.NamedTypeSpec
+import org.sireum.pilar.ast.NewFunctionExp
 import org.sireum.pilar.ast.NewRecordExp
 import org.sireum.pilar.ast.PackageDecl
 import org.sireum.pilar.ast.PackageElement
@@ -367,6 +369,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     def handleChoices(v: => BVisitor, choices: ElementList) = {
       val exps = mlistEmpty[Exp]
+      
       choices.getElements.foreach {
         case OthersChoiceEx(sloc, checks) =>
           exps += ExternalExp("_OTHERS_")
@@ -388,7 +391,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           e match {
             case c: NameExp =>
               val cURI: String = c.name(URIS.REF_URI)
-              if (cURI.startsWith("ada://enumeration_literal")) {
+              if (cURI.startsWith("ada://enumeration_literal") ||
+                  cURI.startsWith("ada://parameter") ||
+                  cURI.startsWith("ada://variable")) {
                 // x in EnumElement
                 // ===> (x == EnumElement)
                 exps += c
@@ -1955,6 +1960,34 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val up = h(prefix, Attribute.ATTRIBUTE_UIF_LAST, typeUri = typeUri, createTypeExp = false)
 
         ctx.pushResult(TupleExp(ivector(lb, up)), sloc)
+        false
+      case o @ UnknownAttributeEx(sloc, prefix, id, designatorExps, typ, checks) =>
+        val (_, name, _, _) = ctx.getName(id)
+        assert(name.toLowerCase == "update")
+        
+        v(prefix)
+        val component: NameExp = ctx.popResult
+
+        assert(designatorExps.getExpressions.size == 1)
+        
+        var elements = ivectorEmpty[(Exp, Exp)]
+        for (de <- designatorExps.getExpressions) {
+          v(de)
+          ctx.popResultDummy.asInstanceOf[Any] match {
+            case x: (ISeq[SwitchCaseExp], Option[Exp]) =>
+              // from NamedArrayAggregate
+              assert (x._2.isEmpty) // no others case
+              
+              elements ++= x._1.map(f => (f.cond, f.exp))
+            case inits: ISeq[AttributeInit] =>
+              // from RecordAggregate
+              throw new RuntimeException("Unexpected: " + inits)
+            case x => throw new RuntimeException("Unexpected: " + x)
+          }
+        }
+        val args = TupleExp(ivector(component, NewFunctionExp(elements)))
+        val a = ctx.handleAttribute(Attribute.ATTRIBUTE_UIF_ARRAY_UPDATE, args, typ)
+        ctx.pushResult(a, sloc)
         false
     }
   }

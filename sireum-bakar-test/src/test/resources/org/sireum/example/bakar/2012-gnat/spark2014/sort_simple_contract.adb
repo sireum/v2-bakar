@@ -81,9 +81,8 @@ package body Sort_Simple_Contract is
 
   procedure SwapElements(A : in out Vector; I, J : in Integer) with
     Depends => (A => (A, I, J)),
-    Pre => I in A'Range and J in A'Range
-    -- ASIS BUG: hangs when processing Update expressions
-    --Post => A'Old = A'Update (I => A(J), J => A(I))
+    Pre => I in A'Range and J in A'Range,
+    Post => A'Old = A'Update (I => A(J), J => A(I))
     --
     --# derives A from A, I, J;
     --# pre I in A'Range and J in A'Range;
