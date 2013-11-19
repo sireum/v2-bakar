@@ -23,13 +23,15 @@ class BakarXmlTest extends BakarTestFileFramework {
 
   override def generateExpected = false
   
-  override def includes = super.includes ++= Set("gnat_misc", "gnat_simple", "gnat_spark2014")
+  override def includes = super.includes ++= Set("2005_misc", "2005_simple", "regression_2014")
     
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
+  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
 
   override def pre(c : Configuration) : Boolean = {
+    val dest = new File(c.resultsDir + "/0")
+    dest.mkdirs
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
-    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
+    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(dest)))
     return true;
   }
   

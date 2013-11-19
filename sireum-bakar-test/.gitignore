@@ -1,6 +1,7 @@
 *.adt
 *.ali
 *.lst
+*.o
 *.rep
 *.sli
 *.sireum

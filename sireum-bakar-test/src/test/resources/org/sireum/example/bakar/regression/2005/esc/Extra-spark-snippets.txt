@@ -1,0 +1,43 @@
+package AssertTrue is
+   procedure P(O: out Boolean);
+   --# derives O from;
+end AssertTrue;
+
+package body AssertTrue is
+  procedure P(O: out Boolean) is
+  begin
+     O := True;
+     --# assert true;
+     --!# assert O;
+     --!# assert not O;
+  end P;
+end AssertTrue;
+
+
+--# main_program;
+procedure At2
+  --# derives;
+is
+begin
+   --# assert true;
+end At2;
+
+
+package AssertTrue2
+   --!# own Bogus;
+is
+   procedure P;
+     --!# global out Bogus;
+     --!# derives Bogus from ;
+     --# derives;
+end AssertTrue2;
+
+package body AssertTrue2
+is
+   --Bogus : Integer;
+   procedure P is
+   begin
+      --# assert true;
+      --Bogus := 0;
+  end P;
+end AssertTrue2;

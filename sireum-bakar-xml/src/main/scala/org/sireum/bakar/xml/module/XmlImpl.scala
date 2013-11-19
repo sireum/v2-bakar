@@ -49,12 +49,6 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     else java.nio.file.Files.createTempDirectory(null).toFile
   baseDestDir.mkdirs
 
-  // need to write gnat2xml results to disc since it just dumps out the
-  // compilation units to the console as it processes them.  That isn't valid
-  // xml since they aren't wrapped in a list so jaxb can't process them 
-  val tempDir = new File(baseDestDir, "0/temp")
-  tempDir.mkdirs
-
   val dirs = msetEmpty[String]
   val sfiles = this.srcFiles.map { f =>
     val fl = new File(new URI(f))
@@ -75,7 +69,7 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   val e = new Exec()
   e.env -= "DYLD_FALLBACK_LIBRARY_PATH"
 
-  val gnat2xmlResult = e.run(waittime, g2xargs, None, Some(tempDir))
+  val gnat2xmlResult = e.run(waittime, g2xargs, None)
 
   def buildLocationTag(message : String) = {
     val tagType = MarkerType(

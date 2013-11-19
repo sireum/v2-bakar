@@ -1,0 +1,58 @@
+package Set
+  --# own Elem_Set: Set;
+  --x# own Elem_Set, Member_Count : Size_Range;
+  --x# initializes Member_Count;
+is
+  -- type Integer_Set is set of Integer;
+  subtype Element_Type is Integer;
+  subtype Size_Range is Integer range 0 .. 100;
+  Max_Size: constant Size_Range := Size_Range'Last;
+  
+  function Size return Size_Range;
+  --# global in Member_Count;
+  --# return Member_Count;
+  
+  --procedure Add(E : in Element_Type);
+  --xx# global in out Member_Count;
+  --xx# derives Member_Count from Member_Count;
+
+  procedure Init;
+  --# global out Elem_Set, Member_Count;
+  --# derives Elem_Set, Member_Count from;
+
+  function Member(E : Element_Type) return Boolean;
+  --x# global in Member_Count;
+  --x# return Member_Count;
+  
+end Set;
+
+package body Set 
+  --# own Elem_Set is Elem_Array, Member_Count;
+is
+  subtype Index_Range is Size_Range range 1 .. Max_Size;
+  type Elem_Array_Type is array (Index_Range) of Element_Type;
+  
+  Member_Count : Size_Range;
+  Elem_Array : Elem_Array_Type;
+    
+  function Size return Size_Range is
+  begin
+  	return Member_Count;
+  end Size;
+  
+  function Member(E : Element_Type) return Boolean is
+  begin
+  	return E /= E;
+  end Member;
+
+  --procedure Add(E : Element_Type) is
+  --begin
+  --  Member_Count := Member_Count + 1;
+  --end Add;
+  
+  procedure Init is
+  begin
+  	Member_Count := 0;
+  end Init;
+  
+end Set;

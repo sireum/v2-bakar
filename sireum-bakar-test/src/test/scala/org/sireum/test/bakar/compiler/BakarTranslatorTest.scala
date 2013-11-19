@@ -1,5 +1,6 @@
 package org.sireum.test.bakar.compiler
 
+import java.io.File
 import java.io.Writer
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
@@ -8,6 +9,7 @@ import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
 import org.sireum.example.bakar.BakarExamples
 import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.example.bakar.Project
 import org.sireum.pilar.ast.PilarAstNode
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
@@ -24,8 +26,8 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   override def generateExpected = false
 
   //override def includes = super.includes ++= Set("quant")
-  override def includes = super.includes ++= Set("gnat_misc", "gnat_simple", "gnat_spark2014")
-
+  override def includes = super.includes ++= Set("2005_misc", "2005_simple", "regression_2014")
+  
   //override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")
 
   override def ignores = {
@@ -35,11 +37,13 @@ class BakarTranslatorTest extends BakarTestFileFramework {
       "misc_recordshape")
   }
 
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
+  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
 
   override def pre(c: Configuration): Boolean = {
+    val dest = new File(c.resultsDir + "/0")
+    dest.mkdirs
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
-    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
+    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(dest)))
     BakarTranslatorModule.setRegression(c.job.properties, true)
     return true;
   }

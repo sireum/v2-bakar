@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- ====================================================================== 
+	 THIS IS WORK IN PROGRESS ... i.e. this Ant build is not done.
+     Spark Examples for ESC checking by Spark Tools    
+     Run the Spark tools on our example files
+     chalin                                                                
+     ====================================================================== -->
+<project default="default" name="Spark Examples for ESC checking by Spark Tools">
+	<description>
+            Run the Spark tools on our example files
+    </description>
+	<!-- set global properties for this build -->
+	<property name="sparkBin" value="/pkg/s/sparkada/bin"/>
+	<property name="sparkCmd" value="${sparkBin}/spark"/>
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target depends="depends" description="Run the Spark tools on our example files" name="default">
+		<echo>Hello Ant</echo>
+		<exec executable="${sparkCmd}">
+			<arg value="-exp"/>
+			<arg value="Inc.ada"/>
+		</exec>
+	</target>
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="depends">
+	</target>
+</project>

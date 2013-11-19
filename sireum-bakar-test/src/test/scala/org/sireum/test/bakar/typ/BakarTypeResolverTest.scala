@@ -14,10 +14,10 @@ import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
-import org.sireum.test.bakar.compiler.BakarRewriterTest
+import org.sireum.test.bakar.compiler.rewriter.BakarExpRewriterTest
 
 @RunWith(classOf[JUnitRunner])
-class BakarTypeResolverTest extends BakarRewriterTest {
+class BakarTypeResolverTest extends BakarExpRewriterTest {
 
   override def generateExpected = false
 

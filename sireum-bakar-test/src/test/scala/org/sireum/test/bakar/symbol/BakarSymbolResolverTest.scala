@@ -13,10 +13,10 @@ import org.sireum.bakar.xml.module.ParseGnat2XMLModule
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
-import org.sireum.test.bakar.compiler.BakarRewriterTest
+import org.sireum.test.bakar.compiler.rewriter.BakarExpRewriterTest
 
 @RunWith(classOf[JUnitRunner])
-class BakarSymbolResolverTest extends BakarRewriterTest {
+class BakarSymbolResolverTest extends BakarExpRewriterTest {
 
   override def generateExpected = false
   
