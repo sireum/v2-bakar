@@ -123,7 +123,8 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       // sanity checks
       case o @ NameExp(nu) =>
         import org.sireum.pilar.symbol.Symbol
-        assert (nu.uri.startsWith("ada://procedure") || o ? URIS.TYPE_URI)
+        assert (nu.uri.startsWith("ada://procedure") || nu.uri.startsWith("ada://function") ||
+            o ? URIS.TYPE_URI)
         false
     }
     v(m)

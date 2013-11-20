@@ -1,0 +1,674 @@
+package Sort;
+
+
+procedure Integer Num_Repetition (
+        Array_Type A,
+        Contents_Type E,
+        Index_Type L,
+        Index_Type U) {
+  local
+    Integer Result;
+    Index_Type I;
+    Index_Type _tcomp0;
+    Index_Type _tcomp1;
+
+
+  #l1.
+    Result := 0ii;
+
+  #l3.
+    _tcomp0 := L;
+
+  #l4.
+    _tcomp1 := U;
+
+  #l5.
+    if _tcomp0 > _tcomp1 then goto l2;
+
+  #l6.
+    I := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #l9.
+    if !(A[I] == E) then goto l8;
+
+  #l10.
+    Result := Result + 1ii;
+
+  #l8.
+    // empty loc
+
+  #l11.
+    if I == _tcomp1 then goto l2;
+
+  #l12.
+    I := I + 1ii;
+
+  #l13.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l14.
+    return Result;
+}
+
+procedure Boolean Perm (
+        Array_Type A,
+        Array_Type B,
+        Index_Type L,
+        Index_Type U) {
+  local
+    Boolean Result;
+    Index_Type I;
+    Index_Type _tcomp2;
+    Index_Type _tcomp3;
+    FIXME _tcomp4;
+    FIXME _tcomp5;
+
+
+  #l15.
+    Result := true;
+
+  #l17.
+    _tcomp2 := L;
+
+  #l18.
+    _tcomp3 := U;
+
+  #l19.
+    if _tcomp2 > _tcomp3 then goto l16;
+
+  #l20.
+    I := _tcomp2;
+
+  #l21.
+    // empty loc
+
+  #l23.
+    call _tcomp4 := Num_Repetition (A, A[I], L, U);
+
+  #l24.
+    call _tcomp5 := Num_Repetition (B, A[I], L, U);
+
+  #l25.
+    if !(_tcomp4 != _tcomp5) then goto l22;
+
+  #l26.
+    Result := false;
+
+  #l22.
+    // empty loc
+
+  #l27.
+    if I == _tcomp3 then goto l16;
+
+  #l28.
+    I := I + 1ii;
+
+  #l29.
+    goto l21;
+
+  #l16.
+    // empty loc
+
+  #l30.
+    return Result;
+}
+
+procedure Boolean Ordered (
+        Array_Type A,
+        Index_Type L,
+        Index_Type U) {
+  local
+    Boolean Result;
+    Index_Type I;
+    Index_Type _tcomp6;
+    Index_Type _tcomp7;
+
+
+  #l31.
+    Result := true;
+
+  #l33.
+    _tcomp6 := L;
+
+  #l34.
+    _tcomp7 := U - 1ii;
+
+  #l35.
+    if _tcomp6 > _tcomp7 then goto l32;
+
+  #l36.
+    I := _tcomp6;
+
+  #l37.
+    // empty loc
+
+  #l39.
+    if !(A[I] > A[I + 1ii]) then goto l38;
+
+  #l40.
+    Result := false;
+
+  #l38.
+    // empty loc
+
+  #l41.
+    if I == _tcomp7 then goto l32;
+
+  #l42.
+    I := I + 1ii;
+
+  #l43.
+    goto l37;
+
+  #l32.
+    // empty loc
+
+  #l44.
+    return Result;
+}
+
+procedure Boolean Partitioned (
+        Array_Type A,
+        Index_Type L,
+        Index_Type M,
+        Index_Type U) {
+  local
+    Boolean Result;
+    Index_Type I;
+    Index_Type _tcomp8;
+    Index_Type _tcomp9;
+    Index_Type J;
+    Index_Type _tcomp10;
+    Index_Type _tcomp11;
+
+
+  #l45.
+    Result := true;
+
+  #l47.
+    _tcomp8 := L;
+
+  #l48.
+    _tcomp9 := M;
+
+  #l49.
+    if _tcomp8 > _tcomp9 then goto l46;
+
+  #l50.
+    I := _tcomp8;
+
+  #l51.
+    // empty loc
+
+  #l53.
+    _tcomp10 := M + 1ii;
+
+  #l54.
+    _tcomp11 := U;
+
+  #l55.
+    if _tcomp10 > _tcomp11 then goto l52;
+
+  #l56.
+    J := _tcomp10;
+
+  #l57.
+    // empty loc
+
+  #l59.
+    if !(A[I] > A[J]) then goto l58;
+
+  #l60.
+    Result := false;
+
+  #l58.
+    // empty loc
+
+  #l61.
+    if J == _tcomp11 then goto l52;
+
+  #l62.
+    J := J + 1ii;
+
+  #l63.
+    goto l57;
+
+  #l52.
+    // empty loc
+
+  #l64.
+    if I == _tcomp9 then goto l46;
+
+  #l65.
+    I := I + 1ii;
+
+  #l66.
+    goto l51;
+
+  #l46.
+    // empty loc
+
+  #l67.
+    return Result;
+}
+
+procedure Swap_Elements (
+        Array_Type T,
+        Index_Type I,
+        Index_Type J) {
+  local
+    Contents_Type Temp;
+
+
+  #l68.
+    Temp := T[I];
+
+  #l69.
+    T[I] := T[J];
+
+  #l70.
+    T[J] := Temp;
+
+  #l71.
+    return (T);
+}
+
+procedure BubbleSort (
+        Array_Type Table) {
+  local
+    Index_Type I;
+    Index_Type _tcomp12;
+    Index_Type _tcomp13;
+    Index_Type J;
+    Index_Type _tcomp14;
+    Index_Type _tcomp15;
+    Array_Type _tbpr1;
+
+
+  #l73.
+    _tcomp12 := ;
+
+  #l74.
+    _tcomp13 := ;
+
+  #l75.
+    if _tcomp12 > _tcomp13 then goto l72;
+
+  #l76.
+    I := _tcomp13;
+
+  #l77.
+    // empty loc
+
+  #l79.
+    _tcomp14 := attribute__uif__first `Array_Type + 1ii;
+
+  #l80.
+    _tcomp15 := I;
+
+  #l81.
+    if _tcomp14 > _tcomp15 then goto l78;
+
+  #l82.
+    J := _tcomp14;
+
+  #l83.
+    // empty loc
+
+  #l85.
+    if !(Table[J - 1ii] > Table[J]) then goto l84;
+
+  #l86.
+    call _tbpr1 := Swap_Elements (Table, J - 1ii, J);
+
+  #_lbpr2.
+    Table := _tbpr1;
+
+  #l84.
+    // empty loc
+
+  #l87.
+    assert proof__uif__for_all {Index_Type K => 
+        switch K
+          case (attribute__uif__first `Array_Type, J - 1ii) => Table[K] <= Table[J]
+          default => true} &&& Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+
+  #l88.
+    if J == _tcomp15 then goto l78;
+
+  #l89.
+    J := J + 1ii;
+
+  #l90.
+    goto l83;
+
+  #l78.
+    // empty loc
+
+  #l91.
+    assert Ordered (Table, I, attribute__uif__last `Index_Type) &&& Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) &&& Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+
+  #l92.
+    if I == _tcomp12 then goto l72;
+
+  #l93.
+    I := I - 1ii;
+
+  #l94.
+    goto l77;
+
+  #l72.
+    // empty loc
+
+  #l95.
+    return (Table);
+}
+
+procedure BubbleSortFast (
+        Array_Type Table) {
+  local
+    Base_Index_Type Bound;
+    Base_Index_Type T;
+    Index_Type J;
+    Array_Type _tbpr1;
+
+
+  #l96.
+    Bound := attribute__uif__last `Index_Type;
+
+  #l97.
+    // empty loc
+
+  #l99.
+    if Bound == 0ii then goto l98;
+
+  #l100.
+    J := attribute__uif__first `Index_Type;
+
+  #l101.
+    T := 0ii;
+
+  #l103.
+    // empty loc
+
+  #l104.
+    if !(J <= Bound - 1ii) then goto l102;
+
+  #l106.
+    if !(Table[J] > Table[J + 1ii]) then goto l105;
+
+  #l107.
+    call _tbpr1 := Swap_Elements (Table, J, J + 1ii);
+
+  #_lbpr2.
+    Table := _tbpr1;
+
+  #l108.
+    T := J;
+
+  #l105.
+    // empty loc
+
+  #l109.
+    J := J + 1ii;
+
+  #l110.
+    assert proof__uif__for_all {Index_Type K => 
+        switch K
+          case (attribute__uif__first `Index_Type, J - 1ii) => Table[K] <= Table[J]
+          default => true} &&& Partitioned (Table, attribute__uif__first `Index_Type, T, J) &&& Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+
+  #l111.
+    goto l103;
+
+  #l102.
+    // empty loc
+
+  #l112.
+    assert Ordered (Table, Bound, attribute__uif__last `Index_Type) &&& Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) &&& Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+
+  #l113.
+    Bound := T;
+
+  #l114.
+    goto l97;
+
+  #l98.
+    // empty loc
+
+  #l115.
+    return (Table);
+}
+
+procedure InsertionSort (
+        Array_Type Table) {
+  local
+    Index_Type J;
+    Contents_Type Temp;
+    Index_Type P;
+    Index_Type _tcomp16;
+    Index_Type _tcomp17;
+
+
+  #l117.
+    _tcomp16 := attribute__uif__first `Index_Type + 1ii;
+
+  #l118.
+    _tcomp17 := attribute__uif__last `Index_Type;
+
+  #l119.
+    if _tcomp16 > _tcomp17 then goto l116;
+
+  #l120.
+    P := _tcomp16;
+
+  #l121.
+    // empty loc
+
+  #l122.
+    Temp := Table[P];
+
+  #l123.
+    J := P;
+
+  #l125.
+    // empty loc
+
+  #l126.
+    if !(J >= attribute__uif__first `Index_Type + 1ii &&& Table[J - 1ii] > Temp) then goto l124;
+
+  #l127.
+    Table[J] := Table[J - 1ii];
+
+  #l128.
+    J := J - 1ii;
+
+  #l129.
+    assert Temp == attribute__uif__loop_entry Table[P] &&& attribute__uif__first `Index_Type <= J &&& J < P &&& proof__uif__for_all {Index_Type K => 
+        switch K
+          case (J + 1ii, P) => Table[K] > Temp
+          default => true} &&& Ordered (Table, attribute__uif__first `Index_Type, P) &&& Perm (attribute__uif__array_update (Table, ^{J -> Temp}), attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, P);
+
+  #l130.
+    goto l125;
+
+  #l124.
+    // empty loc
+
+  #l131.
+    Table[J] := Temp;
+
+  #l132.
+    assert attribute__uif__first `Index_Type + 1ii <= P &&& P <= attribute__uif__last `Index_Type &&& Ordered (Table, attribute__uif__first `Index_Type, P) &&& Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, P) &&& proof__uif__for_all {Index_Type K => 
+        switch K
+          case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry Table[K]
+          default => true};
+
+  #l133.
+    if P == _tcomp17 then goto l116;
+
+  #l134.
+    P := P + 1ii;
+
+  #l135.
+    goto l121;
+
+  #l116.
+    // empty loc
+
+  #l136.
+    return (Table);
+}
+
+procedure ShellSort (
+        Array_Type Table) {
+  local
+    Index_Type Gap;
+    Integer J;
+    Index_Type I;
+    Index_Type _tcomp18;
+    Index_Type _tcomp19;
+    Array_Type _tbpr1;
+
+
+  #l137.
+    Gap := attribute__uif__last `Index_Type;
+
+  #l138.
+    // empty loc
+
+  #l140.
+    Gap := Gap / 2ii;
+
+  #l142.
+    _tcomp18 := Gap;
+
+  #l143.
+    _tcomp19 := attribute__uif__last `Index_Type;
+
+  #l144.
+    if _tcomp18 > _tcomp19 then goto l141;
+
+  #l145.
+    I := _tcomp18;
+
+  #l146.
+    // empty loc
+
+  #l147.
+    J := I - Gap;
+
+  #l149.
+    // empty loc
+
+  #l150.
+    if !(J >= attribute__uif__first `Index_Type &&& Table[J] > Table[J + Gap]) then goto l148;
+
+  #l151.
+    call _tbpr1 := Swap_Elements (Table, J, J + Gap);
+
+  #_lbpr2.
+    Table := _tbpr1;
+
+  #l152.
+    J := J - Gap;
+
+  #l153.
+    goto l149;
+
+  #l148.
+    // empty loc
+
+  #l154.
+    if I == _tcomp19 then goto l141;
+
+  #l155.
+    I := I + 1ii;
+
+  #l156.
+    goto l146;
+
+  #l141.
+    // empty loc
+
+  #l157.
+    if Gap == attribute__uif__first `Index_Type then goto l139;
+
+  #l158.
+    goto l138;
+
+  #l139.
+    // empty loc
+
+  #l159.
+    return (Table);
+}package Sort;
+
+
+typealias Integer Base_Index_Type;
+
+typealias Base_Index_Type Index_Type;
+
+typealias _SIGNED_INTEGER_TYPE_ Contents_Type;
+
+typealias _ARRAY_ Array_Type;
+
+const $CONST {
+  Max_Elements = (Integer) 3ii;
+}
+
+procedure Boolean Ordered (
+        Array_Type A,
+        Index_Type L,
+        Index_Type U) {
+
+}
+
+procedure Boolean Perm (
+        Array_Type A,
+        Array_Type B,
+        Index_Type L,
+        Index_Type U) {
+
+}
+
+procedure BubbleSort (
+        Array_Type Table) {
+
+}
+
+procedure BubbleSortFast (
+        Array_Type Table) {
+
+}
+
+procedure InsertionSort (
+        Array_Type Table) {
+
+}
+
+procedure ShellSort (
+        Array_Type Table) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

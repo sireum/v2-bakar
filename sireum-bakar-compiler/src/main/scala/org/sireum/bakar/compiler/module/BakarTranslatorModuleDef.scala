@@ -1988,7 +1988,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 case x => throw new RuntimeException("Unexpected: " + x)
               }
             }
-            val _args = TupleExp(ivector(component, NewFunctionExp(elements)))
+            val fe = ctx.addProperty(URIS.TYPE_URI, typ, NewFunctionExp(elements))
+            val _args = TupleExp(ivector(component, fe))
             (Attribute.ATTRIBUTE_UIF_ARRAY_UPDATE, _args)
           case "loop_entry" =>
             assert(designatorExps.getExpressions.isEmpty)
@@ -2011,13 +2012,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val cond = TupleExp(ivector(lowBound, highBound))
       val cases = ivector(SwitchCaseExp(cond, ivectorEmpty, _pred))
-      val defaultCase = LiteralExp(LiteralType.BOOLEAN, true, "true")
+      val defaultCase = ctx.addProperty(URIS.TYPE_URI, typ,
+          LiteralExp(LiteralType.BOOLEAN, true, "true"))
       val se = SwitchExp(iterNE, cases, defaultCase)
 
       val nts = NamedTypeSpec(markNE.name, ivectorEmpty)
       val pd = ParamDecl(Some(nts), iterND, ivectorEmpty)
       val m = Matching(ivector(pd), se)
-      val arg = FunExp(ivector(m))
+      val arg = ctx.addProperty(URIS.TYPE_URI, typ, FunExp(ivector(m)))
 
       val uif = if (isUniversal) Proof.PROOF_UIF_FOR_ALL else Proof.PROOF_UIF_FOR_SOME
       val ce = ctx.createUIFCall(uif, arg, typ)

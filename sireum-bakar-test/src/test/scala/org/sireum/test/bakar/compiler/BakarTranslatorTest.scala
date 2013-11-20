@@ -32,9 +32,11 @@ class BakarTranslatorTest extends BakarTestFileFramework {
 
   override def ignores = {
     super.ignores ++= Set(
-      "misc_p_public",
-      "misc_package_scope",
-      "misc_recordshape")
+      "misc_p_public",       // contains nested packages
+      "misc_package_scope",  // contains nested packages
+      "misc_recordshape",    // contains record refinements
+      "sort_array_utilities" // contains nested methods
+      )
   }
 
   register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))

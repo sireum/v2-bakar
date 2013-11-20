@@ -135,7 +135,8 @@ class BakarRewriter {
       assert(n.uri.startsWith("ada://procedure") || e ? URIS.TYPE_URI)
       e
     case e @ NameExp(n) =>
-      assert(n.uri.startsWith("ada://procedure") || e ? URIS.TYPE_URI)
+      assert(n.uri.startsWith("ada://procedure") || n.uri.startsWith("ada://function") ||
+          e ? URIS.TYPE_URI)
       e
     case e : Exp =>
       if(!(e ? URIS.TYPE_URI)) 

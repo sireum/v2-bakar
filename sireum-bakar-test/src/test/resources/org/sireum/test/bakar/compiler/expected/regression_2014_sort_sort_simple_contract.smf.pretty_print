@@ -1703,6 +1703,12 @@ procedure SwapElements (
                        </__2>
                      </pair>
                    </ivector>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="8"/>
+                     </entry>
+                   </properties>
                  </org.sireum.pilar.ast.NewFunctionExp>
                </ivector>
              </org.sireum.pilar.ast.TupleExp>

@@ -334,11 +334,11 @@ procedure Activity isWorkDay (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="35" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="27"/>
                            </ilist>
-                           <string sid="28">ada://procedure__uif/attribute__uif__last</string>
+                           <string sid="28">ada://function__uif/attribute__uif__last</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                        </entry>
                      </properties>
@@ -412,11 +412,11 @@ procedure Activity isWorkDay (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="46" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="29"/>
                            </ilist>
-                           <string sid="30">ada://procedure__uif/attribute__uif__first</string>
+                           <string sid="30">ada://function__uif/attribute__uif__first</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                        </entry>
                      </properties>
@@ -807,11 +807,11 @@ typealias Week WeekDay
                      <string>pilar.symbol</string>
                      <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="6" size="4">
                        <string>ada</string>
-                       <string>procedure__uif</string>
+                       <string>function__uif</string>
                        <ilist ttype="ilist">
                          <string srefid="3"/>
                        </ilist>
-                       <string sid="4">ada://procedure__uif/attribute__uif__first</string>
+                       <string sid="4">ada://function__uif/attribute__uif__first</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                  </properties>
@@ -1091,11 +1091,11 @@ typealias Week WeekEnd
                      <string>pilar.symbol</string>
                      <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
                        <string>ada</string>
-                       <string>procedure__uif</string>
+                       <string>function__uif</string>
                        <ilist ttype="ilist">
                          <string srefid="7"/>
                        </ilist>
-                       <string sid="8">ada://procedure__uif/attribute__uif__last</string>
+                       <string sid="8">ada://function__uif/attribute__uif__last</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                  </properties>
@@ -1501,11 +1501,11 @@ procedure Activity isWorkDay (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="35" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="27"/>
                            </ilist>
-                           <string sid="28">ada://procedure__uif/attribute__uif__last</string>
+                           <string sid="28">ada://function__uif/attribute__uif__last</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                        </entry>
                      </properties>
@@ -1579,11 +1579,11 @@ procedure Activity isWorkDay (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="46" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="29"/>
                            </ilist>
-                           <string sid="30">ada://procedure__uif/attribute__uif__first</string>
+                           <string sid="30">ada://function__uif/attribute__uif__first</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                        </entry>
                      </properties>
