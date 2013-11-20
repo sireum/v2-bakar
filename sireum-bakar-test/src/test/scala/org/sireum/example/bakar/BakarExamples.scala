@@ -1,10 +1,11 @@
 package org.sireum.example.bakar
 
 import java.io.File
-import java.io.FilenameFilter
 import java.net.URI
-import org.sireum.util._
-import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.util.FileResourceUri
+import org.sireum.util.FileUtil
+import org.sireum.util.ISeq
+import org.sireum.util.mlistEmpty
 
 case class Project(
     projectName : String,

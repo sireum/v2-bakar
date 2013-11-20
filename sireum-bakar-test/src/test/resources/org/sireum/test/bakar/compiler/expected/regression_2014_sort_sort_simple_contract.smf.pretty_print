@@ -797,11 +797,11 @@ procedure SwapElements (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="4"/>
                            </ilist>
-                           <string sid="5">ada://procedure__uif/attribute__uif__first</string>
+                           <string sid="5">ada://function__uif/attribute__uif__first</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                        </entry>
                      </properties>
@@ -921,11 +921,11 @@ procedure SwapElements (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="20" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="12"/>
                            </ilist>
-                           <string sid="13">ada://procedure__uif/attribute__uif__last</string>
+                           <string sid="13">ada://function__uif/attribute__uif__last</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                        </entry>
                      </properties>
@@ -1019,7 +1019,7 @@ procedure SwapElements (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="31" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="4"/>
                            </ilist>
@@ -1143,7 +1143,7 @@ procedure SwapElements (
                          <string>pilar.symbol</string>
                          <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="44" size="4">
                            <string>ada</string>
-                           <string>procedure__uif</string>
+                           <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="12"/>
                            </ilist>
@@ -1256,11 +1256,11 @@ procedure SwapElements (
                      <string>pilar.symbol</string>
                      <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="55" size="4">
                        <string>ada</string>
-                       <string>procedure__uif</string>
+                       <string>function__uif</string>
                        <ilist ttype="ilist">
                          <string srefid="14"/>
                        </ilist>
-                       <string sid="15">ada://procedure__uif/attribute__uif__old</string>
+                       <string sid="15">ada://function__uif/attribute__uif__old</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                  </properties>
@@ -1336,11 +1336,11 @@ procedure SwapElements (
                      <string>pilar.symbol</string>
                      <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="64" size="4">
                        <string>ada</string>
-                       <string>procedure__uif</string>
+                       <string>function__uif</string>
                        <ilist ttype="ilist">
                          <string srefid="16"/>
                        </ilist>
-                       <string sid="17">ada://procedure__uif/attribute__uif__array_update</string>
+                       <string sid="17">ada://function__uif/attribute__uif__array_update</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                  </properties>
@@ -2653,11 +2653,11 @@ procedure Boolean isSorted (
                    <string>pilar.symbol</string>
                    <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="4" size="4">
                      <string>ada</string>
-                     <string>procedure__uif</string>
+                     <string>function__uif</string>
                      <ilist ttype="ilist">
                        <string srefid="1"/>
                      </ilist>
-                     <string sid="2">ada://procedure__uif/attribute__uif__result</string>
+                     <string sid="2">ada://function__uif/attribute__uif__result</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                </properties>
@@ -3068,11 +3068,11 @@ procedure BubbleSort (
                            <string>pilar.symbol</string>
                            <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
                              <string>ada</string>
-                             <string>procedure__uif</string>
+                             <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="9"/>
                              </ilist>
-                             <string sid="10">ada://procedure__uif/attribute__uif__old</string>
+                             <string sid="10">ada://function__uif/attribute__uif__old</string>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                          </entry>
                        </properties>
@@ -3429,11 +3429,11 @@ procedure BubbleSort_using_SwapElements (
                            <string>pilar.symbol</string>
                            <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
                              <string>ada</string>
-                             <string>procedure__uif</string>
+                             <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="9"/>
                              </ilist>
-                             <string sid="10">ada://procedure__uif/attribute__uif__old</string>
+                             <string sid="10">ada://function__uif/attribute__uif__old</string>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                          </entry>
                        </properties>
@@ -3790,11 +3790,11 @@ procedure InsertionSort (
                            <string>pilar.symbol</string>
                            <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
                              <string>ada</string>
-                             <string>procedure__uif</string>
+                             <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="9"/>
                              </ilist>
-                             <string sid="10">ada://procedure__uif/attribute__uif__old</string>
+                             <string sid="10">ada://function__uif/attribute__uif__old</string>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                          </entry>
                        </properties>
@@ -4151,11 +4151,11 @@ procedure SelectionSort (
                            <string>pilar.symbol</string>
                            <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
                              <string>ada</string>
-                             <string>procedure__uif</string>
+                             <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="9"/>
                              </ilist>
-                             <string sid="10">ada://procedure__uif/attribute__uif__old</string>
+                             <string sid="10">ada://function__uif/attribute__uif__old</string>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                          </entry>
                        </properties>
@@ -4512,11 +4512,11 @@ procedure ShellSort (
                            <string>pilar.symbol</string>
                            <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
                              <string>ada</string>
-                             <string>procedure__uif</string>
+                             <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="8"/>
                              </ilist>
-                             <string sid="9">ada://procedure__uif/attribute__uif__old</string>
+                             <string sid="9">ada://function__uif/attribute__uif__old</string>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                          </entry>
                        </properties>

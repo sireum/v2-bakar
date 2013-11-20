@@ -25,7 +25,7 @@ class BakarTranslatorTest extends BakarTestFileFramework {
 
   override def generateExpected = false
 
-  //override def includes = super.includes ++= Set("quant")
+  //override def includes = super.includes ++= Set("sort.smf")
   override def includes = super.includes ++= Set("2005_misc", "2005_simple", "regression_2014")
   
   //override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")
@@ -37,7 +37,7 @@ class BakarTranslatorTest extends BakarTestFileFramework {
       "misc_recordshape")
   }
 
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
+  register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
 
   override def pre(c: Configuration): Boolean = {
     val dest = new File(c.resultsDir + "/0")

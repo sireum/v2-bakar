@@ -45,6 +45,10 @@ object PackageURIs {
   def isPackageSpecInitProcedure(u : ResourceUri) = u.startsWith(initSpecProcedureURIprefix)
 }
 
+object UIF {
+  val uifURIprefix = "ada://function__uif/"  
+}
+
 object Attribute {
   val ATTRIBUTE_MAP = "ATTRIBUTE_MAP"
   val FIRST = "FIRST"
@@ -53,12 +57,16 @@ object Attribute {
   val ATTRIBUTE_UIF_ARRAY_UPDATE = "attribute__uif__array_update"
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
+  val ATTRIBUTE_UIF_LOOP_ENTRY = "attribute__uif__loop_entry"    
   val ATTRIBUTE_UIF_OLD = "attribute__uif__old"
   val ATTRIBUTE_UIF_PRED = "attribute__uif__pred"
   val ATTRIBUTE_UIF_RESULT = "attribute__uif__result"
   val ATTRIBUTE_UIF_SUCC = "attribute__uif__succ"
-  
-  val attributeURIprefix = "ada://procedure__uif/"
+}
+
+object Proof {
+  val PROOF_UIF_FOR_ALL = "proof__uif__for_all"  
+  val PROOF_UIF_FOR_SOME = "proof__uif__for_some"
 }
 
 object StandardURIs {
