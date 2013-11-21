@@ -1,4 +1,4 @@
-package PositionalArray
+package Positional_Array
   with SPARK_Mode
                 
   -- visible variables are not state abstractions
@@ -22,4 +22,4 @@ is
     --# global in out Box;
     --# derives Box from Box, X;
                 
-end PositionalArray;
+end Positional_Array;

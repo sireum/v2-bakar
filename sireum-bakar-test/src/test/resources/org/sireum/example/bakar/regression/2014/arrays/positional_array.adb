@@ -1,4 +1,4 @@
-package body PositionalArray is
+package body Positional_Array is
         
   procedure dummy(X : in Index) is
   begin
@@ -7,4 +7,4 @@ package body PositionalArray is
         
   begin
     Box2 := Square'(77, others => 5); -- 1st pos will be 77, all others will be 5
-end PositionalArray;
+end Positional_Array;

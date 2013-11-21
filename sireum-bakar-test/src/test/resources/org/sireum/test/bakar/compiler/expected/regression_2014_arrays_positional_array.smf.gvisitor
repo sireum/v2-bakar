@@ -1,10 +1,10 @@
-Model(Some(positionalarray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(PositionalArray)),Vector(),List(ProcedureDecl(NameDefinition($$binit),
-  Some(positionalarray.adb)
+Model(Some(positional_array.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(ProcedureDecl(NameDefinition($$binit
+  Some(positional_array.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(PositionalArray)),Vector(),List(ProcedureDecl(NameDefinition($$binit),Vector(),Vector(),Vector(),None,false,Imp
-    PackageDecl(Some(NameDefinition(PositionalArray)),Vector(),List(ProcedureDecl(NameDefinition($$binit),Vector(),Vector(),Vector(),None,false,Implemente
-      Some(NameDefinition(PositionalArray))
-        NameDefinition(PositionalArray)
+  Vector(PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(ProcedureDecl(NameDefinition($$binit),Vector(),Vector(),Vector(),None,false,Im
+    PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(ProcedureDecl(NameDefinition($$binit),Vector(),Vector(),Vector(),None,false,Implement
+      Some(NameDefinition(Positional_Array))
+        NameDefinition(Positional_Array)
       List()
       List(ProcedureDecl(NameDefinition($$binit),Vector(),Vector(),Vector(),None,false,ImplementedBody(Vector(),List(ActionLocation(Some(NameDefinition(l1))
         ProcedureDecl(NameDefinition($$binit),Vector(),Vector(),Vector(),None,false,ImplementedBody(Vector(),List(ActionLocation(Some(NameDefinition(l1)),Vect
@@ -99,13 +99,13 @@ Model(Some(positionalarray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
                   List()
                   None
             List()
-Model(Some(positionalarray.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(PositionalArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Ve
-  Some(positionalarray.ads)
+Model(Some(positional_array.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),
+  Some(positional_array.ads)
   List()
-  Vector(PackageDecl(Some(NameDefinition(PositionalArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Li
-    PackageDecl(Some(NameDefinition(PositionalArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())),
-      Some(NameDefinition(PositionalArray))
-        NameDefinition(PositionalArray)
+  Vector(PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),L
+    PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      Some(NameDefinition(Positional_Array))
+        NameDefinition(Positional_Array)
       List()
       List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Square),Vector(),NamedTypeSpe
         TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))

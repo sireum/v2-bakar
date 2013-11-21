@@ -1,4 +1,4 @@
-package PositionalArray;
+package Positional_Array;
 
 
 procedure $$binit {
@@ -31,7 +31,7 @@ procedure dummy (
 
   #l4.
     return;
-}package PositionalArray;
+}package Positional_Array;
 
 
 typealias Integer Index;

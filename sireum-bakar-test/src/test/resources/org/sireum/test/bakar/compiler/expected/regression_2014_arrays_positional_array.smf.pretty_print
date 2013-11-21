@@ -1,13 +1,13 @@
-positionalarray.adb
-package PositionalArray
+positional_array.adb
+package Positional_Array
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">positionalArray.adb</string>
+         <string sid="1">positional_array.adb</string>
          <int>1</int>
          <int>1</int>
          <int>10</int>
-         <int>20</int>
+         <int>21</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
 
@@ -28,7 +28,7 @@ procedure dummy (
         Index X
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/PositionalArray-1:9/dummy-19:13/X-19:19</string>""")
+              ("""<string sid="1">ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -39,7 +39,7 @@ procedure dummy (
             @util.loc
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">positionalArray.adb</string>
+                 <string sid="1">positional_array.adb</string>
                  <int>3</int>
                  <int>19</int>
                  <int>3</int>
@@ -48,12 +48,12 @@ procedure dummy (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure_body/PositionalArray-1:9/dummy-19:13</string>""")
+      ("""<string sid="1">ada://procedure_body/Positional_Array-1:9/dummy-19:13</string>""")
 
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">positionalArray.adb</string>
+         <string sid="1">positional_array.adb</string>
          <int>3</int>
          <int>3</int>
          <int>6</int>
@@ -226,16 +226,16 @@ typealias Float universal_real
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
 ;
 
-positionalarray.ads
-package PositionalArray
+positional_array.ads
+package Positional_Array
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">positionalArray.ads</string>
+         <string sid="1">positional_array.ads</string>
          <int>1</int>
          <int>1</int>
          <int>25</int>
-         <int>20</int>
+         <int>21</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
 
@@ -245,7 +245,7 @@ typealias Integer Index
 
       ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
          <string>Index</string>
-         <string sid="1">ada://subtype/PositionalArray-1:9/Index-11:11</string>
+         <string sid="1">ada://subtype/Positional_Array-1:9/Index-11:11</string>
          <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
            <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
@@ -262,7 +262,7 @@ typealias Integer Index
                <entry>
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
-                   <string sid="4">positionalArray.ads</string>
+                   <string sid="4">positional_array.ads</string>
                    <int>11</int>
                    <int>34</int>
                    <int>11</int>
@@ -299,11 +299,11 @@ typealias Integer Index
 
     @BAKAR_TYPE_URI
 
-      ("""<string sid="1">ada://subtype/PositionalArray-1:9/Index-11:11</string>""")
+      ("""<string sid="1">ada://subtype/Positional_Array-1:9/Index-11:11</string>""")
 
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://subtype/PositionalArray-1:9/Index-11:11</string>""")
+      ("""<string sid="1">ada://subtype/Positional_Array-1:9/Index-11:11</string>""")
 ;
 
 typealias _ARRAY_ Square
@@ -314,24 +314,24 @@ typealias _ARRAY_ Square
          <int>1</int>
          <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <ivector ttype="ivector">
-           <string sid="2">ada://subtype/PositionalArray-1:9/Index-11:11</string>
+           <string sid="2">ada://subtype/Positional_Array-1:9/Index-11:11</string>
          </ivector>
        </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
 
     @BAKAR_TYPE_URI
 
-      ("""<string sid="1">ada://ordinary_type/PositionalArray-1:9/Square-12:8</string>""")
+      ("""<string sid="1">ada://ordinary_type/Positional_Array-1:9/Square-12:8</string>""")
 
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://ordinary_type/PositionalArray-1:9/Square-12:8</string>""")
+      ("""<string sid="1">ada://ordinary_type/Positional_Array-1:9/Square-12:8</string>""")
 ;
 
 global Square @@Box
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">positionalArray.ads</string>
+         <string sid="1">positional_array.ads</string>
          <int>15</int>
          <int>3</int>
          <int>15</int>
@@ -343,7 +343,7 @@ global Square @@Box2
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">positionalArray.ads</string>
+         <string sid="1">positional_array.ads</string>
          <int>17</int>
          <int>3</int>
          <int>17</int>
@@ -371,7 +371,7 @@ procedure dummy (
         Index X
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/PositionalArray-1:9/dummy-19:13/X-19:19</string>""")
+              ("""<string sid="1">ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -382,7 +382,7 @@ procedure dummy (
             @util.loc
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">positionalArray.ads</string>
+                 <string sid="1">positional_array.ads</string>
                  <int>19</int>
                  <int>19</int>
                  <int>19</int>
@@ -391,17 +391,17 @@ procedure dummy (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure/PositionalArray-1:9/dummy-19:13</string>""")
+      ("""<string sid="1">ada://procedure/Positional_Array-1:9/dummy-19:13</string>""")
 
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
-             <string sid="1">ada://variable/PositionalArray-1:9/@@Box-15:3</string>
+             <string sid="1">ada://variable/Positional_Array-1:9/@@Box-15:3</string>
              <iset ttype="iset">
                <string srefid="1"/>
-               <string sid="2">ada://parameter/PositionalArray-1:9/dummy-19:13/X-19:19</string>
+               <string sid="2">ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19</string>
              </iset>
            </entry>
          </__depends>
@@ -416,7 +416,7 @@ procedure dummy (
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">positionalArray.ads</string>
+         <string sid="1">positional_array.ads</string>
          <int>19</int>
          <int>3</int>
          <int>21</int>
