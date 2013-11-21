@@ -62,14 +62,14 @@ typealias _SIGNED_INTEGER_TYPE_ Pointer_Range
                </entry>
                <entry>
                  <string>BAKAR_TYPE_URI</string>
-                 <string sid="5">universal integer</string>
+                 <string srefid="1"/>
                </entry>
              </properties>
            </org.sireum.pilar.ast.NameUser>
            <properties mtype="mlinkedmap">
              <entry>
                <string>BAKAR_TYPE_URI</string>
-               <string srefid="5"/>
+               <string srefid="1"/>
              </entry>
              <entry>
                <string>util.loc</string>
@@ -147,14 +147,14 @@ typealias Pointer_Range Index_Range
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
-                   <string sid="7">universal integer</string>
+                   <string srefid="3"/>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
              <properties mtype="mlinkedmap">
                <entry>
                  <string>BAKAR_TYPE_URI</string>
-                 <string srefid="7"/>
+                 <string srefid="3"/>
                </entry>
                <entry>
                  <string>util.loc</string>
@@ -247,7 +247,7 @@ procedure $$binit {
     @@Pointer := 0ii;
 
   #l2.
-    @@S := `Vector {Vector iter => 
+    @@S := `Vector { iter => 
         switch iter
           case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
     };
@@ -818,7 +818,7 @@ typealias Integer AuditCountType
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
-                   <string sid="7">universal integer</string>
+                   <string sid="7">ada://ordinary_type/universal_integer</string>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>

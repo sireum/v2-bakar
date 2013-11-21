@@ -1,0 +1,871 @@
+array_two_dim.ads
+package Array_Two_Dim
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>52</int>
+         <int>18</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+typealias Integer Index
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+         <string>Index</string>
+         <string sid="1">ada://subtype/Array_Two_Dim-1:9/Index-15:11</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1</bigInteger>
+             </scala.math.BigInt>
+             <string>1ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="3">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="4">array_two_dim.ads</string>
+                   <int>15</int>
+                   <int>34</int>
+                   <int>15</int>
+                   <int>34</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.NameExp cid="5" size="1">
+             <org.sireum.pilar.ast.NameUser cid="6" size="1">
+               <string>highInt</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                     <string>ada</string>
+                     <string>integer_number</string>
+                     <ilist ttype="ilist">
+                       <string sid="5">Array_Two_Dim-1:9</string>
+                       <string>highInt-14:3</string>
+                     </ilist>
+                     <string sid="6">ada://integer_number/Array_Two_Dim-1:9/highInt-14:3</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="3"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                   <string srefid="4"/>
+                   <int>15</int>
+                   <int>37</int>
+                   <int>15</int>
+                   <int>43</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </some>
+       </org.sireum.bakar.symbol.SubTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Array_Two_Dim-1:9/Index-15:11</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Array_Two_Dim-1:9/Index-15:11</string>""")
+;
+
+typealias Index subIndexRange
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+         <string>subIndexRange</string>
+         <string sid="1">ada://subtype/Array_Two_Dim-1:9/subIndexRange-16:11</string>
+         <string sid="2">ada://subtype/Array_Two_Dim-1:9/Index-15:11</string>
+         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>6</bigInteger>
+             </scala.math.BigInt>
+             <string>6ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="3">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="4">array_two_dim.ads</string>
+                   <int>16</int>
+                   <int>40</int>
+                   <int>16</int>
+                   <int>40</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.LiteralExp cid="5" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>8</bigInteger>
+             </scala.math.BigInt>
+             <string>8ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="3"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
+                   <string srefid="4"/>
+                   <int>16</int>
+                   <int>43</int>
+                   <int>16</int>
+                   <int>43</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+         </some>
+       </org.sireum.bakar.symbol.SubTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Array_Two_Dim-1:9/subIndexRange-16:11</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Array_Two_Dim-1:9/subIndexRange-16:11</string>""")
+;
+
+typealias _UNCONSTRAINED_ARRAY_ Matrix
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.UnconstrainedArrayDef cid="1" size="4">
+         <string></string>
+         <int>2</int>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <ilist ttype="ilist">
+           <string srefid="1"/>
+           <string srefid="1"/>
+         </ilist>
+       </org.sireum.bakar.symbol.UnconstrainedArrayDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Matrix-19:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Matrix-19:8</string>""")
+;
+
+typealias Matrix Square
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+         <string>Square</string>
+         <string sid="1">ada://subtype/Array_Two_Dim-1:9/Square-22:11</string>
+         <string sid="2">ada://ordinary_type/Array_Two_Dim-1:9/Matrix-19:8</string>
+         <some etype="org.sireum.bakar.symbol.IndexConstraint" cid="2" size="1">
+           <ilist ttype="ilist">
+             <string sid="3">ada://subtype/Array_Two_Dim-1:9/Index-15:11</string>
+             <string srefid="3"/>
+           </ilist>
+         </some>
+       </org.sireum.bakar.symbol.SubTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Array_Two_Dim-1:9/Square-22:11</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Array_Two_Dim-1:9/Square-22:11</string>""")
+;
+
+typealias _SIGNED_INTEGER_TYPE_ Board_Index
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SignedIntegerTypeDef cid="1" size="3">
+         <string></string>
+         <some etype="org.sireum.pilar.ast.LiteralExp" cid="2" size="3">
+           <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+           <scala.math.BigInt>
+             <bigInteger>1</bigInteger>
+           </scala.math.BigInt>
+           <string>1ii</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string sid="1">ada://ordinary_type/universal_integer</string>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string sid="2">array_two_dim.ads</string>
+                 <int>32</int>
+                 <int>29</int>
+                 <int>32</int>
+                 <int>29</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </some>
+         <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
+           <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+           <scala.math.BigInt>
+             <bigInteger>8</bigInteger>
+           </scala.math.BigInt>
+           <string>8ii</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string srefid="1"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
+                 <string srefid="2"/>
+                 <int>32</int>
+                 <int>32</int>
+                 <int>32</int>
+                 <int>32</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </some>
+       </org.sireum.bakar.symbol.SignedIntegerTypeDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Board_Index-32:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Board_Index-32:8</string>""")
+;
+
+typealias _ARRAY_ Row
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
+         <string></string>
+         <int>1</int>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <ivector ttype="ivector">
+           <string sid="2">ada://ordinary_type/Array_Two_Dim-1:9/Board_Index-32:8</string>
+         </ivector>
+       </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Row-33:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Row-33:8</string>""")
+;
+
+typealias _ARRAY_ Board
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
+         <string></string>
+         <int>1</int>
+         <string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Row-33:8</string>
+         <ivector ttype="ivector">
+           <string sid="2">ada://ordinary_type/Array_Two_Dim-1:9/Board_Index-32:8</string>
+         </ivector>
+       </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Board-34:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Board-34:8</string>""")
+;
+
+global Square @@Box
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.ads</string>
+         <int>24</int>
+         <int>3</int>
+         <int>24</int>
+         <int>5</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+global Square @@Box2
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.ads</string>
+         <int>29</int>
+         <int>3</int>
+         <int>29</int>
+         <int>6</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+global Board @@aBoard
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.ads</string>
+         <int>38</int>
+         <int>3</int>
+         <int>38</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+procedure $$sinit {
+
+  #l7.
+    @@Box2 := `Square { iter => 
+        switch iter
+          default => { iter => 
+              switch iter
+                default => 0ii}};
+
+  #l8.
+    @@aBoard := `Board { iter => 
+        switch iter
+          default => `Row { iter => 
+              switch iter
+                default => 1ii}};
+
+  #l9.
+    return;
+}
+
+const $CONST {
+  constTwo = (Integer) 2ii;
+
+  constThree = (Integer) constTwo + 1ii;
+
+  highInt = (Integer) 10ii;
+}
+
+procedure dummy (
+        Index X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.ads</string>
+                 <int>40</int>
+                 <int>19</int>
+                 <int>40</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Index Y
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/Y-40:33</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.ads</string>
+                 <int>40</int>
+                 <int>33</int>
+                 <int>40</int>
+                 <int>33</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/Array_Two_Dim-1:9/dummy-40:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__depends class="icol.Map$Map1" mtype="imap">
+           <entry>
+             <string sid="1">ada://variable/Array_Two_Dim-1:9/@@Box-24:3</string>
+             <iset ttype="iset">
+               <string srefid="1"/>
+               <string sid="2">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19</string>
+               <string sid="3">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/Y-40:33</string>
+             </iset>
+           </entry>
+         </__depends>
+         <__globalsin class="icol.Set$Set1" ttype="iset">
+           <string srefid="1"/>
+         </__globalsin>
+         <__globalsout class="icol.Set$Set1" ttype="iset">
+           <string srefid="1"/>
+         </__globalsout>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.ads</string>
+         <int>40</int>
+         <int>3</int>
+         <int>42</int>
+         <int>36</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+procedure dummy2 (
+        Board_Index M
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.ads</string>
+                 <int>46</int>
+                 <int>20</int>
+                 <int>46</int>
+                 <int>20</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Board_Index N
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.ads</string>
+                 <int>46</int>
+                 <int>40</int>
+                 <int>46</int>
+                 <int>40</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/Array_Two_Dim-1:9/dummy2-46:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__depends class="icol.Map$Map1" mtype="imap">
+           <entry>
+             <string sid="1">ada://variable/Array_Two_Dim-1:9/@@aBoard-38:3</string>
+             <iset ttype="iset">
+               <string srefid="1"/>
+               <string sid="2">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20</string>
+               <string sid="3">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40</string>
+             </iset>
+           </entry>
+         </__depends>
+         <__globalsin class="icol.Set$Set1" ttype="iset">
+           <string srefid="1"/>
+         </__globalsin>
+         <__globalsout class="icol.Set$Set1" ttype="iset">
+           <string srefid="1"/>
+         </__globalsout>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.ads</string>
+         <int>46</int>
+         <int>3</int>
+         <int>48</int>
+         <int>42</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::boolean</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
+
+typealias Integer standard::integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::integer</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
+
+typealias Integer standard::natural
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::natural</string>
+         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer standard::positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::positive</string>
+         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float standard::float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>standard::float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias Integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+typealias Float universal_real
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>universal_real</string>
+         <string sid="1">ada://ordinary_type/universal_real</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
+
+array_two_dim.adb
+package Array_Two_Dim
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>27</int>
+         <int>18</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure $$binit {
+
+  #l1.
+    Box := `Square { iter => 
+        switch iter
+          case (1ii, constThree) => { iter => 
+              switch iter
+                case (attribute__uif__first `Index, attribute__uif__last `Index) => 0ii
+                default => 1ii}
+          case (constThree + 1ii, 5ii) => { iter => 
+              switch iter
+                case (1ii, 3ii) => 1ii
+                default => 2ii}
+          case (attribute__uif__first `subIndexRange, attribute__uif__last `subIndexRange) => { iter => 
+              switch iter
+                default => 3ii}
+          case 10ii - 2ii + 1ii => { iter => 
+              switch iter
+                default => 5ii}
+          default => { iter => 
+              switch iter
+                default => 3ii}};
+
+  #l2.
+    return;
+}
+
+procedure dummy (
+        Index X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.adb</string>
+                 <int>2</int>
+                 <int>20</int>
+                 <int>2</int>
+                 <int>20</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Index Y
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/Y-40:33</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.adb</string>
+                 <int>2</int>
+                 <int>34</int>
+                 <int>2</int>
+                 <int>34</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.adb</string>
+         <int>2</int>
+         <int>4</int>
+         <int>5</int>
+         <int>13</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l3.
+    Box[X, Y] := Box[X, Y] - 1ii;
+
+  #l4.
+    return;
+}
+
+procedure dummy2 (
+        Board_Index M
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.adb</string>
+                 <int>7</int>
+                 <int>20</int>
+                 <int>7</int>
+                 <int>20</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Board_Index N
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_two_dim.adb</string>
+                 <int>7</int>
+                 <int>39</int>
+                 <int>7</int>
+                 <int>39</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_two_dim.adb</string>
+         <int>7</int>
+         <int>3</int>
+         <int>10</int>
+         <int>13</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l5.
+    aBoard[M][N] := aBoard[M][N] - 1ii;
+
+  #l6.
+    return;
+}
+

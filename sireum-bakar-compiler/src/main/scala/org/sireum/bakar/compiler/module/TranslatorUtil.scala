@@ -6,6 +6,7 @@ object BAKAR_KEYS {
 
 object URIS {
   import java.net.URI
+  import org.sireum.util.ResourceUri
 
   val TYPE_MAP = "BAKAR_TYPE_MAP"
   val TYPE_DEF = "BAKAR_TYPE_DEF"
@@ -25,6 +26,20 @@ object URIS {
 
     s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
     s
+  }
+  
+  def isTypeUri(u : ResourceUri) = {
+    if(u.startsWith("ada://ordinary_type/"))
+      true
+    else 
+      false
+  }
+  
+  def isMethodUri(u : ResourceUri) = {
+    if(u.startsWith("ada://procedure") || u.startsWith("ada://function"))
+      true
+    else
+      false
   }
 }
 

@@ -22,19 +22,23 @@ import scala.collection.immutable.TreeMap
 class BakarXmlTest extends BakarTestFileFramework {
 
   override def generateExpected = false
-  
-  override def includes = super.includes ++= Set("2005_misc", "2005_simple", "regression_2014")
-    
+
+  override def includes = super.includes ++= Set(
+    "2005_misc",
+    "2005_simple",
+    "2014_arrays",
+    "2014_sort")
+
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
 
-  override def pre(c : Configuration) : Boolean = {
+  override def pre(c: Configuration): Boolean = {
     val dest = new File(c.resultsDir + "/0")
     dest.mkdirs
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(dest)))
     return true;
   }
-  
+
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
@@ -42,20 +46,17 @@ class BakarXmlTest extends BakarTestFileFramework {
       PipelineStage(
         "gnat2xml stage",
         false,
-        Gnat2XMLWrapperModule
-      ),
+        Gnat2XMLWrapperModule),
       PipelineStage(
         "scalaxb stage",
         false,
-        ParseGnat2XMLModule
-      )
-    )
+        ParseGnat2XMLModule))
 
   override def outputSuffix = "g2xml"
 
-  override def writeTestString(job : PipelineJob, w : Writer) = {
+  override def writeTestString(job: PipelineJob, w: Writer) = {
     val xs = new XStream()
-    val results = TreeMap(ParseGnat2XMLModule.getParseGnat2XMLresults(job.properties).toSeq:_*)
+    val results = TreeMap(ParseGnat2XMLModule.getParseGnat2XMLresults(job.properties).toSeq: _*)
 
     results foreach {
       case (key, value) =>

@@ -1,0 +1,184 @@
+package Array_Two_Dim;
+
+
+procedure $$binit {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+
+
+  #rwl0.
+    _t0 := constThree;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #rwl2.
+    _t2 := 10ii;
+
+  #rwl3.
+    _t3 := 2ii;
+
+  #rwl4.
+    _t4 := _t2 - _t3;
+
+  #rwl5.
+    _t5 := 1ii;
+
+  #l1.
+    Box := `Square { iter => 
+        switch iter
+          case (1ii, constThree) => { iter => 
+              switch iter
+                case (attribute__uif__first `Index, attribute__uif__last `Index) => 0ii
+                default => 1ii}
+          case (_t0 + _t1, 5ii) => { iter => 
+              switch iter
+                case (1ii, 3ii) => 1ii
+                default => 2ii}
+          case (attribute__uif__first `subIndexRange, attribute__uif__last `subIndexRange) => { iter => 
+              switch iter
+                default => 3ii}
+          case _t4 + _t5 => { iter => 
+              switch iter
+                default => 5ii}
+          default => { iter => 
+              switch iter
+                default => 3ii}};
+
+  #l2.
+    return;
+}
+
+procedure dummy (
+        Index X,
+        Index Y) {
+  local
+    FIXME _t6;
+    FIXME _t7;
+
+
+  #rwl6.
+    _t6 := Box[X, Y];
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l3.
+    Box[X, Y] := _t6 - _t7;
+
+  #l4.
+    return;
+}
+
+procedure dummy2 (
+        Board_Index M,
+        Board_Index N) {
+  local
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+
+
+  #rwl8.
+    _t8 := aBoard[M];
+
+  #rwl10.
+    _t9 := aBoard[M];
+
+  #rwl11.
+    _t10 := _t9[N];
+
+  #rwl12.
+    _t11 := 1ii;
+
+  #l5.
+    _t8[N] := _t10 - _t11;
+
+  #rwl9.
+    aBoard[M] := _t8;
+
+  #l6.
+    return;
+}package Array_Two_Dim;
+
+
+typealias Integer Index;
+
+typealias Index subIndexRange;
+
+typealias _UNCONSTRAINED_ARRAY_ Matrix;
+
+typealias Matrix Square;
+
+typealias _SIGNED_INTEGER_TYPE_ Board_Index;
+
+typealias _ARRAY_ Row;
+
+typealias _ARRAY_ Board;
+
+global Square @@Box;
+
+global Square @@Box2;
+
+global Board @@aBoard;
+
+procedure $$sinit {
+
+  #l7.
+    @@Box2 := `Square { iter => 
+        switch iter
+          default => { iter => 
+              switch iter
+                default => 0ii}};
+
+  #l8.
+    @@aBoard := `Board { iter => 
+        switch iter
+          default => `Row { iter => 
+              switch iter
+                default => 1ii}};
+
+  #l9.
+    return;
+}
+
+const $CONST {
+  constTwo = (Integer) 2ii;
+
+  constThree = (Integer) constTwo + 1ii;
+
+  highInt = (Integer) 10ii;
+}
+
+procedure dummy (
+        Index X,
+        Index Y) {
+
+}
+
+procedure dummy2 (
+        Board_Index M,
+        Board_Index N) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

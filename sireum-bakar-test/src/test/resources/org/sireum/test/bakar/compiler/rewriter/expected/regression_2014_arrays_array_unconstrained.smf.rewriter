@@ -1,0 +1,194 @@
+package Array_Unconstrained;
+
+
+procedure Boolean isSorted (
+        Vector Z) {
+  local
+    Boolean B;
+    Integer I;
+    Integer _tcomp0;
+    Integer _tcomp1;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+
+
+  #l1.
+    B := true;
+
+  #l3.
+    _tcomp0 := attribute__uif__first `Z;
+
+  #rwl0.
+    _t0 := attribute__uif__last `Z;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #l4.
+    _tcomp1 := _t0 - _t1;
+
+  #rwl2.
+    _t2 := _tcomp0;
+
+  #rwl3.
+    _t3 := _tcomp1;
+
+  #l5.
+    if _t2 > _t3 then goto l2;
+
+  #l6.
+    I := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #rwl4.
+    _t4 := I;
+
+  #rwl5.
+    _t5 := 1ii;
+
+  #rwl6.
+    _t6 := Z[I];
+
+  #rwl7.
+    _t7 := Z[_t4 + _t5];
+
+  #l8.
+    B := _t6 <= _t7;
+
+  #l9.
+    if !(B) then goto l2;
+
+  #rwl8.
+    _t8 := I;
+
+  #rwl9.
+    _t9 := _tcomp1;
+
+  #l10.
+    if _t8 == _t9 then goto l2;
+
+  #rwl10.
+    _t10 := I;
+
+  #rwl11.
+    _t11 := 1ii;
+
+  #l11.
+    I := _t10 + _t11;
+
+  #l12.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l13.
+    return B;
+}
+
+procedure Boolean indexIsValue (
+        Vector Z,
+        Integer Index,
+        Integer V) {
+  local
+    FIXME _t12;
+    FIXME _t13;
+
+
+  #rwl12.
+    _t12 := Z[Index];
+
+  #rwl13.
+    _t13 := V;
+
+  #l14.
+    return _t12 == _t13;
+}package Array_Unconstrained;
+
+
+typealias _UNCONSTRAINED_ARRAY_ Vector;
+
+procedure Boolean isSorted (
+        Vector Z) {
+
+}
+
+procedure Boolean indexIsValue (
+        Vector Z,
+        Integer Index,
+        Integer V) {
+
+}package Array_Unconstrained_T;
+
+
+procedure Boolean isSorted (
+        ConsVector CV) {
+  local
+    FIXME _tcomp2;
+
+
+  #l15.
+    call _tcomp2 := Array_Unconstrained::isSorted (CV);
+
+  #l16.
+    return _tcomp2;
+}
+
+procedure Boolean indexIsValue (
+        ConsVector Z,
+        Index I,
+        Integer V) {
+  local
+    FIXME _tcomp3;
+
+
+  #l17.
+    call _tcomp3 := Array_Unconstrained::indexIsValue (Z, I, V);
+
+  #l18.
+    return _tcomp3;
+}package Array_Unconstrained_T;
+
+
+typealias Integer Index;
+
+typealias Array_Unconstrained::Vector ConsVector;
+
+procedure Boolean isSorted (
+        ConsVector CV) {
+
+}
+
+procedure Boolean indexIsValue (
+        ConsVector Z,
+        Index I,
+        Integer V) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

@@ -12,7 +12,7 @@ global Vector @@B;
 procedure $$binit {
 
   #l1.
-    @@A := `Vector {Vector iter => 
+    @@A := `Vector { iter => 
         switch iter
           case __positional0 => 0ii
           case __positional1 => 1ii
@@ -21,7 +21,7 @@ procedure $$binit {
           default => 9ii};
 
   #l2.
-    @@B := `Vector {Vector iter => 
+    @@B := `Vector { iter => 
         switch iter
           case 0ii => 0ii
           case 1ii => 1ii

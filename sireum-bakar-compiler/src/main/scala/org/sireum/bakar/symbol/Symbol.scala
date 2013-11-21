@@ -18,7 +18,7 @@ trait SparkType extends Type {
 trait Constraint extends Type
 
 case class IndexConstraint(
-  val subTypes : ISeq[SparkTypeDecl]) extends Constraint
+  val subTypes : ISeq[ResourceUri]) extends Constraint
 
 trait RangeConstraint extends Constraint
 
@@ -90,7 +90,7 @@ case class UnconstrainedArrayDef(
   val id : String,
   val dim : Int,
   val componentSubtype : ResourceUri,
-  val indexSubtypes : ISeq[SparkTypeDecl]) extends ArrayTypeDef
+  val indexSubtypes : ISeq[ResourceUri]) extends ArrayTypeDef
 
 trait RecordDef extends CompositeTypeDef {
   val isTagged : Boolean

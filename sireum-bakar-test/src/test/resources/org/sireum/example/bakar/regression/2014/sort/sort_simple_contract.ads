@@ -1,4 +1,5 @@
 package Sort_Simple_Contract
+  with SPARK_Mode
 is
   Max_Elements : constant := 3;
         

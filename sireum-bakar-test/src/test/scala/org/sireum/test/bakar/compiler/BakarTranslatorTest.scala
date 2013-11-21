@@ -25,16 +25,24 @@ class BakarTranslatorTest extends BakarTestFileFramework {
 
   override def generateExpected = false
 
-  //override def includes = super.includes ++= Set("sort.smf")
-  override def includes = super.includes ++= Set("2005_misc", "2005_simple", "regression_2014")
-  
-  //override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")
+  //override def includes = super.includes ++= Set("2014_arrays_posit")
+
+  override def includes = super.includes ++= Set(
+    "2005_misc",
+    "2005_simple",
+    "2014_arrays",
+    "2014_sort",
+    "xxxxxx")
+
+    //override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")
 
   override def ignores = {
     super.ignores ++= Set(
-      "misc_p_public",       // contains nested packages
-      "misc_package_scope",  // contains nested packages
-      "misc_recordshape",    // contains record refinements
+      "2014_arrays_array_dim_fun", // not handled in sireum v1
+      "2014_arrays_array_one_dim", // contains type decs defined in procedure
+      "misc_p_public", // contains nested packages
+      "misc_package_scope", // contains nested packages
+      "misc_recordshape", // contains record refinements
       "sort_array_utilities" // contains nested methods
       )
   }

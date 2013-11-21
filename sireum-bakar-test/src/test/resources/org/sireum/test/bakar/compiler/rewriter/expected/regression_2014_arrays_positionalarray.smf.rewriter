@@ -1,0 +1,79 @@
+package PositionalArray;
+
+
+procedure $$binit {
+
+  #l1.
+    Box2 := `Square { iter => 
+        switch iter
+          case __positional0 => 77ii
+          default => 5ii};
+
+  #l2.
+    return;
+}
+
+procedure dummy (
+        Index X) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #rwl0.
+    _t0 := Box[X];
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #l3.
+    Box[X] := _t0 - _t1;
+
+  #l4.
+    return;
+}package PositionalArray;
+
+
+typealias Integer Index;
+
+typealias _ARRAY_ Square;
+
+global Square @@Box;
+
+global Square @@Box2;
+
+procedure $$sinit {
+
+  #l5.
+    @@Box := `Square { iter => 
+        switch iter
+          case __positional0 => -(1ii)
+          case __positional1 => -(2ii)
+          case __positional2 => 7ii
+          case __positional3 => 3ii
+          case __positional4 => 2ii
+          default => 3ii};
+
+  #l6.
+    return;
+}
+
+procedure dummy (
+        Index X) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

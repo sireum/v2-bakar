@@ -15,7 +15,7 @@ package QuantifierTest
 procedure $$binit {
 
   #l1.
-    V := `Vector {Vector iter => 
+    V := `Vector { iter => 
         switch iter
           default => 0ii};
 

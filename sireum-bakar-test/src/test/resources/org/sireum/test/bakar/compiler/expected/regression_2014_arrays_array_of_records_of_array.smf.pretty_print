@@ -1,0 +1,620 @@
+array_of_records_of_array.ads
+package Array_Of_Records_Of_Array
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_of_records_of_array.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>31</int>
+         <int>30</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Index_Range
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SignedIntegerTypeDef cid="1" size="3">
+         <string></string>
+         <some etype="org.sireum.pilar.ast.LiteralExp" cid="2" size="3">
+           <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+           <scala.math.BigInt>
+             <bigInteger>1</bigInteger>
+           </scala.math.BigInt>
+           <string>1ii</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string sid="1">ada://ordinary_type/universal_integer</string>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string sid="2">array_of_records_of_array.ads</string>
+                 <int>11</int>
+                 <int>29</int>
+                 <int>11</int>
+                 <int>29</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </some>
+         <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
+           <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+           <scala.math.BigInt>
+             <bigInteger>10</bigInteger>
+           </scala.math.BigInt>
+           <string>10ii</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string srefid="1"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
+                 <string srefid="2"/>
+                 <int>11</int>
+                 <int>32</int>
+                 <int>11</int>
+                 <int>33</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </some>
+       </org.sireum.bakar.symbol.SignedIntegerTypeDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Index_Range-11:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Index_Range-11:8</string>""")
+;
+
+typealias _ARRAY_ IntArray
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
+         <string></string>
+         <int>1</int>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <ivector ttype="ivector">
+           <string sid="2">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Index_Range-11:8</string>
+         </ivector>
+       </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+;
+
+record Object
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.RecordTypeDef cid="1" size="3">
+         <string>que</string>
+         <boolean>false</boolean>
+         <imap mtype="imap">
+           <entry>
+             <string>X</string>
+             <org.sireum.bakar.symbol.ComponentDef cid="2" size="4">
+               <string sid="1">ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/X-17:7</string>
+               <string>IntArray</string>
+               <string sid="2">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>
+               <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <lineBegin>17</lineBegin>
+                 <columnBegin>7</columnBegin>
+                 <lineEnd>17</lineEnd>
+                 <columnEnd>7</columnEnd>
+               </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+             </org.sireum.bakar.symbol.ComponentDef>
+           </entry>
+           <entry>
+             <string>Y</string>
+             <org.sireum.bakar.symbol.ComponentDef cid="3" size="4">
+               <string sid="3">ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/Y-18:7</string>
+               <string>IntArray</string>
+               <string srefid="2"/>
+               <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <lineBegin>18</lineBegin>
+                 <columnBegin>7</columnBegin>
+                 <lineEnd>18</lineEnd>
+                 <columnEnd>7</columnEnd>
+               </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+             </org.sireum.bakar.symbol.ComponentDef>
+           </entry>
+         </imap>
+       </org.sireum.bakar.symbol.RecordTypeDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8</string>""")
+ {
+
+  IntArray X
+      @BAKAR_REF_URI
+
+        ("""<string sid="1">ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/X-17:7</string>""")
+
+      @BAKAR_TYPE_URI
+
+        ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+  ;
+
+  IntArray Y
+      @BAKAR_REF_URI
+
+        ("""<string sid="1">ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/Y-18:7</string>""")
+
+      @BAKAR_TYPE_URI
+
+        ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+  ;
+}
+
+typealias _ARRAY_ ObjectArray
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
+         <string></string>
+         <int>1</int>
+         <string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8</string>
+         <ivector ttype="ivector">
+           <string sid="2">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Index_Range-11:8</string>
+         </ivector>
+       </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/ObjectArray-23:8</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/ObjectArray-23:8</string>""")
+;
+
+global ObjectArray @@oArray
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_of_records_of_array.ads</string>
+         <int>25</int>
+         <int>3</int>
+         <int>25</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+const $CONST {
+  dummyObject = (Object) `Object {
+    __positional0 = `IntArray { iter => 
+        switch iter
+          default => 0ii},
+    __positional1 = `IntArray { iter => 
+        switch iter
+          default => 0ii}
+  };
+}
+
+procedure Swap (
+        ObjectArray Q
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_of_records_of_array.ads</string>
+                 <int>27</int>
+                 <int>18</int>
+                 <int>27</int>
+                 <int>18</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Index_Range theIndex
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_of_records_of_array.ads</string>
+                 <int>27</int>
+                 <int>41</int>
+                 <int>27</int>
+                 <int>48</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__depends class="icol.Map$Map1" mtype="imap">
+           <entry>
+             <string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18</string>
+             <iset ttype="iset">
+               <string srefid="1"/>
+               <string sid="2">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41</string>
+             </iset>
+           </entry>
+         </__depends>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_of_records_of_array.ads</string>
+         <int>27</int>
+         <int>3</int>
+         <int>28</int>
+         <int>36</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean standard::boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::boolean</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
+
+typealias Integer standard::integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::integer</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
+
+typealias Integer standard::natural
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::natural</string>
+         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer standard::positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">standard::positive</string>
+         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float standard::float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>standard::float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias Integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+typealias Float universal_real
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>universal_real</string>
+         <string sid="1">ada://ordinary_type/universal_real</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string>myint</string>
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
+
+array_of_records_of_array.adb
+package Array_Of_Records_Of_Array
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_of_records_of_array.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>18</int>
+         <int>30</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure $$binit {
+
+  #l1.
+    oArray := `ObjectArray { iter => 
+        switch iter
+          default => dummyObject};
+
+  #l2.
+    return;
+}
+
+procedure Swap (
+        ObjectArray Q
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_of_records_of_array.adb</string>
+                 <int>3</int>
+                 <int>19</int>
+                 <int>3</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Index_Range theIndex
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_of_records_of_array.adb</string>
+                 <int>3</int>
+                 <int>42</int>
+                 <int>3</int>
+                 <int>49</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_of_records_of_array.adb</string>
+         <int>3</int>
+         <int>4</int>
+         <int>12</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    IntArray temp1
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>4</int>
+             <int>6</int>
+             <int>4</int>
+             <int>10</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    IntArray temp2
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>5</int>
+             <int>6</int>
+             <int>5</int>
+             <int>10</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l3.
+    temp1 := Q[theIndex].X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>7</int>
+             <int>15</int>
+             <int>7</int>
+             <int>27</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l4.
+    temp2 := Q[theIndex].Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>8</int>
+             <int>15</int>
+             <int>8</int>
+             <int>27</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l5.
+    Q[theIndex].X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>10</int>
+             <int>6</int>
+             <int>10</int>
+             <int>18</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := temp2;
+
+  #l6.
+    Q[theIndex].Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>11</int>
+             <int>6</int>
+             <int>11</int>
+             <int>18</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := temp1;
+
+  #l7.
+    return;
+}
+

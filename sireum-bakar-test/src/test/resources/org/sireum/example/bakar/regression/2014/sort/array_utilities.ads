@@ -1,4 +1,6 @@
-package Array_Utilities is
+package Array_Utilities
+  with SPARK_Mode
+is
   Max_Table_Size : constant := 100;
   type Base_Index_Type is range 0..Max_Table_Size;
   subtype Index_Type is Base_Index_Type range 1..Max_Table_Size;

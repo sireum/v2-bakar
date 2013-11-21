@@ -1,0 +1,11 @@
+ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/X-17:7 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8
+ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/Y-18:7 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8
+ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/ObjectArray-23:8
+ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Index_Range-11:8
+ada://variable/Array_Of_Records_Of_Array-1:9/@@oArray-25:3 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/ObjectArray-23:8
+ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp1+4:6 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8
+ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp2+5:6 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8
+ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t0 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8
+ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t1 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8
+ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t2 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8
+ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t3 -> ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8

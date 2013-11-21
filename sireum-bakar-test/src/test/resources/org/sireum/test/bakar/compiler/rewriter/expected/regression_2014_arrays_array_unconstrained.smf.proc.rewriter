@@ -1,0 +1,136 @@
+package Array_Unconstrained;
+
+
+procedure Boolean isSorted (
+        Vector Z) {
+  local
+    Boolean B;
+    Integer I;
+    Integer _tcomp0;
+    Integer _tcomp1;
+
+
+  #l1.
+    B := true;
+
+  #l3.
+    _tcomp0 := attribute__uif__first `Z;
+
+  #l4.
+    _tcomp1 := attribute__uif__last `Z - 1ii;
+
+  #l5.
+    if _tcomp0 > _tcomp1 then goto l2;
+
+  #l6.
+    I := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #l8.
+    B := Z[I] <= Z[I + 1ii];
+
+  #l9.
+    if !(B) then goto l2;
+
+  #l10.
+    if I == _tcomp1 then goto l2;
+
+  #l11.
+    I := I + 1ii;
+
+  #l12.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l13.
+    return B;
+}
+
+procedure Boolean indexIsValue (
+        Vector Z,
+        Integer Index,
+        Integer V) {
+
+  #l14.
+    return Z[Index] == V;
+}package Array_Unconstrained;
+
+
+typealias _UNCONSTRAINED_ARRAY_ Vector;
+
+procedure Boolean isSorted (
+        Vector Z) {
+
+}
+
+procedure Boolean indexIsValue (
+        Vector Z,
+        Integer Index,
+        Integer V) {
+
+}package Array_Unconstrained_T;
+
+
+procedure Boolean isSorted (
+        ConsVector CV) {
+  local
+    FIXME _tcomp2;
+
+
+  #l15.
+    call _tcomp2 := Array_Unconstrained::isSorted (CV);
+
+  #l16.
+    return _tcomp2;
+}
+
+procedure Boolean indexIsValue (
+        ConsVector Z,
+        Index I,
+        Integer V) {
+  local
+    FIXME _tcomp3;
+
+
+  #l17.
+    call _tcomp3 := Array_Unconstrained::indexIsValue (Z, I, V);
+
+  #l18.
+    return _tcomp3;
+}package Array_Unconstrained_T;
+
+
+typealias Integer Index;
+
+typealias Array_Unconstrained::Vector ConsVector;
+
+procedure Boolean isSorted (
+        ConsVector CV) {
+
+}
+
+procedure Boolean indexIsValue (
+        ConsVector Z,
+        Index I,
+        Integer V) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

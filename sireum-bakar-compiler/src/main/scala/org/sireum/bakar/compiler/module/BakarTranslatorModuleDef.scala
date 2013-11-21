@@ -8,12 +8,14 @@ import org.sireum.bakar.symbol.ComponentDef
 import org.sireum.bakar.symbol.ConstrainedArrayDef
 import org.sireum.bakar.symbol.Constraint
 import org.sireum.bakar.symbol.EnumerationTypeDef
+import org.sireum.bakar.symbol.IndexConstraint
 import org.sireum.bakar.symbol.PrivateTypeDecl
 import org.sireum.bakar.symbol.RecordTypeDef
 import org.sireum.bakar.symbol.SignedIntegerTypeDef
 import org.sireum.bakar.symbol.SimpleRangeConstraint
 import org.sireum.bakar.symbol.SubTypeDecl
 import org.sireum.bakar.symbol.TypeDef
+import org.sireum.bakar.symbol.UnconstrainedArrayDef
 import org.sireum.bakar.xml.AbortStatementEx
 import org.sireum.bakar.xml.AcceptStatementEx
 import org.sireum.bakar.xml.AndOperatorEx
@@ -24,8 +26,8 @@ import org.sireum.bakar.xml.AssertPragmaEx
 import org.sireum.bakar.xml.AssignmentStatementEx
 import org.sireum.bakar.xml.AsynchronousSelectStatementEx
 import org.sireum.bakar.xml.Base
-import org.sireum.bakar.xml.CasePathEx
 import org.sireum.bakar.xml.BlockStatementEx
+import org.sireum.bakar.xml.CasePathEx
 import org.sireum.bakar.xml.CaseStatementEx
 import org.sireum.bakar.xml.CharacterLiteralEx
 import org.sireum.bakar.xml.CodeStatementEx
@@ -46,9 +48,9 @@ import org.sireum.bakar.xml.DefiningNameList
 import org.sireum.bakar.xml.DefinitionClass
 import org.sireum.bakar.xml.DelayRelativeStatementEx
 import org.sireum.bakar.xml.DelayUntilStatementEx
-import org.sireum.bakar.xml.DiscreteSubtypeIndicationEx
 import org.sireum.bakar.xml.DiscreteSimpleExpressionRangeEx
 import org.sireum.bakar.xml.DiscreteSubtypeIndicationAsSubtypeDefinitionEx
+import org.sireum.bakar.xml.DiscreteSubtypeIndicationEx
 import org.sireum.bakar.xml.DivideOperatorEx
 import org.sireum.bakar.xml.ElementClass
 import org.sireum.bakar.xml.ElementList
@@ -82,6 +84,7 @@ import org.sireum.bakar.xml.IfStatementEx
 import org.sireum.bakar.xml.ImplementationDefinedAttributeEx
 import org.sireum.bakar.xml.ImplementationDefinedPragmaEx
 import org.sireum.bakar.xml.InMembershipTestEx
+import org.sireum.bakar.xml.IndexConstraintEx
 import org.sireum.bakar.xml.IndexedComponentEx
 import org.sireum.bakar.xml.IntegerLiteralEx
 import org.sireum.bakar.xml.IntegerNumberDeclarationEx
@@ -148,6 +151,7 @@ import org.sireum.bakar.xml.TimedEntryCallStatementEx
 import org.sireum.bakar.xml.TypeConversionEx
 import org.sireum.bakar.xml.UnaryMinusOperatorEx
 import org.sireum.bakar.xml.UnaryPlusOperatorEx
+import org.sireum.bakar.xml.UnconstrainedArrayDefinitionEx
 import org.sireum.bakar.xml.UnknownAttributeEx
 import org.sireum.bakar.xml.VariableDeclarationEx
 import org.sireum.bakar.xml.WhileLoopStatementEx
@@ -356,8 +360,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       localsPush(lvd)
 
       val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
-      ret(URIS.TYPE_URI) = typeUri
-      ret
+      addTypeUri(typeUri, ret)
     }
 
     def processingPackage = contextStack.head._1 == CTX.PACKAGE
@@ -408,9 +411,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               v(mark)
               val markNE: NameExp = popResult
               val markURI: String = markNE.name(URIS.REF_URI)
-
-              addProperty(URIS.TYPE_URI, markURI, iterND)
-              addProperty(URIS.TYPE_URI, markURI, iterNE)
+              
+              addTypeUri(markURI, iterND)
+              addTypeUri(markURI, iterNE)
 
               val (lowBound, highBound) =
                 if (!isEmpty(constraint.getConstraint)) {
@@ -504,12 +507,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           // x in Positive 
           // ===> (Positive'First <= x &&& x <= Positive'Last)
           assert(o.exps.size == 2)
-          val lhs = addProperty(URIS.TYPE_URI, StandardURIs.boolURI,
+          val lhs = addTypeUri(StandardURIs.boolURI,
             BinaryExp(PilarAstUtil.LE_BINOP, o.exps(0), e))
-          val rhs = addProperty(URIS.TYPE_URI, StandardURIs.boolURI,
+          val rhs = addTypeUri(StandardURIs.boolURI,
             BinaryExp(PilarAstUtil.LE_BINOP, e, o.exps(1)))
 
-          addProperty(URIS.TYPE_URI, StandardURIs.boolURI,
+          addTypeUri(StandardURIs.boolURI,
             BinaryExp(PilarAstUtil.LOGICAL_AND_BINOP, lhs, rhs))
         case x =>
           // x in 5 + 3
@@ -517,10 +520,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           // OR
           // x in 9
           // ===> (x == 9)            
-          addProperty(URIS.TYPE_URI, StandardURIs.boolURI,
+          addTypeUri(StandardURIs.boolURI,
             BinaryExp(PilarAstUtil.EQ_BINOP, e, x))
       } reduce { (a, b) =>
-        addProperty(URIS.TYPE_URI, StandardURIs.boolURI, BinaryExp(PilarAstUtil.LOGICAL_OR_BINOP, a, b))
+        addTypeUri(StandardURIs.boolURI, BinaryExp(PilarAstUtil.LOGICAL_OR_BINOP, a, b))
       }
     }
 
@@ -634,12 +637,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     def handleUnaryExp(sloc: SourceLocation,
       op: UnaryOp, exp: Exp, theType: String): Exp = {
-      addSourceLoc(handleExp(addProperty(URIS.TYPE_URI, theType, UnaryExp(op, exp))), sloc)
+      addSourceLoc(handleExp(addTypeUri(theType, UnaryExp(op, exp))), sloc)
     }
 
     def handleBE(sloc: SourceLocation,
       op: BinaryOp, lhs: Exp, rhs: Exp, theType: String): Exp = {
-      addSourceLoc(handleExp(addProperty(URIS.TYPE_URI, theType, BinaryExp(op, lhs, rhs))), sloc)
+      addSourceLoc(handleExp(addTypeUri(theType, BinaryExp(op, lhs, rhs))), sloc)
     }
 
     def handleBE(v: => BVisitor, sloc: SourceLocation,
@@ -655,6 +658,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     def handleExp(e: Exp): Exp = e
 
+    def addTypeUri[T <: PropertyProvider](uri : ResourceUri, pp: T): T = {
+      uri match {
+        case "universal integer" => addProperty(URIS.TYPE_URI, StandardURIs.universalIntURI, pp)
+        case "universal real" => addProperty(URIS.TYPE_URI, StandardURIs.universalRealURI, pp)
+        case _ => addProperty(URIS.TYPE_URI, uri, pp)
+      }
+    }
+    
     def addProperty[T <: PropertyProvider](key: String, value: Any, pp: T): T = {
       if (value == "null") {
         if (DEBUG) println("null/empty value for %s from %s".format(key, pp))
@@ -703,7 +714,33 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         //case dfpd @ DecimalFixedPointDefinitionEx(_) =>
 
         /** ARRAY TYPE **/
-        //case uad @ UnconstrainedArrayDefinitionEx(_) =>
+        case uad @ UnconstrainedArrayDefinitionEx(sloc, subtypes, componentDef, checks) =>
+          val dim = subtypes.getExpressions.size
+
+          val indexSubtypes = (for (s <- subtypes.getExpressions) yield {
+            v(s)
+            popResult.asInstanceOf[NameExp].name.uri
+          }).toList
+
+          var compTypeName: Option[String] = None
+          var componentSubtype: Option[ResourceUri] = None
+          componentDef.getElement match {
+            case cd @ ComponentDefinitionEx(sloc, hasAliased, compDefView, checks) =>
+              assert(isEmpty(hasAliased.getHasAliased))
+              compDefView.getDefinition match {
+                case si @ SubtypeIndicationEx(siloc, ha, hne, smark, scons, checks) =>
+                  assert(isEmpty(ha.getHasAliased))
+                  assert(isEmpty(hne.getHasNullExclusion))
+                  assert(isEmpty(scons.getConstraint))
+
+                  var (_, tname, turi, _) = getName(smark.getExpression)
+                  compTypeName = Some(tname)
+                  componentSubtype = Some(turi)
+                case _ => throw new RuntimeException("Unexpected")
+              }
+          }
+
+          return UnconstrainedArrayDef("", dim, componentSubtype.get, indexSubtypes)
         case cad @ ConstrainedArrayDefinitionEx(sloc, discreteSubtypeDefs, arrayComponentDef, checks) =>
           var compTypeName: Option[String] = None
           var compTypeUri: Option[ResourceUri] = None
@@ -791,8 +828,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
 
     def makeTypeExp(typeName: NameExp, typUri: String) = {
-      addProperty(URIS.TYPE_URI, typUri,
-        TypeExp(NamedTypeSpec(typeName.name, ivectorEmpty)))
+      addTypeUri(typUri, TypeExp(NamedTypeSpec(typeName.name, ivectorEmpty)))
     }
 
     def createUIFCall(uif: String, arg: Exp, typUri: String) = {
@@ -800,7 +836,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val nu = addResourceUri(NameUser(uif), UIF.uifURIprefix + uif)
       val ne = NameExp(nu)
-      val ce = addProperty(URIS.TYPE_URI, typUri, CallExp(ne, arg))
+      val ce = addTypeUri(typUri, CallExp(ne, arg))
       ce
     }
 
@@ -819,14 +855,22 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               val tad = TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
                 NamedTypeSpec(NameUser("_SIGNED_INTEGER_TYPE_"), ilistEmpty[TypeSpec]))
               tad(URIS.TYPE_DEF) = sit
-              tad(URIS.TYPE_URI) = turi
+              addTypeUri(turi, tad)
               tad(URIS.REF_URI) = turi
               return tad
             case etd: EnumerationTypeDef =>
               val tad = TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
                 NamedTypeSpec(NameUser("_ENUMERATION_TYPE_"), ilistEmpty[TypeSpec]))
               tad(URIS.TYPE_DEF) = etd
-              tad(URIS.TYPE_URI) = turi
+              addTypeUri(turi, tad)
+              tad(URIS.REF_URI) = turi
+              return tad
+            case uad: UnconstrainedArrayDef =>
+              val tad = TypeAliasDecl(NameDefinition(tname),
+                ivectorEmpty,
+                NamedTypeSpec(NameUser("_UNCONSTRAINED_ARRAY_"), ilistEmpty[TypeSpec]))
+              tad(URIS.TYPE_DEF) = uad
+              addTypeUri(turi, tad)
               tad(URIS.REF_URI) = turi
               return tad
             case cad: ConstrainedArrayDef =>
@@ -834,7 +878,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 ivectorEmpty,
                 NamedTypeSpec(NameUser("_ARRAY_"), ilistEmpty[TypeSpec]))
               tad(URIS.TYPE_DEF) = cad
-              tad(URIS.TYPE_URI) = turi
+              addTypeUri(turi, tad)
               tad(URIS.REF_URI) = turi
               return tad
             case rtd: RecordTypeDef =>
@@ -846,7 +890,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   Some(NamedTypeSpec(NameUser(v.typeName), ilistEmpty[TypeSpec])),
                   None)
                 attr(URIS.REF_URI) = v.refUri
-                attr(URIS.TYPE_URI) = v.typeUri
+                addTypeUri(v.typeUri, attr)
                 attrs :+= attr
               }
               val rd = RecordDecl(
@@ -856,7 +900,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 ilistEmpty[ExtendClause],
                 attrs)
               rd(URIS.TYPE_DEF) = rtd
-              rd(URIS.TYPE_URI) = turi
+              addTypeUri(turi, rd)
 
               rd(URIS.REF_URI) = turi
               return rd
@@ -874,8 +918,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               assert(isEmpty(hasAliased.getHasAliased))
               assert(isEmpty(hasNullEx.getHasNullExclusion))
 
-              val (ssloc, sname, suri, styp) = getName(subtypeMark)
-
+              v(subtypeMark)
+              val ne : NameExp = popResult
+              val suri = ne.name.uri
+              val sname = ne.name.name
+              
               var cons: Option[Constraint] = None
               if (!isEmpty(subtypeCons.getConstraint)) {
                 subtypeCons.getConstraint match {
@@ -887,6 +934,22 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                     val u: Exp = popResult
 
                     cons = Some(SimpleRangeConstraint(l, u))
+                  case ic @ IndexConstraintEx(sloc, ranges, checks) =>
+
+                    val subtypes = (for (r <- ranges.getDiscreteRanges) yield {
+                      r match {
+                        case DiscreteSubtypeIndicationEx(sloc, mark, cons, check) =>
+                          val e: NameExp = if (isEmpty(cons.getConstraint)) {
+                            v(mark)
+                            popResult
+                          } else {
+                            v(cons.getConstraint)
+                            popResult
+                          }
+                          e.name.uri
+                      }
+                    }).toList
+                    cons = Some(IndexConstraint(subtypes))
                 }
               }
 
@@ -896,7 +959,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 NamedTypeSpec(NameUser(sname), ilistEmpty[TypeSpec]))
 
               tad(URIS.TYPE_DEF) = std
-              tad(URIS.TYPE_URI) = turi
+              addTypeUri(turi, tad)
               tad(URIS.REF_URI) = turi
 
               return tad
@@ -922,7 +985,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             NamedTypeSpec(NameUser("_PRIVATE_TYPE_DECLARATION_"), ilistEmpty[TypeSpec]))
 
           tad(URIS.TYPE_DEF) = ptd
-          tad(URIS.TYPE_URI) = turi
+          addTypeUri(turi, tad)
           tad(URIS.REF_URI) = turi
 
           return tad
@@ -975,7 +1038,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           (sloc, rewriteName(defUri, defName), rewriteUri(defUri), typ)
         case i @ IdentifierEx(sloc, refName, refUri, typ, checks) =>
           (sloc, rewriteName(refUri, refName), rewriteUri(refUri), typ)
-        case _ => throw new RuntimeException("Unexpected")
+        case _ => throw new RuntimeException("Unexpected: " + o)
       }
     }
 
@@ -1015,11 +1078,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           ctx.popResult
         } else {
           // TODO: 
-          ctx.addProperty(URIS.TYPE_URI, URIS.DUMMY_URI,
+          ctx.addTypeUri(URIS.DUMMY_URI,
             NameExp(ctx.addResourceUri(NameUser("__DEFERRED_CONSTANT__"), URIS.DUMMY_URI)))
         }
         val castExp = CastExp(
-          NamedTypeSpec(ctx.addProperty(URIS.TYPE_URI, typeUri, NameUser(typeName)), ivectorEmpty), ie)
+          NamedTypeSpec(ctx.addTypeUri(typeUri, NameUser(typeName)), ivectorEmpty), ie)
         val constElems = mlistEmpty[ConstElement]
         for (n <- names.getDefiningNames) {
           v(n)
@@ -1235,7 +1298,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               LocalVarDecl(typeSpec, name, ivectorEmpty)
 
             if (!ctx.isEmpty(initExpr.getExpression)) {
-              var lhs = ctx.addProperty(URIS.TYPE_URI, typ,
+              var lhs = ctx.addTypeUri(typ,
                 NameExp(ctx.addResourceUri(NameUser(cdefName), cdefUri)))
               v(initExpr.getExpression)
               val rhs: Exp = ctx.popResult
@@ -1371,7 +1434,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   associations.getAssociations.foreach {
                     case rca @ RecordComponentAssociationEx(_, choices, exp, checks) =>
 
-                      def h(e: Any): ISet[String] = {
+                      def h(e: Any, isGlobalLhs : Boolean): ISet[String] = {
                         var ret = isetEmpty[String]
                         e match {
                           case paa @ PositionalArrayAggregateEx(sloc4, arrassoc, typ, checks) =>
@@ -1381,15 +1444,15 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                                 val (_, _, refuri, _) = ctx.getName(ctx.stripParens(_exp.getExpression))
                                 ret += ctx.rewriteUri(refuri)
                             }
-                          case i @ IdentifierEx(_, refname, refuri, _, checks) =>
-                            ret += ctx.rewriteUri(refuri)
+                          case i @ IdentifierEx(_, refName, refUri, _, checks) =>
+                            ret += ctx.rewriteUri(if(isGlobalLhs) refName else refUri)
                         }
                         ret
                       }
 
-                      val rhs = h(ctx.stripParens(exp.getExpression))
+                      val rhs = h(ctx.stripParens(exp.getExpression), false)
                       assert(choices.getExpressions.size == 1)
-                      val lhs = h(ctx.stripParens(choices.getExpressions.head))
+                      val lhs = h(ctx.stripParens(choices.getExpressions.head), ml == "global")
 
                       assoc :+= (lhs, rhs)
                   }
@@ -1406,6 +1469,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                     mode.head.toLowerCase match {
                       case "input" => ins ++= values
                       case "output" => outs ++= values
+                      case "in_out" => 
+                        ins ++= values
+                        outs ++= values
                       case "proof_in" => proofs ++= values
                     }
                   }
@@ -1494,9 +1560,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val nu = ctx.addResourceUri(NameUser(name), refUri)
       ctx.addProperty(URIS.REF_URI, refUri, nu)
-      ctx.addProperty(URIS.TYPE_URI, typeUri, nu)
+      ctx.addTypeUri(typeUri, nu)
 
-      val ne = ctx.addProperty(URIS.TYPE_URI, typeUri, NameExp(nu))
+      val ne = ctx.addTypeUri(typeUri, NameExp(nu))
       ctx.pushResult(ne, sloc)
       false
     case o: DefiningIdentifier =>
@@ -1504,7 +1570,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val nd = ctx.addResourceUri(NameDefinition(name), refUri)
       ctx.addProperty(URIS.REF_URI, refUri, nd)
-      ctx.addProperty(URIS.TYPE_URI, typeUri, nd)
+      ctx.addTypeUri(typeUri, nd)
 
       ctx.pushResult(nd, sloc)
       false
@@ -1573,7 +1639,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               true
             case x =>
               // #l0. if(!condExp) then goto <gotoLoc>;
-              val ue = ctx.addProperty(URIS.TYPE_URI, StandardURIs.boolURI,
+              val ue = ctx.addTypeUri(StandardURIs.boolURI,
                 UnaryExp(PilarAstUtil.NOT_UNOP, x))
               val itj = IfThenJump(ue, ivectorEmpty, if (e eq last) endLoc else gotoLoc)
               val ij = IfJump(ivectorEmpty, ivector(itj), None)
@@ -1657,7 +1723,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val endCheck = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, endij)
       ctx.pushLocation(endCheck)
 
-      val ONE = ctx.addProperty(URIS.TYPE_URI, StandardURIs.universalIntURI, LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii"))
+      val ONE = ctx.addTypeUri(StandardURIs.universalIntURI, LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii"))
 
       // increment/decrement iter var
       val incbe = ctx.handleBE(sloc, if (isRev) PilarAstUtil.SUB_BINOP else PilarAstUtil.PLUS_UNOP,
@@ -1689,7 +1755,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         // #l0. if(!condExp) then goto <gotoLoc>;
         val ue = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult)
-        ctx.addProperty(URIS.TYPE_URI, StandardURIs.boolURI, ue)
+        ctx.addTypeUri(StandardURIs.boolURI, ue)
         val itj = IfThenJump(ue, ivectorEmpty, gotoLoc)
         val ij = IfJump(ivectorEmpty, ivector(itj), None)
         val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, ij)
@@ -1783,7 +1849,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       // # if (!loopCond) goto endLocLabel;
       val ue = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult)
-      ctx.addProperty(URIS.TYPE_URI, StandardURIs.boolURI, ue)
+      ctx.addTypeUri(StandardURIs.boolURI, ue)
       val itj = IfThenJump(ue, ivectorEmpty, endLoc.name.get)
       val ij = IfJump(ivectorEmpty, ivector(itj), None)
       val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, ij)
@@ -1826,8 +1892,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
   def aggregateH(ctx: Context, v: => BVisitor): VisitorFunction = {
     def r = {
       val le = LiteralExp(LiteralType.INTEGER, 11111, "11111ii")
-      le(URIS.TYPE_URI) = StandardURIs.universalIntURI
-      le
+      ctx.addTypeUri(StandardURIs.universalIntURI, le)
     }
     {
       case o @ NamedArrayAggregateEx(sloc, arrayAssocs, typ, checks) =>
@@ -1848,7 +1913,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 cases :+= SwitchCaseExp(x, ivectorEmpty, rhs)
             }
         }
-        ctx.pushResultDummy((cases, default), sloc)
+
+        val iterNE = ctx.addTypeUri(URIS.DUMMY_URI, NameExp(
+          ctx.addResourceUri(NameUser("iter"), URIS.DUMMY_URI)))
+        val iterND = ctx.addResourceUri(NameDefinition("iter"), URIS.DUMMY_URI)
+
+        val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
+
+        val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
+        val fe = FunExp(ivector(Matching(ivector(pd), se)))
+        ctx.pushResult(fe, sloc)
         false
       case o @ PositionalArrayAggregateEx(sloc, arrayAssocs, typ, checks) =>
         // Table'(5, 8, 4, 1, others => 0)
@@ -1863,7 +1937,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             val rhs: Exp = ctx.popResult
 
             if (choices.getElements.isEmpty) {
-              val ne = ctx.addProperty(URIS.TYPE_URI, URIS.DUMMY_URI,
+              val ne = ctx.addTypeUri(URIS.DUMMY_URI,
                 NameExp(ctx.addResourceUri(NameUser(s"__positional$i"), URIS.DUMMY_URI)))
               cases :+= SwitchCaseExp(ne, ivectorEmpty, rhs)
               i += 1
@@ -1871,7 +1945,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               default = Some(rhs)
             }
         }
-        ctx.pushResultDummy((cases, default), sloc)
+        val iterNE = ctx.addTypeUri(URIS.DUMMY_URI, NameExp(
+          ctx.addResourceUri(NameUser("iter"), URIS.DUMMY_URI)))
+        val iterND = ctx.addResourceUri(NameDefinition("iter"), URIS.DUMMY_URI)
+
+        val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
+
+        val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
+        val fe = FunExp(ivector(Matching(ivector(pd), se)))
+
+        ctx.pushResult(fe, sloc)
         false
       case o @ RecordAggregateEx(sloc, recAssocs, typ, checks) =>
         var inits = ivectorEmpty[AttributeInit]
@@ -1896,7 +1979,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             }
           case x => throw new RuntimeException("Unexpected: " + x)
         }
-        ctx.pushResultDummy(inits, sloc)
+        ctx.pushResult(NewRecordExp(null, inits), sloc)
         false
     }
   }
@@ -1906,10 +1989,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       v(prefix)
       val p: NameExp = ctx.popResult
 
-      val _typUri = if (typeUri != null) typeUri
-      else if (p ? URIS.TYPE_URI)
-        p(URIS.TYPE_URI)
-      else p.name.uri
+      val _typUri = 
+        if (typeUri != null) typeUri
+        else if (p ? URIS.TYPE_URI)
+          p(URIS.TYPE_URI)
+        else p.name.uri
 
       val arg = if (createTypeExp) ctx.makeTypeExp(p, _typUri) else p
 
@@ -1976,19 +2060,18 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             var elements = ivectorEmpty[(Exp, Exp)]
             for (de <- designatorExps.getExpressions) {
               v(de)
-              ctx.popResultDummy.asInstanceOf[Any] match {
-                case x: (ISeq[SwitchCaseExp], Option[Exp]) =>
-                  // from NamedArrayAggregate
-                  assert(x._2.isEmpty) // no others case
+              ctx.popResult.asInstanceOf[Any] match {
+                case fe: FunExp =>
+                  assert(fe.matchings.size == 1)
 
-                  elements ++= x._1.map(f => (f.cond, f.exp))
-                case inits: ISeq[AttributeInit] =>
-                  // from RecordAggregate
-                  throw new RuntimeException("Unexpected: " + inits)
+                  val se = fe.matchings.head.exp.asInstanceOf[SwitchExp]
+                  assert(se.defaultCase == null)
+
+                  elements ++= se.cases.map(f => (f.cond, f.exp))
                 case x => throw new RuntimeException("Unexpected: " + x)
               }
             }
-            val fe = ctx.addProperty(URIS.TYPE_URI, typ, NewFunctionExp(elements))
+            val fe = ctx.addTypeUri(typ, NewFunctionExp(elements))
             val _args = TupleExp(ivector(component, fe))
             (Attribute.ATTRIBUTE_UIF_ARRAY_UPDATE, _args)
           case "loop_entry" =>
@@ -2012,14 +2095,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val cond = TupleExp(ivector(lowBound, highBound))
       val cases = ivector(SwitchCaseExp(cond, ivectorEmpty, _pred))
-      val defaultCase = ctx.addProperty(URIS.TYPE_URI, typ,
-          LiteralExp(LiteralType.BOOLEAN, true, "true"))
+      val defaultCase = ctx.addTypeUri(typ,
+        LiteralExp(LiteralType.BOOLEAN, true, "true"))
       val se = SwitchExp(iterNE, cases, defaultCase)
 
       val nts = NamedTypeSpec(markNE.name, ivectorEmpty)
       val pd = ParamDecl(Some(nts), iterND, ivectorEmpty)
       val m = Matching(ivector(pd), se)
-      val arg = ctx.addProperty(URIS.TYPE_URI, typ, FunExp(ivector(m)))
+      val arg = ctx.addTypeUri(typ, FunExp(ivector(m)))
 
       val uif = if (isUniversal) Proof.PROOF_UIF_FOR_ALL else Proof.PROOF_UIF_FOR_SOME
       val ce = ctx.createUIFCall(uif, arg, typ)
@@ -2062,10 +2145,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           ctx.popResult.asInstanceOf[Exp] match {
             case ne @ NameExp(nu) =>
               // the name of the method is an identifier and has no type
-              if (!(ne ? URIS.TYPE_URI)) ctx.addProperty(URIS.TYPE_URI, callExpType, ne)
+              if (!(ne ? URIS.TYPE_URI)) ctx.addTypeUri(callExpType, ne)
 
               val ce = CallExp(ne, TupleExp(plist.toList))
-              ctx.addProperty(URIS.TYPE_URI, callExpType, ce)
+              ctx.addTypeUri(callExpType, ce)
 
               if (ctx.processingContract) {
                 ctx.pushResult(ctx.handleExp(ce), sloc)
@@ -2091,38 +2174,28 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       case IntegerLiteralEx(sloc, litVal, typUri, checks) =>
         val v = litVal.replaceAll("_", "") // e.g. 3_500
         val le = LiteralExp(LiteralType.INTEGER, BigInt(v), v + "ii")
-        le(URIS.TYPE_URI) = typUri match {
-          case "universal integer" => StandardURIs.universalIntURI
-          case x => x
-        }
+        ctx.addTypeUri(typUri, le)
         ctx.pushResult(le, sloc)
         false
       case QualifiedExpressionEx(sloc, mark, exp, typ, checks) =>
         val (sloc, typeName, trefUri, typeUri) = ctx.getName(mark)
         val nu = ctx.addResourceUri(NameUser(typeName), URIS.DUMMY_URI)
-        val nts = NamedTypeSpec(ctx.addProperty(URIS.TYPE_URI, typeUri, nu), ivectorEmpty)
+        val nts = NamedTypeSpec(ctx.addTypeUri(typeUri, nu), ivectorEmpty)
 
         v(exp)
-        ctx.popResultDummy.asInstanceOf[Any] match {
-          case x: (ISeq[SwitchCaseExp], Option[Exp]) =>
+        ctx.popResult.asInstanceOf[Any] match {
+          case fe: FunExp =>
             // from NamedArrayAggregate
 
-            val iterNE = ctx.addProperty(URIS.TYPE_URI, URIS.DUMMY_URI, NameExp(
-              ctx.addResourceUri(NameUser("iter"), URIS.DUMMY_URI)))
-            val iterND = ctx.addResourceUri(NameDefinition("iter"), URIS.DUMMY_URI)
-
-            val se = SwitchExp(iterNE, x._1, if (x._2.isDefined) x._2.get else null)
-
-            val pd: ParamDecl = ParamDecl(Some(nts), iterND, ivectorEmpty)
-            val fe = FunExp(ivector(Matching(ivector(pd), se)))
-
-            val ce = ctx.addProperty(URIS.TYPE_URI, typ,
-              CallExp(ctx.addProperty(URIS.TYPE_URI, typ, TypeExp(nts)), fe))
+            val ce = ctx.addTypeUri(typ,
+              CallExp(ctx.addTypeUri(typ, TypeExp(nts)), fe))
 
             ctx.pushResult(ce, sloc)
-          case inits: ISeq[AttributeInit] =>
+          case nre: NewRecordExp =>
             // from RecordAggregate
-            val re = ctx.addProperty(URIS.TYPE_URI, typ, NewRecordExp(nts, inits))
+            assert(nre.recordType == null)
+            val re = ctx.addTypeUri(typ,
+              NewRecordExp(nts, nre.attributeInits))
             ctx.pushResult(re, sloc)
           case x => throw new RuntimeException("Unexpected: " + x)
         }
@@ -2131,10 +2204,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       case RealLiteralEx(sloc, litVal, typUri, checks) =>
         val v = litVal.replaceAll("_", "")
         val le = LiteralExp(LiteralType.FLOAT, v, v)
-        le(URIS.TYPE_URI) = typUri match {
-          case "universal real" => StandardURIs.universalRealURI
-          case x => println(x); x
-        }
+        ctx.addTypeUri(typUri, le)
         ctx.pushResult(le, sloc)
         false
       case DiscreteSimpleExpressionRangeEx(sloc, lb, ub, checks) =>
@@ -2159,14 +2229,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         if (typeUri == StandardURIs.boolURI) {
           val v = refName.toLowerCase == "true"
           val le = LiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase)
-          ctx.addProperty(URIS.TYPE_URI, StandardURIs.boolURI, le)
+          ctx.addTypeUri(StandardURIs.boolURI, le)
           ctx.pushResult(le, sloc)
         } else {
           val nu = ctx.addResourceUri(NameUser(refName), refUri)
           ctx.addProperty(URIS.REF_URI, refUri, nu)
-          ctx.addProperty(URIS.TYPE_URI, typeUri, nu)
+          ctx.addTypeUri(typeUri, nu)
 
-          val ne = ctx.addProperty(URIS.TYPE_URI, typeUri, NameExp(nu))
+          val ne = ctx.addTypeUri(typeUri, NameExp(nu))
           ctx.pushResult(ne, sloc)
         }
         false
@@ -2189,7 +2259,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         }
 
         val ie = IndexingExp(pprefix, indices.toList)
-        ctx.addProperty(URIS.TYPE_URI, theType, ie)
+        ctx.addTypeUri(theType, ie)
 
         ctx.pushResult(ie, sloc)
         false
@@ -2201,16 +2271,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val attr = NameUser(selname)
         ctx.addResourceUri(attr, seluri)
         ctx.addProperty(URIS.REF_URI, seluri, attr)
-        ctx.addProperty(URIS.TYPE_URI, styp, attr)
+        ctx.addTypeUri(styp, attr)
 
         if (seluri.startsWith("ada://component")) {
-          val ae = ctx.addProperty(URIS.TYPE_URI, typUri, AccessExp(e, attr))
+          val ae = ctx.addTypeUri(typUri, AccessExp(e, attr))
           ctx.pushResult(ae, sloc)
         } else {
-          assert(seluri.startsWith("ada://function") || seluri.startsWith("ada://procedure"))
+          assert(URIS.isMethodUri(seluri) || URIS.isTypeUri(seluri))
           e match {
             case ne @ NameExp(nu) =>
-              val ret = ctx.addProperty(URIS.TYPE_URI, typUri,
+              val ret = ctx.addTypeUri(typUri,
                 NameExp(ctx.addResourceUri(NameUser(nu.name + "::" + selname), seluri)))
               ctx.pushResult(ret, sloc)
             case x => throw new RuntimeException("Unexpected: " + x)
@@ -2221,7 +2291,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         ctx.pushResult(ctx.handleMembershipTest(v, exp, choices), sloc)
         false
       case o @ NotInMembershipTestEx(sloc, exp, choices, typ, checks) =>
-        val ue = ctx.addProperty(URIS.TYPE_URI, StandardURIs.boolURI,
+        val ue = ctx.addTypeUri(StandardURIs.boolURI,
           UnaryExp(PilarAstUtil.NOT_UNOP, ctx.handleMembershipTest(v, exp, choices)))
 
         ctx.pushResult(ue, sloc)
@@ -2230,12 +2300,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val (sloc2, refName, refUri, typUri) = ctx.getName(mark)
 
         val nts = ctx.addSourceLoc(NamedTypeSpec(
-          ctx.addProperty(URIS.TYPE_URI, refUri, NameUser(refName)), ivectorEmpty), sloc2)
+          ctx.addTypeUri(refUri, NameUser(refName)), ivectorEmpty), sloc2)
 
         v(exp)
         val _exp: Exp = ctx.popResult
 
-        ctx.pushResult(ctx.addProperty(URIS.TYPE_URI, refUri, CastExp(nts, _exp)), sloc)
+        ctx.pushResult(ctx.addTypeUri(refUri, CastExp(nts, _exp)), sloc)
         false
       case o @ (
         IfExpressionEx(_) |

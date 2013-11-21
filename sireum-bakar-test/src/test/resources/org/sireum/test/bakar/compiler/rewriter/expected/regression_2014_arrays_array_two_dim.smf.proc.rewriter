@@ -1,0 +1,127 @@
+package Array_Two_Dim;
+
+
+procedure $$binit {
+
+  #l1.
+    Box := `Square { iter => 
+        switch iter
+          case (1ii, constThree) => { iter => 
+              switch iter
+                case (attribute__uif__first `Index, attribute__uif__last `Index) => 0ii
+                default => 1ii}
+          case (constThree + 1ii, 5ii) => { iter => 
+              switch iter
+                case (1ii, 3ii) => 1ii
+                default => 2ii}
+          case (attribute__uif__first `subIndexRange, attribute__uif__last `subIndexRange) => { iter => 
+              switch iter
+                default => 3ii}
+          case 10ii - 2ii + 1ii => { iter => 
+              switch iter
+                default => 5ii}
+          default => { iter => 
+              switch iter
+                default => 3ii}};
+
+  #l2.
+    return;
+}
+
+procedure dummy (
+        Index X,
+        Index Y) {
+
+  #l3.
+    Box[X, Y] := Box[X, Y] - 1ii;
+
+  #l4.
+    return;
+}
+
+procedure dummy2 (
+        Board_Index M,
+        Board_Index N) {
+
+  #l5.
+    aBoard[M][N] := aBoard[M][N] - 1ii;
+
+  #l6.
+    return;
+}package Array_Two_Dim;
+
+
+typealias Integer Index;
+
+typealias Index subIndexRange;
+
+typealias _UNCONSTRAINED_ARRAY_ Matrix;
+
+typealias Matrix Square;
+
+typealias _SIGNED_INTEGER_TYPE_ Board_Index;
+
+typealias _ARRAY_ Row;
+
+typealias _ARRAY_ Board;
+
+global Square @@Box;
+
+global Square @@Box2;
+
+global Board @@aBoard;
+
+procedure $$sinit {
+
+  #l7.
+    @@Box2 := `Square { iter => 
+        switch iter
+          default => { iter => 
+              switch iter
+                default => 0ii}};
+
+  #l8.
+    @@aBoard := `Board { iter => 
+        switch iter
+          default => `Row { iter => 
+              switch iter
+                default => 1ii}};
+
+  #l9.
+    return;
+}
+
+const $CONST {
+  constTwo = (Integer) 2ii;
+
+  constThree = (Integer) constTwo + 1ii;
+
+  highInt = (Integer) 10ii;
+}
+
+procedure dummy (
+        Index X,
+        Index Y) {
+
+}
+
+procedure dummy2 (
+        Board_Index M,
+        Board_Index N) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

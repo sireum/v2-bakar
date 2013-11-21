@@ -254,7 +254,7 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
                </entry>
                <entry>
                  <string>BAKAR_TYPE_URI</string>
-                 <string sid="6">universal integer</string>
+                 <string sid="6">ada://ordinary_type/universal_integer</string>
                </entry>
              </properties>
            </org.sireum.pilar.ast.NameUser>

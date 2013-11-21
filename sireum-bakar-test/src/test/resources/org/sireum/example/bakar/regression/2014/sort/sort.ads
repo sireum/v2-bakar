@@ -1,4 +1,6 @@
-package Sort is
+package Sort 
+  with SPARK_Mode
+is
   Max_Elements : constant := 3;
 
   subtype Base_Index_Type is Integer range 0 .. Max_Elements;

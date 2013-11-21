@@ -350,7 +350,7 @@ global Vector @@A;
 procedure $$sinit {
 
   #l102.
-    @@A := `Vector {Vector iter => 
+    @@A := `Vector { iter => 
         switch iter
           case (1ii, 7ii) => 2ii
           case 11ii => 3ii

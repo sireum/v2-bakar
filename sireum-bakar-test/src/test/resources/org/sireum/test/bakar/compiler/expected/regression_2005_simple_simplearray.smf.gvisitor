@@ -46,24 +46,21 @@ Model(Some(simplearray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Simp
                 Some(NameDefinition(l1))
                   NameDefinition(l1)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(@@A)),:=,CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(Some
+                AssignAction(Vector(),NameExp(NameUser(@@A)),:=,CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None
                   List()
                   NameExp(NameUser(@@A))
                     NameUser(@@A)
-                  CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameD
+                  CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameE
                     TypeExp(NamedTypeSpec(NameUser(Vector),Vector()))
                       NamedTypeSpec(NameUser(Vector),Vector())
                         NameUser(Vector)
                         List()
-                    FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter
-                      Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vect
-                        Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(Swit
-                          Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector()))
-                            ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())
-                              Some(NamedTypeSpec(NameUser(Vector),Vector()))
-                                NamedTypeSpec(NameUser(Vector),Vector())
-                                  NameUser(Vector)
-                                  List()
+                    FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(NameExp(NameUser(_
+                      Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(NameExp(NameUser(__positi
+                        Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(NameExp(NameUser(__positional0))
+                          Vector(ParamDecl(None,NameDefinition(iter),Vector()))
+                            ParamDecl(None,NameDefinition(iter),Vector())
+                              None
                               NameDefinition(iter)
                               List()
                           SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(NameExp(NameUser(__positional0)),Vector(),LiteralExp(INTEGER,0,0ii)), SwitchCaseExp(NameExp(Nam
@@ -95,24 +92,21 @@ Model(Some(simplearray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Simp
                 Some(NameDefinition(l2))
                   NameDefinition(l2)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(@@B)),:=,CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(Some
+                AssignAction(Vector(),NameExp(NameUser(@@B)),:=,CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None
                   List()
                   NameExp(NameUser(@@B))
                     NameUser(@@B)
-                  CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameD
+                  CallExp(TypeExp(NamedTypeSpec(NameUser(Vector),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameE
                     TypeExp(NamedTypeSpec(NameUser(Vector),Vector()))
                       NamedTypeSpec(NameUser(Vector),Vector())
                         NameUser(Vector)
                         List()
-                    FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter
-                      Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vect
-                        Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(Swit
-                          Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector()))
-                            ParamDecl(Some(NamedTypeSpec(NameUser(Vector),Vector())),NameDefinition(iter),Vector())
-                              Some(NamedTypeSpec(NameUser(Vector),Vector()))
-                                NamedTypeSpec(NameUser(Vector),Vector())
-                                  NameUser(Vector)
-                                  List()
+                    FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(LiteralExp(INTEGER
+                      Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(LiteralExp(INTEGER,0,0ii)
+                        Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(LiteralExp(INTEGER,0,0ii),Vector
+                          Vector(ParamDecl(None,NameDefinition(iter),Vector()))
+                            ParamDecl(None,NameDefinition(iter),Vector())
+                              None
                               NameDefinition(iter)
                               List()
                           SwitchExp(NameExp(NameUser(iter)),Vector(SwitchCaseExp(LiteralExp(INTEGER,0,0ii),Vector(),LiteralExp(INTEGER,0,0ii)), SwitchCaseExp(LiteralExp(INTEGER

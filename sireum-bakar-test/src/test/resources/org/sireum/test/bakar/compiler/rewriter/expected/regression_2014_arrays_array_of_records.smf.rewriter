@@ -1,0 +1,101 @@
+package Array_Of_Records;
+
+
+procedure $$binit {
+
+  #l1.
+    oArray := `ObjectArray { iter => 
+        switch iter
+          default => dummyObject};
+
+  #l2.
+    return;
+}
+
+procedure Swap (
+        ObjectArray Q,
+        Index_Range theIndex) {
+  local
+    Integer temp1;
+    Integer temp2;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
+
+  #rwl0.
+    _t0 := Q[theIndex];
+
+  #l3.
+    temp1 := _t0.X;
+
+  #rwl1.
+    _t1 := Q[theIndex];
+
+  #l4.
+    temp2 := _t1.Y;
+
+  #rwl2.
+    _t2 := Q[theIndex];
+
+  #l5.
+    _t2.X := temp2;
+
+  #rwl3.
+    Q[theIndex] := _t2;
+
+  #rwl4.
+    _t3 := Q[theIndex];
+
+  #l6.
+    _t3.Y := temp1;
+
+  #rwl5.
+    Q[theIndex] := _t3;
+
+  #l7.
+    return;
+}package Array_Of_Records;
+
+
+record Object {
+
+  Integer X;
+
+  Integer Y;
+}
+
+typealias _SIGNED_INTEGER_TYPE_ Index_Range;
+
+typealias _ARRAY_ ObjectArray;
+
+global ObjectArray @@oArray;
+
+const $CONST {
+  dummyObject = (Object) `Object {
+    __positional0 = 0ii,
+    __positional1 = 0ii
+  };
+}
+
+procedure Swap (
+        ObjectArray Q,
+        Index_Range theIndex) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

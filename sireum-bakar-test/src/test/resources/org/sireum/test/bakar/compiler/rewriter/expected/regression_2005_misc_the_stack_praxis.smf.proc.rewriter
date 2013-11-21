@@ -21,7 +21,7 @@ procedure $$binit {
     @@Pointer := 0ii;
 
   #l2.
-    @@S := `Vector {Vector iter => 
+    @@S := `Vector { iter => 
         switch iter
           case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
     };

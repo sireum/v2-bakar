@@ -1,0 +1,148 @@
+package MyMatrix;
+
+
+procedure Multiply (
+        Matrix X,
+        Matrix Y,
+        Matrix Z) {
+  local
+    Matrix_Index I;
+    Matrix_Index _tcomp0;
+    Matrix_Index _tcomp1;
+    Matrix_Index J;
+    Matrix_Index _tcomp2;
+    Matrix_Index _tcomp3;
+    Matrix_Index K;
+    Matrix_Index _tcomp4;
+    Matrix_Index _tcomp5;
+
+
+  #l1.
+    Z := `Matrix { iter => 
+        switch iter
+          case (attribute__uif__first `Matrix_Index, attribute__uif__last `Matrix_Index) => { iter => 
+              switch iter
+                case (attribute__uif__first `Matrix_Index, attribute__uif__last `Matrix_Index) => 0ii
+                default => 0ii}
+          default => { iter => 
+              switch iter
+                default => 0ii}};
+
+  #l3.
+    _tcomp0 := attribute__uif__first `Matrix_Index;
+
+  #l4.
+    _tcomp1 := attribute__uif__last `Matrix_Index;
+
+  #l5.
+    if _tcomp0 > _tcomp1 then goto l2;
+
+  #l6.
+    I := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #l9.
+    _tcomp2 := attribute__uif__first `Matrix_Index;
+
+  #l10.
+    _tcomp3 := attribute__uif__last `Matrix_Index;
+
+  #l11.
+    if _tcomp2 > _tcomp3 then goto l8;
+
+  #l12.
+    J := _tcomp2;
+
+  #l13.
+    // empty loc
+
+  #l15.
+    _tcomp4 := attribute__uif__first `Matrix_Index;
+
+  #l16.
+    _tcomp5 := attribute__uif__last `Matrix_Index;
+
+  #l17.
+    if _tcomp4 > _tcomp5 then goto l14;
+
+  #l18.
+    K := _tcomp4;
+
+  #l19.
+    // empty loc
+
+  #l20.
+    Z[I, J] := Z[I, J] + X[I, K] * Y[K, J];
+
+  #l21.
+    if K == _tcomp5 then goto l14;
+
+  #l22.
+    K := K + 1ii;
+
+  #l23.
+    goto l19;
+
+  #l14.
+    // empty loc
+
+  #l24.
+    if J == _tcomp3 then goto l8;
+
+  #l25.
+    J := J + 1ii;
+
+  #l26.
+    goto l13;
+
+  #l8.
+    // empty loc
+
+  #l27.
+    if I == _tcomp1 then goto l2;
+
+  #l28.
+    I := I + 1ii;
+
+  #l29.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l30.
+    return (Z);
+}package MyMatrix;
+
+
+typealias _PRIVATE_TYPE_DECLARATION_ Matrix_Index;
+
+typealias _PRIVATE_TYPE_DECLARATION_ Matrix;
+
+typealias _SIGNED_INTEGER_TYPE_ Matrix_Index;
+
+typealias _ARRAY_ Matrix;
+
+procedure Multiply (
+        Matrix X,
+        Matrix Y,
+        Matrix Z) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

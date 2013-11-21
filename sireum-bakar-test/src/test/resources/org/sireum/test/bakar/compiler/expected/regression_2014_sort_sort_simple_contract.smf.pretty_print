@@ -16,7 +16,7 @@ procedure Boolean isSorted (
         Vector Z
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSorted-8:12/Z-8:21</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSorted-9:12/Z-9:21</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -36,7 +36,7 @@ procedure Boolean isSorted (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://function_body/Sort_Simple_Contract-1:9/isSorted-8:12</string>""")
+      ("""<string sid="1">ada://function_body/Sort_Simple_Contract-1:9/isSorted-9:12</string>""")
 
     @util.loc
 
@@ -223,7 +223,7 @@ procedure Boolean isSet (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSet-12:12/A-12:18</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSet-13:12/A-13:18</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -243,7 +243,7 @@ procedure Boolean isSet (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://function_body/Sort_Simple_Contract-1:9/isSet-12:12</string>""")
+      ("""<string sid="1">ada://function_body/Sort_Simple_Contract-1:9/isSet-13:12</string>""")
 
     @util.loc
 
@@ -346,7 +346,7 @@ procedure Boolean isPerm (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-11:12/A-11:19</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/A-12:19</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -367,7 +367,7 @@ procedure Boolean isPerm (
         Vector B
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-11:12/B-11:22</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/B-12:22</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -387,7 +387,7 @@ procedure Boolean isPerm (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://function_body/Sort_Simple_Contract-1:9/isPerm-11:12</string>""")
+      ("""<string sid="1">ada://function_body/Sort_Simple_Contract-1:9/isPerm-12:12</string>""")
 
     @util.loc
 
@@ -474,7 +474,7 @@ procedure BubbleSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-14:13/A-14:24</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -494,7 +494,7 @@ procedure BubbleSort (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort-14:13</string>""")
+      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort-15:13</string>""")
 
     @util.loc
 
@@ -830,7 +830,7 @@ procedure SwapElements (
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
-                         <string sid="8">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>
+                         <string sid="8">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -1789,7 +1789,7 @@ procedure BubbleSort_using_SwapElements (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-19:13/A-19:43</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -1809,7 +1809,7 @@ procedure BubbleSort_using_SwapElements (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-19:13</string>""")
+      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13</string>""")
 
     @util.loc
 
@@ -1917,7 +1917,7 @@ procedure InsertionSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-24:13/A-24:27</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -1937,7 +1937,7 @@ procedure InsertionSort (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/InsertionSort-24:13</string>""")
+      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/InsertionSort-25:13</string>""")
 
     @util.loc
 
@@ -2039,7 +2039,7 @@ procedure SelectionSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-29:13/A-29:27</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -2059,7 +2059,7 @@ procedure SelectionSort (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/SelectionSort-29:13</string>""")
+      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/SelectionSort-30:13</string>""")
 
     @util.loc
 
@@ -2191,7 +2191,7 @@ procedure ShellSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-34:13/A-34:23</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -2211,7 +2211,7 @@ procedure ShellSort (
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/ShellSort-34:13</string>""")
+      ("""<string sid="1">ada://procedure_body/Sort_Simple_Contract-1:9/ShellSort-35:13</string>""")
 
     @util.loc
 
@@ -2504,7 +2504,7 @@ package Sort_Simple_Contract
          <string sid="1">sort_simple_contract.ads</string>
          <int>1</int>
          <int>1</int>
-         <int>39</int>
+         <int>40</int>
          <int>25</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
@@ -2515,7 +2515,7 @@ typealias Integer Index_Type
 
       ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
          <string>Index_Type</string>
-         <string sid="1">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11</string>
+         <string sid="1">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11</string>
          <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
            <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
@@ -2533,9 +2533,9 @@ typealias Integer Index_Type
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
                    <string sid="4">sort_simple_contract.ads</string>
-                   <int>5</int>
+                   <int>6</int>
                    <int>39</int>
-                   <int>5</int>
+                   <int>6</int>
                    <int>39</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -2552,9 +2552,9 @@ typealias Integer Index_Type
                      <string>integer_number</string>
                      <ilist ttype="ilist">
                        <string sid="5">Sort_Simple_Contract-1:9</string>
-                       <string sid="6">Max_Elements-3:3</string>
+                       <string sid="6">Max_Elements-4:3</string>
                      </ilist>
-                     <string sid="7">ada://integer_number/Sort_Simple_Contract-1:9/Max_Elements-3:3</string>
+                     <string sid="7">ada://integer_number/Sort_Simple_Contract-1:9/Max_Elements-4:3</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
@@ -2563,22 +2563,22 @@ typealias Integer Index_Type
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
-                   <string sid="8">universal integer</string>
+                   <string srefid="3"/>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
              <properties mtype="mlinkedmap">
                <entry>
                  <string>BAKAR_TYPE_URI</string>
-                 <string srefid="8"/>
+                 <string srefid="3"/>
                </entry>
                <entry>
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
                    <string srefid="4"/>
-                   <int>5</int>
+                   <int>6</int>
                    <int>44</int>
-                   <int>5</int>
+                   <int>6</int>
                    <int>55</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -2589,11 +2589,11 @@ typealias Integer Index_Type
 
     @BAKAR_TYPE_URI
 
-      ("""<string sid="1">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11</string>""")
+      ("""<string sid="1">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11</string>""")
 
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11</string>""")
+      ("""<string sid="1">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11</string>""")
 ;
 
 typealias _ARRAY_ Vector
@@ -2604,17 +2604,17 @@ typealias _ARRAY_ Vector
          <int>1</int>
          <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <ivector ttype="ivector">
-           <string sid="2">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-5:11</string>
+           <string sid="2">ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11</string>
          </ivector>
        </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
 
     @BAKAR_TYPE_URI
 
-      ("""<string sid="1">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>""")
+      ("""<string sid="1">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>""")
 
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>""")
+      ("""<string sid="1">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>""")
 ;
 
 const $CONST {
@@ -2625,7 +2625,7 @@ procedure Boolean isSorted (
         Vector Z
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSorted-8:12/Z-8:21</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSorted-9:12/Z-9:21</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -2637,15 +2637,15 @@ procedure Boolean isSorted (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>8</int>
+                 <int>9</int>
                  <int>21</int>
-                 <int>8</int>
+                 <int>9</int>
                  <int>21</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://function/Sort_Simple_Contract-1:9/isSorted-8:12</string>""")
+      ("""<string sid="1">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>""")
 
     @BAKAR_PROCEDURE_INFO
 
@@ -2680,9 +2680,9 @@ procedure Boolean isSorted (
                      <string>function</string>
                      <ilist ttype="ilist">
                        <string sid="3">Sort_Simple_Contract-1:9</string>
-                       <string>isSorted-8:12</string>
+                       <string>isSorted-9:12</string>
                      </ilist>
-                     <string sid="4">ada://function/Sort_Simple_Contract-1:9/isSorted-8:12</string>
+                     <string sid="4">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
@@ -2696,9 +2696,9 @@ procedure Boolean isSorted (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
                    <string sid="5">sort_simple_contract.ads</string>
-                   <int>9</int>
+                   <int>10</int>
                    <int>20</int>
-                   <int>9</int>
+                   <int>10</int>
                    <int>27</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -2713,9 +2713,9 @@ procedure Boolean isSorted (
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="9" size="5">
                  <string srefid="5"/>
-                 <int>9</int>
+                 <int>10</int>
                  <int>20</int>
-                 <int>9</int>
+                 <int>10</int>
                  <int>34</int>
                </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
              </entry>
@@ -2727,9 +2727,9 @@ procedure Boolean isSorted (
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>8</int>
-         <int>3</int>
          <int>9</int>
+         <int>3</int>
+         <int>10</int>
          <int>35</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -2740,7 +2740,7 @@ procedure Boolean isPerm (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-11:12/A-11:19</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/A-12:19</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -2752,16 +2752,16 @@ procedure Boolean isPerm (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>11</int>
+                 <int>12</int>
                  <int>19</int>
-                 <int>11</int>
+                 <int>12</int>
                  <int>19</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Vector B
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-11:12/B-11:22</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/B-12:22</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -2773,23 +2773,23 @@ procedure Boolean isPerm (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>11</int>
+                 <int>12</int>
                  <int>22</int>
-                 <int>11</int>
+                 <int>12</int>
                  <int>22</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://function/Sort_Simple_Contract-1:9/isPerm-11:12</string>""")
+      ("""<string sid="1">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>""")
 
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>11</int>
+         <int>12</int>
          <int>3</int>
-         <int>11</int>
+         <int>12</int>
          <int>48</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -2800,7 +2800,7 @@ procedure Boolean isSet (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSet-12:12/A-12:18</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSet-13:12/A-13:18</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -2812,23 +2812,23 @@ procedure Boolean isSet (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>12</int>
+                 <int>13</int>
                  <int>18</int>
-                 <int>12</int>
+                 <int>13</int>
                  <int>18</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://function/Sort_Simple_Contract-1:9/isSet-12:12</string>""")
+      ("""<string sid="1">ada://function/Sort_Simple_Contract-1:9/isSet-13:12</string>""")
 
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>12</int>
+         <int>13</int>
          <int>3</int>
-         <int>12</int>
+         <int>13</int>
          <int>44</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -2839,7 +2839,7 @@ procedure BubbleSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-14:13/A-14:24</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -2851,22 +2851,22 @@ procedure BubbleSort (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>14</int>
+                 <int>15</int>
                  <int>24</int>
-                 <int>14</int>
+                 <int>15</int>
                  <int>24</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/BubbleSort-14:13</string>""")
+      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/BubbleSort-15:13</string>""")
 
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
-             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-14:13/A-14:24</string>
+             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24</string>
              <iset ttype="iset">
                <string srefid="1"/>
              </iset>
@@ -2886,9 +2886,9 @@ procedure BubbleSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string sid="2">Sort_Simple_Contract-1:9</string>
-                         <string>isSorted-8:12</string>
+                         <string>isSorted-9:12</string>
                        </ilist>
-                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-8:12</string>
+                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -2902,9 +2902,9 @@ procedure BubbleSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
                      <string sid="4">sort_simple_contract.ads</string>
-                     <int>17</int>
+                     <int>18</int>
                      <int>13</int>
-                     <int>17</int>
+                     <int>18</int>
                      <int>20</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -2927,8 +2927,8 @@ procedure BubbleSort (
                            <string>parameter</string>
                            <ilist ttype="ilist">
                              <string srefid="2"/>
-                             <string sid="6">BubbleSort-14:13</string>
-                             <string>A-14:24</string>
+                             <string sid="6">BubbleSort-15:13</string>
+                             <string>A-15:24</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -2939,7 +2939,7 @@ procedure BubbleSort (
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
-                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>
+                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -2952,9 +2952,9 @@ procedure BubbleSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
                          <string srefid="4"/>
-                         <int>17</int>
+                         <int>18</int>
                          <int>22</int>
-                         <int>17</int>
+                         <int>18</int>
                          <int>22</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -2971,9 +2971,9 @@ procedure BubbleSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
                    <string srefid="4"/>
-                   <int>17</int>
+                   <int>18</int>
                    <int>13</int>
-                   <int>17</int>
+                   <int>18</int>
                    <int>23</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -2991,9 +2991,9 @@ procedure BubbleSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string srefid="2"/>
-                         <string>isPerm-11:12</string>
+                         <string>isPerm-12:12</string>
                        </ilist>
-                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-11:12</string>
+                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -3007,9 +3007,9 @@ procedure BubbleSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="17" size="5">
                      <string srefid="4"/>
-                     <int>17</int>
+                     <int>18</int>
                      <int>34</int>
-                     <int>17</int>
+                     <int>18</int>
                      <int>39</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -3033,7 +3033,7 @@ procedure BubbleSort (
                            <ilist ttype="ilist">
                              <string srefid="2"/>
                              <string srefid="6"/>
-                             <string>A-14:24</string>
+                             <string>A-15:24</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3057,9 +3057,9 @@ procedure BubbleSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="22" size="5">
                          <string srefid="4"/>
-                         <int>17</int>
+                         <int>18</int>
                          <int>41</int>
-                         <int>17</int>
+                         <int>18</int>
                          <int>41</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3096,7 +3096,7 @@ procedure BubbleSort (
                              <ilist ttype="ilist">
                                <string srefid="2"/>
                                <string srefid="6"/>
-                               <string>A-14:24</string>
+                               <string>A-15:24</string>
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3120,9 +3120,9 @@ procedure BubbleSort (
                          <string>util.loc</string>
                          <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="30" size="5">
                            <string srefid="4"/>
-                           <int>17</int>
+                           <int>18</int>
                            <int>44</int>
-                           <int>17</int>
+                           <int>18</int>
                            <int>44</int>
                          </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                        </entry>
@@ -3137,9 +3137,9 @@ procedure BubbleSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="31" size="5">
                          <string srefid="4"/>
-                         <int>17</int>
+                         <int>18</int>
                          <int>44</int>
-                         <int>17</int>
+                         <int>18</int>
                          <int>48</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3156,9 +3156,9 @@ procedure BubbleSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="32" size="5">
                    <string srefid="4"/>
-                   <int>17</int>
+                   <int>18</int>
                    <int>34</int>
-                   <int>17</int>
+                   <int>18</int>
                    <int>49</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -3173,9 +3173,9 @@ procedure BubbleSort (
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="33" size="5">
                  <string srefid="4"/>
-                 <int>17</int>
+                 <int>18</int>
                  <int>13</int>
-                 <int>17</int>
+                 <int>18</int>
                  <int>49</int>
                </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
              </entry>
@@ -3187,9 +3187,9 @@ procedure BubbleSort (
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>14</int>
+         <int>15</int>
          <int>3</int>
-         <int>17</int>
+         <int>18</int>
          <int>50</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -3200,7 +3200,7 @@ procedure BubbleSort_using_SwapElements (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-19:13/A-19:43</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -3212,22 +3212,22 @@ procedure BubbleSort_using_SwapElements (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>19</int>
+                 <int>20</int>
                  <int>43</int>
-                 <int>19</int>
+                 <int>20</int>
                  <int>43</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-19:13</string>""")
+      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13</string>""")
 
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
-             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-19:13/A-19:43</string>
+             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43</string>
              <iset ttype="iset">
                <string srefid="1"/>
              </iset>
@@ -3247,9 +3247,9 @@ procedure BubbleSort_using_SwapElements (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string sid="2">Sort_Simple_Contract-1:9</string>
-                         <string>isSorted-8:12</string>
+                         <string>isSorted-9:12</string>
                        </ilist>
-                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-8:12</string>
+                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -3263,9 +3263,9 @@ procedure BubbleSort_using_SwapElements (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
                      <string sid="4">sort_simple_contract.ads</string>
-                     <int>22</int>
+                     <int>23</int>
                      <int>13</int>
-                     <int>22</int>
+                     <int>23</int>
                      <int>20</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -3288,8 +3288,8 @@ procedure BubbleSort_using_SwapElements (
                            <string>parameter</string>
                            <ilist ttype="ilist">
                              <string srefid="2"/>
-                             <string sid="6">BubbleSort_using_SwapElements-19:13</string>
-                             <string>A-19:43</string>
+                             <string sid="6">BubbleSort_using_SwapElements-20:13</string>
+                             <string>A-20:43</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3300,7 +3300,7 @@ procedure BubbleSort_using_SwapElements (
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
-                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>
+                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -3313,9 +3313,9 @@ procedure BubbleSort_using_SwapElements (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
                          <string srefid="4"/>
+                         <int>23</int>
                          <int>22</int>
-                         <int>22</int>
-                         <int>22</int>
+                         <int>23</int>
                          <int>22</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3332,9 +3332,9 @@ procedure BubbleSort_using_SwapElements (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
                    <string srefid="4"/>
-                   <int>22</int>
+                   <int>23</int>
                    <int>13</int>
-                   <int>22</int>
+                   <int>23</int>
                    <int>23</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -3352,9 +3352,9 @@ procedure BubbleSort_using_SwapElements (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string srefid="2"/>
-                         <string>isPerm-11:12</string>
+                         <string>isPerm-12:12</string>
                        </ilist>
-                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-11:12</string>
+                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -3368,9 +3368,9 @@ procedure BubbleSort_using_SwapElements (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="17" size="5">
                      <string srefid="4"/>
-                     <int>22</int>
+                     <int>23</int>
                      <int>34</int>
-                     <int>22</int>
+                     <int>23</int>
                      <int>39</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -3394,7 +3394,7 @@ procedure BubbleSort_using_SwapElements (
                            <ilist ttype="ilist">
                              <string srefid="2"/>
                              <string srefid="6"/>
-                             <string>A-19:43</string>
+                             <string>A-20:43</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3418,9 +3418,9 @@ procedure BubbleSort_using_SwapElements (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="22" size="5">
                          <string srefid="4"/>
-                         <int>22</int>
+                         <int>23</int>
                          <int>41</int>
-                         <int>22</int>
+                         <int>23</int>
                          <int>41</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3457,7 +3457,7 @@ procedure BubbleSort_using_SwapElements (
                              <ilist ttype="ilist">
                                <string srefid="2"/>
                                <string srefid="6"/>
-                               <string>A-19:43</string>
+                               <string>A-20:43</string>
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3481,9 +3481,9 @@ procedure BubbleSort_using_SwapElements (
                          <string>util.loc</string>
                          <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="30" size="5">
                            <string srefid="4"/>
-                           <int>22</int>
+                           <int>23</int>
                            <int>44</int>
-                           <int>22</int>
+                           <int>23</int>
                            <int>44</int>
                          </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                        </entry>
@@ -3498,9 +3498,9 @@ procedure BubbleSort_using_SwapElements (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="31" size="5">
                          <string srefid="4"/>
-                         <int>22</int>
+                         <int>23</int>
                          <int>44</int>
-                         <int>22</int>
+                         <int>23</int>
                          <int>48</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3517,9 +3517,9 @@ procedure BubbleSort_using_SwapElements (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="32" size="5">
                    <string srefid="4"/>
-                   <int>22</int>
+                   <int>23</int>
                    <int>34</int>
-                   <int>22</int>
+                   <int>23</int>
                    <int>49</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -3534,9 +3534,9 @@ procedure BubbleSort_using_SwapElements (
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="33" size="5">
                  <string srefid="4"/>
-                 <int>22</int>
+                 <int>23</int>
                  <int>13</int>
-                 <int>22</int>
+                 <int>23</int>
                  <int>49</int>
                </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
              </entry>
@@ -3548,9 +3548,9 @@ procedure BubbleSort_using_SwapElements (
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>19</int>
+         <int>20</int>
          <int>3</int>
-         <int>22</int>
+         <int>23</int>
          <int>50</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -3561,7 +3561,7 @@ procedure InsertionSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-24:13/A-24:27</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -3573,22 +3573,22 @@ procedure InsertionSort (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>24</int>
+                 <int>25</int>
                  <int>27</int>
-                 <int>24</int>
+                 <int>25</int>
                  <int>27</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/InsertionSort-24:13</string>""")
+      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/InsertionSort-25:13</string>""")
 
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
-             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-24:13/A-24:27</string>
+             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27</string>
              <iset ttype="iset">
                <string srefid="1"/>
              </iset>
@@ -3608,9 +3608,9 @@ procedure InsertionSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string sid="2">Sort_Simple_Contract-1:9</string>
-                         <string>isSorted-8:12</string>
+                         <string>isSorted-9:12</string>
                        </ilist>
-                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-8:12</string>
+                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -3624,9 +3624,9 @@ procedure InsertionSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
                      <string sid="4">sort_simple_contract.ads</string>
-                     <int>27</int>
+                     <int>28</int>
                      <int>13</int>
-                     <int>27</int>
+                     <int>28</int>
                      <int>20</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -3649,8 +3649,8 @@ procedure InsertionSort (
                            <string>parameter</string>
                            <ilist ttype="ilist">
                              <string srefid="2"/>
-                             <string sid="6">InsertionSort-24:13</string>
-                             <string>A-24:27</string>
+                             <string sid="6">InsertionSort-25:13</string>
+                             <string>A-25:27</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3661,7 +3661,7 @@ procedure InsertionSort (
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
-                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>
+                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -3674,9 +3674,9 @@ procedure InsertionSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
                          <string srefid="4"/>
-                         <int>27</int>
+                         <int>28</int>
                          <int>22</int>
-                         <int>27</int>
+                         <int>28</int>
                          <int>22</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3693,9 +3693,9 @@ procedure InsertionSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
                    <string srefid="4"/>
-                   <int>27</int>
+                   <int>28</int>
                    <int>13</int>
-                   <int>27</int>
+                   <int>28</int>
                    <int>23</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -3713,9 +3713,9 @@ procedure InsertionSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string srefid="2"/>
-                         <string>isPerm-11:12</string>
+                         <string>isPerm-12:12</string>
                        </ilist>
-                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-11:12</string>
+                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -3729,9 +3729,9 @@ procedure InsertionSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="17" size="5">
                      <string srefid="4"/>
-                     <int>27</int>
+                     <int>28</int>
                      <int>34</int>
-                     <int>27</int>
+                     <int>28</int>
                      <int>39</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -3755,7 +3755,7 @@ procedure InsertionSort (
                            <ilist ttype="ilist">
                              <string srefid="2"/>
                              <string srefid="6"/>
-                             <string>A-24:27</string>
+                             <string>A-25:27</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3779,9 +3779,9 @@ procedure InsertionSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="22" size="5">
                          <string srefid="4"/>
-                         <int>27</int>
+                         <int>28</int>
                          <int>41</int>
-                         <int>27</int>
+                         <int>28</int>
                          <int>41</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3818,7 +3818,7 @@ procedure InsertionSort (
                              <ilist ttype="ilist">
                                <string srefid="2"/>
                                <string srefid="6"/>
-                               <string>A-24:27</string>
+                               <string>A-25:27</string>
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -3842,9 +3842,9 @@ procedure InsertionSort (
                          <string>util.loc</string>
                          <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="30" size="5">
                            <string srefid="4"/>
-                           <int>27</int>
+                           <int>28</int>
                            <int>44</int>
-                           <int>27</int>
+                           <int>28</int>
                            <int>44</int>
                          </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                        </entry>
@@ -3859,9 +3859,9 @@ procedure InsertionSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="31" size="5">
                          <string srefid="4"/>
-                         <int>27</int>
+                         <int>28</int>
                          <int>44</int>
-                         <int>27</int>
+                         <int>28</int>
                          <int>48</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -3878,9 +3878,9 @@ procedure InsertionSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="32" size="5">
                    <string srefid="4"/>
-                   <int>27</int>
+                   <int>28</int>
                    <int>34</int>
-                   <int>27</int>
+                   <int>28</int>
                    <int>49</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -3895,9 +3895,9 @@ procedure InsertionSort (
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="33" size="5">
                  <string srefid="4"/>
-                 <int>27</int>
+                 <int>28</int>
                  <int>13</int>
-                 <int>27</int>
+                 <int>28</int>
                  <int>49</int>
                </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
              </entry>
@@ -3909,9 +3909,9 @@ procedure InsertionSort (
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>24</int>
+         <int>25</int>
          <int>3</int>
-         <int>27</int>
+         <int>28</int>
          <int>50</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -3922,7 +3922,7 @@ procedure SelectionSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-29:13/A-29:27</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -3934,22 +3934,22 @@ procedure SelectionSort (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>29</int>
+                 <int>30</int>
                  <int>27</int>
-                 <int>29</int>
+                 <int>30</int>
                  <int>27</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/SelectionSort-29:13</string>""")
+      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/SelectionSort-30:13</string>""")
 
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
-             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-29:13/A-29:27</string>
+             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27</string>
              <iset ttype="iset">
                <string srefid="1"/>
              </iset>
@@ -3969,9 +3969,9 @@ procedure SelectionSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string sid="2">Sort_Simple_Contract-1:9</string>
-                         <string>isSorted-8:12</string>
+                         <string>isSorted-9:12</string>
                        </ilist>
-                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-8:12</string>
+                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -3985,9 +3985,9 @@ procedure SelectionSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
                      <string sid="4">sort_simple_contract.ads</string>
-                     <int>32</int>
+                     <int>33</int>
                      <int>13</int>
-                     <int>32</int>
+                     <int>33</int>
                      <int>20</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -4010,8 +4010,8 @@ procedure SelectionSort (
                            <string>parameter</string>
                            <ilist ttype="ilist">
                              <string srefid="2"/>
-                             <string sid="6">SelectionSort-29:13</string>
-                             <string>A-29:27</string>
+                             <string sid="6">SelectionSort-30:13</string>
+                             <string>A-30:27</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -4022,7 +4022,7 @@ procedure SelectionSort (
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
-                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>
+                         <string sid="7">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -4035,9 +4035,9 @@ procedure SelectionSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
                          <string srefid="4"/>
-                         <int>32</int>
+                         <int>33</int>
                          <int>22</int>
-                         <int>32</int>
+                         <int>33</int>
                          <int>22</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -4054,9 +4054,9 @@ procedure SelectionSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
                    <string srefid="4"/>
-                   <int>32</int>
+                   <int>33</int>
                    <int>13</int>
-                   <int>32</int>
+                   <int>33</int>
                    <int>23</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -4074,9 +4074,9 @@ procedure SelectionSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string srefid="2"/>
-                         <string>isPerm-11:12</string>
+                         <string>isPerm-12:12</string>
                        </ilist>
-                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-11:12</string>
+                       <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -4090,9 +4090,9 @@ procedure SelectionSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="17" size="5">
                      <string srefid="4"/>
-                     <int>32</int>
+                     <int>33</int>
                      <int>34</int>
-                     <int>32</int>
+                     <int>33</int>
                      <int>39</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -4116,7 +4116,7 @@ procedure SelectionSort (
                            <ilist ttype="ilist">
                              <string srefid="2"/>
                              <string srefid="6"/>
-                             <string>A-29:27</string>
+                             <string>A-30:27</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -4140,9 +4140,9 @@ procedure SelectionSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="22" size="5">
                          <string srefid="4"/>
-                         <int>32</int>
+                         <int>33</int>
                          <int>41</int>
-                         <int>32</int>
+                         <int>33</int>
                          <int>41</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -4179,7 +4179,7 @@ procedure SelectionSort (
                              <ilist ttype="ilist">
                                <string srefid="2"/>
                                <string srefid="6"/>
-                               <string>A-29:27</string>
+                               <string>A-30:27</string>
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -4203,9 +4203,9 @@ procedure SelectionSort (
                          <string>util.loc</string>
                          <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="30" size="5">
                            <string srefid="4"/>
-                           <int>32</int>
+                           <int>33</int>
                            <int>44</int>
-                           <int>32</int>
+                           <int>33</int>
                            <int>44</int>
                          </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                        </entry>
@@ -4220,9 +4220,9 @@ procedure SelectionSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="31" size="5">
                          <string srefid="4"/>
-                         <int>32</int>
+                         <int>33</int>
                          <int>44</int>
-                         <int>32</int>
+                         <int>33</int>
                          <int>48</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -4239,9 +4239,9 @@ procedure SelectionSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="32" size="5">
                    <string srefid="4"/>
-                   <int>32</int>
+                   <int>33</int>
                    <int>34</int>
-                   <int>32</int>
+                   <int>33</int>
                    <int>49</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -4256,9 +4256,9 @@ procedure SelectionSort (
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="33" size="5">
                  <string srefid="4"/>
-                 <int>32</int>
+                 <int>33</int>
                  <int>13</int>
-                 <int>32</int>
+                 <int>33</int>
                  <int>49</int>
                </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
              </entry>
@@ -4270,9 +4270,9 @@ procedure SelectionSort (
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>29</int>
+         <int>30</int>
          <int>3</int>
-         <int>32</int>
+         <int>33</int>
          <int>50</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
@@ -4283,7 +4283,7 @@ procedure ShellSort (
         Vector A
             @BAKAR_REF_URI
 
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-34:13/A-34:23</string>""")
+              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23</string>""")
 
             @BAKAR_PARAM_INFO
 
@@ -4295,22 +4295,22 @@ procedure ShellSort (
 
               ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
                  <string sid="1">sort_simple_contract.ads</string>
-                 <int>34</int>
+                 <int>35</int>
                  <int>23</int>
-                 <int>34</int>
+                 <int>35</int>
                  <int>23</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/ShellSort-34:13</string>""")
+      ("""<string sid="1">ada://procedure/Sort_Simple_Contract-1:9/ShellSort-35:13</string>""")
 
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
-             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-34:13/A-34:23</string>
+             <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23</string>
              <iset ttype="iset">
                <string srefid="1"/>
              </iset>
@@ -4330,9 +4330,9 @@ procedure ShellSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string sid="2">Sort_Simple_Contract-1:9</string>
-                         <string>isSorted-8:12</string>
+                         <string>isSorted-9:12</string>
                        </ilist>
-                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-8:12</string>
+                       <string sid="3">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -4346,9 +4346,9 @@ procedure ShellSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
                      <string sid="4">sort_simple_contract.ads</string>
-                     <int>37</int>
+                     <int>38</int>
                      <int>13</int>
-                     <int>37</int>
+                     <int>38</int>
                      <int>20</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -4371,8 +4371,8 @@ procedure ShellSort (
                            <string>parameter</string>
                            <ilist ttype="ilist">
                              <string srefid="2"/>
-                             <string>ShellSort-34:13</string>
-                             <string>A-34:23</string>
+                             <string>ShellSort-35:13</string>
+                             <string>A-35:23</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -4383,7 +4383,7 @@ procedure ShellSort (
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
-                         <string sid="6">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-6:8</string>
+                         <string sid="6">ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</string>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -4396,9 +4396,9 @@ procedure ShellSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
                          <string srefid="4"/>
-                         <int>37</int>
+                         <int>38</int>
                          <int>22</int>
-                         <int>37</int>
+                         <int>38</int>
                          <int>22</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -4415,9 +4415,9 @@ procedure ShellSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
                    <string srefid="4"/>
-                   <int>37</int>
+                   <int>38</int>
                    <int>13</int>
-                   <int>37</int>
+                   <int>38</int>
                    <int>23</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -4435,9 +4435,9 @@ procedure ShellSort (
                        <string>function</string>
                        <ilist ttype="ilist">
                          <string srefid="2"/>
-                         <string>isPerm-11:12</string>
+                         <string>isPerm-12:12</string>
                        </ilist>
-                       <string sid="7">ada://function/Sort_Simple_Contract-1:9/isPerm-11:12</string>
+                       <string sid="7">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
@@ -4451,9 +4451,9 @@ procedure ShellSort (
                    <string>util.loc</string>
                    <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="17" size="5">
                      <string srefid="4"/>
-                     <int>37</int>
+                     <int>38</int>
                      <int>34</int>
-                     <int>37</int>
+                     <int>38</int>
                      <int>39</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
@@ -4476,8 +4476,8 @@ procedure ShellSort (
                            <string>parameter</string>
                            <ilist ttype="ilist">
                              <string srefid="2"/>
-                             <string>ShellSort-34:13</string>
-                             <string>A-34:23</string>
+                             <string>ShellSort-35:13</string>
+                             <string>A-35:23</string>
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -4501,9 +4501,9 @@ procedure ShellSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="22" size="5">
                          <string srefid="4"/>
-                         <int>37</int>
+                         <int>38</int>
                          <int>41</int>
-                         <int>37</int>
+                         <int>38</int>
                          <int>41</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -4539,8 +4539,8 @@ procedure ShellSort (
                              <string>parameter</string>
                              <ilist ttype="ilist">
                                <string srefid="2"/>
-                               <string>ShellSort-34:13</string>
-                               <string>A-34:23</string>
+                               <string>ShellSort-35:13</string>
+                               <string>A-35:23</string>
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
@@ -4564,9 +4564,9 @@ procedure ShellSort (
                          <string>util.loc</string>
                          <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="30" size="5">
                            <string srefid="4"/>
-                           <int>37</int>
+                           <int>38</int>
                            <int>44</int>
-                           <int>37</int>
+                           <int>38</int>
                            <int>44</int>
                          </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                        </entry>
@@ -4581,9 +4581,9 @@ procedure ShellSort (
                        <string>util.loc</string>
                        <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="31" size="5">
                          <string srefid="4"/>
-                         <int>37</int>
+                         <int>38</int>
                          <int>44</int>
-                         <int>37</int>
+                         <int>38</int>
                          <int>48</int>
                        </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                      </entry>
@@ -4600,9 +4600,9 @@ procedure ShellSort (
                  <string>util.loc</string>
                  <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="32" size="5">
                    <string srefid="4"/>
-                   <int>37</int>
+                   <int>38</int>
                    <int>34</int>
-                   <int>37</int>
+                   <int>38</int>
                    <int>49</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
@@ -4617,9 +4617,9 @@ procedure ShellSort (
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="33" size="5">
                  <string srefid="4"/>
-                 <int>37</int>
+                 <int>38</int>
                  <int>13</int>
-                 <int>37</int>
+                 <int>38</int>
                  <int>49</int>
                </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
              </entry>
@@ -4631,9 +4631,9 @@ procedure ShellSort (
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
          <string sid="1">sort_simple_contract.ads</string>
-         <int>34</int>
+         <int>35</int>
          <int>3</int>
-         <int>37</int>
+         <int>38</int>
          <int>50</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
