@@ -1,42 +1,45 @@
 package org.sireum.test.bakar.xml
+
+import com.thoughtworks.xstream.XStream
+import java.io.File
+import java.io.Writer
+import java.net.URI
 import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
+import org.sireum.example.bakar.Project
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import java.io.Writer
-import org.sireum.pipeline.PipelineJob
-import org.sireum.util.FileUtil
-import java.io.File
-import java.net.URI
-import org.sireum.util.ISeq
-import org.sireum.util.FileResourceUri
-import com.thoughtworks.xstream.XStream
-import org.sireum.pipeline._
-import scala.Some.apply
-import org.scalatest.junit.JUnitRunner
-import scala.collection.immutable.TreeMap
-import org.sireum.test.bakar.framework.BakarTestFileFramework
 import org.sireum.example.bakar.BakarExamples
+import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.pipeline.PipelineConfiguration
+import org.sireum.pipeline.PipelineJob
+import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
-import org.sireum.example.bakar.BakarExamplesAnchor
-import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.test.bakar.framework.BakarTestFileFramework
+import org.sireum.util.FileUtil
+import scala.collection.immutable.TreeMap
 
 @RunWith(classOf[JUnitRunner])
-class BakarXmlTest extends BakarTestFileFramework {
+class BakarXmlTest extends BakarTestFileFramework[Project] {
 
-  override def includes = {
-    super.includes += "misc"
-  }
-    
+  override def generateExpected = false
+
+  override def includes = super.includes ++= Set(
+    "2005_misc",
+    "2005_simple",
+    "2014_arrays",
+    "2014_sort")
+
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 
-  override def pre(c : Configuration) : Boolean = {
-    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
-    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
+  override def pre(c: Configuration): Boolean = {
+    val dest = new File(c.resultsDir + "/0")
+    dest.mkdirs
+    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
+    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(dest)))
     return true;
   }
 
-  override def generateExpected = false
-  
   override def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
@@ -44,20 +47,17 @@ class BakarXmlTest extends BakarTestFileFramework {
       PipelineStage(
         "gnat2xml stage",
         false,
-        Gnat2XMLWrapperModule
-      ),
+        Gnat2XMLWrapperModule),
       PipelineStage(
         "scalaxb stage",
         false,
-        ParseGnat2XMLModule
-      )
-    )
+        ParseGnat2XMLModule))
 
   override def outputSuffix = "g2xml"
 
-  override def writeTestString(job : PipelineJob, w : Writer) = {
+  override def writeTestString(job: PipelineJob, w: Writer) = {
     val xs = new XStream()
-    val results = TreeMap(ParseGnat2XMLModule.getParseGnat2XMLresults(job.properties).toSeq:_*)
+    val results = TreeMap(ParseGnat2XMLModule.getParseGnat2XMLresults(job.properties).toSeq: _*)
 
     results foreach {
       case (key, value) =>
