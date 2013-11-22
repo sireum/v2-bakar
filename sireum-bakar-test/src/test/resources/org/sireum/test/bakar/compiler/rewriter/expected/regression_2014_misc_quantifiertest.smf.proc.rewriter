@@ -1,0 +1,62 @@
+package QuantifierTest;
+
+
+procedure $$binit {
+
+  #l1.
+    V := `Vector { iter => 
+        switch iter
+          default => 0ii};
+
+  #l2.
+    return;
+}
+
+procedure dummy (
+        Index I) {
+
+  #l3.
+    assert proof__uif__for_some {Index J => 
+        switch J
+          case (1ii, 2ii) => V[J] > 0ii && V[J] < 7ii
+          default => true};
+
+  #l4.
+    V[I] := V[I] + 3ii;
+
+  #l5.
+    assert 3ii == 3ii &&& proof__uif__for_all {Index J => 
+        switch J
+          case (attribute__uif__first `Index, attribute__uif__last `Index) => V[J] > 0ii || V[J] < 7ii
+          default => true};
+
+  #l6.
+    return;
+}package QuantifierTest;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Index;
+
+typealias _ARRAY_ Vector;
+
+global Vector @@V;
+
+procedure dummy (
+        Index I) {
+
+}package Standard;
+
+
+typealias Boolean standard::boolean;
+
+typealias Integer standard::integer;
+
+typealias Integer standard::natural;
+
+typealias Integer standard::positive;
+
+typealias Float standard::float;
+
+typealias Integer universal_integer;
+
+typealias Float universal_real;

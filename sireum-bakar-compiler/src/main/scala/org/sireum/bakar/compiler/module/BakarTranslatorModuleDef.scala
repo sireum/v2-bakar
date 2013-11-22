@@ -562,8 +562,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val x = o.asInstanceOf[ExpressionClass].getExpression.asInstanceOf[Any]
 
       x match {
-        case AndOperatorEx(_) => Some(PilarAstUtil.LOGICAL_AND_BINOP)
-        case OrOperatorEx(_) => Some(PilarAstUtil.LOGICAL_OR_BINOP)
+        case AndOperatorEx(_) => Some(PilarAstUtil.COND_AND_BINOP)
+        case OrOperatorEx(_) => Some(PilarAstUtil.COND_OR_BINOP)
 
         case EqualOperatorEx(_) => Some(PilarAstUtil.EQ_BINOP)
         case GreaterThanOperatorEx(_) => Some(PilarAstUtil.GT_BINOP)

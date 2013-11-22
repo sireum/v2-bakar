@@ -783,7 +783,7 @@ procedure SwapElements (
            </entry>
          </__depends>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
-           <string>&amp;&amp;&amp;</string>
+           <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
              <string>&amp;&amp;&amp;</string>
              <org.sireum.pilar.ast.BinaryExp cid="3" size="3">
