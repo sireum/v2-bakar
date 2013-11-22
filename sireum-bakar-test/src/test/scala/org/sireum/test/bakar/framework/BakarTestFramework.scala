@@ -13,7 +13,7 @@ import scala.util.matching.Regex
 import org.sireum.example.bakar.Project
 import org.scalatest.junit.JUnitTestFailedError
 
-trait BakarTestFramework extends TestFramework {
+trait BakarTestFramework[P <: Project] extends TestFramework {
 
   def BakarTest: this.type = this
 
@@ -31,29 +31,25 @@ trait BakarTestFramework extends TestFramework {
   def ignores = msetEmpty[Regex]
   def includes = msetEmpty[Regex]
 
-  def accept(name: String, files: ISeq[FileResourceUri]): Boolean = true
+  def accept(p : P): Boolean = true
+  def reject(p : P) = ignore(p.testName) {}  
+  def execute(p: P)
 
-  def register(projects: ISeq[Project]) {
+  def register(projects: ISeq[P]) {
     for(p <- projects) {
       if ((disableIncludes || includes.isEmpty || includes.exists(r => r.findFirstMatchIn(p.testName).isDefined)) &&
         (disableExcludes || !excludes.exists(r => r.findFirstMatchIn(p.testName).isDefined))) {
-        if (accept(p.testName, p.files) &&
+        if (accept(p) &&
           (disableIgnores || !ignores.exists(r => r.findFirstMatchIn(p.testName).isDefined)))
-          execute(p.testName, p.files)
+          execute(p)
         else
-          reject(p.testName, p.files)
+          reject(p)
       }
     }
   }
-
-  def execute(testName: String, files: ISeq[FileResourceUri])
-
-  def reject(testName: String, files: ISeq[FileResourceUri]) = {
-    ignore(testName) {}
-  }
 }
 
-trait BakarTestFileFramework extends BakarTestFramework {
+trait BakarTestFileFramework[P <: Project] extends BakarTestFramework[P] {
   // abstract methods
   def generateExpected: Boolean
   def outputSuffix: String
@@ -64,16 +60,15 @@ trait BakarTestFileFramework extends BakarTestFramework {
   def post(c: Configuration): Boolean = true
 
   case class Configuration(
-    testName: String,
-    sources: ISeq[FileResourceUri],
+    project: P,
     expectedDir: File,
     resultsDir: File,
     job: PipelineJob)
 
-  override def execute(testName: String, files: ISeq[FileResourceUri]) = {
-    test(testName) {
+  override def execute(p : P) = {
+    test(p.testName) {
 
-      val testNamelc = testName.toLowerCase
+      val testNamelc = p.testName.toLowerCase
 
       val edir = new File(new URI(EXPECTED_DIR))
       val efile = new File(edir, testNamelc + "." + outputSuffix)
@@ -88,7 +83,7 @@ trait BakarTestFileFramework extends BakarTestFramework {
         createGitIgnore(rdir)
       }
 
-      val c = Configuration(testName, files, edir, rdir, PipelineJob())
+      val c = Configuration(p, edir, rdir, PipelineJob())
       assert(pre(c))
 
       pipeline.compute(c.job)

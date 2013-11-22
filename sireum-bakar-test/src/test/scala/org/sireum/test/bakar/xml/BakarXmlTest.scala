@@ -6,6 +6,7 @@ import java.io.Writer
 import java.net.URI
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
+import org.sireum.example.bakar.Project
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
 import org.sireum.example.bakar.BakarExamples
@@ -19,7 +20,7 @@ import org.sireum.util.FileUtil
 import scala.collection.immutable.TreeMap
 
 @RunWith(classOf[JUnitRunner])
-class BakarXmlTest extends BakarTestFileFramework {
+class BakarXmlTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
 
@@ -34,7 +35,7 @@ class BakarXmlTest extends BakarTestFileFramework {
   override def pre(c: Configuration): Boolean = {
     val dest = new File(c.resultsDir + "/0")
     dest.mkdirs
-    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
+    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(dest)))
     return true;
   }

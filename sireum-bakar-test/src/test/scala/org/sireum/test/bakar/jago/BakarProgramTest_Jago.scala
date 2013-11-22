@@ -1,23 +1,24 @@
 package org.sireum.test.bakar.jago
-// BakarTranslatorTest_Jago
 
-import org.junit.runner.RunWith
 import java.io.Writer
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
+import org.sireum.bakar.jago.program.BakarProgramTranslatorModule
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import org.sireum.pipeline._
-import org.sireum.test.bakar.framework.BakarTestFileFramework
-import org.sireum.util._
 import org.sireum.example.bakar.BakarExamples
 import org.sireum.example.bakar.BakarExamplesAnchor
-import org.sireum.test.bakar.framework.BakarSmfProjectProvider
-import org.sireum.bakar.jago.program.BakarProgramTranslatorModule
-import org.scalatest.junit.JUnitRunner
+import org.sireum.example.bakar.Project
 import org.sireum.option.ProgramTarget
-import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.pipeline.PipelineConfiguration
+import org.sireum.pipeline.PipelineJob
+import org.sireum.pipeline.PipelineStage
+import org.sireum.test.bakar.framework.BakarSmfProjectProvider
+import org.sireum.test.bakar.framework.BakarTestFileFramework
+import org.sireum.util.FileUtil
 
 @RunWith(classOf[JUnitRunner])
-class BakarProgramTest_Jago extends BakarTestFileFramework {
+class BakarProgramTest_Jago extends BakarTestFileFramework[Project] {
     
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
@@ -25,7 +26,7 @@ class BakarProgramTest_Jago extends BakarTestFileFramework {
     import BakarProgramTranslatorModule.ProducerView._
     c.job.jagoProgramTarget = ProgramTarget.Coq
 
-    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
+    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
     
     return true;

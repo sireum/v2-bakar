@@ -7,38 +7,35 @@ import org.sireum.util.FileUtil
 import org.sireum.util.ISeq
 import org.sireum.util.mlistEmpty
 
-case class Project(
-    projectName : String,
-    testName : String,
-    files : ISeq[FileResourceUri])
+trait Project {
+  val projectName: String
+  val testName: String
+  val files: ISeq[FileResourceUri]
+}
 
-trait ProjectProvider {
-  def getProjects(dir : File, rootDir : File) : ISeq[Project]
+trait ProjectProvider[P <: Project] {
+  def getProjects(dir: File, rootDir: File): ISeq[P]
 }
 
 object BakarExamples {
-  
-  def sourceDirUri(claz : Class[_], path : String) = {
+
+  def sourceDirUri(claz: Class[_], path: String) =
     FileUtil.fileUri(claz, path).replaceFirst("/bin/", "/src/test/resources/")
-  }
-  
-  def getProjects(pp : ProjectProvider, dirUri : FileResourceUri,
-      recursive : Boolean = false) : ISeq[Project] = 
+
+  def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
+    recursive: Boolean = false): ISeq[P] =
     getProjects(pp, dirUri, new File(new URI(dirUri)).getParentFile(), recursive)
-  
-  
-  def getProjects(pp : ProjectProvider, dirUri : FileResourceUri,
-      rootDir : File, recursive : Boolean) : ISeq[Project] = {
-    val ret = mlistEmpty[Project]
+
+  def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
+    rootDir: File, recursive: Boolean): ISeq[P] = {
+    val ret = mlistEmpty[P]
     val dir = new File(new URI(dirUri))
     if (dir.exists && dir.isDirectory()) {
       ret ++= pp.getProjects(dir, rootDir)
 
-      if (recursive) {
-        for(d <- dir.listFiles() if d.isDirectory()){
+      if (recursive)
+        for (d <- dir.listFiles() if d.isDirectory())
           ret ++= getProjects(pp, FileUtil.toUri(d), rootDir, recursive)
-        }
-      }
     }
     ret.toList
   }

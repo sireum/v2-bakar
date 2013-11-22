@@ -21,7 +21,7 @@ import org.sireum.util.ISeq
 import org.sireum.util.Visitor
 
 @RunWith(classOf[JUnitRunner])
-class BakarTranslatorTest extends BakarTestFileFramework {
+class BakarTranslatorTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
 
@@ -52,7 +52,7 @@ class BakarTranslatorTest extends BakarTestFileFramework {
   override def pre(c: Configuration): Boolean = {
     val dest = new File(c.resultsDir + "/0")
     dest.mkdirs
-    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.sources)
+    Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(dest)))
     BakarTranslatorModule.setRegression(c.job.properties, true)
     return true;
