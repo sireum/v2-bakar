@@ -24,11 +24,9 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
 
-  override def includes = super.includes ++= Set(
-    "2005_misc",
-    "2005_simple",
-    "2014_arrays",
-    "2014_sort")
+  override def includes = {
+    super.includes += "misc"
+  }
 
   this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR, true))
 

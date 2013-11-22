@@ -29,8 +29,8 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
 
   override def includes = super.includes ++= Set("gnat_misc", "gnat_simple")
 
-  override def excludes = {
-    super.excludes ++= Set("constraints", "dependence_test_suite_01",
+  override def ignores = {
+    super.ignores ++= Set("constraints", "dependence_test_suite_01",
       "faultintegrator", "in_range", "misc_labeled", "misc_p_public",
       "misc_package_scope", "packagedemo_b", "misc_recordshape",
       "simplemath1", "misc_the_stack")
