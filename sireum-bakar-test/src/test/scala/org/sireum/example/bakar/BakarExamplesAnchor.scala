@@ -1,6 +1,8 @@
 package org.sireum.example.bakar
 
 object BakarExamplesAnchor {
+ val BASE_DIR = BakarExamples.sourceDirUri(BakarExamplesAnchor.getClass, "")
+ 
  val GNAT_2012 = "./2012-gnat"
  val GNAT_2012_DIR = BakarExamples.sourceDirUri(BakarExamplesAnchor.getClass, GNAT_2012)
  

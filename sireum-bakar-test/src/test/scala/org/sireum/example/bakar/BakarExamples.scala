@@ -21,10 +21,14 @@ object BakarExamples {
 
   def sourceDirUri(claz: Class[_], path: String) =
     FileUtil.fileUri(claz, path).replaceFirst("/bin/", "/src/test/resources/")
+   
+  def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
+    recursive: Boolean = true): ISeq[P] =
+    getProjects(pp, dirUri, new File(new URI(dirUri)).getParentFile(), recursive)
 
   def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
-    recursive: Boolean = false): ISeq[P] =
-    getProjects(pp, dirUri, new File(new URI(dirUri)).getParentFile(), recursive)
+      pathToExclude: FileResourceUri, recursive: Boolean = true): ISeq[P] =
+   getProjects(pp, dirUri, new File(new URI(pathToExclude)), recursive)
 
   def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
     rootDir: File, recursive: Boolean): ISeq[P] = {

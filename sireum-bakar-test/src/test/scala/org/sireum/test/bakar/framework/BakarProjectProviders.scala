@@ -9,17 +9,21 @@ import org.sireum.example.bakar.ProjectProvider
 import org.sireum.util.FileUtil
 import org.sireum.util.ISeq
 import org.sireum.util.ivector
+import org.sireum.util.ivectorEmpty
 import org.sireum.util.mlistEmpty
 
 object BakarDirectoryProjectProvider extends ProjectProvider[Project] {
   override def getProjects(dir: File, rootdir: File): ISeq[Project] = {
     val _files = dir.listFiles.filter(f => f.getName.endsWith(".adb") || f.getName.endsWith(".ads"))
-    val _testName = FileUtil.toUri(dir.getParentFile).replace(FileUtil.toUri(rootdir), "").replace("/", "_")
-    ivector(new Project {
-      val projectName = _testName
-      val testName = _testName
-      val files = (_files.map(f => f.toURI.toASCIIString)).toList
-    })
+    val _testName = FileUtil.toUri(dir).replace(FileUtil.toUri(rootdir), "").replace("/", "_").dropRight(1)
+    if (_files.isEmpty)
+      ivectorEmpty
+    else
+      ivector(new Project {
+        val projectName = _testName
+        val testName = _testName
+        val files = (_files.map(f => f.toURI.toASCIIString)).toList
+      })
   }
 }
 

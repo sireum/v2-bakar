@@ -19,6 +19,7 @@ import org.sireum.test.bakar.framework.BakarTestFileFramework
 import org.sireum.util.FileUtil
 import org.sireum.util.ISeq
 import org.sireum.util.Visitor
+import org.sireum.test.bakar.framework.BakarDirectoryProjectProvider
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorTest extends BakarTestFileFramework[Project] {
@@ -32,6 +33,7 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
     "2005_simple",
     "2014_arrays",
     "2014_sort",
+    //"2014_gnatprove",
     "xxxxxx")
 
     //override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")
@@ -47,8 +49,11 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
       )
   }
 
-  register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
-
+  register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR))
+  
+  register(BakarExamples.getProjects(BakarDirectoryProjectProvider, 
+      BakarExamplesAnchor.REGRESSION_DIR + "/2014/gnatprove/", BakarExamplesAnchor.BASE_DIR))
+    
   override def pre(c: Configuration): Boolean = {
     val dest = new File(c.resultsDir + "/0")
     dest.mkdirs
