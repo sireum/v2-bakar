@@ -4,6 +4,7 @@ import org.sireum.pilar.ast.Exp
 import org.sireum.pilar.ast.ParamDecl
 import org.sireum.pilar.ast.ProcedureDecl
 import org.sireum.util.IMap
+import org.sireum.util.ISeq
 import org.sireum.util.ISet
 import org.sireum.util.ResourceUri
 
@@ -29,6 +30,7 @@ object BakarSymbol {
   implicit def proc2procInfo(p : ProcedureDecl) : ProcedureInfo =
     p.getPropertyOrElseUpdate(INFO_PROCEDURE,
       new ProcedureInfo {
+        private var _contractCases : ISeq[Exp] = null
         private var _depends : IMap[ResourceUri, ISet[ResourceUri]] = null
         private var _globalsin : ISet[ResourceUri] = null
         private var _globalsout : ISet[ResourceUri] = null
@@ -38,6 +40,9 @@ object BakarSymbol {
 
         implicit def wrap[T](t : T) = if (t == null) None else Some(t)
 
+        def contractCases = _contractCases
+        def contractCases(o : ISeq[Exp]) = _contractCases = o
+        
         def depends = _depends
         def depends(o : IMap[ResourceUri, ISet[ResourceUri]]) = _depends = o
 
@@ -63,6 +68,9 @@ object BakarSymbol {
   }
 
   trait ProcedureInfo {
+    def contractCases : Option[ISeq[Exp]]
+    def contractCases(o : ISeq[Exp])
+    
     def depends : Option[IMap[ResourceUri, ISet[ResourceUri]]]
     def depends(o : IMap[ResourceUri, ISet[ResourceUri]])
 

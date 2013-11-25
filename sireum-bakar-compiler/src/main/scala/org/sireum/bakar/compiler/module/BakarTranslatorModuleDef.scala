@@ -8,17 +8,20 @@ import org.sireum.bakar.symbol.ComponentDef
 import org.sireum.bakar.symbol.ConstrainedArrayDef
 import org.sireum.bakar.symbol.Constraint
 import org.sireum.bakar.symbol.EnumerationTypeDef
+import org.sireum.bakar.symbol.FullTypeDecl
 import org.sireum.bakar.symbol.IndexConstraint
 import org.sireum.bakar.symbol.PrivateTypeDecl
 import org.sireum.bakar.symbol.RecordTypeDef
 import org.sireum.bakar.symbol.SignedIntegerTypeDef
 import org.sireum.bakar.symbol.SimpleRangeConstraint
+import org.sireum.bakar.symbol.SparkTypeDecl
 import org.sireum.bakar.symbol.SubTypeDecl
+import org.sireum.bakar.symbol.Type
 import org.sireum.bakar.symbol.TypeDef
 import org.sireum.bakar.symbol.UnconstrainedArrayDef
 import org.sireum.bakar.xml.AbortStatementEx
 import org.sireum.bakar.xml.AcceptStatementEx
-import org.sireum.bakar.xml.AndOperatorEx
+import org.sireum.bakar.xml.AndOperator
 import org.sireum.bakar.xml.AndThenShortCircuitEx
 import org.sireum.bakar.xml.ArrayComponentAssociationEx
 import org.sireum.bakar.xml.AspectSpecificationEx
@@ -30,7 +33,6 @@ import org.sireum.bakar.xml.BlockStatementEx
 import org.sireum.bakar.xml.CaseExpressionEx
 import org.sireum.bakar.xml.CasePathEx
 import org.sireum.bakar.xml.CaseStatementEx
-import org.sireum.bakar.xml.CharacterLiteralEx
 import org.sireum.bakar.xml.CodeStatementEx
 import org.sireum.bakar.xml.CompilationUnit
 import org.sireum.bakar.xml.CompilationUnitEx
@@ -49,23 +51,25 @@ import org.sireum.bakar.xml.DefiningNameList
 import org.sireum.bakar.xml.DefinitionClass
 import org.sireum.bakar.xml.DelayRelativeStatementEx
 import org.sireum.bakar.xml.DelayUntilStatementEx
+import org.sireum.bakar.xml.DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx
 import org.sireum.bakar.xml.DiscreteSimpleExpressionRangeEx
 import org.sireum.bakar.xml.DiscreteSubtypeIndicationAsSubtypeDefinitionEx
 import org.sireum.bakar.xml.DiscreteSubtypeIndicationEx
-import org.sireum.bakar.xml.DivideOperatorEx
+import org.sireum.bakar.xml.DivideOperator
 import org.sireum.bakar.xml.ElementClass
 import org.sireum.bakar.xml.ElementList
+import org.sireum.bakar.xml.ElseExpressionPathEx
 import org.sireum.bakar.xml.ElsePathEx
+import org.sireum.bakar.xml.ElsifExpressionPathEx
 import org.sireum.bakar.xml.ElsifPathEx
 import org.sireum.bakar.xml.EntryCallStatementEx
 import org.sireum.bakar.xml.EnumerationLiteralEx
 import org.sireum.bakar.xml.EnumerationLiteralSpecificationEx
 import org.sireum.bakar.xml.EnumerationTypeDefinitionEx
-import org.sireum.bakar.xml.EqualOperatorEx
+import org.sireum.bakar.xml.EqualOperator
 import org.sireum.bakar.xml.ExitStatementEx
 import org.sireum.bakar.xml.ExpressionClass
 import org.sireum.bakar.xml.ExpressionClassEx
-import org.sireum.bakar.xml.ExpressionListEx
 import org.sireum.bakar.xml.ExtendedReturnStatementEx
 import org.sireum.bakar.xml.FirstAttributeEx
 import org.sireum.bakar.xml.ForAllQuantifiedExpressionEx
@@ -75,11 +79,12 @@ import org.sireum.bakar.xml.FunctionBodyDeclarationEx
 import org.sireum.bakar.xml.FunctionCallEx
 import org.sireum.bakar.xml.FunctionDeclarationEx
 import org.sireum.bakar.xml.GotoStatementEx
-import org.sireum.bakar.xml.GreaterThanOperatorEx
-import org.sireum.bakar.xml.GreaterThanOrEqualOperatorEx
+import org.sireum.bakar.xml.GreaterThanOperator
+import org.sireum.bakar.xml.GreaterThanOrEqualOperator
 import org.sireum.bakar.xml.Identifier
 import org.sireum.bakar.xml.IdentifierEx
 import org.sireum.bakar.xml.IfExpressionEx
+import org.sireum.bakar.xml.IfExpressionPathEx
 import org.sireum.bakar.xml.IfPathEx
 import org.sireum.bakar.xml.IfStatementEx
 import org.sireum.bakar.xml.ImplementationDefinedAttributeEx
@@ -90,32 +95,36 @@ import org.sireum.bakar.xml.IndexedComponentEx
 import org.sireum.bakar.xml.IntegerLiteralEx
 import org.sireum.bakar.xml.IntegerNumberDeclarationEx
 import org.sireum.bakar.xml.LastAttributeEx
-import org.sireum.bakar.xml.LessThanOperatorEx
-import org.sireum.bakar.xml.LessThanOrEqualOperatorEx
+import org.sireum.bakar.xml.LengthAttributeEx
+import org.sireum.bakar.xml.LessThanOperator
+import org.sireum.bakar.xml.LessThanOrEqualOperator
 import org.sireum.bakar.xml.LoopParameterSpecificationEx
 import org.sireum.bakar.xml.LoopStatementEx
-import org.sireum.bakar.xml.MinusOperatorEx
-import org.sireum.bakar.xml.ModOperatorEx
+import org.sireum.bakar.xml.MaxAttributeEx
+import org.sireum.bakar.xml.MinAttributeEx
+import org.sireum.bakar.xml.MinusOperator
+import org.sireum.bakar.xml.ModOperator
 import org.sireum.bakar.xml.ModularTypeDefinitionEx
-import org.sireum.bakar.xml.MultiplyOperatorEx
+import org.sireum.bakar.xml.MultiplyOperator
 import org.sireum.bakar.xml.NameClassEx
 import org.sireum.bakar.xml.NamedArrayAggregateEx
 import org.sireum.bakar.xml.NotAnElement
-import org.sireum.bakar.xml.NotEqualOperatorEx
+import org.sireum.bakar.xml.NotEqualOperator
 import org.sireum.bakar.xml.NotInMembershipTestEx
 import org.sireum.bakar.xml.NotOperatorEx
 import org.sireum.bakar.xml.NullLiteralEx
 import org.sireum.bakar.xml.NullStatementEx
 import org.sireum.bakar.xml.OrElseShortCircuitEx
-import org.sireum.bakar.xml.OrOperatorEx
+import org.sireum.bakar.xml.OrOperator
 import org.sireum.bakar.xml.OrdinaryTypeDeclarationEx
 import org.sireum.bakar.xml.OthersChoiceEx
 import org.sireum.bakar.xml.PackageBodyDeclarationEx
+import org.sireum.bakar.xml.PackageDeclaration
 import org.sireum.bakar.xml.PackageDeclarationEx
 import org.sireum.bakar.xml.ParameterSpecificationEx
 import org.sireum.bakar.xml.ParameterSpecificationList
 import org.sireum.bakar.xml.ParenthesizedExpression
-import org.sireum.bakar.xml.PlusOperatorEx
+import org.sireum.bakar.xml.PlusOperator
 import org.sireum.bakar.xml.PositionalArrayAggregateEx
 import org.sireum.bakar.xml.PredAttributeEx
 import org.sireum.bakar.xml.PrivateTypeDeclarationEx
@@ -133,7 +142,7 @@ import org.sireum.bakar.xml.RecordAggregateEx
 import org.sireum.bakar.xml.RecordComponentAssociationEx
 import org.sireum.bakar.xml.RecordDefinitionEx
 import org.sireum.bakar.xml.RecordTypeDefinitionEx
-import org.sireum.bakar.xml.RemOperatorEx
+import org.sireum.bakar.xml.RemOperator
 import org.sireum.bakar.xml.RequeueStatementEx
 import org.sireum.bakar.xml.RequeueStatementWithAbortEx
 import org.sireum.bakar.xml.ReturnStatementEx
@@ -156,7 +165,7 @@ import org.sireum.bakar.xml.UnconstrainedArrayDefinitionEx
 import org.sireum.bakar.xml.UnknownAttributeEx
 import org.sireum.bakar.xml.VariableDeclarationEx
 import org.sireum.bakar.xml.WhileLoopStatementEx
-import org.sireum.bakar.xml.XorOperatorEx
+import org.sireum.bakar.xml.XorOperator
 import org.sireum.pilar.ast.AccessExp
 import org.sireum.pilar.ast.Action
 import org.sireum.pilar.ast.ActionLocation
@@ -181,7 +190,9 @@ import org.sireum.pilar.ast.ExternalExp
 import org.sireum.pilar.ast.FunExp
 import org.sireum.pilar.ast.GlobalVarDecl
 import org.sireum.pilar.ast.GotoJump
+import org.sireum.pilar.ast.IfExp
 import org.sireum.pilar.ast.IfJump
+import org.sireum.pilar.ast.IfThenExp
 import org.sireum.pilar.ast.IfThenJump
 import org.sireum.pilar.ast.ImplementedBody
 import org.sireum.pilar.ast.IndexingExp
@@ -279,6 +290,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     var unhandledSet = msetEmpty[String]
 
+    val typeCache = mmapEmpty[Base, PackageElement]
+    var typeDeclarations = imapEmpty[ResourceUri, Type]
+
     var countLocation = 0
     var stackLocationList = mstackEmpty[MList[LocationDecl]]
     def pushLocationList = {
@@ -348,14 +362,15 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     val globalNameMap = mmapEmpty[ResourceUri, String]
 
     var tempVarCounter = 0
-    def genTempVar(typeName: String, typeUri: ResourceUri) = {
+    def genTempVar(typeUri: ResourceUri) = {
       val tempVarPrefix = "_tcomp"
       val name = tempVarPrefix + tempVarCounter
       tempVarCounter += 1
       val path = (contextStack.map(_._2)).toList :+ name
       val uri = VariableURIs.tempVarPrefix + path.mkString("/")
 
-      val nts = Some(NamedTypeSpec(URIS.addResourceUri(NameUser(typeName), typeUri), ilistEmpty))
+      val typeDecl = this.typeDeclarations(typeUri).asInstanceOf[SparkTypeDecl]
+      val nts = Some(NamedTypeSpec(URIS.addResourceUri(NameUser(typeDecl.id), typeUri), ilistEmpty))
       val lname = URIS.addResourceUri(NameDefinition(name), uri)
       val lvd = LocalVarDecl(nts, lname, ilistEmpty)
       localsPush(lvd)
@@ -407,6 +422,41 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val isRev = !isEmpty(hasRev.getHasReverse)
 
           range.getDiscreteSubtypeDefinition match {
+            case DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx(sloc2, attr, checks) =>
+              attr.getExpression match {
+                case RangeAttributeEx(sloc3, prefix, id, exp, typ, checks) =>
+                  assert(exp.getExpressions.isEmpty)
+
+                  v(prefix)
+                  val ne: NameExp = popResult
+
+                  // ne could be an unconstrained array.  we could investigate
+                  // the type def to determine this and handle it special, but
+                  // for now let's just introduce an unbounded iter var
+
+                  val td = this.typeDeclarations(StandardURIs.universalIntURI).asInstanceOf[FullTypeDecl]
+
+                  val markNE = NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id)))
+                  val markURI = td.uri
+
+                  addTypeUri(markURI, iterND)
+                  addTypeUri(markURI, iterNE)
+
+                  var texps: ISeq[Exp] = ivector(ne)
+                  if (!exp.getExpressions.isEmpty)
+                    for (e <- exp.getExpressions) {
+                      v(e)
+                      texps :+= popResult
+                    }
+
+                  val te = TupleExp(texps)
+
+                  val lowBound = createUIFCall(Attribute.ATTRIBUTE_UIF_FIRST, te, markURI)
+                  val highBound = createUIFCall(Attribute.ATTRIBUTE_UIF_LAST, te, markURI)
+
+                  return (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound)
+              }
+              throw new RuntimeException()
             case DiscreteSubtypeIndicationAsSubtypeDefinitionEx(rsloc, mark, constraint, checks) =>
 
               v(mark)
@@ -428,8 +478,26 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
                       (lb, hb)
                     case RangeAttributeReferenceEx(rsloc, rangeAttribute, checks) =>
-                      // TODO:
-                      (null, null)
+                      rangeAttribute.getExpression match {
+                        case RangeAttributeEx(sloc2, prefix, id, exp, typ, checks) =>
+                          v(prefix)
+                          val ne: NameExp = popResult
+
+                          var texps: ISeq[Exp] = ivector(ne)
+                          if (!exp.getExpressions.isEmpty)
+                            for (e <- exp.getExpressions) {
+                              v(e)
+                              texps :+= popResult
+                            }
+
+                          val te = TupleExp(texps)
+
+                          val lb = createUIFCall(Attribute.ATTRIBUTE_UIF_FIRST, te, markURI)
+                          val hb = createUIFCall(Attribute.ATTRIBUTE_UIF_LAST, te, markURI)
+
+                          (lb, hb)
+                        case x => throw new RuntimeException("Unexpected: " + x)
+                      }
                   }
                 } else {
                   // $First ^Mark .. $Last ^Mark
@@ -560,29 +628,28 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       if (!o.isInstanceOf[ExpressionClass]) {
         return None
       }
-      val x = o.asInstanceOf[ExpressionClass].getExpression.asInstanceOf[Any]
+      o.asInstanceOf[ExpressionClass].getExpression.asInstanceOf[Any] match {
+        case x: AndOperator => Some(PilarAstUtil.COND_AND_BINOP)
+        case x: OrOperator => Some(PilarAstUtil.COND_OR_BINOP)
 
-      x match {
-        case AndOperatorEx(_) => Some(PilarAstUtil.COND_AND_BINOP)
-        case OrOperatorEx(_) => Some(PilarAstUtil.COND_OR_BINOP)
+        case x: EqualOperator => Some(PilarAstUtil.EQ_BINOP)
+        case x: GreaterThanOperator => Some(PilarAstUtil.GT_BINOP)
+        case x: GreaterThanOrEqualOperator => Some(PilarAstUtil.GE_BINOP)
+        case x: LessThanOperator => Some(PilarAstUtil.LT_BINOP)
+        case x: LessThanOrEqualOperator => Some(PilarAstUtil.LE_BINOP)
+        case x: NotEqualOperator => Some(PilarAstUtil.NE_BINOP)
 
-        case EqualOperatorEx(_) => Some(PilarAstUtil.EQ_BINOP)
-        case GreaterThanOperatorEx(_) => Some(PilarAstUtil.GT_BINOP)
-        case GreaterThanOrEqualOperatorEx(_) => Some(PilarAstUtil.GE_BINOP)
-        case LessThanOperatorEx(_) => Some(PilarAstUtil.LT_BINOP)
-        case LessThanOrEqualOperatorEx(_) => Some(PilarAstUtil.LE_BINOP)
-        case NotEqualOperatorEx(_) => Some(PilarAstUtil.NE_BINOP)
+        case x: DivideOperator => Some(PilarAstUtil.DIV_BINOP)
+        case x: MinusOperator => Some(PilarAstUtil.SUB_BINOP)
+        case x: MultiplyOperator => Some(PilarAstUtil.MUL_BINOP)
+        case x: PlusOperator => Some(PilarAstUtil.PLUS_UNOP)
+        case x: RemOperator => Some(PilarAstUtil.REM_BINOP)
 
-        case DivideOperatorEx(_) => Some(PilarAstUtil.DIV_BINOP)
-        case MinusOperatorEx(_) => Some(PilarAstUtil.SUB_BINOP)
-        case MultiplyOperatorEx(_) => Some(PilarAstUtil.MUL_BINOP)
-        case PlusOperatorEx(_) => Some(PilarAstUtil.PLUS_UNOP)
-        case RemOperatorEx(_) => Some(PilarAstUtil.REM_BINOP)
+        case x: ModOperator =>
+          Console.err.println("Handle Mod op correctly!!!!!!")
+          Some(PilarAstUtil.REM_BINOP)
 
-        case XorOperatorEx =>
-          if (DEBUG) println("Don't know how to handle bin op " + o)
-          None
-        case ModOperatorEx =>
+        case x: XorOperator =>
           if (DEBUG) println("Don't know how to handle bin op " + o)
           None
 
@@ -842,6 +909,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
 
     def handleTypeDeclaration(o: Base, v: => BVisitor): PackageElement = {
+      if (typeCache.contains(o))
+        return typeCache(o)
+
       o match {
         case otd @ OrdinaryTypeDeclarationEx(sloc, names, discriminantPart,
           typeDecView, aspectSpecs, checks) =>
@@ -851,37 +921,23 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val (tsloc, tname, turi, ttyp) = getName(names.getDefiningNames.head)
 
-          handleTypeDefinition(typeDecView, v) match {
+          val td = handleTypeDefinition(typeDecView, v)
+
+          val pilarTypeDec = td match {
             case sit: SignedIntegerTypeDef =>
-              val tad = TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
+              TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
                 NamedTypeSpec(NameUser("_SIGNED_INTEGER_TYPE_"), ilistEmpty[TypeSpec]))
-              tad(URIS.TYPE_DEF) = sit
-              addTypeUri(turi, tad)
-              tad(URIS.REF_URI) = turi
-              return tad
             case etd: EnumerationTypeDef =>
-              val tad = TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
+              TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
                 NamedTypeSpec(NameUser("_ENUMERATION_TYPE_"), ilistEmpty[TypeSpec]))
-              tad(URIS.TYPE_DEF) = etd
-              addTypeUri(turi, tad)
-              tad(URIS.REF_URI) = turi
-              return tad
             case uad: UnconstrainedArrayDef =>
-              val tad = TypeAliasDecl(NameDefinition(tname),
+              TypeAliasDecl(NameDefinition(tname),
                 ivectorEmpty,
                 NamedTypeSpec(NameUser("_UNCONSTRAINED_ARRAY_"), ilistEmpty[TypeSpec]))
-              tad(URIS.TYPE_DEF) = uad
-              addTypeUri(turi, tad)
-              tad(URIS.REF_URI) = turi
-              return tad
             case cad: ConstrainedArrayDef =>
-              val tad = TypeAliasDecl(NameDefinition(tname),
+              TypeAliasDecl(NameDefinition(tname),
                 ivectorEmpty,
                 NamedTypeSpec(NameUser("_ARRAY_"), ilistEmpty[TypeSpec]))
-              tad(URIS.TYPE_DEF) = cad
-              addTypeUri(turi, tad)
-              tad(URIS.REF_URI) = turi
-              return tad
             case rtd: RecordTypeDef =>
               var attrs = ivectorEmpty[AttributeDecl]
               for ((k, v) <- rtd.components) {
@@ -894,19 +950,23 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 addTypeUri(v.typeUri, attr)
                 attrs :+= attr
               }
-              val rd = RecordDecl(
+              RecordDecl(
                 NameDefinition(tname),
                 ivectorEmpty,
                 ilistEmpty[(NameDefinition, ISeq[Annotation])],
                 ilistEmpty[ExtendClause],
                 attrs)
-              rd(URIS.TYPE_DEF) = rtd
-              addTypeUri(turi, rd)
-
-              rd(URIS.REF_URI) = turi
-              return rd
             case _ => throw new RuntimeException("Unexpected")
           }
+          val sparkTypeDec = FullTypeDecl(tname, turi, td)
+          typeDeclarations += (turi -> sparkTypeDec)
+          typeCache(o) = pilarTypeDec
+
+          pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+          pilarTypeDec(URIS.REF_URI) = turi
+          addTypeUri(turi, pilarTypeDec)
+
+          pilarTypeDec
         case std @ SubtypeDeclarationEx(sloc, names, typeDeclView, aspectSpecs, checks) =>
           assert(names.getDefiningNames.size == 1)
           assert(aspectSpecs.getElements.isEmpty)
@@ -953,17 +1013,19 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                     cons = Some(IndexConstraint(subtypes))
                 }
               }
-
-              val std = SubTypeDecl(tname, turi, suri, cons)
-              val tad = TypeAliasDecl(NameDefinition(tname),
+              val pilarTypeDec = TypeAliasDecl(NameDefinition(tname),
                 ivectorEmpty,
                 NamedTypeSpec(NameUser(sname), ilistEmpty[TypeSpec]))
 
-              tad(URIS.TYPE_DEF) = std
-              addTypeUri(turi, tad)
-              tad(URIS.REF_URI) = turi
+              val sparkTypeDec = SubTypeDecl(tname, turi, suri, cons)
+              typeDeclarations += (turi -> sparkTypeDec)
+              typeCache(o) = pilarTypeDec
 
-              return tad
+              pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+              pilarTypeDec(URIS.REF_URI) = turi
+              addTypeUri(turi, pilarTypeDec)
+
+              pilarTypeDec
             case x => throw new RuntimeException("Unexpected: " + x)
           }
         case o @ PrivateTypeDeclarationEx(sloc, names, disc, typeDec, aspects, checks) =>
@@ -979,17 +1041,21 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               !isEmpty(hasLimited.getHasLimited)
             case x => throw new RuntimeException("Unexpected: " + x)
           }
-
-          val ptd = PrivateTypeDecl(tname, turi, false, isLimited, None)
-          val tad = TypeAliasDecl(NameDefinition(tname),
+          val pilarTypeDec = TypeAliasDecl(NameDefinition(tname),
             ivectorEmpty,
             NamedTypeSpec(NameUser("_PRIVATE_TYPE_DECLARATION_"), ilistEmpty[TypeSpec]))
 
-          tad(URIS.TYPE_DEF) = ptd
-          addTypeUri(turi, tad)
-          tad(URIS.REF_URI) = turi
+          val fullTypeDec = typeDeclarations(turi.replaceFirst("private_type", "ordinary_type")).asInstanceOf[SparkTypeDecl]
 
-          return tad
+          val sparkTypeDec = PrivateTypeDecl(tname, turi, false, isLimited, fullTypeDec.uri)
+          typeDeclarations += (turi -> sparkTypeDec)
+          typeCache(o) = pilarTypeDec
+
+          pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+          pilarTypeDec(URIS.REF_URI) = turi
+          addTypeUri(turi, pilarTypeDec)
+
+          pilarTypeDec
         case _ => throw new RuntimeException("Unexpected: " + o)
       }
     }
@@ -1093,41 +1159,39 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         constElems
       }
 
-      {
-        o match {
-          case o @ ConstantDeclarationEx(sloc, names, hasAliased, objDec, initExp, aspect, checks) =>
-            assert(ctx.isEmpty(hasAliased.getHasAliased))
-            assert(aspect.getElements.isEmpty)
+      o match {
+        case o @ ConstantDeclarationEx(sloc, names, hasAliased, objDec, initExp, aspect, checks) =>
+          assert(ctx.isEmpty(hasAliased.getHasAliased))
+          assert(aspect.getElements.isEmpty)
 
-            objDec.getDefinition match {
-              case SubtypeIndicationEx(sloc2, hasAliased, hasNullEx, mark, cons, check) =>
-                assert(ctx.isEmpty(hasAliased.getHasAliased))
-                assert(ctx.isEmpty(hasNullEx.getHasNullExclusion))
-                assert(ctx.isEmpty(cons.getConstraint))
+          objDec.getDefinition match {
+            case SubtypeIndicationEx(sloc2, hasAliased, hasNullEx, mark, cons, check) =>
+              assert(ctx.isEmpty(hasAliased.getHasAliased))
+              assert(ctx.isEmpty(hasNullEx.getHasNullExclusion))
+              assert(ctx.isEmpty(cons.getConstraint))
 
-                val (sloc3, refName, refUri, typUri) = ctx.getName(mark)
-                make(names, refName, refUri, initExp)
-              case _ => throw new RuntimeException("Unexpected: " + objDec.getDefinition)
-            }
-          case o @ DeferredConstantDeclarationEx(sloc, names, hasAliased, objDec, aspect, checks) =>
-            assert(ctx.isEmpty(hasAliased.getHasAliased))
-            assert(aspect.getElements.isEmpty)
-            objDec.getDefinition match {
-              case SubtypeIndicationEx(sloc2, hasAliased, hasNullEx, mark, cons, check) =>
-                assert(ctx.isEmpty(hasAliased.getHasAliased))
-                assert(ctx.isEmpty(hasNullEx.getHasNullExclusion))
-                assert(ctx.isEmpty(cons.getConstraint))
+              val (sloc3, refName, refUri, typUri) = ctx.getName(mark)
+              make(names, refName, refUri, initExp)
+            case _ => throw new RuntimeException("Unexpected: " + objDec.getDefinition)
+          }
+        case o @ DeferredConstantDeclarationEx(sloc, names, hasAliased, objDec, aspect, checks) =>
+          assert(ctx.isEmpty(hasAliased.getHasAliased))
+          assert(aspect.getElements.isEmpty)
+          objDec.getDefinition match {
+            case SubtypeIndicationEx(sloc2, hasAliased, hasNullEx, mark, cons, check) =>
+              assert(ctx.isEmpty(hasAliased.getHasAliased))
+              assert(ctx.isEmpty(hasNullEx.getHasNullExclusion))
+              assert(ctx.isEmpty(cons.getConstraint))
 
-                val (sloc3, refName, refUri, typUri) = ctx.getName(mark)
-                make(names, refName, refUri)
-              case _ => throw new RuntimeException("Unexpected: " + objDec.getDefinition)
-            }
-          case o @ IntegerNumberDeclarationEx(sloc1, names, initExp, checks) =>
-            make(names, "Integer", StandardURIs.integerURI, initExp)
-          case o @ RealNumberDeclarationEx(sloc1, names, initExp, checks) =>
-            make(names, "Float", StandardURIs.floatURI, initExp)
-          case x => throw new RuntimeException("Unexpected: " + o)
-        }
+              val (sloc3, refName, refUri, typUri) = ctx.getName(mark)
+              make(names, refName, refUri)
+            case _ => throw new RuntimeException("Unexpected: " + objDec.getDefinition)
+          }
+        case o @ IntegerNumberDeclarationEx(sloc1, names, initExp, checks) =>
+          make(names, "Integer", StandardURIs.integerURI, initExp)
+        case o @ RealNumberDeclarationEx(sloc1, names, initExp, checks) =>
+          make(names, "Float", StandardURIs.floatURI, initExp)
+        case x => throw new RuntimeException("Unexpected: " + o)
       }
     }
 
@@ -1166,11 +1230,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val publicTypes = TranslatorUtil.getTypeDeclarations(visiblePartDecItems.getDeclarativeItems)
         val privateTypes = TranslatorUtil.getTypeDeclarations(privatePartDecItems.getDeclarativeItems)
 
-        for (td <- publicTypes) {
+        for (td <- privateTypes) {
           packElems += ctx.handleTypeDeclaration(td, v)
           // TODO: add symbol entry        
         }
-        for (td <- privateTypes) {
+
+        for (td <- publicTypes) {
           packElems += ctx.handleTypeDeclaration(td, v)
           // TODO: add symbol entry        
         }
@@ -1419,7 +1484,24 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           import org.sireum.bakar.symbol.BakarSymbol._
           ml match {
             case "contract_cases" =>
-              throw new RuntimeException("Not handling " + ml)
+              var exps = ilistEmpty[Exp]
+              aspectDef.getElement match {
+                case RecordAggregateEx(sloc2, assocs, typ, checks) =>
+                  assocs.getAssociations.foreach {
+                    case RecordComponentAssociationEx(sloc3, choices, exp, checks) =>
+                      v(exp)
+                      val rhs: Exp = ctx.popResult
+
+                      choices.getExpressions.foreach {
+                        case OthersChoiceEx(sloc, checks) =>
+                          exps :+= rhs
+                        case x =>
+                          v(x)
+                          exps :+= TupleExp(ivector(ctx.popResult, rhs))
+                      }
+                  }
+              }
+              pd.contractCases(exps)
             case "post" =>
               v(aspectDef.getElement)
               pd.post(ctx.popResult)
@@ -1494,6 +1576,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   pd.depends(d)
                 case x => throw new RuntimeException("Unexpected: " + x)
               }
+            case "test_case" =>
+              Console.err.println("Skipping Test_Case!!!")
           }
         case x => throw new RuntimeException("Unexpected: " + x)
       }
@@ -1565,21 +1649,21 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       ctx.pushResult(nd, sloc)
       false
-      case EnumerationLiteralEx(sloc, refName, refUri, typeUri, checks) =>
-        if (typeUri == StandardURIs.boolURI) {
-          val v = refName.toLowerCase == "true"
-          val le = LiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase)
-          ctx.addTypeUri(StandardURIs.boolURI, le)
-          ctx.pushResult(le, sloc)
-        } else {
-          val nu = ctx.addResourceUri(NameUser(refName), refUri)
-          ctx.addProperty(URIS.REF_URI, refUri, nu)
-          ctx.addTypeUri(typeUri, nu)
+    case EnumerationLiteralEx(sloc, refName, refUri, typeUri, checks) =>
+      if (typeUri == StandardURIs.boolURI) {
+        val v = refName.toLowerCase == "true"
+        val le = LiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase)
+        ctx.addTypeUri(StandardURIs.boolURI, le)
+        ctx.pushResult(le, sloc)
+      } else {
+        val nu = ctx.addResourceUri(NameUser(refName), refUri)
+        ctx.addProperty(URIS.REF_URI, refUri, nu)
+        ctx.addTypeUri(typeUri, nu)
 
-          val ne = ctx.addTypeUri(typeUri, NameExp(nu))
-          ctx.pushResult(ne, sloc)
-        }
-        false      
+        val ne = ctx.addTypeUri(typeUri, NameExp(nu))
+        ctx.pushResult(ne, sloc)
+      }
+      false
     case o: Identifier =>
       val (sloc, name, refUri, typeUri) = ctx.getName(o)
 
@@ -1616,8 +1700,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     case o @ (
       DefiningNameClassEx(_) |
       DefiningExpandedNameEx(_) |
-      NameClassEx(_) | 
-      NullLiteralEx(_) |      
+      NameClassEx(_) |
+      NullLiteralEx(_) |
       StringLiteralEx(_)
       ) =>
       if (DEBUG) println("nameH: need to handle: " + o.getClass.getSimpleName)
@@ -1712,9 +1796,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       //       the low and high ranges assigned to the iter var.  So we
       //       assign the low/high bound exp to temp vars since their
       //       interpretation could change during the loop
-      val lowtemp = ctx.genTempVar(markNE.name.name, markURI)
+      val lowtemp = ctx.genTempVar(markURI)
       ctx.createPushAssignmentLocation(lowtemp, lowBound, ivectorEmpty, sloc)
-      val hightemp = ctx.genTempVar(markNE.name.name, markURI)
+      val hightemp = ctx.genTempVar(markURI)
       ctx.createPushAssignmentLocation(hightemp, highBound, ivectorEmpty, sloc)
 
       // null range check
@@ -1884,7 +1968,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       false
     case o @ (
-      AbortStatementEx(_) | 
+      AbortStatementEx(_) |
       AcceptStatementEx(_) |
       AsynchronousSelectStatementEx(_) |
       BlockStatementEx(_) |
@@ -2047,6 +2131,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         // typUri however appears to be the base type of prefix
         ctx.pushResult(h(prefix, Attribute.ATTRIBUTE_UIF_LAST), sloc)
         false
+      case o @ LengthAttributeEx(sloc, prefix, id, exprs, typ, checks) =>
+        assert(exprs.getExpressions.isEmpty)
+        ctx.pushResult(h(prefix, Attribute.ATTRIBUTE_UIF_LENGTH), sloc)
+        false
+      case o @ MaxAttributeEx(sloc, prefix, id, typ, checks) =>
+        ctx.pushResult(h(prefix, Attribute.ATTRIBUTE_UIF_MAX), sloc)
+        false
+      case o @ MinAttributeEx(sloc, prefix, id, typ, checks) =>
+        ctx.pushResult(h(prefix, Attribute.ATTRIBUTE_UIF_MIN), sloc)
+        false
       case o @ PredAttributeEx(sloc, prefix, attrId, typ, checks) =>
         ctx.pushResult(h(prefix, Attribute.ATTRIBUTE_UIF_PRED), sloc)
         false
@@ -2186,7 +2280,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               if (ctx.processingContract) {
                 ctx.pushResult(ctx.handleExp(ce), sloc)
               } else {
-                val tempVar = ctx.genTempVar("FIXME", callExpType)
+                val tempVar = ctx.genTempVar(callExpType)
                 val lhss = ivector(tempVar)
                 val cj = CallJump(ivectorEmpty, lhss, ce, None)
                 val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, cj)
@@ -2195,7 +2289,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 ctx.pushResult(ctx.handleExp(tempVar), sloc)
               }
             case ce @ CallExp(ne @ NameExp(nu), arg) =>
-              assert(nu.name == Attribute.ATTRIBUTE_UIF_PRED || nu.name == Attribute.ATTRIBUTE_UIF_SUCC)
+              assert(
+                nu.name == Attribute.ATTRIBUTE_UIF_MAX ||
+                  nu.name == Attribute.ATTRIBUTE_UIF_MIN ||
+                  nu.name == Attribute.ATTRIBUTE_UIF_PRED ||
+                  nu.name == Attribute.ATTRIBUTE_UIF_SUCC)
 
               val _ce = ctx.copyPropertyMap(ce, CallExp(ne, TupleExp(arg +: plist.toList)))
 
@@ -2205,7 +2303,29 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         }
         false
       case IfExpressionEx(sloc, expPaths, typ, checks) =>
-        throw new RuntimeException()
+        var ifThens = ivectorEmpty[IfThenExp]
+        var elseExp: Exp = null
+        expPaths.getElements.foreach {
+          case IfExpressionPathEx(sloc, condExp, exp, checks) =>
+            v(condExp)
+            val _condExp: Exp = ctx.popResult
+
+            v(exp)
+            ifThens :+= IfThenExp(_condExp, ivectorEmpty, ctx.popResult)
+          case ElsifExpressionPathEx(sloc, condExp, exp, checks) =>
+            v(condExp)
+            val _condExp: Exp = ctx.popResult
+
+            v(exp)
+            ifThens :+= IfThenExp(_condExp, ivectorEmpty, ctx.popResult)
+          case ElseExpressionPathEx(sloc, exp, checks) =>
+            v(exp)
+            elseExp = ctx.popResult
+        }
+        assert(typ != "null")
+        val ie = ctx.addTypeUri(typ, IfExp(ifThens, elseExp))
+        ctx.pushResult(ie, sloc)
+        false
       case IndexedComponentEx(sloc, prefix, indexExp, theType, checks) =>
         v(prefix)
         val pprefix: Exp = ctx.popResult
@@ -2366,15 +2486,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         attributeH(theContext, theVisitor),
         everythingElseH(theContext, theVisitor))))
 
-  parseGnat2XMLresults.foreach {
-    case (fileUri, value) => {
-      theContext.fileUri = fileUri
-      b(value)
-    }
-  }
-
-  // TODO: introduce standard package
-  val packElems = List(
+  // TODO: introduce standard package types
+  val standardPackageTypes = List(
     StandardTypeDefs.StandardBoolean,
     StandardTypeDefs.StandardInteger,
     StandardTypeDefs.StandardNatural,
@@ -2385,9 +2498,38 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     StandardTypeDefs.UniversalInteger,
     StandardTypeDefs.UniversalReal)
 
+  for (s <- standardPackageTypes) {
+    val td: FullTypeDecl = s(URIS.TYPE_DEF)
+    theContext.typeDeclarations += (td.uri -> td)
+  }
+
+  // pick up public type declarations
+  parseGnat2XMLresults.foreach {
+    case (fileUri, value) => {
+      theContext.fileUri = fileUri
+      value.getUnitDeclarationQ.getDeclaration match {
+        case o: PackageDeclaration =>
+          val privateTypes = TranslatorUtil.getTypeDeclarations(o.getPrivatePartDeclarativeItemsQl.getDeclarativeItems)
+          for (t <- privateTypes)
+            theContext.handleTypeDeclaration(t, b)
+          val publicTypes = TranslatorUtil.getTypeDeclarations(o.getVisiblePartDeclarativeItemsQl.getDeclarativeItems)
+          for (t <- publicTypes)
+            theContext.handleTypeDeclaration(t, b)
+        case _ =>
+      }
+    }
+  }
+
+  parseGnat2XMLresults.foreach {
+    case (fileUri, value) => {
+      theContext.fileUri = fileUri
+      b(value)
+    }
+  }
+
   val nd = theContext.addResourceUri(NameDefinition("Standard"), PackageURIs.standardPackageURI)
-  val pack = PackageDecl(Some(nd), ivectorEmpty, packElems)
-  theContext.models += Model(Some("fake/standard.ads"), ivectorEmpty, ivector(pack))
+  val standardPackage = PackageDecl(Some(nd), ivectorEmpty, standardPackageTypes)
+  theContext.models += Model(Some("fake/standard.ads"), ivectorEmpty, ivector(standardPackage))
 
   if (DEBUG) println("Not handling: " + theContext.unhandledSet.toList.sorted)
 

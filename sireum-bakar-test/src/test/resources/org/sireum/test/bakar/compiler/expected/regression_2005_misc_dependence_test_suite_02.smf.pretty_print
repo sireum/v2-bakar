@@ -3586,12 +3586,12 @@ fake/standard.ads
 package Standard;
 
 
-typealias Boolean standard::boolean
+typealias Boolean Boolean
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::boolean</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -3608,12 +3608,12 @@ typealias Boolean standard::boolean
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
-typealias Integer standard::integer
+typealias Integer Integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::integer</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -3630,12 +3630,12 @@ typealias Integer standard::integer
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
 
-typealias Integer standard::natural
+typealias Integer Natural
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::natural</string>
-         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -3652,12 +3652,12 @@ typealias Integer standard::natural
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
-typealias Integer standard::positive
+typealias Integer Positive
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::positive</string>
-         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -3674,11 +3674,11 @@ typealias Integer standard::positive
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
 
-typealias Float standard::float
+typealias Float Float
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>standard::float</string>
+         <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
@@ -3696,7 +3696,7 @@ typealias Float standard::float
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
-typealias Integer universal_integer
+typealias universal_integer universal_integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -3718,7 +3718,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-typealias Float universal_real
+typealias universal_real universal_real
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">

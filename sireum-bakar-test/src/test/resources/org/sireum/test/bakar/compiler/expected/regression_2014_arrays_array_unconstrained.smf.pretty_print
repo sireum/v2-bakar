@@ -69,11 +69,11 @@ typealias Integer Index
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Array_Unconstrained_T-3:9/Index-6:11</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Array_Unconstrained_T-3:9/Index-6:11</string>""")
 ;
@@ -92,11 +92,11 @@ typealias Array_Unconstrained::Vector ConsVector
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Array_Unconstrained_T-3:9/ConsVector-7:11</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Array_Unconstrained_T-3:9/ConsVector-7:11</string>""")
 ;
@@ -415,12 +415,12 @@ fake/standard.ads
 package Standard;
 
 
-typealias Boolean standard::boolean
+typealias Boolean Boolean
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::boolean</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -437,12 +437,12 @@ typealias Boolean standard::boolean
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
-typealias Integer standard::integer
+typealias Integer Integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::integer</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -459,12 +459,12 @@ typealias Integer standard::integer
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
 
-typealias Integer standard::natural
+typealias Integer Natural
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::natural</string>
-         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -481,12 +481,12 @@ typealias Integer standard::natural
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
-typealias Integer standard::positive
+typealias Integer Positive
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::positive</string>
-         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -503,11 +503,11 @@ typealias Integer standard::positive
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
 
-typealias Float standard::float
+typealias Float Float
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>standard::float</string>
+         <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
@@ -525,7 +525,7 @@ typealias Float standard::float
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
-typealias Integer universal_integer
+typealias universal_integer universal_integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -547,7 +547,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-typealias Float universal_real
+typealias universal_real universal_real
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -620,7 +620,7 @@ procedure Boolean isSorted (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
   local
-    FIXME _tcomp2;
+    Boolean _tcomp2;
 
 
   #l15.
@@ -709,7 +709,7 @@ procedure Boolean indexIsValue (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
   local
-    FIXME _tcomp3;
+    Boolean _tcomp3;
 
 
   #l17.
@@ -736,20 +736,24 @@ package Array_Unconstrained
 typealias _UNCONSTRAINED_ARRAY_ Vector
     @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.bakar.symbol.UnconstrainedArrayDef cid="1" size="4">
-         <string></string>
-         <int>1</int>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <ilist ttype="ilist">
-           <string srefid="1"/>
-         </ilist>
-       </org.sireum.bakar.symbol.UnconstrainedArrayDef>""")
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Vector</string>
+         <string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>
+         <org.sireum.bakar.symbol.UnconstrainedArrayDef cid="2" size="4">
+           <string></string>
+           <int>1</int>
+           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <ilist ttype="ilist">
+             <string srefid="2"/>
+           </ilist>
+         </org.sireum.bakar.symbol.UnconstrainedArrayDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>""")
 ;

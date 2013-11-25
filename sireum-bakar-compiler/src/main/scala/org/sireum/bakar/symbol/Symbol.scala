@@ -60,7 +60,7 @@ case class PrivateTypeDecl(
   val uri : String,
   val isTagged : Boolean,
   val isLimited : Boolean,
-  val fullDeclartionUri : Option[ResourceUri]) extends TypeDecl
+  val fullDeclartionUri : ResourceUri) extends TypeDecl
 
 /**
  * **************************************************************************

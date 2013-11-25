@@ -12,8 +12,10 @@ is
   
   V:Vector;
   
-  procedure dummy(I : in Index);
-  --# global in out V;
-  --# derives V from V, I;
+  procedure dummy(I : in Index) with
+    Global => (In_Out => V),
+    Depends => (V => (V, I));
+    --# global in out V;
+    --# derives V from V, I;
   
 end QuantifierTest;

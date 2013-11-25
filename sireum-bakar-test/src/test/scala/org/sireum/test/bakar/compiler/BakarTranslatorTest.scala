@@ -26,14 +26,15 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
 
-  //override def includes = super.includes ++= Set("2014_arrays_posit")
+  //override def includes = super.includes ++= Set("2014_misc")
 
   override def includes = super.includes ++= Set(
     "2005_misc",
     "2005_simple",
     "2014_arrays",
+    "2014_misc",
     "2014_sort",
-    //"2014_gnatprove",
+//    "2014_gnatprove_arrays",
     "xxxxxx")
 
     //override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")

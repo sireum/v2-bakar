@@ -72,7 +72,10 @@ object Attribute {
   val ATTRIBUTE_UIF_ARRAY_UPDATE = "attribute__uif__array_update"
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
-  val ATTRIBUTE_UIF_LOOP_ENTRY = "attribute__uif__loop_entry"    
+  val ATTRIBUTE_UIF_LENGTH = "attribute__uif__length"    
+  val ATTRIBUTE_UIF_LOOP_ENTRY = "attribute__uif__loop_entry"
+  val ATTRIBUTE_UIF_MAX = "attribute__uif__max"        
+  val ATTRIBUTE_UIF_MIN = "attribute__uif__min"    
   val ATTRIBUTE_UIF_OLD = "attribute__uif__old"
   val ATTRIBUTE_UIF_PRED = "attribute__uif__pred"
   val ATTRIBUTE_UIF_RESULT = "attribute__uif__result"
@@ -108,28 +111,28 @@ object StandardTypeDefs {
   import org.sireum.pilar.ast.TypeSpec
 
   def createType(typName : String, baseType : String, typURI : String) : TypeAliasDecl = {
-    val tad = TypeAliasDecl(NameDefinition(typName), ivectorEmpty,
+    val pilarTypeDec = TypeAliasDecl(NameDefinition(typName), ivectorEmpty,
       NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec])
     )
 
-    val istd = FullTypeDecl(typName, typURI,
+    val sparkTypeDec = FullTypeDecl(typName, typURI,
       SignedIntegerTypeDef("myint", None, None))
 
-    tad(URIS.TYPE_DEF) = istd
-    tad(URIS.TYPE_URI) = typURI
-    tad(URIS.REF_URI) = typURI
-    tad
+    pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+    pilarTypeDec(URIS.TYPE_URI) = typURI
+    pilarTypeDec(URIS.REF_URI) = typURI
+    pilarTypeDec
   }
 
-  val UniversalInteger = createType("universal_integer", "Integer", StandardURIs.universalIntURI)
-  val UniversalReal = createType("universal_real", "Float", StandardURIs.universalRealURI)
+  val UniversalInteger = createType("universal_integer", "universal_integer", StandardURIs.universalIntURI)
+  val UniversalReal = createType("universal_real", "universal_real", StandardURIs.universalRealURI)
 
-  val StandardBoolean = createType("standard::boolean", "Boolean", StandardURIs.boolURI)
-  val StandardInteger = createType("standard::integer", "Integer", StandardURIs.integerURI)
-  val StandardNatural = createType("standard::natural", "Integer", StandardURIs.naturalURI)
-  val StandardPositive = createType("standard::positive", "Integer", StandardURIs.positiveURI)
+  val StandardBoolean = createType("Boolean", "Boolean", StandardURIs.boolURI)
+  val StandardInteger = createType("Integer", "Integer", StandardURIs.integerURI)
+  val StandardNatural = createType("Natural", "Integer", StandardURIs.naturalURI)
+  val StandardPositive = createType("Positive", "Integer", StandardURIs.positiveURI)
 
-  val StandardFloat = createType("standard::float", "Float", StandardURIs.floatURI)
+  val StandardFloat = createType("Float", "Float", StandardURIs.floatURI)
 }
 
 object TranslatorUtil {

@@ -396,12 +396,12 @@ fake/standard.ads
 package Standard;
 
 
-typealias Boolean standard::boolean
+typealias Boolean Boolean
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::boolean</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -418,12 +418,12 @@ typealias Boolean standard::boolean
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
-typealias Integer standard::integer
+typealias Integer Integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::integer</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -440,12 +440,12 @@ typealias Integer standard::integer
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
 
-typealias Integer standard::natural
+typealias Integer Natural
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::natural</string>
-         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -462,12 +462,12 @@ typealias Integer standard::natural
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
-typealias Integer standard::positive
+typealias Integer Positive
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::positive</string>
-         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -484,11 +484,11 @@ typealias Integer standard::positive
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
 
-typealias Float standard::float
+typealias Float Float
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>standard::float</string>
+         <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
@@ -506,7 +506,7 @@ typealias Float standard::float
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
-typealias Integer universal_integer
+typealias universal_integer universal_integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -528,7 +528,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-typealias Float universal_real
+typealias universal_real universal_real
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -567,46 +567,50 @@ package RecordTest01
 record Object
     @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.bakar.symbol.RecordTypeDef cid="1" size="3">
-         <string>que</string>
-         <boolean>false</boolean>
-         <imap mtype="imap">
-           <entry>
-             <string>X</string>
-             <org.sireum.bakar.symbol.ComponentDef cid="2" size="4">
-               <string sid="1">ada://component/RecordTest01-1:9/Object-6:8/X-8:5</string>
-               <string>Integer</string>
-               <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-               <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
-                 <lineBegin>8</lineBegin>
-                 <columnBegin>5</columnBegin>
-                 <lineEnd>8</lineEnd>
-                 <columnEnd>5</columnEnd>
-               </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
-             </org.sireum.bakar.symbol.ComponentDef>
-           </entry>
-           <entry>
-             <string>Y</string>
-             <org.sireum.bakar.symbol.ComponentDef cid="3" size="4">
-               <string sid="3">ada://component/RecordTest01-1:9/Object-6:8/Y-8:8</string>
-               <string>Integer</string>
-               <string srefid="2"/>
-               <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
-                 <lineBegin>8</lineBegin>
-                 <columnBegin>8</columnBegin>
-                 <lineEnd>8</lineEnd>
-                 <columnEnd>8</columnEnd>
-               </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
-             </org.sireum.bakar.symbol.ComponentDef>
-           </entry>
-         </imap>
-       </org.sireum.bakar.symbol.RecordTypeDef>""")
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Object</string>
+         <string sid="1">ada://ordinary_type/RecordTest01-1:9/Object-6:8</string>
+         <org.sireum.bakar.symbol.RecordTypeDef cid="2" size="3">
+           <string>que</string>
+           <boolean>false</boolean>
+           <imap mtype="imap">
+             <entry>
+               <string>X</string>
+               <org.sireum.bakar.symbol.ComponentDef cid="3" size="4">
+                 <string sid="2">ada://component/RecordTest01-1:9/Object-6:8/X-8:5</string>
+                 <string>Integer</string>
+                 <string sid="3">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                   <lineBegin>8</lineBegin>
+                   <columnBegin>5</columnBegin>
+                   <lineEnd>8</lineEnd>
+                   <columnEnd>5</columnEnd>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+               </org.sireum.bakar.symbol.ComponentDef>
+             </entry>
+             <entry>
+               <string>Y</string>
+               <org.sireum.bakar.symbol.ComponentDef cid="4" size="4">
+                 <string sid="4">ada://component/RecordTest01-1:9/Object-6:8/Y-8:8</string>
+                 <string>Integer</string>
+                 <string srefid="3"/>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                   <lineBegin>8</lineBegin>
+                   <columnBegin>8</columnBegin>
+                   <lineEnd>8</lineEnd>
+                   <columnEnd>8</columnEnd>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+               </org.sireum.bakar.symbol.ComponentDef>
+             </entry>
+           </imap>
+         </org.sireum.bakar.symbol.RecordTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/RecordTest01-1:9/Object-6:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/RecordTest01-1:9/Object-6:8</string>""")
  {
@@ -635,32 +639,36 @@ record Object
 record NestedObject
     @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.bakar.symbol.RecordTypeDef cid="1" size="3">
-         <string>que</string>
-         <boolean>false</boolean>
-         <imap mtype="imap">
-           <entry>
-             <string>O</string>
-             <org.sireum.bakar.symbol.ComponentDef cid="2" size="4">
-               <string sid="1">ada://component/RecordTest01-1:9/NestedObject-11:8/O-13:5</string>
-               <string>Object</string>
-               <string sid="2">ada://ordinary_type/RecordTest01-1:9/Object-6:8</string>
-               <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
-                 <lineBegin>13</lineBegin>
-                 <columnBegin>5</columnBegin>
-                 <lineEnd>13</lineEnd>
-                 <columnEnd>5</columnEnd>
-               </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
-             </org.sireum.bakar.symbol.ComponentDef>
-           </entry>
-         </imap>
-       </org.sireum.bakar.symbol.RecordTypeDef>""")
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>NestedObject</string>
+         <string sid="1">ada://ordinary_type/RecordTest01-1:9/NestedObject-11:8</string>
+         <org.sireum.bakar.symbol.RecordTypeDef cid="2" size="3">
+           <string>que</string>
+           <boolean>false</boolean>
+           <imap mtype="imap">
+             <entry>
+               <string>O</string>
+               <org.sireum.bakar.symbol.ComponentDef cid="3" size="4">
+                 <string sid="2">ada://component/RecordTest01-1:9/NestedObject-11:8/O-13:5</string>
+                 <string>Object</string>
+                 <string sid="3">ada://ordinary_type/RecordTest01-1:9/Object-6:8</string>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                   <lineBegin>13</lineBegin>
+                   <columnBegin>5</columnBegin>
+                   <lineEnd>13</lineEnd>
+                   <columnEnd>5</columnEnd>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+               </org.sireum.bakar.symbol.ComponentDef>
+             </entry>
+           </imap>
+         </org.sireum.bakar.symbol.RecordTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/RecordTest01-1:9/NestedObject-11:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/RecordTest01-1:9/NestedObject-11:8</string>""")
  {

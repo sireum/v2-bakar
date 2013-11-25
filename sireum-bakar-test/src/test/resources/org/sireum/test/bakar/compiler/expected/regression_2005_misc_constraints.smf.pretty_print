@@ -175,11 +175,11 @@ typealias Integer Sub_Int
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Constraints-1:9/Sub_Int-3:11</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Constraints-1:9/Sub_Int-3:11</string>""")
 ;
@@ -187,101 +187,105 @@ typealias Integer Sub_Int
 typealias _SIGNED_INTEGER_TYPE_ Int_Range
     @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.bakar.symbol.SignedIntegerTypeDef cid="1" size="3">
-         <string></string>
-         <some etype="org.sireum.pilar.ast.NameExp" cid="2" size="1">
-           <org.sireum.pilar.ast.NameUser cid="3" size="1">
-             <string>Int_Low_Const</string>
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Int_Range</string>
+         <string sid="1">ada://ordinary_type/Constraints-1:9/Int_Range-6:8</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string></string>
+           <some etype="org.sireum.pilar.ast.NameExp" cid="3" size="1">
+             <org.sireum.pilar.ast.NameUser cid="4" size="1">
+               <string>Int_Low_Const</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                     <string>ada</string>
+                     <string>constant</string>
+                     <ilist ttype="ilist">
+                       <string>Constraints-1:9</string>
+                       <string sid="2">Int_Low_Const-4:3</string>
+                     </ilist>
+                     <string sid="3">ada://constant/Constraints-1:9/Int_Low_Const-4:3</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string sid="4">ada://subtype/Constraints-1:9/Sub_Int-3:11</string>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
              <properties mtype="mlinkedmap">
                <entry>
-                 <string>pilar.symbol</string>
-                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="4" size="4">
-                   <string>ada</string>
-                   <string>constant</string>
-                   <ilist ttype="ilist">
-                     <string>Constraints-1:9</string>
-                     <string sid="1">Int_Low_Const-4:3</string>
-                   </ilist>
-                   <string sid="2">ada://constant/Constraints-1:9/Int_Low_Const-4:3</string>
-                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-               </entry>
-               <entry>
-                 <string>BAKAR_REF_URI</string>
-                 <string srefid="2"/>
-               </entry>
-               <entry>
                  <string>BAKAR_TYPE_URI</string>
-                 <string sid="3">ada://subtype/Constraints-1:9/Sub_Int-3:11</string>
+                 <string srefid="4"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
+                   <string>constraints.ads</string>
+                   <int>6</int>
+                   <int>27</int>
+                   <int>6</int>
+                   <int>39</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
-           </org.sireum.pilar.ast.NameUser>
-           <properties mtype="mlinkedmap">
-             <entry>
-               <string>BAKAR_TYPE_URI</string>
-               <string srefid="3"/>
-             </entry>
-             <entry>
-               <string>util.loc</string>
-               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                 <string>constraints.ads</string>
-                 <int>6</int>
-                 <int>27</int>
-                 <int>6</int>
-                 <int>39</int>
-               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-             </entry>
-           </properties>
-         </some>
-         <some etype="org.sireum.pilar.ast.NameExp" cid="6" size="1">
-           <org.sireum.pilar.ast.NameUser cid="7" size="1">
-             <string>Int_High_Const</string>
+           </some>
+           <some etype="org.sireum.pilar.ast.NameExp" cid="7" size="1">
+             <org.sireum.pilar.ast.NameUser cid="8" size="1">
+               <string>Int_High_Const</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="9" size="4">
+                     <string>ada</string>
+                     <string>integer_number</string>
+                     <ilist ttype="ilist">
+                       <string>Constraints-1:9</string>
+                       <string sid="5">Int_High_Const-5:3</string>
+                     </ilist>
+                     <string sid="6">ada://integer_number/Constraints-1:9/Int_High_Const-5:3</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string sid="7">ada://ordinary_type/universal_integer</string>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
              <properties mtype="mlinkedmap">
                <entry>
-                 <string>pilar.symbol</string>
-                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="8" size="4">
-                   <string>ada</string>
-                   <string>integer_number</string>
-                   <ilist ttype="ilist">
-                     <string>Constraints-1:9</string>
-                     <string sid="4">Int_High_Const-5:3</string>
-                   </ilist>
-                   <string sid="5">ada://integer_number/Constraints-1:9/Int_High_Const-5:3</string>
-                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-               </entry>
-               <entry>
-                 <string>BAKAR_REF_URI</string>
-                 <string srefid="5"/>
-               </entry>
-               <entry>
                  <string>BAKAR_TYPE_URI</string>
-                 <string sid="6">ada://ordinary_type/universal_integer</string>
+                 <string srefid="7"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="10" size="5">
+                   <string>constraints.ads</string>
+                   <int>6</int>
+                   <int>44</int>
+                   <int>6</int>
+                   <int>57</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
-           </org.sireum.pilar.ast.NameUser>
-           <properties mtype="mlinkedmap">
-             <entry>
-               <string>BAKAR_TYPE_URI</string>
-               <string srefid="6"/>
-             </entry>
-             <entry>
-               <string>util.loc</string>
-               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="9" size="5">
-                 <string>constraints.ads</string>
-                 <int>6</int>
-                 <int>44</int>
-                 <int>6</int>
-                 <int>57</int>
-               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-             </entry>
-           </properties>
-         </some>
-       </org.sireum.bakar.symbol.SignedIntegerTypeDef>""")
+           </some>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Int_Range-6:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Int_Range-6:8</string>""")
 ;
@@ -289,45 +293,49 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
 typealias _ENUMERATION_TYPE_ Day
     @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.bakar.symbol.EnumerationTypeDef cid="1" size="2">
-         <string></string>
-         <ivector ttype="ivector">
-           <pair>
-             <__1 class="string">Mon</__1>
-             <__2 class="string" sid="1">ada://enumeration_literal/Constraints-1:9/Day-8:8/Mon-8:16</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Tue</__1>
-             <__2 class="string" sid="2">ada://enumeration_literal/Constraints-1:9/Day-8:8/Tue-8:21</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Wed</__1>
-             <__2 class="string" sid="3">ada://enumeration_literal/Constraints-1:9/Day-8:8/Wed-8:26</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Thur</__1>
-             <__2 class="string" sid="4">ada://enumeration_literal/Constraints-1:9/Day-8:8/Thur-8:31</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Fri</__1>
-             <__2 class="string" sid="5">ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Sat</__1>
-             <__2 class="string" sid="6">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sat-8:42</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Sun</__1>
-             <__2 class="string" sid="7">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sun-8:47</__2>
-           </pair>
-         </ivector>
-       </org.sireum.bakar.symbol.EnumerationTypeDef>""")
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Day</string>
+         <string sid="1">ada://ordinary_type/Constraints-1:9/Day-8:8</string>
+         <org.sireum.bakar.symbol.EnumerationTypeDef cid="2" size="2">
+           <string></string>
+           <ivector ttype="ivector">
+             <pair>
+               <__1 class="string">Mon</__1>
+               <__2 class="string" sid="2">ada://enumeration_literal/Constraints-1:9/Day-8:8/Mon-8:16</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Tue</__1>
+               <__2 class="string" sid="3">ada://enumeration_literal/Constraints-1:9/Day-8:8/Tue-8:21</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Wed</__1>
+               <__2 class="string" sid="4">ada://enumeration_literal/Constraints-1:9/Day-8:8/Wed-8:26</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Thur</__1>
+               <__2 class="string" sid="5">ada://enumeration_literal/Constraints-1:9/Day-8:8/Thur-8:31</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Fri</__1>
+               <__2 class="string" sid="6">ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Sat</__1>
+               <__2 class="string" sid="7">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sat-8:42</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Sun</__1>
+               <__2 class="string" sid="8">ada://enumeration_literal/Constraints-1:9/Day-8:8/Sun-8:47</__2>
+             </pair>
+           </ivector>
+         </org.sireum.bakar.symbol.EnumerationTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Day-8:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Day-8:8</string>""")
 ;
@@ -431,11 +439,11 @@ typealias Day Weekday
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Constraints-1:9/Weekday-9:11</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Constraints-1:9/Weekday-9:11</string>""")
 ;
@@ -510,12 +518,12 @@ fake/standard.ads
 package Standard;
 
 
-typealias Boolean standard::boolean
+typealias Boolean Boolean
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::boolean</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -532,12 +540,12 @@ typealias Boolean standard::boolean
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
-typealias Integer standard::integer
+typealias Integer Integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::integer</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -554,12 +562,12 @@ typealias Integer standard::integer
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
 
-typealias Integer standard::natural
+typealias Integer Natural
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::natural</string>
-         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -576,12 +584,12 @@ typealias Integer standard::natural
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
-typealias Integer standard::positive
+typealias Integer Positive
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::positive</string>
-         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -598,11 +606,11 @@ typealias Integer standard::positive
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
 
-typealias Float standard::float
+typealias Float Float
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>standard::float</string>
+         <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
@@ -620,7 +628,7 @@ typealias Float standard::float
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
-typealias Integer universal_integer
+typealias universal_integer universal_integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -642,7 +650,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-typealias Float universal_real
+typealias universal_real universal_real
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">

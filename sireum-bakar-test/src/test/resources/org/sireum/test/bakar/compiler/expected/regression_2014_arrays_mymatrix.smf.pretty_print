@@ -215,6 +215,98 @@ package MyMatrix
 ;
 
 
+typealias _SIGNED_INTEGER_TYPE_ Matrix_Index
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Matrix_Index</string>
+         <string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
+           <string></string>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>0</bigInteger>
+             </scala.math.BigInt>
+             <string>0ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="2">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>mymatrix.ads</string>
+                   <int>13</int>
+                   <int>30</int>
+                   <int>13</int>
+                   <int>30</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </some>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="5" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>9</bigInteger>
+             </scala.math.BigInt>
+             <string>9ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="2"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
+                   <string>mymatrix.ads</string>
+                   <int>13</int>
+                   <int>33</int>
+                   <int>13</int>
+                   <int>33</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </some>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>""")
+;
+
+typealias _ARRAY_ Matrix
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Matrix</string>
+         <string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix-5:8</string>
+         <org.sireum.bakar.symbol.ConstrainedArrayDef cid="2" size="4">
+           <string></string>
+           <int>2</int>
+           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <ivector ttype="ivector">
+             <string sid="3">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>
+             <string srefid="3"/>
+           </ivector>
+         </org.sireum.bakar.symbol.ConstrainedArrayDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix-5:8</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix-5:8</string>""")
+;
+
 typealias _PRIVATE_TYPE_DECLARATION_ Matrix_Index
     @BAKAR_TYPE_DEF
 
@@ -223,14 +315,14 @@ typealias _PRIVATE_TYPE_DECLARATION_ Matrix_Index
          <string sid="1">ada://private_type/MyMatrix-1:9/Matrix_Index-4:8</string>
          <boolean>false</boolean>
          <boolean>true</boolean>
-         <none/>
+         <string sid="2">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>
        </org.sireum.bakar.symbol.PrivateTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://private_type/MyMatrix-1:9/Matrix_Index-4:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://private_type/MyMatrix-1:9/Matrix_Index-4:8</string>""")
 ;
@@ -243,100 +335,16 @@ typealias _PRIVATE_TYPE_DECLARATION_ Matrix
          <string sid="1">ada://private_type/MyMatrix-1:9/Matrix-5:8</string>
          <boolean>false</boolean>
          <boolean>true</boolean>
-         <none/>
+         <string sid="2">ada://ordinary_type/MyMatrix-1:9/Matrix-5:8</string>
        </org.sireum.bakar.symbol.PrivateTypeDecl>""")
 
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://private_type/MyMatrix-1:9/Matrix-5:8</string>""")
-
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://private_type/MyMatrix-1:9/Matrix-5:8</string>""")
-;
-
-typealias _SIGNED_INTEGER_TYPE_ Matrix_Index
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.SignedIntegerTypeDef cid="1" size="3">
-         <string></string>
-         <some etype="org.sireum.pilar.ast.LiteralExp" cid="2" size="3">
-           <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
-           <scala.math.BigInt>
-             <bigInteger>0</bigInteger>
-           </scala.math.BigInt>
-           <string>0ii</string>
-           <properties mtype="mlinkedmap">
-             <entry>
-               <string>BAKAR_TYPE_URI</string>
-               <string sid="1">ada://ordinary_type/universal_integer</string>
-             </entry>
-             <entry>
-               <string>util.loc</string>
-               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
-                 <string>mymatrix.ads</string>
-                 <int>13</int>
-                 <int>30</int>
-                 <int>13</int>
-                 <int>30</int>
-               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-             </entry>
-           </properties>
-         </some>
-         <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
-           <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
-           <scala.math.BigInt>
-             <bigInteger>9</bigInteger>
-           </scala.math.BigInt>
-           <string>9ii</string>
-           <properties mtype="mlinkedmap">
-             <entry>
-               <string>BAKAR_TYPE_URI</string>
-               <string srefid="1"/>
-             </entry>
-             <entry>
-               <string>util.loc</string>
-               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                 <string>mymatrix.ads</string>
-                 <int>13</int>
-                 <int>33</int>
-                 <int>13</int>
-                 <int>33</int>
-               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-             </entry>
-           </properties>
-         </some>
-       </org.sireum.bakar.symbol.SignedIntegerTypeDef>""")
 
     @BAKAR_TYPE_URI
 
-      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>""")
-;
-
-typealias _ARRAY_ Matrix
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.ConstrainedArrayDef cid="1" size="4">
-         <string></string>
-         <int>2</int>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <ivector ttype="ivector">
-           <string sid="2">ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8</string>
-           <string srefid="2"/>
-         </ivector>
-       </org.sireum.bakar.symbol.ConstrainedArrayDef>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix-5:8</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/MyMatrix-1:9/Matrix-5:8</string>""")
+      ("""<string sid="1">ada://private_type/MyMatrix-1:9/Matrix-5:8</string>""")
 ;
 
 procedure Multiply (
@@ -438,12 +446,12 @@ fake/standard.ads
 package Standard;
 
 
-typealias Boolean standard::boolean
+typealias Boolean Boolean
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::boolean</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -460,12 +468,12 @@ typealias Boolean standard::boolean
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
-typealias Integer standard::integer
+typealias Integer Integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::integer</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -482,12 +490,12 @@ typealias Integer standard::integer
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
 
-typealias Integer standard::natural
+typealias Integer Natural
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::natural</string>
-         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -504,12 +512,12 @@ typealias Integer standard::natural
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
-typealias Integer standard::positive
+typealias Integer Positive
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::positive</string>
-         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -526,11 +534,11 @@ typealias Integer standard::positive
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
 
-typealias Float standard::float
+typealias Float Float
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>standard::float</string>
+         <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
@@ -548,7 +556,7 @@ typealias Float standard::float
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
-typealias Integer universal_integer
+typealias universal_integer universal_integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -570,7 +578,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-typealias Float universal_real
+typealias universal_real universal_real
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">

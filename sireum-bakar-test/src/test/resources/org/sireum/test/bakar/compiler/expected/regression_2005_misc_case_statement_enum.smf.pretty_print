@@ -127,12 +127,12 @@ fake/standard.ads
 package Standard;
 
 
-typealias Boolean standard::boolean
+typealias Boolean Boolean
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::boolean</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -149,12 +149,12 @@ typealias Boolean standard::boolean
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
-typealias Integer standard::integer
+typealias Integer Integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::integer</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -171,12 +171,12 @@ typealias Integer standard::integer
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
 
-typealias Integer standard::natural
+typealias Integer Natural
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::natural</string>
-         <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -193,12 +193,12 @@ typealias Integer standard::natural
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
-typealias Integer standard::positive
+typealias Integer Positive
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">standard::positive</string>
-         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
            <none/>
@@ -215,11 +215,11 @@ typealias Integer standard::positive
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
 
-typealias Float standard::float
+typealias Float Float
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>standard::float</string>
+         <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
            <string>myint</string>
@@ -237,7 +237,7 @@ typealias Float standard::float
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
-typealias Integer universal_integer
+typealias universal_integer universal_integer
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -259,7 +259,7 @@ typealias Integer universal_integer
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
 
-typealias Float universal_real
+typealias universal_real universal_real
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -298,49 +298,53 @@ package Case_Statement_Enum
 typealias _ENUMERATION_TYPE_ Week
     @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.bakar.symbol.EnumerationTypeDef cid="1" size="2">
-         <string></string>
-         <ivector ttype="ivector">
-           <pair>
-             <__1 class="string">Mon</__1>
-             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Mon-3:17</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Tue</__1>
-             <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Tue-3:22</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Wed</__1>
-             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Wed-3:27</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Thur</__1>
-             <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Thur-3:32</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Fri</__1>
-             <__2 class="string" sid="5">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Fri-3:38</__2>
-           </pair>
-           <pair>
-             <__1 class="string">FriPart2</__1>
-             <__2 class="string" sid="6">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/FriPart2-3:43</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Sat</__1>
-             <__2 class="string" sid="7">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sat-3:53</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Sun</__1>
-             <__2 class="string" sid="8">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sun-3:58</__2>
-           </pair>
-         </ivector>
-       </org.sireum.bakar.symbol.EnumerationTypeDef>""")
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Week</string>
+         <string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>
+         <org.sireum.bakar.symbol.EnumerationTypeDef cid="2" size="2">
+           <string></string>
+           <ivector ttype="ivector">
+             <pair>
+               <__1 class="string">Mon</__1>
+               <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Mon-3:17</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Tue</__1>
+               <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Tue-3:22</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Wed</__1>
+               <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Wed-3:27</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Thur</__1>
+               <__2 class="string" sid="5">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Thur-3:32</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Fri</__1>
+               <__2 class="string" sid="6">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Fri-3:38</__2>
+             </pair>
+             <pair>
+               <__1 class="string">FriPart2</__1>
+               <__2 class="string" sid="7">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/FriPart2-3:43</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Sat</__1>
+               <__2 class="string" sid="8">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sat-3:53</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Sun</__1>
+               <__2 class="string" sid="9">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sun-3:58</__2>
+             </pair>
+           </ivector>
+         </org.sireum.bakar.symbol.EnumerationTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>""")
 ;
@@ -468,11 +472,11 @@ typealias Week WeekDay
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekDay-4:11</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekDay-4:11</string>""")
 ;
@@ -576,11 +580,11 @@ typealias WeekDay HumpDay
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/HumpDay-5:11</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/HumpDay-5:11</string>""")
 ;
@@ -708,11 +712,11 @@ typealias Week WeekEnd
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekEnd-6:11</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekEnd-6:11</string>""")
 ;
@@ -720,33 +724,37 @@ typealias Week WeekEnd
 typealias _ENUMERATION_TYPE_ Activity
     @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.bakar.symbol.EnumerationTypeDef cid="1" size="2">
-         <string></string>
-         <ivector ttype="ivector">
-           <pair>
-             <__1 class="string">Work</__1>
-             <__2 class="string" sid="1">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Work-8:21</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Sleep</__1>
-             <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Sleep-8:27</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Party</__1>
-             <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Party-8:34</__2>
-           </pair>
-           <pair>
-             <__1 class="string">Drink</__1>
-             <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Drink-8:41</__2>
-           </pair>
-         </ivector>
-       </org.sireum.bakar.symbol.EnumerationTypeDef>""")
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Activity</string>
+         <string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8</string>
+         <org.sireum.bakar.symbol.EnumerationTypeDef cid="2" size="2">
+           <string></string>
+           <ivector ttype="ivector">
+             <pair>
+               <__1 class="string">Work</__1>
+               <__2 class="string" sid="2">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Work-8:21</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Sleep</__1>
+               <__2 class="string" sid="3">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Sleep-8:27</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Party</__1>
+               <__2 class="string" sid="4">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Party-8:34</__2>
+             </pair>
+             <pair>
+               <__1 class="string">Drink</__1>
+               <__2 class="string" sid="5">ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Drink-8:41</__2>
+             </pair>
+           </ivector>
+         </org.sireum.bakar.symbol.EnumerationTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_TYPE_URI
+    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8</string>""")
 
-    @BAKAR_REF_URI
+    @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8</string>""")
 ;
