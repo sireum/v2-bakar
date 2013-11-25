@@ -53,6 +53,7 @@ import org.sireum.bakar.xml.DelayRelativeStatementEx
 import org.sireum.bakar.xml.DelayUntilStatementEx
 import org.sireum.bakar.xml.DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx
 import org.sireum.bakar.xml.DiscreteSimpleExpressionRangeEx
+import org.sireum.bakar.xml.DiscreteSimpleExpressionRangeAsSubtypeDefinitionEx
 import org.sireum.bakar.xml.DiscreteSubtypeIndicationAsSubtypeDefinitionEx
 import org.sireum.bakar.xml.DiscreteSubtypeIndicationEx
 import org.sireum.bakar.xml.DivideOperator
@@ -126,6 +127,7 @@ import org.sireum.bakar.xml.ParameterSpecificationList
 import org.sireum.bakar.xml.ParenthesizedExpression
 import org.sireum.bakar.xml.PlusOperator
 import org.sireum.bakar.xml.PositionalArrayAggregateEx
+import org.sireum.bakar.xml.PragmaArgumentAssociationEx
 import org.sireum.bakar.xml.PredAttributeEx
 import org.sireum.bakar.xml.PrivateTypeDeclarationEx
 import org.sireum.bakar.xml.PrivateTypeDefinitionEx
@@ -404,7 +406,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           assert(names.getDefiningNames.size == 1)
 
           def unique(s: String, i: Int = -1): String = {
-            if (locals.find(e => (i == -1 && e.name.name == s) || e.name.name == s + i).isDefined)
+            assert (locals != null || processingContract) 
+            if (locals != null && locals.find(e => (i == -1 && e.name.name == s) || e.name.name == s + i).isDefined)
               unique(s, i + 1)
             else if (i == -1) s else s + i
           }
@@ -422,6 +425,19 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val isRev = !isEmpty(hasRev.getHasReverse)
 
           range.getDiscreteSubtypeDefinition match {
+            case DiscreteSimpleExpressionRangeAsSubtypeDefinitionEx(sloc2, lbound, hbound, check) =>
+              v(lbound.getExpression)
+              val lowBound: Exp = popResult
+
+              v(hbound)
+              val highBound: Exp = popResult
+
+              val td = this.typeDeclarations(StandardURIs.universalIntURI).asInstanceOf[FullTypeDecl]
+
+              val markNE = NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id)))
+              val markURI = td.uri
+
+              return (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound)
             case DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx(sloc2, attr, checks) =>
               attr.getExpression match {
                 case RangeAttributeEx(sloc3, prefix, id, exp, typ, checks) =>
@@ -455,8 +471,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   val highBound = createUIFCall(Attribute.ATTRIBUTE_UIF_LAST, te, markURI)
 
                   return (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound)
+                case x => throw new RuntimeException("Unexpected: " + x)
               }
-              throw new RuntimeException()
             case DiscreteSubtypeIndicationAsSubtypeDefinitionEx(rsloc, mark, constraint, checks) =>
 
               v(mark)
@@ -2116,6 +2132,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val n = p.name.name.toLowerCase match {
           case "old" => Attribute.ATTRIBUTE_UIF_OLD
           case "result" => Attribute.ATTRIBUTE_UIF_RESULT
+          case x => throw new RuntimeException("Unexpected: " + x)
         }
 
         v(prefix)
@@ -2447,12 +2464,43 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       }
       ctx.processingContract(false)
       false
-    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgAssociations, pragmaName, checks) if (pragmaName.toLowerCase == "assume") =>
-      ctx.processingContract(true)
-      for (a <- pragmaArgAssociations.getAssociations) {
-        v(a)
-        val aa = AssumeAction(ivectorEmpty, ctx.popResult)
-        ctx.createPushLocation(aa, ivectorEmpty, sloc)
+    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgAssociations, pragmaName, checks) =>
+      ctx.processingContract(true)      
+      pragmaName.toLowerCase match {
+        case "assume" =>
+          assert(pragmaArgAssociations.getAssociations.size == 1)
+
+          v(pragmaArgAssociations.getAssociations.head)
+          val aa = AssumeAction(ivectorEmpty, ctx.popResult)
+          ctx.createPushLocation(aa, ivectorEmpty, sloc)
+        case "loop_invariant" =>
+          assert(pragmaArgAssociations.getAssociations.size == 1)
+
+          v(pragmaArgAssociations.getAssociations.head)
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_INVARIANT, ctx.popResult, StandardURIs.boolURI)
+          val aa = AssertAction(ivectorEmpty, uif, None)
+          aa("LOOP_INVARIANT") = true
+          ctx.createPushLocation(aa, ivectorEmpty, sloc)
+        case "loop_variant" =>
+          var matchings = ivectorEmpty[Matching]
+          pragmaArgAssociations.getAssociations.foreach {
+            case PragmaArgumentAssociationEx(sloc2, formal, actual, checks2) =>
+              v(formal)
+              val ne: NameExp = ctx.popResult
+              val name = ne.name.name.toLowerCase
+
+              v(actual)
+              val e: Exp = ctx.popResult
+
+              val pd = ParamDecl(None, NameDefinition(name), ivectorEmpty)
+              matchings :+= Matching(ivector(pd), e)
+            case x => throw new RuntimeException()
+          }
+          val fe = new FunExp(matchings)
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_VARIANT, fe, StandardURIs.boolURI)
+          val aa = AssertAction(ivectorEmpty, uif, None)
+          aa("LOOP_VARIANT") = true
+          ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }
       ctx.processingContract(false)
       false

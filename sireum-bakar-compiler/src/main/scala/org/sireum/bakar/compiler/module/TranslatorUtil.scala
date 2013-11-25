@@ -83,9 +83,12 @@ object Attribute {
 }
 
 object Proof {
+  val PROOF_UIF_LOOP_INVARIANT = "proof__uif__loop_invariant"      
+  val PROOF_UIF_LOOP_VARIANT = "proof__uif__loop_variant"      
   val PROOF_UIF_FOR_ALL = "proof__uif__for_all"  
   val PROOF_UIF_FOR_SOME = "proof__uif__for_some"
 }
+
 
 object StandardURIs {
   val universalIntURI = "ada://ordinary_type/universal_integer".intern
