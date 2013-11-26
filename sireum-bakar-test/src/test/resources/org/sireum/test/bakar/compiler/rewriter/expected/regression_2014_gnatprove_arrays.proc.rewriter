@@ -1,0 +1,133 @@
+package Arrays;
+
+
+procedure Natural Sum (
+        T X) {
+  local
+    Natural S;
+    universal_integer J;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+
+
+  #l1.
+    S := 0ii;
+
+  #l3.
+    _tcomp0 := attribute__uif__first (X);
+
+  #l4.
+    _tcomp1 := attribute__uif__last (X);
+
+  #l5.
+    if _tcomp0 > _tcomp1 then goto l2;
+
+  #l6.
+    J := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #l8.
+    S := S + X[J];
+
+  #l9.
+    if J == _tcomp1 then goto l2;
+
+  #l10.
+    J := J + 1ii;
+
+  #l11.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l12.
+    return S;
+}
+
+procedure Natural Count_Even (
+        T X) {
+  local
+    Natural C;
+    universal_integer J;
+    universal_integer _tcomp2;
+    universal_integer _tcomp3;
+
+
+  #l13.
+    C := 0ii;
+
+  #l15.
+    _tcomp2 := attribute__uif__first (X);
+
+  #l16.
+    _tcomp3 := attribute__uif__last (X);
+
+  #l17.
+    if _tcomp2 > _tcomp3 then goto l14;
+
+  #l18.
+    J := _tcomp2;
+
+  #l19.
+    // empty loc
+
+  #l21.
+    if !(X[J] % 2ii == 0ii) then goto l20;
+
+  #l22.
+    C := C + 1ii;
+
+  #l20.
+    // empty loc
+
+  #l23.
+    if J == _tcomp3 then goto l14;
+
+  #l24.
+    J := J + 1ii;
+
+  #l25.
+    goto l19;
+
+  #l14.
+    // empty loc
+
+  #l26.
+    return C;
+}package Arrays;
+
+
+typealias _UNCONSTRAINED_ARRAY_ T;
+
+procedure Natural Sum (
+        T X) {
+
+}
+
+procedure Natural Count_Even (
+        T X) {
+
+}
+
+procedure Natural Count_Odd (
+        T X) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;

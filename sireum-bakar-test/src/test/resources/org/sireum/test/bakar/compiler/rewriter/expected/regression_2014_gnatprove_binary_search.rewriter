@@ -1,0 +1,252 @@
+package Binary_Search;
+
+
+procedure T Search (
+        Ar A,
+        Integer I) {
+  local
+    U Left;
+    U Right;
+    U Med;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+    FIXME _t28;
+    FIXME _t29;
+    FIXME _t30;
+    FIXME _t31;
+    FIXME _t32;
+    FIXME _t33;
+
+
+  #l1.
+    Left := attribute__uif__first `Ar;
+
+  #l2.
+    Right := attribute__uif__last `Ar;
+
+  #rwl0.
+    _t0 := A[Left];
+
+  #rwl1.
+    _t1 := I;
+
+  #rwl2.
+    _t2 := A[Right];
+
+  #rwl3.
+    _t3 := I;
+
+  #rwl4.
+    _t4 := _t0 > _t1;
+
+  #rwl5.
+    _t5 := _t2 < _t3;
+
+  #l4.
+    if !(_t4 ||| _t5) then goto l3;
+
+  #l5.
+    return 0ii;
+
+  #l3.
+    // empty loc
+
+  #l7.
+    // empty loc
+
+  #rwl6.
+    _t6 := Left;
+
+  #rwl7.
+    _t7 := Right;
+
+  #l8.
+    if !(_t6 < _t7) then goto l6;
+
+  #rwl8.
+    _t8 := Left;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #rwl10.
+    _t10 := A[Index];
+
+  #rwl11.
+    _t11 := I;
+
+  #rwl12.
+    _t12 := Right;
+
+  #rwl13.
+    _t13 := 1ii;
+
+  #rwl14.
+    _t14 := I;
+
+  #rwl15.
+    _t15 := A[Index];
+
+  #rwl16.
+    _t16 := proof__uif__for_all {universal_integer Index => 
+        switch Index
+          case (attribute__uif__first `A, _t8 - _t9) => _t10 < _t11
+          default => true};
+
+  #rwl17.
+    _t17 := proof__uif__for_all {universal_integer Index => 
+        switch Index
+          case (_t12 + _t13, attribute__uif__last `A) => _t14 < _t15
+          default => true};
+
+  #l9.
+    assert proof__uif__loop_invariant _t16 &&& _t17;
+
+  #rwl18.
+    _t18 := Right;
+
+  #rwl19.
+    _t19 := Left;
+
+  #l10.
+    assert proof__uif__loop_variant { decreases => _t18 - _t19
+    |  increases => Left};
+
+  #rwl20.
+    _t20 := Right;
+
+  #rwl21.
+    _t21 := Left;
+
+  #rwl22.
+    _t22 := _t20 - _t21;
+
+  #rwl23.
+    _t23 := 2ii;
+
+  #rwl24.
+    _t24 := Left;
+
+  #rwl25.
+    _t25 := _t22 / _t23;
+
+  #l11.
+    Med := _t24 + _t25;
+
+  #rwl26.
+    _t26 := A[Med];
+
+  #rwl27.
+    _t27 := I;
+
+  #l14.
+    if !(_t26 < _t27) then goto l13;
+
+  #rwl28.
+    _t28 := Med;
+
+  #rwl29.
+    _t29 := 1ii;
+
+  #l15.
+    Left := _t28 + _t29;
+
+  #l16.
+    goto l12;
+
+  #l13.
+    // empty loc
+
+  #rwl30.
+    _t30 := A[Med];
+
+  #rwl31.
+    _t31 := I;
+
+  #l18.
+    if !(_t30 > _t31) then goto l17;
+
+  #rwl32.
+    _t32 := Med;
+
+  #rwl33.
+    _t33 := 1ii;
+
+  #l19.
+    Right := _t32 - _t33;
+
+  #l20.
+    goto l12;
+
+  #l17.
+    // empty loc
+
+  #l21.
+    return Med;
+
+  #l12.
+    // empty loc
+
+  #l22.
+    goto l7;
+
+  #l6.
+    // empty loc
+
+  #l23.
+    return 0ii;
+}package Binary_Search;
+
+
+typealias _SIGNED_INTEGER_TYPE_ T;
+
+typealias T U;
+
+typealias _ARRAY_ Ar;
+
+procedure T Search (
+        Ar A,
+        Integer I) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;

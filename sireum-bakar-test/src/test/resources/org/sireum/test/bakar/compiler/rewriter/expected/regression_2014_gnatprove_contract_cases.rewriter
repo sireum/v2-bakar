@@ -1,0 +1,185 @@
+package P;
+
+
+procedure Incr_Threshold1 (
+        Integer X) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
+
+  #rwl0.
+    _t0 := X;
+
+  #rwl1.
+    _t1 := Threshold;
+
+  #l2.
+    if !(_t0 < _t1) then goto l1;
+
+  #rwl2.
+    _t2 := X;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #l3.
+    X := _t2 + _t3;
+
+  #l1.
+    // empty loc
+
+  #l4.
+    return;
+}
+
+procedure Incr_Threshold2 (
+        Integer X) {
+  local
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+
+
+  #rwl4.
+    _t4 := X;
+
+  #rwl5.
+    _t5 := Threshold;
+
+  #l6.
+    if !(_t4 < _t5) then goto l5;
+
+  #rwl6.
+    _t6 := X;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l7.
+    X := _t6 + _t7;
+
+  #l5.
+    // empty loc
+
+  #l8.
+    return;
+}
+
+procedure Incr_Threshold3 (
+        Integer X) {
+  local
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+
+
+  #rwl8.
+    _t8 := X;
+
+  #rwl9.
+    _t9 := Threshold;
+
+  #l10.
+    if !(_t8 < _t9) then goto l9;
+
+  #rwl10.
+    _t10 := X;
+
+  #rwl11.
+    _t11 := 1ii;
+
+  #l11.
+    X := _t10 + _t11;
+
+  #l9.
+    // empty loc
+
+  #l12.
+    return;
+}
+
+procedure Incr_Threshold4 (
+        Integer X) {
+  local
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+
+
+  #rwl12.
+    _t12 := X;
+
+  #rwl13.
+    _t13 := Threshold;
+
+  #l14.
+    if !(_t12 < _t13) then goto l13;
+
+  #rwl14.
+    _t14 := X;
+
+  #rwl15.
+    _t15 := 1ii;
+
+  #l15.
+    X := _t14 + _t15;
+
+  #l13.
+    // empty loc
+
+  #l16.
+    return;
+}package P;
+
+
+global Integer @@Threshold;
+
+procedure $$sinit {
+
+  #l17.
+    @@Threshold := 1000ii;
+
+  #l18.
+    return;
+}
+
+procedure Incr_Threshold1 (
+        Integer X) {
+
+}
+
+procedure Incr_Threshold2 (
+        Integer X) {
+
+}
+
+procedure Incr_Threshold3 (
+        Integer X) {
+
+}
+
+procedure Incr_Threshold4 (
+        Integer X) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;

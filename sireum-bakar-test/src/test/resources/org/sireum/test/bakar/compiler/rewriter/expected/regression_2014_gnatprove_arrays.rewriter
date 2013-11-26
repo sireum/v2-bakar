@@ -1,0 +1,213 @@
+package Arrays;
+
+
+procedure Natural Sum (
+        T X) {
+  local
+    Natural S;
+    universal_integer J;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+
+
+  #l1.
+    S := 0ii;
+
+  #l3.
+    _tcomp0 := attribute__uif__first (X);
+
+  #l4.
+    _tcomp1 := attribute__uif__last (X);
+
+  #rwl0.
+    _t0 := _tcomp0;
+
+  #rwl1.
+    _t1 := _tcomp1;
+
+  #l5.
+    if _t0 > _t1 then goto l2;
+
+  #l6.
+    J := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #rwl2.
+    _t2 := S;
+
+  #rwl3.
+    _t3 := X[J];
+
+  #l8.
+    S := _t2 + _t3;
+
+  #rwl4.
+    _t4 := J;
+
+  #rwl5.
+    _t5 := _tcomp1;
+
+  #l9.
+    if _t4 == _t5 then goto l2;
+
+  #rwl6.
+    _t6 := J;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #l10.
+    J := _t6 + _t7;
+
+  #l11.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l12.
+    return S;
+}
+
+procedure Natural Count_Even (
+        T X) {
+  local
+    Natural C;
+    universal_integer J;
+    universal_integer _tcomp2;
+    universal_integer _tcomp3;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+
+
+  #l13.
+    C := 0ii;
+
+  #l15.
+    _tcomp2 := attribute__uif__first (X);
+
+  #l16.
+    _tcomp3 := attribute__uif__last (X);
+
+  #rwl8.
+    _t8 := _tcomp2;
+
+  #rwl9.
+    _t9 := _tcomp3;
+
+  #l17.
+    if _t8 > _t9 then goto l14;
+
+  #l18.
+    J := _tcomp2;
+
+  #l19.
+    // empty loc
+
+  #rwl10.
+    _t10 := X[J];
+
+  #rwl11.
+    _t11 := 2ii;
+
+  #rwl12.
+    _t12 := _t10 % _t11;
+
+  #rwl13.
+    _t13 := 0ii;
+
+  #l21.
+    if !(_t12 == _t13) then goto l20;
+
+  #rwl14.
+    _t14 := C;
+
+  #rwl15.
+    _t15 := 1ii;
+
+  #l22.
+    C := _t14 + _t15;
+
+  #l20.
+    // empty loc
+
+  #rwl16.
+    _t16 := J;
+
+  #rwl17.
+    _t17 := _tcomp3;
+
+  #l23.
+    if _t16 == _t17 then goto l14;
+
+  #rwl18.
+    _t18 := J;
+
+  #rwl19.
+    _t19 := 1ii;
+
+  #l24.
+    J := _t18 + _t19;
+
+  #l25.
+    goto l19;
+
+  #l14.
+    // empty loc
+
+  #l26.
+    return C;
+}package Arrays;
+
+
+typealias _UNCONSTRAINED_ARRAY_ T;
+
+procedure Natural Sum (
+        T X) {
+
+}
+
+procedure Natural Count_Even (
+        T X) {
+
+}
+
+procedure Natural Count_Odd (
+        T X) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;

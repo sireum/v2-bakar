@@ -1,0 +1,113 @@
+package P;
+
+
+procedure Incr_Threshold1 (
+        Integer X) {
+
+  #l2.
+    if !(X < Threshold) then goto l1;
+
+  #l3.
+    X := X + 1ii;
+
+  #l1.
+    // empty loc
+
+  #l4.
+    return (X);
+}
+
+procedure Incr_Threshold2 (
+        Integer X) {
+
+  #l6.
+    if !(X < Threshold) then goto l5;
+
+  #l7.
+    X := X + 1ii;
+
+  #l5.
+    // empty loc
+
+  #l8.
+    return (X);
+}
+
+procedure Incr_Threshold3 (
+        Integer X) {
+
+  #l10.
+    if !(X < Threshold) then goto l9;
+
+  #l11.
+    X := X + 1ii;
+
+  #l9.
+    // empty loc
+
+  #l12.
+    return (X);
+}
+
+procedure Incr_Threshold4 (
+        Integer X) {
+
+  #l14.
+    if !(X < Threshold) then goto l13;
+
+  #l15.
+    X := X + 1ii;
+
+  #l13.
+    // empty loc
+
+  #l16.
+    return (X);
+}package P;
+
+
+global Integer @@Threshold;
+
+procedure $$sinit {
+
+  #l17.
+    @@Threshold := 1000ii;
+
+  #l18.
+    return;
+}
+
+procedure Incr_Threshold1 (
+        Integer X) {
+
+}
+
+procedure Incr_Threshold2 (
+        Integer X) {
+
+}
+
+procedure Incr_Threshold3 (
+        Integer X) {
+
+}
+
+procedure Incr_Threshold4 (
+        Integer X) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;

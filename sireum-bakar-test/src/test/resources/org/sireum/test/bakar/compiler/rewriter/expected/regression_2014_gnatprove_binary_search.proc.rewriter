@@ -1,0 +1,116 @@
+package Binary_Search;
+
+
+procedure T Search (
+        Ar A,
+        Integer I) {
+  local
+    U Left;
+    U Right;
+    U Med;
+
+
+  #l1.
+    Left := attribute__uif__first `Ar;
+
+  #l2.
+    Right := attribute__uif__last `Ar;
+
+  #l4.
+    if !(A[Left] > I ||| A[Right] < I) then goto l3;
+
+  #l5.
+    return 0ii;
+
+  #l3.
+    // empty loc
+
+  #l7.
+    // empty loc
+
+  #l8.
+    if !(Left < Right) then goto l6;
+
+  #l9.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer Index => 
+        switch Index
+          case (attribute__uif__first `A, Left - 1ii) => A[Index] < I
+          default => true} &&& proof__uif__for_all {universal_integer Index => 
+        switch Index
+          case (Right + 1ii, attribute__uif__last `A) => I < A[Index]
+          default => true};
+
+  #l10.
+    assert proof__uif__loop_variant { decreases => Right - Left
+    |  increases => Left};
+
+  #l11.
+    Med := Left + Right - Left / 2ii;
+
+  #l14.
+    if !(A[Med] < I) then goto l13;
+
+  #l15.
+    Left := Med + 1ii;
+
+  #l16.
+    goto l12;
+
+  #l13.
+    // empty loc
+
+  #l18.
+    if !(A[Med] > I) then goto l17;
+
+  #l19.
+    Right := Med - 1ii;
+
+  #l20.
+    goto l12;
+
+  #l17.
+    // empty loc
+
+  #l21.
+    return Med;
+
+  #l12.
+    // empty loc
+
+  #l22.
+    goto l7;
+
+  #l6.
+    // empty loc
+
+  #l23.
+    return 0ii;
+}package Binary_Search;
+
+
+typealias _SIGNED_INTEGER_TYPE_ T;
+
+typealias T U;
+
+typealias _ARRAY_ Ar;
+
+procedure T Search (
+        Ar A,
+        Integer I) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;

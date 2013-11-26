@@ -4,16 +4,17 @@ import com.thoughtworks.xstream.XStream
 import java.io.File
 import java.io.Writer
 import java.net.URI
-import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import org.sireum.example.bakar.Project
+import org.junit.runner.RunWith
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
 import org.sireum.example.bakar.BakarExamples
 import org.sireum.example.bakar.BakarExamplesAnchor
+import org.sireum.example.bakar.Project
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
+import org.sireum.test.bakar.framework.BakarDirectoryProjectProvider
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.test.bakar.framework.BakarTestFileFramework
 import org.sireum.util.FileUtil
@@ -28,10 +29,18 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
     "2005_misc",
     "2005_simple",
     "2014_arrays",
-    "2014_sort")
+    "2014_misc",
+    "2014_sort",
+    "2014_gnatprove_arrays",
+    "2014_gnatprove_binary_search",
+    "2014_gnatprove_contract_cases",
+    "xxxxxx")
 
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
+  register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
 
+  register(BakarExamples.getProjects(BakarDirectoryProjectProvider, 
+      BakarExamplesAnchor.REGRESSION_DIR + "/2014/gnatprove/", BakarExamplesAnchor.BASE_DIR))
+  
   override def pre(c: Configuration): Boolean = {
     val dest = new File(c.resultsDir + "/0")
     dest.mkdirs

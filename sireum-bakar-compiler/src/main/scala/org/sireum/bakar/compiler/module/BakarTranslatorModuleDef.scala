@@ -435,7 +435,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               val td = this.typeDeclarations(StandardURIs.universalIntURI).asInstanceOf[FullTypeDecl]
 
               val markURI = td.uri
-              val markNE = addTypeUri(markURI, NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id))))
+              val nu = this.addResourceUri(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id)), td.uri)
+              val markNE = addTypeUri(markURI, NameExp(nu))
 
               addTypeUri(markURI, iterND)
               addTypeUri(markURI, iterNE)
@@ -456,10 +457,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   val td = this.typeDeclarations(StandardURIs.universalIntURI).asInstanceOf[FullTypeDecl]
 
                   val markURI = td.uri
-                  val markNE = addTypeUri(markURI, NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id))))
+                  val nu = this.addResourceUri(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id)), td.uri)
+                  val markNE = addTypeUri(markURI, NameExp(nu))
 
-                  assert(!(ne ? URIS.TYPE_URI))
-                  addTypeUri(markURI, ne)
+                  //if(!(ne ? URIS.TYPE_URI))
+                  //  addTypeUri(markURI, ne)
                   
                   addTypeUri(markURI, iterND)
                   addTypeUri(markURI, iterNE)

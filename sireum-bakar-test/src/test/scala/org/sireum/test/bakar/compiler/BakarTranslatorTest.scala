@@ -34,7 +34,9 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
     "2014_arrays",
     "2014_misc",
     "2014_sort",
-//    "2014_gnatprove_arrays",
+    "2014_gnatprove_arrays",
+    "2014_gnatprove_binary_search",
+    "2014_gnatprove_contract_cases",
     "xxxxxx")
 
     //override def excludes = super.excludes ++= Set("gnat_jago", "gnat_kiasan")
