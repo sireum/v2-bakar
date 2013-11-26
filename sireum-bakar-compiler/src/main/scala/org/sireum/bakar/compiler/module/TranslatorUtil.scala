@@ -119,7 +119,7 @@ object StandardTypeDefs {
     )
 
     val sparkTypeDec = FullTypeDecl(typName, typURI,
-      SignedIntegerTypeDef("myint", None, None))
+      SignedIntegerTypeDef(None, None))
 
     pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
     pilarTypeDec(URIS.TYPE_URI) = typURI
