@@ -1,0 +1,21 @@
+model.adb:61:10: info: loop invariant initialization proved
+model.adb:61:10: info: loop invariant preservation proved
+model.adb:63:36: info: index check proved
+model.adb:64:41: info: range check proved
+model.adb:71:10: info: loop invariant initialization proved
+model.adb:71:10: info: loop invariant preservation proved
+model.adb:73:62: info: index check proved
+model.adb:74:56: info: range check proved
+model.adb:76:60: info: index check proved
+model.adb:77:54: info: range check proved
+model.ads:37:14: info: postcondition proved
+model.ads:41:14: info: postcondition proved
+model.ads:64:14: info: postcondition proved
+model.ads:69:14: info: postcondition proved
+model.ads:83:6: info: length check proved
+model.ads:100:6: info: length check proved
+model.ads:111:14: info: postcondition proved
+model.ads:115:14: info: postcondition proved
+model.ads:141:14: info: postcondition proved
+model.ads:147:14: info: postcondition proved
+model.ads:165:12: warning: postcondition might fail, requires Name(Owned_State(SM)(From(Owned_Transition(SM)(T)))) = Name(Owned_Action(Transform'Result) (From(Owned_Flow(Transform'Result) (T)

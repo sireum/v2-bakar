@@ -1,0 +1,1 @@
+pack.adb:39:7: warning: assertion might fail, requires A = B

@@ -1,0 +1,4 @@
+bot.ads:8:17: warning: unused initial value of "X"
+bot.ads:8:17: warning: unused variable "X"
+top.ads:4:17: warning: unused initial value of "X"
+top.ads:4:17: warning: unused variable "X"

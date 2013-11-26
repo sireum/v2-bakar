@@ -1,0 +1,1 @@
+renam.ads:5:33: warning: postcondition might fail, requires X = X'old

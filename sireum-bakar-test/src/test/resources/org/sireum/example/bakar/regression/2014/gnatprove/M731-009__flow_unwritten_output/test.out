@@ -1,0 +1,3 @@
+q.adb:7:32: warning: "G" is not modified, could be "input"
+q.adb:13:32: warning: "G" is not modified, could be "input"
+q.adb:20:23: warning: "G" is not modified, could be "in"
