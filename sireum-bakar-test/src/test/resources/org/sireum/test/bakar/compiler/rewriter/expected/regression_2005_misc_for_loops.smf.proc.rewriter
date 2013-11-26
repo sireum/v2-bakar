@@ -217,10 +217,10 @@ procedure Stupid (
     // empty loc
 
   #l62.
-    _tcomp12 := ;
+    _tcomp12 := attribute__uif__first (A);
 
   #l63.
-    _tcomp13 := ;
+    _tcomp13 := attribute__uif__last (A);
 
   #l64.
     if _tcomp12 > _tcomp13 then goto l61;
@@ -247,10 +247,10 @@ procedure Stupid (
     // empty loc
 
   #l72.
-    _tcomp14 := ;
+    _tcomp14 := attribute__uif__first (A);
 
   #l73.
-    _tcomp15 := ;
+    _tcomp15 := attribute__uif__last (A);
 
   #l74.
     if _tcomp14 > _tcomp15 then goto l71;
@@ -277,10 +277,10 @@ procedure Stupid (
     // empty loc
 
   #l82.
-    _tcomp16 := ;
+    _tcomp16 := attribute__uif__first (A, 1ii);
 
   #l83.
-    _tcomp17 := ;
+    _tcomp17 := attribute__uif__last (A, 1ii);
 
   #l84.
     if _tcomp16 > _tcomp17 then goto l81;
@@ -307,10 +307,10 @@ procedure Stupid (
     // empty loc
 
   #l92.
-    _tcomp18 := ;
+    _tcomp18 := attribute__uif__first (A, 1ii);
 
   #l93.
-    _tcomp19 := ;
+    _tcomp19 := attribute__uif__last (A, 1ii);
 
   #l94.
     if _tcomp18 > _tcomp19 then goto l91;
@@ -372,16 +372,16 @@ procedure Stupid (
 }package Standard;
 
 
-typealias Boolean standard::boolean;
+typealias Boolean Boolean;
 
-typealias Integer standard::integer;
+typealias Integer Integer;
 
-typealias Integer standard::natural;
+typealias Integer Natural;
 
-typealias Integer standard::positive;
+typealias Integer Positive;
 
-typealias Float standard::float;
+typealias Float Float;
 
-typealias Integer universal_integer;
+typealias universal_integer universal_integer;
 
-typealias Float universal_real;
+typealias universal_real universal_real;

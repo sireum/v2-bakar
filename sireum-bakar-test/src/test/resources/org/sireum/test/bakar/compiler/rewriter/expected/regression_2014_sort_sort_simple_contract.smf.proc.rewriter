@@ -187,8 +187,8 @@ procedure Boolean isPerm (
     Index_Type I;
     Index_Type _tcomp8;
     Index_Type _tcomp9;
-    FIXME _tcomp10;
-    FIXME _tcomp11;
+    Integer _tcomp10;
+    Integer _tcomp11;
 
 
   #l49.
@@ -738,16 +738,16 @@ procedure ShellSort (
 }package Standard;
 
 
-typealias Boolean standard::boolean;
+typealias Boolean Boolean;
 
-typealias Integer standard::integer;
+typealias Integer Integer;
 
-typealias Integer standard::natural;
+typealias Integer Natural;
 
-typealias Integer standard::positive;
+typealias Integer Positive;
 
-typealias Float standard::float;
+typealias Float Float;
 
-typealias Integer universal_integer;
+typealias universal_integer universal_integer;
 
-typealias Float universal_real;
+typealias universal_real universal_real;

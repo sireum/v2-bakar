@@ -66,8 +66,8 @@ procedure Boolean Perm (
     Index_Type I;
     Index_Type _tcomp2;
     Index_Type _tcomp3;
-    FIXME _tcomp4;
-    FIXME _tcomp5;
+    Integer _tcomp4;
+    Integer _tcomp5;
 
 
   #l15.
@@ -292,10 +292,10 @@ procedure BubbleSort (
 
 
   #l73.
-    _tcomp12 := ;
+    _tcomp12 := attribute__uif__first (Array_Type);
 
   #l74.
-    _tcomp13 := ;
+    _tcomp13 := attribute__uif__last (Array_Type);
 
   #l75.
     if _tcomp12 > _tcomp13 then goto l72;
@@ -659,16 +659,16 @@ procedure ShellSort (
 }package Standard;
 
 
-typealias Boolean standard::boolean;
+typealias Boolean Boolean;
 
-typealias Integer standard::integer;
+typealias Integer Integer;
 
-typealias Integer standard::natural;
+typealias Integer Natural;
 
-typealias Integer standard::positive;
+typealias Integer Positive;
 
-typealias Float standard::float;
+typealias Float Float;
 
-typealias Integer universal_integer;
+typealias universal_integer universal_integer;
 
-typealias Float universal_real;
+typealias universal_real universal_real;

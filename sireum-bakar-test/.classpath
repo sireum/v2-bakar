@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/test/scala"/>
-	<classpathentry kind="src" path="src/test/resources"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>	
-  <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-compiler"/>	
+	<classpathentry excluding="**/2012-gnat/|**/regression/2005/|**/regression/2014/|**/expected/|**/results/" kind="src" path="src/test/resources"/>	
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-compiler"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-jago"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-xml"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-core-test"/>
-  <classpathentry combineaccessrules="false" kind="src" path="/sireum-lib"/>	
+	<classpathentry combineaccessrules="false" kind="src" path="/sireum-lib"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-module"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-option"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-pilar"/>

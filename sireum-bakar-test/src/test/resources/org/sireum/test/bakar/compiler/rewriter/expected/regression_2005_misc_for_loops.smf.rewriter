@@ -401,10 +401,10 @@ procedure Stupid (
     // empty loc
 
   #l62.
-    _tcomp12 := ;
+    _tcomp12 := attribute__uif__first (A);
 
   #l63.
-    _tcomp13 := ;
+    _tcomp13 := attribute__uif__last (A);
 
   #rwl40.
     _t40 := _tcomp12;
@@ -449,10 +449,10 @@ procedure Stupid (
     // empty loc
 
   #l72.
-    _tcomp14 := ;
+    _tcomp14 := attribute__uif__first (A);
 
   #l73.
-    _tcomp15 := ;
+    _tcomp15 := attribute__uif__last (A);
 
   #rwl46.
     _t46 := _tcomp14;
@@ -497,10 +497,10 @@ procedure Stupid (
     // empty loc
 
   #l82.
-    _tcomp16 := ;
+    _tcomp16 := attribute__uif__first (A, 1ii);
 
   #l83.
-    _tcomp17 := ;
+    _tcomp17 := attribute__uif__last (A, 1ii);
 
   #rwl52.
     _t52 := _tcomp16;
@@ -545,10 +545,10 @@ procedure Stupid (
     // empty loc
 
   #l92.
-    _tcomp18 := ;
+    _tcomp18 := attribute__uif__first (A, 1ii);
 
   #l93.
-    _tcomp19 := ;
+    _tcomp19 := attribute__uif__last (A, 1ii);
 
   #rwl58.
     _t58 := _tcomp18;
@@ -628,16 +628,16 @@ procedure Stupid (
 }package Standard;
 
 
-typealias Boolean standard::boolean;
+typealias Boolean Boolean;
 
-typealias Integer standard::integer;
+typealias Integer Integer;
 
-typealias Integer standard::natural;
+typealias Integer Natural;
 
-typealias Integer standard::positive;
+typealias Integer Positive;
 
-typealias Float standard::float;
+typealias Float Float;
 
-typealias Integer universal_integer;
+typealias universal_integer universal_integer;
 
-typealias Float universal_real;
+typealias universal_real universal_real;

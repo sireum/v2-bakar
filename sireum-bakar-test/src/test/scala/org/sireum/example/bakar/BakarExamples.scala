@@ -20,7 +20,7 @@ trait ProjectProvider[P <: Project] {
 object BakarExamples {
 
   def sourceDirUri(claz: Class[_], path: String) =
-    FileUtil.fileUri(claz, path).replaceFirst("/bin/", "/src/test/resources/")
+    FileUtil.fileUri(claz, "").replaceFirst("/bin/", "/src/test/resources/") + path
    
   def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
     recursive: Boolean = true): ISeq[P] =

@@ -434,9 +434,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
               val td = this.typeDeclarations(StandardURIs.universalIntURI).asInstanceOf[FullTypeDecl]
 
-              val markNE = NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id)))
               val markURI = td.uri
+              val markNE = addTypeUri(markURI, NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id))))
 
+              addTypeUri(markURI, iterND)
+              addTypeUri(markURI, iterNE)
+                  
               return (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound)
             case DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx(sloc2, attr, checks) =>
               attr.getExpression match {
@@ -452,9 +455,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
                   val td = this.typeDeclarations(StandardURIs.universalIntURI).asInstanceOf[FullTypeDecl]
 
-                  val markNE = NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id)))
                   val markURI = td.uri
+                  val markNE = addTypeUri(markURI, NameExp(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id))))
 
+                  assert(!(ne ? URIS.TYPE_URI))
+                  addTypeUri(markURI, ne)
+                  
                   addTypeUri(markURI, iterND)
                   addTypeUri(markURI, iterNE)
 
@@ -499,6 +505,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                           v(prefix)
                           val ne: NameExp = popResult
 
+                          if(!(ne ? URIS.TYPE_URI)) 
+                            addTypeUri(markURI, ne)
+                          
                           var texps: ISeq[Exp] = ivector(ne)
                           if (!exp.getExpressions.isEmpty)
                             for (e <- exp.getExpressions) {

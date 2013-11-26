@@ -136,7 +136,7 @@ procedure Boolean indexIsValue (
 procedure Boolean isSorted (
         ConsVector CV) {
   local
-    FIXME _tcomp2;
+    Boolean _tcomp2;
 
 
   #l15.
@@ -151,7 +151,7 @@ procedure Boolean indexIsValue (
         Index I,
         Integer V) {
   local
-    FIXME _tcomp3;
+    Boolean _tcomp3;
 
 
   #l17.
@@ -179,16 +179,16 @@ procedure Boolean indexIsValue (
 }package Standard;
 
 
-typealias Boolean standard::boolean;
+typealias Boolean Boolean;
 
-typealias Integer standard::integer;
+typealias Integer Integer;
 
-typealias Integer standard::natural;
+typealias Integer Natural;
 
-typealias Integer standard::positive;
+typealias Integer Positive;
 
-typealias Float standard::float;
+typealias Float Float;
 
-typealias Integer universal_integer;
+typealias universal_integer universal_integer;
 
-typealias Float universal_real;
+typealias universal_real universal_real;

@@ -181,6 +181,8 @@ procedure Index_Range Find_Stack_Pos (
 }package The_Stack_Demonic;
 
 
+typealias _SIGNED_INTEGER_TYPE_ StackID;
+
 typealias _PRIVATE_TYPE_DECLARATION_ StackID;
 
 typealias _ENUMERATION_TYPE_ Status;
@@ -195,8 +197,6 @@ record AuditInfoType {
 
   AuditCountType PopOps;
 }
-
-typealias _SIGNED_INTEGER_TYPE_ StackID;
 
 const $CONST {
   InitID = (StackID) __DEFERRED_CONSTANT__;
@@ -219,16 +219,16 @@ procedure Pop (
 }package Standard;
 
 
-typealias Boolean standard::boolean;
+typealias Boolean Boolean;
 
-typealias Integer standard::integer;
+typealias Integer Integer;
 
-typealias Integer standard::natural;
+typealias Integer Natural;
 
-typealias Integer standard::positive;
+typealias Integer Positive;
 
-typealias Float standard::float;
+typealias Float Float;
 
-typealias Integer universal_integer;
+typealias universal_integer universal_integer;
 
-typealias Float universal_real;
+typealias universal_real universal_real;
