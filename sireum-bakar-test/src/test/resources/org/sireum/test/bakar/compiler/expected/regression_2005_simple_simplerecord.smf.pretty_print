@@ -103,8 +103,7 @@ typealias _ARRAY_ Vector
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Vector</string>
          <string sid="1">ada://ordinary_type/SimpleRecord-1:9/Vector+5:9</string>
-         <org.sireum.bakar.symbol.ConstrainedArrayDef cid="2" size="4">
-           <string></string>
+         <org.sireum.bakar.symbol.ConstrainedArrayDef cid="2" size="3">
            <int>1</int>
            <string sid="2">ada://subtype/SimpleRecord-1:9/SmallInt+3:12</string>
            <ivector ttype="ivector">
@@ -128,8 +127,7 @@ record Rec
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Rec</string>
          <string sid="1">ada://ordinary_type/SimpleRecord-1:9/Rec+7:9</string>
-         <org.sireum.bakar.symbol.RecordTypeDef cid="2" size="3">
-           <string>que</string>
+         <org.sireum.bakar.symbol.RecordTypeDef cid="2" size="2">
            <boolean>false</boolean>
            <imap mtype="imap">
              <entry>
@@ -200,8 +198,7 @@ record NestedRec
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>NestedRec</string>
          <string sid="1">ada://ordinary_type/SimpleRecord-1:9/NestedRec+12:9</string>
-         <org.sireum.bakar.symbol.RecordTypeDef cid="2" size="3">
-           <string>que</string>
+         <org.sireum.bakar.symbol.RecordTypeDef cid="2" size="2">
            <boolean>false</boolean>
            <imap mtype="imap">
              <entry>
@@ -565,8 +562,7 @@ typealias Boolean Boolean
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Boolean</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -587,8 +583,7 @@ typealias Integer Integer
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Integer</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -609,8 +604,7 @@ typealias Integer Natural
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Natural</string>
          <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -631,8 +625,7 @@ typealias Integer Positive
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Positive</string>
          <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -653,8 +646,7 @@ typealias Float Float
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -675,8 +667,7 @@ typealias universal_integer universal_integer
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string sid="1">universal_integer</string>
          <string sid="2">ada://ordinary_type/universal_integer</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -697,8 +688,7 @@ typealias universal_real universal_real
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>universal_real</string>
          <string sid="1">ada://ordinary_type/universal_real</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>

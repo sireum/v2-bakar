@@ -133,8 +133,7 @@ typealias Boolean Boolean
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Boolean</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -155,8 +154,7 @@ typealias Integer Integer
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Integer</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -177,8 +175,7 @@ typealias Integer Natural
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Natural</string>
          <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -199,8 +196,7 @@ typealias Integer Positive
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Positive</string>
          <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -221,8 +217,7 @@ typealias Float Float
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -243,8 +238,7 @@ typealias universal_integer universal_integer
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string sid="1">universal_integer</string>
          <string sid="2">ada://ordinary_type/universal_integer</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -265,8 +259,7 @@ typealias universal_real universal_real
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>universal_real</string>
          <string sid="1">ada://ordinary_type/universal_real</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -301,8 +294,7 @@ typealias _ENUMERATION_TYPE_ Week
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Week</string>
          <string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>
-         <org.sireum.bakar.symbol.EnumerationTypeDef cid="2" size="2">
-           <string></string>
+         <org.sireum.bakar.symbol.EnumerationTypeDef cid="2" size="1">
            <ivector ttype="ivector">
              <pair>
                <__1 class="string">Mon</__1>
@@ -727,8 +719,7 @@ typealias _ENUMERATION_TYPE_ Activity
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>Activity</string>
          <string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8</string>
-         <org.sireum.bakar.symbol.EnumerationTypeDef cid="2" size="2">
-           <string></string>
+         <org.sireum.bakar.symbol.EnumerationTypeDef cid="2" size="1">
            <ivector ttype="ivector">
              <pair>
                <__1 class="string">Work</__1>
