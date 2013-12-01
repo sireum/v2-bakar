@@ -77,8 +77,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
              <string sid="2">standard::positive</string>
              <string srefid="1"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -89,8 +88,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
              <string sid="4">universal_integer</string>
              <string srefid="3"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -101,8 +99,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="5" size="3">
              <string>universal_real</string>
              <string srefid="5"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -113,8 +110,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="7" size="3">
              <string sid="7">standard::integer</string>
              <string srefid="6"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -125,8 +121,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
              <string>standard::float</string>
              <string srefid="8"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -137,8 +132,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
              <string sid="10">standard::natural</string>
              <string srefid="9"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -149,8 +143,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="13" size="3">
              <string sid="12">standard::boolean</string>
              <string srefid="11"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -241,8 +234,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
              <string sid="2">standard::positive</string>
              <string srefid="1"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -253,8 +245,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
              <string sid="4">universal_integer</string>
              <string srefid="3"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -265,8 +256,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="5" size="3">
              <string>universal_real</string>
              <string srefid="5"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -277,8 +267,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="7" size="3">
              <string sid="7">standard::integer</string>
              <string srefid="6"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -289,8 +278,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
              <string>standard::float</string>
              <string srefid="8"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -301,8 +289,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
              <string sid="10">standard::natural</string>
              <string srefid="9"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -313,8 +300,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="13" size="3">
              <string sid="12">standard::boolean</string>
              <string srefid="11"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -437,8 +423,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
              <string sid="2">standard::positive</string>
              <string srefid="1"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -449,8 +434,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
              <string sid="4">universal_integer</string>
              <string srefid="3"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -461,8 +445,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="5" size="3">
              <string>universal_real</string>
              <string srefid="5"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -473,8 +456,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="7" size="3">
              <string sid="7">standard::integer</string>
              <string srefid="6"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -485,8 +467,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
              <string>standard::float</string>
              <string srefid="8"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -497,8 +478,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
              <string sid="10">standard::natural</string>
              <string srefid="9"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -509,8 +489,7 @@ procedure add (
            <org.sireum.bakar.symbol.FullTypeDecl cid="13" size="3">
              <string sid="12">standard::boolean</string>
              <string srefid="11"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -586,8 +565,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
              <string sid="2">standard::positive</string>
              <string srefid="1"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -598,8 +576,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="3" size="3">
              <string sid="4">universal_integer</string>
              <string srefid="3"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="4" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -610,8 +587,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="5" size="3">
              <string>universal_real</string>
              <string srefid="5"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="6" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -622,8 +598,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="7" size="3">
              <string sid="7">standard::integer</string>
              <string srefid="6"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="8" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -634,8 +609,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="9" size="3">
              <string>standard::float</string>
              <string srefid="8"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="10" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -646,8 +620,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="11" size="3">
              <string sid="10">standard::natural</string>
              <string srefid="9"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="12" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -658,8 +631,7 @@ procedure foo (
            <org.sireum.bakar.symbol.FullTypeDecl cid="13" size="3">
              <string sid="12">standard::boolean</string>
              <string srefid="11"/>
-             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="3">
-               <string>myint</string>
+             <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="14" size="2">
                <none/>
                <none/>
              </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -677,8 +649,7 @@ typealias Boolean standard::boolean
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string sid="1">standard::boolean</string>
          <string sid="2">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -699,8 +670,7 @@ typealias Integer standard::integer
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string sid="1">standard::integer</string>
          <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -721,8 +691,7 @@ typealias Integer standard::natural
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string sid="1">standard::natural</string>
          <string sid="2">ada://subtype/Standard-1:1/Natural-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -743,8 +712,7 @@ typealias Integer standard::positive
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string sid="1">standard::positive</string>
          <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -765,8 +733,7 @@ typealias Float standard::float
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>standard::float</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -787,8 +754,7 @@ typealias Integer universal_integer
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string sid="1">universal_integer</string>
          <string sid="2">ada://ordinary_type/universal_integer</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
@@ -809,8 +775,7 @@ typealias Float universal_real
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
          <string>universal_real</string>
          <string sid="1">ada://ordinary_type/universal_real</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="3">
-           <string>myint</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
            <none/>
            <none/>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>

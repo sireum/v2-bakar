@@ -68,10 +68,9 @@ case class PrivateTypeDecl(
  * **************************************************************************
  */
 
-trait TypeDef extends SparkType
+trait TypeDef extends Type
 
-case class AbstractTypeDef(
-  val id : String) extends SparkType
+case class AbstractTypeDef extends TypeDef
 
 trait CompositeTypeDef extends TypeDef
 
@@ -81,13 +80,11 @@ trait ArrayTypeDef extends CompositeTypeDef {
 }
 
 case class ConstrainedArrayDef(
-  val id : String,
   val dim : Int,
   val componentSubtype : ResourceUri,
   val discreteSubtypes : ISeq[ResourceUri]) extends ArrayTypeDef
 
 case class UnconstrainedArrayDef(
-  val id : String,
   val dim : Int,
   val componentSubtype : ResourceUri,
   val indexSubtypes : ISeq[SparkTypeDecl]) extends ArrayTypeDef
@@ -97,7 +94,6 @@ trait RecordDef extends CompositeTypeDef {
 }
 
 case class NullRecordTypeDef(
-  val id : String,
   val isTagged : Boolean) extends RecordDef
 
 case class ComponentDef(
@@ -107,7 +103,6 @@ case class ComponentDef(
   val loc : Location)
 
 case class RecordTypeDef(
-  val id : String,
   val isTagged : Boolean,
   val components : IMap[String, ComponentDef]) extends RecordDef
 
@@ -116,17 +111,14 @@ trait ScalarTypeDef extends TypeDef
 trait DiscreteTypeDef extends ScalarTypeDef
 
 case class EnumerationTypeDef(
-  val id : String,
   val elems : ISeq[(String, ResourceUri)]) extends DiscreteTypeDef
 
 trait IntegerTypeDef extends ScalarTypeDef
 
 case class ModularTypeDef(
-  val id : String,
   val modExp : Exp) extends IntegerTypeDef
 
 case class SignedIntegerTypeDef(
-  val id : String,
   val lowRangeExp : Option[Exp],
   val highRangeExp : Option[Exp]) extends IntegerTypeDef
 

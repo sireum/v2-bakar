@@ -483,7 +483,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               }
             case _ => throw new RuntimeException("Unexpected")
           }
-          return EnumerationTypeDef("", elems)
+          return EnumerationTypeDef(elems)
 
         /** INTEGER TYPES **/
         case std @ SignedIntegerTypeDefinitionEx(sloc1, integerConstraint) =>
@@ -495,7 +495,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               v(hb)
               val highBound = ctx.popResult.asInstanceOf[Exp]
 
-              return SignedIntegerTypeDef("", Some(lowBound), Some(highBound))
+              return SignedIntegerTypeDef(Some(lowBound), Some(highBound))
             case _ => throw new RuntimeException("Unexpected")
           }
         case mtd @ ModularTypeDefinitionEx(sloc, modStaticExpr) =>
@@ -538,7 +538,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             case _ => throw new RuntimeException("Unexpected")
           }
 
-          return ConstrainedArrayDef("", dim, compTypeUri.get, indexTypes)
+          return ConstrainedArrayDef(dim, compTypeUri.get, indexTypes)
 
         /** RECORD TYPES **/
         case rtd @ RecordTypeDefinitionEx(rsloc, hasAbs, hasLim, recDef) =>
@@ -586,7 +586,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 }
               }
           }
-          return RecordTypeDef("que", false, components.toMap)
+          return RecordTypeDef(false, components.toMap)
         case _ => throw new RuntimeException("Unexpected")
       }
       println(o.getDefinition())

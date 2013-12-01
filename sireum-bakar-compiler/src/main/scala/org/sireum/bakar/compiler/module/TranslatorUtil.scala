@@ -72,8 +72,7 @@ object StandardTypeDefs {
       NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec])
     )
 
-    val istd = FullTypeDecl(typName, typURI,
-      SignedIntegerTypeDef("myint", None, None))
+    val istd = FullTypeDecl(typName, typURI, SignedIntegerTypeDef(None, None))
 
     tad(URIS.TYPE_DEF) = istd
     tad(URIS.TYPE_URI) = typURI
