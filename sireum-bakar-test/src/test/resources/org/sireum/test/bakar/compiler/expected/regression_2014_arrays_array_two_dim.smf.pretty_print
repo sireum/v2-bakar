@@ -456,6 +456,7 @@ procedure dummy (
          <__globalsout class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
          </__globalsout>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -537,6 +538,7 @@ procedure dummy2 (
          <__globalsout class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
          </__globalsout>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc

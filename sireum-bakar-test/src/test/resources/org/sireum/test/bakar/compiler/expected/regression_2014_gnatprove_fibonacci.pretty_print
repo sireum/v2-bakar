@@ -1819,6 +1819,7 @@ procedure Natural Fibonacci (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&lt;=</string>
            <org.sireum.pilar.ast.NameExp cid="2" size="1">
@@ -2012,6 +2013,7 @@ procedure FibonacciSC (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -2501,6 +2503,7 @@ procedure Natural Factorial (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&lt;=</string>
            <org.sireum.pilar.ast.NameExp cid="2" size="1">
@@ -2694,6 +2697,7 @@ procedure FactorialSC (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -3162,6 +3166,7 @@ procedure PowerSC (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -4116,6 +4121,7 @@ procedure ArrayPartitionedTransferSC (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -6781,6 +6787,7 @@ procedure ArrayPartitionedTransferSIFL (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">

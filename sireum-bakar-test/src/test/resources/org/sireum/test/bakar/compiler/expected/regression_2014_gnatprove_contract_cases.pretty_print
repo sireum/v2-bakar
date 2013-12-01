@@ -62,6 +62,7 @@ procedure Incr_Threshold1 (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&gt;=</string>
            <org.sireum.pilar.ast.NameExp cid="2" size="1">
@@ -1042,6 +1043,7 @@ procedure Incr_Threshold2 (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -1636,6 +1638,7 @@ procedure Incr_Threshold3 (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="57" size="3">
            <string>&gt;=</string>
            <org.sireum.pilar.ast.NameExp cid="58" size="1">
@@ -1909,6 +1912,7 @@ procedure Incr_Threshold4 (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>|||</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">

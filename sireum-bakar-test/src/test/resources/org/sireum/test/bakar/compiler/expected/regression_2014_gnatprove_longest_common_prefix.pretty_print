@@ -1236,6 +1236,7 @@ procedure Natural LCP (
              </properties>
            </org.sireum.pilar.ast.BinaryExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="91" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="92" size="3">

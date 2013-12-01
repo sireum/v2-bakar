@@ -35,6 +35,7 @@ object BakarSymbol {
         private var _globalsin : ISet[ResourceUri] = null
         private var _globalsout : ISet[ResourceUri] = null
         private var _globalsproof : ISet[ResourceUri] = null
+        private var _isGhostFunction : Boolean = false
         private var _pre : Exp = null
         private var _post : Exp = null
 
@@ -55,6 +56,9 @@ object BakarSymbol {
         def globalsProof = _globalsproof
         def globalsProof(o : ISet[ResourceUri]) = _globalsproof = o
 
+        def isGhostFunction = _isGhostFunction
+        def isGhostFunction(o : Boolean) = _isGhostFunction = o
+        
         def pre = _pre
         def pre(o : Exp) = _pre = o
         
@@ -83,6 +87,9 @@ object BakarSymbol {
     def globalsProof : Option[ISet[ResourceUri]]
     def globalsProof(o : ISet[ResourceUri])
 
+    def isGhostFunction : Boolean
+    def isGhostFunction(o : Boolean)
+      
     def pre : Option[Exp]
     def pre(o : Exp)
 

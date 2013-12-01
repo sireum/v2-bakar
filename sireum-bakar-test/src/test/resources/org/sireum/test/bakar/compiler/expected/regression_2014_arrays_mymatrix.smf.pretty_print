@@ -425,6 +425,7 @@ procedure Multiply (
              </iset>
            </entry>
          </__depends>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc

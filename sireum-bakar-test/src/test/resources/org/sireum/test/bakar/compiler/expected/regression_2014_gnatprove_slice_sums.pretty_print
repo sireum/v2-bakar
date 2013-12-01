@@ -762,6 +762,7 @@ procedure Slice_Bounds Maximal_Sum_Slice_Bounds (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.IfExp" cid="1" size="2">
            <ivector ttype="ivector">
              <org.sireum.pilar.ast.IfThenExp cid="2" size="3">
@@ -2817,6 +2818,7 @@ procedure Slice_Bounds Maximal_Sum_Slice_Bounds_2 (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.IfExp" cid="1" size="2">
            <ivector ttype="ivector">
              <org.sireum.pilar.ast.IfThenExp cid="2" size="3">
@@ -5744,6 +5746,7 @@ procedure Integer Sum (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>|||</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">

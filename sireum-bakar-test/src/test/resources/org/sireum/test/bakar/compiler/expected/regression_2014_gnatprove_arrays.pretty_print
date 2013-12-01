@@ -320,6 +320,7 @@ procedure Natural Sum (
              </properties>
            </org.sireum.pilar.ast.LiteralExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="30" size="3">
            <string>&gt;=</string>
            <org.sireum.pilar.ast.CallExp cid="31" size="2">
@@ -761,6 +762,7 @@ procedure Natural Count_Even (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="28" size="3">
            <string>&lt;=</string>
            <org.sireum.pilar.ast.CallExp cid="29" size="2">

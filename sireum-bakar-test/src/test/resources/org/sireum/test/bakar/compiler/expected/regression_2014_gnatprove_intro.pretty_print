@@ -136,6 +136,7 @@ procedure Sat::My_Int Price_Of_Item (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>==</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
@@ -503,6 +504,7 @@ procedure Sat::My_Int Price_Of_Basket (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.CallExp" cid="1" size="2">
            <org.sireum.pilar.ast.NameExp cid="2" size="1">
              <org.sireum.pilar.ast.NameUser cid="3" size="1">
@@ -2371,6 +2373,7 @@ procedure My_Int Add (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -3054,6 +3057,7 @@ procedure My_Int Mult (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc

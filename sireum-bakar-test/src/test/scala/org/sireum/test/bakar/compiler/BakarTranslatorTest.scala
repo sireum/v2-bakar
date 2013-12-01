@@ -26,7 +26,7 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
 
-  //override def includes = super.includes ++= Set("2014_gnatprove_slice_sums")
+  //override def includes = super.includes ++= Set("2014_gnatprove_TU__ghost_legal")
 
   override def includes = super.includes ++= Set(
     "2005_misc",
@@ -49,6 +49,7 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
     "2014_gnatprove_power_and_sum",
     "2014_gnatprove_ring_buffer",
     "2014_gnatprove_slice_sums",
+    "2014_gnatprove_TU__ghost_legal",
     "xxxxxx")
 
   override def ignores = {

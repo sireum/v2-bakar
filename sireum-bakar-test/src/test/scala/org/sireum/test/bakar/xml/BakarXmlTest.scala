@@ -48,6 +48,7 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
     "2014_gnatprove_power_and_sum",
     "2014_gnatprove_ring_buffer",
     "2014_gnatprove_slice_sums",
+    "2014_gnatprove_TU__ghost_legal",
     "xxxxxx")
 
   register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))

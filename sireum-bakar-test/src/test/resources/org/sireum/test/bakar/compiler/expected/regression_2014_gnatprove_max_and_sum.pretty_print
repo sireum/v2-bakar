@@ -263,6 +263,7 @@ procedure MaxAndSum (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&lt;=</string>
            <org.sireum.pilar.ast.NameExp cid="2" size="1">

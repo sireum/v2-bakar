@@ -1698,6 +1698,13 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   }
               }
               pd.contractCases(exps)
+            case "convention" =>
+              v(aspectDef.getElement)
+              val ne : NameExp = ctx.popResult
+              
+              ne.name.name.toLowerCase match {
+                case "ghost" => pd.isGhostFunction(true)
+              }
             case "post" =>
               v(aspectDef.getElement)
               pd.post(ctx.popResult)

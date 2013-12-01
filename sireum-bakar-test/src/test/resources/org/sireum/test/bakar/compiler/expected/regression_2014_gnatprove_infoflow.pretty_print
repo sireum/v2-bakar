@@ -1627,6 +1627,7 @@ procedure Machine_Step
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -1692,6 +1693,7 @@ procedure SinglePositionAssign (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.CallExp" cid="1" size="2">
            <org.sireum.pilar.ast.NameExp cid="2" size="1">
              <org.sireum.pilar.ast.NameUser cid="3" size="1">
@@ -2770,6 +2772,7 @@ procedure SinglePositionAssign (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -2835,6 +2838,7 @@ procedure ScrubCache (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.CallExp" cid="1" size="2">
            <org.sireum.pilar.ast.NameExp cid="2" size="1">
              <org.sireum.pilar.ast.NameUser cid="3" size="1">
@@ -3899,6 +3903,7 @@ procedure CopyKeys (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -7251,6 +7256,7 @@ procedure FlipHalves (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -10603,6 +10609,7 @@ procedure FlipHalves2 (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -12621,6 +12628,7 @@ procedure ArrayPartitionedTransfer (
              </ivector>
            </org.sireum.pilar.ast.TupleExp>
          </__contractCases>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="177" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="178" size="3">
@@ -15989,6 +15997,7 @@ procedure Flip (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">

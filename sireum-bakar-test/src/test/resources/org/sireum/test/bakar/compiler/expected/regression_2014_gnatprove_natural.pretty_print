@@ -938,6 +938,7 @@ procedure Natural Members (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -1298,6 +1299,7 @@ procedure Create (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -1837,6 +1839,7 @@ procedure Insert (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">

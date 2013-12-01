@@ -1,0 +1,91 @@
+package Ghost_Legal;
+
+
+procedure Boolean Is_Even (
+        Natural X) {
+
+  #l1.
+    return X MOD 2ii == 0ii;
+}
+
+procedure Boolean Is_Prime (
+        Natural X) {
+  local
+    Natural Temp;
+
+
+  #l3.
+    if !(X MOD 2ii == 0ii) then goto l2;
+
+  #l4.
+    assert proof__uif__assert_and_cut Is_Even (X);
+
+  #l5.
+    return false;
+
+  #l2.
+    // empty loc
+
+  #l6.
+    Temp := 2ii;
+
+  #l8.
+    // empty loc
+
+  #l9.
+    if !(Temp < X) then goto l7;
+
+  #l10.
+    assert proof__uif__loop_invariant Temp >= 2ii;
+
+  #l12.
+    if !(X MOD Temp == 0ii) then goto l11;
+
+  #l13.
+    return false;
+
+  #l11.
+    // empty loc
+
+  #l14.
+    Temp := Temp + 1ii;
+
+  #l15.
+    goto l8;
+
+  #l7.
+    // empty loc
+
+  #l16.
+    return true;
+}package Ghost_Legal;
+
+
+procedure Boolean Is_Even (
+        Natural X) {
+
+}
+
+procedure Boolean Is_Prime (
+        Natural X) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

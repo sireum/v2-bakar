@@ -568,6 +568,7 @@ procedure Boolean Partitioned (
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__isGhostFunction>false</__isGhostFunction>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -1284,6 +1285,7 @@ procedure Swap_Elements (
              </iset>
            </entry>
          </__depends>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
@@ -3497,6 +3499,7 @@ procedure BubbleSort (
              </iset>
            </entry>
          </__depends>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
@@ -4130,6 +4133,7 @@ procedure BubbleSortFast (
              </iset>
            </entry>
          </__depends>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
@@ -4763,6 +4767,7 @@ procedure InsertionSort (
              </iset>
            </entry>
          </__depends>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
@@ -5396,6 +5401,7 @@ procedure ShellSort (
              </iset>
            </entry>
          </__depends>
+         <__isGhostFunction>false</__isGhostFunction>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
            <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
