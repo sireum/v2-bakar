@@ -2232,98 +2232,92 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
   }
 
   def aggregateH(ctx: Context, v: => BVisitor): VisitorFunction = {
-    def r = {
-      val le = LiteralExp(LiteralType.INTEGER, 11111, "11111ii")
-      ctx.addTypeUri(StandardURIs.universalIntURI, le)
-    }
-    {
-      case o @ NamedArrayAggregateEx(sloc, arrayAssocs, typ, checks) =>
-        // Table'(2 | 4 | 10 => 1, others => 0)
+    case o @ NamedArrayAggregateEx(sloc, arrayAssocs, typ, checks) =>
+      // Table'(2 | 4 | 10 => 1, others => 0)
 
-        var cases = ivectorEmpty[SwitchCaseExp]
-        var default: Option[Exp] = None
+      var cases = ivectorEmpty[SwitchCaseExp]
+      var default: Option[Exp] = None
 
-        arrayAssocs.getAssociations.foreach {
-          case ArrayComponentAssociationEx(sloc2, choices, exp, checks2) =>
-            v(exp)
-            val rhs: Exp = ctx.popResult
+      arrayAssocs.getAssociations.foreach {
+        case ArrayComponentAssociationEx(sloc2, choices, exp, checks2) =>
+          v(exp)
+          val rhs: Exp = ctx.popResult
 
-            ctx.handleChoices(v, choices).foreach {
-              case o: ExternalExp =>
-                default = Some(rhs)
-              case x =>
-                cases :+= SwitchCaseExp(x, ivectorEmpty, rhs)
-            }
-        }
-
-        val iterNE = ctx.addTypeUri(URIS.DUMMY_URI, NameExp(
-          ctx.addResourceUri(NameUser("iter"), URIS.DUMMY_URI)))
-        val iterND = ctx.addResourceUri(NameDefinition("iter"), URIS.DUMMY_URI)
-
-        val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
-
-        val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
-        val fe = FunExp(ivector(Matching(ivector(pd), se)))
-        ctx.pushResult(fe, sloc)
-        false
-      case o @ PositionalArrayAggregateEx(sloc, arrayAssocs, typ, checks) =>
-        // Table'(5, 8, 4, 1, others => 0)
-
-        var cases = ivectorEmpty[SwitchCaseExp]
-        var default: Option[Exp] = None
-
-        var i = 0
-        arrayAssocs.getAssociations.foreach {
-          case ArrayComponentAssociationEx(sloc2, choices, exp, checks2) =>
-            v(exp)
-            val rhs: Exp = ctx.popResult
-
-            if (choices.getElements.isEmpty) {
-              val ne = ctx.addTypeUri(URIS.DUMMY_URI,
-                NameExp(ctx.addResourceUri(NameUser(s"__positional$i"), URIS.DUMMY_URI)))
-              cases :+= SwitchCaseExp(ne, ivectorEmpty, rhs)
-              i += 1
-            } else {
+          ctx.handleChoices(v, choices).foreach {
+            case o: ExternalExp =>
               default = Some(rhs)
+            case x =>
+              cases :+= SwitchCaseExp(x, ivectorEmpty, rhs)
+          }
+      }
+
+      val iterNE = ctx.addTypeUri(URIS.DUMMY_URI, NameExp(
+        ctx.addResourceUri(NameUser("iter"), URIS.DUMMY_URI)))
+      val iterND = ctx.addResourceUri(NameDefinition("iter"), URIS.DUMMY_URI)
+
+      val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
+
+      val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
+      val fe = FunExp(ivector(Matching(ivector(pd), se)))
+      ctx.pushResult(fe, sloc)
+      false
+    case o @ PositionalArrayAggregateEx(sloc, arrayAssocs, typ, checks) =>
+      // Table'(5, 8, 4, 1, others => 0)
+
+      var cases = ivectorEmpty[SwitchCaseExp]
+      var default: Option[Exp] = None
+
+      var i = 0
+      arrayAssocs.getAssociations.foreach {
+        case ArrayComponentAssociationEx(sloc2, choices, exp, checks2) =>
+          v(exp)
+          val rhs: Exp = ctx.popResult
+
+          if (choices.getElements.isEmpty) {
+            val ne = ctx.addTypeUri(URIS.DUMMY_URI,
+              NameExp(ctx.addResourceUri(NameUser(s"__positional$i"), URIS.DUMMY_URI)))
+            cases :+= SwitchCaseExp(ne, ivectorEmpty, rhs)
+            i += 1
+          } else {
+            default = Some(rhs)
+          }
+      }
+      val iterNE = ctx.addTypeUri(URIS.DUMMY_URI, NameExp(
+        ctx.addResourceUri(NameUser("iter"), URIS.DUMMY_URI)))
+      val iterND = ctx.addResourceUri(NameDefinition("iter"), URIS.DUMMY_URI)
+
+      val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
+
+      val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
+      val fe = FunExp(ivector(Matching(ivector(pd), se)))
+
+      ctx.pushResult(fe, sloc)
+      false
+    case o @ RecordAggregateEx(sloc, recAssocs, typ, checks) =>
+      var inits = ivectorEmpty[AttributeInit]
+      var i = 0
+      recAssocs.getAssociations.foreach {
+        case RecordComponentAssociationEx(sloc2, choices, exp, checks2) =>
+          v(exp)
+          val rhs: Exp = ctx.popResult
+
+          if (!choices.getExpressions.isEmpty()) {
+            // named
+            for (c <- choices.getExpressions) {
+              v(c)
+              val ne: NameExp = ctx.popResult
+
+              inits :+= AttributeInit(ne.name, rhs)
             }
-        }
-        val iterNE = ctx.addTypeUri(URIS.DUMMY_URI, NameExp(
-          ctx.addResourceUri(NameUser("iter"), URIS.DUMMY_URI)))
-        val iterND = ctx.addResourceUri(NameDefinition("iter"), URIS.DUMMY_URI)
-
-        val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
-
-        val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
-        val fe = FunExp(ivector(Matching(ivector(pd), se)))
-
-        ctx.pushResult(fe, sloc)
-        false
-      case o @ RecordAggregateEx(sloc, recAssocs, typ, checks) =>
-        var inits = ivectorEmpty[AttributeInit]
-        var i = 0
-        recAssocs.getAssociations.foreach {
-          case RecordComponentAssociationEx(sloc2, choices, exp, checks2) =>
-            v(exp)
-            val rhs: Exp = ctx.popResult
-
-            if (!choices.getExpressions.isEmpty()) {
-              // named
-              for (c <- choices.getExpressions) {
-                v(c)
-                val ne: NameExp = ctx.popResult
-
-                inits :+= AttributeInit(ne.name, rhs)
-              }
-            } else {
-              // TODO: positional
-              inits :+= AttributeInit(NameUser(s"__positional$i"), rhs)
-              i += 1
-            }
-          case x => throw new RuntimeException("Unexpected: " + x)
-        }
-        ctx.pushResult(NewRecordExp(null, inits), sloc)
-        false
-    }
+          } else {
+            // TODO: positional
+            inits :+= AttributeInit(NameUser(s"__positional$i"), rhs)
+            i += 1
+          }
+        case x => throw new RuntimeException("Unexpected: " + x)
+      }
+      ctx.pushResult(NewRecordExp(null, inits), sloc)
+      false
   }
 
   def attributeH(ctx: Context, v: => BVisitor): VisitorFunction = {
