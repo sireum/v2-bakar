@@ -25,7 +25,7 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
   
-  //override def includes = super.includes ++= Set("2014_gnatprove_longest")
+  //override def includes = super.includes ++= Set("2014_gnatprove_n_queens")
 
   override def includes = super.includes ++= Set(
     "2005_misc",
@@ -42,6 +42,12 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
     "2014_gnatprove_invert_injection",
     "2014_gnatprove_longest_common_prefix",
     "2014_gnatprove_max_and_sum",
+    "2014_gnatprove_n_queens",
+    "2014_gnatprove_natural",
+    "2014_gnatprove_painting",
+    "2014_gnatprove_power_and_sum",
+    "2014_gnatprove_ring_buffer",
+    "2014_gnatprove_slice_sums",
     "xxxxxx")
 
   register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))

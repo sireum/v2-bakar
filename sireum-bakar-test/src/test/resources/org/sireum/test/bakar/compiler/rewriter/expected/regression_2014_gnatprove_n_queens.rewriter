@@ -1,0 +1,642 @@
+package Queen;
+
+
+procedure Add_next (
+        Board B,
+        Index I,
+        Boolean Done,
+        Board C) {
+  local
+    Boolean _tcomp0;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
+
+  #l3.
+    call _tcomp0 := Consistent (B, I);
+
+  #l4.
+    if !(_tcomp0) then goto l2;
+
+  #rwl0.
+    _t0 := N;
+
+  #rwl1.
+    _t1 := I;
+
+  #l7.
+    if !(_t0 == _t1) then goto l6;
+
+  #l8.
+    Done := true;
+
+  #l9.
+    goto l5;
+
+  #l6.
+    // empty loc
+
+  #rwl2.
+    _t2 := I;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #l10.
+    call Try_Row (B, _t2 + _t3, Done, C);
+
+  #l5.
+    // empty loc
+
+  #l11.
+    return;
+
+  #l12.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l13.
+    assert !(Consistent (C, I));
+
+  #l14.
+    assert !(proof__uif__for_all {universal_integer J => 
+        switch J
+          case (I, N) => Consistent (C, J)
+          default => true});
+
+  #l1.
+    // empty loc
+
+  #l15.
+    return;
+}
+
+procedure Board Copy_Until (
+        Board B,
+        Index I,
+        Board C) {
+  local
+    Board R;
+    universal_integer J;
+    universal_integer _tcomp1;
+    universal_integer _tcomp2;
+    universal_integer J0;
+    universal_integer _tcomp3;
+    universal_integer _tcomp4;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
+
+
+  #l16.
+    R := { iter => 
+        switch iter
+          case (attribute__uif__first Index, attribute__uif__last Index) => 1ii
+    };
+
+  #l18.
+    _tcomp1 := attribute__uif__first `Index;
+
+  #l19.
+    _tcomp2 := I;
+
+  #rwl4.
+    _t4 := _tcomp1;
+
+  #rwl5.
+    _t5 := _tcomp2;
+
+  #l20.
+    if _t4 > _t5 then goto l17;
+
+  #l21.
+    J := _tcomp1;
+
+  #l22.
+    // empty loc
+
+  #rwl6.
+    _t6 := J;
+
+  #rwl7.
+    _t7 := 1ii;
+
+  #rwl8.
+    _t8 := R[K];
+
+  #rwl9.
+    _t9 := B[K];
+
+  #l23.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer K => 
+        switch K
+          case (attribute__uif__first `Index, _t6 - _t7) => _t8 == _t9
+          default => true};
+
+  #l24.
+    R[J] := B[J];
+
+  #rwl10.
+    _t10 := J;
+
+  #rwl11.
+    _t11 := _tcomp2;
+
+  #l25.
+    if _t10 == _t11 then goto l17;
+
+  #rwl12.
+    _t12 := J;
+
+  #rwl13.
+    _t13 := 1ii;
+
+  #l26.
+    J := _t12 + _t13;
+
+  #l27.
+    goto l22;
+
+  #l17.
+    // empty loc
+
+  #rwl14.
+    _t14 := I;
+
+  #rwl15.
+    _t15 := 1ii;
+
+  #l29.
+    _tcomp3 := _t14 + _t15;
+
+  #l30.
+    _tcomp4 := attribute__uif__last `Index;
+
+  #rwl16.
+    _t16 := _tcomp3;
+
+  #rwl17.
+    _t17 := _tcomp4;
+
+  #l31.
+    if _t16 > _t17 then goto l28;
+
+  #l32.
+    J0 := _tcomp3;
+
+  #l33.
+    // empty loc
+
+  #rwl18.
+    _t18 := R[K];
+
+  #rwl19.
+    _t19 := B[K];
+
+  #l34.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer K => 
+        switch K
+          case (attribute__uif__first `Index, I) => _t18 == _t19
+          default => true};
+
+  #l35.
+    R[J] := C[J];
+
+  #rwl20.
+    _t20 := J0;
+
+  #rwl21.
+    _t21 := _tcomp4;
+
+  #l36.
+    if _t20 == _t21 then goto l28;
+
+  #rwl22.
+    _t22 := J0;
+
+  #rwl23.
+    _t23 := 1ii;
+
+  #l37.
+    J0 := _t22 + _t23;
+
+  #l38.
+    goto l33;
+
+  #l28.
+    // empty loc
+
+  #l39.
+    return R;
+}
+
+procedure Try_Row (
+        Board B,
+        Index I,
+        Boolean Done,
+        Board C) {
+  local
+    universal_integer R;
+    universal_integer _tcomp5;
+    universal_integer _tcomp6;
+    Board _tcomp7;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+    FIXME _t28;
+    FIXME _t29;
+    FIXME _t30;
+    FIXME _t31;
+    FIXME _t32;
+    FIXME _t33;
+    FIXME _t34;
+    FIXME _t35;
+    FIXME _t36;
+    FIXME _t37;
+    FIXME _t38;
+    FIXME _t39;
+    FIXME _t40;
+    FIXME _t41;
+    FIXME _t42;
+
+
+  #l41.
+    _tcomp5 := attribute__uif__first (Index);
+
+  #l42.
+    _tcomp6 := attribute__uif__last (Index);
+
+  #rwl24.
+    _t24 := _tcomp5;
+
+  #rwl25.
+    _t25 := _tcomp6;
+
+  #l43.
+    if _t24 > _t25 then goto l40;
+
+  #l44.
+    R := _tcomp5;
+
+  #l45.
+    // empty loc
+
+  #rwl26.
+    _t26 := I;
+
+  #rwl27.
+    _t27 := 1ii;
+
+  #rwl28.
+    _t28 := attribute__uif__loop_entry B;
+
+  #rwl29.
+    _t29 := B[J];
+
+  #rwl30.
+    _t30 := _t28[J];
+
+  #rwl31.
+    _t31 := !(Done);
+
+  #rwl32.
+    _t32 := proof__uif__for_all {universal_integer J => 
+        switch J
+          case (1ii, _t26 - _t27) => _t29 == _t30
+          default => true};
+
+  #rwl33.
+    _t33 := C[I];
+
+  #rwl34.
+    _t34 := R;
+
+  #rwl35.
+    _t35 := _t31 && _t32;
+
+  #rwl36.
+    _t36 := 
+        if _t33 < _t34 then !(Consistent (C, N))
+    ;
+
+  #l46.
+    assert proof__uif__loop_invariant _t35 && _t36;
+
+  #l47.
+    B[I] := R;
+
+  #rwl37.
+    _t37 := C[I];
+
+  #rwl38.
+    _t38 := R;
+
+  #l50.
+    if !(_t37 == _t38) then goto l49;
+
+  #l51.
+    call Add_next (B, I, Done, C);
+
+  #l52.
+    goto l48;
+
+  #l49.
+    // empty loc
+
+  #l53.
+    call _tcomp7 := Copy_Until (B, I, C);
+
+  #l54.
+    call Add_next (B, I, Done, _tcomp7);
+
+  #l48.
+    // empty loc
+
+  #l56.
+    if !(Done) then goto l55;
+
+  #l57.
+    goto l40;
+
+  #l55.
+    // empty loc
+
+  #rwl39.
+    _t39 := R;
+
+  #rwl40.
+    _t40 := _tcomp6;
+
+  #l58.
+    if _t39 == _t40 then goto l40;
+
+  #rwl41.
+    _t41 := R;
+
+  #rwl42.
+    _t42 := 1ii;
+
+  #l59.
+    R := _t41 + _t42;
+
+  #l60.
+    goto l45;
+
+  #l40.
+    // empty loc
+
+  #l61.
+    return;
+}package Queen;
+
+
+typealias Positive Index;
+
+typealias _ARRAY_ Board;
+
+const $CONST {
+  N = (Positive) 8ii;
+}
+
+procedure Boolean Consistent_Index (
+        Board B,
+        Index I1,
+        Index I2) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
+
+
+  #rwl0.
+    _t0 := B[I1];
+
+  #rwl1.
+    _t1 := B[I2];
+
+  #rwl2.
+    _t2 := I1;
+
+  #rwl3.
+    _t3 := I2;
+
+  #rwl4.
+    _t4 := B[I1];
+
+  #rwl5.
+    _t5 := B[I2];
+
+  #rwl6.
+    _t6 := _t2 - _t3;
+
+  #rwl7.
+    _t7 := _t4 - _t5;
+
+  #rwl8.
+    _t8 := _t0 != _t1;
+
+  #rwl9.
+    _t9 := _t6 != _t7;
+
+  #rwl10.
+    _t10 := I1;
+
+  #rwl11.
+    _t11 := I2;
+
+  #rwl12.
+    _t12 := B[I2];
+
+  #rwl13.
+    _t13 := B[I1];
+
+  #rwl14.
+    _t14 := _t10 - _t11;
+
+  #rwl15.
+    _t15 := _t12 - _t13;
+
+  #rwl16.
+    _t16 := _t8 &&& _t9;
+
+  #rwl17.
+    _t17 := _t14 != _t15;
+
+  #l62.
+    return _t16 &&& _t17;
+}
+
+procedure Boolean Consistent (
+        Board B,
+        Index K) {
+  local
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+    FIXME _t28;
+    FIXME _t29;
+    FIXME _t30;
+    FIXME _t31;
+    FIXME _t32;
+    FIXME _t33;
+    FIXME _t34;
+    FIXME _t35;
+    FIXME _t36;
+    FIXME _t37;
+
+
+  #rwl18.
+    _t18 := I;
+
+  #rwl19.
+    _t19 := 1ii;
+
+  #rwl20.
+    _t20 := B[I];
+
+  #rwl21.
+    _t21 := B[J];
+
+  #rwl22.
+    _t22 := I;
+
+  #rwl23.
+    _t23 := J;
+
+  #rwl24.
+    _t24 := B[I];
+
+  #rwl25.
+    _t25 := B[J];
+
+  #rwl26.
+    _t26 := _t22 - _t23;
+
+  #rwl27.
+    _t27 := _t24 - _t25;
+
+  #rwl28.
+    _t28 := _t20 != _t21;
+
+  #rwl29.
+    _t29 := _t26 != _t27;
+
+  #rwl30.
+    _t30 := I;
+
+  #rwl31.
+    _t31 := J;
+
+  #rwl32.
+    _t32 := B[J];
+
+  #rwl33.
+    _t33 := B[I];
+
+  #rwl34.
+    _t34 := _t30 - _t31;
+
+  #rwl35.
+    _t35 := _t32 - _t33;
+
+  #rwl36.
+    _t36 := _t28 &&& _t29;
+
+  #rwl37.
+    _t37 := _t34 != _t35;
+
+  #l63.
+    return proof__uif__for_all {universal_integer I => 
+        switch I
+          case (attribute__uif__first `Index, K) => proof__uif__for_all {universal_integer J => 
+              switch J
+                case (attribute__uif__first `Index, _t18 - _t19) => _t36 &&& _t37
+                default => true}
+          default => true};
+}
+
+procedure Add_next (
+        Board B,
+        Index I,
+        Boolean Done,
+        Board C) {
+
+}
+
+procedure Board Copy_Until (
+        Board B,
+        Index I,
+        Board C) {
+
+}
+
+procedure Try_Row (
+        Board B,
+        Index I,
+        Boolean Done,
+        Board C) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

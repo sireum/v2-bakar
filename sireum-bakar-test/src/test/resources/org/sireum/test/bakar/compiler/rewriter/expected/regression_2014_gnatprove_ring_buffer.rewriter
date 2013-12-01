@@ -1,0 +1,282 @@
+package __anonymousPackage$0;
+
+
+procedure Harness (
+        Integer X,
+        Integer Y,
+        Integer Z) {
+  local
+    Ring_Buffer R;
+    Integer H;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+
+
+  #l1.
+    call Clear (R);
+
+  #l2.
+    call Push (R, X);
+
+  #l3.
+    call Push (R, Y);
+
+  #l4.
+    call Pop (R, H);
+
+  #rwl0.
+    _t0 := H;
+
+  #rwl1.
+    _t1 := X;
+
+  #l5.
+    assert _t0 == _t1;
+
+  #l6.
+    call Push (R, Z);
+
+  #l7.
+    call Pop (R, H);
+
+  #rwl2.
+    _t2 := H;
+
+  #rwl3.
+    _t3 := Y;
+
+  #l8.
+    assert _t2 == _t3;
+
+  #l9.
+    call Pop (R, H);
+
+  #rwl4.
+    _t4 := H;
+
+  #rwl5.
+    _t5 := Z;
+
+  #l10.
+    assert _t4 == _t5;
+
+  #l11.
+    return;
+}package Ring_Buf;
+
+
+procedure Clear (
+        Ring_Buffer R) {
+
+  #l12.
+    R.Length := 0ii;
+
+  #l13.
+    R.First := 0ii;
+
+  #l14.
+    R.Data := `Buf_Array { iter => 
+        switch iter
+          default => 0ii};
+
+  #l15.
+    return;
+}
+
+procedure Push (
+        Ring_Buffer R,
+        Integer X) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+
+
+  #rwl0.
+    _t0 := R.First;
+
+  #rwl1.
+    _t1 := R.Length;
+
+  #rwl2.
+    _t2 := _t0 + _t1;
+
+  #rwl3.
+    _t3 := Buf_Size;
+
+  #rwl4.
+    _t4 := R.Data;
+
+  #l16.
+    _t4[_t2 MOD _t3] := X;
+
+  #rwl5.
+    _t5 := R.Length;
+
+  #rwl6.
+    _t6 := 1ii;
+
+  #l17.
+    R.Length := _t5 + _t6;
+
+  #l18.
+    return;
+}
+
+procedure Pop (
+        Ring_Buffer R,
+        Integer Element) {
+  local
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+
+
+  #rwl7.
+    _t7 := R.Data;
+
+  #l19.
+    Element := _t7[R.First];
+
+  #rwl8.
+    _t8 := R.First;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #rwl10.
+    _t10 := _t8 + _t9;
+
+  #rwl11.
+    _t11 := Buf_Size;
+
+  #l20.
+    R.First := _t10 MOD _t11;
+
+  #rwl12.
+    _t12 := R.Length;
+
+  #rwl13.
+    _t13 := 1ii;
+
+  #l21.
+    R.Length := _t12 - _t13;
+
+  #l22.
+    return;
+}package Ring_Buf;
+
+
+typealias Integer Ar_Index;
+
+typealias Integer Length_Type;
+
+typealias _ARRAY_ Buf_Array;
+
+record Ring_Buffer {
+
+  Buf_Array Data;
+
+  Ar_Index First;
+
+  Length_Type Length;
+}
+
+const $CONST {
+  Buf_Size = (Integer) 10000ii;
+}
+
+procedure Boolean Is_Full (
+        Ring_Buffer R) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #rwl0.
+    _t0 := R.Length;
+
+  #rwl1.
+    _t1 := Buf_Size;
+
+  #l23.
+    return _t0 == _t1;
+}
+
+procedure Boolean Is_Empty (
+        Ring_Buffer R) {
+  local
+    FIXME _t2;
+    FIXME _t3;
+
+
+  #rwl2.
+    _t2 := R.Length;
+
+  #rwl3.
+    _t3 := 0ii;
+
+  #l24.
+    return _t2 == _t3;
+}
+
+procedure Clear (
+        Ring_Buffer R) {
+
+}
+
+procedure Integer Head (
+        Ring_Buffer R) {
+  local
+    FIXME _t4;
+
+
+  #rwl4.
+    _t4 := R.Data;
+
+  #l25.
+    return _t4[R.First];
+}
+
+procedure Push (
+        Ring_Buffer R,
+        Integer X) {
+
+}
+
+procedure Pop (
+        Ring_Buffer R,
+        Integer Element) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

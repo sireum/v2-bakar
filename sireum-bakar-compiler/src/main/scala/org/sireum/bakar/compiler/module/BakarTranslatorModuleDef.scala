@@ -491,7 +491,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   assert(exp.getExpressions.isEmpty)
 
                   // e.g.       for I in Element'Range loop
-                  
+
                   v(prefix)
                   val ne: NameExp = popResult
 
@@ -505,7 +505,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   val nu = this.addResourceUri(this.addProperty(URIS.REF_URI, td.uri, NameUser(td.id)), td.uri)
                   val markNE = addTypeUri(markURI, NameExp(nu))
 
-                  if(!(ne ? URIS.TYPE_URI))
+                  if (!(ne ? URIS.TYPE_URI))
                     addTypeUri(markURI, ne)
 
                   addTypeUri(markURI, iterND)
@@ -1359,7 +1359,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           o match {
             case i: FunctionBodyDeclaration => true
             case i: FunctionDeclaration => true
-            case i: ProcedureBodyDeclaration => true            
+            case i: ProcedureBodyDeclaration => true
             case i: ProcedureDeclaration => true
             case _ => false
           }
@@ -2165,9 +2165,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       ctx.pushLocation(jl)
       false
     case o @ ReturnStatementEx(sloc, labelNames, returnExp, checks) =>
-      v(returnExp)
+      val exp =
+        if (!ctx.isEmpty(returnExp.getExpression)) {
+          v(returnExp)
+          Some(ctx.popResult.asInstanceOf[Exp])
+        } else
+          None
 
-      val rj = ReturnJump(ivectorEmpty, Some(ctx.popResult))
+      val rj = ReturnJump(ivectorEmpty, exp)
       val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, rj)
 
       ctx.pushLocation(jl)
@@ -2327,10 +2332,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val p: NameExp = ctx.popResult
 
       val _typUri =
-        if (typeUri != null) typeUri
+        if (typeUri != null && typeUri != "null") typeUri
         else if (p ? URIS.TYPE_URI)
           p(URIS.TYPE_URI)
-        else p.name.uri
+        else {
+          assert(URIS.isTypeUri(p.name.uri))
+          assert(!(p ? URIS.TYPE_URI))
+
+          ctx.addTypeUri(p.name.uri, p)
+          p.name.uri
+        }
 
       val arg = if (createTypeExp) ctx.makeTypeExp(p, _typUri) else p
 
@@ -2358,7 +2369,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         }
 
         v(prefix)
-        val exp: NameExp = ctx.popResult
+        val exp: Exp = ctx.popResult
 
         val ce = ctx.createUIFCall(n, exp, typeUri)
         ctx.pushResult(ce, sloc)

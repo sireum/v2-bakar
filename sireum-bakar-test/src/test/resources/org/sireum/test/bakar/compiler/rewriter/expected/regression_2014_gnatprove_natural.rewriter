@@ -1,0 +1,264 @@
+package Natural_Set;
+
+
+const $CONST {
+  Old_Length = (Integer) S.Len;
+}
+
+procedure Create (
+        T S) {
+
+  #l1.
+    S := `T {
+      Len = 0ii,
+      M = `Set_Array_T { iter => 
+          switch iter
+            default => Invalid_Element}
+    };
+
+  #l2.
+    return;
+}
+
+procedure Insert (
+        T S,
+        Natural Value) {
+  local
+    Boolean _tcomp0;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+
+
+  #l4.
+    call _tcomp0 := Contains (S, Value);
+
+  #l5.
+    if !(!(_tcomp0)) then goto l3;
+
+  #rwl0.
+    _t0 := S.Len;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #l6.
+    S.Len := _t0 + _t1;
+
+  #rwl2.
+    _t2 := S.M;
+
+  #l7.
+    _t2[S.Len] := Value;
+
+  #rwl3.
+    S.M := _t2;
+
+  #l3.
+    // empty loc
+
+  #l8.
+    return;
+}package Natural_Set;
+
+
+typealias Integer Element_T;
+
+typealias Natural Set_Length;
+
+typealias Set_Length Set_Index;
+
+typealias _ARRAY_ Set_Array_T;
+
+record T {
+
+  Set_Length Len;
+
+  Set_Array_T M;
+}
+
+typealias _PRIVATE_TYPE_DECLARATION_ T;
+
+const $CONST {
+  Maximum_Set_Size = (Positive) 10ii;
+
+  Invalid_Element = (Element_T) attribute__uif__first `Element_T;
+}
+
+procedure Boolean Valid (
+        T S) {
+
+}
+
+procedure Natural Members (
+        T S) {
+
+}
+
+procedure Boolean Full (
+        T S) {
+  local
+    Natural _tcomp1;
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #l9.
+    call _tcomp1 := Members (S);
+
+  #rwl0.
+    _t0 := _tcomp1;
+
+  #rwl1.
+    _t1 := Maximum_Set_Size;
+
+  #l10.
+    return _t0 == _t1;
+}
+
+procedure Create (
+        T S) {
+
+}
+
+procedure Boolean Contains (
+        T S,
+        Natural Value) {
+
+}
+
+procedure Insert (
+        T S,
+        Natural Value) {
+
+}
+
+procedure Natural Members (
+        T S) {
+
+  #l11.
+    return S.Len;
+}
+
+procedure Boolean Valid (
+        T S) {
+  local
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+
+
+  #rwl2.
+    _t2 := S.M;
+
+  #rwl3.
+    _t3 := attribute__uif__first `Natural;
+
+  #rwl4.
+    _t4 := _t2[I];
+
+  #rwl5.
+    _t5 := S.M;
+
+  #rwl6.
+    _t6 := _t5[I];
+
+  #rwl7.
+    _t7 := attribute__uif__last `Natural;
+
+  #rwl8.
+    _t8 := _t3 <= _t4;
+
+  #rwl9.
+    _t9 := _t6 <= _t7;
+
+  #rwl10.
+    _t10 := S.Len;
+
+  #rwl11.
+    _t11 := 1ii;
+
+  #rwl12.
+    _t12 := S.M;
+
+  #rwl13.
+    _t13 := _t12[I];
+
+  #rwl14.
+    _t14 := Invalid_Element;
+
+  #rwl15.
+    _t15 := proof__uif__for_all {Set_Index I => 
+        switch I
+          case (1ii, S.Len) => _t8 &&& _t9
+          default => true};
+
+  #rwl16.
+    _t16 := proof__uif__for_all {Set_Index I => 
+        switch I
+          case (_t10 + _t11, attribute__uif__last `Set_Index) => _t13 == _t14
+          default => true};
+
+  #l12.
+    return _t15 && _t16;
+}
+
+procedure Boolean Contains (
+        T S,
+        Natural Value) {
+  local
+    Natural _tcomp2;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+
+
+  #l13.
+    call _tcomp2 := Members (S);
+
+  #rwl17.
+    _t17 := S.M;
+
+  #rwl18.
+    _t18 := _t17[I];
+
+  #rwl19.
+    _t19 := Value;
+
+  #l14.
+    return proof__uif__for_some {universal_integer I => 
+        switch I
+          case (1ii, _tcomp2) => _t18 == _t19
+          default => true};
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

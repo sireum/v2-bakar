@@ -1,0 +1,166 @@
+package P;
+
+
+procedure Shadow_Effect (
+        Painting P,
+        Dot D) {
+  local
+    Color C;
+    Color _tcomp0;
+    Color _tcomp1;
+
+
+  #l2.
+    _tcomp0 := attribute__uif__first `Color;
+
+  #l3.
+    _tcomp1 := attribute__uif__last `Color;
+
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
+
+  #l5.
+    C := _tcomp0;
+
+  #l6.
+    // empty loc
+
+  #l7.
+    assert proof__uif__loop_invariant P.Plain == attribute__uif__loop_entry P.Plain &&& proof__uif__for_all {universal_integer J => 
+        switch J
+          case (attribute__uif__first `Color, attribute__uif__pred (`Color, C)) => 
+              if P.Plain[J] == D then P.Shadow[J] == D
+
+          default => true};
+
+  #l9.
+    if !(P.Plain[C] == D) then goto l8;
+
+  #l10.
+    P.Shadow[C] := D;
+
+  #l8.
+    // empty loc
+
+  #l11.
+    if C == _tcomp1 then goto l1;
+
+  #l12.
+    C := C + 1ii;
+
+  #l13.
+    goto l6;
+
+  #l1.
+    // empty loc
+
+  #l14.
+    return (P);
+}
+
+procedure Shadow_Effect_2 (
+        Painting P,
+        Dot D) {
+  local
+    Painting _tbpr1;
+
+
+  #l15.
+    call _tbpr1 := Shadow_Effect (P, D);
+
+  #_lbpr2.
+    P := _tbpr1;
+
+  #l16.
+    return (P);
+}package P;
+
+
+record Dot {
+
+  Integer X;
+
+  Integer Y;
+}
+
+typealias _ENUMERATION_TYPE_ Color;
+
+typealias _ARRAY_ Dots;
+
+record Painting {
+
+  Dots Plain;
+
+  Dots Shadow;
+}
+
+procedure Shadow_Effect (
+        Painting P,
+        Dot D) {
+
+}
+
+procedure Dot Get_Plain (
+        Painting P,
+        Color C) {
+
+  #l17.
+    return P.Plain[C];
+}
+
+procedure Boolean Plain_Is_Dot (
+        Painting P,
+        Color C,
+        Dot D) {
+  local
+    Dot _tcomp2;
+
+
+  #l18.
+    call _tcomp2 := Get_Plain (P, C);
+
+  #l19.
+    return _tcomp2 == D;
+}
+
+procedure Boolean Some_Plain_Is_Dot (
+        Painting P,
+        Dot D) {
+  local
+    Boolean _tcomp3;
+
+
+  #l20.
+    call _tcomp3 := Plain_Is_Dot (P, C, D);
+
+  #l21.
+    return proof__uif__for_some {Color C => 
+        switch C
+          case (attribute__uif__first `Color, attribute__uif__last `Color) => _tcomp3
+          default => true};
+}
+
+procedure Shadow_Effect_2 (
+        Painting P,
+        Dot D) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;
