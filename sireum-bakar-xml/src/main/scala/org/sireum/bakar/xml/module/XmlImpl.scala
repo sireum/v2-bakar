@@ -22,8 +22,8 @@ import org.sireum.util.MarkerType
 import org.sireum.util.OsArch
 import org.sireum.util.OsArchUtil
 import org.sireum.util.Tag
+import org.sireum.util.ilinkedMapEmpty
 import org.sireum.util.ilistEmpty
-import org.sireum.util.imapEmpty
 import org.sireum.util.ivector
 import org.sireum.util.ivectorEmpty
 import org.sireum.util.mmapEmpty
@@ -104,7 +104,7 @@ class Gnat2XMLWrapperModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     rettags
   }
 
-  var results = imapEmpty[FileResourceUri, FileResourceUri]
+  var results = ilinkedMapEmpty[FileResourceUri, FileResourceUri]
   gnat2xmlResult match {
     case Exec.StringResult(str, exitval) =>
       if (exitval != 0)
@@ -153,7 +153,7 @@ class ParseGnat2XMLModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
   import javax.xml.bind._
   import org.sireum.bakar.xml._
 
-  var results = imapEmpty[FileResourceUri, CompilationUnit]
+  var results = ilinkedMapEmpty[FileResourceUri, CompilationUnit]
   val u = JAXBContext.newInstance("org.sireum.bakar.xml").createUnmarshaller();
 
   for ((orig, xml) <- this.gnat2xmlResults) {

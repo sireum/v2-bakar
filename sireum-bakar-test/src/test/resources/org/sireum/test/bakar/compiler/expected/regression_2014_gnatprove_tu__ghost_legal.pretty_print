@@ -1,3 +1,166 @@
+ghost_legal.adb
+package Ghost_Legal
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>ghost_legal.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>26</int>
+         <int>16</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Boolean Is_Even (
+        Natural X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Ghost_Legal-1:9/Is_Even+2:13/X+2:22</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>ghost_legal.adb</string>
+                 <int>2</int>
+                 <int>22</int>
+                 <int>2</int>
+                 <int>22</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://expression_function/Ghost_Legal-1:9/Is_Even+2:13</string>""")
+
+    @IS_EXPRESSION_FUNCTION
+
+      ("""<boolean>true</boolean>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>ghost_legal.adb</string>
+         <int>2</int>
+         <int>4</int>
+         <int>3</int>
+         <int>20</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l1.
+    return X MOD 2ii == 0ii;
+}
+
+procedure Boolean Is_Prime (
+        Natural X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Ghost_Legal-1:9/Is_Prime-7:13/X-7:23</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>ghost_legal.adb</string>
+                 <int>6</int>
+                 <int>23</int>
+                 <int>6</int>
+                 <int>23</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Ghost_Legal-1:9/Is_Prime-7:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>ghost_legal.adb</string>
+         <int>6</int>
+         <int>4</int>
+         <int>25</int>
+         <int>16</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Natural Temp
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>ghost_legal.adb</string>
+             <int>7</int>
+             <int>7</int>
+             <int>7</int>
+             <int>10</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l3.
+    if !(X MOD 2ii == 0ii) then goto l2;
+
+  #l4.
+    assert proof__uif__assert_and_cut Is_Even (X)
+        @ASSERT_AND_CUT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l5.
+    return false;
+
+  #l2.
+    // empty loc
+
+  #l6.
+    Temp := 2ii;
+
+  #l8.
+    // empty loc
+
+  #l9.
+    if !(Temp < X) then goto l7;
+
+  #l10.
+    assert proof__uif__loop_invariant Temp >= 2ii
+        @LOOP_INVARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l12.
+    if !(X MOD Temp == 0ii) then goto l11;
+
+  #l13.
+    return false;
+
+  #l11.
+    // empty loc
+
+  #l14.
+    Temp := Temp + 1ii;
+
+  #l15.
+    goto l8;
+
+  #l7.
+    // empty loc
+
+  #l16.
+    return true;
+}
+
 ghost_legal.ads
 package Ghost_Legal
     @util.loc
@@ -513,167 +676,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-ghost_legal.adb
-package Ghost_Legal
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>ghost_legal.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>26</int>
-         <int>16</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Boolean Is_Even (
-        Natural X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Ghost_Legal-1:9/Is_Even+2:13/X+2:22</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>ghost_legal.adb</string>
-                 <int>2</int>
-                 <int>22</int>
-                 <int>2</int>
-                 <int>22</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://expression_function/Ghost_Legal-1:9/Is_Even+2:13</string>""")
-
-    @IS_EXPRESSION_FUNCTION
-
-      ("""<boolean>true</boolean>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>ghost_legal.adb</string>
-         <int>2</int>
-         <int>4</int>
-         <int>3</int>
-         <int>20</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l1.
-    return X MOD 2ii == 0ii;
-}
-
-procedure Boolean Is_Prime (
-        Natural X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Ghost_Legal-1:9/Is_Prime-7:13/X-7:23</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>ghost_legal.adb</string>
-                 <int>6</int>
-                 <int>23</int>
-                 <int>6</int>
-                 <int>23</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Ghost_Legal-1:9/Is_Prime-7:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>ghost_legal.adb</string>
-         <int>6</int>
-         <int>4</int>
-         <int>25</int>
-         <int>16</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Natural Temp
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>ghost_legal.adb</string>
-             <int>7</int>
-             <int>7</int>
-             <int>7</int>
-             <int>10</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l3.
-    if !(X MOD 2ii == 0ii) then goto l2;
-
-  #l4.
-    assert proof__uif__assert_and_cut Is_Even (X)
-        @ASSERT_AND_CUT
-
-          ("""<boolean>true</boolean>""")
-    ;
-
-  #l5.
-    return false;
-
-  #l2.
-    // empty loc
-
-  #l6.
-    Temp := 2ii;
-
-  #l8.
-    // empty loc
-
-  #l9.
-    if !(Temp < X) then goto l7;
-
-  #l10.
-    assert proof__uif__loop_invariant Temp >= 2ii
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
-
-  #l12.
-    if !(X MOD Temp == 0ii) then goto l11;
-
-  #l13.
-    return false;
-
-  #l11.
-    // empty loc
-
-  #l14.
-    Temp := Temp + 1ii;
-
-  #l15.
-    goto l8;
-
-  #l7.
-    // empty loc
-
-  #l16.
-    return true;
-}
 

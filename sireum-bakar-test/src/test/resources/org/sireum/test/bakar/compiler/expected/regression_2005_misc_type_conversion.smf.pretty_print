@@ -1,3 +1,82 @@
+type_conversion.adb
+package Type_Conversion
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">type_conversion.adb</string>
+         <int>2</int>
+         <int>1</int>
+         <int>8</int>
+         <int>20</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Convert (
+        Float Y
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">type_conversion.adb</string>
+                 <int>3</int>
+                 <int>22</int>
+                 <int>3</int>
+                 <int>22</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">type_conversion.adb</string>
+                 <int>3</int>
+                 <int>33</int>
+                 <int>3</int>
+                 <int>33</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Type_Conversion-1:9/Convert-3:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">type_conversion.adb</string>
+         <int>3</int>
+         <int>4</int>
+         <int>7</int>
+         <int>15</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l1.
+    X := (Integer) Y;
+
+  #l2.
+    return;
+}
+
 type_conversion.ads
 package Type_Conversion
     @util.loc
@@ -264,83 +343,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-type_conversion.adb
-package Type_Conversion
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">type_conversion.adb</string>
-         <int>2</int>
-         <int>1</int>
-         <int>8</int>
-         <int>20</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Convert (
-        Float Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">type_conversion.adb</string>
-                 <int>3</int>
-                 <int>22</int>
-                 <int>3</int>
-                 <int>22</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">type_conversion.adb</string>
-                 <int>3</int>
-                 <int>33</int>
-                 <int>3</int>
-                 <int>33</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Type_Conversion-1:9/Convert-3:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">type_conversion.adb</string>
-         <int>3</int>
-         <int>4</int>
-         <int>7</int>
-         <int>15</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l1.
-    X := (Integer) Y;
-
-  #l2.
-    return;
-}
 

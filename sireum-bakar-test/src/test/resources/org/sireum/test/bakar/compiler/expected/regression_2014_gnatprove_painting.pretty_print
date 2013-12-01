@@ -1,3 +1,281 @@
+p.adb
+package P
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>p.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>23</int>
+         <int>6</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Shadow_Effect (
+        Painting P
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect-16:14/P-16:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>p.adb</string>
+                 <int>2</int>
+                 <int>29</int>
+                 <int>2</int>
+                 <int>29</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Dot D
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect-16:14/D-16:50</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>p.adb</string>
+                 <int>2</int>
+                 <int>50</int>
+                 <int>2</int>
+                 <int>50</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/P-1:9/Shadow_Effect-16:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>p.adb</string>
+         <int>2</int>
+         <int>4</int>
+         <int>17</int>
+         <int>21</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Color C;
+    Color _tcomp0;
+    Color _tcomp1;
+
+
+  #l2.
+    _tcomp0 := attribute__uif__first `Color;
+
+  #l3.
+    _tcomp1 := attribute__uif__last `Color;
+
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
+
+  #l5.
+    C := _tcomp0;
+
+  #l6.
+    // empty loc
+
+  #l7.
+    assert proof__uif__loop_invariant P.Plain
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>p.adb</string>
+             <int>9</int>
+             <int>13</int>
+             <int>9</int>
+             <int>19</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     == attribute__uif__loop_entry P.Plain
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>p.adb</string>
+             <int>9</int>
+             <int>23</int>
+             <int>9</int>
+             <int>40</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     &&& proof__uif__for_all {universal_integer J => 
+        switch J
+          case (attribute__uif__first `Color, attribute__uif__pred (`Color, C)) => 
+              if P.Plain
+                  @BAKAR_TYPE_URI
+
+                    ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
+
+                  @util.loc
+
+                    ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                       <string>p.adb</string>
+                       <int>11</int>
+                       <int>20</int>
+                       <int>11</int>
+                       <int>26</int>
+                     </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+              [J] == D then P.Shadow
+                  @BAKAR_TYPE_URI
+
+                    ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
+
+                  @util.loc
+
+                    ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                       <string>p.adb</string>
+                       <int>11</int>
+                       <int>41</int>
+                       <int>11</int>
+                       <int>48</int>
+                     </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+              [J] == D
+
+          default => true}
+        @LOOP_INVARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l9.
+    if !(P.Plain
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>p.adb</string>
+             <int>13</int>
+             <int>13</int>
+             <int>13</int>
+             <int>19</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    [C] == D) then goto l8;
+
+  #l10.
+    P.Shadow
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>p.adb</string>
+             <int>14</int>
+             <int>13</int>
+             <int>14</int>
+             <int>20</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    [C] := D;
+
+  #l8.
+    // empty loc
+
+  #l11.
+    if C == _tcomp1 then goto l1;
+
+  #l12.
+    C := C + 1ii;
+
+  #l13.
+    goto l6;
+
+  #l1.
+    // empty loc
+
+  #l14.
+    return;
+}
+
+procedure Shadow_Effect_2 (
+        Painting P
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect_2-31:14/P-31:31</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>p.adb</string>
+                 <int>19</int>
+                 <int>31</int>
+                 <int>19</int>
+                 <int>31</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Dot D
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect_2-31:14/D-31:52</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>p.adb</string>
+                 <int>19</int>
+                 <int>52</int>
+                 <int>19</int>
+                 <int>52</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/P-1:9/Shadow_Effect_2-31:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>p.adb</string>
+         <int>19</int>
+         <int>4</int>
+         <int>22</int>
+         <int>23</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l15.
+    call Shadow_Effect (P, D);
+
+  #l16.
+    return;
+}
+
 p.ads
 package P
     @util.loc
@@ -2780,282 +3058,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-p.adb
-package P
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>p.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>23</int>
-         <int>6</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Shadow_Effect (
-        Painting P
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect-16:14/P-16:29</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>p.adb</string>
-                 <int>2</int>
-                 <int>29</int>
-                 <int>2</int>
-                 <int>29</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Dot D
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect-16:14/D-16:50</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>p.adb</string>
-                 <int>2</int>
-                 <int>50</int>
-                 <int>2</int>
-                 <int>50</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/P-1:9/Shadow_Effect-16:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>p.adb</string>
-         <int>2</int>
-         <int>4</int>
-         <int>17</int>
-         <int>21</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Color C;
-    Color _tcomp0;
-    Color _tcomp1;
-
-
-  #l2.
-    _tcomp0 := attribute__uif__first `Color;
-
-  #l3.
-    _tcomp1 := attribute__uif__last `Color;
-
-  #l4.
-    if _tcomp0 > _tcomp1 then goto l1;
-
-  #l5.
-    C := _tcomp0;
-
-  #l6.
-    // empty loc
-
-  #l7.
-    assert proof__uif__loop_invariant P.Plain
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>p.adb</string>
-             <int>9</int>
-             <int>13</int>
-             <int>9</int>
-             <int>19</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     == attribute__uif__loop_entry P.Plain
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>p.adb</string>
-             <int>9</int>
-             <int>23</int>
-             <int>9</int>
-             <int>40</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     &&& proof__uif__for_all {universal_integer J => 
-        switch J
-          case (attribute__uif__first `Color, attribute__uif__pred (`Color, C)) => 
-              if P.Plain
-                  @BAKAR_TYPE_URI
-
-                    ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
-
-                  @util.loc
-
-                    ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                       <string>p.adb</string>
-                       <int>11</int>
-                       <int>20</int>
-                       <int>11</int>
-                       <int>26</int>
-                     </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-              [J] == D then P.Shadow
-                  @BAKAR_TYPE_URI
-
-                    ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
-
-                  @util.loc
-
-                    ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                       <string>p.adb</string>
-                       <int>11</int>
-                       <int>41</int>
-                       <int>11</int>
-                       <int>48</int>
-                     </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-              [J] == D
-
-          default => true}
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
-
-  #l9.
-    if !(P.Plain
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>p.adb</string>
-             <int>13</int>
-             <int>13</int>
-             <int>13</int>
-             <int>19</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    [C] == D) then goto l8;
-
-  #l10.
-    P.Shadow
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/P-1:9/Dots-8:9</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>p.adb</string>
-             <int>14</int>
-             <int>13</int>
-             <int>14</int>
-             <int>20</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    [C] := D;
-
-  #l8.
-    // empty loc
-
-  #l11.
-    if C == _tcomp1 then goto l1;
-
-  #l12.
-    C := C + 1ii;
-
-  #l13.
-    goto l6;
-
-  #l1.
-    // empty loc
-
-  #l14.
-    return;
-}
-
-procedure Shadow_Effect_2 (
-        Painting P
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect_2-31:14/P-31:31</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>p.adb</string>
-                 <int>19</int>
-                 <int>31</int>
-                 <int>19</int>
-                 <int>31</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Dot D
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/P-1:9/Shadow_Effect_2-31:14/D-31:52</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>p.adb</string>
-                 <int>19</int>
-                 <int>52</int>
-                 <int>19</int>
-                 <int>52</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/P-1:9/Shadow_Effect_2-31:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>p.adb</string>
-         <int>19</int>
-         <int>4</int>
-         <int>22</int>
-         <int>23</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l15.
-    call Shadow_Effect (P, D);
-
-  #l16.
-    return;
-}
 

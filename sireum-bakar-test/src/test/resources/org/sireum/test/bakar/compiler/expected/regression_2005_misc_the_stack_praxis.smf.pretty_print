@@ -344,6 +344,98 @@ procedure Pop (
     return;
 }
 
+the_stack_praxis.ads
+package The_Stack_Praxis
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>12</int>
+         <int>21</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Push (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">the_stack_praxis.ads</string>
+                 <int>5</int>
+                 <int>19</int>
+                 <int>5</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/The_Stack_Praxis-1:9/Push-5:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.ads</string>
+         <int>5</int>
+         <int>4</int>
+         <int>5</int>
+         <int>34</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+procedure Pop (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">the_stack_praxis.ads</string>
+                 <int>9</int>
+                 <int>18</int>
+                 <int>9</int>
+                 <int>18</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/The_Stack_Praxis-1:9/Pop-9:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">the_stack_praxis.ads</string>
+         <int>9</int>
+         <int>4</int>
+         <int>9</int>
+         <int>34</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
 fake/standard.ads
 package Standard;
 
@@ -536,96 +628,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-the_stack_praxis.ads
-package The_Stack_Praxis
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">the_stack_praxis.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>12</int>
-         <int>21</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Push (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">the_stack_praxis.ads</string>
-                 <int>5</int>
-                 <int>19</int>
-                 <int>5</int>
-                 <int>19</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/The_Stack_Praxis-1:9/Push-5:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">the_stack_praxis.ads</string>
-         <int>5</int>
-         <int>4</int>
-         <int>5</int>
-         <int>34</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
-
-procedure Pop (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">the_stack_praxis.ads</string>
-                 <int>9</int>
-                 <int>18</int>
-                 <int>9</int>
-                 <int>18</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/The_Stack_Praxis-1:9/Pop-9:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">the_stack_praxis.ads</string>
-         <int>9</int>
-         <int>4</int>
-         <int>9</int>
-         <int>34</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

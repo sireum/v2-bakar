@@ -256,6 +256,125 @@ procedure Integer Stupid (
     return J;
 }
 
+labeled_statements.ads
+package Labeled_Statements
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">labeled_statements.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>7</int>
+         <int>23</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+typealias Integer Index_Range
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+         <string>Index_Range</string>
+         <string sid="1">ada://subtype/Labeled_Statements-1:9/Index_Range-3:12</string>
+         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1</bigInteger>
+             </scala.math.BigInt>
+             <string>1ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="3">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="4">labeled_statements.ads</string>
+                   <int>3</int>
+                   <int>41</int>
+                   <int>3</int>
+                   <int>41</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.LiteralExp cid="5" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>100</bigInteger>
+             </scala.math.BigInt>
+             <string>100ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="3"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
+                   <string srefid="4"/>
+                   <int>3</int>
+                   <int>44</int>
+                   <int>3</int>
+                   <int>46</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+         </some>
+       </org.sireum.bakar.symbol.SubTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Labeled_Statements-1:9/Index_Range-3:12</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Labeled_Statements-1:9/Index_Range-3:12</string>""")
+;
+
+procedure Integer Stupid (
+        Index_Range Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">labeled_statements.ads</string>
+                 <int>5</int>
+                 <int>20</int>
+                 <int>5</int>
+                 <int>20</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/Labeled_Statements-1:9/Stupid-5:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">labeled_statements.ads</string>
+         <int>5</int>
+         <int>4</int>
+         <int>5</int>
+         <int>51</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
 fake/standard.ads
 package Standard;
 
@@ -448,123 +567,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-labeled_statements.ads
-package Labeled_Statements
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">labeled_statements.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>7</int>
-         <int>23</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-typealias Integer Index_Range
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
-         <string>Index_Range</string>
-         <string sid="1">ada://subtype/Labeled_Statements-1:9/Index_Range-3:12</string>
-         <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
-           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
-             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
-             <scala.math.BigInt>
-               <bigInteger>1</bigInteger>
-             </scala.math.BigInt>
-             <string>1ii</string>
-             <properties mtype="mlinkedmap">
-               <entry>
-                 <string>BAKAR_TYPE_URI</string>
-                 <string sid="3">ada://ordinary_type/universal_integer</string>
-               </entry>
-               <entry>
-                 <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
-                   <string sid="4">labeled_statements.ads</string>
-                   <int>3</int>
-                   <int>41</int>
-                   <int>3</int>
-                   <int>41</int>
-                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-               </entry>
-             </properties>
-           </org.sireum.pilar.ast.LiteralExp>
-           <org.sireum.pilar.ast.LiteralExp cid="5" size="3">
-             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
-             <scala.math.BigInt>
-               <bigInteger>100</bigInteger>
-             </scala.math.BigInt>
-             <string>100ii</string>
-             <properties mtype="mlinkedmap">
-               <entry>
-                 <string>BAKAR_TYPE_URI</string>
-                 <string srefid="3"/>
-               </entry>
-               <entry>
-                 <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
-                   <string srefid="4"/>
-                   <int>3</int>
-                   <int>44</int>
-                   <int>3</int>
-                   <int>46</int>
-                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-               </entry>
-             </properties>
-           </org.sireum.pilar.ast.LiteralExp>
-         </some>
-       </org.sireum.bakar.symbol.SubTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Labeled_Statements-1:9/Index_Range-3:12</string>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Labeled_Statements-1:9/Index_Range-3:12</string>""")
-;
-
-procedure Integer Stupid (
-        Index_Range Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">labeled_statements.ads</string>
-                 <int>5</int>
-                 <int>20</int>
-                 <int>5</int>
-                 <int>20</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/Labeled_Statements-1:9/Stupid-5:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">labeled_statements.ads</string>
-         <int>5</int>
-         <int>4</int>
-         <int>5</int>
-         <int>51</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

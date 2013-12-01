@@ -1,3 +1,195 @@
+binary_search.adb
+package Binary_Search
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">binary_search.adb</string>
+         <int>3</int>
+         <int>1</int>
+         <int>38</int>
+         <int>18</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure T Search (
+        Ar A
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Binary_Search-3:9/Search-10:13/A-10:21</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">binary_search.adb</string>
+                 <int>5</int>
+                 <int>21</int>
+                 <int>5</int>
+                 <int>21</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer I
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Binary_Search-3:9/Search-10:13/I-10:30</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">binary_search.adb</string>
+                 <int>5</int>
+                 <int>30</int>
+                 <int>5</int>
+                 <int>30</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Binary_Search-3:9/Search-10:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">binary_search.adb</string>
+         <int>5</int>
+         <int>4</int>
+         <int>36</int>
+         <int>14</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    U Left
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">binary_search.adb</string>
+             <int>6</int>
+             <int>7</int>
+             <int>6</int>
+             <int>10</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    U Right
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">binary_search.adb</string>
+             <int>7</int>
+             <int>7</int>
+             <int>7</int>
+             <int>11</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    U Med
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">binary_search.adb</string>
+             <int>8</int>
+             <int>7</int>
+             <int>8</int>
+             <int>9</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l1.
+    Left := attribute__uif__first `Ar;
+
+  #l2.
+    Right := attribute__uif__last `Ar;
+
+  #l4.
+    if !(A[Left] > I ||| A[Right] < I) then goto l3;
+
+  #l5.
+    return 0ii;
+
+  #l3.
+    // empty loc
+
+  #l7.
+    // empty loc
+
+  #l8.
+    if !(Left < Right) then goto l6;
+
+  #l9.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer Index => 
+        switch Index
+          case (attribute__uif__first `A, Left - 1ii) => A[Index] < I
+          default => true} &&& proof__uif__for_all {universal_integer Index => 
+        switch Index
+          case (Right + 1ii, attribute__uif__last `A) => I < A[Index]
+          default => true}
+        @LOOP_INVARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l10.
+    assert proof__uif__loop_variant { decreases => Right - Left
+    |  increases => Left}
+        @LOOP_VARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l11.
+    Med := Left + Right - Left / 2ii;
+
+  #l14.
+    if !(A[Med] < I) then goto l13;
+
+  #l15.
+    Left := Med + 1ii;
+
+  #l16.
+    goto l12;
+
+  #l13.
+    // empty loc
+
+  #l18.
+    if !(A[Med] > I) then goto l17;
+
+  #l19.
+    Right := Med - 1ii;
+
+  #l20.
+    goto l12;
+
+  #l17.
+    // empty loc
+
+  #l21.
+    return Med;
+
+  #l12.
+    // empty loc
+
+  #l22.
+    goto l7;
+
+  #l6.
+    // empty loc
+
+  #l23.
+    return 0ii;
+}
+
 binary_search.ads
 package Binary_Search
     @util.loc
@@ -2097,196 +2289,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-binary_search.adb
-package Binary_Search
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">binary_search.adb</string>
-         <int>3</int>
-         <int>1</int>
-         <int>38</int>
-         <int>18</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure T Search (
-        Ar A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Binary_Search-3:9/Search-10:13/A-10:21</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">binary_search.adb</string>
-                 <int>5</int>
-                 <int>21</int>
-                 <int>5</int>
-                 <int>21</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Binary_Search-3:9/Search-10:13/I-10:30</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">binary_search.adb</string>
-                 <int>5</int>
-                 <int>30</int>
-                 <int>5</int>
-                 <int>30</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Binary_Search-3:9/Search-10:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">binary_search.adb</string>
-         <int>5</int>
-         <int>4</int>
-         <int>36</int>
-         <int>14</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    U Left
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">binary_search.adb</string>
-             <int>6</int>
-             <int>7</int>
-             <int>6</int>
-             <int>10</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    U Right
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">binary_search.adb</string>
-             <int>7</int>
-             <int>7</int>
-             <int>7</int>
-             <int>11</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    U Med
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">binary_search.adb</string>
-             <int>8</int>
-             <int>7</int>
-             <int>8</int>
-             <int>9</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l1.
-    Left := attribute__uif__first `Ar;
-
-  #l2.
-    Right := attribute__uif__last `Ar;
-
-  #l4.
-    if !(A[Left] > I ||| A[Right] < I) then goto l3;
-
-  #l5.
-    return 0ii;
-
-  #l3.
-    // empty loc
-
-  #l7.
-    // empty loc
-
-  #l8.
-    if !(Left < Right) then goto l6;
-
-  #l9.
-    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer Index => 
-        switch Index
-          case (attribute__uif__first `A, Left - 1ii) => A[Index] < I
-          default => true} &&& proof__uif__for_all {universal_integer Index => 
-        switch Index
-          case (Right + 1ii, attribute__uif__last `A) => I < A[Index]
-          default => true}
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
-
-  #l10.
-    assert proof__uif__loop_variant { decreases => Right - Left
-    |  increases => Left}
-        @LOOP_VARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
-
-  #l11.
-    Med := Left + Right - Left / 2ii;
-
-  #l14.
-    if !(A[Med] < I) then goto l13;
-
-  #l15.
-    Left := Med + 1ii;
-
-  #l16.
-    goto l12;
-
-  #l13.
-    // empty loc
-
-  #l18.
-    if !(A[Med] > I) then goto l17;
-
-  #l19.
-    Right := Med - 1ii;
-
-  #l20.
-    goto l12;
-
-  #l17.
-    // empty loc
-
-  #l21.
-    return Med;
-
-  #l12.
-    // empty loc
-
-  #l22.
-    goto l7;
-
-  #l6.
-    // empty loc
-
-  #l23.
-    return 0ii;
-}
 

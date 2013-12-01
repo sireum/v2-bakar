@@ -1,3 +1,154 @@
+in_range_name_exp.adb
+package in_range_name_exp
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">in_range_name_exp.adb</string>
+         <int>2</int>
+         <int>1</int>
+         <int>26</int>
+         <int>22</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Boolean test (
+        Integer Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">in_range_name_exp.adb</string>
+                 <int>5</int>
+                 <int>17</int>
+                 <int>5</int>
+                 <int>17</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/in_range_name_exp-1:9/test-3:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">in_range_name_exp.adb</string>
+         <int>5</int>
+         <int>3</int>
+         <int>24</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Boolean ret
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">in_range_name_exp.adb</string>
+             <int>7</int>
+             <int>5</int>
+             <int>7</int>
+             <int>7</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l1.
+    ret := attribute__uif__first `Natural <= Z &&& Z <= attribute__uif__last `Natural;
+
+  #l3.
+    if !(ret) then goto l2;
+
+  #l4.
+    ret := 1ii <= Z &&& Z <= 10ii;
+
+  #l2.
+    // empty loc
+
+  #l6.
+    if !(ret) then goto l5;
+
+  #l7.
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive);
+
+  #l5.
+    // empty loc
+
+  #l9.
+    if !(ret) then goto l8;
+
+  #l10.
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive ||| Z == 4ii ||| 5ii <= Z &&& Z <= 7ii ||| Z == 3ii + 5ii);
+
+  #l8.
+    // empty loc
+
+  #l11.
+    return ret;
+}
+
+in_range_name_exp.ads
+package in_range_name_exp
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">in_range_name_exp.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>4</int>
+         <int>22</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Boolean test (
+        Integer Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">in_range_name_exp.ads</string>
+                 <int>3</int>
+                 <int>17</int>
+                 <int>3</int>
+                 <int>17</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/in_range_name_exp-1:9/test-3:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">in_range_name_exp.ads</string>
+         <int>3</int>
+         <int>3</int>
+         <int>3</int>
+         <int>44</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
 fake/standard.ads
 package Standard;
 
@@ -190,155 +341,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-in_range_name_exp.adb
-package in_range_name_exp
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">in_range_name_exp.adb</string>
-         <int>2</int>
-         <int>1</int>
-         <int>26</int>
-         <int>22</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Boolean test (
-        Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">in_range_name_exp.adb</string>
-                 <int>5</int>
-                 <int>17</int>
-                 <int>5</int>
-                 <int>17</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/in_range_name_exp-1:9/test-3:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">in_range_name_exp.adb</string>
-         <int>5</int>
-         <int>3</int>
-         <int>24</int>
-         <int>11</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Boolean ret
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">in_range_name_exp.adb</string>
-             <int>7</int>
-             <int>5</int>
-             <int>7</int>
-             <int>7</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l1.
-    ret := attribute__uif__first `Natural <= Z &&& Z <= attribute__uif__last `Natural;
-
-  #l3.
-    if !(ret) then goto l2;
-
-  #l4.
-    ret := 1ii <= Z &&& Z <= 10ii;
-
-  #l2.
-    // empty loc
-
-  #l6.
-    if !(ret) then goto l5;
-
-  #l7.
-    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive);
-
-  #l5.
-    // empty loc
-
-  #l9.
-    if !(ret) then goto l8;
-
-  #l10.
-    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive ||| Z == 4ii ||| 5ii <= Z &&& Z <= 7ii ||| Z == 3ii + 5ii);
-
-  #l8.
-    // empty loc
-
-  #l11.
-    return ret;
-}
-
-in_range_name_exp.ads
-package in_range_name_exp
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">in_range_name_exp.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>4</int>
-         <int>22</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Boolean test (
-        Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">in_range_name_exp.ads</string>
-                 <int>3</int>
-                 <int>17</int>
-                 <int>3</int>
-                 <int>17</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/in_range_name_exp-1:9/test-3:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">in_range_name_exp.ads</string>
-         <int>3</int>
-         <int>3</int>
-         <int>3</int>
-         <int>44</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

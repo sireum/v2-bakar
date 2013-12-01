@@ -167,6 +167,140 @@ procedure foo (
     return;
 }
 
+example.ads
+package Example
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>example.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>6</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure add (
+        Integer x
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Example-1:9/add-2:15/x-2:21</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>example.ads</string>
+                 <int>2</int>
+                 <int>21</int>
+                 <int>2</int>
+                 <int>21</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer y
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Example-1:9/add-2:15/y-2:41</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>example.ads</string>
+                 <int>2</int>
+                 <int>41</int>
+                 <int>2</int>
+                 <int>41</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/Example-1:9/add-2:15</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>example.ads</string>
+         <int>2</int>
+         <int>5</int>
+         <int>2</int>
+         <int>57</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+procedure foo (
+        Integer A
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Example-1:9/foo-5:15/A-5:21</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>example.ads</string>
+                 <int>5</int>
+                 <int>21</int>
+                 <int>5</int>
+                 <int>21</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer B
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Example-1:9/foo-5:15/B-5:41</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>example.ads</string>
+                 <int>5</int>
+                 <int>41</int>
+                 <int>5</int>
+                 <int>41</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/Example-1:9/foo-5:15</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>example.ads</string>
+         <int>5</int>
+         <int>5</int>
+         <int>5</int>
+         <int>61</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
 fake/standard.ads
 package Standard;
 
@@ -359,138 +493,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-example.ads
-package Example
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>example.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>6</int>
-         <int>12</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure add (
-        Integer x
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Example-1:9/add-2:15/x-2:21</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>example.ads</string>
-                 <int>2</int>
-                 <int>21</int>
-                 <int>2</int>
-                 <int>21</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Example-1:9/add-2:15/y-2:41</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>example.ads</string>
-                 <int>2</int>
-                 <int>41</int>
-                 <int>2</int>
-                 <int>41</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Example-1:9/add-2:15</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>example.ads</string>
-         <int>2</int>
-         <int>5</int>
-         <int>2</int>
-         <int>57</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
-
-procedure foo (
-        Integer A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Example-1:9/foo-5:15/A-5:21</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>example.ads</string>
-                 <int>5</int>
-                 <int>21</int>
-                 <int>5</int>
-                 <int>21</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer B
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Example-1:9/foo-5:15/B-5:41</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>example.ads</string>
-                 <int>5</int>
-                 <int>41</int>
-                 <int>5</int>
-                 <int>41</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Example-1:9/foo-5:15</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>example.ads</string>
-         <int>5</int>
-         <int>5</int>
-         <int>5</int>
-         <int>61</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

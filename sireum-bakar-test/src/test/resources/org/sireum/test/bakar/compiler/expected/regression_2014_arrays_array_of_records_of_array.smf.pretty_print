@@ -1,3 +1,182 @@
+array_of_records_of_array.adb
+package Array_Of_Records_Of_Array
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_of_records_of_array.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>18</int>
+         <int>30</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure $$binit {
+
+  #l1.
+    oArray := `ObjectArray { iter => 
+        switch iter
+          default => dummyObject};
+
+  #l2.
+    return;
+}
+
+procedure Swap (
+        ObjectArray Q
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_of_records_of_array.adb</string>
+                 <int>3</int>
+                 <int>19</int>
+                 <int>3</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Index_Range theIndex
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_of_records_of_array.adb</string>
+                 <int>3</int>
+                 <int>42</int>
+                 <int>3</int>
+                 <int>49</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_of_records_of_array.adb</string>
+         <int>3</int>
+         <int>4</int>
+         <int>12</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    IntArray temp1
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>4</int>
+             <int>6</int>
+             <int>4</int>
+             <int>10</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    IntArray temp2
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>5</int>
+             <int>6</int>
+             <int>5</int>
+             <int>10</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l3.
+    temp1 := Q[theIndex].X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>7</int>
+             <int>15</int>
+             <int>7</int>
+             <int>27</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l4.
+    temp2 := Q[theIndex].Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>8</int>
+             <int>15</int>
+             <int>8</int>
+             <int>27</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l5.
+    Q[theIndex].X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>10</int>
+             <int>6</int>
+             <int>10</int>
+             <int>18</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := temp2;
+
+  #l6.
+    Q[theIndex].Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_of_records_of_array.adb</string>
+             <int>11</int>
+             <int>6</int>
+             <int>11</int>
+             <int>18</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := temp1;
+
+  #l7.
+    return;
+}
+
 array_of_records_of_array.ads
 package Array_Of_Records_Of_Array
     @util.loc
@@ -486,183 +665,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-array_of_records_of_array.adb
-package Array_Of_Records_Of_Array
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_of_records_of_array.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>18</int>
-         <int>30</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure $$binit {
-
-  #l1.
-    oArray := `ObjectArray { iter => 
-        switch iter
-          default => dummyObject};
-
-  #l2.
-    return;
-}
-
-procedure Swap (
-        ObjectArray Q
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_of_records_of_array.adb</string>
-                 <int>3</int>
-                 <int>19</int>
-                 <int>3</int>
-                 <int>19</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Index_Range theIndex
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_of_records_of_array.adb</string>
-                 <int>3</int>
-                 <int>42</int>
-                 <int>3</int>
-                 <int>49</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_of_records_of_array.adb</string>
-         <int>3</int>
-         <int>4</int>
-         <int>12</int>
-         <int>12</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    IntArray temp1
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">array_of_records_of_array.adb</string>
-             <int>4</int>
-             <int>6</int>
-             <int>4</int>
-             <int>10</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    IntArray temp2
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">array_of_records_of_array.adb</string>
-             <int>5</int>
-             <int>6</int>
-             <int>5</int>
-             <int>10</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l3.
-    temp1 := Q[theIndex].X
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">array_of_records_of_array.adb</string>
-             <int>7</int>
-             <int>15</int>
-             <int>7</int>
-             <int>27</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-  #l4.
-    temp2 := Q[theIndex].Y
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">array_of_records_of_array.adb</string>
-             <int>8</int>
-             <int>15</int>
-             <int>8</int>
-             <int>27</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-  #l5.
-    Q[theIndex].X
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">array_of_records_of_array.adb</string>
-             <int>10</int>
-             <int>6</int>
-             <int>10</int>
-             <int>18</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := temp2;
-
-  #l6.
-    Q[theIndex].Y
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">array_of_records_of_array.adb</string>
-             <int>11</int>
-             <int>6</int>
-             <int>11</int>
-             <int>18</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := temp1;
-
-  #l7.
-    return;
-}
 

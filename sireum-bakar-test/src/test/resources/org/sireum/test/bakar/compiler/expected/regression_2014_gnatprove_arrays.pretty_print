@@ -1,3 +1,254 @@
+arrays.adb
+package Arrays
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>arrays.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>25</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Natural Sum (
+        T X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Arrays-1:9/Sum-4:13/X-4:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>arrays.adb</string>
+                 <int>2</int>
+                 <int>18</int>
+                 <int>2</int>
+                 <int>18</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Arrays-1:9/Sum-4:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>arrays.adb</string>
+         <int>2</int>
+         <int>4</int>
+         <int>9</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Natural S
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>arrays.adb</string>
+             <int>3</int>
+             <int>7</int>
+             <int>3</int>
+             <int>7</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    universal_integer J;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+
+
+  #l1.
+    S := 0ii;
+
+  #l3.
+    _tcomp0 := attribute__uif__first (X);
+
+  #l4.
+    _tcomp1 := attribute__uif__last (X);
+
+  #l5.
+    if _tcomp0 > _tcomp1 then goto l2;
+
+  #l6.
+    J := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #l8.
+    S := S + X[J];
+
+  #l9.
+    if J == _tcomp1 then goto l2;
+
+  #l10.
+    J := J + 1ii;
+
+  #l11.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l12.
+    return S;
+}
+
+procedure Natural Count_Even (
+        T X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Arrays-1:9/Count_Even-19:13/X-19:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>arrays.adb</string>
+                 <int>11</int>
+                 <int>25</int>
+                 <int>11</int>
+                 <int>25</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Arrays-1:9/Count_Even-19:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>arrays.adb</string>
+         <int>11</int>
+         <int>4</int>
+         <int>20</int>
+         <int>18</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Natural C
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>arrays.adb</string>
+             <int>12</int>
+             <int>7</int>
+             <int>12</int>
+             <int>7</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    universal_integer J;
+    universal_integer _tcomp2;
+    universal_integer _tcomp3;
+
+
+  #l13.
+    C := 0ii;
+
+  #l15.
+    _tcomp2 := attribute__uif__first (X);
+
+  #l16.
+    _tcomp3 := attribute__uif__last (X);
+
+  #l17.
+    if _tcomp2 > _tcomp3 then goto l14;
+
+  #l18.
+    J := _tcomp2;
+
+  #l19.
+    // empty loc
+
+  #l21.
+    if !(X[J] MOD 2ii == 0ii) then goto l20;
+
+  #l22.
+    C := C + 1ii;
+
+  #l20.
+    // empty loc
+
+  #l23.
+    if J == _tcomp3 then goto l14;
+
+  #l24.
+    J := J + 1ii;
+
+  #l25.
+    goto l19;
+
+  #l14.
+    // empty loc
+
+  #l26.
+    return C;
+}
+
+procedure Natural Count_Odd (
+        T X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Arrays-1:9/Count_Odd+22:13/X+22:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>arrays.adb</string>
+                 <int>22</int>
+                 <int>24</int>
+                 <int>22</int>
+                 <int>24</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://expression_function/Arrays-1:9/Count_Odd+22:13</string>""")
+
+    @IS_EXPRESSION_FUNCTION
+
+      ("""<boolean>true</boolean>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>arrays.adb</string>
+         <int>22</int>
+         <int>4</int>
+         <int>23</int>
+         <int>34</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Natural _tcomp4;
+
+
+  #l27.
+    call _tcomp4 := Count_Even (X);
+
+  #l28.
+    return attribute__uif__length `X - _tcomp4;
+}
+
 arrays.ads
 package Arrays
     @util.loc
@@ -1172,255 +1423,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-arrays.adb
-package Arrays
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>arrays.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>25</int>
-         <int>11</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Natural Sum (
-        T X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Arrays-1:9/Sum-4:13/X-4:18</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>arrays.adb</string>
-                 <int>2</int>
-                 <int>18</int>
-                 <int>2</int>
-                 <int>18</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Arrays-1:9/Sum-4:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>arrays.adb</string>
-         <int>2</int>
-         <int>4</int>
-         <int>9</int>
-         <int>11</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Natural S
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>arrays.adb</string>
-             <int>3</int>
-             <int>7</int>
-             <int>3</int>
-             <int>7</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    universal_integer J;
-    universal_integer _tcomp0;
-    universal_integer _tcomp1;
-
-
-  #l1.
-    S := 0ii;
-
-  #l3.
-    _tcomp0 := attribute__uif__first (X);
-
-  #l4.
-    _tcomp1 := attribute__uif__last (X);
-
-  #l5.
-    if _tcomp0 > _tcomp1 then goto l2;
-
-  #l6.
-    J := _tcomp0;
-
-  #l7.
-    // empty loc
-
-  #l8.
-    S := S + X[J];
-
-  #l9.
-    if J == _tcomp1 then goto l2;
-
-  #l10.
-    J := J + 1ii;
-
-  #l11.
-    goto l7;
-
-  #l2.
-    // empty loc
-
-  #l12.
-    return S;
-}
-
-procedure Natural Count_Even (
-        T X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Arrays-1:9/Count_Even-19:13/X-19:25</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>arrays.adb</string>
-                 <int>11</int>
-                 <int>25</int>
-                 <int>11</int>
-                 <int>25</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Arrays-1:9/Count_Even-19:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>arrays.adb</string>
-         <int>11</int>
-         <int>4</int>
-         <int>20</int>
-         <int>18</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Natural C
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>arrays.adb</string>
-             <int>12</int>
-             <int>7</int>
-             <int>12</int>
-             <int>7</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    universal_integer J;
-    universal_integer _tcomp2;
-    universal_integer _tcomp3;
-
-
-  #l13.
-    C := 0ii;
-
-  #l15.
-    _tcomp2 := attribute__uif__first (X);
-
-  #l16.
-    _tcomp3 := attribute__uif__last (X);
-
-  #l17.
-    if _tcomp2 > _tcomp3 then goto l14;
-
-  #l18.
-    J := _tcomp2;
-
-  #l19.
-    // empty loc
-
-  #l21.
-    if !(X[J] MOD 2ii == 0ii) then goto l20;
-
-  #l22.
-    C := C + 1ii;
-
-  #l20.
-    // empty loc
-
-  #l23.
-    if J == _tcomp3 then goto l14;
-
-  #l24.
-    J := J + 1ii;
-
-  #l25.
-    goto l19;
-
-  #l14.
-    // empty loc
-
-  #l26.
-    return C;
-}
-
-procedure Natural Count_Odd (
-        T X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Arrays-1:9/Count_Odd+22:13/X+22:24</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>arrays.adb</string>
-                 <int>22</int>
-                 <int>24</int>
-                 <int>22</int>
-                 <int>24</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://expression_function/Arrays-1:9/Count_Odd+22:13</string>""")
-
-    @IS_EXPRESSION_FUNCTION
-
-      ("""<boolean>true</boolean>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>arrays.adb</string>
-         <int>22</int>
-         <int>4</int>
-         <int>23</int>
-         <int>34</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Natural _tcomp4;
-
-
-  #l27.
-    call _tcomp4 := Count_Even (X);
-
-  #l28.
-    return attribute__uif__length `X - _tcomp4;
-}
 

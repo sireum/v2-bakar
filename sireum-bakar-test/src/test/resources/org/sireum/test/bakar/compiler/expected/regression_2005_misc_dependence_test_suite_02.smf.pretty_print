@@ -3582,6 +3582,59 @@ procedure Success27 (
     return;
 }
 
+dependence_test_suite_02.ads
+package Dependence_Test_Suite_02
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">dependence_test_suite_02.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>5</int>
+         <int>29</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Success0 (
+        Integer O
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success0-3:14/O-3:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">dependence_test_suite_02.ads</string>
+                 <int>3</int>
+                 <int>24</int>
+                 <int>3</int>
+                 <int>24</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure/Dependence_Test_Suite_02-1:9/Success0-3:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">dependence_test_suite_02.ads</string>
+         <int>3</int>
+         <int>4</int>
+         <int>3</int>
+         <int>40</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
 fake/standard.ads
 package Standard;
 
@@ -3774,57 +3827,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-dependence_test_suite_02.ads
-package Dependence_Test_Suite_02
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">dependence_test_suite_02.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>5</int>
-         <int>29</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Success0 (
-        Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success0-3:14/O-3:24</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">dependence_test_suite_02.ads</string>
-                 <int>3</int>
-                 <int>24</int>
-                 <int>3</int>
-                 <int>24</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Dependence_Test_Suite_02-1:9/Success0-3:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">dependence_test_suite_02.ads</string>
-         <int>3</int>
-         <int>4</int>
-         <int>3</int>
-         <int>40</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

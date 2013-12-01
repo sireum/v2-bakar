@@ -1,3 +1,160 @@
+maxandsum.adb
+package MaxAndSum
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>maxandsum.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>18</int>
+         <int>14</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure MaxAndSum (
+        ElementArray A
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/MaxAndSum-1:9/MaxAndSum-7:14/A-7:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>maxandsum.adb</string>
+                 <int>3</int>
+                 <int>25</int>
+                 <int>3</int>
+                 <int>25</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Natural Sum
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/MaxAndSum-1:9/MaxAndSum-7:14/Sum-7:43</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>maxandsum.adb</string>
+                 <int>3</int>
+                 <int>43</int>
+                 <int>3</int>
+                 <int>45</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Element Max
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/MaxAndSum-1:9/MaxAndSum-7:14/Max-7:62</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>maxandsum.adb</string>
+                 <int>3</int>
+                 <int>62</int>
+                 <int>3</int>
+                 <int>64</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/MaxAndSum-1:9/MaxAndSum-7:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>maxandsum.adb</string>
+         <int>3</int>
+         <int>4</int>
+         <int>16</int>
+         <int>17</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    universal_integer I;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+
+
+  #l1.
+    Sum := 0ii;
+
+  #l2.
+    Max := 0ii;
+
+  #l4.
+    _tcomp0 := 1ii;
+
+  #l5.
+    _tcomp1 := N;
+
+  #l6.
+    if _tcomp0 > _tcomp1 then goto l3;
+
+  #l7.
+    I := _tcomp0;
+
+  #l8.
+    // empty loc
+
+  #l9.
+    assert proof__uif__loop_invariant Sum <= I - 1ii * Max
+        @LOOP_INVARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l10.
+    Sum := Sum + A[I];
+
+  #l12.
+    if !(Max < A[I]) then goto l11;
+
+  #l13.
+    Max := A[I];
+
+  #l11.
+    // empty loc
+
+  #l14.
+    assert Sum <= I * Max;
+
+  #l15.
+    if I == _tcomp1 then goto l3;
+
+  #l16.
+    I := I + 1ii;
+
+  #l17.
+    goto l8;
+
+  #l3.
+    // empty loc
+
+  #l18.
+    return;
+}
+
 maxandsum.ads
 package MaxAndSum
     @util.loc
@@ -640,161 +797,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-maxandsum.adb
-package MaxAndSum
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>maxandsum.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>18</int>
-         <int>14</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure MaxAndSum (
-        ElementArray A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MaxAndSum-1:9/MaxAndSum-7:14/A-7:25</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>maxandsum.adb</string>
-                 <int>3</int>
-                 <int>25</int>
-                 <int>3</int>
-                 <int>25</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Natural Sum
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MaxAndSum-1:9/MaxAndSum-7:14/Sum-7:43</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>maxandsum.adb</string>
-                 <int>3</int>
-                 <int>43</int>
-                 <int>3</int>
-                 <int>45</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Element Max
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MaxAndSum-1:9/MaxAndSum-7:14/Max-7:62</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>maxandsum.adb</string>
-                 <int>3</int>
-                 <int>62</int>
-                 <int>3</int>
-                 <int>64</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/MaxAndSum-1:9/MaxAndSum-7:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>maxandsum.adb</string>
-         <int>3</int>
-         <int>4</int>
-         <int>16</int>
-         <int>17</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    universal_integer I;
-    universal_integer _tcomp0;
-    universal_integer _tcomp1;
-
-
-  #l1.
-    Sum := 0ii;
-
-  #l2.
-    Max := 0ii;
-
-  #l4.
-    _tcomp0 := 1ii;
-
-  #l5.
-    _tcomp1 := N;
-
-  #l6.
-    if _tcomp0 > _tcomp1 then goto l3;
-
-  #l7.
-    I := _tcomp0;
-
-  #l8.
-    // empty loc
-
-  #l9.
-    assert proof__uif__loop_invariant Sum <= I - 1ii * Max
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
-
-  #l10.
-    Sum := Sum + A[I];
-
-  #l12.
-    if !(Max < A[I]) then goto l11;
-
-  #l13.
-    Max := A[I];
-
-  #l11.
-    // empty loc
-
-  #l14.
-    assert Sum <= I * Max;
-
-  #l15.
-    if I == _tcomp1 then goto l3;
-
-  #l16.
-    I := I + 1ii;
-
-  #l17.
-    goto l8;
-
-  #l3.
-    // empty loc
-
-  #l18.
-    return;
-}
 

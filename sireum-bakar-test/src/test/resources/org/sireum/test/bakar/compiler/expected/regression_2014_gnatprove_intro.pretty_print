@@ -1,3 +1,204 @@
+pricing.adb
+package Pricing
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>pricing.adb</string>
+         <int>3</int>
+         <int>1</int>
+         <int>20</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Sat::My_Int Price_Of_Item (
+        Item It
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Pricing-5:9/Price_Of_Item+5:13/It+5:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>pricing.adb</string>
+                 <int>5</int>
+                 <int>28</int>
+                 <int>5</int>
+                 <int>29</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://expression_function/Pricing-5:9/Price_Of_Item+5:13</string>""")
+
+    @IS_EXPRESSION_FUNCTION
+
+      ("""<boolean>true</boolean>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>pricing.adb</string>
+         <int>5</int>
+         <int>4</int>
+         <int>6</int>
+         <int>39</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    My_Int _tcomp0;
+
+
+  #l1.
+    call _tcomp0 := Sat::Mult (It.Price
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://subtype/Sat-3:9/My_Int-5:12</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>pricing.adb</string>
+             <int>6</int>
+             <int>18</int>
+             <int>6</int>
+             <int>25</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    , It.Number
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://subtype/Sat-3:9/My_Int-5:12</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>pricing.adb</string>
+             <int>6</int>
+             <int>28</int>
+             <int>6</int>
+             <int>36</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    );
+
+  #l2.
+    return _tcomp0;
+}
+
+procedure Sat::My_Int Price_Of_Basket (
+        Basket Bk
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Pricing-5:9/Price_Of_Basket-17:13/Bk-17:30</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>pricing.adb</string>
+                 <int>8</int>
+                 <int>30</int>
+                 <int>8</int>
+                 <int>31</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Pricing-5:9/Price_Of_Basket-17:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>pricing.adb</string>
+         <int>8</int>
+         <int>4</int>
+         <int>18</int>
+         <int>23</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Sat::My_Int Total
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>pricing.adb</string>
+             <int>9</int>
+             <int>7</int>
+             <int>9</int>
+             <int>11</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    Positive It;
+    Positive _tcomp1;
+    Positive _tcomp2;
+    My_Int _tcomp3;
+    My_Int _tcomp4;
+
+
+  #l3.
+    Total := 0ii;
+
+  #l5.
+    _tcomp1 := attribute__uif__first (Bk);
+
+  #l6.
+    _tcomp2 := attribute__uif__last (Bk);
+
+  #l7.
+    if _tcomp1 > _tcomp2 then goto l4;
+
+  #l8.
+    It := _tcomp1;
+
+  #l9.
+    // empty loc
+
+  #l10.
+    assert proof__uif__loop_invariant proof__uif__for_all {Positive K => 
+        switch K
+          case (attribute__uif__first `Bk, It - 1ii) => Total >= Price_Of_Item (Bk[K])
+          default => true}
+        @LOOP_INVARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l11.
+    call _tcomp3 := Price_Of_Item (Bk[It]);
+
+  #l12.
+    call _tcomp4 := Sat::Add (Total, _tcomp3);
+
+  #l13.
+    Total := _tcomp4;
+
+  #l14.
+    if It == _tcomp2 then goto l4;
+
+  #l15.
+    It := It + 1ii;
+
+  #l16.
+    goto l9;
+
+  #l4.
+    // empty loc
+
+  #l17.
+    return Total;
+}
+
 pricing.ads
 package Pricing
     @util.loc
@@ -1040,400 +1241,6 @@ procedure Sat::My_Int Price_Of_Basket (
 
 }
 
-fake/standard.ads
-package Standard;
-
-
-typealias Boolean Boolean
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Boolean</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-;
-
-typealias Integer Integer
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Integer</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-;
-
-typealias Integer Natural
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Natural</string>
-         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-;
-
-typealias Integer Positive
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Positive</string>
-         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-;
-
-typealias Float Float
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Float</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-;
-
-typealias universal_integer universal_integer
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">universal_integer</string>
-         <string sid="2">ada://ordinary_type/universal_integer</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-;
-
-typealias universal_real universal_real
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>universal_real</string>
-         <string sid="1">ada://ordinary_type/universal_real</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
-;
-
-typealias Character Character
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Character</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
-;
-
-typealias String String
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>String</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
-;
-
-pricing.adb
-package Pricing
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>pricing.adb</string>
-         <int>3</int>
-         <int>1</int>
-         <int>20</int>
-         <int>12</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Sat::My_Int Price_Of_Item (
-        Item It
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Pricing-5:9/Price_Of_Item+5:13/It+5:28</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>pricing.adb</string>
-                 <int>5</int>
-                 <int>28</int>
-                 <int>5</int>
-                 <int>29</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://expression_function/Pricing-5:9/Price_Of_Item+5:13</string>""")
-
-    @IS_EXPRESSION_FUNCTION
-
-      ("""<boolean>true</boolean>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>pricing.adb</string>
-         <int>5</int>
-         <int>4</int>
-         <int>6</int>
-         <int>39</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    My_Int _tcomp0;
-
-
-  #l3.
-    call _tcomp0 := Sat::Mult (It.Price
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://subtype/Sat-3:9/My_Int-5:12</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>pricing.adb</string>
-             <int>6</int>
-             <int>18</int>
-             <int>6</int>
-             <int>25</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    , It.Number
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://subtype/Sat-3:9/My_Int-5:12</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>pricing.adb</string>
-             <int>6</int>
-             <int>28</int>
-             <int>6</int>
-             <int>36</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    );
-
-  #l4.
-    return _tcomp0;
-}
-
-procedure Sat::My_Int Price_Of_Basket (
-        Basket Bk
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Pricing-5:9/Price_Of_Basket-17:13/Bk-17:30</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>pricing.adb</string>
-                 <int>8</int>
-                 <int>30</int>
-                 <int>8</int>
-                 <int>31</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Pricing-5:9/Price_Of_Basket-17:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>pricing.adb</string>
-         <int>8</int>
-         <int>4</int>
-         <int>18</int>
-         <int>23</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Sat::My_Int Total
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>pricing.adb</string>
-             <int>9</int>
-             <int>7</int>
-             <int>9</int>
-             <int>11</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    Positive It;
-    Positive _tcomp1;
-    Positive _tcomp2;
-    My_Int _tcomp3;
-    My_Int _tcomp4;
-
-
-  #l5.
-    Total := 0ii;
-
-  #l7.
-    _tcomp1 := attribute__uif__first (Bk);
-
-  #l8.
-    _tcomp2 := attribute__uif__last (Bk);
-
-  #l9.
-    if _tcomp1 > _tcomp2 then goto l6;
-
-  #l10.
-    It := _tcomp1;
-
-  #l11.
-    // empty loc
-
-  #l12.
-    assert proof__uif__loop_invariant proof__uif__for_all {Positive K => 
-        switch K
-          case (attribute__uif__first `Bk, It - 1ii) => Total >= Price_Of_Item (Bk[K])
-          default => true}
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
-
-  #l13.
-    call _tcomp3 := Price_Of_Item (Bk[It]);
-
-  #l14.
-    call _tcomp4 := Sat::Add (Total, _tcomp3);
-
-  #l15.
-    Total := _tcomp4;
-
-  #l16.
-    if It == _tcomp2 then goto l6;
-
-  #l17.
-    It := It + 1ii;
-
-  #l18.
-    goto l11;
-
-  #l6.
-    // empty loc
-
-  #l19.
-    return Total;
-}
-
 sat.adb
 package Sat
     @util.loc
@@ -1510,7 +1317,7 @@ procedure My_Int Add (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l20.
+  #l18.
     return 
         if X + Y < 10000ii then X + Y
         else 10000ii;
@@ -1578,51 +1385,10 @@ procedure My_Int Mult (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l21.
+  #l19.
     return 
         if X * Y < 10000ii then X * Y
         else 10000ii;
-}
-
-test.adb
-package __anonymousPackage$0;
-
-
-const $CONST {
-  I = (Item) ` {
-    Price = 10ii,
-    Number = 1ii
-  };
-
-  B = (Basket) `Basket { iter => 
-      switch iter
-        case 1ii => I
-  };
-
-  P = (My_Int) Price_Of_Basket (B);
-}
-
-procedure Test
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Test+5:11</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>test.adb</string>
-         <int>5</int>
-         <int>1</int>
-         <int>11</int>
-         <int>9</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l1.
-    call Put ("\"Price of basket is\"" STRING_CONCATENATE attribute__uif__iamge (`My_Int, P));
-
-  #l2.
-    return;
 }
 
 sat.ads
@@ -3072,4 +2838,238 @@ procedure My_Int Mult (
  {
 
 }
+
+test.adb
+package __anonymousPackage$0;
+
+
+const $CONST {
+  I = (Item) ` {
+    Price = 10ii,
+    Number = 1ii
+  };
+
+  B = (Basket) `Basket { iter => 
+      switch iter
+        case 1ii => I
+  };
+
+  P = (My_Int) Price_Of_Basket (B);
+}
+
+procedure Test
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Test+5:11</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>test.adb</string>
+         <int>5</int>
+         <int>1</int>
+         <int>11</int>
+         <int>9</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l20.
+    call Put ("\"Price of basket is\"" STRING_CONCATENATE attribute__uif__iamge (`My_Int, P));
+
+  #l21.
+    return;
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean Boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
+
+typealias Integer Integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
+
+typealias Integer Natural
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer Positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float Float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias universal_integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+typealias universal_real universal_real
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>universal_real</string>
+         <string sid="1">ada://ordinary_type/universal_real</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
+
+typealias Character Character
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Character</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+;
+
+typealias String String
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>String</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+;
 

@@ -1,3 +1,321 @@
+recordtest02.adb
+package RecordTest02
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">recordtest02.adb</string>
+         <int>4</int>
+         <int>1</int>
+         <int>35</int>
+         <int>17</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Test01 (
+        Object Q
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test01-14:11/Q-14:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN_OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">recordtest02.adb</string>
+                 <int>9</int>
+                 <int>21</int>
+                 <int>9</int>
+                 <int>21</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/RecordTest02-1:9/Test01-14:11</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">recordtest02.adb</string>
+         <int>9</int>
+         <int>4</int>
+         <int>16</int>
+         <int>14</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Float T
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>11</int>
+             <int>7</int>
+             <int>11</int>
+             <int>7</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l1.
+    T := Q.X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>13</int>
+             <int>12</int>
+             <int>13</int>
+             <int>14</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l2.
+    Q.X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>14</int>
+             <int>7</int>
+             <int>14</int>
+             <int>9</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := Q.Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>14</int>
+             <int>14</int>
+             <int>14</int>
+             <int>16</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l3.
+    Q.Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>15</int>
+             <int>7</int>
+             <int>15</int>
+             <int>9</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := T;
+
+  #l4.
+    return;
+}
+
+procedure Test02 (
+        Float I1
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/I1-17:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">recordtest02.adb</string>
+                 <int>25</int>
+                 <int>19</int>
+                 <int>25</int>
+                 <int>20</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Float I2
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/I2-17:22</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">recordtest02.adb</string>
+                 <int>25</int>
+                 <int>23</int>
+                 <int>25</int>
+                 <int>24</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Float O1
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/O1-17:37</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">recordtest02.adb</string>
+                 <int>25</int>
+                 <int>38</int>
+                 <int>25</int>
+                 <int>39</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Float O2
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/O2-17:41</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">recordtest02.adb</string>
+                 <int>25</int>
+                 <int>42</int>
+                 <int>25</int>
+                 <int>43</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/RecordTest02-1:9/Test02-17:11</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">recordtest02.adb</string>
+         <int>25</int>
+         <int>2</int>
+         <int>33</int>
+         <int>14</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Object Q
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>27</int>
+             <int>7</int>
+             <int>27</int>
+             <int>7</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l5.
+    Q.X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>29</int>
+             <int>7</int>
+             <int>29</int>
+             <int>9</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := I1;
+
+  #l6.
+    Q.Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>30</int>
+             <int>7</int>
+             <int>30</int>
+             <int>9</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := I2;
+
+  #l7.
+    O1 := Q.X
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>31</int>
+             <int>13</int>
+             <int>31</int>
+             <int>15</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l8.
+    O2 := Q.Y
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">recordtest02.adb</string>
+             <int>32</int>
+             <int>13</int>
+             <int>32</int>
+             <int>15</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+  #l9.
+    return;
+}
+
 recordtest02.ads
 package RecordTest02
     @util.loc
@@ -416,322 +734,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-recordtest02.adb
-package RecordTest02
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">recordtest02.adb</string>
-         <int>4</int>
-         <int>1</int>
-         <int>35</int>
-         <int>17</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Test01 (
-        Object Q
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test01-14:11/Q-14:18</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">recordtest02.adb</string>
-                 <int>9</int>
-                 <int>21</int>
-                 <int>9</int>
-                 <int>21</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/RecordTest02-1:9/Test01-14:11</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">recordtest02.adb</string>
-         <int>9</int>
-         <int>4</int>
-         <int>16</int>
-         <int>14</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Float T
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>11</int>
-             <int>7</int>
-             <int>11</int>
-             <int>7</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l1.
-    T := Q.X
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>13</int>
-             <int>12</int>
-             <int>13</int>
-             <int>14</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-  #l2.
-    Q.X
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>14</int>
-             <int>7</int>
-             <int>14</int>
-             <int>9</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := Q.Y
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>14</int>
-             <int>14</int>
-             <int>14</int>
-             <int>16</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-  #l3.
-    Q.Y
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>15</int>
-             <int>7</int>
-             <int>15</int>
-             <int>9</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := T;
-
-  #l4.
-    return;
-}
-
-procedure Test02 (
-        Float I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/I1-17:18</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">recordtest02.adb</string>
-                 <int>25</int>
-                 <int>19</int>
-                 <int>25</int>
-                 <int>20</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Float I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/I2-17:22</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">recordtest02.adb</string>
-                 <int>25</int>
-                 <int>23</int>
-                 <int>25</int>
-                 <int>24</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Float O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/O1-17:37</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">recordtest02.adb</string>
-                 <int>25</int>
-                 <int>38</int>
-                 <int>25</int>
-                 <int>39</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Float O2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest02-1:9/Test02-17:11/O2-17:41</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">recordtest02.adb</string>
-                 <int>25</int>
-                 <int>42</int>
-                 <int>25</int>
-                 <int>43</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/RecordTest02-1:9/Test02-17:11</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">recordtest02.adb</string>
-         <int>25</int>
-         <int>2</int>
-         <int>33</int>
-         <int>14</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Object Q
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>27</int>
-             <int>7</int>
-             <int>27</int>
-             <int>7</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l5.
-    Q.X
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>29</int>
-             <int>7</int>
-             <int>29</int>
-             <int>9</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := I1;
-
-  #l6.
-    Q.Y
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>30</int>
-             <int>7</int>
-             <int>30</int>
-             <int>9</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := I2;
-
-  #l7.
-    O1 := Q.X
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>31</int>
-             <int>13</int>
-             <int>31</int>
-             <int>15</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-  #l8.
-    O2 := Q.Y
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">recordtest02.adb</string>
-             <int>32</int>
-             <int>13</int>
-             <int>32</int>
-             <int>15</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-  #l9.
-    return;
-}
 

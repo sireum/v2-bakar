@@ -14,7 +14,7 @@ import org.sireum.util._
 class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTypeResolverModule {
   
   // type uri to type definition
-  val typeMap = mmapEmpty[ResourceUri, Type]
+  val typeMap = mlinkedMapEmpty[ResourceUri, Type]
 
   var proc = ivectorEmpty[ProcedureDecl]
 
@@ -86,7 +86,7 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
   }
 
   // build the refuri to typuri map for the type provider
-  val refUri2typeUri = mmapEmpty[ResourceUri, ResourceUri]
+  val refUri2typeUri = mlinkedMapEmpty[ResourceUri, ResourceUri]
 
   def addMapping(nuref : PilarAstNode, nutyp : PilarAstNode) {
     assert(nuref ? URIS.REF_URI)

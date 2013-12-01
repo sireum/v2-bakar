@@ -1,3 +1,144 @@
+harness.adb
+package __anonymousPackage$0;
+
+
+procedure Harness (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Harness+3:11/X+3:20</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>harness.adb</string>
+                 <int>3</int>
+                 <int>20</int>
+                 <int>3</int>
+                 <int>20</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer Y
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Harness+3:11/Y+3:23</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>harness.adb</string>
+                 <int>3</int>
+                 <int>23</int>
+                 <int>3</int>
+                 <int>23</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Harness+3:11/Z+3:26</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>harness.adb</string>
+                 <int>3</int>
+                 <int>26</int>
+                 <int>3</int>
+                 <int>26</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Harness+3:11</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>harness.adb</string>
+         <int>3</int>
+         <int>1</int>
+         <int>17</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Ring_Buffer R
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>harness.adb</string>
+             <int>4</int>
+             <int>4</int>
+             <int>4</int>
+             <int>4</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    Integer H
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>harness.adb</string>
+             <int>5</int>
+             <int>4</int>
+             <int>5</int>
+             <int>4</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l1.
+    call Clear (R);
+
+  #l2.
+    call Push (R, X);
+
+  #l3.
+    call Push (R, Y);
+
+  #l4.
+    call Pop (R, H);
+
+  #l5.
+    assert H == X;
+
+  #l6.
+    call Push (R, Z);
+
+  #l7.
+    call Pop (R, H);
+
+  #l8.
+    assert H == Y;
+
+  #l9.
+    call Pop (R, H);
+
+  #l10.
+    assert H == Z;
+
+  #l11.
+    return;
+}
+
 ring_buf.adb
 package Ring_Buf
     @util.loc
@@ -396,147 +537,6 @@ procedure Pop (
      - 1ii;
 
   #l22.
-    return;
-}
-
-harness.adb
-package __anonymousPackage$0;
-
-
-procedure Harness (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Harness+3:11/X+3:20</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>harness.adb</string>
-                 <int>3</int>
-                 <int>20</int>
-                 <int>3</int>
-                 <int>20</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Harness+3:11/Y+3:23</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>harness.adb</string>
-                 <int>3</int>
-                 <int>23</int>
-                 <int>3</int>
-                 <int>23</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Harness+3:11/Z+3:26</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>harness.adb</string>
-                 <int>3</int>
-                 <int>26</int>
-                 <int>3</int>
-                 <int>26</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Harness+3:11</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>harness.adb</string>
-         <int>3</int>
-         <int>1</int>
-         <int>17</int>
-         <int>12</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Ring_Buffer R
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>harness.adb</string>
-             <int>4</int>
-             <int>4</int>
-             <int>4</int>
-             <int>4</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    Integer H
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>harness.adb</string>
-             <int>5</int>
-             <int>4</int>
-             <int>5</int>
-             <int>4</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l1.
-    call Clear (R);
-
-  #l2.
-    call Push (R, X);
-
-  #l3.
-    call Push (R, Y);
-
-  #l4.
-    call Pop (R, H);
-
-  #l5.
-    assert H == X;
-
-  #l6.
-    call Push (R, Z);
-
-  #l7.
-    call Pop (R, H);
-
-  #l8.
-    assert H == Y;
-
-  #l9.
-    call Pop (R, H);
-
-  #l10.
-    assert H == Z;
-
-  #l11.
     return;
 }
 

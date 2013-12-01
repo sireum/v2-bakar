@@ -552,6 +552,38 @@ procedure AAdd (
     return;
 }
 
+simplerecord.ads
+package SimpleRecord
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">simplerecord.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>3</int>
+         <int>17</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Boolean Dummy
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/SimpleRecord-1:9/Dummy-2:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">simplerecord.ads</string>
+         <int>2</int>
+         <int>4</int>
+         <int>2</int>
+         <int>33</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
 fake/standard.ads
 package Standard;
 
@@ -744,36 +776,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-simplerecord.ads
-package SimpleRecord
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">simplerecord.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>3</int>
-         <int>17</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Boolean Dummy
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/SimpleRecord-1:9/Dummy-2:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">simplerecord.ads</string>
-         <int>2</int>
-         <int>4</int>
-         <int>2</int>
-         <int>33</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

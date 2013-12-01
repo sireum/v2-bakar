@@ -80,10 +80,10 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
   override def outputSuffix = "g2xml"
 
   override def writeTestString(job: PipelineJob, w: Writer) = {
+    import ParseGnat2XMLModule.ConsumerView._
     val xs = new XStream()
-    val results = TreeMap(ParseGnat2XMLModule.getParseGnat2XMLresults(job.properties).toSeq: _*)
 
-    results foreach {
+    job.parseGnat2XMLresults foreach {
       case (key, value) =>
         val f = new File(new URI(key))
         w.write(f.getName() + "\n" + xs.toXML(value) + "\n\n")

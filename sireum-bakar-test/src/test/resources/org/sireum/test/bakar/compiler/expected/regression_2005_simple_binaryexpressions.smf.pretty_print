@@ -686,6 +686,38 @@ procedure Integer Division (
     return r6;
 }
 
+binaryexpressions.ads
+package BinaryExpressions
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">binaryexpressions.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>6</int>
+         <int>22</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Integer X
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/BinaryExpressions-1:9/X-4:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">binaryexpressions.ads</string>
+         <int>4</int>
+         <int>3</int>
+         <int>4</int>
+         <int>28</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
 fake/standard.ads
 package Standard;
 
@@ -878,36 +910,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-binaryexpressions.ads
-package BinaryExpressions
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">binaryexpressions.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>6</int>
-         <int>22</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Integer X
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/BinaryExpressions-1:9/X-4:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">binaryexpressions.ads</string>
-         <int>4</int>
-         <int>3</int>
-         <int>4</int>
-         <int>28</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

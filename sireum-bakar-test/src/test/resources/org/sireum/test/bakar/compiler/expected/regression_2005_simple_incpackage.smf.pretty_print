@@ -1,3 +1,77 @@
+incpackage.adb
+package IncPackage
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>incpackage.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>11</int>
+         <int>15</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Integer Inc (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/IncPackage-1:9/Inc-2:13/X-2:17</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>incpackage.adb</string>
+                 <int>2</int>
+                 <int>17</int>
+                 <int>2</int>
+                 <int>17</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/IncPackage-1:9/Inc-2:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>incpackage.adb</string>
+         <int>2</int>
+         <int>4</int>
+         <int>9</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Integer R
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>incpackage.adb</string>
+             <int>4</int>
+             <int>6</int>
+             <int>4</int>
+             <int>6</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l1.
+    R := X + 1ii;
+
+  #l2.
+    assert R > X;
+
+  #l3.
+    return R;
+}
+
 incpackage.ads
 package IncPackage
     @util.loc
@@ -243,78 +317,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-incpackage.adb
-package IncPackage
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>incpackage.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>11</int>
-         <int>15</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Integer Inc (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/IncPackage-1:9/Inc-2:13/X-2:17</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>incpackage.adb</string>
-                 <int>2</int>
-                 <int>17</int>
-                 <int>2</int>
-                 <int>17</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/IncPackage-1:9/Inc-2:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>incpackage.adb</string>
-         <int>2</int>
-         <int>4</int>
-         <int>9</int>
-         <int>11</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Integer R
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>incpackage.adb</string>
-             <int>4</int>
-             <int>6</int>
-             <int>4</int>
-             <int>6</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-
-
-  #l1.
-    R := X + 1ii;
-
-  #l2.
-    assert R > X;
-
-  #l3.
-    return R;
-}
 

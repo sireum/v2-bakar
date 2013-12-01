@@ -1,3 +1,501 @@
+array_unconstrained.adb
+package Array_Unconstrained
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>16</int>
+         <int>24</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Boolean isSorted (
+        Vector Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.adb</string>
+                 <int>2</int>
+                 <int>21</int>
+                 <int>2</int>
+                 <int>21</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Array_Unconstrained-1:9/isSorted-6:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained.adb</string>
+         <int>2</int>
+         <int>3</int>
+         <int>10</int>
+         <int>15</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Boolean B
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string sid="1">array_unconstrained.adb</string>
+             <int>3</int>
+             <int>5</int>
+             <int>3</int>
+             <int>5</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    Integer I;
+    Integer _tcomp0;
+    Integer _tcomp1;
+
+
+  #l1.
+    B := true;
+
+  #l3.
+    _tcomp0 := attribute__uif__first `Z;
+
+  #l4.
+    _tcomp1 := attribute__uif__last `Z - 1ii;
+
+  #l5.
+    if _tcomp0 > _tcomp1 then goto l2;
+
+  #l6.
+    I := _tcomp0;
+
+  #l7.
+    // empty loc
+
+  #l8.
+    B := Z[I] <= Z[I + 1ii];
+
+  #l9.
+    if !(B) then goto l2;
+
+  #l10.
+    if I == _tcomp1 then goto l2;
+
+  #l11.
+    I := I + 1ii;
+
+  #l12.
+    goto l7;
+
+  #l2.
+    // empty loc
+
+  #l13.
+    return B;
+}
+
+procedure Boolean indexIsValue (
+        Vector Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.adb</string>
+                 <int>12</int>
+                 <int>25</int>
+                 <int>12</int>
+                 <int>25</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer Index
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.adb</string>
+                 <int>12</int>
+                 <int>37</int>
+                 <int>12</int>
+                 <int>41</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer V
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.adb</string>
+                 <int>12</int>
+                 <int>44</int>
+                 <int>12</int>
+                 <int>44</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained.adb</string>
+         <int>12</int>
+         <int>3</int>
+         <int>15</int>
+         <int>19</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l14.
+    return Z[Index] == V;
+}
+
+array_unconstrained.ads
+package Array_Unconstrained
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>8</int>
+         <int>24</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+typealias _UNCONSTRAINED_ARRAY_ Vector
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Vector</string>
+         <string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>
+         <org.sireum.bakar.symbol.UnconstrainedArrayDef cid="2" size="3">
+           <int>1</int>
+           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <ilist ttype="ilist">
+             <string srefid="2"/>
+           </ilist>
+         </org.sireum.bakar.symbol.UnconstrainedArrayDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>""")
+;
+
+procedure Boolean isSorted (
+        Vector Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.ads</string>
+                 <int>6</int>
+                 <int>21</int>
+                 <int>6</int>
+                 <int>21</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/Array_Unconstrained-1:9/isSorted-6:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained.ads</string>
+         <int>6</int>
+         <int>3</int>
+         <int>6</int>
+         <int>47</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+procedure Boolean indexIsValue (
+        Vector Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.ads</string>
+                 <int>7</int>
+                 <int>25</int>
+                 <int>7</int>
+                 <int>25</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer Index
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.ads</string>
+                 <int>7</int>
+                 <int>37</int>
+                 <int>7</int>
+                 <int>41</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer V
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained.ads</string>
+                 <int>7</int>
+                 <int>44</int>
+                 <int>7</int>
+                 <int>44</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/Array_Unconstrained-1:9/indexIsValue-7:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained.ads</string>
+         <int>7</int>
+         <int>3</int>
+         <int>7</int>
+         <int>71</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+array_unconstrained_t.adb
+package Array_Unconstrained_T
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained_t.adb</string>
+         <int>1</int>
+         <int>1</int>
+         <int>11</int>
+         <int>26</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+procedure Boolean isSorted (
+        ConsVector CV
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained_t.adb</string>
+                 <int>2</int>
+                 <int>21</int>
+                 <int>2</int>
+                 <int>22</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained_t.adb</string>
+         <int>2</int>
+         <int>3</int>
+         <int>5</int>
+         <int>15</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Boolean _tcomp2;
+
+
+  #l15.
+    call _tcomp2 := Array_Unconstrained::isSorted (CV);
+
+  #l16.
+    return _tcomp2;
+}
+
+procedure Boolean indexIsValue (
+        ConsVector Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained_t.adb</string>
+                 <int>7</int>
+                 <int>25</int>
+                 <int>7</int>
+                 <int>25</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Index I
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained_t.adb</string>
+                 <int>7</int>
+                 <int>41</int>
+                 <int>7</int>
+                 <int>41</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer V
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">array_unconstrained_t.adb</string>
+                 <int>7</int>
+                 <int>52</int>
+                 <int>7</int>
+                 <int>52</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained_t.adb</string>
+         <int>7</int>
+         <int>3</int>
+         <int>10</int>
+         <int>19</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Boolean _tcomp3;
+
+
+  #l17.
+    call _tcomp3 := Array_Unconstrained::indexIsValue (Z, I, V);
+
+  #l18.
+    return _tcomp3;
+}
+
 array_unconstrained_t.ads
 package Array_Unconstrained_T
     @util.loc
@@ -221,196 +719,6 @@ procedure Boolean indexIsValue (
 
 }
 
-array_unconstrained.adb
-package Array_Unconstrained
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>16</int>
-         <int>24</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Boolean isSorted (
-        Vector Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.adb</string>
-                 <int>2</int>
-                 <int>21</int>
-                 <int>2</int>
-                 <int>21</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Array_Unconstrained-1:9/isSorted-6:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained.adb</string>
-         <int>2</int>
-         <int>3</int>
-         <int>10</int>
-         <int>15</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Boolean B
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string sid="1">array_unconstrained.adb</string>
-             <int>3</int>
-             <int>5</int>
-             <int>3</int>
-             <int>5</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    Integer I;
-    Integer _tcomp0;
-    Integer _tcomp1;
-
-
-  #l1.
-    B := true;
-
-  #l3.
-    _tcomp0 := attribute__uif__first `Z;
-
-  #l4.
-    _tcomp1 := attribute__uif__last `Z - 1ii;
-
-  #l5.
-    if _tcomp0 > _tcomp1 then goto l2;
-
-  #l6.
-    I := _tcomp0;
-
-  #l7.
-    // empty loc
-
-  #l8.
-    B := Z[I] <= Z[I + 1ii];
-
-  #l9.
-    if !(B) then goto l2;
-
-  #l10.
-    if I == _tcomp1 then goto l2;
-
-  #l11.
-    I := I + 1ii;
-
-  #l12.
-    goto l7;
-
-  #l2.
-    // empty loc
-
-  #l13.
-    return B;
-}
-
-procedure Boolean indexIsValue (
-        Vector Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.adb</string>
-                 <int>12</int>
-                 <int>25</int>
-                 <int>12</int>
-                 <int>25</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer Index
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.adb</string>
-                 <int>12</int>
-                 <int>37</int>
-                 <int>12</int>
-                 <int>41</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer V
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.adb</string>
-                 <int>12</int>
-                 <int>44</int>
-                 <int>12</int>
-                 <int>44</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained.adb</string>
-         <int>12</int>
-         <int>3</int>
-         <int>15</int>
-         <int>19</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l14.
-    return Z[Index] == V;
-}
-
 fake/standard.ads
 package Standard;
 
@@ -603,312 +911,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-array_unconstrained_t.adb
-package Array_Unconstrained_T
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained_t.adb</string>
-         <int>1</int>
-         <int>1</int>
-         <int>11</int>
-         <int>26</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-procedure Boolean isSorted (
-        ConsVector CV
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained_t.adb</string>
-                 <int>2</int>
-                 <int>21</int>
-                 <int>2</int>
-                 <int>22</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained_t.adb</string>
-         <int>2</int>
-         <int>3</int>
-         <int>5</int>
-         <int>15</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Boolean _tcomp2;
-
-
-  #l15.
-    call _tcomp2 := Array_Unconstrained::isSorted (CV);
-
-  #l16.
-    return _tcomp2;
-}
-
-procedure Boolean indexIsValue (
-        ConsVector Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained_t.adb</string>
-                 <int>7</int>
-                 <int>25</int>
-                 <int>7</int>
-                 <int>25</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Index I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained_t.adb</string>
-                 <int>7</int>
-                 <int>41</int>
-                 <int>7</int>
-                 <int>41</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer V
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained_t.adb</string>
-                 <int>7</int>
-                 <int>52</int>
-                 <int>7</int>
-                 <int>52</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained_t.adb</string>
-         <int>7</int>
-         <int>3</int>
-         <int>10</int>
-         <int>19</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Boolean _tcomp3;
-
-
-  #l17.
-    call _tcomp3 := Array_Unconstrained::indexIsValue (Z, I, V);
-
-  #l18.
-    return _tcomp3;
-}
-
-array_unconstrained.ads
-package Array_Unconstrained
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained.ads</string>
-         <int>1</int>
-         <int>1</int>
-         <int>8</int>
-         <int>24</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-typealias _UNCONSTRAINED_ARRAY_ Vector
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Vector</string>
-         <string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>
-         <org.sireum.bakar.symbol.UnconstrainedArrayDef cid="2" size="3">
-           <int>1</int>
-           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-           <ilist ttype="ilist">
-             <string srefid="2"/>
-           </ilist>
-         </org.sireum.bakar.symbol.UnconstrainedArrayDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8</string>""")
-;
-
-procedure Boolean isSorted (
-        Vector Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.ads</string>
-                 <int>6</int>
-                 <int>21</int>
-                 <int>6</int>
-                 <int>21</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/Array_Unconstrained-1:9/isSorted-6:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained.ads</string>
-         <int>6</int>
-         <int>3</int>
-         <int>6</int>
-         <int>47</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
-
-procedure Boolean indexIsValue (
-        Vector Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.ads</string>
-                 <int>7</int>
-                 <int>25</int>
-                 <int>7</int>
-                 <int>25</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer Index
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.ads</string>
-                 <int>7</int>
-                 <int>37</int>
-                 <int>7</int>
-                 <int>41</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer V
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">array_unconstrained.ads</string>
-                 <int>7</int>
-                 <int>44</int>
-                 <int>7</int>
-                 <int>44</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/Array_Unconstrained-1:9/indexIsValue-7:12</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained.ads</string>
-         <int>7</int>
-         <int>3</int>
-         <int>7</int>
-         <int>71</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-}
 

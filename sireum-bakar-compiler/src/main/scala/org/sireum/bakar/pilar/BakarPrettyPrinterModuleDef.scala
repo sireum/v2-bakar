@@ -9,10 +9,10 @@ import org.sireum.pipeline.Input
 import org.sireum.pipeline.Produce
 
 class BakarPrettyPrinterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarPrettyPrinterModule {
-  var result = mmapEmpty[String, String]
+  var result = ilinkedMapEmpty[String, String]
   for (m <- this.models)
-    result(m.sourceURI.get) = NodePrettyPrinter.print(m)
-  this.results = result.toMap
+    result += (m.sourceURI.get -> NodePrettyPrinter.print(m))
+  this.results = result
 }
 
 case class BakarPrettyPrinter(

@@ -1,3 +1,109 @@
+p_refinement.adb
+package P_Refinement
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">p_refinement.adb</string>
+         <int>2</int>
+         <int>1</int>
+         <int>41</int>
+         <int>17</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+global Integer @@B
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">p_refinement.adb</string>
+         <int>5</int>
+         <int>4</int>
+         <int>5</int>
+         <int>4</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+procedure $$binit {
+
+  #l1.
+    Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    C := 0ii;
+
+  #l4.
+    return;
+}
+
+procedure Q (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">p_refinement.adb</string>
+                 <int>31</int>
+                 <int>15</int>
+                 <int>31</int>
+                 <int>15</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer Z
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string sid="1">p_refinement.adb</string>
+                 <int>31</int>
+                 <int>30</int>
+                 <int>31</int>
+                 <int>30</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/P_Refinement-1:9/Q-6:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">p_refinement.adb</string>
+         <int>31</int>
+         <int>3</int>
+         <int>35</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l5.
+    Z := X + @@B;
+
+  #l6.
+    return;
+}
+
 p_refinement.ads
 package P_Refinement
     @util.loc
@@ -288,110 +394,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-p_refinement.adb
-package P_Refinement
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">p_refinement.adb</string>
-         <int>2</int>
-         <int>1</int>
-         <int>41</int>
-         <int>17</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-global Integer @@B
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">p_refinement.adb</string>
-         <int>5</int>
-         <int>4</int>
-         <int>5</int>
-         <int>4</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-procedure $$binit {
-
-  #l1.
-    Y := 1ii;
-
-  #l2.
-    @@B := 0ii;
-
-  #l3.
-    C := 0ii;
-
-  #l4.
-    return;
-}
-
-procedure Q (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">p_refinement.adb</string>
-                 <int>31</int>
-                 <int>15</int>
-                 <int>31</int>
-                 <int>15</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-        ,
-        Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string sid="1">p_refinement.adb</string>
-                 <int>31</int>
-                 <int>30</int>
-                 <int>31</int>
-                 <int>30</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/P_Refinement-1:9/Q-6:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">p_refinement.adb</string>
-         <int>31</int>
-         <int>3</int>
-         <int>35</int>
-         <int>8</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l5.
-    Z := X + @@B;
-
-  #l6.
-    return;
-}
 

@@ -1,3 +1,647 @@
+the_stack.adb
+package The_Stack
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>3</int>
+         <int>1</int>
+         <int>96</int>
+         <int>14</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Pointer_Range
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Pointer_Range</string>
+         <string sid="1">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>0</bigInteger>
+             </scala.math.BigInt>
+             <string>0ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="2">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>the_stack.adb</string>
+                   <int>7</int>
+                   <int>32</int>
+                   <int>7</int>
+                   <int>32</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </some>
+           <some etype="org.sireum.pilar.ast.NameExp" cid="5" size="1">
+             <org.sireum.pilar.ast.NameUser cid="6" size="1">
+               <string>Stack_Size</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                     <string>ada</string>
+                     <string>integer_number</string>
+                     <ilist ttype="ilist">
+                       <string>The_Stack-1:9</string>
+                       <string>Stack_Size+6:4</string>
+                     </ilist>
+                     <string sid="3">ada://integer_number/The_Stack-1:9/Stack_Size+6:4</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="2"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="2"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                   <string>the_stack.adb</string>
+                   <int>7</int>
+                   <int>37</int>
+                   <int>7</int>
+                   <int>46</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </some>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>""")
+;
+
+typealias Pointer_Range Index_Range
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+         <string>Index_Range</string>
+         <string sid="1">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>
+         <string sid="2">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>
+         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1</bigInteger>
+             </scala.math.BigInt>
+             <string>1ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="3">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>the_stack.adb</string>
+                   <int>8</int>
+                   <int>47</int>
+                   <int>8</int>
+                   <int>47</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.NameExp cid="5" size="1">
+             <org.sireum.pilar.ast.NameUser cid="6" size="1">
+               <string>Stack_Size</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                     <string>ada</string>
+                     <string>integer_number</string>
+                     <ilist ttype="ilist">
+                       <string>The_Stack-1:9</string>
+                       <string>Stack_Size+6:4</string>
+                     </ilist>
+                     <string sid="4">ada://integer_number/The_Stack-1:9/Stack_Size+6:4</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="4"/>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="3"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                   <string>the_stack.adb</string>
+                   <int>8</int>
+                   <int>50</int>
+                   <int>8</int>
+                   <int>59</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </some>
+       </org.sireum.bakar.symbol.SubTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>""")
+;
+
+typealias _ARRAY_ Vector
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Vector</string>
+         <string sid="1">ada://ordinary_type/The_Stack-1:9/Vector+9:9</string>
+         <org.sireum.bakar.symbol.ConstrainedArrayDef cid="2" size="3">
+           <int>1</int>
+           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <ivector ttype="ivector">
+             <string sid="3">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>
+           </ivector>
+         </org.sireum.bakar.symbol.ConstrainedArrayDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Vector+9:9</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Vector+9:9</string>""")
+;
+
+const $CONST {
+  Stack_Size = (Integer) 100ii;
+}
+
+global Vector @@S
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>10</int>
+         <int>4</int>
+         <int>10</int>
+         <int>4</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+global Pointer_Range @@Pointer
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>11</int>
+         <int>4</int>
+         <int>11</int>
+         <int>10</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+global AuditInfoType @@AuditInfo
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>13</int>
+         <int>4</int>
+         <int>13</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+procedure $$binit {
+
+  #l1.
+    @@Pointer := 0ii;
+
+  #l2.
+    @@S := `Vector { iter => 
+        switch iter
+          case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
+    };
+
+  #l3.
+    @@AuditInfo := `AuditInfoType {
+      __positional0 = 0ii,
+      __positional1 = 0ii
+    };
+
+  #l4.
+    return;
+}
+
+procedure Push (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack-1:9/Push-31:14/X-31:19</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>the_stack.adb</string>
+                 <int>15</int>
+                 <int>19</int>
+                 <int>15</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/The_Stack-1:9/Push-31:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>15</int>
+         <int>4</int>
+         <int>28</int>
+         <int>12</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l5.
+    @@Pointer := @@Pointer + 1ii;
+
+  #l6.
+    @@S[@@Pointer] := X;
+
+  #l7.
+    @@AuditInfo.PushOps
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>the_stack.adb</string>
+             <int>27</int>
+             <int>7</int>
+             <int>27</int>
+             <int>23</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := @@AuditInfo.PushOps
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>the_stack.adb</string>
+             <int>27</int>
+             <int>28</int>
+             <int>27</int>
+             <int>44</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     + 1ii;
+
+  #l8.
+    return;
+}
+
+procedure Pop (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>OUT</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>the_stack.adb</string>
+                 <int>30</int>
+                 <int>18</int>
+                 <int>30</int>
+                 <int>18</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/The_Stack-1:9/Pop-36:14</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>30</int>
+         <int>4</int>
+         <int>43</int>
+         <int>11</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l9.
+    X := @@S[@@Pointer];
+
+  #l10.
+    @@Pointer := @@Pointer - 1ii;
+
+  #l11.
+    @@AuditInfo.PopOps
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>the_stack.adb</string>
+             <int>42</int>
+             <int>7</int>
+             <int>42</int>
+             <int>22</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     := @@AuditInfo.PopOps
+        @BAKAR_TYPE_URI
+
+          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
+
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>the_stack.adb</string>
+             <int>42</int>
+             <int>27</int>
+             <int>42</int>
+             <int>42</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+     + 1ii;
+
+  #l12.
+    return;
+}
+
+procedure Boolean Value_Present (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack-1:9/Value_Present+46:13/X+46:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>the_stack.adb</string>
+                 <int>46</int>
+                 <int>28</int>
+                 <int>46</int>
+                 <int>28</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/The_Stack-1:9/Value_Present+46:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>46</int>
+         <int>4</int>
+         <int>64</int>
+         <int>21</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Boolean Result
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>the_stack.adb</string>
+             <int>50</int>
+             <int>7</int>
+             <int>50</int>
+             <int>12</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    Index_Range I;
+    Index_Range _tcomp0;
+    Index_Range _tcomp1;
+
+
+  #l13.
+    Result := false;
+
+  #l15.
+    _tcomp0 := attribute__uif__first `Index_Range;
+
+  #l16.
+    _tcomp1 := attribute__uif__last `Index_Range;
+
+  #l17.
+    if _tcomp0 > _tcomp1 then goto l14;
+
+  #l18.
+    I := _tcomp0;
+
+  #l19.
+    // empty loc
+
+  #l21.
+    if !(@@S[I] == X) then goto l20;
+
+  #l22.
+    Result := true;
+
+  #l23.
+    goto l14;
+
+  #l20.
+    // empty loc
+
+  #l24.
+    if I == _tcomp1 then goto l14;
+
+  #l25.
+    I := I + 1ii;
+
+  #l26.
+    goto l19;
+
+  #l14.
+    // empty loc
+
+  #l27.
+    return Result;
+}
+
+procedure Index_Range Find_Stack_Pos (
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/The_Stack-1:9/Find_Stack_Pos+67:13/X+67:29</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>the_stack.adb</string>
+                 <int>67</int>
+                 <int>29</int>
+                 <int>67</int>
+                 <int>29</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/The_Stack-1:9/Find_Stack_Pos+67:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>67</int>
+         <int>4</int>
+         <int>83</int>
+         <int>22</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Index_Range Result_Pos
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>the_stack.adb</string>
+             <int>74</int>
+             <int>6</int>
+             <int>74</int>
+             <int>15</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+    Index_Range I;
+    Index_Range _tcomp2;
+    Index_Range _tcomp3;
+
+
+  #l28.
+    Result_Pos := attribute__uif__first `Index_Range;
+
+  #l30.
+    _tcomp2 := attribute__uif__first `Index_Range;
+
+  #l31.
+    _tcomp3 := attribute__uif__last `Index_Range;
+
+  #l32.
+    if _tcomp2 > _tcomp3 then goto l29;
+
+  #l33.
+    I := _tcomp2;
+
+  #l34.
+    // empty loc
+
+  #l36.
+    if !(@@S[I] == X) then goto l35;
+
+  #l37.
+    Result_Pos := I;
+
+  #l38.
+    goto l29;
+
+  #l35.
+    // empty loc
+
+  #l39.
+    if I == _tcomp3 then goto l29;
+
+  #l40.
+    I := I + 1ii;
+
+  #l41.
+    goto l34;
+
+  #l29.
+    // empty loc
+
+  #l42.
+    return Result_Pos;
+}
+
+procedure Boolean aPrivateFunction
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/The_Stack-1:9/aPrivateFunction-48:13</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>the_stack.adb</string>
+         <int>85</int>
+         <int>3</int>
+         <int>89</int>
+         <int>23</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+  #l43.
+    return true;
+}
+
 the_stack.ads
 package The_Stack
     @util.loc
@@ -713,648 +1357,4 @@ typealias String String
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
-
-the_stack.adb
-package The_Stack
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>3</int>
-         <int>1</int>
-         <int>96</int>
-         <int>14</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-
-typealias _SIGNED_INTEGER_TYPE_ Pointer_Range
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Pointer_Range</string>
-         <string sid="1">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
-             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
-             <scala.math.BigInt>
-               <bigInteger>0</bigInteger>
-             </scala.math.BigInt>
-             <string>0ii</string>
-             <properties mtype="mlinkedmap">
-               <entry>
-                 <string>BAKAR_TYPE_URI</string>
-                 <string sid="2">ada://ordinary_type/universal_integer</string>
-               </entry>
-               <entry>
-                 <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
-                   <string>the_stack.adb</string>
-                   <int>7</int>
-                   <int>32</int>
-                   <int>7</int>
-                   <int>32</int>
-                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-               </entry>
-             </properties>
-           </some>
-           <some etype="org.sireum.pilar.ast.NameExp" cid="5" size="1">
-             <org.sireum.pilar.ast.NameUser cid="6" size="1">
-               <string>Stack_Size</string>
-               <properties mtype="mlinkedmap">
-                 <entry>
-                   <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
-                     <string>ada</string>
-                     <string>integer_number</string>
-                     <ilist ttype="ilist">
-                       <string>The_Stack-1:9</string>
-                       <string>Stack_Size+6:4</string>
-                     </ilist>
-                     <string sid="3">ada://integer_number/The_Stack-1:9/Stack_Size+6:4</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="3"/>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_TYPE_URI</string>
-                   <string srefid="2"/>
-                 </entry>
-               </properties>
-             </org.sireum.pilar.ast.NameUser>
-             <properties mtype="mlinkedmap">
-               <entry>
-                 <string>BAKAR_TYPE_URI</string>
-                 <string srefid="2"/>
-               </entry>
-               <entry>
-                 <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
-                   <string>the_stack.adb</string>
-                   <int>7</int>
-                   <int>37</int>
-                   <int>7</int>
-                   <int>46</int>
-                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-               </entry>
-             </properties>
-           </some>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>""")
-;
-
-typealias Pointer_Range Index_Range
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
-         <string>Index_Range</string>
-         <string sid="1">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>
-         <string sid="2">ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9</string>
-         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
-           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
-             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
-             <scala.math.BigInt>
-               <bigInteger>1</bigInteger>
-             </scala.math.BigInt>
-             <string>1ii</string>
-             <properties mtype="mlinkedmap">
-               <entry>
-                 <string>BAKAR_TYPE_URI</string>
-                 <string sid="3">ada://ordinary_type/universal_integer</string>
-               </entry>
-               <entry>
-                 <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
-                   <string>the_stack.adb</string>
-                   <int>8</int>
-                   <int>47</int>
-                   <int>8</int>
-                   <int>47</int>
-                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-               </entry>
-             </properties>
-           </org.sireum.pilar.ast.LiteralExp>
-           <org.sireum.pilar.ast.NameExp cid="5" size="1">
-             <org.sireum.pilar.ast.NameUser cid="6" size="1">
-               <string>Stack_Size</string>
-               <properties mtype="mlinkedmap">
-                 <entry>
-                   <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
-                     <string>ada</string>
-                     <string>integer_number</string>
-                     <ilist ttype="ilist">
-                       <string>The_Stack-1:9</string>
-                       <string>Stack_Size+6:4</string>
-                     </ilist>
-                     <string sid="4">ada://integer_number/The_Stack-1:9/Stack_Size+6:4</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="4"/>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_TYPE_URI</string>
-                   <string srefid="3"/>
-                 </entry>
-               </properties>
-             </org.sireum.pilar.ast.NameUser>
-             <properties mtype="mlinkedmap">
-               <entry>
-                 <string>BAKAR_TYPE_URI</string>
-                 <string srefid="3"/>
-               </entry>
-               <entry>
-                 <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
-                   <string>the_stack.adb</string>
-                   <int>8</int>
-                   <int>50</int>
-                   <int>8</int>
-                   <int>59</int>
-                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-               </entry>
-             </properties>
-           </org.sireum.pilar.ast.NameExp>
-         </some>
-       </org.sireum.bakar.symbol.SubTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>""")
-;
-
-typealias _ARRAY_ Vector
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Vector</string>
-         <string sid="1">ada://ordinary_type/The_Stack-1:9/Vector+9:9</string>
-         <org.sireum.bakar.symbol.ConstrainedArrayDef cid="2" size="3">
-           <int>1</int>
-           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-           <ivector ttype="ivector">
-             <string sid="3">ada://subtype/The_Stack-1:9/Index_Range+8:12</string>
-           </ivector>
-         </org.sireum.bakar.symbol.ConstrainedArrayDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Vector+9:9</string>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/The_Stack-1:9/Vector+9:9</string>""")
-;
-
-const $CONST {
-  Stack_Size = (Integer) 100ii;
-}
-
-global Vector @@S
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>10</int>
-         <int>4</int>
-         <int>10</int>
-         <int>4</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-global Pointer_Range @@Pointer
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>11</int>
-         <int>4</int>
-         <int>11</int>
-         <int>10</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-global AuditInfoType @@AuditInfo
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>13</int>
-         <int>4</int>
-         <int>13</int>
-         <int>12</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-;
-
-procedure $$binit {
-
-  #l1.
-    @@Pointer := 0ii;
-
-  #l2.
-    @@S := `Vector { iter => 
-        switch iter
-          case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
-    };
-
-  #l3.
-    @@AuditInfo := `AuditInfoType {
-      __positional0 = 0ii,
-      __positional1 = 0ii
-    };
-
-  #l4.
-    return;
-}
-
-procedure Push (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack-1:9/Push-31:14/X-31:19</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>the_stack.adb</string>
-                 <int>15</int>
-                 <int>19</int>
-                 <int>15</int>
-                 <int>19</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/The_Stack-1:9/Push-31:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>15</int>
-         <int>4</int>
-         <int>28</int>
-         <int>12</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l5.
-    @@Pointer := @@Pointer + 1ii;
-
-  #l6.
-    @@S[@@Pointer] := X;
-
-  #l7.
-    @@AuditInfo.PushOps
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>the_stack.adb</string>
-             <int>27</int>
-             <int>7</int>
-             <int>27</int>
-             <int>23</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := @@AuditInfo.PushOps
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>the_stack.adb</string>
-             <int>27</int>
-             <int>28</int>
-             <int>27</int>
-             <int>44</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     + 1ii;
-
-  #l8.
-    return;
-}
-
-procedure Pop (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>the_stack.adb</string>
-                 <int>30</int>
-                 <int>18</int>
-                 <int>30</int>
-                 <int>18</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/The_Stack-1:9/Pop-36:14</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>30</int>
-         <int>4</int>
-         <int>43</int>
-         <int>11</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l9.
-    X := @@S[@@Pointer];
-
-  #l10.
-    @@Pointer := @@Pointer - 1ii;
-
-  #l11.
-    @@AuditInfo.PopOps
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>the_stack.adb</string>
-             <int>42</int>
-             <int>7</int>
-             <int>42</int>
-             <int>22</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     := @@AuditInfo.PopOps
-        @BAKAR_TYPE_URI
-
-          ("""<string sid="1">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>""")
-
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>the_stack.adb</string>
-             <int>42</int>
-             <int>27</int>
-             <int>42</int>
-             <int>42</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     + 1ii;
-
-  #l12.
-    return;
-}
-
-procedure Boolean Value_Present (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack-1:9/Value_Present+46:13/X+46:28</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>the_stack.adb</string>
-                 <int>46</int>
-                 <int>28</int>
-                 <int>46</int>
-                 <int>28</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/The_Stack-1:9/Value_Present+46:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>46</int>
-         <int>4</int>
-         <int>64</int>
-         <int>21</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Boolean Result
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>the_stack.adb</string>
-             <int>50</int>
-             <int>7</int>
-             <int>50</int>
-             <int>12</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    Index_Range I;
-    Index_Range _tcomp0;
-    Index_Range _tcomp1;
-
-
-  #l13.
-    Result := false;
-
-  #l15.
-    _tcomp0 := attribute__uif__first `Index_Range;
-
-  #l16.
-    _tcomp1 := attribute__uif__last `Index_Range;
-
-  #l17.
-    if _tcomp0 > _tcomp1 then goto l14;
-
-  #l18.
-    I := _tcomp0;
-
-  #l19.
-    // empty loc
-
-  #l21.
-    if !(@@S[I] == X) then goto l20;
-
-  #l22.
-    Result := true;
-
-  #l23.
-    goto l14;
-
-  #l20.
-    // empty loc
-
-  #l24.
-    if I == _tcomp1 then goto l14;
-
-  #l25.
-    I := I + 1ii;
-
-  #l26.
-    goto l19;
-
-  #l14.
-    // empty loc
-
-  #l27.
-    return Result;
-}
-
-procedure Index_Range Find_Stack_Pos (
-        Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack-1:9/Find_Stack_Pos+67:13/X+67:29</string>""")
-
-            @BAKAR_PARAM_INFO
-
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
-                 <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
-
-            @util.loc
-
-              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-                 <string>the_stack.adb</string>
-                 <int>67</int>
-                 <int>29</int>
-                 <int>67</int>
-                 <int>29</int>
-               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-)
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/The_Stack-1:9/Find_Stack_Pos+67:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>67</int>
-         <int>4</int>
-         <int>83</int>
-         <int>22</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Index_Range Result_Pos
-        @util.loc
-
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>the_stack.adb</string>
-             <int>74</int>
-             <int>6</int>
-             <int>74</int>
-             <int>15</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
-    Index_Range I;
-    Index_Range _tcomp2;
-    Index_Range _tcomp3;
-
-
-  #l28.
-    Result_Pos := attribute__uif__first `Index_Range;
-
-  #l30.
-    _tcomp2 := attribute__uif__first `Index_Range;
-
-  #l31.
-    _tcomp3 := attribute__uif__last `Index_Range;
-
-  #l32.
-    if _tcomp2 > _tcomp3 then goto l29;
-
-  #l33.
-    I := _tcomp2;
-
-  #l34.
-    // empty loc
-
-  #l36.
-    if !(@@S[I] == X) then goto l35;
-
-  #l37.
-    Result_Pos := I;
-
-  #l38.
-    goto l29;
-
-  #l35.
-    // empty loc
-
-  #l39.
-    if I == _tcomp3 then goto l29;
-
-  #l40.
-    I := I + 1ii;
-
-  #l41.
-    goto l34;
-
-  #l29.
-    // empty loc
-
-  #l42.
-    return Result_Pos;
-}
-
-procedure Boolean aPrivateFunction
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/The_Stack-1:9/aPrivateFunction-48:13</string>""")
-
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>the_stack.adb</string>
-         <int>85</int>
-         <int>3</int>
-         <int>89</int>
-         <int>23</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-
-  #l43.
-    return true;
-}
 

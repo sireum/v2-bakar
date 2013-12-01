@@ -133,199 +133,6 @@ procedure Natural LCP (
     return L;
 }
 
-fake/standard.ads
-package Standard;
-
-
-typealias Boolean Boolean
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Boolean</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-;
-
-typealias Integer Integer
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Integer</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-;
-
-typealias Integer Natural
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Natural</string>
-         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-;
-
-typealias Integer Positive
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Positive</string>
-         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-;
-
-typealias Float Float
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Float</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-;
-
-typealias universal_integer universal_integer
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string sid="1">universal_integer</string>
-         <string sid="2">ada://ordinary_type/universal_integer</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-;
-
-typealias universal_real universal_real
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>universal_real</string>
-         <string sid="1">ada://ordinary_type/universal_real</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
-;
-
-typealias Character Character
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>Character</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
-;
-
-typealias String String
-    @BAKAR_TYPE_DEF
-
-      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
-         <string>String</string>
-         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
-         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
-         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
-       </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
-;
-
 lcp.ads
 package __anonymousPackage$1;
 
@@ -3353,6 +3160,70 @@ procedure Natural LCP (
 
 }
 
+main.adb
+package __anonymousPackage$2;
+
+
+procedure Main
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Main+4:11</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>main.adb</string>
+         <int>4</int>
+         <int>1</int>
+         <int>11</int>
+         <int>9</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Text A
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>main.adb</string>
+             <int>5</int>
+             <int>4</int>
+             <int>5</int>
+             <int>4</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l10.
+    A := { iter => 
+        switch iter
+          case __positional0 => 1ii
+          case __positional1 => 2ii
+          case __positional2 => 3ii
+          case __positional3 => 4ii
+          case __positional4 => 5ii
+          case __positional5 => 1ii
+          case __positional6 => 2ii
+          case __positional7 => 3ii
+          case __positional8 => 4ii
+          case __positional9 => 5ii
+    };
+
+  #l11.
+    call Put_Line ("\"LCP returns non-null\"");
+
+  #l12.
+    assert LCP (A, 1ii, 6ii) == 5ii;
+
+  #l13.
+    call Put_Line ("\"LCP returns null\"");
+
+  #l14.
+    assert LCP (A, 1ii, 7ii) == 0ii;
+
+  #l15.
+    return;
+}
+
 types.ads
 package Types
     @util.loc
@@ -3457,67 +3328,196 @@ typealias _UNCONSTRAINED_ARRAY_ Text
       ("""<string sid="1">ada://ordinary_type/Types-1:9/Text-3:9</string>""")
 ;
 
-main.adb
-package __anonymousPackage$2;
+fake/standard.ads
+package Standard;
 
 
-procedure Main
+typealias Boolean Boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
     @BAKAR_REF_URI
 
-      ("""<string sid="1">ada://procedure_body/Main+4:11</string>""")
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
 
-    @util.loc
+typealias Integer Integer
+    @BAKAR_TYPE_DEF
 
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string>main.adb</string>
-         <int>4</int>
-         <int>1</int>
-         <int>11</int>
-         <int>9</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
- {
-  local
-    Text A
-        @util.loc
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-             <string>main.adb</string>
-             <int>5</int>
-             <int>4</int>
-             <int>5</int>
-             <int>4</int>
-           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ;
+    @BAKAR_TYPE_URI
 
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 
-  #l10.
-    A := { iter => 
-        switch iter
-          case __positional0 => 1ii
-          case __positional1 => 2ii
-          case __positional2 => 3ii
-          case __positional3 => 4ii
-          case __positional4 => 5ii
-          case __positional5 => 1ii
-          case __positional6 => 2ii
-          case __positional7 => 3ii
-          case __positional8 => 4ii
-          case __positional9 => 5ii
-    };
+    @BAKAR_REF_URI
 
-  #l11.
-    call Put_Line ("\"LCP returns non-null\"");
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
 
-  #l12.
-    assert LCP (A, 1ii, 6ii) == 5ii;
+typealias Integer Natural
+    @BAKAR_TYPE_DEF
 
-  #l13.
-    call Put_Line ("\"LCP returns null\"");
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-  #l14.
-    assert LCP (A, 1ii, 7ii) == 0ii;
+    @BAKAR_TYPE_URI
 
-  #l15.
-    return;
-}
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer Positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float Float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias universal_integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+typealias universal_real universal_real
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>universal_real</string>
+         <string sid="1">ada://ordinary_type/universal_real</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
+
+typealias Character Character
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Character</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+;
+
+typealias String String
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>String</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+;
 
