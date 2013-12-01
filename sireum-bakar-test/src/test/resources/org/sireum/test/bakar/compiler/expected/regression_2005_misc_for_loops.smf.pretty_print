@@ -536,6 +536,48 @@ typealias universal_real universal_real
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
 ;
 
+typealias Character Character
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Character</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+;
+
+typealias String String
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>String</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+;
+
 for_loops.ads
 package for_loops
     @util.loc
@@ -639,6 +681,12 @@ typealias _ARRAY_ Vector
       ("""<string sid="1">ada://ordinary_type/for_loops-1:9/Vector-8:9</string>""")
 ;
 
+const $CONST {
+  aFloatConst = (Float) 3.0 + 7.3;
+
+  aIntConst = (Integer) 1ii + 3ii;
+}
+
 global Vector @@A
     @util.loc
 
@@ -662,12 +710,6 @@ procedure $$sinit {
 
   #l103.
     return;
-}
-
-const $CONST {
-  aFloatConst = (Float) 3.0 + 7.3;
-
-  aIntConst = (Integer) 1ii + 3ii;
 }
 
 procedure Stupid (

@@ -1209,3 +1209,7 @@ typealias Float Float;
 typealias universal_integer universal_integer;
 
 typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

@@ -72,8 +72,6 @@ record Object {
 
 typealias _ARRAY_ ObjectArray;
 
-global ObjectArray @@oArray;
-
 const $CONST {
   dummyObject = (Object) `Object {
     __positional0 = `IntArray { iter => 
@@ -84,6 +82,8 @@ const $CONST {
           default => 0ii}
   };
 }
+
+global ObjectArray @@oArray;
 
 procedure Swap (
         ObjectArray Q,
@@ -105,3 +105,7 @@ typealias Float Float;
 typealias universal_integer universal_integer;
 
 typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

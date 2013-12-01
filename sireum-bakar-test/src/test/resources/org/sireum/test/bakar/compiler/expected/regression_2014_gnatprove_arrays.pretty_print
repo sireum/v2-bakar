@@ -1129,6 +1129,48 @@ typealias universal_real universal_real
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
 ;
 
+typealias Character Character
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Character</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+;
+
+typealias String String
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>String</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+;
+
 arrays.adb
 package Arrays
     @util.loc
@@ -1305,7 +1347,7 @@ procedure Natural Count_Even (
     // empty loc
 
   #l21.
-    if !(X[J] % 2ii == 0ii) then goto l20;
+    if !(X[J] MOD 2ii == 0ii) then goto l20;
 
   #l22.
     C := C + 1ii;
@@ -1327,5 +1369,56 @@ procedure Natural Count_Even (
 
   #l26.
     return C;
+}
+
+procedure Natural Count_Odd (
+        T X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/Arrays-1:9/Count_Odd+22:13/X+22:24</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>arrays.adb</string>
+                 <int>22</int>
+                 <int>24</int>
+                 <int>22</int>
+                 <int>24</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://expression_function/Arrays-1:9/Count_Odd+22:13</string>""")
+
+    @IS_EXPRESSION_FUNCTION
+
+      ("""<boolean>true</boolean>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>arrays.adb</string>
+         <int>22</int>
+         <int>4</int>
+         <int>23</int>
+         <int>34</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Natural _tcomp4;
+
+
+  #l27.
+    call _tcomp4 := Count_Even (X);
+
+  #l28.
+    return attribute__uif__length `X - _tcomp4;
 }
 

@@ -1,0 +1,139 @@
+package InvertInjection;
+
+
+procedure Invert (
+        ElementArray A,
+        ElementArray B) {
+  local
+    universal_integer I;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+
+
+  #l2.
+    _tcomp0 := attribute__uif__first (Element);
+
+  #l3.
+    _tcomp1 := attribute__uif__last (Element);
+
+  #rwl0.
+    _t0 := _tcomp0;
+
+  #rwl1.
+    _t1 := _tcomp1;
+
+  #l4.
+    if _t0 > _t1 then goto l1;
+
+  #l5.
+    I := _tcomp0;
+
+  #l6.
+    // empty loc
+
+  #rwl2.
+    _t2 := I;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #rwl4.
+    _t4 := B[A[J]];
+
+  #rwl5.
+    _t5 := J;
+
+  #l7.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer J => 
+        switch J
+          case (attribute__uif__first `Element, _t2 - _t3) => _t4 == _t5
+          default => true};
+
+  #l8.
+    B[A[I]] := I;
+
+  #rwl6.
+    _t6 := I;
+
+  #rwl7.
+    _t7 := _tcomp1;
+
+  #l9.
+    if _t6 == _t7 then goto l1;
+
+  #rwl8.
+    _t8 := I;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #l10.
+    I := _t8 + _t9;
+
+  #l11.
+    goto l6;
+
+  #l1.
+    // empty loc
+
+  #rwl10.
+    _t10 := B[A[J]];
+
+  #rwl11.
+    _t11 := J;
+
+  #l12.
+    assert proof__uif__for_all {universal_integer J => 
+        switch J
+          case (attribute__uif__first (Element), attribute__uif__last (Element)) => _t10 == _t11
+          default => true};
+
+  #l13.
+    return;
+}package InvertInjection;
+
+
+typealias Natural Element;
+
+typealias _ARRAY_ ElementArray;
+
+const $CONST {
+  N = (Natural) 100ii;
+}
+
+procedure Invert (
+        ElementArray A,
+        ElementArray B) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

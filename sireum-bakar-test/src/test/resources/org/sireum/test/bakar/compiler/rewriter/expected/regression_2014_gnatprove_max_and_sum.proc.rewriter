@@ -1,0 +1,104 @@
+package MaxAndSum;
+
+
+procedure MaxAndSum (
+        ElementArray A,
+        Natural Sum,
+        Element Max) {
+  local
+    universal_integer I;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+
+
+  #l1.
+    Sum := 0ii;
+
+  #l2.
+    Max := 0ii;
+
+  #l4.
+    _tcomp0 := 1ii;
+
+  #l5.
+    _tcomp1 := N;
+
+  #l6.
+    if _tcomp0 > _tcomp1 then goto l3;
+
+  #l7.
+    I := _tcomp0;
+
+  #l8.
+    // empty loc
+
+  #l9.
+    assert proof__uif__loop_invariant Sum <= I - 1ii * Max;
+
+  #l10.
+    Sum := Sum + A[I];
+
+  #l12.
+    if !(Max < A[I]) then goto l11;
+
+  #l13.
+    Max := A[I];
+
+  #l11.
+    // empty loc
+
+  #l14.
+    assert Sum <= I * Max;
+
+  #l15.
+    if I == _tcomp1 then goto l3;
+
+  #l16.
+    I := I + 1ii;
+
+  #l17.
+    goto l8;
+
+  #l3.
+    // empty loc
+
+  #l18.
+    return (Sum, Max);
+}package MaxAndSum;
+
+
+typealias Natural Element;
+
+typealias Positive anonymousType$0;
+
+typealias _ARRAY_ ElementArray;
+
+const $CONST {
+  N = (Natural) 100ii;
+}
+
+procedure MaxAndSum (
+        ElementArray A,
+        Natural Sum,
+        Element Max) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

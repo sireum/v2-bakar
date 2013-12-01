@@ -75,7 +75,7 @@ procedure Natural Count_Even (
     // empty loc
 
   #l21.
-    if !(X[J] % 2ii == 0ii) then goto l20;
+    if !(X[J] MOD 2ii == 0ii) then goto l20;
 
   #l22.
     C := C + 1ii;
@@ -97,6 +97,19 @@ procedure Natural Count_Even (
 
   #l26.
     return C;
+}
+
+procedure Natural Count_Odd (
+        T X) {
+  local
+    Natural _tcomp4;
+
+
+  #l27.
+    call _tcomp4 := Count_Even (X);
+
+  #l28.
+    return attribute__uif__length `X - _tcomp4;
 }package Arrays;
 
 
@@ -131,3 +144,7 @@ typealias Float Float;
 typealias universal_integer universal_integer;
 
 typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

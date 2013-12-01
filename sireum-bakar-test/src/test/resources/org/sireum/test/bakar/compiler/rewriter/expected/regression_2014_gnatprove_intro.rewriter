@@ -1,0 +1,276 @@
+package __anonymousPackage$0;
+
+
+const $CONST {
+  I = (Item) ` {
+    Price = 10ii,
+    Number = 1ii
+  };
+
+  B = (Basket) `Basket { iter => 
+      switch iter
+        case 1ii => I
+  };
+
+  P = (My_Int) Price_Of_Basket (B);
+}
+
+procedure Test {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #rwl0.
+    _t0 := "\"Price of basket is\"";
+
+  #rwl1.
+    _t1 := attribute__uif__iamge (`My_Int, P);
+
+  #l1.
+    call Put (_t0 STRING_CONCATENATE _t1);
+
+  #l2.
+    return;
+}package Pricing;
+
+
+procedure Sat::My_Int Price_Of_Item (
+        Item It) {
+  local
+    My_Int _tcomp0;
+
+
+  #l3.
+    call _tcomp0 := Sat::Mult (It.Price, It.Number);
+
+  #l4.
+    return _tcomp0;
+}
+
+procedure Sat::My_Int Price_Of_Basket (
+        Basket Bk) {
+  local
+    Sat::My_Int Total;
+    Positive It;
+    Positive _tcomp1;
+    Positive _tcomp2;
+    My_Int _tcomp3;
+    My_Int _tcomp4;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+
+
+  #l5.
+    Total := 0ii;
+
+  #l7.
+    _tcomp1 := attribute__uif__first (Bk);
+
+  #l8.
+    _tcomp2 := attribute__uif__last (Bk);
+
+  #rwl0.
+    _t0 := _tcomp1;
+
+  #rwl1.
+    _t1 := _tcomp2;
+
+  #l9.
+    if _t0 > _t1 then goto l6;
+
+  #l10.
+    It := _tcomp1;
+
+  #l11.
+    // empty loc
+
+  #rwl2.
+    _t2 := It;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #rwl4.
+    _t4 := Total;
+
+  #rwl5.
+    _t5 := Price_Of_Item (Bk[K]);
+
+  #l12.
+    assert proof__uif__loop_invariant proof__uif__for_all {Positive K => 
+        switch K
+          case (attribute__uif__first `Bk, _t2 - _t3) => _t4 >= _t5
+          default => true};
+
+  #l13.
+    call _tcomp3 := Price_Of_Item (Bk[It]);
+
+  #l14.
+    call _tcomp4 := Sat::Add (Total, _tcomp3);
+
+  #l15.
+    Total := _tcomp4;
+
+  #rwl6.
+    _t6 := It;
+
+  #rwl7.
+    _t7 := _tcomp2;
+
+  #l16.
+    if _t6 == _t7 then goto l6;
+
+  #rwl8.
+    _t8 := It;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #l17.
+    It := _t8 + _t9;
+
+  #l18.
+    goto l11;
+
+  #l6.
+    // empty loc
+
+  #l19.
+    return Total;
+}package Sat;
+
+
+procedure My_Int Add (
+        My_Int X,
+        My_Int X) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+
+
+  #rwl0.
+    _t0 := X;
+
+  #rwl1.
+    _t1 := Y;
+
+  #rwl2.
+    _t2 := _t0 + _t1;
+
+  #rwl3.
+    _t3 := 10000ii;
+
+  #rwl4.
+    _t4 := X;
+
+  #rwl5.
+    _t5 := Y;
+
+  #l20.
+    return 
+        if _t2 < _t3 then _t4 + _t5
+        else 10000ii;
+}
+
+procedure My_Int Mult (
+        My_Int X,
+        My_Int X) {
+  local
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+
+
+  #rwl6.
+    _t6 := X;
+
+  #rwl7.
+    _t7 := Y;
+
+  #rwl8.
+    _t8 := _t6 * _t7;
+
+  #rwl9.
+    _t9 := 10000ii;
+
+  #rwl10.
+    _t10 := X;
+
+  #rwl11.
+    _t11 := Y;
+
+  #l21.
+    return 
+        if _t8 < _t9 then _t10 * _t11
+        else 10000ii;
+}package Pricing;
+
+
+record Item {
+
+  Sat::My_Int Price;
+
+  Sat::My_Int Number;
+}
+
+typealias _UNCONSTRAINED_ARRAY_ Basket;
+
+procedure Sat::My_Int Price_Of_Item (
+        Item It) {
+
+}
+
+procedure Sat::My_Int Price_Of_Basket (
+        Basket Bk) {
+
+}package Sat;
+
+
+typealias Integer My_Int;
+
+procedure My_Int Add (
+        My_Int X,
+        My_Int Y) {
+
+}
+
+procedure My_Int Mult (
+        My_Int X,
+        My_Int Y) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

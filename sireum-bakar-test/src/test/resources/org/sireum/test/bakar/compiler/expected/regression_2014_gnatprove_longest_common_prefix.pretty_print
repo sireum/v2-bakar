@@ -1,0 +1,3522 @@
+lcp.adb
+package __anonymousPackage$0;
+
+
+procedure Natural LCP (
+        Text A
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/LCP-3:10/A-3:15</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>lcp.adb</string>
+                 <int>4</int>
+                 <int>15</int>
+                 <int>4</int>
+                 <int>15</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/LCP-3:10/X-3:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>lcp.adb</string>
+                 <int>4</int>
+                 <int>25</int>
+                 <int>4</int>
+                 <int>25</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer Y
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/LCP-3:10/Y-3:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>lcp.adb</string>
+                 <int>4</int>
+                 <int>28</int>
+                 <int>4</int>
+                 <int>28</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function_body/LCP-3:10</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>lcp.adb</string>
+         <int>4</int>
+         <int>1</int>
+         <int>19</int>
+         <int>8</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Natural L
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>lcp.adb</string>
+             <int>5</int>
+             <int>4</int>
+             <int>5</int>
+             <int>4</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l1.
+    L := 0ii;
+
+  #l3.
+    // empty loc
+
+  #l4.
+    if !(X + L <= attribute__uif__last `A &&& Y + L <= attribute__uif__last `A &&& A[X + L] == A[Y + L]) then goto l2;
+
+  #l5.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer K => 
+        switch K
+          case (0ii, L - 1ii) => A[X + K] == A[Y + K]
+          default => true}
+        @LOOP_INVARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l6.
+    assert proof__uif__loop_variant { increases => L}
+        @LOOP_VARIANT
+
+          ("""<boolean>true</boolean>""")
+    ;
+
+  #l7.
+    L := L + 1ii;
+
+  #l8.
+    goto l3;
+
+  #l2.
+    // empty loc
+
+  #l9.
+    return L;
+}
+
+fake/standard.ads
+package Standard;
+
+
+typealias Boolean Boolean
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Boolean</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
+;
+
+typealias Integer Integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Integer</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
+;
+
+typealias Integer Natural
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Natural</string>
+         <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
+;
+
+typealias Integer Positive
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Positive</string>
+         <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
+;
+
+typealias Float Float
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Float</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
+;
+
+typealias universal_integer universal_integer
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string sid="1">universal_integer</string>
+         <string sid="2">ada://ordinary_type/universal_integer</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
+;
+
+typealias universal_real universal_real
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>universal_real</string>
+         <string sid="1">ada://ordinary_type/universal_real</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
+
+typealias Character Character
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Character</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+;
+
+typealias String String
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>String</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+;
+
+lcp.ads
+package __anonymousPackage$1;
+
+
+procedure Natural LCP (
+        Text A
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/LCP-3:10/A-3:15</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>lcp.ads</string>
+                 <int>3</int>
+                 <int>15</int>
+                 <int>3</int>
+                 <int>15</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer X
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/LCP-3:10/X-3:25</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>lcp.ads</string>
+                 <int>3</int>
+                 <int>25</int>
+                 <int>3</int>
+                 <int>25</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+        ,
+        Integer Y
+            @BAKAR_REF_URI
+
+              ("""<string sid="1">ada://parameter/LCP-3:10/Y-3:28</string>""")
+
+            @BAKAR_PARAM_INFO
+
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+                 <__paramMode>IN</__paramMode>
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+
+            @util.loc
+
+              ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+                 <string>lcp.ads</string>
+                 <int>3</int>
+                 <int>28</int>
+                 <int>3</int>
+                 <int>28</int>
+               </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+)
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://function/LCP-3:10</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__contractCases class="icol.$colon$colon" ttype="ilist">
+           <org.sireum.pilar.ast.TupleExp cid="1" size="1">
+             <ivector ttype="ivector">
+               <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
+                 <string>!=</string>
+                 <org.sireum.pilar.ast.IndexingExp cid="3" size="2">
+                   <org.sireum.pilar.ast.NameExp cid="4" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="5" size="1">
+                       <string>A</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="6" size="4">
+                             <string>ada</string>
+                             <string>parameter</string>
+                             <ilist ttype="ilist">
+                               <string>LCP-3:10</string>
+                               <string>A-3:15</string>
+                             </ilist>
+                             <string sid="1">ada://parameter/LCP-3:10/A-3:15</string>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_REF_URI</string>
+                           <string srefid="1"/>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string sid="2">ada://ordinary_type/Types-1:9/Text-3:9</string>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="7" size="5">
+                           <string>lcp.ads</string>
+                           <int>11</int>
+                           <int>7</int>
+                           <int>11</int>
+                           <int>7</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameExp>
+                   <ilist ttype="ilist">
+                     <org.sireum.pilar.ast.NameExp cid="8" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="9" size="1">
+                         <string>X</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                               <string>ada</string>
+                               <string>parameter</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                                 <string>X-3:25</string>
+                               </ilist>
+                               <string sid="3">ada://parameter/LCP-3:10/X-3:25</string>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="3"/>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string sid="4">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
+                             <string>lcp.ads</string>
+                             <int>11</int>
+                             <int>10</int>
+                             <int>11</int>
+                             <int>10</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                   </ilist>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
+                         <string>lcp.ads</string>
+                         <int>11</int>
+                         <int>7</int>
+                         <int>11</int>
+                         <int>11</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.IndexingExp>
+                 <org.sireum.pilar.ast.IndexingExp cid="13" size="2">
+                   <org.sireum.pilar.ast.NameExp cid="14" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="15" size="1">
+                       <string>A</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="16" size="4">
+                             <string>ada</string>
+                             <string>parameter</string>
+                             <ilist ttype="ilist">
+                               <string>LCP-3:10</string>
+                               <string>A-3:15</string>
+                             </ilist>
+                             <string srefid="1"/>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_REF_URI</string>
+                           <string srefid="1"/>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="2"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="17" size="5">
+                           <string>lcp.ads</string>
+                           <int>11</int>
+                           <int>16</int>
+                           <int>11</int>
+                           <int>16</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameExp>
+                   <ilist ttype="ilist">
+                     <org.sireum.pilar.ast.NameExp cid="18" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="19" size="1">
+                         <string>Y</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="20" size="4">
+                               <string>ada</string>
+                               <string>parameter</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                                 <string>Y-3:28</string>
+                               </ilist>
+                               <string sid="5">ada://parameter/LCP-3:10/Y-3:28</string>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="5"/>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="4"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="21" size="5">
+                             <string>lcp.ads</string>
+                             <int>11</int>
+                             <int>19</int>
+                             <int>11</int>
+                             <int>19</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                   </ilist>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="22" size="5">
+                         <string>lcp.ads</string>
+                         <int>11</int>
+                         <int>16</int>
+                         <int>11</int>
+                         <int>20</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.IndexingExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string sid="6">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="23" size="5">
+                       <string>lcp.ads</string>
+                       <int>11</int>
+                       <int>7</int>
+                       <int>11</int>
+                       <int>20</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.BinaryExp>
+               <org.sireum.pilar.ast.BinaryExp cid="24" size="3">
+                 <string>==</string>
+                 <org.sireum.pilar.ast.CallExp cid="25" size="2">
+                   <org.sireum.pilar.ast.NameExp cid="26" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="27" size="1">
+                       <string sid="7">attribute__uif__result</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="28" size="4">
+                             <string>ada</string>
+                             <string>function__uif</string>
+                             <ilist ttype="ilist">
+                               <string srefid="7"/>
+                             </ilist>
+                             <string sid="8">ada://function__uif/attribute__uif__result</string>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                   </org.sireum.pilar.ast.NameExp>
+                   <org.sireum.pilar.ast.NameExp cid="29" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="30" size="1">
+                       <string>LCP</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="31" size="4">
+                             <string>ada</string>
+                             <string>function</string>
+                             <ilist ttype="ilist">
+                               <string>LCP-3:10</string>
+                             </ilist>
+                             <string sid="9">ada://function/LCP-3:10</string>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_REF_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="32" size="5">
+                           <string>lcp.ads</string>
+                           <int>11</int>
+                           <int>25</int>
+                           <int>11</int>
+                           <int>27</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameExp>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="10">ada://subtype/Standard-1:1/Natural-1:1</string>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="33" size="5">
+                         <string>lcp.ads</string>
+                         <int>11</int>
+                         <int>25</int>
+                         <int>11</int>
+                         <int>34</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.CallExp>
+                 <org.sireum.pilar.ast.LiteralExp cid="34" size="3">
+                   <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                   <scala.math.BigInt>
+                     <bigInteger>0</bigInteger>
+                   </scala.math.BigInt>
+                   <string>0ii</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string sid="11">ada://ordinary_type/universal_integer</string>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="35" size="5">
+                         <string>lcp.ads</string>
+                         <int>11</int>
+                         <int>38</int>
+                         <int>11</int>
+                         <int>38</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.LiteralExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="36" size="5">
+                       <string>lcp.ads</string>
+                       <int>11</int>
+                       <int>25</int>
+                       <int>11</int>
+                       <int>38</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.BinaryExp>
+             </ivector>
+           </org.sireum.pilar.ast.TupleExp>
+           <org.sireum.pilar.ast.TupleExp cid="37" size="1">
+             <ivector ttype="ivector">
+               <org.sireum.pilar.ast.BinaryExp cid="38" size="3">
+                 <string>==</string>
+                 <org.sireum.pilar.ast.NameExp cid="39" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="40" size="1">
+                     <string>X</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="41" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>X-3:25</string>
+                           </ilist>
+                           <string srefid="3"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="3"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="42" size="5">
+                         <string>lcp.ads</string>
+                         <int>12</int>
+                         <int>7</int>
+                         <int>12</int>
+                         <int>7</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="43" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="44" size="1">
+                     <string>Y</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="45" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>Y-3:28</string>
+                           </ilist>
+                           <string srefid="5"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="5"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="46" size="5">
+                         <string>lcp.ads</string>
+                         <int>12</int>
+                         <int>11</int>
+                         <int>12</int>
+                         <int>11</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="47" size="5">
+                       <string>lcp.ads</string>
+                       <int>12</int>
+                       <int>7</int>
+                       <int>12</int>
+                       <int>11</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.BinaryExp>
+               <org.sireum.pilar.ast.BinaryExp cid="48" size="3">
+                 <string>==</string>
+                 <org.sireum.pilar.ast.CallExp cid="49" size="2">
+                   <org.sireum.pilar.ast.NameExp cid="50" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="51" size="1">
+                       <string srefid="7"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="52" size="4">
+                             <string>ada</string>
+                             <string>function__uif</string>
+                             <ilist ttype="ilist">
+                               <string srefid="7"/>
+                             </ilist>
+                             <string srefid="8"/>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                   </org.sireum.pilar.ast.NameExp>
+                   <org.sireum.pilar.ast.NameExp cid="53" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="54" size="1">
+                       <string>LCP</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="55" size="4">
+                             <string>ada</string>
+                             <string>function</string>
+                             <ilist ttype="ilist">
+                               <string>LCP-3:10</string>
+                             </ilist>
+                             <string srefid="9"/>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_REF_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="56" size="5">
+                           <string>lcp.ads</string>
+                           <int>12</int>
+                           <int>25</int>
+                           <int>12</int>
+                           <int>27</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameExp>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="10"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="57" size="5">
+                         <string>lcp.ads</string>
+                         <int>12</int>
+                         <int>25</int>
+                         <int>12</int>
+                         <int>34</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.CallExp>
+                 <org.sireum.pilar.ast.BinaryExp cid="58" size="3">
+                   <string>+</string>
+                   <org.sireum.pilar.ast.BinaryExp cid="59" size="3">
+                     <string>-</string>
+                     <org.sireum.pilar.ast.CallExp cid="60" size="2">
+                       <org.sireum.pilar.ast.NameExp cid="61" size="1">
+                         <org.sireum.pilar.ast.NameUser cid="62" size="1">
+                           <string sid="12">attribute__uif__last</string>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="63" size="4">
+                                 <string>ada</string>
+                                 <string>function__uif</string>
+                                 <ilist ttype="ilist">
+                                   <string srefid="12"/>
+                                 </ilist>
+                                 <string sid="13">ada://function__uif/attribute__uif__last</string>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                       </org.sireum.pilar.ast.NameExp>
+                       <org.sireum.pilar.ast.TypeExp cid="64" size="1">
+                         <org.sireum.pilar.ast.NamedTypeSpec cid="65" size="2">
+                           <org.sireum.pilar.ast.NameUser cid="66" size="1">
+                             <string>A</string>
+                             <properties mtype="mlinkedmap">
+                               <entry>
+                                 <string>pilar.symbol</string>
+                                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="67" size="4">
+                                   <string>ada</string>
+                                   <string>parameter</string>
+                                   <ilist ttype="ilist">
+                                     <string>LCP-3:10</string>
+                                     <string>A-3:15</string>
+                                   </ilist>
+                                   <string srefid="1"/>
+                                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                               </entry>
+                               <entry>
+                                 <string>BAKAR_REF_URI</string>
+                                 <string srefid="1"/>
+                               </entry>
+                               <entry>
+                                 <string>BAKAR_TYPE_URI</string>
+                                 <string srefid="2"/>
+                               </entry>
+                             </properties>
+                           </org.sireum.pilar.ast.NameUser>
+                           <ivector ttype="ivector"/>
+                         </org.sireum.pilar.ast.NamedTypeSpec>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="2"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.TypeExp>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="2"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="68" size="5">
+                             <string>lcp.ads</string>
+                             <int>12</int>
+                             <int>38</int>
+                             <int>12</int>
+                             <int>43</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.CallExp>
+                     <org.sireum.pilar.ast.NameExp cid="69" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="70" size="1">
+                         <string>X</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="71" size="4">
+                               <string>ada</string>
+                               <string>parameter</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                                 <string>X-3:25</string>
+                               </ilist>
+                               <string srefid="3"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="3"/>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="4"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="72" size="5">
+                             <string>lcp.ads</string>
+                             <int>12</int>
+                             <int>47</int>
+                             <int>12</int>
+                             <int>47</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="73" size="5">
+                           <string>lcp.ads</string>
+                           <int>12</int>
+                           <int>38</int>
+                           <int>12</int>
+                           <int>47</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.BinaryExp>
+                   <org.sireum.pilar.ast.LiteralExp cid="74" size="3">
+                     <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                     <scala.math.BigInt>
+                       <bigInteger>1</bigInteger>
+                     </scala.math.BigInt>
+                     <string>1ii</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="11"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="75" size="5">
+                           <string>lcp.ads</string>
+                           <int>12</int>
+                           <int>51</int>
+                           <int>12</int>
+                           <int>51</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.LiteralExp>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="76" size="5">
+                         <string>lcp.ads</string>
+                         <int>12</int>
+                         <int>38</int>
+                         <int>12</int>
+                         <int>51</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.BinaryExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="77" size="5">
+                       <string>lcp.ads</string>
+                       <int>12</int>
+                       <int>25</int>
+                       <int>12</int>
+                       <int>51</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.BinaryExp>
+             </ivector>
+           </org.sireum.pilar.ast.TupleExp>
+           <org.sireum.pilar.ast.BinaryExp cid="78" size="3">
+             <string>&gt;</string>
+             <org.sireum.pilar.ast.CallExp cid="79" size="2">
+               <org.sireum.pilar.ast.NameExp cid="80" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="81" size="1">
+                   <string srefid="7"/>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="82" size="4">
+                         <string>ada</string>
+                         <string>function__uif</string>
+                         <ilist ttype="ilist">
+                           <string srefid="7"/>
+                         </ilist>
+                         <string srefid="8"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+               </org.sireum.pilar.ast.NameExp>
+               <org.sireum.pilar.ast.NameExp cid="83" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="84" size="1">
+                   <string>LCP</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="85" size="4">
+                         <string>ada</string>
+                         <string>function</string>
+                         <ilist ttype="ilist">
+                           <string>LCP-3:10</string>
+                         </ilist>
+                         <string srefid="9"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="9"/>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="86" size="5">
+                       <string>lcp.ads</string>
+                       <int>13</int>
+                       <int>25</int>
+                       <int>13</int>
+                       <int>27</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="10"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="87" size="5">
+                     <string>lcp.ads</string>
+                     <int>13</int>
+                     <int>25</int>
+                     <int>13</int>
+                     <int>34</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.CallExp>
+             <org.sireum.pilar.ast.LiteralExp cid="88" size="3">
+               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+               <scala.math.BigInt>
+                 <bigInteger>0</bigInteger>
+               </scala.math.BigInt>
+               <string>0ii</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="11"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="89" size="5">
+                     <string>lcp.ads</string>
+                     <int>13</int>
+                     <int>38</int>
+                     <int>13</int>
+                     <int>38</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.LiteralExp>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="6"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="90" size="5">
+                   <string>lcp.ads</string>
+                   <int>13</int>
+                   <int>25</int>
+                   <int>13</int>
+                   <int>38</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.BinaryExp>
+         </__contractCases>
+         <__pre class="org.sireum.pilar.ast.BinaryExp" cid="91" size="3">
+           <string>&amp;&amp;&amp;</string>
+           <org.sireum.pilar.ast.BinaryExp cid="92" size="3">
+             <string>&amp;&amp;&amp;</string>
+             <org.sireum.pilar.ast.BinaryExp cid="93" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.CallExp cid="94" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="95" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="96" size="1">
+                     <string sid="14">attribute__uif__first</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="97" size="4">
+                           <string>ada</string>
+                           <string>function__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="14"/>
+                           </ilist>
+                           <string sid="15">ada://function__uif/attribute__uif__first</string>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="98" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="99" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="100" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>A-3:15</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="101" size="5">
+                         <string>lcp.ads</string>
+                         <int>4</int>
+                         <int>16</int>
+                         <int>4</int>
+                         <int>16</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="2"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <org.sireum.pilar.ast.NameExp cid="102" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="103" size="1">
+                   <string>X</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="104" size="4">
+                         <string>ada</string>
+                         <string>parameter</string>
+                         <ilist ttype="ilist">
+                           <string>LCP-3:10</string>
+                           <string>X-3:25</string>
+                         </ilist>
+                         <string srefid="3"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="3"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="4"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="105" size="5">
+                       <string>lcp.ads</string>
+                       <int>4</int>
+                       <int>11</int>
+                       <int>4</int>
+                       <int>11</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <org.sireum.pilar.ast.BinaryExp cid="106" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.NameExp crefid="102"/>
+               <org.sireum.pilar.ast.CallExp cid="107" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="108" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="109" size="1">
+                     <string srefid="12"/>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="110" size="4">
+                           <string>ada</string>
+                           <string>function__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="12"/>
+                           </ilist>
+                           <string srefid="13"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="111" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="112" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="113" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>A-3:15</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="114" size="5">
+                         <string>lcp.ads</string>
+                         <int>4</int>
+                         <int>16</int>
+                         <int>4</int>
+                         <int>16</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="2"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="6"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="115" size="5">
+                   <string>lcp.ads</string>
+                   <int>4</int>
+                   <int>11</int>
+                   <int>4</int>
+                   <int>22</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.BinaryExp>
+           <org.sireum.pilar.ast.BinaryExp cid="116" size="3">
+             <string>&amp;&amp;&amp;</string>
+             <org.sireum.pilar.ast.BinaryExp cid="117" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.CallExp cid="118" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="119" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="120" size="1">
+                     <string srefid="14"/>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="121" size="4">
+                           <string>ada</string>
+                           <string>function__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="14"/>
+                           </ilist>
+                           <string srefid="15"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="122" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="123" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="124" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>A-3:15</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="125" size="5">
+                         <string>lcp.ads</string>
+                         <int>4</int>
+                         <int>38</int>
+                         <int>4</int>
+                         <int>38</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="2"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <org.sireum.pilar.ast.NameExp cid="126" size="1">
+                 <org.sireum.pilar.ast.NameUser cid="127" size="1">
+                   <string>Y</string>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="128" size="4">
+                         <string>ada</string>
+                         <string>parameter</string>
+                         <ilist ttype="ilist">
+                           <string>LCP-3:10</string>
+                           <string>Y-3:28</string>
+                         </ilist>
+                         <string srefid="5"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="5"/>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameUser>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="4"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="129" size="5">
+                       <string>lcp.ads</string>
+                       <int>4</int>
+                       <int>33</int>
+                       <int>4</int>
+                       <int>33</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <org.sireum.pilar.ast.BinaryExp cid="130" size="3">
+               <string>&lt;=</string>
+               <org.sireum.pilar.ast.NameExp crefid="126"/>
+               <org.sireum.pilar.ast.CallExp cid="131" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="132" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="133" size="1">
+                     <string srefid="12"/>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="134" size="4">
+                           <string>ada</string>
+                           <string>function__uif</string>
+                           <ilist ttype="ilist">
+                             <string srefid="12"/>
+                           </ilist>
+                           <string srefid="13"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                 </org.sireum.pilar.ast.NameExp>
+                 <org.sireum.pilar.ast.NameExp cid="135" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="136" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="137" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>A-3:15</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="138" size="5">
+                         <string>lcp.ads</string>
+                         <int>4</int>
+                         <int>38</int>
+                         <int>4</int>
+                         <int>38</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="2"/>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.CallExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="6"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="139" size="5">
+                   <string>lcp.ads</string>
+                   <int>4</int>
+                   <int>33</int>
+                   <int>4</int>
+                   <int>44</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.BinaryExp>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string srefid="6"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="140" size="5">
+                 <string>lcp.ads</string>
+                 <int>4</int>
+                 <int>11</int>
+                 <int>4</int>
+                 <int>44</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </__pre>
+         <__post class="org.sireum.pilar.ast.BinaryExp" cid="141" size="3">
+           <string>&amp;&amp;&amp;</string>
+           <org.sireum.pilar.ast.CallExp cid="142" size="2">
+             <org.sireum.pilar.ast.NameExp cid="143" size="1">
+               <org.sireum.pilar.ast.NameUser cid="144" size="1">
+                 <string sid="16">proof__uif__for_all</string>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>pilar.symbol</string>
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="145" size="4">
+                       <string>ada</string>
+                       <string>function__uif</string>
+                       <ilist ttype="ilist">
+                         <string srefid="16"/>
+                       </ilist>
+                       <string sid="17">ada://function__uif/proof__uif__for_all</string>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.NameUser>
+             </org.sireum.pilar.ast.NameExp>
+             <org.sireum.pilar.ast.FunExp cid="146" size="1">
+               <ivector ttype="ivector">
+                 <org.sireum.pilar.ast.Matching cid="147" size="2">
+                   <ivector ttype="ivector">
+                     <org.sireum.pilar.ast.ParamDecl cid="148" size="3">
+                       <some etype="org.sireum.pilar.ast.NamedTypeSpec" cid="149" size="2">
+                         <org.sireum.pilar.ast.NameUser cid="150" size="1">
+                           <string sid="18">universal_integer</string>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>BAKAR_REF_URI</string>
+                               <string srefid="11"/>
+                             </entry>
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="151" size="4">
+                                 <string>ada</string>
+                                 <string>ordinary_type</string>
+                                 <ilist ttype="ilist">
+                                   <string srefid="18"/>
+                                 </ilist>
+                                 <string srefid="11"/>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                         <ivector ttype="ivector"/>
+                       </some>
+                       <org.sireum.pilar.ast.NameDefinition cid="152" size="1">
+                         <string>K</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="153" size="4">
+                               <string>ada</string>
+                               <string>loop_parameter</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                                 <string>K-6:14</string>
+                               </ilist>
+                               <string sid="19">ada://loop_parameter/LCP-3:10/K-6:14</string>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="19"/>
+                           </entry>
+                           <entry>
+                             <string>util.loc</string>
+                             <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="154" size="5">
+                               <string>lcp.ads</string>
+                               <int>6</int>
+                               <int>14</int>
+                               <int>6</int>
+                               <int>14</int>
+                             </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="11"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameDefinition>
+                       <ivector ttype="ivector"/>
+                     </org.sireum.pilar.ast.ParamDecl>
+                   </ivector>
+                   <org.sireum.pilar.ast.SwitchExp cid="155" size="3">
+                     <org.sireum.pilar.ast.NameExp cid="156" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="157" size="1">
+                         <string>K</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 crefid="153"/>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="19"/>
+                           </entry>
+                           <entry>
+                             <string>util.loc</string>
+                             <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl crefid="154"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="11"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                     <ivector ttype="ivector">
+                       <org.sireum.pilar.ast.SwitchCaseExp cid="158" size="3">
+                         <org.sireum.pilar.ast.TupleExp cid="159" size="1">
+                           <ivector ttype="ivector">
+                             <org.sireum.pilar.ast.LiteralExp cid="160" size="3">
+                               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                               <scala.math.BigInt>
+                                 <bigInteger>0</bigInteger>
+                               </scala.math.BigInt>
+                               <string>0ii</string>
+                               <properties mtype="mlinkedmap">
+                                 <entry>
+                                   <string>BAKAR_TYPE_URI</string>
+                                   <string srefid="11"/>
+                                 </entry>
+                                 <entry>
+                                   <string>util.loc</string>
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="161" size="5">
+                                     <string>lcp.ads</string>
+                                     <int>6</int>
+                                     <int>19</int>
+                                     <int>6</int>
+                                     <int>19</int>
+                                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                 </entry>
+                               </properties>
+                             </org.sireum.pilar.ast.LiteralExp>
+                             <org.sireum.pilar.ast.BinaryExp cid="162" size="3">
+                               <string>-</string>
+                               <org.sireum.pilar.ast.CallExp cid="163" size="2">
+                                 <org.sireum.pilar.ast.NameExp cid="164" size="1">
+                                   <org.sireum.pilar.ast.NameUser cid="165" size="1">
+                                     <string srefid="7"/>
+                                     <properties mtype="mlinkedmap">
+                                       <entry>
+                                         <string>pilar.symbol</string>
+                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="166" size="4">
+                                           <string>ada</string>
+                                           <string>function__uif</string>
+                                           <ilist ttype="ilist">
+                                             <string srefid="7"/>
+                                           </ilist>
+                                           <string srefid="8"/>
+                                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                       </entry>
+                                     </properties>
+                                   </org.sireum.pilar.ast.NameUser>
+                                 </org.sireum.pilar.ast.NameExp>
+                                 <org.sireum.pilar.ast.NameExp cid="167" size="1">
+                                   <org.sireum.pilar.ast.NameUser cid="168" size="1">
+                                     <string>LCP</string>
+                                     <properties mtype="mlinkedmap">
+                                       <entry>
+                                         <string>pilar.symbol</string>
+                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="169" size="4">
+                                           <string>ada</string>
+                                           <string>function</string>
+                                           <ilist ttype="ilist">
+                                             <string>LCP-3:10</string>
+                                           </ilist>
+                                           <string srefid="9"/>
+                                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_REF_URI</string>
+                                         <string srefid="9"/>
+                                       </entry>
+                                     </properties>
+                                   </org.sireum.pilar.ast.NameUser>
+                                   <properties mtype="mlinkedmap">
+                                     <entry>
+                                       <string>util.loc</string>
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="170" size="5">
+                                         <string>lcp.ads</string>
+                                         <int>6</int>
+                                         <int>24</int>
+                                         <int>6</int>
+                                         <int>26</int>
+                                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                     </entry>
+                                   </properties>
+                                 </org.sireum.pilar.ast.NameExp>
+                                 <properties mtype="mlinkedmap">
+                                   <entry>
+                                     <string>BAKAR_TYPE_URI</string>
+                                     <string srefid="10"/>
+                                   </entry>
+                                   <entry>
+                                     <string>util.loc</string>
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="171" size="5">
+                                       <string>lcp.ads</string>
+                                       <int>6</int>
+                                       <int>24</int>
+                                       <int>6</int>
+                                       <int>33</int>
+                                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                   </entry>
+                                 </properties>
+                               </org.sireum.pilar.ast.CallExp>
+                               <org.sireum.pilar.ast.LiteralExp cid="172" size="3">
+                                 <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                                 <scala.math.BigInt>
+                                   <bigInteger>1</bigInteger>
+                                 </scala.math.BigInt>
+                                 <string>1ii</string>
+                                 <properties mtype="mlinkedmap">
+                                   <entry>
+                                     <string>BAKAR_TYPE_URI</string>
+                                     <string srefid="11"/>
+                                   </entry>
+                                   <entry>
+                                     <string>util.loc</string>
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="173" size="5">
+                                       <string>lcp.ads</string>
+                                       <int>6</int>
+                                       <int>37</int>
+                                       <int>6</int>
+                                       <int>37</int>
+                                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                   </entry>
+                                 </properties>
+                               </org.sireum.pilar.ast.LiteralExp>
+                               <properties mtype="mlinkedmap">
+                                 <entry>
+                                   <string>BAKAR_TYPE_URI</string>
+                                   <string srefid="4"/>
+                                 </entry>
+                                 <entry>
+                                   <string>util.loc</string>
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="174" size="5">
+                                     <string>lcp.ads</string>
+                                     <int>6</int>
+                                     <int>24</int>
+                                     <int>6</int>
+                                     <int>37</int>
+                                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                 </entry>
+                               </properties>
+                             </org.sireum.pilar.ast.BinaryExp>
+                           </ivector>
+                         </org.sireum.pilar.ast.TupleExp>
+                         <ivector ttype="ivector"/>
+                         <org.sireum.pilar.ast.BinaryExp cid="175" size="3">
+                           <string>==</string>
+                           <org.sireum.pilar.ast.IndexingExp cid="176" size="2">
+                             <org.sireum.pilar.ast.NameExp cid="177" size="1">
+                               <org.sireum.pilar.ast.NameUser cid="178" size="1">
+                                 <string>A</string>
+                                 <properties mtype="mlinkedmap">
+                                   <entry>
+                                     <string>pilar.symbol</string>
+                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="179" size="4">
+                                       <string>ada</string>
+                                       <string>parameter</string>
+                                       <ilist ttype="ilist">
+                                         <string>LCP-3:10</string>
+                                         <string>A-3:15</string>
+                                       </ilist>
+                                       <string srefid="1"/>
+                                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                   </entry>
+                                   <entry>
+                                     <string>BAKAR_REF_URI</string>
+                                     <string srefid="1"/>
+                                   </entry>
+                                   <entry>
+                                     <string>BAKAR_TYPE_URI</string>
+                                     <string srefid="2"/>
+                                   </entry>
+                                 </properties>
+                               </org.sireum.pilar.ast.NameUser>
+                               <properties mtype="mlinkedmap">
+                                 <entry>
+                                   <string>BAKAR_TYPE_URI</string>
+                                   <string srefid="2"/>
+                                 </entry>
+                                 <entry>
+                                   <string>util.loc</string>
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="180" size="5">
+                                     <string>lcp.ads</string>
+                                     <int>6</int>
+                                     <int>42</int>
+                                     <int>6</int>
+                                     <int>42</int>
+                                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                 </entry>
+                               </properties>
+                             </org.sireum.pilar.ast.NameExp>
+                             <ilist ttype="ilist">
+                               <org.sireum.pilar.ast.BinaryExp cid="181" size="3">
+                                 <string>+</string>
+                                 <org.sireum.pilar.ast.NameExp cid="182" size="1">
+                                   <org.sireum.pilar.ast.NameUser cid="183" size="1">
+                                     <string>X</string>
+                                     <properties mtype="mlinkedmap">
+                                       <entry>
+                                         <string>pilar.symbol</string>
+                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="184" size="4">
+                                           <string>ada</string>
+                                           <string>parameter</string>
+                                           <ilist ttype="ilist">
+                                             <string>LCP-3:10</string>
+                                             <string>X-3:25</string>
+                                           </ilist>
+                                           <string srefid="3"/>
+                                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_REF_URI</string>
+                                         <string srefid="3"/>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_TYPE_URI</string>
+                                         <string srefid="4"/>
+                                       </entry>
+                                     </properties>
+                                   </org.sireum.pilar.ast.NameUser>
+                                   <properties mtype="mlinkedmap">
+                                     <entry>
+                                       <string>BAKAR_TYPE_URI</string>
+                                       <string srefid="4"/>
+                                     </entry>
+                                     <entry>
+                                       <string>util.loc</string>
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="185" size="5">
+                                         <string>lcp.ads</string>
+                                         <int>6</int>
+                                         <int>45</int>
+                                         <int>6</int>
+                                         <int>45</int>
+                                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                     </entry>
+                                   </properties>
+                                 </org.sireum.pilar.ast.NameExp>
+                                 <org.sireum.pilar.ast.NameExp cid="186" size="1">
+                                   <org.sireum.pilar.ast.NameUser cid="187" size="1">
+                                     <string>K</string>
+                                     <properties mtype="mlinkedmap">
+                                       <entry>
+                                         <string>pilar.symbol</string>
+                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="188" size="4">
+                                           <string>ada</string>
+                                           <string>loop_parameter</string>
+                                           <ilist ttype="ilist">
+                                             <string>LCP-3:10</string>
+                                             <string>K-6:14</string>
+                                           </ilist>
+                                           <string srefid="19"/>
+                                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_REF_URI</string>
+                                         <string srefid="19"/>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_TYPE_URI</string>
+                                         <string srefid="4"/>
+                                       </entry>
+                                     </properties>
+                                   </org.sireum.pilar.ast.NameUser>
+                                   <properties mtype="mlinkedmap">
+                                     <entry>
+                                       <string>BAKAR_TYPE_URI</string>
+                                       <string srefid="4"/>
+                                     </entry>
+                                     <entry>
+                                       <string>util.loc</string>
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="189" size="5">
+                                         <string>lcp.ads</string>
+                                         <int>6</int>
+                                         <int>49</int>
+                                         <int>6</int>
+                                         <int>49</int>
+                                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                     </entry>
+                                   </properties>
+                                 </org.sireum.pilar.ast.NameExp>
+                                 <properties mtype="mlinkedmap">
+                                   <entry>
+                                     <string>BAKAR_TYPE_URI</string>
+                                     <string srefid="4"/>
+                                   </entry>
+                                   <entry>
+                                     <string>util.loc</string>
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="190" size="5">
+                                       <string>lcp.ads</string>
+                                       <int>6</int>
+                                       <int>45</int>
+                                       <int>6</int>
+                                       <int>49</int>
+                                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                   </entry>
+                                 </properties>
+                               </org.sireum.pilar.ast.BinaryExp>
+                             </ilist>
+                             <properties mtype="mlinkedmap">
+                               <entry>
+                                 <string>BAKAR_TYPE_URI</string>
+                                 <string srefid="4"/>
+                               </entry>
+                               <entry>
+                                 <string>util.loc</string>
+                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="191" size="5">
+                                   <string>lcp.ads</string>
+                                   <int>6</int>
+                                   <int>42</int>
+                                   <int>6</int>
+                                   <int>50</int>
+                                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                               </entry>
+                             </properties>
+                           </org.sireum.pilar.ast.IndexingExp>
+                           <org.sireum.pilar.ast.IndexingExp cid="192" size="2">
+                             <org.sireum.pilar.ast.NameExp cid="193" size="1">
+                               <org.sireum.pilar.ast.NameUser cid="194" size="1">
+                                 <string>A</string>
+                                 <properties mtype="mlinkedmap">
+                                   <entry>
+                                     <string>pilar.symbol</string>
+                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="195" size="4">
+                                       <string>ada</string>
+                                       <string>parameter</string>
+                                       <ilist ttype="ilist">
+                                         <string>LCP-3:10</string>
+                                         <string>A-3:15</string>
+                                       </ilist>
+                                       <string srefid="1"/>
+                                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                   </entry>
+                                   <entry>
+                                     <string>BAKAR_REF_URI</string>
+                                     <string srefid="1"/>
+                                   </entry>
+                                   <entry>
+                                     <string>BAKAR_TYPE_URI</string>
+                                     <string srefid="2"/>
+                                   </entry>
+                                 </properties>
+                               </org.sireum.pilar.ast.NameUser>
+                               <properties mtype="mlinkedmap">
+                                 <entry>
+                                   <string>BAKAR_TYPE_URI</string>
+                                   <string srefid="2"/>
+                                 </entry>
+                                 <entry>
+                                   <string>util.loc</string>
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="196" size="5">
+                                     <string>lcp.ads</string>
+                                     <int>6</int>
+                                     <int>54</int>
+                                     <int>6</int>
+                                     <int>54</int>
+                                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                 </entry>
+                               </properties>
+                             </org.sireum.pilar.ast.NameExp>
+                             <ilist ttype="ilist">
+                               <org.sireum.pilar.ast.BinaryExp cid="197" size="3">
+                                 <string>+</string>
+                                 <org.sireum.pilar.ast.NameExp cid="198" size="1">
+                                   <org.sireum.pilar.ast.NameUser cid="199" size="1">
+                                     <string>Y</string>
+                                     <properties mtype="mlinkedmap">
+                                       <entry>
+                                         <string>pilar.symbol</string>
+                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="200" size="4">
+                                           <string>ada</string>
+                                           <string>parameter</string>
+                                           <ilist ttype="ilist">
+                                             <string>LCP-3:10</string>
+                                             <string>Y-3:28</string>
+                                           </ilist>
+                                           <string srefid="5"/>
+                                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_REF_URI</string>
+                                         <string srefid="5"/>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_TYPE_URI</string>
+                                         <string srefid="4"/>
+                                       </entry>
+                                     </properties>
+                                   </org.sireum.pilar.ast.NameUser>
+                                   <properties mtype="mlinkedmap">
+                                     <entry>
+                                       <string>BAKAR_TYPE_URI</string>
+                                       <string srefid="4"/>
+                                     </entry>
+                                     <entry>
+                                       <string>util.loc</string>
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="201" size="5">
+                                         <string>lcp.ads</string>
+                                         <int>6</int>
+                                         <int>57</int>
+                                         <int>6</int>
+                                         <int>57</int>
+                                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                     </entry>
+                                   </properties>
+                                 </org.sireum.pilar.ast.NameExp>
+                                 <org.sireum.pilar.ast.NameExp cid="202" size="1">
+                                   <org.sireum.pilar.ast.NameUser cid="203" size="1">
+                                     <string>K</string>
+                                     <properties mtype="mlinkedmap">
+                                       <entry>
+                                         <string>pilar.symbol</string>
+                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="204" size="4">
+                                           <string>ada</string>
+                                           <string>loop_parameter</string>
+                                           <ilist ttype="ilist">
+                                             <string>LCP-3:10</string>
+                                             <string>K-6:14</string>
+                                           </ilist>
+                                           <string srefid="19"/>
+                                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_REF_URI</string>
+                                         <string srefid="19"/>
+                                       </entry>
+                                       <entry>
+                                         <string>BAKAR_TYPE_URI</string>
+                                         <string srefid="4"/>
+                                       </entry>
+                                     </properties>
+                                   </org.sireum.pilar.ast.NameUser>
+                                   <properties mtype="mlinkedmap">
+                                     <entry>
+                                       <string>BAKAR_TYPE_URI</string>
+                                       <string srefid="4"/>
+                                     </entry>
+                                     <entry>
+                                       <string>util.loc</string>
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="205" size="5">
+                                         <string>lcp.ads</string>
+                                         <int>6</int>
+                                         <int>61</int>
+                                         <int>6</int>
+                                         <int>61</int>
+                                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                     </entry>
+                                   </properties>
+                                 </org.sireum.pilar.ast.NameExp>
+                                 <properties mtype="mlinkedmap">
+                                   <entry>
+                                     <string>BAKAR_TYPE_URI</string>
+                                     <string srefid="4"/>
+                                   </entry>
+                                   <entry>
+                                     <string>util.loc</string>
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="206" size="5">
+                                       <string>lcp.ads</string>
+                                       <int>6</int>
+                                       <int>57</int>
+                                       <int>6</int>
+                                       <int>61</int>
+                                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                                   </entry>
+                                 </properties>
+                               </org.sireum.pilar.ast.BinaryExp>
+                             </ilist>
+                             <properties mtype="mlinkedmap">
+                               <entry>
+                                 <string>BAKAR_TYPE_URI</string>
+                                 <string srefid="4"/>
+                               </entry>
+                               <entry>
+                                 <string>util.loc</string>
+                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="207" size="5">
+                                   <string>lcp.ads</string>
+                                   <int>6</int>
+                                   <int>54</int>
+                                   <int>6</int>
+                                   <int>62</int>
+                                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                               </entry>
+                             </properties>
+                           </org.sireum.pilar.ast.IndexingExp>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>BAKAR_TYPE_URI</string>
+                               <string srefid="6"/>
+                             </entry>
+                             <entry>
+                               <string>util.loc</string>
+                               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="208" size="5">
+                                 <string>lcp.ads</string>
+                                 <int>6</int>
+                                 <int>42</int>
+                                 <int>6</int>
+                                 <int>62</int>
+                               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.BinaryExp>
+                       </org.sireum.pilar.ast.SwitchCaseExp>
+                     </ivector>
+                     <org.sireum.pilar.ast.LiteralExp cid="209" size="3">
+                       <org.sireum.pilar.ast.LiteralType>BOOLEAN</org.sireum.pilar.ast.LiteralType>
+                       <boolean>true</boolean>
+                       <string>true</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="6"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.LiteralExp>
+                   </org.sireum.pilar.ast.SwitchExp>
+                 </org.sireum.pilar.ast.Matching>
+               </ivector>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.FunExp>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="6"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="210" size="5">
+                   <string>lcp.ads</string>
+                   <int>6</int>
+                   <int>6</int>
+                   <int>6</int>
+                   <int>62</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.CallExp>
+           <org.sireum.pilar.ast.BinaryExp cid="211" size="3">
+             <string>|||</string>
+             <org.sireum.pilar.ast.BinaryExp cid="212" size="3">
+               <string>|||</string>
+               <org.sireum.pilar.ast.BinaryExp cid="213" size="3">
+                 <string>==</string>
+                 <org.sireum.pilar.ast.BinaryExp cid="214" size="3">
+                   <string>+</string>
+                   <org.sireum.pilar.ast.NameExp cid="215" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="216" size="1">
+                       <string>X</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="217" size="4">
+                             <string>ada</string>
+                             <string>parameter</string>
+                             <ilist ttype="ilist">
+                               <string>LCP-3:10</string>
+                               <string>X-3:25</string>
+                             </ilist>
+                             <string srefid="3"/>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_REF_URI</string>
+                           <string srefid="3"/>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="218" size="5">
+                           <string>lcp.ads</string>
+                           <int>7</int>
+                           <int>17</int>
+                           <int>7</int>
+                           <int>17</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameExp>
+                   <org.sireum.pilar.ast.CallExp cid="219" size="2">
+                     <org.sireum.pilar.ast.NameExp cid="220" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="221" size="1">
+                         <string srefid="7"/>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="222" size="4">
+                               <string>ada</string>
+                               <string>function__uif</string>
+                               <ilist ttype="ilist">
+                                 <string srefid="7"/>
+                               </ilist>
+                               <string srefid="8"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                     </org.sireum.pilar.ast.NameExp>
+                     <org.sireum.pilar.ast.NameExp cid="223" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="224" size="1">
+                         <string>LCP</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="225" size="4">
+                               <string>ada</string>
+                               <string>function</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                               </ilist>
+                               <string srefid="9"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="9"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="226" size="5">
+                             <string>lcp.ads</string>
+                             <int>7</int>
+                             <int>21</int>
+                             <int>7</int>
+                             <int>23</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="10"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="227" size="5">
+                           <string>lcp.ads</string>
+                           <int>7</int>
+                           <int>21</int>
+                           <int>7</int>
+                           <int>30</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.CallExp>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="228" size="5">
+                         <string>lcp.ads</string>
+                         <int>7</int>
+                         <int>17</int>
+                         <int>7</int>
+                         <int>30</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.BinaryExp>
+                 <org.sireum.pilar.ast.BinaryExp cid="229" size="3">
+                   <string>+</string>
+                   <org.sireum.pilar.ast.CallExp cid="230" size="2">
+                     <org.sireum.pilar.ast.NameExp cid="231" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="232" size="1">
+                         <string srefid="12"/>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="233" size="4">
+                               <string>ada</string>
+                               <string>function__uif</string>
+                               <ilist ttype="ilist">
+                                 <string srefid="12"/>
+                               </ilist>
+                               <string srefid="13"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                     </org.sireum.pilar.ast.NameExp>
+                     <org.sireum.pilar.ast.TypeExp cid="234" size="1">
+                       <org.sireum.pilar.ast.NamedTypeSpec cid="235" size="2">
+                         <org.sireum.pilar.ast.NameUser cid="236" size="1">
+                           <string>A</string>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="237" size="4">
+                                 <string>ada</string>
+                                 <string>parameter</string>
+                                 <ilist ttype="ilist">
+                                   <string>LCP-3:10</string>
+                                   <string>A-3:15</string>
+                                 </ilist>
+                                 <string srefid="1"/>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                             <entry>
+                               <string>BAKAR_REF_URI</string>
+                               <string srefid="1"/>
+                             </entry>
+                             <entry>
+                               <string>BAKAR_TYPE_URI</string>
+                               <string srefid="2"/>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                         <ivector ttype="ivector"/>
+                       </org.sireum.pilar.ast.NamedTypeSpec>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="2"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.TypeExp>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="238" size="5">
+                           <string>lcp.ads</string>
+                           <int>7</int>
+                           <int>34</int>
+                           <int>7</int>
+                           <int>39</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.CallExp>
+                   <org.sireum.pilar.ast.LiteralExp cid="239" size="3">
+                     <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                     <scala.math.BigInt>
+                       <bigInteger>1</bigInteger>
+                     </scala.math.BigInt>
+                     <string>1ii</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="11"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="240" size="5">
+                           <string>lcp.ads</string>
+                           <int>7</int>
+                           <int>43</int>
+                           <int>7</int>
+                           <int>43</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.LiteralExp>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="241" size="5">
+                         <string>lcp.ads</string>
+                         <int>7</int>
+                         <int>34</int>
+                         <int>7</int>
+                         <int>43</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.BinaryExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="242" size="5">
+                       <string>lcp.ads</string>
+                       <int>7</int>
+                       <int>17</int>
+                       <int>7</int>
+                       <int>43</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.BinaryExp>
+               <org.sireum.pilar.ast.BinaryExp cid="243" size="3">
+                 <string>==</string>
+                 <org.sireum.pilar.ast.BinaryExp cid="244" size="3">
+                   <string>+</string>
+                   <org.sireum.pilar.ast.NameExp cid="245" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="246" size="1">
+                       <string>Y</string>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>pilar.symbol</string>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="247" size="4">
+                             <string>ada</string>
+                             <string>parameter</string>
+                             <ilist ttype="ilist">
+                               <string>LCP-3:10</string>
+                               <string>Y-3:28</string>
+                             </ilist>
+                             <string srefid="5"/>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_REF_URI</string>
+                           <string srefid="5"/>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameUser>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="248" size="5">
+                           <string>lcp.ads</string>
+                           <int>8</int>
+                           <int>27</int>
+                           <int>8</int>
+                           <int>27</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameExp>
+                   <org.sireum.pilar.ast.CallExp cid="249" size="2">
+                     <org.sireum.pilar.ast.NameExp cid="250" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="251" size="1">
+                         <string srefid="7"/>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="252" size="4">
+                               <string>ada</string>
+                               <string>function__uif</string>
+                               <ilist ttype="ilist">
+                                 <string srefid="7"/>
+                               </ilist>
+                               <string srefid="8"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                     </org.sireum.pilar.ast.NameExp>
+                     <org.sireum.pilar.ast.NameExp cid="253" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="254" size="1">
+                         <string>LCP</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="255" size="4">
+                               <string>ada</string>
+                               <string>function</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                               </ilist>
+                               <string srefid="9"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="9"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="256" size="5">
+                             <string>lcp.ads</string>
+                             <int>8</int>
+                             <int>31</int>
+                             <int>8</int>
+                             <int>33</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="10"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="257" size="5">
+                           <string>lcp.ads</string>
+                           <int>8</int>
+                           <int>31</int>
+                           <int>8</int>
+                           <int>40</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.CallExp>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="258" size="5">
+                         <string>lcp.ads</string>
+                         <int>8</int>
+                         <int>27</int>
+                         <int>8</int>
+                         <int>40</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.BinaryExp>
+                 <org.sireum.pilar.ast.BinaryExp cid="259" size="3">
+                   <string>+</string>
+                   <org.sireum.pilar.ast.CallExp cid="260" size="2">
+                     <org.sireum.pilar.ast.NameExp cid="261" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="262" size="1">
+                         <string srefid="12"/>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="263" size="4">
+                               <string>ada</string>
+                               <string>function__uif</string>
+                               <ilist ttype="ilist">
+                                 <string srefid="12"/>
+                               </ilist>
+                               <string srefid="13"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                     </org.sireum.pilar.ast.NameExp>
+                     <org.sireum.pilar.ast.TypeExp cid="264" size="1">
+                       <org.sireum.pilar.ast.NamedTypeSpec cid="265" size="2">
+                         <org.sireum.pilar.ast.NameUser cid="266" size="1">
+                           <string>A</string>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="267" size="4">
+                                 <string>ada</string>
+                                 <string>parameter</string>
+                                 <ilist ttype="ilist">
+                                   <string>LCP-3:10</string>
+                                   <string>A-3:15</string>
+                                 </ilist>
+                                 <string srefid="1"/>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                             <entry>
+                               <string>BAKAR_REF_URI</string>
+                               <string srefid="1"/>
+                             </entry>
+                             <entry>
+                               <string>BAKAR_TYPE_URI</string>
+                               <string srefid="2"/>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                         <ivector ttype="ivector"/>
+                       </org.sireum.pilar.ast.NamedTypeSpec>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="2"/>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.TypeExp>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="268" size="5">
+                           <string>lcp.ads</string>
+                           <int>8</int>
+                           <int>44</int>
+                           <int>8</int>
+                           <int>49</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.CallExp>
+                   <org.sireum.pilar.ast.LiteralExp cid="269" size="3">
+                     <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+                     <scala.math.BigInt>
+                       <bigInteger>1</bigInteger>
+                     </scala.math.BigInt>
+                     <string>1ii</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="11"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="270" size="5">
+                           <string>lcp.ads</string>
+                           <int>8</int>
+                           <int>53</int>
+                           <int>8</int>
+                           <int>53</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.LiteralExp>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="271" size="5">
+                         <string>lcp.ads</string>
+                         <int>8</int>
+                         <int>44</int>
+                         <int>8</int>
+                         <int>53</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.BinaryExp>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="6"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="272" size="5">
+                       <string>lcp.ads</string>
+                       <int>8</int>
+                       <int>27</int>
+                       <int>8</int>
+                       <int>53</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.BinaryExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="273" size="5">
+                     <string>lcp.ads</string>
+                     <int>7</int>
+                     <int>17</int>
+                     <int>8</int>
+                     <int>53</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <org.sireum.pilar.ast.BinaryExp cid="274" size="3">
+               <string>!=</string>
+               <org.sireum.pilar.ast.IndexingExp cid="275" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="276" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="277" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="278" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>A-3:15</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="279" size="5">
+                         <string>lcp.ads</string>
+                         <int>9</int>
+                         <int>27</int>
+                         <int>9</int>
+                         <int>27</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <ilist ttype="ilist">
+                   <org.sireum.pilar.ast.BinaryExp cid="280" size="3">
+                     <string>+</string>
+                     <org.sireum.pilar.ast.NameExp cid="281" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="282" size="1">
+                         <string>X</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="283" size="4">
+                               <string>ada</string>
+                               <string>parameter</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                                 <string>X-3:25</string>
+                               </ilist>
+                               <string srefid="3"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="3"/>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="4"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="284" size="5">
+                             <string>lcp.ads</string>
+                             <int>9</int>
+                             <int>30</int>
+                             <int>9</int>
+                             <int>30</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                     <org.sireum.pilar.ast.CallExp cid="285" size="2">
+                       <org.sireum.pilar.ast.NameExp cid="286" size="1">
+                         <org.sireum.pilar.ast.NameUser cid="287" size="1">
+                           <string srefid="7"/>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="288" size="4">
+                                 <string>ada</string>
+                                 <string>function__uif</string>
+                                 <ilist ttype="ilist">
+                                   <string srefid="7"/>
+                                 </ilist>
+                                 <string srefid="8"/>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                       </org.sireum.pilar.ast.NameExp>
+                       <org.sireum.pilar.ast.NameExp cid="289" size="1">
+                         <org.sireum.pilar.ast.NameUser cid="290" size="1">
+                           <string>LCP</string>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="291" size="4">
+                                 <string>ada</string>
+                                 <string>function</string>
+                                 <ilist ttype="ilist">
+                                   <string>LCP-3:10</string>
+                                 </ilist>
+                                 <string srefid="9"/>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                             <entry>
+                               <string>BAKAR_REF_URI</string>
+                               <string srefid="9"/>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>util.loc</string>
+                             <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="292" size="5">
+                               <string>lcp.ads</string>
+                               <int>9</int>
+                               <int>34</int>
+                               <int>9</int>
+                               <int>36</int>
+                             </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameExp>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="10"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="293" size="5">
+                             <string>lcp.ads</string>
+                             <int>9</int>
+                             <int>34</int>
+                             <int>9</int>
+                             <int>43</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.CallExp>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="294" size="5">
+                           <string>lcp.ads</string>
+                           <int>9</int>
+                           <int>30</int>
+                           <int>9</int>
+                           <int>43</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.BinaryExp>
+                 </ilist>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="4"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="295" size="5">
+                       <string>lcp.ads</string>
+                       <int>9</int>
+                       <int>27</int>
+                       <int>9</int>
+                       <int>44</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.IndexingExp>
+               <org.sireum.pilar.ast.IndexingExp cid="296" size="2">
+                 <org.sireum.pilar.ast.NameExp cid="297" size="1">
+                   <org.sireum.pilar.ast.NameUser cid="298" size="1">
+                     <string>A</string>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>pilar.symbol</string>
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="299" size="4">
+                           <string>ada</string>
+                           <string>parameter</string>
+                           <ilist ttype="ilist">
+                             <string>LCP-3:10</string>
+                             <string>A-3:15</string>
+                           </ilist>
+                           <string srefid="1"/>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_REF_URI</string>
+                         <string srefid="1"/>
+                       </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="2"/>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.NameUser>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
+                       <string>util.loc</string>
+                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="300" size="5">
+                         <string>lcp.ads</string>
+                         <int>9</int>
+                         <int>49</int>
+                         <int>9</int>
+                         <int>49</int>
+                       </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                     </entry>
+                   </properties>
+                 </org.sireum.pilar.ast.NameExp>
+                 <ilist ttype="ilist">
+                   <org.sireum.pilar.ast.BinaryExp cid="301" size="3">
+                     <string>+</string>
+                     <org.sireum.pilar.ast.NameExp cid="302" size="1">
+                       <org.sireum.pilar.ast.NameUser cid="303" size="1">
+                         <string>Y</string>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>pilar.symbol</string>
+                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="304" size="4">
+                               <string>ada</string>
+                               <string>parameter</string>
+                               <ilist ttype="ilist">
+                                 <string>LCP-3:10</string>
+                                 <string>Y-3:28</string>
+                               </ilist>
+                               <string srefid="5"/>
+                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_REF_URI</string>
+                             <string srefid="5"/>
+                           </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="4"/>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameUser>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="305" size="5">
+                             <string>lcp.ads</string>
+                             <int>9</int>
+                             <int>52</int>
+                             <int>9</int>
+                             <int>52</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.NameExp>
+                     <org.sireum.pilar.ast.CallExp cid="306" size="2">
+                       <org.sireum.pilar.ast.NameExp cid="307" size="1">
+                         <org.sireum.pilar.ast.NameUser cid="308" size="1">
+                           <string srefid="7"/>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="309" size="4">
+                                 <string>ada</string>
+                                 <string>function__uif</string>
+                                 <ilist ttype="ilist">
+                                   <string srefid="7"/>
+                                 </ilist>
+                                 <string srefid="8"/>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                       </org.sireum.pilar.ast.NameExp>
+                       <org.sireum.pilar.ast.NameExp cid="310" size="1">
+                         <org.sireum.pilar.ast.NameUser cid="311" size="1">
+                           <string>LCP</string>
+                           <properties mtype="mlinkedmap">
+                             <entry>
+                               <string>pilar.symbol</string>
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="312" size="4">
+                                 <string>ada</string>
+                                 <string>function</string>
+                                 <ilist ttype="ilist">
+                                   <string>LCP-3:10</string>
+                                 </ilist>
+                                 <string srefid="9"/>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                             </entry>
+                             <entry>
+                               <string>BAKAR_REF_URI</string>
+                               <string srefid="9"/>
+                             </entry>
+                           </properties>
+                         </org.sireum.pilar.ast.NameUser>
+                         <properties mtype="mlinkedmap">
+                           <entry>
+                             <string>util.loc</string>
+                             <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="313" size="5">
+                               <string>lcp.ads</string>
+                               <int>9</int>
+                               <int>56</int>
+                               <int>9</int>
+                               <int>58</int>
+                             </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                           </entry>
+                         </properties>
+                       </org.sireum.pilar.ast.NameExp>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="10"/>
+                         </entry>
+                         <entry>
+                           <string>util.loc</string>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="314" size="5">
+                             <string>lcp.ads</string>
+                             <int>9</int>
+                             <int>56</int>
+                             <int>9</int>
+                             <int>65</int>
+                           </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                         </entry>
+                       </properties>
+                     </org.sireum.pilar.ast.CallExp>
+                     <properties mtype="mlinkedmap">
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
+                       <entry>
+                         <string>util.loc</string>
+                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="315" size="5">
+                           <string>lcp.ads</string>
+                           <int>9</int>
+                           <int>52</int>
+                           <int>9</int>
+                           <int>65</int>
+                         </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                       </entry>
+                     </properties>
+                   </org.sireum.pilar.ast.BinaryExp>
+                 </ilist>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="4"/>
+                   </entry>
+                   <entry>
+                     <string>util.loc</string>
+                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="316" size="5">
+                       <string>lcp.ads</string>
+                       <int>9</int>
+                       <int>49</int>
+                       <int>9</int>
+                       <int>66</int>
+                     </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                   </entry>
+                 </properties>
+               </org.sireum.pilar.ast.IndexingExp>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>BAKAR_TYPE_URI</string>
+                   <string srefid="6"/>
+                 </entry>
+                 <entry>
+                   <string>util.loc</string>
+                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="317" size="5">
+                     <string>lcp.ads</string>
+                     <int>9</int>
+                     <int>27</int>
+                     <int>9</int>
+                     <int>66</int>
+                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.BinaryExp>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="6"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="318" size="5">
+                   <string>lcp.ads</string>
+                   <int>7</int>
+                   <int>17</int>
+                   <int>9</int>
+                   <int>66</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.BinaryExp>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>BAKAR_TYPE_URI</string>
+               <string srefid="6"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="319" size="5">
+                 <string>lcp.ads</string>
+                 <int>6</int>
+                 <int>5</int>
+                 <int>9</int>
+                 <int>67</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </__post>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>lcp.ads</string>
+         <int>3</int>
+         <int>1</int>
+         <int>13</int>
+         <int>40</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+
+}
+
+types.ads
+package Types
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>types.ads</string>
+         <int>1</int>
+         <int>1</int>
+         <int>4</int>
+         <int>10</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+;
+
+
+typealias Positive Index
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.SubTypeDecl cid="1" size="4">
+         <string>Index</string>
+         <string sid="1">ada://subtype/Types-1:9/Index-2:12</string>
+         <string sid="2">ada://subtype/Standard-1:1/Positive-1:1</string>
+         <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
+           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1</bigInteger>
+             </scala.math.BigInt>
+             <string>1ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string sid="3">ada://ordinary_type/universal_integer</string>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>types.ads</string>
+                   <int>2</int>
+                   <int>36</int>
+                   <int>2</int>
+                   <int>36</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.LiteralExp cid="5" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1000000</bigInteger>
+             </scala.math.BigInt>
+             <string>1000000ii</string>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>BAKAR_TYPE_URI</string>
+                 <string srefid="3"/>
+               </entry>
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
+                   <string>types.ads</string>
+                   <int>2</int>
+                   <int>41</int>
+                   <int>2</int>
+                   <int>49</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.LiteralExp>
+         </some>
+       </org.sireum.bakar.symbol.SubTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://subtype/Types-1:9/Index-2:12</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://subtype/Types-1:9/Index-2:12</string>""")
+;
+
+typealias _UNCONSTRAINED_ARRAY_ Text
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Text</string>
+         <string sid="1">ada://ordinary_type/Types-1:9/Text-3:9</string>
+         <org.sireum.bakar.symbol.UnconstrainedArrayDef cid="2" size="3">
+           <int>1</int>
+           <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+           <ilist ttype="ilist">
+             <string sid="3">ada://subtype/Types-1:9/Index-2:12</string>
+           </ilist>
+         </org.sireum.bakar.symbol.UnconstrainedArrayDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Types-1:9/Text-3:9</string>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Types-1:9/Text-3:9</string>""")
+;
+
+main.adb
+package __anonymousPackage$2;
+
+
+procedure Main
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://procedure_body/Main+4:11</string>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string>main.adb</string>
+         <int>4</int>
+         <int>1</int>
+         <int>11</int>
+         <int>9</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+ {
+  local
+    Text A
+        @util.loc
+
+          ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+             <string>main.adb</string>
+             <int>5</int>
+             <int>4</int>
+             <int>5</int>
+             <int>4</int>
+           </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+    ;
+
+
+  #l10.
+    A := { iter => 
+        switch iter
+          case __positional0 => 1ii
+          case __positional1 => 2ii
+          case __positional2 => 3ii
+          case __positional3 => 4ii
+          case __positional4 => 5ii
+          case __positional5 => 1ii
+          case __positional6 => 2ii
+          case __positional7 => 3ii
+          case __positional8 => 4ii
+          case __positional9 => 5ii
+    };
+
+  #l11.
+    call Put_Line ("\"LCP returns non-null\"");
+
+  #l12.
+    assert LCP (A, 1ii, 6ii) == 5ii;
+
+  #l13.
+    call Put_Line ("\"LCP returns null\"");
+
+  #l14.
+    assert LCP (A, 1ii, 7ii) == 0ii;
+
+  #l15.
+    return;
+}
+

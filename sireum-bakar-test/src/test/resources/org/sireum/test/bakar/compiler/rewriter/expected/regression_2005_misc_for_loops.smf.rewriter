@@ -601,6 +601,12 @@ typealias _SIGNED_INTEGER_TYPE_ Index_Range;
 
 typealias _ARRAY_ Vector;
 
+const $CONST {
+  aFloatConst = (Float) 3.0 + 7.3;
+
+  aIntConst = (Integer) 1ii + 3ii;
+}
+
 global Vector @@A;
 
 procedure $$sinit {
@@ -614,12 +620,6 @@ procedure $$sinit {
 
   #l103.
     return;
-}
-
-const $CONST {
-  aFloatConst = (Float) 3.0 + 7.3;
-
-  aIntConst = (Integer) 1ii + 3ii;
 }
 
 procedure Stupid (
@@ -641,3 +641,7 @@ typealias Float Float;
 typealias universal_integer universal_integer;
 
 typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

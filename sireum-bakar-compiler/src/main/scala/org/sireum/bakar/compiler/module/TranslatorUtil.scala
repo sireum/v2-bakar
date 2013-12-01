@@ -28,19 +28,11 @@ object URIS {
     s
   }
   
-  def isTypeUri(u : ResourceUri) = {
-    if(u.startsWith("ada://ordinary_type/"))
-      true
-    else 
-      false
-  }
+  def isTypeUri(u : ResourceUri) = 
+    u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/")
   
-  def isMethodUri(u : ResourceUri) = {
-    if(u.startsWith("ada://procedure") || u.startsWith("ada://function"))
-      true
-    else
-      false
-  }
+  def isMethodUri(u : ResourceUri) = 
+    u.startsWith("ada://procedure") || u.startsWith("ada://function")
 }
 
 object VariableURIs {
@@ -71,6 +63,7 @@ object Attribute {
 
   val ATTRIBUTE_UIF_ARRAY_UPDATE = "attribute__uif__array_update"
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
+  val ATTRIBUTE_UIF_IMAGE = "attribute__uif__iamge"    
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
   val ATTRIBUTE_UIF_LENGTH = "attribute__uif__length"    
   val ATTRIBUTE_UIF_LOOP_ENTRY = "attribute__uif__loop_entry"
@@ -82,7 +75,15 @@ object Attribute {
   val ATTRIBUTE_UIF_SUCC = "attribute__uif__succ"
 }
 
+object BinaryOps {
+  val MOD_OP = "MOD"
+  val POWER_OP = "POWER"
+  val STRING_CONCATENATE_OP = "STRING_CONCATENATE"
+  val XOR_OP = "XOR"
+}
+
 object Proof {
+  val PROOF_UIF_ASSERT_AND_CUT = "proof__uif__assert_and_cut"  
   val PROOF_UIF_LOOP_INVARIANT = "proof__uif__loop_invariant"      
   val PROOF_UIF_LOOP_VARIANT = "proof__uif__loop_variant"      
   val PROOF_UIF_FOR_ALL = "proof__uif__for_all"  
@@ -100,6 +101,9 @@ object StandardURIs {
   val positiveURI = "ada://subtype/Standard-1:1/Positive-1:1".intern
 
   val floatURI = "ada://ordinary_type/Standard-1:1/Float-1:1".intern
+  
+  val charURI = "ada://ordinary_type/Standard-1:1/Character-1:1"
+  val stringURI = "ada://ordinary_type/Standard-1:1/String-1:1"
 }
 
 object StandardTypeDefs {
@@ -136,6 +140,9 @@ object StandardTypeDefs {
   val StandardPositive = createType("Positive", "Integer", StandardURIs.positiveURI)
 
   val StandardFloat = createType("Float", "Float", StandardURIs.floatURI)
+  
+  val StandardCharacter = createType("Character", "Character", StandardURIs.charURI)
+  val StandardString = createType("String", "String", StandardURIs.stringURI)  
 }
 
 object TranslatorUtil {
@@ -143,6 +150,7 @@ object TranslatorUtil {
   import org.sireum.bakar.xml.Base
   import org.sireum.bakar.xml.ConstantDeclaration
   import org.sireum.bakar.xml.DeferredConstantDeclaration
+  import org.sireum.bakar.xml.ExpressionFunctionDeclaration  
   import org.sireum.bakar.xml.FunctionBodyDeclaration
   import org.sireum.bakar.xml.FunctionDeclaration
   import org.sireum.bakar.xml.GenericProcedureDeclaration
@@ -194,20 +202,19 @@ object TranslatorUtil {
     }
   }
 
-  def getGlobalDeclarations(el : java.util.List[Base]) = {
-    for (e <- el if e.isInstanceOf[VariableDeclaration]) yield {
+  def getVariableDeclarations(el : java.util.List[Base]) = 
+    for (e <- el if e.isInstanceOf[VariableDeclaration]) yield 
       e.asInstanceOf[VariableDeclaration]
-    }
-  }
 
   def getMethodDeclarations(e : java.util.List[Base]) = {
     e.filter {
-      case o : ProcedureDeclaration        => true
-      case o : ProcedureBodyDeclaration    => true
-      case o : FunctionDeclaration         => true
+      case o : ExpressionFunctionDeclaration => true
       case o : FunctionBodyDeclaration     => true
+      case o : FunctionDeclaration         => true
       case o : GenericProcedureDeclaration => true
-      case o : NullProcedureDeclaration    => true
+      case o : NullProcedureDeclaration    => true      
+      case o : ProcedureBodyDeclaration    => true
+      case o : ProcedureDeclaration        => true
       case _                               => false
     }
   }

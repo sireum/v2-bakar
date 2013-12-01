@@ -326,6 +326,14 @@ typealias _ARRAY_ Board
       ("""<string sid="1">ada://ordinary_type/Array_Two_Dim-1:9/Board-34:8</string>""")
 ;
 
+const $CONST {
+  constTwo = (Integer) 2ii;
+
+  constThree = (Integer) constTwo + 1ii;
+
+  highInt = (Integer) 10ii;
+}
+
 global Square @@Box
     @util.loc
 
@@ -380,14 +388,6 @@ procedure $$sinit {
 
   #l9.
     return;
-}
-
-const $CONST {
-  constTwo = (Integer) 2ii;
-
-  constThree = (Integer) constTwo + 1ii;
-
-  highInt = (Integer) 10ii;
 }
 
 procedure dummy (
@@ -701,6 +701,48 @@ typealias universal_real universal_real
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
+
+typealias Character Character
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Character</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+;
+
+typealias String String
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>String</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
 
 array_two_dim.adb

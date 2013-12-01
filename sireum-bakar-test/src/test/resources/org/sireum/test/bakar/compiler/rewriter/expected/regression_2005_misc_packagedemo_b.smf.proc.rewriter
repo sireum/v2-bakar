@@ -27,13 +27,13 @@ procedure T (
     Integer _tbpr1;
 
 
-  #l4.
+  #l3.
     call _tbpr1 := PackageDemo_A::Q (M, Z);
 
   #_lbpr2.
     Z := _tbpr1;
 
-  #l5.
+  #l4.
     return (Z);
 }package PackageDemo_B;
 
@@ -58,3 +58,7 @@ typealias Float Float;
 typealias universal_integer universal_integer;
 
 typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

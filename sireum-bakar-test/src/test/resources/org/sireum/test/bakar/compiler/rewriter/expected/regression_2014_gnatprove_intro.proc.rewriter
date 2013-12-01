@@ -1,0 +1,174 @@
+package __anonymousPackage$0;
+
+
+const $CONST {
+  I = (Item) ` {
+    Price = 10ii,
+    Number = 1ii
+  };
+
+  B = (Basket) `Basket { iter => 
+      switch iter
+        case 1ii => I
+  };
+
+  P = (My_Int) Price_Of_Basket (B);
+}
+
+procedure Test {
+
+  #l1.
+    call Put ("\"Price of basket is\"" STRING_CONCATENATE attribute__uif__iamge (`My_Int, P));
+
+  #l2.
+    return;
+}package Pricing;
+
+
+procedure Sat::My_Int Price_Of_Item (
+        Item It) {
+  local
+    My_Int _tcomp0;
+
+
+  #l3.
+    call _tcomp0 := Sat::Mult (It.Price, It.Number);
+
+  #l4.
+    return _tcomp0;
+}
+
+procedure Sat::My_Int Price_Of_Basket (
+        Basket Bk) {
+  local
+    Sat::My_Int Total;
+    Positive It;
+    Positive _tcomp1;
+    Positive _tcomp2;
+    My_Int _tcomp3;
+    My_Int _tcomp4;
+
+
+  #l5.
+    Total := 0ii;
+
+  #l7.
+    _tcomp1 := attribute__uif__first (Bk);
+
+  #l8.
+    _tcomp2 := attribute__uif__last (Bk);
+
+  #l9.
+    if _tcomp1 > _tcomp2 then goto l6;
+
+  #l10.
+    It := _tcomp1;
+
+  #l11.
+    // empty loc
+
+  #l12.
+    assert proof__uif__loop_invariant proof__uif__for_all {Positive K => 
+        switch K
+          case (attribute__uif__first `Bk, It - 1ii) => Total >= Price_Of_Item (Bk[K])
+          default => true};
+
+  #l13.
+    call _tcomp3 := Price_Of_Item (Bk[It]);
+
+  #l14.
+    call _tcomp4 := Sat::Add (Total, _tcomp3);
+
+  #l15.
+    Total := _tcomp4;
+
+  #l16.
+    if It == _tcomp2 then goto l6;
+
+  #l17.
+    It := It + 1ii;
+
+  #l18.
+    goto l11;
+
+  #l6.
+    // empty loc
+
+  #l19.
+    return Total;
+}package Sat;
+
+
+procedure My_Int Add (
+        My_Int X,
+        My_Int X) {
+
+  #l20.
+    return 
+        if X + Y < 10000ii then X + Y
+        else 10000ii;
+}
+
+procedure My_Int Mult (
+        My_Int X,
+        My_Int X) {
+
+  #l21.
+    return 
+        if X * Y < 10000ii then X * Y
+        else 10000ii;
+}package Pricing;
+
+
+record Item {
+
+  Sat::My_Int Price;
+
+  Sat::My_Int Number;
+}
+
+typealias _UNCONSTRAINED_ARRAY_ Basket;
+
+procedure Sat::My_Int Price_Of_Item (
+        Item It) {
+
+}
+
+procedure Sat::My_Int Price_Of_Basket (
+        Basket Bk) {
+
+}package Sat;
+
+
+typealias Integer My_Int;
+
+procedure My_Int Add (
+        My_Int X,
+        My_Int Y) {
+
+}
+
+procedure My_Int Mult (
+        My_Int X,
+        My_Int Y) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

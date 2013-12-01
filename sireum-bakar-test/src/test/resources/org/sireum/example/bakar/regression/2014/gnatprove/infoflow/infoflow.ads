@@ -45,8 +45,9 @@ package Infoflow is pragma SPARK_Mode (On);
    --  Checking derives annotation of ScrubCache
 
    procedure ScrubCache (Cache_V1, Cache_V2 : out SensorCacheType) with
-     Contract_Cases => (True => (for all K in SensorIds =>
-                                      Cache_V1 (K) = Cache_V2 (K)));
+     Post => (for all K in SensorIds => Cache_V1(K) = Cache_V2(K));
+     --Contract_Cases => (True => (for all K in SensorIds =>
+     --                                 Cache_V1 (K) = Cache_V2 (K)));
 
    --  Types and variables for CopyKeys
 

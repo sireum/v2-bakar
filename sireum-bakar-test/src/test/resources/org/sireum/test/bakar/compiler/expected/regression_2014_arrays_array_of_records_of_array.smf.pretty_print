@@ -196,6 +196,17 @@ typealias _ARRAY_ ObjectArray
       ("""<string sid="1">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/ObjectArray-23:8</string>""")
 ;
 
+const $CONST {
+  dummyObject = (Object) `Object {
+    __positional0 = `IntArray { iter => 
+        switch iter
+          default => 0ii},
+    __positional1 = `IntArray { iter => 
+        switch iter
+          default => 0ii}
+  };
+}
+
 global ObjectArray @@oArray
     @util.loc
 
@@ -207,17 +218,6 @@ global ObjectArray @@oArray
          <int>8</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
-
-const $CONST {
-  dummyObject = (Object) `Object {
-    __positional0 = `IntArray { iter => 
-        switch iter
-          default => 0ii},
-    __positional1 = `IntArray { iter => 
-        switch iter
-          default => 0ii}
-  };
-}
 
 procedure Swap (
         ObjectArray Q
@@ -442,6 +442,48 @@ typealias universal_real universal_real
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
+;
+
+typealias Character Character
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>Character</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
+;
+
+typealias String String
+    @BAKAR_TYPE_DEF
+
+      ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
+         <string>String</string>
+         <string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>
+         <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
+           <none/>
+           <none/>
+         </org.sireum.bakar.symbol.SignedIntegerTypeDef>
+       </org.sireum.bakar.symbol.FullTypeDecl>""")
+
+    @BAKAR_TYPE_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
+
+    @BAKAR_REF_URI
+
+      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;
 
 array_of_records_of_array.adb

@@ -132,31 +132,31 @@ package body Infoflow is pragma SPARK_Mode (On);
          end loop;
       end;
    end FlipHalves;
-
+   
+   procedure Flip (H : in out H_Type) with
+     Pre  => H'First = 1 and H'Last >= 1,
+     Post => (for all K in H'Range =>
+               (if K <= H'Last/2 then H (K) = H'Old (K + H'Last/2)
+               else H (K) = H'Old (K - H'Last/2)));
+                    
+   procedure Flip (H : in out H_Type) is
+      T : Content;
+      M : Integer;
+   begin
+      M := H'Last / 2;
+      for Q in H'First .. M loop
+         pragma Loop_Invariant (for all K in H'Range =>
+                          (if K < Q then H (K) = H'Loop_Entry (K + M)
+                           elsif K > Q + M then
+                              H (K) = H'Loop_Entry (K - M)
+                           else H (K) = H'Loop_Entry (K)));
+         T         := H (Q);
+         H (Q)     := H (Q + M);
+         H (Q + M) := T;
+      end loop;
+   end Flip;
+     
    procedure FlipHalves2 (H_V1, H_V2 : in out H_Type; I : Integer) is
-      procedure Flip (H : in out H_Type) with
-        Pre  => H'First = 1 and H'Last >= 1,
-        Post => (for all K in H'Range =>
-                   (if K <= H'Last/2 then H (K) = H'Old (K + H'Last/2)
-                    else H (K) = H'Old (K - H'Last/2)));
-
-      procedure Flip (H : in out H_Type) is
-         T : Content;
-         M : Integer;
-      begin
-         M := H'Last / 2;
-         for Q in H'First .. M loop
-            pragma Loop_Invariant (for all K in H'Range =>
-                             (if K < Q then H (K) = H'Loop_Entry (K + M)
-                              elsif K > Q + M then
-                                 H (K) = H'Loop_Entry (K - M)
-                              else H (K) = H'Loop_Entry (K)));
-            T         := H (Q);
-            H (Q)     := H (Q + M);
-            H (Q + M) := T;
-         end loop;
-      end Flip;
-
    begin
       Flip (H_V1);
       --  duplicate version 2

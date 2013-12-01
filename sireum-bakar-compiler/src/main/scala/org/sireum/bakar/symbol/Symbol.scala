@@ -121,4 +121,8 @@ case class SignedIntegerTypeDef(
 
 trait RealTypeDef extends ScalarTypeDef
 
+case class DerivedTypeDef(
+  val parentUri : String,    
+  val constraint : Option[Constraint]) extends TypeDef
+  
 // TODO : finish this

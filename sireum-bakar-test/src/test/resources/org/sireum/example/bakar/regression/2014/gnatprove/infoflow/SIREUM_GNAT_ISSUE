@@ -1,0 +1,3 @@
+Post condition of ScrubCache causes gnat2xml Pro 7.2.0rc (20131028) to hang
+
+Had to rewrite FlipHalves2 by extracting nested Flip method

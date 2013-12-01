@@ -65,6 +65,14 @@ typealias _ARRAY_ Row;
 
 typealias _ARRAY_ Board;
 
+const $CONST {
+  constTwo = (Integer) 2ii;
+
+  constThree = (Integer) constTwo + 1ii;
+
+  highInt = (Integer) 10ii;
+}
+
 global Square @@Box;
 
 global Square @@Box2;
@@ -89,14 +97,6 @@ procedure $$sinit {
 
   #l9.
     return;
-}
-
-const $CONST {
-  constTwo = (Integer) 2ii;
-
-  constThree = (Integer) constTwo + 1ii;
-
-  highInt = (Integer) 10ii;
 }
 
 procedure dummy (
@@ -125,3 +125,7 @@ typealias Float Float;
 typealias universal_integer universal_integer;
 
 typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

@@ -1,0 +1,1770 @@
+package Infoflow;
+
+
+procedure Machine_Step {
+  local
+    Character Data_0_V1;
+    Character Data_1_V1;
+    Character Data_0_V2;
+    Character Data_1_V2;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+
+
+  #rwl0.
+    _t0 := In_0_Rdy_V1;
+
+  #rwl1.
+    _t1 := !(Out_1_Rdy_V1);
+
+  #l2.
+    if !(_t0 && _t1) then goto l1;
+
+  #l3.
+    Data_0_V1 := In_0_Dat_V1;
+
+  #l4.
+    In_0_Rdy_V1 := false;
+
+  #l5.
+    Out_1_Dat_V1 := Data_0_V1;
+
+  #l6.
+    Out_1_Rdy_V1 := true;
+
+  #l1.
+    // empty loc
+
+  #rwl2.
+    _t2 := In_1_Rdy_V1;
+
+  #rwl3.
+    _t3 := !(Out_0_Rdy_V1);
+
+  #l8.
+    if !(_t2 && _t3) then goto l7;
+
+  #l9.
+    Data_1_V1 := In_1_Dat_V1;
+
+  #l10.
+    In_1_Rdy_V1 := false;
+
+  #l11.
+    Out_0_Dat_V1 := Data_1_V1;
+
+  #l12.
+    Out_0_Rdy_V1 := true;
+
+  #l7.
+    // empty loc
+
+  #rwl4.
+    _t4 := In_0_Rdy_V2;
+
+  #rwl5.
+    _t5 := !(Out_1_Rdy_V2);
+
+  #l14.
+    if !(_t4 && _t5) then goto l13;
+
+  #l15.
+    Data_0_V2 := In_0_Dat_V2;
+
+  #l16.
+    In_0_Rdy_V2 := false;
+
+  #l17.
+    Out_1_Dat_V2 := Data_0_V2;
+
+  #l18.
+    Out_1_Rdy_V2 := true;
+
+  #l13.
+    // empty loc
+
+  #rwl6.
+    _t6 := In_1_Rdy_V2;
+
+  #rwl7.
+    _t7 := !(Out_0_Rdy_V2);
+
+  #l20.
+    if !(_t6 && _t7) then goto l19;
+
+  #l21.
+    Data_1_V2 := In_1_Dat_V2;
+
+  #l22.
+    In_1_Rdy_V2 := false;
+
+  #l23.
+    Out_0_Dat_V2 := Data_1_V2;
+
+  #l24.
+    Out_0_Rdy_V2 := true;
+
+  #l19.
+    // empty loc
+
+  #l25.
+    return;
+}
+
+procedure SinglePositionAssign (
+        Int Flag,
+        FlagValue Value) {
+
+  #l26.
+    Flags[Flag] := Value;
+
+  #l27.
+    return;
+}
+
+procedure SinglePositionAssign (
+        Int Flag_V1,
+        Int Flag_V2,
+        FlagValue Value_V1,
+        FlagValue Value_V2) {
+
+  #l28.
+    Flags_V1[Flag_V1] := Value_V1;
+
+  #l29.
+    Flags_V2[Flag_V2] := Value_V2;
+
+  #l30.
+    return;
+}
+
+procedure ScrubCache (
+        SensorCacheType Cache_V1,
+        SensorCacheType Cache_V2) {
+  local
+    SensorIds I;
+    SensorIds _tcomp0;
+    SensorIds _tcomp1;
+    SensorIds I0;
+    SensorIds _tcomp2;
+    SensorIds _tcomp3;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+
+
+  #l32.
+    _tcomp0 := attribute__uif__first `SensorIds;
+
+  #l33.
+    _tcomp1 := attribute__uif__last `SensorIds;
+
+  #rwl8.
+    _t8 := _tcomp0;
+
+  #rwl9.
+    _t9 := _tcomp1;
+
+  #l34.
+    if _t8 > _t9 then goto l31;
+
+  #l35.
+    I := _tcomp0;
+
+  #l36.
+    // empty loc
+
+  #l37.
+    Cache_V1[I] := 0ii;
+
+  #rwl10.
+    _t10 := K;
+
+  #rwl11.
+    _t11 := I;
+
+  #rwl12.
+    _t12 := Cache_V1[K];
+
+  #rwl13.
+    _t13 := 0ii;
+
+  #l38.
+    assert proof__uif__loop_invariant proof__uif__for_all {SensorIds K => 
+        switch K
+          case (attribute__uif__first `SensorIds, attribute__uif__last `SensorIds) => 
+              if _t10 <= _t11 then _t12 == _t13
+
+          default => true};
+
+  #rwl14.
+    _t14 := I;
+
+  #rwl15.
+    _t15 := _tcomp1;
+
+  #l39.
+    if _t14 == _t15 then goto l31;
+
+  #rwl16.
+    _t16 := I;
+
+  #rwl17.
+    _t17 := 1ii;
+
+  #l40.
+    I := _t16 + _t17;
+
+  #l41.
+    goto l36;
+
+  #l31.
+    // empty loc
+
+  #l43.
+    _tcomp2 := attribute__uif__first `SensorIds;
+
+  #l44.
+    _tcomp3 := attribute__uif__last `SensorIds;
+
+  #rwl18.
+    _t18 := _tcomp2;
+
+  #rwl19.
+    _t19 := _tcomp3;
+
+  #l45.
+    if _t18 > _t19 then goto l42;
+
+  #l46.
+    I0 := _tcomp2;
+
+  #l47.
+    // empty loc
+
+  #l48.
+    Cache_V2[I] := 0ii;
+
+  #rwl20.
+    _t20 := K;
+
+  #rwl21.
+    _t21 := I;
+
+  #rwl22.
+    _t22 := Cache_V2[K];
+
+  #rwl23.
+    _t23 := 0ii;
+
+  #l49.
+    assert proof__uif__loop_invariant proof__uif__for_all {SensorIds K => 
+        switch K
+          case (attribute__uif__first `SensorIds, attribute__uif__last `SensorIds) => 
+              if _t20 <= _t21 then _t22 == _t23
+
+          default => true};
+
+  #rwl24.
+    _t24 := I0;
+
+  #rwl25.
+    _t25 := _tcomp3;
+
+  #l50.
+    if _t24 == _t25 then goto l42;
+
+  #rwl26.
+    _t26 := I0;
+
+  #rwl27.
+    _t27 := 1ii;
+
+  #l51.
+    I0 := _t26 + _t27;
+
+  #l52.
+    goto l47;
+
+  #l42.
+    // empty loc
+
+  #l53.
+    return;
+}
+
+procedure CopyKeys (
+        KeyTableType InKeys_V1,
+        KeyTableType InKeys_V2,
+        KeyTableType OutKeys_V1,
+        KeyTableType OutKeys_V2,
+        KeyTableEntries J) {
+  local
+    KeyTableEntries I;
+    KeyTableEntries _tcomp4;
+    KeyTableEntries _tcomp5;
+    KeyTableEntries I0;
+    KeyTableEntries _tcomp6;
+    KeyTableEntries _tcomp7;
+    FIXME _t28;
+    FIXME _t29;
+    FIXME _t30;
+    FIXME _t31;
+    FIXME _t32;
+    FIXME _t33;
+    FIXME _t34;
+    FIXME _t35;
+    FIXME _t36;
+    FIXME _t37;
+    FIXME _t38;
+    FIXME _t39;
+    FIXME _t40;
+    FIXME _t41;
+    FIXME _t42;
+    FIXME _t43;
+    FIXME _t44;
+    FIXME _t45;
+    FIXME _t46;
+    FIXME _t47;
+
+
+  #l55.
+    _tcomp4 := attribute__uif__first `KeyTableEntries;
+
+  #l56.
+    _tcomp5 := attribute__uif__last `KeyTableEntries;
+
+  #rwl28.
+    _t28 := _tcomp4;
+
+  #rwl29.
+    _t29 := _tcomp5;
+
+  #l57.
+    if _t28 > _t29 then goto l54;
+
+  #l58.
+    I := _tcomp4;
+
+  #l59.
+    // empty loc
+
+  #l60.
+    OutKeys_V1[I] := InKeys_V1[I];
+
+  #rwl30.
+    _t30 := K;
+
+  #rwl31.
+    _t31 := I;
+
+  #rwl32.
+    _t32 := OutKeys_V1[K];
+
+  #rwl33.
+    _t33 := InKeys_V1[K];
+
+  #l61.
+    assert proof__uif__loop_invariant proof__uif__for_all {KeyTableEntries K => 
+        switch K
+          case (attribute__uif__first `KeyTableEntries, attribute__uif__last `KeyTableEntries) => 
+              if _t30 <= _t31 then _t32 == _t33
+
+          default => true};
+
+  #rwl34.
+    _t34 := I;
+
+  #rwl35.
+    _t35 := _tcomp5;
+
+  #l62.
+    if _t34 == _t35 then goto l54;
+
+  #rwl36.
+    _t36 := I;
+
+  #rwl37.
+    _t37 := 1ii;
+
+  #l63.
+    I := _t36 + _t37;
+
+  #l64.
+    goto l59;
+
+  #l54.
+    // empty loc
+
+  #l66.
+    _tcomp6 := attribute__uif__first `KeyTableEntries;
+
+  #l67.
+    _tcomp7 := attribute__uif__last `KeyTableEntries;
+
+  #rwl38.
+    _t38 := _tcomp6;
+
+  #rwl39.
+    _t39 := _tcomp7;
+
+  #l68.
+    if _t38 > _t39 then goto l65;
+
+  #l69.
+    I0 := _tcomp6;
+
+  #l70.
+    // empty loc
+
+  #l71.
+    OutKeys_V2[I] := InKeys_V2[I];
+
+  #rwl40.
+    _t40 := K;
+
+  #rwl41.
+    _t41 := I;
+
+  #rwl42.
+    _t42 := OutKeys_V2[K];
+
+  #rwl43.
+    _t43 := InKeys_V2[K];
+
+  #l72.
+    assert proof__uif__loop_invariant proof__uif__for_all {KeyTableEntries K => 
+        switch K
+          case (attribute__uif__first `KeyTableEntries, attribute__uif__last `KeyTableEntries) => 
+              if _t40 <= _t41 then _t42 == _t43
+
+          default => true};
+
+  #rwl44.
+    _t44 := I0;
+
+  #rwl45.
+    _t45 := _tcomp7;
+
+  #l73.
+    if _t44 == _t45 then goto l65;
+
+  #rwl46.
+    _t46 := I0;
+
+  #rwl47.
+    _t47 := 1ii;
+
+  #l74.
+    I0 := _t46 + _t47;
+
+  #l75.
+    goto l70;
+
+  #l65.
+    // empty loc
+
+  #l76.
+    return;
+}
+
+procedure FlipHalves (
+        H_Type H_V1,
+        H_Type H_V2,
+        Integer I) {
+  local
+    Content T_V1;
+    Integer M_V1;
+    universal_integer Q_V1;
+    universal_integer _tcomp8;
+    universal_integer _tcomp9;
+    Content T_V2;
+    Integer M_V2;
+    universal_integer Q_V2;
+    universal_integer _tcomp10;
+    universal_integer _tcomp11;
+    FIXME _t48;
+    FIXME _t49;
+    FIXME _t50;
+    FIXME _t51;
+    FIXME _t52;
+    FIXME _t53;
+    FIXME _t54;
+    FIXME _t55;
+    FIXME _t56;
+    FIXME _t57;
+    FIXME _t58;
+    FIXME _t59;
+    FIXME _t60;
+    FIXME _t61;
+    FIXME _t62;
+    FIXME _t63;
+    FIXME _t64;
+    FIXME _t65;
+    FIXME _t66;
+    FIXME _t67;
+    FIXME _t68;
+    FIXME _t69;
+    FIXME _t70;
+    FIXME _t71;
+    FIXME _t72;
+    FIXME _t73;
+    FIXME _t74;
+    FIXME _t75;
+    FIXME _t76;
+    FIXME _t77;
+    FIXME _t78;
+    FIXME _t79;
+    FIXME _t80;
+    FIXME _t81;
+    FIXME _t82;
+    FIXME _t83;
+    FIXME _t84;
+    FIXME _t85;
+    FIXME _t86;
+    FIXME _t87;
+    FIXME _t88;
+    FIXME _t89;
+    FIXME _t90;
+    FIXME _t91;
+    FIXME _t92;
+    FIXME _t93;
+    FIXME _t94;
+    FIXME _t95;
+    FIXME _t96;
+    FIXME _t97;
+    FIXME _t98;
+    FIXME _t99;
+    FIXME _t100;
+    FIXME _t101;
+    FIXME _t102;
+    FIXME _t103;
+    FIXME _t104;
+    FIXME _t105;
+    FIXME _t106;
+    FIXME _t107;
+    FIXME _t108;
+    FIXME _t109;
+
+
+  #rwl48.
+    _t48 := attribute__uif__last `H_V1;
+
+  #rwl49.
+    _t49 := 2ii;
+
+  #l77.
+    M_V1 := _t48 / _t49;
+
+  #l79.
+    _tcomp8 := attribute__uif__first `H_V1;
+
+  #l80.
+    _tcomp9 := M_V1;
+
+  #rwl50.
+    _t50 := _tcomp8;
+
+  #rwl51.
+    _t51 := _tcomp9;
+
+  #l81.
+    if _t50 > _t51 then goto l78;
+
+  #l82.
+    Q_V1 := _tcomp8;
+
+  #l83.
+    // empty loc
+
+  #rwl52.
+    _t52 := K;
+
+  #rwl53.
+    _t53 := Q_V1;
+
+  #rwl54.
+    _t54 := K;
+
+  #rwl55.
+    _t55 := M_V1;
+
+  #rwl56.
+    _t56 := attribute__uif__loop_entry H_V1;
+
+  #rwl57.
+    _t57 := H_V1[K];
+
+  #rwl58.
+    _t58 := _t56[_t54 + _t55];
+
+  #rwl59.
+    _t59 := Q_V1;
+
+  #rwl60.
+    _t60 := M_V1;
+
+  #rwl61.
+    _t61 := K;
+
+  #rwl62.
+    _t62 := _t59 + _t60;
+
+  #rwl63.
+    _t63 := K;
+
+  #rwl64.
+    _t64 := M_V1;
+
+  #rwl65.
+    _t65 := attribute__uif__loop_entry H_V1;
+
+  #rwl66.
+    _t66 := H_V1[K];
+
+  #rwl67.
+    _t67 := _t65[_t63 - _t64];
+
+  #rwl68.
+    _t68 := attribute__uif__loop_entry H_V1;
+
+  #rwl69.
+    _t69 := H_V1[K];
+
+  #rwl70.
+    _t70 := _t68[K];
+
+  #l84.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer K => 
+        switch K
+          case (attribute__uif__first (H_V1), attribute__uif__last (H_V1)) => 
+              if _t52 < _t53 then _t57 == _t58
+              else if _t61 > _t62 then _t66 == _t67
+              else _t69 == _t70
+          default => true};
+
+  #l85.
+    T_V1 := H_V1[Q_V1];
+
+  #rwl71.
+    _t71 := Q_V1;
+
+  #rwl72.
+    _t72 := M_V1;
+
+  #l86.
+    H_V1[Q_V1] := H_V1[_t71 + _t72];
+
+  #rwl73.
+    _t73 := Q_V1;
+
+  #rwl74.
+    _t74 := M_V1;
+
+  #l87.
+    H_V1[_t73 + _t74] := T_V1;
+
+  #rwl75.
+    _t75 := Q_V1;
+
+  #rwl76.
+    _t76 := _tcomp9;
+
+  #l88.
+    if _t75 == _t76 then goto l78;
+
+  #rwl77.
+    _t77 := Q_V1;
+
+  #rwl78.
+    _t78 := 1ii;
+
+  #l89.
+    Q_V1 := _t77 + _t78;
+
+  #l90.
+    goto l83;
+
+  #l78.
+    // empty loc
+
+  #l91.
+    assert proof__uif__assert_and_cut true;
+
+  #rwl79.
+    _t79 := attribute__uif__last `H_V2;
+
+  #rwl80.
+    _t80 := 2ii;
+
+  #l92.
+    M_V2 := _t79 / _t80;
+
+  #l94.
+    _tcomp10 := attribute__uif__first `H_V2;
+
+  #l95.
+    _tcomp11 := M_V2;
+
+  #rwl81.
+    _t81 := _tcomp10;
+
+  #rwl82.
+    _t82 := _tcomp11;
+
+  #l96.
+    if _t81 > _t82 then goto l93;
+
+  #l97.
+    Q_V2 := _tcomp10;
+
+  #l98.
+    // empty loc
+
+  #rwl83.
+    _t83 := K;
+
+  #rwl84.
+    _t84 := Q_V2;
+
+  #rwl85.
+    _t85 := K;
+
+  #rwl86.
+    _t86 := M_V2;
+
+  #rwl87.
+    _t87 := attribute__uif__loop_entry H_V2;
+
+  #rwl88.
+    _t88 := H_V2[K];
+
+  #rwl89.
+    _t89 := _t87[_t85 + _t86];
+
+  #rwl90.
+    _t90 := Q_V2;
+
+  #rwl91.
+    _t91 := M_V2;
+
+  #rwl92.
+    _t92 := K;
+
+  #rwl93.
+    _t93 := _t90 + _t91;
+
+  #rwl94.
+    _t94 := K;
+
+  #rwl95.
+    _t95 := M_V2;
+
+  #rwl96.
+    _t96 := attribute__uif__loop_entry H_V2;
+
+  #rwl97.
+    _t97 := H_V2[K];
+
+  #rwl98.
+    _t98 := _t96[_t94 - _t95];
+
+  #rwl99.
+    _t99 := attribute__uif__loop_entry H_V2;
+
+  #rwl100.
+    _t100 := H_V2[K];
+
+  #rwl101.
+    _t101 := _t99[K];
+
+  #l99.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer K => 
+        switch K
+          case (attribute__uif__first (H_V2), attribute__uif__last (H_V2)) => 
+              if _t83 < _t84 then _t88 == _t89
+              else if _t92 > _t93 then _t97 == _t98
+              else _t100 == _t101
+          default => true};
+
+  #l100.
+    T_V2 := H_V2[Q_V2];
+
+  #rwl102.
+    _t102 := Q_V2;
+
+  #rwl103.
+    _t103 := M_V2;
+
+  #l101.
+    H_V2[Q_V2] := H_V2[_t102 + _t103];
+
+  #rwl104.
+    _t104 := Q_V2;
+
+  #rwl105.
+    _t105 := M_V2;
+
+  #l102.
+    H_V2[_t104 + _t105] := T_V2;
+
+  #rwl106.
+    _t106 := Q_V2;
+
+  #rwl107.
+    _t107 := _tcomp11;
+
+  #l103.
+    if _t106 == _t107 then goto l93;
+
+  #rwl108.
+    _t108 := Q_V2;
+
+  #rwl109.
+    _t109 := 1ii;
+
+  #l104.
+    Q_V2 := _t108 + _t109;
+
+  #l105.
+    goto l98;
+
+  #l93.
+    // empty loc
+
+  #l106.
+    return;
+}
+
+procedure Flip (
+        H_Type H) {
+
+}
+
+procedure Flip (
+        H_Type H) {
+  local
+    Content T;
+    Integer M;
+    universal_integer Q;
+    universal_integer _tcomp12;
+    universal_integer _tcomp13;
+    FIXME _t110;
+    FIXME _t111;
+    FIXME _t112;
+    FIXME _t113;
+    FIXME _t114;
+    FIXME _t115;
+    FIXME _t116;
+    FIXME _t117;
+    FIXME _t118;
+    FIXME _t119;
+    FIXME _t120;
+    FIXME _t121;
+    FIXME _t122;
+    FIXME _t123;
+    FIXME _t124;
+    FIXME _t125;
+    FIXME _t126;
+    FIXME _t127;
+    FIXME _t128;
+    FIXME _t129;
+    FIXME _t130;
+    FIXME _t131;
+    FIXME _t132;
+    FIXME _t133;
+    FIXME _t134;
+    FIXME _t135;
+    FIXME _t136;
+    FIXME _t137;
+    FIXME _t138;
+    FIXME _t139;
+    FIXME _t140;
+
+
+  #rwl110.
+    _t110 := attribute__uif__last `H;
+
+  #rwl111.
+    _t111 := 2ii;
+
+  #l107.
+    M := _t110 / _t111;
+
+  #l109.
+    _tcomp12 := attribute__uif__first `H;
+
+  #l110.
+    _tcomp13 := M;
+
+  #rwl112.
+    _t112 := _tcomp12;
+
+  #rwl113.
+    _t113 := _tcomp13;
+
+  #l111.
+    if _t112 > _t113 then goto l108;
+
+  #l112.
+    Q := _tcomp12;
+
+  #l113.
+    // empty loc
+
+  #rwl114.
+    _t114 := K;
+
+  #rwl115.
+    _t115 := Q;
+
+  #rwl116.
+    _t116 := K;
+
+  #rwl117.
+    _t117 := M;
+
+  #rwl118.
+    _t118 := attribute__uif__loop_entry H;
+
+  #rwl119.
+    _t119 := H[K];
+
+  #rwl120.
+    _t120 := _t118[_t116 + _t117];
+
+  #rwl121.
+    _t121 := Q;
+
+  #rwl122.
+    _t122 := M;
+
+  #rwl123.
+    _t123 := K;
+
+  #rwl124.
+    _t124 := _t121 + _t122;
+
+  #rwl125.
+    _t125 := K;
+
+  #rwl126.
+    _t126 := M;
+
+  #rwl127.
+    _t127 := attribute__uif__loop_entry H;
+
+  #rwl128.
+    _t128 := H[K];
+
+  #rwl129.
+    _t129 := _t127[_t125 - _t126];
+
+  #rwl130.
+    _t130 := attribute__uif__loop_entry H;
+
+  #rwl131.
+    _t131 := H[K];
+
+  #rwl132.
+    _t132 := _t130[K];
+
+  #l114.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer K => 
+        switch K
+          case (attribute__uif__first (H), attribute__uif__last (H)) => 
+              if _t114 < _t115 then _t119 == _t120
+              else if _t123 > _t124 then _t128 == _t129
+              else _t131 == _t132
+          default => true};
+
+  #l115.
+    T := H[Q];
+
+  #rwl133.
+    _t133 := Q;
+
+  #rwl134.
+    _t134 := M;
+
+  #l116.
+    H[Q] := H[_t133 + _t134];
+
+  #rwl135.
+    _t135 := Q;
+
+  #rwl136.
+    _t136 := M;
+
+  #l117.
+    H[_t135 + _t136] := T;
+
+  #rwl137.
+    _t137 := Q;
+
+  #rwl138.
+    _t138 := _tcomp13;
+
+  #l118.
+    if _t137 == _t138 then goto l108;
+
+  #rwl139.
+    _t139 := Q;
+
+  #rwl140.
+    _t140 := 1ii;
+
+  #l119.
+    Q := _t139 + _t140;
+
+  #l120.
+    goto l113;
+
+  #l108.
+    // empty loc
+
+  #l121.
+    return;
+}
+
+procedure FlipHalves2 (
+        H_Type H_V1,
+        H_Type H_V2,
+        Integer I) {
+
+  #l122.
+    call Flip (H_V1);
+
+  #l123.
+    call Flip (H_V2);
+
+  #l124.
+    return;
+}
+
+procedure ArrayPartitionedTransfer (
+        Arr A_V1,
+        Arr A_V2,
+        Arr B_V1,
+        Arr C_V1,
+        Arr B_V2,
+        Arr C_V2,
+        Integer K_1,
+        Integer K_2,
+        Integer I) {
+  local
+    universal_integer I_V1;
+    universal_integer _tcomp14;
+    universal_integer _tcomp15;
+    universal_integer I_V10;
+    universal_integer _tcomp16;
+    universal_integer _tcomp17;
+    universal_integer I_V2;
+    universal_integer _tcomp18;
+    universal_integer _tcomp19;
+    universal_integer I_V20;
+    universal_integer _tcomp20;
+    universal_integer _tcomp21;
+    FIXME _t141;
+    FIXME _t142;
+    FIXME _t143;
+    FIXME _t144;
+    FIXME _t145;
+    FIXME _t146;
+    FIXME _t147;
+    FIXME _t148;
+    FIXME _t149;
+    FIXME _t150;
+    FIXME _t151;
+    FIXME _t152;
+    FIXME _t153;
+    FIXME _t154;
+    FIXME _t155;
+    FIXME _t156;
+    FIXME _t157;
+    FIXME _t158;
+    FIXME _t159;
+    FIXME _t160;
+    FIXME _t161;
+    FIXME _t162;
+    FIXME _t163;
+    FIXME _t164;
+    FIXME _t165;
+    FIXME _t166;
+    FIXME _t167;
+    FIXME _t168;
+    FIXME _t169;
+    FIXME _t170;
+    FIXME _t171;
+    FIXME _t172;
+    FIXME _t173;
+    FIXME _t174;
+    FIXME _t175;
+    FIXME _t176;
+    FIXME _t177;
+    FIXME _t178;
+    FIXME _t179;
+    FIXME _t180;
+    FIXME _t181;
+    FIXME _t182;
+    FIXME _t183;
+    FIXME _t184;
+    FIXME _t185;
+    FIXME _t186;
+    FIXME _t187;
+    FIXME _t188;
+    FIXME _t189;
+    FIXME _t190;
+    FIXME _t191;
+    FIXME _t192;
+    FIXME _t193;
+    FIXME _t194;
+    FIXME _t195;
+    FIXME _t196;
+    FIXME _t197;
+    FIXME _t198;
+    FIXME _t199;
+    FIXME _t200;
+    FIXME _t201;
+    FIXME _t202;
+    FIXME _t203;
+    FIXME _t204;
+    FIXME _t205;
+    FIXME _t206;
+    FIXME _t207;
+    FIXME _t208;
+    FIXME _t209;
+    FIXME _t210;
+    FIXME _t211;
+    FIXME _t212;
+    FIXME _t213;
+    FIXME _t214;
+    FIXME _t215;
+    FIXME _t216;
+    FIXME _t217;
+    FIXME _t218;
+    FIXME _t219;
+    FIXME _t220;
+    FIXME _t221;
+    FIXME _t222;
+    FIXME _t223;
+    FIXME _t224;
+    FIXME _t225;
+    FIXME _t226;
+    FIXME _t227;
+    FIXME _t228;
+    FIXME _t229;
+    FIXME _t230;
+
+
+  #l126.
+    _tcomp14 := attribute__uif__first `A_V1;
+
+  #l127.
+    _tcomp15 := K_1;
+
+  #rwl141.
+    _t141 := _tcomp14;
+
+  #rwl142.
+    _t142 := _tcomp15;
+
+  #l128.
+    if _t141 > _t142 then goto l125;
+
+  #l129.
+    I_V1 := _tcomp14;
+
+  #l130.
+    // empty loc
+
+  #rwl143.
+    _t143 := I_V1;
+
+  #rwl144.
+    _t144 := 1ii;
+
+  #rwl145.
+    _t145 := A_V1[M];
+
+  #rwl146.
+    _t146 := B_V1[M];
+
+  #l131.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V1, _t143 - _t144) => _t145 == _t146
+          default => true};
+
+  #l132.
+    A_V1[I_V1] := B_V1[I_V1];
+
+  #rwl147.
+    _t147 := I_V1;
+
+  #rwl148.
+    _t148 := _tcomp15;
+
+  #l133.
+    if _t147 == _t148 then goto l125;
+
+  #rwl149.
+    _t149 := I_V1;
+
+  #rwl150.
+    _t150 := 1ii;
+
+  #l134.
+    I_V1 := _t149 + _t150;
+
+  #l135.
+    goto l130;
+
+  #l125.
+    // empty loc
+
+  #rwl151.
+    _t151 := A_V1[M];
+
+  #rwl152.
+    _t152 := B_V1[M];
+
+  #l136.
+    assert proof__uif__assert_and_cut proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V1, K_1) => _t151 == _t152
+          default => true};
+
+  #rwl153.
+    _t153 := K_1;
+
+  #rwl154.
+    _t154 := 1ii;
+
+  #l138.
+    _tcomp16 := _t153 + _t154;
+
+  #l139.
+    _tcomp17 := attribute__uif__last `A_V1;
+
+  #rwl155.
+    _t155 := _tcomp16;
+
+  #rwl156.
+    _t156 := _tcomp17;
+
+  #l140.
+    if _t155 > _t156 then goto l137;
+
+  #l141.
+    I_V10 := _tcomp16;
+
+  #l142.
+    // empty loc
+
+  #rwl157.
+    _t157 := A_V1[M];
+
+  #rwl158.
+    _t158 := B_V1[M];
+
+  #rwl159.
+    _t159 := K_1;
+
+  #rwl160.
+    _t160 := 1ii;
+
+  #rwl161.
+    _t161 := I_V1;
+
+  #rwl162.
+    _t162 := 1ii;
+
+  #rwl163.
+    _t163 := M;
+
+  #rwl164.
+    _t164 := K_1;
+
+  #rwl165.
+    _t165 := A_V1[M];
+
+  #rwl166.
+    _t166 := C_V1[_t163 - _t164];
+
+  #rwl167.
+    _t167 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V1, K_1) => _t157 == _t158
+          default => true};
+
+  #rwl168.
+    _t168 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (_t159 + _t160, _t161 - _t162) => _t165 == _t166
+          default => true};
+
+  #l143.
+    assert proof__uif__loop_invariant _t167 &&& _t168;
+
+  #rwl169.
+    _t169 := I_V1;
+
+  #rwl170.
+    _t170 := K_1;
+
+  #l144.
+    A_V1[I_V1] := C_V1[_t169 - _t170];
+
+  #rwl171.
+    _t171 := I_V10;
+
+  #rwl172.
+    _t172 := _tcomp17;
+
+  #l145.
+    if _t171 == _t172 then goto l137;
+
+  #rwl173.
+    _t173 := I_V10;
+
+  #rwl174.
+    _t174 := 1ii;
+
+  #l146.
+    I_V10 := _t173 + _t174;
+
+  #l147.
+    goto l142;
+
+  #l137.
+    // empty loc
+
+  #rwl175.
+    _t175 := A_V1[M];
+
+  #rwl176.
+    _t176 := B_V1[M];
+
+  #rwl177.
+    _t177 := K_1;
+
+  #rwl178.
+    _t178 := 1ii;
+
+  #rwl179.
+    _t179 := M;
+
+  #rwl180.
+    _t180 := K_1;
+
+  #rwl181.
+    _t181 := A_V1[M];
+
+  #rwl182.
+    _t182 := C_V1[_t179 - _t180];
+
+  #rwl183.
+    _t183 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V1, K_1) => _t175 == _t176
+          default => true};
+
+  #rwl184.
+    _t184 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (_t177 + _t178, attribute__uif__last `A_V1) => _t181 == _t182
+          default => true};
+
+  #l148.
+    assert proof__uif__assert_and_cut _t183 &&& _t184;
+
+  #l150.
+    _tcomp18 := attribute__uif__first `A_V2;
+
+  #l151.
+    _tcomp19 := K_2;
+
+  #rwl185.
+    _t185 := _tcomp18;
+
+  #rwl186.
+    _t186 := _tcomp19;
+
+  #l152.
+    if _t185 > _t186 then goto l149;
+
+  #l153.
+    I_V2 := _tcomp18;
+
+  #l154.
+    // empty loc
+
+  #rwl187.
+    _t187 := I_V2;
+
+  #rwl188.
+    _t188 := 1ii;
+
+  #rwl189.
+    _t189 := A_V2[M];
+
+  #rwl190.
+    _t190 := B_V2[M];
+
+  #l155.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V2, _t187 - _t188) => _t189 == _t190
+          default => true};
+
+  #l156.
+    A_V2[I_V2] := B_V2[I_V2];
+
+  #rwl191.
+    _t191 := I_V2;
+
+  #rwl192.
+    _t192 := _tcomp19;
+
+  #l157.
+    if _t191 == _t192 then goto l149;
+
+  #rwl193.
+    _t193 := I_V2;
+
+  #rwl194.
+    _t194 := 1ii;
+
+  #l158.
+    I_V2 := _t193 + _t194;
+
+  #l159.
+    goto l154;
+
+  #l149.
+    // empty loc
+
+  #rwl195.
+    _t195 := A_V1[M];
+
+  #rwl196.
+    _t196 := B_V1[M];
+
+  #rwl197.
+    _t197 := K_1;
+
+  #rwl198.
+    _t198 := 1ii;
+
+  #rwl199.
+    _t199 := M;
+
+  #rwl200.
+    _t200 := K_1;
+
+  #rwl201.
+    _t201 := A_V1[M];
+
+  #rwl202.
+    _t202 := C_V1[_t199 - _t200];
+
+  #rwl203.
+    _t203 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V1, K_1) => _t195 == _t196
+          default => true};
+
+  #rwl204.
+    _t204 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (_t197 + _t198, attribute__uif__last `A_V1) => _t201 == _t202
+          default => true};
+
+  #rwl205.
+    _t205 := A_V2[M];
+
+  #rwl206.
+    _t206 := B_V2[M];
+
+  #rwl207.
+    _t207 := _t203 &&& _t204;
+
+  #rwl208.
+    _t208 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V2, K_2) => _t205 == _t206
+          default => true};
+
+  #l160.
+    assert proof__uif__assert_and_cut _t207 &&& _t208;
+
+  #rwl209.
+    _t209 := K_2;
+
+  #rwl210.
+    _t210 := 1ii;
+
+  #l162.
+    _tcomp20 := _t209 + _t210;
+
+  #l163.
+    _tcomp21 := attribute__uif__last `A_V2;
+
+  #rwl211.
+    _t211 := _tcomp20;
+
+  #rwl212.
+    _t212 := _tcomp21;
+
+  #l164.
+    if _t211 > _t212 then goto l161;
+
+  #l165.
+    I_V20 := _tcomp20;
+
+  #l166.
+    // empty loc
+
+  #rwl213.
+    _t213 := A_V2[M];
+
+  #rwl214.
+    _t214 := B_V2[M];
+
+  #rwl215.
+    _t215 := K_2;
+
+  #rwl216.
+    _t216 := 1ii;
+
+  #rwl217.
+    _t217 := I_V2;
+
+  #rwl218.
+    _t218 := 1ii;
+
+  #rwl219.
+    _t219 := M;
+
+  #rwl220.
+    _t220 := K_2;
+
+  #rwl221.
+    _t221 := A_V2[M];
+
+  #rwl222.
+    _t222 := C_V2[_t219 - _t220];
+
+  #rwl223.
+    _t223 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (attribute__uif__first `A_V2, K_2) => _t213 == _t214
+          default => true};
+
+  #rwl224.
+    _t224 := proof__uif__for_all {universal_integer M => 
+        switch M
+          case (_t215 + _t216, _t217 - _t218) => _t221 == _t222
+          default => true};
+
+  #l167.
+    assert proof__uif__loop_invariant _t223 &&& _t224;
+
+  #rwl225.
+    _t225 := I_V2;
+
+  #rwl226.
+    _t226 := K_2;
+
+  #l168.
+    A_V2[I_V2] := C_V2[_t225 - _t226];
+
+  #rwl227.
+    _t227 := I_V20;
+
+  #rwl228.
+    _t228 := _tcomp21;
+
+  #l169.
+    if _t227 == _t228 then goto l161;
+
+  #rwl229.
+    _t229 := I_V20;
+
+  #rwl230.
+    _t230 := 1ii;
+
+  #l170.
+    I_V20 := _t229 + _t230;
+
+  #l171.
+    goto l166;
+
+  #l161.
+    // empty loc
+
+  #l172.
+    return;
+}package Infoflow;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Int;
+
+typealias _ENUMERATION_TYPE_ FlagValue;
+
+typealias _ARRAY_ FlagArray;
+
+typealias _SIGNED_INTEGER_TYPE_ SensorIds;
+
+typealias _ARRAY_ SensorCacheType;
+
+typealias _SIGNED_INTEGER_TYPE_ KeyTableEntries;
+
+typealias _ARRAY_ KeyTableType;
+
+typealias _DERIVED_TYPE_ Content;
+
+typealias _UNCONSTRAINED_ARRAY_ H_Type;
+
+typealias _UNCONSTRAINED_ARRAY_ Arr;
+
+global Boolean @@In_0_Rdy_V1;
+
+global Boolean @@In_1_Rdy_V1;
+
+global Boolean @@Out_0_Rdy_V1;
+
+global Boolean @@Out_1_Rdy_V1;
+
+global Character @@In_0_Dat_V1;
+
+global Character @@In_1_Dat_V1;
+
+global Character @@Out_0_Dat_V1;
+
+global Character @@Out_1_Dat_V1;
+
+global Boolean @@In_0_Rdy_V2;
+
+global Boolean @@In_1_Rdy_V2;
+
+global Boolean @@Out_0_Rdy_V2;
+
+global Boolean @@Out_1_Rdy_V2;
+
+global Character @@In_0_Dat_V2;
+
+global Character @@In_1_Dat_V2;
+
+global Character @@Out_0_Dat_V2;
+
+global Character @@Out_1_Dat_V2;
+
+global FlagArray @@Flags;
+
+global FlagArray @@Flags_V1;
+
+global FlagArray @@Flags_V2;
+
+procedure Machine_Step {
+
+}
+
+procedure SinglePositionAssign (
+        Int Flag,
+        FlagValue Value) {
+
+}
+
+procedure SinglePositionAssign (
+        Int Flag_V1,
+        Int Flag_V2,
+        FlagValue Value_V1,
+        FlagValue Value_V2) {
+
+}
+
+procedure ScrubCache (
+        SensorCacheType Cache_V1,
+        SensorCacheType Cache_V2) {
+
+}
+
+procedure CopyKeys (
+        KeyTableType InKeys_V1,
+        KeyTableType InKeys_V2,
+        KeyTableType OutKeys_V1,
+        KeyTableType OutKeys_V2,
+        KeyTableEntries J) {
+
+}
+
+procedure FlipHalves (
+        H_Type H_V1,
+        H_Type H_V2,
+        Integer I) {
+
+}
+
+procedure FlipHalves2 (
+        H_Type H_V1,
+        H_Type H_V2,
+        Integer I) {
+
+}
+
+procedure ArrayPartitionedTransfer (
+        Arr A_V1,
+        Arr A_V2,
+        Arr B_V1,
+        Arr C_V1,
+        Arr B_V2,
+        Arr C_V2,
+        Integer K_1,
+        Integer K_2,
+        Integer I) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

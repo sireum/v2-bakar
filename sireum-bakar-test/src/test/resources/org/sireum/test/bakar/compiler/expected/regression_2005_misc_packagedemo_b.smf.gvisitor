@@ -109,12 +109,12 @@ Model(Some(packagedemo_b.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Pa
               NameDefinition(Z)
               List()
           None
-          ImplementedBody(List(),List(JumpLocation(Some(NameDefinition(l4)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(PackageDemo_A::Q)),Tupl
+          ImplementedBody(List(),List(JumpLocation(Some(NameDefinition(l3)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(PackageDemo_A::Q)),Tupl
             List()
-            List(JumpLocation(Some(NameDefinition(l4)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(PackageDemo_A::Q)),TupleExp(List(NameExp(NameU
-              JumpLocation(Some(NameDefinition(l4)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(PackageDemo_A::Q)),TupleExp(List(NameExp(NameUser(M
-                Some(NameDefinition(l4))
-                  NameDefinition(l4)
+            List(JumpLocation(Some(NameDefinition(l3)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(PackageDemo_A::Q)),TupleExp(List(NameExp(NameU
+              JumpLocation(Some(NameDefinition(l3)),Vector(),CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(PackageDemo_A::Q)),TupleExp(List(NameExp(NameUser(M
+                Some(NameDefinition(l3))
+                  NameDefinition(l3)
                 List()
                 CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(PackageDemo_A::Q)),TupleExp(List(NameExp(NameUser(M)), NameExp(NameUser(Z))))),None)
                   List()
@@ -129,9 +129,9 @@ Model(Some(packagedemo_b.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Pa
                         NameExp(NameUser(Z))
                           NameUser(Z)
                   None
-              JumpLocation(Some(NameDefinition(l5)),Vector(),ReturnJump(Vector(),None))
-                Some(NameDefinition(l5))
-                  NameDefinition(l5)
+              JumpLocation(Some(NameDefinition(l4)),Vector(),ReturnJump(Vector(),None))
+                Some(NameDefinition(l4))
+                  NameDefinition(l4)
                 List()
                 ReturnJump(Vector(),None)
                   List()
@@ -217,4 +217,16 @@ Model(Some(fake/standard.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(St
           List()
           NamedTypeSpec(NameUser(universal_real),List())
             NameUser(universal_real)
+            List()
+        TypeAliasDecl(NameDefinition(Character),Vector(),NamedTypeSpec(NameUser(Character),List()))
+          NameDefinition(Character)
+          List()
+          NamedTypeSpec(NameUser(Character),List())
+            NameUser(Character)
+            List()
+        TypeAliasDecl(NameDefinition(String),Vector(),NamedTypeSpec(NameUser(String),List()))
+          NameDefinition(String)
+          List()
+          NamedTypeSpec(NameUser(String),List())
+            NameUser(String)
             List()

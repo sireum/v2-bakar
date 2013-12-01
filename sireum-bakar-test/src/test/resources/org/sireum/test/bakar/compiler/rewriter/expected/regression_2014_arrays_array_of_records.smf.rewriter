@@ -70,14 +70,14 @@ typealias _SIGNED_INTEGER_TYPE_ Index_Range;
 
 typealias _ARRAY_ ObjectArray;
 
-global ObjectArray @@oArray;
-
 const $CONST {
   dummyObject = (Object) `Object {
     __positional0 = 0ii,
     __positional1 = 0ii
   };
 }
+
+global ObjectArray @@oArray;
 
 procedure Swap (
         ObjectArray Q,
@@ -99,3 +99,7 @@ typealias Float Float;
 typealias universal_integer universal_integer;
 
 typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

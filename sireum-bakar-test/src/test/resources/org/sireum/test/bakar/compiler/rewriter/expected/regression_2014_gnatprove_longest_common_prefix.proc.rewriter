@@ -1,0 +1,110 @@
+package __anonymousPackage$0;
+
+
+procedure Natural LCP (
+        Text A,
+        Integer X,
+        Integer Y) {
+  local
+    Natural L;
+
+
+  #l1.
+    L := 0ii;
+
+  #l3.
+    // empty loc
+
+  #l4.
+    if !(X + L <= attribute__uif__last `A &&& Y + L <= attribute__uif__last `A &&& A[X + L] == A[Y + L]) then goto l2;
+
+  #l5.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer K => 
+        switch K
+          case (0ii, L - 1ii) => A[X + K] == A[Y + K]
+          default => true};
+
+  #l6.
+    assert proof__uif__loop_variant { increases => L};
+
+  #l7.
+    L := L + 1ii;
+
+  #l8.
+    goto l3;
+
+  #l2.
+    // empty loc
+
+  #l9.
+    return L;
+}package __anonymousPackage$1;
+
+
+procedure Natural LCP (
+        Text A,
+        Integer X,
+        Integer Y) {
+
+}package __anonymousPackage$2;
+
+
+procedure Main {
+  local
+    Text A;
+
+
+  #l10.
+    A := { iter => 
+        switch iter
+          case __positional0 => 1ii
+          case __positional1 => 2ii
+          case __positional2 => 3ii
+          case __positional3 => 4ii
+          case __positional4 => 5ii
+          case __positional5 => 1ii
+          case __positional6 => 2ii
+          case __positional7 => 3ii
+          case __positional8 => 4ii
+          case __positional9 => 5ii
+    };
+
+  #l11.
+    call Put_Line ("\"LCP returns non-null\"");
+
+  #l12.
+    assert LCP (A, 1ii, 6ii) == 5ii;
+
+  #l13.
+    call Put_Line ("\"LCP returns null\"");
+
+  #l14.
+    assert LCP (A, 1ii, 7ii) == 0ii;
+
+  #l15.
+    return;
+}package Types;
+
+
+typealias Positive Index;
+
+typealias _UNCONSTRAINED_ARRAY_ Text;package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;
