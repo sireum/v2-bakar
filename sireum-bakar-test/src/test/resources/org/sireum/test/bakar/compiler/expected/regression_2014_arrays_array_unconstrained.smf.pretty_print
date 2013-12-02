@@ -507,6 +507,48 @@ package Array_Unconstrained_T
          <int>11</int>
          <int>26</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>false</__sparkMode>
+         <__withClauses class="icol.Vector" ttype="ivector">
+           <org.sireum.pilar.ast.NameExp cid="1" size="1">
+             <org.sireum.pilar.ast.NameUser cid="2" size="1">
+               <string sid="1">Array_Unconstrained</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="3" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string sid="2">Array_Unconstrained-1:9</string>
+                     </ilist>
+                     <string sid="3">ada://package/Array_Unconstrained-1:9</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="3"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="4">array_unconstrained_t.ads</string>
+                   <int>1</int>
+                   <int>6</int>
+                   <int>1</int>
+                   <int>24</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </__withClauses>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 

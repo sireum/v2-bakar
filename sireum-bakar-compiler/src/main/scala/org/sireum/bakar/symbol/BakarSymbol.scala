@@ -1,6 +1,8 @@
 package org.sireum.bakar.symbol
 
 import org.sireum.pilar.ast.Exp
+import org.sireum.pilar.ast.NameExp
+import org.sireum.pilar.ast.PackageDecl
 import org.sireum.pilar.ast.ParamDecl
 import org.sireum.pilar.ast.ProcedureDecl
 import org.sireum.util.IMap
@@ -13,6 +15,7 @@ object BakarSymbol {
 
   val INFO_PARAM = "BAKAR_PARAM_INFO"
   val INFO_PROCEDURE = "BAKAR_PROCEDURE_INFO"
+  val INFO_PACKAGE = "BAKAR_PACKAGE_INFO"
 
   implicit def pd2pi(p: ParamDecl): ParamInfo =
     p.getPropertyOrElseUpdate(INFO_PARAM,
@@ -104,10 +107,48 @@ object BakarSymbol {
     def testCases: Option[ISeq[TestCase]]
     def testCases(o: ISeq[TestCase])
   }
+
+  case class TestCase(
+    val name: String,
+    val mode: TestCaseMode,
+    val requires: Option[Exp],
+    val ensures: Option[Exp])
+
+  implicit def pack2packInfo(p: PackageDecl): PackageInfo =
+    p.getPropertyOrElseUpdate(INFO_PACKAGE,
+      new PackageInfo {
+        private var _sparkMode: Boolean = false
+        private var _useClauses: ISeq[NameExp] = null
+        private var _useTypeClauses: ISeq[NameExp] = null        
+        private var _withClauses: ISeq[NameExp] = null
+
+        implicit def wrap[T](t: T) = if (t == null) None else Some(t)
+
+        def sparkMode = _sparkMode
+        def sparkMode(o: Boolean) = _sparkMode = o
+        
+        def useClauses = _useClauses
+        def useClauses(o: ISeq[NameExp]) = _useClauses = o
+
+        def useTypeClauses = _useTypeClauses
+        def useTypeClauses(o: ISeq[NameExp]) = _useTypeClauses = o
+        
+        def withClauses = _withClauses
+        def withClauses(o: ISeq[NameExp]) = _withClauses = o
+      })
+
+  trait PackageInfo {
+    def sparkMode: Boolean
+    def sparkMode(o: Boolean)
+    
+    def useClauses: Option[ISeq[NameExp]]
+    def useClauses(o: ISeq[NameExp])
+
+    def useTypeClauses: Option[ISeq[NameExp]]
+    def useTypeClauses(o: ISeq[NameExp])
+
+    def withClauses: Option[ISeq[NameExp]]
+    def withClauses(o: ISeq[NameExp])
+  }
 }
 
-case class TestCase(
-  val name: String,
-  val mode: TestCaseMode,
-  val requires: Option[Exp],
-  val ensures: Option[Exp])

@@ -736,7 +736,7 @@ procedure Natural Sum (
            </properties>
          </__post>
          <__testCases class="icol.Vector" ttype="ivector">
-           <org.sireum.bakar.symbol.TestCase cid="50" size="4">
+           <org.sireum.bakar.symbol.BakarSymbol__-TestCase cid="50" size="4">
              <string>small array</string>
              <org.sireum.bakar.symbol.TestCaseMode>Nominal</org.sireum.bakar.symbol.TestCaseMode>
              <some etype="org.sireum.pilar.ast.BinaryExp" cid="51" size="3">
@@ -855,8 +855,8 @@ procedure Natural Sum (
                </properties>
              </some>
              <none/>
-           </org.sireum.bakar.symbol.TestCase>
-           <org.sireum.bakar.symbol.TestCase cid="64" size="4">
+           </org.sireum.bakar.symbol.BakarSymbol__-TestCase>
+           <org.sireum.bakar.symbol.BakarSymbol__-TestCase cid="64" size="4">
              <string>large sum</string>
              <org.sireum.bakar.symbol.TestCaseMode>Nominal</org.sireum.bakar.symbol.TestCaseMode>
              <none/>
@@ -973,8 +973,8 @@ procedure Natural Sum (
                  </entry>
                </properties>
              </some>
-           </org.sireum.bakar.symbol.TestCase>
-           <org.sireum.bakar.symbol.TestCase cid="78" size="4">
+           </org.sireum.bakar.symbol.BakarSymbol__-TestCase>
+           <org.sireum.bakar.symbol.BakarSymbol__-TestCase cid="78" size="4">
              <string sid="11">large array, small sum</string>
              <org.sireum.bakar.symbol.TestCaseMode>Nominal</org.sireum.bakar.symbol.TestCaseMode>
              <some etype="org.sireum.pilar.ast.BinaryExp" cid="79" size="3">
@@ -1205,7 +1205,7 @@ procedure Natural Sum (
                  </entry>
                </properties>
              </some>
-           </org.sireum.bakar.symbol.TestCase>
+           </org.sireum.bakar.symbol.BakarSymbol__-TestCase>
          </__testCases>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
@@ -1650,7 +1650,7 @@ procedure Natural Count_Even (
            </properties>
          </__post>
          <__testCases class="icol.Vector" ttype="ivector">
-           <org.sireum.bakar.symbol.TestCase cid="48" size="4">
+           <org.sireum.bakar.symbol.BakarSymbol__-TestCase cid="48" size="4">
              <string>only odd</string>
              <org.sireum.bakar.symbol.TestCaseMode>Nominal</org.sireum.bakar.symbol.TestCaseMode>
              <some etype="org.sireum.pilar.ast.CallExp" cid="49" size="2">
@@ -2218,8 +2218,8 @@ procedure Natural Count_Even (
                  </entry>
                </properties>
              </some>
-           </org.sireum.bakar.symbol.TestCase>
-           <org.sireum.bakar.symbol.TestCase cid="113" size="4">
+           </org.sireum.bakar.symbol.BakarSymbol__-TestCase>
+           <org.sireum.bakar.symbol.BakarSymbol__-TestCase cid="113" size="4">
              <string>half even</string>
              <org.sireum.bakar.symbol.TestCaseMode>Nominal</org.sireum.bakar.symbol.TestCaseMode>
              <none/>
@@ -2602,7 +2602,7 @@ procedure Natural Count_Even (
                  </entry>
                </properties>
              </some>
-           </org.sireum.bakar.symbol.TestCase>
+           </org.sireum.bakar.symbol.BakarSymbol__-TestCase>
          </__testCases>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 

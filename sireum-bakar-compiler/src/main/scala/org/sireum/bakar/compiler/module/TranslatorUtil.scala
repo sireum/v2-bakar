@@ -12,10 +12,10 @@ object URIS {
   val TYPE_DEF = "BAKAR_TYPE_DEF"
   val TYPE_URI = "BAKAR_TYPE_URI"
   val REF_URI = "BAKAR_REF_URI"
-    
+
   val DUMMY_URI = "__DUMMY_URI__"
 
-  def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s : T, uri : String) = {
+  def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) = {
 
     val u = new URI(uri)
     val paths =
@@ -27,12 +27,15 @@ object URIS {
     s.uri(u.getScheme, u.getAuthority, paths.toList, uri)
     s
   }
-  
-  def isTypeUri(u : ResourceUri) = 
+
+  def isTypeUri(u: ResourceUri) =
     u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/")
-  
-  def isMethodUri(u : ResourceUri) = 
+
+  def isMethodUri(u: ResourceUri) =
     u.startsWith("ada://procedure") || u.startsWith("ada://function")
+  
+  def isPackageUri(u: ResourceUri) =
+    u.startsWith("ada://package")
 }
 
 object VariableURIs {
@@ -47,13 +50,13 @@ object PackageURIs {
   val initBodyProcedureURIprefix = "ada://procedure_body__package_init/"
   val initSpecProcedureURIprefix = "ada://procedure__package_init/"
 
-  def isPackageInitProcedure(u : ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
-  def isPackageBodyInitProcedure(u : ResourceUri) = u.startsWith(initBodyProcedureURIprefix)
-  def isPackageSpecInitProcedure(u : ResourceUri) = u.startsWith(initSpecProcedureURIprefix)
+  def isPackageInitProcedure(u: ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
+  def isPackageBodyInitProcedure(u: ResourceUri) = u.startsWith(initBodyProcedureURIprefix)
+  def isPackageSpecInitProcedure(u: ResourceUri) = u.startsWith(initSpecProcedureURIprefix)
 }
 
 object UIF {
-  val uifURIprefix = "ada://function__uif/"  
+  val uifURIprefix = "ada://function__uif/"
 }
 
 object Attribute {
@@ -63,12 +66,12 @@ object Attribute {
 
   val ATTRIBUTE_UIF_ARRAY_UPDATE = "attribute__uif__array_update"
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
-  val ATTRIBUTE_UIF_IMAGE = "attribute__uif__iamge"    
+  val ATTRIBUTE_UIF_IMAGE = "attribute__uif__iamge"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
-  val ATTRIBUTE_UIF_LENGTH = "attribute__uif__length"    
+  val ATTRIBUTE_UIF_LENGTH = "attribute__uif__length"
   val ATTRIBUTE_UIF_LOOP_ENTRY = "attribute__uif__loop_entry"
-  val ATTRIBUTE_UIF_MAX = "attribute__uif__max"        
-  val ATTRIBUTE_UIF_MIN = "attribute__uif__min"    
+  val ATTRIBUTE_UIF_MAX = "attribute__uif__max"
+  val ATTRIBUTE_UIF_MIN = "attribute__uif__min"
   val ATTRIBUTE_UIF_OLD = "attribute__uif__old"
   val ATTRIBUTE_UIF_PRED = "attribute__uif__pred"
   val ATTRIBUTE_UIF_RESULT = "attribute__uif__result"
@@ -83,13 +86,12 @@ object BinaryOps {
 }
 
 object Proof {
-  val PROOF_UIF_ASSERT_AND_CUT = "proof__uif__assert_and_cut"  
-  val PROOF_UIF_LOOP_INVARIANT = "proof__uif__loop_invariant"      
-  val PROOF_UIF_LOOP_VARIANT = "proof__uif__loop_variant"      
-  val PROOF_UIF_FOR_ALL = "proof__uif__for_all"  
+  val PROOF_UIF_ASSERT_AND_CUT = "proof__uif__assert_and_cut"
+  val PROOF_UIF_LOOP_INVARIANT = "proof__uif__loop_invariant"
+  val PROOF_UIF_LOOP_VARIANT = "proof__uif__loop_variant"
+  val PROOF_UIF_FOR_ALL = "proof__uif__for_all"
   val PROOF_UIF_FOR_SOME = "proof__uif__for_some"
 }
-
 
 object StandardURIs {
   val universalIntURI = "ada://ordinary_type/universal_integer".intern
@@ -101,7 +103,7 @@ object StandardURIs {
   val positiveURI = "ada://subtype/Standard-1:1/Positive-1:1".intern
 
   val floatURI = "ada://ordinary_type/Standard-1:1/Float-1:1".intern
-  
+
   val charURI = "ada://ordinary_type/Standard-1:1/Character-1:1"
   val stringURI = "ada://ordinary_type/Standard-1:1/String-1:1"
 }
@@ -117,10 +119,9 @@ object StandardTypeDefs {
   import org.sireum.pilar.ast.TypeAliasDecl
   import org.sireum.pilar.ast.TypeSpec
 
-  def createType(typName : String, baseType : String, typURI : String) : TypeAliasDecl = {
+  def createType(typName: String, baseType: String, typURI: String): TypeAliasDecl = {
     val pilarTypeDec = TypeAliasDecl(NameDefinition(typName), ivectorEmpty,
-      NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec])
-    )
+      NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec]))
 
     val sparkTypeDec = FullTypeDecl(typName, typURI,
       SignedIntegerTypeDef(None, None))
@@ -140,9 +141,9 @@ object StandardTypeDefs {
   val StandardPositive = createType("Positive", "Integer", StandardURIs.positiveURI)
 
   val StandardFloat = createType("Float", "Float", StandardURIs.floatURI)
-  
+
   val StandardCharacter = createType("Character", "Character", StandardURIs.charURI)
-  val StandardString = createType("String", "String", StandardURIs.stringURI)  
+  val StandardString = createType("String", "String", StandardURIs.stringURI)
 }
 
 object TranslatorUtil {
@@ -150,7 +151,7 @@ object TranslatorUtil {
   import org.sireum.bakar.xml.Base
   import org.sireum.bakar.xml.ConstantDeclaration
   import org.sireum.bakar.xml.DeferredConstantDeclaration
-  import org.sireum.bakar.xml.ExpressionFunctionDeclaration  
+  import org.sireum.bakar.xml.ExpressionFunctionDeclaration
   import org.sireum.bakar.xml.FunctionBodyDeclaration
   import org.sireum.bakar.xml.FunctionDeclaration
   import org.sireum.bakar.xml.GenericProcedureDeclaration
@@ -158,6 +159,8 @@ object TranslatorUtil {
   import org.sireum.bakar.xml.IntegerNumberDeclaration
   import org.sireum.bakar.xml.NullProcedureDeclaration
   import org.sireum.bakar.xml.OrdinaryTypeDeclaration
+  import org.sireum.bakar.xml.PackageBodyDeclaration
+  import org.sireum.bakar.xml.PackageDeclaration  
   import org.sireum.bakar.xml.PrivateExtensionDeclaration
   import org.sireum.bakar.xml.PrivateTypeDeclaration
   import org.sireum.bakar.xml.ProcedureBodyDeclaration
@@ -173,49 +176,56 @@ object TranslatorUtil {
   import org.sireum.pilar.ast.TypeAliasDecl
   import org.sireum.pilar.ast.TypeSpec
 
-  def getTypeDeclarations(e : java.util.List[Base]) = {
+  def getTypeDeclarations(e: java.util.List[Base]) = {
     e.filter {
-      case x : OrdinaryTypeDeclaration     => true
-      case x : IncompleteTypeDeclaration   => true
-      case x : PrivateTypeDeclaration      => true
-      case x : SubtypeDeclaration          => true
+      case x: OrdinaryTypeDeclaration => true
+      case x: IncompleteTypeDeclaration => true
+      case x: PrivateTypeDeclaration => true
+      case x: SubtypeDeclaration => true
 
       //case x : TaggedIncompleteTypeDeclaration => true
       //case x : FormalIncompleteTypeDeclaration => true
       //case x : FormalTypeDeclaration           => true
 
       // the following type declarations are not permitted in SPARK 2014
-      case x : TaskTypeDeclaration         => false
-      case x : ProtectedTypeDeclaration    => false
-      case x : PrivateExtensionDeclaration => false
-      case _                               => false
+      case x: TaskTypeDeclaration => false
+      case x: ProtectedTypeDeclaration => false
+      case x: PrivateExtensionDeclaration => false
+      case _ => false
     }
   }
 
-  def getConstantDeclarations(e : java.util.List[Base]) = {
+  def getConstantDeclarations(e: java.util.List[Base]) = {
     e.filter {
-      case x : RealNumberDeclaration       => true
-      case x : IntegerNumberDeclaration    => true
-      case x : DeferredConstantDeclaration => true
-      case x : ConstantDeclaration         => true
-      case _                               => false
+      case x: RealNumberDeclaration => true
+      case x: IntegerNumberDeclaration => true
+      case x: DeferredConstantDeclaration => true
+      case x: ConstantDeclaration => true
+      case _ => false
     }
   }
 
-  def getVariableDeclarations(el : java.util.List[Base]) = 
-    for (e <- el if e.isInstanceOf[VariableDeclaration]) yield 
-      e.asInstanceOf[VariableDeclaration]
+  def getVariableDeclarations(el: java.util.List[Base]) =
+    for (e <- el if e.isInstanceOf[VariableDeclaration]) yield e.asInstanceOf[VariableDeclaration]
 
-  def getMethodDeclarations(e : java.util.List[Base]) = {
-    e.filter {
-      case o : ExpressionFunctionDeclaration => true
-      case o : FunctionBodyDeclaration     => true
-      case o : FunctionDeclaration         => true
-      case o : GenericProcedureDeclaration => true
-      case o : NullProcedureDeclaration    => true      
-      case o : ProcedureBodyDeclaration    => true
-      case o : ProcedureDeclaration        => true
-      case _                               => false
+  def getMethodDeclarations(e: java.util.List[Base]) = e.filter(isMethodDeclaration)
+
+  def isPackageDeclaration(o: Base) =
+    o match {
+      case i: PackageBodyDeclaration => true
+      case i: PackageDeclaration => true
+      case _ => false
     }
-  }
+
+  def isMethodDeclaration(o: Base) =
+    o match {
+      case i: ExpressionFunctionDeclaration => true
+      case i: FunctionBodyDeclaration => true
+      case i: FunctionDeclaration => true
+      case i: GenericProcedureDeclaration => true
+      case i: NullProcedureDeclaration => true
+      case i: ProcedureBodyDeclaration => true
+      case i: ProcedureDeclaration => true
+      case _ => false
+    }
 }

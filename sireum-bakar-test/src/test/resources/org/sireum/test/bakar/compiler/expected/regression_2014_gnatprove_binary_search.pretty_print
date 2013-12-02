@@ -9,6 +9,12 @@ package Binary_Search
          <int>38</int>
          <int>18</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>true</__sparkMode>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 
@@ -201,6 +207,12 @@ package Binary_Search
          <int>17</int>
          <int>18</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>true</__sparkMode>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 

@@ -4,6 +4,7 @@ import scala.collection.JavaConversions.asScalaBuffer
 
 import org.sireum.bakar.symbol.BakarSymbol.pd2pi
 import org.sireum.bakar.symbol.BakarSymbol.proc2procInfo
+import org.sireum.bakar.symbol.BakarSymbol.TestCase
 import org.sireum.bakar.symbol.ComponentDef
 import org.sireum.bakar.symbol.ConstrainedArrayDef
 import org.sireum.bakar.symbol.Constraint
@@ -17,7 +18,6 @@ import org.sireum.bakar.symbol.SignedIntegerTypeDef
 import org.sireum.bakar.symbol.SimpleRangeConstraint
 import org.sireum.bakar.symbol.SparkTypeDecl
 import org.sireum.bakar.symbol.SubTypeDecl
-import org.sireum.bakar.symbol.TestCase
 import org.sireum.bakar.symbol.TestCaseMode
 import org.sireum.bakar.symbol.Type
 import org.sireum.bakar.symbol.TypeDef
@@ -28,6 +28,7 @@ import org.sireum.bakar.xml.AndOperator
 import org.sireum.bakar.xml.AndThenShortCircuitEx
 import org.sireum.bakar.xml.ArrayComponentAssociationEx
 import org.sireum.bakar.xml.AspectSpecificationEx
+import org.sireum.bakar.xml.AssociationList
 import org.sireum.bakar.xml.AssertPragmaEx
 import org.sireum.bakar.xml.AssignmentStatementEx
 import org.sireum.bakar.xml.AsynchronousSelectStatementEx
@@ -77,6 +78,7 @@ import org.sireum.bakar.xml.ExitStatementEx
 import org.sireum.bakar.xml.ExponentiateOperator
 import org.sireum.bakar.xml.ExpressionClass
 import org.sireum.bakar.xml.ExpressionClassEx
+import org.sireum.bakar.xml.ExpressionFunctionDeclaration
 import org.sireum.bakar.xml.ExpressionFunctionDeclarationEx
 import org.sireum.bakar.xml.ExtendedReturnStatementEx
 import org.sireum.bakar.xml.FirstAttributeEx
@@ -138,6 +140,7 @@ import org.sireum.bakar.xml.ParameterSpecificationList
 import org.sireum.bakar.xml.ParenthesizedExpression
 import org.sireum.bakar.xml.PlusOperator
 import org.sireum.bakar.xml.PositionalArrayAggregateEx
+import org.sireum.bakar.xml.PragmaArgumentAssociation
 import org.sireum.bakar.xml.PragmaArgumentAssociationEx
 import org.sireum.bakar.xml.PredAttributeEx
 import org.sireum.bakar.xml.PrivateTypeDeclarationEx
@@ -179,8 +182,11 @@ import org.sireum.bakar.xml.UnaryMinusOperatorEx
 import org.sireum.bakar.xml.UnaryPlusOperatorEx
 import org.sireum.bakar.xml.UnconstrainedArrayDefinitionEx
 import org.sireum.bakar.xml.UnknownAttributeEx
+import org.sireum.bakar.xml.UsePackageClauseEx
+import org.sireum.bakar.xml.UseTypeClauseEx
 import org.sireum.bakar.xml.VariableDeclarationEx
 import org.sireum.bakar.xml.WhileLoopStatementEx
+import org.sireum.bakar.xml.WithClauseEx
 import org.sireum.bakar.xml.XorOperator
 import org.sireum.pilar.ast.AccessExp
 import org.sireum.pilar.ast.Action
@@ -1347,30 +1353,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       case o @ CompilationUnitEx(sloc, contextClauseElements, unitDeclaration,
         pragmasAfter, unitKind, unitClass, unitOrigin, unitFullName, defName, sourceFile, checks) =>
 
-        if (!contextClauseElements.getContextClauses.isEmpty)
-          if (DEBUG) Console.err.println("Need to handle context clauses")
-
-        def isPackage(o: Base) =
-          o match {
-            case i: PackageBodyDeclaration => true
-            case i: PackageDeclaration => true
-            case _ => false
-          }
-
-        def isMethod(o: Base) =
-          o match {
-            case i: FunctionBodyDeclaration => true
-            case i: FunctionDeclaration => true
-            case i: ProcedureBodyDeclaration => true
-            case i: ProcedureDeclaration => true
-            case _ => false
-          }
-
-        if (isPackage(unitDeclaration.getDeclaration)) {
+        val pack = if (TranslatorUtil.isPackageDeclaration(unitDeclaration.getDeclaration)) {
           v(unitDeclaration)
-          ctx.models += Model(Some(sourceFile), ivectorEmpty,
-            ivector(ctx.popResult.asInstanceOf[PackageDecl]))
-        } else if (isMethod(unitDeclaration.getDeclaration)) {
+          ctx.popResult.asInstanceOf[PackageDecl]
+        } else if (TranslatorUtil.isMethodDeclaration(unitDeclaration.getDeclaration)) {
           val scope = ctx.pushScope
 
           v(unitDeclaration)
@@ -1389,11 +1375,53 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val puri = "ada://package_body__anonymous/" + pname
           val name = Some(NameDefinition(pname))
 
-          val pack = PackageDecl(name, ivectorEmpty, elements.toList)
-
-          ctx.models += Model(Some(sourceFile), ivectorEmpty, ivector(pack))
+          PackageDecl(name, ivectorEmpty, elements.toList)
         } else
           throw new RuntimeException("Unexpected compilation unit: " + o)
+
+        ctx.models += Model(Some(sourceFile), ivectorEmpty, ivector(pack))
+
+        def vi(names: java.util.List[Base]): ISeq[NameExp] =
+          (for (n <- names) yield {
+            v(n)
+            ctx.popResult.asInstanceOf[NameExp]
+          }).toList
+
+        def sparkModeOn(assocs: AssociationList) =
+          if (!assocs.getAssociations.isEmpty) {
+            assert(assocs.getAssociations.size == 1)
+            v(assocs.getAssociations.head.asInstanceOf[PragmaArgumentAssociation].getActualParameterQ)
+            ctx.popResult.asInstanceOf[NameExp].name.name.toLowerCase == "on"
+          } else true
+
+        var withClauses = ivectorEmpty[NameExp]
+        var useClauses = ivectorEmpty[NameExp]
+        var useTypeClauses = ivectorEmpty[NameExp]
+        var sparkMode = false
+        import org.sireum.bakar.symbol.BakarSymbol._
+        contextClauseElements.getContextClauses.foreach {
+          case ImplementationDefinedPragmaEx(sloc2, assocs, pragmaName, checks2) =>
+            assert(pragmaName.toLowerCase == "spark_mode")
+            pack.sparkMode(sparkModeOn(assocs))
+          case WithClauseEx(sloc2, hasLimited, hasPrivate, names, checks2) =>
+            assert(ctx.isEmpty(hasLimited.getHasLimited))
+            assert(ctx.isEmpty(hasPrivate.getHasPrivate))
+            withClauses ++= vi(names.getNames)
+          case UsePackageClauseEx(sloc2, names, checks2) =>
+            useClauses ++= vi(names.getNames)
+          case UseTypeClauseEx(sloc2, names, checks2) =>
+            useTypeClauses ++= vi(names.getNames)
+          case x => throw new RuntimeException("Unknown: " + x)
+        }
+        if (!withClauses.isEmpty) pack.withClauses(withClauses)
+        if (!useClauses.isEmpty) pack.useClauses(useClauses)
+        if (!useTypeClauses.isEmpty) pack.useTypeClauses(useTypeClauses)
+
+        pragmasAfter.getElements.foreach {
+          case ImplementationDefinedPragmaEx(sloc2, assocs, pragmaName, checks2) =>
+            assert(pragmaName.toLowerCase == "spark_mode")
+            pack.sparkMode(sparkModeOn(assocs))
+        }
 
         false
       case o @ PackageDeclarationEx(sloc, names, aspectSpec,
@@ -2680,7 +2708,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val ae = ctx.addTypeUri(typUri, AccessExp(e, attr))
           ctx.pushResult(ae, sloc)
         } else {
-          assert(URIS.isMethodUri(seluri) || URIS.isTypeUri(seluri))
+          assert(URIS.isPackageUri(seluri) || URIS.isMethodUri(seluri) || URIS.isTypeUri(seluri))
           e match {
             case ne @ NameExp(nu) =>
               val ret = ctx.addTypeUri(typUri,

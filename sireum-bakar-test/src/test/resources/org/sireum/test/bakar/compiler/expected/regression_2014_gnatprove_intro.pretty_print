@@ -9,6 +9,12 @@ package Pricing
          <int>20</int>
          <int>12</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>true</__sparkMode>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 
@@ -210,6 +216,48 @@ package Pricing
          <int>21</int>
          <int>12</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>true</__sparkMode>
+         <__withClauses class="icol.Vector" ttype="ivector">
+           <org.sireum.pilar.ast.NameExp cid="1" size="1">
+             <org.sireum.pilar.ast.NameUser cid="2" size="1">
+               <string>Sat</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="3" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string>Sat-3:9</string>
+                     </ilist>
+                     <string sid="1">ada://package/Sat-3:9</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="1"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>pricing.ads</string>
+                   <int>3</int>
+                   <int>6</int>
+                   <int>3</int>
+                   <int>8</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </__withClauses>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 
@@ -1252,6 +1300,12 @@ package Sat
          <int>17</int>
          <int>8</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>true</__sparkMode>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 
@@ -1402,6 +1456,12 @@ package Sat
          <int>15</int>
          <int>8</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>true</__sparkMode>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 
@@ -2840,7 +2900,213 @@ procedure My_Int Mult (
 }
 
 test.adb
-package __anonymousPackage$0;
+package __anonymousPackage$0
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>false</__sparkMode>
+         <__useClauses class="icol.Vector" ttype="ivector">
+           <org.sireum.pilar.ast.NameExp cid="1" size="1">
+             <org.sireum.pilar.ast.NameUser cid="2" size="1">
+               <string>Sat</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="3" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string>Sat-3:9</string>
+                     </ilist>
+                     <string sid="1">ada://package/Sat-3:9</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="1"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>test.adb</string>
+                   <int>1</int>
+                   <int>23</int>
+                   <int>1</int>
+                   <int>25</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+           <org.sireum.pilar.ast.NameExp cid="5" size="1">
+             <org.sireum.pilar.ast.NameUser cid="6" size="1">
+               <string>Pricing</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string>Pricing-5:9</string>
+                     </ilist>
+                     <string sid="2">ada://package/Pricing-5:9</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="2"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                   <string>test.adb</string>
+                   <int>2</int>
+                   <int>23</int>
+                   <int>2</int>
+                   <int>29</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+           <org.sireum.pilar.ast.NameExp cid="9" size="1">
+             <org.sireum.pilar.ast.NameUser cid="10" size="1">
+               <string>Ada::Text_IO</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="11" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string sid="3">Ada.Text_IO-49:9</string>
+                     </ilist>
+                     <string sid="4">ada://package/Ada.Text_IO-49:9</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
+                   <string>test.adb</string>
+                   <int>3</int>
+                   <int>23</int>
+                   <int>3</int>
+                   <int>33</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </__useClauses>
+         <__withClauses class="icol.Vector" ttype="ivector">
+           <org.sireum.pilar.ast.NameExp cid="13" size="1">
+             <org.sireum.pilar.ast.NameUser cid="14" size="1">
+               <string>Sat</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="15" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string>Sat-3:9</string>
+                     </ilist>
+                     <string srefid="1"/>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="1"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="16" size="5">
+                   <string>test.adb</string>
+                   <int>1</int>
+                   <int>6</int>
+                   <int>1</int>
+                   <int>8</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+           <org.sireum.pilar.ast.NameExp cid="17" size="1">
+             <org.sireum.pilar.ast.NameUser cid="18" size="1">
+               <string>Pricing</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="19" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string>Pricing-5:9</string>
+                     </ilist>
+                     <string srefid="2"/>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="2"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="20" size="5">
+                   <string>test.adb</string>
+                   <int>2</int>
+                   <int>6</int>
+                   <int>2</int>
+                   <int>12</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+           <org.sireum.pilar.ast.NameExp cid="21" size="1">
+             <org.sireum.pilar.ast.NameUser cid="22" size="1">
+               <string>Ada::Text_IO</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="23" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string srefid="3"/>
+                     </ilist>
+                     <string srefid="4"/>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="24" size="5">
+                   <string>test.adb</string>
+                   <int>3</int>
+                   <int>6</int>
+                   <int>3</int>
+                   <int>16</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </__withClauses>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
+;
 
 
 const $CONST {

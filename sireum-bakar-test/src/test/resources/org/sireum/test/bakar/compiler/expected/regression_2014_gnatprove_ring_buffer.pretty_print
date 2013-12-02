@@ -1,5 +1,83 @@
 harness.adb
-package __anonymousPackage$0;
+package __anonymousPackage$0
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>false</__sparkMode>
+         <__useClauses class="icol.Vector" ttype="ivector">
+           <org.sireum.pilar.ast.NameExp cid="1" size="1">
+             <org.sireum.pilar.ast.NameUser cid="2" size="1">
+               <string>Ring_Buf</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="3" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string>Ring_Buf-13:9</string>
+                     </ilist>
+                     <string sid="1">ada://package/Ring_Buf-13:9</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="1"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string>harness.adb</string>
+                   <int>1</int>
+                   <int>20</int>
+                   <int>1</int>
+                   <int>27</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </__useClauses>
+         <__withClauses class="icol.Vector" ttype="ivector">
+           <org.sireum.pilar.ast.NameExp cid="5" size="1">
+             <org.sireum.pilar.ast.NameUser cid="6" size="1">
+               <string>Ring_Buf</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string>Ring_Buf-13:9</string>
+                     </ilist>
+                     <string srefid="1"/>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="1"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                   <string>harness.adb</string>
+                   <int>1</int>
+                   <int>6</int>
+                   <int>1</int>
+                   <int>13</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </__withClauses>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
+;
 
 
 procedure Harness (

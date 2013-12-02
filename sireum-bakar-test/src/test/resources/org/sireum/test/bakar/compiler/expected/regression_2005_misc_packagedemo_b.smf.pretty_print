@@ -241,6 +241,48 @@ package PackageDemo_B
          <int>6</int>
          <int>18</int>
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>false</__sparkMode>
+         <__withClauses class="icol.Vector" ttype="ivector">
+           <org.sireum.pilar.ast.NameExp cid="1" size="1">
+             <org.sireum.pilar.ast.NameUser cid="2" size="1">
+               <string>PackageDemo_A</string>
+               <properties mtype="mlinkedmap">
+                 <entry>
+                   <string>pilar.symbol</string>
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="3" size="4">
+                     <string>ada</string>
+                     <string>package</string>
+                     <ilist ttype="ilist">
+                       <string sid="1">PackageDemo_A-1:9</string>
+                     </ilist>
+                     <string sid="2">ada://package/PackageDemo_A-1:9</string>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                 </entry>
+                 <entry>
+                   <string>BAKAR_REF_URI</string>
+                   <string srefid="2"/>
+                 </entry>
+               </properties>
+             </org.sireum.pilar.ast.NameUser>
+             <properties mtype="mlinkedmap">
+               <entry>
+                 <string>util.loc</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="3">packagedemo_b.ads</string>
+                   <int>1</int>
+                   <int>6</int>
+                   <int>1</int>
+                   <int>18</int>
+                 </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+               </entry>
+             </properties>
+           </org.sireum.pilar.ast.NameExp>
+         </__withClauses>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
 ;
 
 
