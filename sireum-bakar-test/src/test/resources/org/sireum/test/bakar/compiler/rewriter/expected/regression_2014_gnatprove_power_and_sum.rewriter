@@ -54,7 +54,7 @@ procedure Main {
     call Sum_Of_Sum (I, Result2);
 
   #rwl2.
-    _t2 := "\"Sum(\"";
+    _t2 := "Sum(";
 
   #rwl3.
     _t3 := attribute__uif__iamge (`Integer, I);
@@ -63,7 +63,7 @@ procedure Main {
     _t4 := _t2 STRING_CONCATENATE _t3;
 
   #rwl5.
-    _t5 := "\" ) = \"";
+    _t5 := " ) = ";
 
   #rwl6.
     _t6 := _t4 STRING_CONCATENATE _t5;
@@ -75,7 +75,7 @@ procedure Main {
     call Put_Line (_t6 STRING_CONCATENATE _t7);
 
   #rwl8.
-    _t8 := "\"Sum_Of_Sum(\"";
+    _t8 := "Sum_Of_Sum(";
 
   #rwl9.
     _t9 := attribute__uif__iamge (`Integer, I);
@@ -84,7 +84,7 @@ procedure Main {
     _t10 := _t8 STRING_CONCATENATE _t9;
 
   #rwl11.
-    _t11 := "\" ) = \"";
+    _t11 := " ) = ";
 
   #rwl12.
     _t12 := _t10 STRING_CONCATENATE _t11;

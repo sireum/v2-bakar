@@ -186,7 +186,7 @@ procedure Main {
     };
 
   #l11.
-    call Put_Line ("\"LCP returns non-null\"");
+    call Put_Line ("LCP returns non-null");
 
   #rwl0.
     _t0 := LCP (A, 1ii, 6ii);
@@ -198,7 +198,7 @@ procedure Main {
     assert _t0 == _t1;
 
   #l13.
-    call Put_Line ("\"LCP returns null\"");
+    call Put_Line ("LCP returns null");
 
   #rwl2.
     _t2 := LCP (A, 1ii, 7ii);

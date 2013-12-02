@@ -244,7 +244,7 @@ procedure Test {
 
 
   #rwl0.
-    _t0 := "\"Price of basket is\"";
+    _t0 := "Price of basket is";
 
   #rwl1.
     _t1 := attribute__uif__iamge (`My_Int, P);

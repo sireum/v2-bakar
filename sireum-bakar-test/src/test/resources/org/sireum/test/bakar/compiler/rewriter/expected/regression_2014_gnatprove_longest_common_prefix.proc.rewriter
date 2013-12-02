@@ -70,13 +70,13 @@ procedure Main {
     };
 
   #l11.
-    call Put_Line ("\"LCP returns non-null\"");
+    call Put_Line ("LCP returns non-null");
 
   #l12.
     assert LCP (A, 1ii, 6ii) == 5ii;
 
   #l13.
-    call Put_Line ("\"LCP returns null\"");
+    call Put_Line ("LCP returns null");
 
   #l14.
     assert LCP (A, 1ii, 7ii) == 0ii;

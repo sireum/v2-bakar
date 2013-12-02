@@ -7,93 +7,107 @@ import org.sireum.util.IMap
 import org.sireum.util.ISeq
 import org.sireum.util.ISet
 import org.sireum.util.ResourceUri
+import org.sireum.util.ivector
 
 object BakarSymbol {
 
   val INFO_PARAM = "BAKAR_PARAM_INFO"
   val INFO_PROCEDURE = "BAKAR_PROCEDURE_INFO"
 
-  implicit def pd2pi(p : ParamDecl) : ParamInfo =
+  implicit def pd2pi(p: ParamDecl): ParamInfo =
     p.getPropertyOrElseUpdate(INFO_PARAM,
       new ParamInfo {
-        private var _paramMode : Mode = null
+        private var _paramMode: Mode = null
         def mode = _paramMode
-        def mode(m : String) {
+        def mode(m: String) {
           this._paramMode = m match {
             case "AN_IN_MODE" | "A_DEFAULT_IN_MODE" => Mode.IN
-            case "AN_OUT_MODE"                      => Mode.OUT
-            case "AN_IN_OUT_MODE"                   => Mode.IN_OUT
+            case "AN_OUT_MODE" => Mode.OUT
+            case "AN_IN_OUT_MODE" => Mode.IN_OUT
           }
         }
       })
 
-  implicit def proc2procInfo(p : ProcedureDecl) : ProcedureInfo =
+  implicit def proc2procInfo(p: ProcedureDecl): ProcedureInfo =
     p.getPropertyOrElseUpdate(INFO_PROCEDURE,
       new ProcedureInfo {
-        private var _contractCases : ISeq[Exp] = null
-        private var _depends : IMap[ResourceUri, ISet[ResourceUri]] = null
-        private var _globalsin : ISet[ResourceUri] = null
-        private var _globalsout : ISet[ResourceUri] = null
-        private var _globalsproof : ISet[ResourceUri] = null
-        private var _isGhostFunction : Boolean = false
-        private var _pre : Exp = null
-        private var _post : Exp = null
+        private var _contractCases: ISeq[Exp] = null
+        private var _depends: IMap[ResourceUri, ISet[ResourceUri]] = null
+        private var _globalsin: ISet[ResourceUri] = null
+        private var _globalsout: ISet[ResourceUri] = null
+        private var _globalsproof: ISet[ResourceUri] = null
+        private var _isGhostFunction: Boolean = false
+        private var _pre: Exp = null
+        private var _post: Exp = null
+        private var _testCases: ISeq[TestCase] = null
 
-        implicit def wrap[T](t : T) = if (t == null) None else Some(t)
+        implicit def wrap[T](t: T) = if (t == null) None else Some(t)
 
         def contractCases = _contractCases
-        def contractCases(o : ISeq[Exp]) = _contractCases = o
-        
+        def contractCases(o: ISeq[Exp]) = _contractCases = o
+
         def depends = _depends
-        def depends(o : IMap[ResourceUri, ISet[ResourceUri]]) = _depends = o
+        def depends(o: IMap[ResourceUri, ISet[ResourceUri]]) = _depends = o
 
         def globalsIn = _globalsin
-        def globalsIn(o : ISet[ResourceUri]) = _globalsin = o
-        
+        def globalsIn(o: ISet[ResourceUri]) = _globalsin = o
+
         def globalsOut = _globalsout
-        def globalsOut(o : ISet[ResourceUri]) = _globalsout = o
-        
+        def globalsOut(o: ISet[ResourceUri]) = _globalsout = o
+
         def globalsProof = _globalsproof
-        def globalsProof(o : ISet[ResourceUri]) = _globalsproof = o
+        def globalsProof(o: ISet[ResourceUri]) = _globalsproof = o
 
         def isGhostFunction = _isGhostFunction
-        def isGhostFunction(o : Boolean) = _isGhostFunction = o
-        
+        def isGhostFunction(o: Boolean) = _isGhostFunction = o
+
         def pre = _pre
-        def pre(o : Exp) = _pre = o
-        
+        def pre(o: Exp) = _pre = o
+
         def post = _post
-        def post(o : Exp) = _post = o
+        def post(o: Exp) = _post = o
+
+        def testCases = _testCases
+        def testCases(o: ISeq[TestCase]) = _testCases = o
       })
 
   trait ParamInfo {
-    def mode : Mode
-    def mode(m : String)
+    def mode: Mode
+    def mode(m: String)
   }
 
   trait ProcedureInfo {
-    def contractCases : Option[ISeq[Exp]]
-    def contractCases(o : ISeq[Exp])
-    
-    def depends : Option[IMap[ResourceUri, ISet[ResourceUri]]]
-    def depends(o : IMap[ResourceUri, ISet[ResourceUri]])
+    def contractCases: Option[ISeq[Exp]]
+    def contractCases(o: ISeq[Exp])
 
-    def globalsIn : Option[ISet[ResourceUri]]
-    def globalsIn(o : ISet[ResourceUri])
+    def depends: Option[IMap[ResourceUri, ISet[ResourceUri]]]
+    def depends(o: IMap[ResourceUri, ISet[ResourceUri]])
 
-    def globalsOut : Option[ISet[ResourceUri]]
-    def globalsOut(o : ISet[ResourceUri])
+    def globalsIn: Option[ISet[ResourceUri]]
+    def globalsIn(o: ISet[ResourceUri])
 
-    def globalsProof : Option[ISet[ResourceUri]]
-    def globalsProof(o : ISet[ResourceUri])
+    def globalsOut: Option[ISet[ResourceUri]]
+    def globalsOut(o: ISet[ResourceUri])
 
-    def isGhostFunction : Boolean
-    def isGhostFunction(o : Boolean)
-      
-    def pre : Option[Exp]
-    def pre(o : Exp)
+    def globalsProof: Option[ISet[ResourceUri]]
+    def globalsProof(o: ISet[ResourceUri])
 
-    def post : Option[Exp]
-    def post(o : Exp)
+    def isGhostFunction: Boolean
+    def isGhostFunction(o: Boolean)
+
+    def pre: Option[Exp]
+    def pre(o: Exp)
+
+    def post: Option[Exp]
+    def post(o: Exp)
+
+    def testCases: Option[ISeq[TestCase]]
+    def testCases(o: ISeq[TestCase])
   }
 }
+
+case class TestCase(
+  val name: String,
+  val mode: TestCaseMode,
+  val requires: Option[Exp],
+  val ensures: Option[Exp])

@@ -17,6 +17,8 @@ import org.sireum.bakar.symbol.SignedIntegerTypeDef
 import org.sireum.bakar.symbol.SimpleRangeConstraint
 import org.sireum.bakar.symbol.SparkTypeDecl
 import org.sireum.bakar.symbol.SubTypeDecl
+import org.sireum.bakar.symbol.TestCase
+import org.sireum.bakar.symbol.TestCaseMode
 import org.sireum.bakar.symbol.Type
 import org.sireum.bakar.symbol.TypeDef
 import org.sireum.bakar.symbol.UnconstrainedArrayDef
@@ -1700,8 +1702,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               pd.contractCases(exps)
             case "convention" =>
               v(aspectDef.getElement)
-              val ne : NameExp = ctx.popResult
-              
+              val ne: NameExp = ctx.popResult
+
               ne.name.name.toLowerCase match {
                 case "ghost" => pd.isGhostFunction(true)
               }
@@ -1780,7 +1782,29 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 case x => throw new RuntimeException("Unexpected: " + x)
               }
             case "test_case" =>
-              Console.err.println("Skipping Test_Case!!!")
+              v(aspectDef.getElement)
+              val x: NewRecordExp = ctx.popResult
+
+              var name: String = null
+              var mode: TestCaseMode = null
+              var requires: Option[Exp] = None
+              var ensures: Option[Exp] = None
+              x.attributeInits.foreach(f =>
+                f.name.name.toLowerCase match {
+                  case "name" => name = f.exp.asInstanceOf[LiteralExp].text
+                  case "mode" =>
+                    f.exp.asInstanceOf[NameExp].name.name.toLowerCase match {
+                      case "nominal" => mode = TestCaseMode.Nominal
+                      case "robustness" => mode = TestCaseMode.Robustness
+                    }
+                  case "requires" => requires = Some(f.exp)
+                  case "ensures" => ensures = Some(f.exp)
+                })
+
+              var testCases = if (pd.testCases.isDefined) pd.testCases.get
+              else ivectorEmpty[TestCase]
+
+              pd.testCases(testCases :+ TestCase(name, mode, requires, ensures))
           }
         case x => throw new RuntimeException("Unexpected: " + x)
       }
@@ -2676,7 +2700,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         ctx.pushResult(TupleExp(ivector(_lb, _ub)), sloc)
         false
       case StringLiteralEx(sloc, litVal, typUri, checks) =>
-        val le = LiteralExp(LiteralType.STRING, litVal, litVal)
+        assert(litVal.startsWith("\"") && litVal.endsWith("\""))
+        val s = litVal.drop(1).dropRight(1)
+        val le = LiteralExp(LiteralType.STRING, s, s)
         ctx.addTypeUri(typUri, le)
         ctx.pushResult(le, sloc)
         false

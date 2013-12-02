@@ -148,7 +148,7 @@ const $CONST {
 procedure Test {
 
   #l20.
-    call Put ("\"Price of basket is\"" STRING_CONCATENATE attribute__uif__iamge (`My_Int, P));
+    call Put ("Price of basket is" STRING_CONCATENATE attribute__uif__iamge (`My_Int, P));
 
   #l21.
     return;

@@ -97,10 +97,10 @@ procedure Main
     call Sum_Of_Sum (I, Result2);
 
   #l9.
-    call Put_Line ("\"Sum(\"" STRING_CONCATENATE attribute__uif__iamge (`Integer, I) STRING_CONCATENATE "\" ) = \"" STRING_CONCATENATE attribute__uif__iamge (`Integer, Result));
+    call Put_Line ("Sum(" STRING_CONCATENATE attribute__uif__iamge (`Integer, I) STRING_CONCATENATE " ) = " STRING_CONCATENATE attribute__uif__iamge (`Integer, Result));
 
   #l10.
-    call Put_Line ("\"Sum_Of_Sum(\"" STRING_CONCATENATE attribute__uif__iamge (`Integer, I) STRING_CONCATENATE "\" ) = \"" STRING_CONCATENATE attribute__uif__iamge (`Integer, Result2));
+    call Put_Line ("Sum_Of_Sum(" STRING_CONCATENATE attribute__uif__iamge (`Integer, I) STRING_CONCATENATE " ) = " STRING_CONCATENATE attribute__uif__iamge (`Integer, Result2));
 
   #l11.
     I := I + 1ii;

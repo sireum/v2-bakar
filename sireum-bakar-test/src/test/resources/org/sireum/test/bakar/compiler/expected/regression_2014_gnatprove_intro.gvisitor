@@ -682,16 +682,16 @@ Model(Some(test.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(__anonymous
                 Some(NameDefinition(l20))
                   NameDefinition(l20)
                 List()
-                CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(Put)),TupleExp(List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,"Price of basket is","Price of 
+                CallJump(Vector(),Vector(),CallExp(NameExp(NameUser(Put)),TupleExp(List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,Price of basket is,Price of bas
                   List()
                   List()
-                  CallExp(NameExp(NameUser(Put)),TupleExp(List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,"Price of basket is","Price of basket is"),CallExp(NameExp
+                  CallExp(NameExp(NameUser(Put)),TupleExp(List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,Price of basket is,Price of basket is),CallExp(NameExp(Nam
                     NameExp(NameUser(Put))
                       NameUser(Put)
-                    TupleExp(List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,"Price of basket is","Price of basket is"),CallExp(NameExp(NameUser(attribute__uif__iamge
-                      List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,"Price of basket is","Price of basket is"),CallExp(NameExp(NameUser(attribute__uif__iamge)),TupleE
-                        BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,"Price of basket is","Price of basket is"),CallExp(NameExp(NameUser(attribute__uif__iamge)),TupleExp(Li
-                          LiteralExp(STRING,"Price of basket is","Price of basket is")
+                    TupleExp(List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,Price of basket is,Price of basket is),CallExp(NameExp(NameUser(attribute__uif__iamge)),T
+                      List(BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,Price of basket is,Price of basket is),CallExp(NameExp(NameUser(attribute__uif__iamge)),TupleExp(L
+                        BinaryExp(STRING_CONCATENATE,LiteralExp(STRING,Price of basket is,Price of basket is),CallExp(NameExp(NameUser(attribute__uif__iamge)),TupleExp(List(T
+                          LiteralExp(STRING,Price of basket is,Price of basket is)
                           CallExp(NameExp(NameUser(attribute__uif__iamge)),TupleExp(List(TypeExp(NamedTypeSpec(NameUser(My_Int),Vector())), NameExp(NameUser(P)))))
                             NameExp(NameUser(attribute__uif__iamge))
                               NameUser(attribute__uif__iamge)
