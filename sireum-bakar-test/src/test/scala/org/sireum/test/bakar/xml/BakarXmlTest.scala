@@ -25,7 +25,7 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
   
-  //override def includes = super.includes ++= Set("2014_gnatprove_LC17-035__update_attribute$")
+  //override def includes = super.includes ++= Set("2014_gnatprove_LC17-035__update_big_test")
 
   override def includes = super.includes ++= Set(
     "2005_misc",
@@ -41,6 +41,7 @@ class BakarXmlTest extends BakarTestFileFramework[Project] {
     "2014_gnatprove_intro",
     "2014_gnatprove_invert_injection",
     "2014_gnatprove_LC17-035__update_attribute$",
+    "2014_gnatprove_LC17-035__update_big_test",
     "2014_gnatprove_longest_common_prefix",
     "2014_gnatprove_max_and_sum",
     "2014_gnatprove_n_queens",
