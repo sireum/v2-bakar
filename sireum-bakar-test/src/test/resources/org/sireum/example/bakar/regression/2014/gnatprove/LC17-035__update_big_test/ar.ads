@@ -722,19 +722,19 @@ package AR is
 
   procedure TestE06
 	    (R: in out Rec1T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.F1 in ET2,
           Post    => R = R'Old'Update (F1 => R'Old.G1, G1 => R'Old.F1);
 
   procedure TestE07
 	    (R: in out Rec1T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.F1 in ET2,
           Post    => R.F1 = R'Old.G1 and R.G1 = R'Old.F1;
 
   procedure TestE08
 	    (R: in out Rec1T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.F1 in ET2,
           Post    => R = Rec1T'(F1 => R'Old.G1, G1 => R'Old.F1);
 
@@ -803,25 +803,25 @@ package AR is
 
   procedure TestF10
 	    (R: in out Rec2T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.G2.F1 in ET2,
           Post    => R = R'Old'Update (G2 => R'Old.G2'Update (F1 => R'Old.G2.G1, G1 => R'Old.G2.F1));
 
   procedure TestF11
 	    (R: in out Rec2T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.G2.F1 in ET2,
           Post    => R.F2 = R'Old.F2 and R.G2.F1 = R'Old.G2.G1 and R.G2.G1 = R'Old.G2.F1 and R.H2 = R'Old.H2;
 
   procedure TestF12
 	    (R: in out Rec2T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.G2.F1 in ET2,
           Post    => R = R'Old'Update (G2 => Rec1T'(F1 => R'Old.G2.G1, G1 => R'Old.G2.F1));
 
   procedure TestF13
 	    (R: in out Rec2T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.G2.F1 in ET2,
           Post    => R = Rec2T'(F2 => R'Old.F2,  G2 => Rec1T'(F1 => R'Old.G2.G1, G1 => R'Old.G2.F1),  H2 => R'Old.H2);
 
@@ -920,25 +920,25 @@ package AR is
 
   procedure TestG09
 	    (R: in out Rec3T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.F3.G2.F1 in ET2,
           Post    => R = R'Old'Update (F3 => R'Old.F3'Update (G2 => R'Old.F3.G2'Update (F1 => R'Old.F3.G2.G1, G1 => R'Old.F3.G2.F1)));
 
   procedure TestG10
 	    (R: in out Rec3T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.F3.G2.F1 in ET2,
           Post    => R.F3.F2 = R'Old.F3.F2 and R.F3.G2.F1 = R'Old.F3.G2.G1 and R.F3.G2.G1 = R'Old.F3.G2.F1 and R.F3.H2 = R'Old.F3.H2 and R.G3 = R'Old.G3;
 
   procedure TestG11
 	    (R: in out Rec3T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.F3.G2.F1 in ET2,
           Post    => R = R'Old'Update (F3 => R'Old.F3'Update (G2 => Rec1T'(F1 => R'Old.F3.G2.G1, G1 => R'Old.F3.G2.F1)));
 
   procedure TestG12
 	    (R: in out Rec3T)
-     with Depends => (R =>+ null),
+     with --Depends => (R =>+ null),
           Pre     => R.F3.G2.F1 in ET2,
           Post    => R = Rec3T'(F3 => Rec2T'(F2 => R'Old.F3.F2,  G2 => Rec1T'(F1 => R'Old.F3.G2.G1, G1 => R'Old.F3.G2.F1),  H2 => R'Old.F3.H2),  G3 => R'Old.G3);
 
@@ -1057,49 +1057,49 @@ package AR is
 
   procedure TestH09
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R = R'Old'Update (F4 => R'Old.F4'Update (F3 => R'Old.F4.F3'Update (H2 => R'Old.G4)), G4 => R'Old.F4.F3.H2);
 
   procedure TestH10
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R.F4.F3.F2 = R'Old.F4.F3.F2 and R.F4.F3.G2.F1 = R'Old.F4.F3.G2.F1 and R.F4.F3.G2.G1 = R'Old.F4.F3.G2.G1 and R.F4.F3.H2 = R'Old.G4 and R.F4.G3 = R'Old.F4.G3 and R.G4 = R'Old.F4.F3.H2;
 
   procedure TestH11
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R = R'Old'Update (F4 => R'Old.F4'Update (F3 => Rec2T'(F2 => R'Old.F4.F3.F2,  G2 => R'Old.F4.F3.G2,  H2 => R'Old.G4)), G4 => R'Old.F4.F3.H2);
 
   procedure TestH12
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R = Rec4T'(F4 => Rec3T'(F3 => Rec2T'(F2 => R'Old.F4.F3.F2,  G2 => Rec1T'(F1 => R'Old.F4.F3.G2.F1,  G1 => R'Old.F4.F3.G2.G1),  H2 => R'Old.G4),  G3 => R'Old.F4.G3),  G4 => R'Old.F4.F3.H2);
 
   procedure TestH13
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R = R'Old'Update (F4 => R'Old.F4'Update (F3 => R'Old.F4.F3'Update (H2 => R'Old.G4)), G4 => R'Old.F4.F3.H2);
 
   procedure TestH14
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R.F4.F3.F2 = R'Old.F4.F3.F2 and R.F4.F3.G2.F1 = R'Old.F4.F3.G2.F1 and R.F4.F3.G2.G1 = R'Old.F4.F3.G2.G1 and R.F4.F3.H2 = R'Old.G4 and R.F4.G3 = R'Old.F4.G3 and R.G4 = R'Old.F4.F3.H2;
 
   procedure TestH15
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R = R'Old'Update (F4 => R'Old.F4'Update (F3 => Rec2T'(F2 => R'Old.F4.F3.F2,  G2 => R'Old.F4.F3.G2,  H2 => R'Old.G4)), G4 => R'Old.F4.F3.H2);
 
   procedure TestH16
 	    (R: in out Rec4T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Pre     => R.G4 in Enum1TA,
           Post    => R = Rec4T'(F4 => Rec3T'(F3 => Rec2T'(F2 => R'Old.F4.F3.F2,  G2 => Rec1T'(F1 => R'Old.F4.F3.G2.F1,  G1 => R'Old.F4.F3.G2.G1),  H2 => R'Old.G4),  G3 => R'Old.F4.G3),  G4 => R'Old.F4.F3.H2);
 
@@ -1148,42 +1148,42 @@ package AR is
 
   procedure TestI05
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R = R'Old'Update (F5 => R'Old.F5'Update (G2 => R'Old.H5), H5 => R'Old.F5.G2);
 
   procedure TestI06
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R.F5.F2 = R'Old.F5.F2 and R.F5.G2.F1 = R'Old.H5.F1 and R.F5.G2.G1 = R'Old.H5.G1 and R.F5.H2 = R'Old.F5.H2 and R.G5 = R'Old.G5 and R.H5.F1 = R'Old.F5.G2.F1 and R.H5.G1 = R'Old.F5.G2.G1;
 
   procedure TestI07
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R = R'Old'Update (F5 => Rec2T'(F2 => R'Old.F5.F2, G2 => R'Old.H5, H2 => R'Old.F5.H2), H5 => R'Old.F5.G2);
 
   procedure TestI08
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R = Rec5T'(F5 => Rec2T'(F2 => R'Old.F5.F2, G2 => R'Old.H5, H2 => R'Old.F5.H2),  G5 => R'Old.G5,  H5 => R'Old.F5.G2);
 
   procedure TestI09
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R = R'Old'Update (F5 => R'Old.F5'Update (G2 => R'Old.H5), H5 => R'Old.F5.G2);
 
   procedure TestI10
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R.F5.F2 = R'Old.F5.F2 and R.F5.G2.F1 = R'Old.H5.F1 and R.F5.G2.G1 = R'Old.H5.G1 and R.F5.H2 = R'Old.F5.H2 and R.G5 = R'Old.G5 and R.H5.F1 = R'Old.F5.G2.F1 and R.H5.G1 = R'Old.F5.G2.G1;
 
   procedure TestI11
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R = R'Old'Update (F5 => Rec2T'(F2 => R'Old.F5.F2, G2 => R'Old.H5, H2 => R'Old.F5.H2), H5 => R'Old.F5.G2);
 
   procedure TestI12
 	    (R: in out Rec5T)
-     with Depends => (R =>+ null),
+     with-- Depends => (R =>+ null),
           Post    => R = Rec5T'(F5 => Rec2T'(F2 => R'Old.F5.F2, G2 => R'Old.H5, H2 => R'Old.F5.H2),  G5 => R'Old.G5,  H5 => R'Old.F5.G2);
 
   -----------------------------------------------

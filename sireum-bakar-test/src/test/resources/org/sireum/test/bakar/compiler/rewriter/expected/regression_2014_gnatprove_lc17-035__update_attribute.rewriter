@@ -1,0 +1,305 @@
+package Update;
+
+
+procedure Array_1D F1 (
+        Integer Init_Val) {
+  local
+    Array_1D Arr;
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #l2.
+    Arr := `Array_1D { iter => 
+        switch iter
+          default => @@An_Arr[5ii]};
+
+  #l3.
+    Arr[1ii] := @@X;
+
+  #l4.
+    Arr[2ii] := @@X;
+
+  #rwl0.
+    _t0 := Init_Val;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #l5.
+    Arr[3ii] := _t0 + _t1;
+
+  #l6.
+    return Arr;
+}
+
+procedure Basic_Array_Update (
+        Array_1D A,
+        Index I,
+        Integer New_Val) {
+
+  #l7.
+    A[I] := New_Val;
+
+  #l8.
+    return;
+}
+
+procedure Basic_Array_Update2 (
+        Array_1D A,
+        Index I,
+        Integer New_Val) {
+
+  #l9.
+    A[I] := New_Val;
+
+  #l10.
+    return;
+}
+
+procedure Array_1D F2 (
+        Array_1D Arr_In,
+        Index I) {
+
+  #l11.
+    return attribute__uif__array_update (Arr_In, ^{(1ii, I) -> 7ii});
+}
+
+procedure Array_1D F3 (
+        Array_1D Arr_In) {
+  local
+    Array_1D Arr;
+
+
+  #l12.
+    Arr := Arr_In;
+
+  #l13.
+    Arr[1ii] := @@X;
+
+  #l14.
+    Arr[2ii] := 1ii;
+
+  #l15.
+    Arr[3ii] := @@An_Arr[4ii];
+
+  #l16.
+    Arr[4ii] := @@X;
+
+  #l17.
+    return Arr;
+}
+
+procedure Array_1D F4 (
+        Array_1D Arr_In,
+        Index I,
+        Index J) {
+
+  #l18.
+    return attribute__uif__array_update (Arr_In, ^{(1ii, I) -> 10ii, (I, J) -> 20ii});
+}
+
+procedure Array_1D F5 (
+        Array_1D Arr_In) {
+  local
+    Array_1D Arr;
+
+
+  #l19.
+    Arr := Arr_In;
+
+  #l20.
+    Arr[2ii] := 1ii;
+
+  #l21.
+    return Arr;
+}
+
+procedure My_Init_Array (
+        Array_1D A) {
+
+  #l22.
+    A := `Array_1D { iter => 
+        switch iter
+          default => 1ii};
+
+  #l23.
+    A := attribute__uif__array_update (A, ^{3ii -> 2ii, (4ii, 5ii) -> 3ii});
+
+  #l24.
+    return;
+}
+
+procedure My_Init_Array2 (
+        Array_1D A,
+        Index I) {
+
+  #l25.
+    A := `Array_1D { iter => 
+        switch iter
+          default => 1ii};
+
+  #l26.
+    A := attribute__uif__array_update (A, ^{I -> 2ii, (4ii, 5ii) -> @@X});
+
+  #l27.
+    return;
+}
+
+procedure Swap_Elements (
+        Index I,
+        Index J,
+        Array_1D A) {
+  local
+    Integer Tmp;
+
+
+  #l28.
+    Tmp := A[I];
+
+  #l29.
+    A[I] := A[J];
+
+  #l30.
+    A[J] := Tmp;
+
+  #l31.
+    return;
+}
+
+procedure Array_1D Swap_Fun (
+        Array_1D Arr_In,
+        Index I,
+        Index J) {
+  local
+    Array_1D Arr;
+
+
+  #l32.
+    Arr := Arr_In;
+
+  #l33.
+    Arr[I] := Arr_In[J];
+
+  #l34.
+    Arr[J] := Arr_In[I];
+
+  #l35.
+    return Arr;
+}package Update;
+
+
+typealias _SIGNED_INTEGER_TYPE_ Index;
+
+typealias _ARRAY_ Array_1D;
+
+typealias _ARRAY_ Array_2D;
+
+typealias Natural anonymousType$0;
+
+typealias Natural anonymousType$1;
+
+typealias Natural anonymousType$2;
+
+typealias _ARRAY_ Array_3D;
+
+global Integer @@X;
+
+global Array_1D @@An_Arr;
+
+procedure $$sinit {
+
+  #l1.
+    @@An_Arr := `Array_1D { iter => 
+        switch iter
+          default => 7ii};
+
+  #l36.
+    return;
+}
+
+procedure Array_1D F1 (
+        Integer Init_Val) {
+
+}
+
+procedure Basic_Array_Update (
+        Array_1D A,
+        Index I,
+        Integer New_Val) {
+
+}
+
+procedure Basic_Array_Update2 (
+        Array_1D A,
+        Index I,
+        Integer New_Val) {
+
+}
+
+procedure Array_1D F2 (
+        Array_1D Arr_In,
+        Index I) {
+
+}
+
+procedure Array_1D F3 (
+        Array_1D Arr_In) {
+
+}
+
+procedure Array_1D F4 (
+        Array_1D Arr_In,
+        Index I,
+        Index J) {
+
+}
+
+procedure Array_1D F5 (
+        Array_1D Arr_In) {
+
+}
+
+procedure My_Init_Array (
+        Array_1D A) {
+
+}
+
+procedure My_Init_Array2 (
+        Array_1D A,
+        Index I) {
+
+}
+
+procedure Swap_Elements (
+        Index I,
+        Index J,
+        Array_1D A) {
+
+}
+
+procedure Array_1D Swap_Fun (
+        Array_1D Arr_In,
+        Index I,
+        Index J) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

@@ -135,6 +135,7 @@ import org.sireum.bakar.xml.PackageBodyDeclarationEx
 import org.sireum.bakar.xml.PackageBodyDeclaration
 import org.sireum.bakar.xml.PackageDeclaration
 import org.sireum.bakar.xml.PackageDeclarationEx
+import org.sireum.bakar.xml.ParameterAssociation
 import org.sireum.bakar.xml.ParameterSpecificationEx
 import org.sireum.bakar.xml.ParameterSpecificationList
 import org.sireum.bakar.xml.ParenthesizedExpression
@@ -179,6 +180,7 @@ import org.sireum.bakar.xml.TerminateAlternativeStatementEx
 import org.sireum.bakar.xml.TimedEntryCallStatementEx
 import org.sireum.bakar.xml.TypeConversionEx
 import org.sireum.bakar.xml.UnaryMinusOperatorEx
+import org.sireum.bakar.xml.UnaryPlusOperator
 import org.sireum.bakar.xml.UnaryPlusOperatorEx
 import org.sireum.bakar.xml.UnconstrainedArrayDefinitionEx
 import org.sireum.bakar.xml.UnknownAttributeEx
@@ -379,23 +381,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       DUMMY_RET("ret") = o
       pushResult(DUMMY_RET, sloc)
     }
-
-    /*
-    var locals: MList[LocalVarDecl] = null
-    def localsInit = {
-      assert(locals == null)
-      locals = mlistEmpty[LocalVarDecl]
-    }
-    def localsPush(l: LocalVarDecl) = {
-      assert(locals != null)
-      locals += l
-    }
-    def localsPop = {
-      val r = locals
-      locals = null
-      r
-    }
-    */
 
     var anonymousPackageCounter = 0
     def nextAnonymousPackage = {
@@ -1044,7 +1029,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             case ds @ DiscreteSubtypeIndicationAsSubtypeDefinitionEx(sloc, stmark, stcons, checks) =>
 
               val (_, itname, ituri, _) = getName(stmark)
-              var compTypeUri: Option[ResourceUri] = None
+              var _indexUri: ResourceUri = null
 
               if (!isEmpty(stcons.getConstraint)) {
                 v(stcons.getConstraint)
@@ -1053,11 +1038,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 val anon = this.introduceAnonymousType(t.exps(0), t.exps(1), itname, ituri)
 
                 auxTypes :+= anon
-                compTypeUri = Some(anon(URIS.REF_URI))
+                _indexUri = anon(URIS.REF_URI)
               } else
-                compTypeUri = Some(ituri)
+                _indexUri = ituri
 
-              indexTypes :+= ituri
+              indexTypes :+= _indexUri
             case ds @ DiscreteSimpleExpressionRangeAsSubtypeDefinitionEx(sloc2, low, high, checks2) =>
               // e.g. type IntArray is array (0..100) of Integer;
 
@@ -1839,6 +1824,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                       def h(e: Any, isGlobalLhs: Boolean): ISet[String] = {
                         var ret = isetEmpty[String]
                         e match {
+                          case fc @ FunctionCallEx(sloc2, prefix, params, _, _, _, _) =>
+                            assert(prefix.getExpression.isInstanceOf[UnaryPlusOperator])
+                            assert(params.getAssociations.size == 1)
+                            
+                            val x = (params.getAssociations.head.asInstanceOf[ParameterAssociation]).getActualParameterQ.getExpression
+                            ret ++= h(x, isGlobalLhs)
                           case paa @ PositionalArrayAggregateEx(sloc4, arrassoc, typ, checks) =>
                             arrassoc.getAssociations.foreach {
                               case ArrayComponentAssociationEx(_, _choices, _exp, checks) =>
@@ -2568,6 +2559,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   assert(se.defaultCase == null)
 
                   elements ++= se.cases.map(f => (f.cond, f.exp))
+                case ne: NewRecordExp =>
+                  elements ++= ne.attributeInits.map(f => (NameExp(f.name), f.exp))
                 case x => throw new RuntimeException("Unexpected: " + x)
               }
             }

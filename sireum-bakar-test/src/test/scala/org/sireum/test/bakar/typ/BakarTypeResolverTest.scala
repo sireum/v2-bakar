@@ -44,11 +44,7 @@ class BakarTypeResolverTest extends BakarExpRewriterTest {
       PipelineStage(
         "type resolver stage",
         false,
-        BakarTypeResolverModule),
-      PipelineStage(
-        "prop map rewriter",
-        false,
-        BakarPropertyMapRewriterModule)
+        BakarTypeResolverModule)
     )
 
   override def outputSuffix = "typeresolver"
@@ -57,9 +53,5 @@ class BakarTypeResolverTest extends BakarExpRewriterTest {
     import BakarTypeResolverModule.ConsumerView._
     for ((k, v) <- job.bakarRef2TypeUriMap.toList.sortBy(_._1))
       w.write(s"$k -> $v\n")
-    //job.models foreach { m =>
-    //  val x = NodePrettyPrinter.print(m)
-    //  w.write(x)
-    //}
   }
 }

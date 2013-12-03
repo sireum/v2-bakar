@@ -49,11 +49,7 @@ class BakarSymbolResolverTest extends BakarExpRewriterTest {
       PipelineStage(
         "symbol resolver stage",
         false,
-        BakarSymbolResolverModule),   
-      PipelineStage(
-        "prop map rewriter",
-        false,
-        BakarPropertyMapRewriterModule)
+        BakarSymbolResolverModule)
     )
 
   override def outputSuffix = "symbolresolver"
