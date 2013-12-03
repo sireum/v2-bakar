@@ -3,29 +3,29 @@ package org.sireum.test.bakar.compiler
 import java.io.File
 import java.io.Writer
 import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
 import org.sireum.bakar.compiler.module.BakarTranslatorModule
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import org.sireum.example.bakar.BakarExamples
 import org.sireum.example.bakar.BakarExamplesAnchor
-import org.sireum.example.bakar.Project
 import org.sireum.pilar.ast.PilarAstNode
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
+import org.sireum.test.bakar.framework.BakarDirectoryProjectProvider
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.test.bakar.framework.BakarTestFileFramework
+import org.sireum.test.bakar.framework.Project
+import org.sireum.test.bakar.framework.Projects
 import org.sireum.util.FileUtil
 import org.sireum.util.ISeq
 import org.sireum.util.Visitor
-import org.sireum.test.bakar.framework.BakarDirectoryProjectProvider
+import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class BakarTranslatorTest extends BakarTestFileFramework[Project] {
 
   override def generateExpected = false
-      
+
   //override def includes = super.includes ++= Set("2014_gnatprove_LC17-035__update_big_test$")
 
   override def includes = super.includes ++= Set(
@@ -62,15 +62,14 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
       "misc_package_scope", // contains nested packages
       "misc_recordshape", // contains record refinements
       "sort_array_utilities", // contains nested methods
-      "xxxxxxx"
-      )
+      "xxxxxxx")
   }
 
-  register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR))
-  
-  register(BakarExamples.getProjects(BakarDirectoryProjectProvider, 
-      BakarExamplesAnchor.REGRESSION_DIR + "/2014/gnatprove/", BakarExamplesAnchor.BASE_DIR))
-    
+  register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR))
+
+  register(Projects.getProjects(BakarDirectoryProjectProvider,
+    BakarExamplesAnchor.REGRESSION_DIR + "/2014/gnatprove/", BakarExamplesAnchor.BASE_DIR))
+
   override def pre(c: Configuration): Boolean = {
     val dest = new File(c.resultsDir + "/0")
     dest.mkdirs

@@ -2,25 +2,25 @@ package org.sireum.test.bakar.jago
 
 import java.io.Writer
 import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
 import org.sireum.bakar.jago.program.BakarProgramTranslatorModule
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import org.sireum.example.bakar.BakarExamples
 import org.sireum.example.bakar.BakarExamplesAnchor
-import org.sireum.example.bakar.Project
 import org.sireum.option.ProgramTarget
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.test.bakar.framework.BakarTestFileFramework
+import org.sireum.test.bakar.framework.Project
+import org.sireum.test.bakar.framework.Projects
 import org.sireum.util.FileUtil
+import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class BakarProgramTest_OCaml extends BakarTestFileFramework[Project] {
     
-  this.register(BakarExamples.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
+  this.register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
   override def pre(c : Configuration) : Boolean = {
     BakarProgramTranslatorModule.setJagoProgramTarget(c.job.properties, ProgramTarget.Ocaml)

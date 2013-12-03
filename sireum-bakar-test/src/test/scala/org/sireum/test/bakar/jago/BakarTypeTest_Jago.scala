@@ -4,12 +4,12 @@ import java.io.Writer
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.sireum.bakar.jago.typ.BakarTypTranslatorModule
-import org.sireum.example.bakar.Project
 import org.sireum.option.TypeTarget
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.framework.BakarTestFileFramework
+import org.sireum.test.bakar.framework.Project
 import org.sireum.util.FileResourceUri
 import org.sireum.util.ilistEmpty
 

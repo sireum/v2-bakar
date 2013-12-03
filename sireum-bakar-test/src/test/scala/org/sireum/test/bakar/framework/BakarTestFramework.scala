@@ -1,23 +1,34 @@
 package org.sireum.test.bakar.framework
 
-import org.sireum.util._
-import org.sireum.pipeline._
-import org.sireum.test.framework.TestFramework
-import java.io.Writer
-import java.io.StringWriter
-import java.io.FileWriter
 import java.io.File
+import java.io.FileWriter
+import java.io.StringWriter
+import java.io.Writer
 import java.net.URI
-import org.sireum.example.bakar.BakarExamples
+
 import scala.util.matching.Regex
-import org.sireum.example.bakar.Project
+
 import org.scalatest.junit.JUnitTestFailedError
+import org.sireum.pipeline.PipelineConfiguration
+import org.sireum.pipeline.PipelineJob
+import org.sireum.test.framework.TestFramework
+import org.sireum.util.FileResourceUri
+import org.sireum.util.FileUtil
+import org.sireum.util.ISeq
+import org.sireum.util.StringUtil
+import org.sireum.util.msetEmpty
+
+trait Project {
+  val projectName: String
+  val testName: String
+  val files: ISeq[FileResourceUri]
+}
 
 trait BakarTestFramework[P <: Project] extends TestFramework {
 
   def BakarTest: this.type = this
 
-  val base = FileUtil.fileUri(this.getClass, "").replace("/bin/", "/src/test/resources/")
+  def base = FileUtil.fileUri(this.getClass, "").replace("/bin/", "/src/test/resources/")
   def EXPECTED_DIR = base + "/expected/"
   def RESULTS_DIR = base + "/results/"
 
@@ -31,12 +42,12 @@ trait BakarTestFramework[P <: Project] extends TestFramework {
   def ignores = msetEmpty[Regex]
   def includes = msetEmpty[Regex]
 
-  def accept(p : P): Boolean = true
-  def reject(p : P) = ignore(p.testName) {}  
+  def accept(p: P): Boolean = true
+  def reject(p: P) = ignore(p.testName) {}
   def execute(p: P)
 
   def register(projects: ISeq[P]) {
-    for(p <- projects) {
+    for (p <- projects) {
       if ((disableIncludes || includes.isEmpty || includes.exists(r => r.findFirstMatchIn(p.testName).isDefined)) &&
         (disableExcludes || !excludes.exists(r => r.findFirstMatchIn(p.testName).isDefined))) {
         if (accept(p) &&
@@ -65,7 +76,7 @@ trait BakarTestFileFramework[P <: Project] extends BakarTestFramework[P] {
     resultsDir: File,
     job: PipelineJob)
 
-  override def execute(p : P) = {
+  override def execute(p: P) = {
     test(p.testName) {
 
       val testNamelc = p.testName.toLowerCase
