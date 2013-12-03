@@ -14,13 +14,13 @@ package Positional_Array
 
 procedure $$binit {
 
-  #l1.
-    Box2 := `Square { iter => 
+  #l2.
+    @@Box2 := `Square { iter => 
         switch iter
           case __positional0 => 77ii
           default => 5ii};
 
-  #l2.
+  #l5.
     return;
 }
 
@@ -62,7 +62,7 @@ procedure dummy (
  {
 
   #l3.
-    Box[X] := Box[X] - 1ii;
+    @@Box[X] := @@Box[X] - 1ii;
 
   #l4.
     return;
@@ -198,7 +198,7 @@ global Square @@Box2
 
 procedure $$sinit {
 
-  #l5.
+  #l1.
     @@Box := `Square { iter => 
         switch iter
           case __positional0 => -(1ii)

@@ -6,15 +6,15 @@ global Integer @@B;
 procedure $$binit {
 
   #l1.
-    Y := 1ii;
+    @@Y := 1ii;
 
   #l2.
     @@B := 0ii;
 
   #l3.
-    C := 0ii;
+    @@C := 0ii;
 
-  #l4.
+  #l11.
     return;
 }
 
@@ -22,8 +22,8 @@ procedure Integer F1 (
         Integer X,
         Integer Z) {
 
-  #l5.
-    return X + Z + Y;
+  #l4.
+    return X + Z + @@Y;
 }
 
 procedure P1 (
@@ -33,13 +33,13 @@ procedure P1 (
     Integer _tcomp0;
 
 
-  #l6.
+  #l5.
     call _tcomp0 := F1 (M, N);
 
-  #l7.
+  #l6.
     @@B := _tcomp0;
 
-  #l8.
+  #l7.
     return;
 }
 
@@ -50,13 +50,13 @@ procedure P2 (
     Integer _tcomp1;
 
 
-  #l9.
+  #l8.
     call _tcomp1 := F1 (M, N);
 
-  #l10.
-    @@B := _tcomp1 + C;
+  #l9.
+    @@B := _tcomp1 + @@C;
 
-  #l11.
+  #l10.
     return;
 }package Function_Simple;
 

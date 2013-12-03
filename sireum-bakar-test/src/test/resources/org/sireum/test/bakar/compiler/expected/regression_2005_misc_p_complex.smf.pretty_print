@@ -27,15 +27,15 @@ global Integer @@B
 procedure $$binit {
 
   #l1.
-    Y := 1ii;
+    @@Y := 1ii;
 
   #l2.
     @@B := 0ii;
 
   #l3.
-    C := 0ii;
+    @@C := 0ii;
 
-  #l4.
+  #l6.
     return;
 }
 
@@ -97,10 +97,10 @@ procedure Q (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l5.
+  #l4.
     Z := X + @@B;
 
-  #l6.
+  #l5.
     return;
 }
 

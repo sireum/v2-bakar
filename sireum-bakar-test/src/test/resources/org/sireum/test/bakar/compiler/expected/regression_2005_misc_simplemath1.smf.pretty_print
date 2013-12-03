@@ -29,7 +29,7 @@ procedure $$binit {
   #l1.
     @@B := 0ii;
 
-  #l2.
+  #l4.
     return;
 }
 
@@ -70,10 +70,10 @@ procedure Inc (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.
+  #l2.
     I := I + @@B;
 
-  #l4.
+  #l3.
     return;
 }
 

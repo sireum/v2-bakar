@@ -75,73 +75,73 @@ procedure Machine_Step
 
 
   #l2.
-    if !(In_0_Rdy_V1 && !(Out_1_Rdy_V1)) then goto l1;
+    if !(@@In_0_Rdy_V1 && !(@@Out_1_Rdy_V1)) then goto l1;
 
   #l3.
-    Data_0_V1 := In_0_Dat_V1;
+    Data_0_V1 := @@In_0_Dat_V1;
 
   #l4.
-    In_0_Rdy_V1 := false;
+    @@In_0_Rdy_V1 := false;
 
   #l5.
-    Out_1_Dat_V1 := Data_0_V1;
+    @@Out_1_Dat_V1 := Data_0_V1;
 
   #l6.
-    Out_1_Rdy_V1 := true;
+    @@Out_1_Rdy_V1 := true;
 
   #l1.
     // empty loc
 
   #l8.
-    if !(In_1_Rdy_V1 && !(Out_0_Rdy_V1)) then goto l7;
+    if !(@@In_1_Rdy_V1 && !(@@Out_0_Rdy_V1)) then goto l7;
 
   #l9.
-    Data_1_V1 := In_1_Dat_V1;
+    Data_1_V1 := @@In_1_Dat_V1;
 
   #l10.
-    In_1_Rdy_V1 := false;
+    @@In_1_Rdy_V1 := false;
 
   #l11.
-    Out_0_Dat_V1 := Data_1_V1;
+    @@Out_0_Dat_V1 := Data_1_V1;
 
   #l12.
-    Out_0_Rdy_V1 := true;
+    @@Out_0_Rdy_V1 := true;
 
   #l7.
     // empty loc
 
   #l14.
-    if !(In_0_Rdy_V2 && !(Out_1_Rdy_V2)) then goto l13;
+    if !(@@In_0_Rdy_V2 && !(@@Out_1_Rdy_V2)) then goto l13;
 
   #l15.
-    Data_0_V2 := In_0_Dat_V2;
+    Data_0_V2 := @@In_0_Dat_V2;
 
   #l16.
-    In_0_Rdy_V2 := false;
+    @@In_0_Rdy_V2 := false;
 
   #l17.
-    Out_1_Dat_V2 := Data_0_V2;
+    @@Out_1_Dat_V2 := Data_0_V2;
 
   #l18.
-    Out_1_Rdy_V2 := true;
+    @@Out_1_Rdy_V2 := true;
 
   #l13.
     // empty loc
 
   #l20.
-    if !(In_1_Rdy_V2 && !(Out_0_Rdy_V2)) then goto l19;
+    if !(@@In_1_Rdy_V2 && !(@@Out_0_Rdy_V2)) then goto l19;
 
   #l21.
-    Data_1_V2 := In_1_Dat_V2;
+    Data_1_V2 := @@In_1_Dat_V2;
 
   #l22.
-    In_1_Rdy_V2 := false;
+    @@In_1_Rdy_V2 := false;
 
   #l23.
-    Out_0_Dat_V2 := Data_1_V2;
+    @@Out_0_Dat_V2 := Data_1_V2;
 
   #l24.
-    Out_0_Rdy_V2 := true;
+    @@Out_0_Rdy_V2 := true;
 
   #l19.
     // empty loc
@@ -209,7 +209,7 @@ procedure SinglePositionAssign (
  {
 
   #l26.
-    Flags[Flag] := Value;
+    @@Flags[Flag] := Value;
 
   #l27.
     return;
@@ -316,10 +316,10 @@ procedure SinglePositionAssign (
  {
 
   #l28.
-    Flags_V1[Flag_V1] := Value_V1;
+    @@Flags_V1[Flag_V1] := Value_V1;
 
   #l29.
-    Flags_V2[Flag_V2] := Value_V2;
+    @@Flags_V2[Flag_V2] := Value_V2;
 
   #l30.
     return;

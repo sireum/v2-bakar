@@ -6,15 +6,15 @@ global Integer @@B;
 procedure $$binit {
 
   #l1.
-    Y := 1ii;
+    @@Y := 1ii;
 
   #l2.
     @@B := 0ii;
 
   #l3.
-    C := 0ii;
+    @@C := 0ii;
 
-  #l4.
+  #l6.
     return;
 }
 
@@ -32,10 +32,10 @@ procedure Q (
   #rwl1.
     _t1 := @@B;
 
-  #l5.
+  #l4.
     Z := _t0 + _t1;
 
-  #l6.
+  #l5.
     return;
 }package P_Refinement;
 

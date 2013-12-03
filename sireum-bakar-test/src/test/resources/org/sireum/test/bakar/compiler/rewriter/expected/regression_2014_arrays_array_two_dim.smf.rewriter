@@ -29,8 +29,8 @@ procedure $$binit {
   #rwl5.
     _t5 := 1ii;
 
-  #l1.
-    Box := `Square { iter => 
+  #l3.
+    @@Box := `Square { iter => 
         switch iter
           case (1ii, constThree) => { iter => 
               switch iter
@@ -50,7 +50,7 @@ procedure $$binit {
               switch iter
                 default => 3ii}};
 
-  #l2.
+  #l8.
     return;
 }
 
@@ -63,15 +63,15 @@ procedure dummy (
 
 
   #rwl6.
-    _t6 := Box[X, Y];
+    _t6 := @@Box[X, Y];
 
   #rwl7.
     _t7 := 1ii;
 
-  #l3.
-    Box[X, Y] := _t6 - _t7;
-
   #l4.
+    @@Box[X, Y] := _t6 - _t7;
+
+  #l5.
     return;
 }
 
@@ -86,10 +86,10 @@ procedure dummy2 (
 
 
   #rwl8.
-    _t8 := aBoard[M];
+    _t8 := @@aBoard[M];
 
   #rwl10.
-    _t9 := aBoard[M];
+    _t9 := @@aBoard[M];
 
   #rwl11.
     _t10 := _t9[N];
@@ -97,13 +97,13 @@ procedure dummy2 (
   #rwl12.
     _t11 := 1ii;
 
-  #l5.
+  #l6.
     _t8[N] := _t10 - _t11;
 
   #rwl9.
-    aBoard[M] := _t8;
+    @@aBoard[M] := _t8;
 
-  #l6.
+  #l7.
     return;
 }package Array_Two_Dim;
 
@@ -138,14 +138,14 @@ global Board @@aBoard;
 
 procedure $$sinit {
 
-  #l7.
+  #l1.
     @@Box2 := `Square { iter => 
         switch iter
           default => { iter => 
               switch iter
                 default => 0ii}};
 
-  #l8.
+  #l2.
     @@aBoard := `Board { iter => 
         switch iter
           default => `Row { iter => 

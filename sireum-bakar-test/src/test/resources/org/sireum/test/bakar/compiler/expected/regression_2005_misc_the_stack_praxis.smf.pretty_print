@@ -246,7 +246,7 @@ procedure $$binit {
           case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
     };
 
-  #l3.
+  #l9.
     return;
 }
 
@@ -287,13 +287,13 @@ procedure Push (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l4.
+  #l3.
     @@Pointer := @@Pointer + 1ii;
 
-  #l5.
+  #l4.
     @@S[@@Pointer] := X;
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -334,13 +334,13 @@ procedure Pop (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l7.
+  #l6.
     X := @@S[@@Pointer];
 
-  #l8.
+  #l7.
     @@Pointer := @@Pointer - 1ii;
 
-  #l9.
+  #l8.
     return;
 }
 

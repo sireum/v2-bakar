@@ -184,6 +184,7 @@ import org.sireum.bakar.xml.UnconstrainedArrayDefinitionEx
 import org.sireum.bakar.xml.UnknownAttributeEx
 import org.sireum.bakar.xml.UsePackageClauseEx
 import org.sireum.bakar.xml.UseTypeClauseEx
+import org.sireum.bakar.xml.VariableDeclaration
 import org.sireum.bakar.xml.VariableDeclarationEx
 import org.sireum.bakar.xml.WhileLoopStatementEx
 import org.sireum.bakar.xml.WithClauseEx
@@ -262,6 +263,7 @@ import org.sireum.util.ISeq
 import org.sireum.util.ISet
 import org.sireum.util.Location
 import org.sireum.util.MList
+import org.sireum.util.MBuffer
 import org.sireum.util.PropertyProvider
 import org.sireum.util.ResourceUri
 import org.sireum.util.SourceLocation.pp2sl
@@ -351,20 +353,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
 
     case class Scope(
-      typeDeclaration: MList[PackageElement] = mlistEmpty,
-      constants: MList[ConstElement] = mlistEmpty)
+      constants: MList[ConstElement] = mlistEmpty,
+      initBlock: Option[MList[LocationDecl]] = None,
+      typeDeclarations: MList[PackageElement] = mlistEmpty,
+      variableDeclarations: MList[PilarAstNode] = mlistEmpty)
 
-    var scope: Scope = null
-    def pushScope = {
-      assert(scope == null)
-      scope = Scope()
-      scope
-    }
-    def popScope = {
-      assert(scope != null)
-      val ret = scope
-      scope = null
-      ret
+    val scopeCache = mmapEmpty[Base, Scope]
+    val scopeStack = mstackEmpty[Scope]
+
+    def localsPush(o: LocalVarDecl) {
+      scopeStack.head.variableDeclarations += o
     }
 
     val DUMMY_RET = EmptyBody()
@@ -382,6 +380,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       pushResult(DUMMY_RET, sloc)
     }
 
+    /*
     var locals: MList[LocalVarDecl] = null
     def localsInit = {
       assert(locals == null)
@@ -396,6 +395,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       locals = null
       r
     }
+    */
 
     var anonymousPackageCounter = 0
     def nextAnonymousPackage = {
@@ -456,9 +456,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         case lps @ LoopParameterSpecificationEx(sloc, names, hasRev, range, checks) =>
           assert(names.getDefiningNames.size == 1)
 
+          val currScope = scopeStack.head
+          val locals = if (!this.processingPackage)
+            currScope.variableDeclarations.asInstanceOf[MList[LocalVarDecl]]
+          else null
+
           def unique(s: String, i: Int = -1): String = {
             assert(locals != null || noTempVars)
-            if (locals != null && locals.find(e => (i == -1 && e.name.name == s) || e.name.name == s + i).isDefined)
+            if (locals != null && !noTempVars && locals.find(e => (i == -1 && e.name.name == s) || e.name.name == s + i).isDefined)
               unique(s, i + 1)
             else if (i == -1) s else s + i
           }
@@ -642,8 +647,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       exps
     }
 
-    def handleConstant(v: => BVisitor, o: Base) {
-      def make(names: DefiningNameList, typeName: ResourceUri, typeUri: String, initExp: ExpressionClass = null) {
+    def handleConstant(v: => BVisitor, o: Base): ISeq[ConstElement] = {
+      def make(names: DefiningNameList, typeName: ResourceUri, typeUri: String, initExp: ExpressionClass = null) = {
         val ie: Exp = if (initExp != null) {
           v(initExp)
           popResult
@@ -660,8 +665,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val constName: NameDefinition = popResult
           constElems += ConstElement(constName, castExp, ivectorEmpty)
         }
-        scope.constants ++= constElems
-        //constElems
+        constElems.toList
       }
 
       o match {
@@ -842,6 +846,46 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       addSourceLoc(handleExp(addTypeUri(theType, UnaryExp(op, exp))), sloc)
     }
 
+    def handleVariableDeclaration(v: => BVisitor, o: Base): MList[PilarAstNode] = {
+      o match {
+        case vd @ VariableDeclarationEx(sloc, names, hasAliased, objDecView, initExpr, aspectSpec, checks) =>
+          assert(isEmpty(hasAliased.getHasAliased))
+          assert(aspectSpec.getElements.isEmpty)
+
+          v(objDecView)
+          val odv: NameExp = popResult
+          val typeSpec = Some(NamedTypeSpec(odv.name, ivectorEmpty[TypeSpec]))
+
+          val varDecls = mlistEmpty[PilarAstNode]
+          names.getDefiningNames.foreach {
+            case di: DefiningIdentifier =>
+              val (sloc, defName, defUri, typ) = getName(di)
+              val (cdefName, cdefUri) =
+                if (processingPackage) convertGlobal(defName, defUri)
+                else (defName, defUri)
+              val name = addResourceUri(NameDefinition(cdefName), cdefUri)
+
+              val vd = if (processingPackage)
+                GlobalVarDecl(name, ivectorEmpty, typeSpec)
+              else
+                LocalVarDecl(typeSpec, name, ivectorEmpty)
+
+              if (!isEmpty(initExpr.getExpression)) {
+                var lhs = addTypeUri(typ,
+                  NameExp(addResourceUri(NameUser(cdefName), cdefUri)))
+                v(initExpr.getExpression)
+                val rhs: Exp = popResult
+                createPushAssignmentLocation(lhs, rhs, ivectorEmpty, sloc)
+              }
+
+              varDecls += addSourceLoc(vd, sloc)
+            case _ => throw new RuntimeException("Unexpected")
+          }
+
+          varDecls
+      }
+    }
+
     def handleBE(sloc: SourceLocation,
       op: BinaryOp, lhs: Exp, rhs: Exp, theType: String): Exp = {
       addSourceLoc(handleExp(addTypeUri(theType, BinaryExp(op, lhs, rhs))), sloc)
@@ -998,9 +1042,21 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val dim = discreteSubtypeDefs.getDefinitions.size
           discreteSubtypeDefs.getDefinitions.foreach {
             case ds @ DiscreteSubtypeIndicationAsSubtypeDefinitionEx(sloc, stmark, stcons, checks) =>
-              assert(isEmpty(stcons.getConstraint))
 
               val (_, itname, ituri, _) = getName(stmark)
+              var compTypeUri: Option[ResourceUri] = None
+
+              if (!isEmpty(stcons.getConstraint)) {
+                v(stcons.getConstraint)
+                val t: TupleExp = popResult
+
+                val anon = this.introduceAnonymousType(t.exps(0), t.exps(1), itname, ituri)
+
+                auxTypes :+= anon
+                compTypeUri = Some(anon(URIS.REF_URI))
+              } else
+                compTypeUri = Some(ituri)
+
               indexTypes :+= ituri
             case ds @ DiscreteSimpleExpressionRangeAsSubtypeDefinitionEx(sloc2, low, high, checks2) =>
               // e.g. type IntArray is array (0..100) of Integer;
@@ -1147,13 +1203,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           (sname, suri, cons)
       }
     }
-    def handleTypeDeclaration(o: Base, v: => BVisitor) {
-      if (typeCache.contains(o)) {
-        scope.typeDeclaration ++= typeCache(o)
-        return
-      }
+    def handleTypeDeclaration(o: Base, v: => BVisitor): ISeq[PackageElement] = {
+      if (typeCache.contains(o))
+        return typeCache(o)
 
-      val typeDecl = o match {
+      val typeDecls = o match {
         case otd @ OrdinaryTypeDeclarationEx(sloc, names, discriminantPart,
           typeDecView, aspectSpecs, checks) =>
           assert(names.getDefiningNames.size == 1)
@@ -1207,7 +1261,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val sparkTypeDec = FullTypeDecl(tname, turi, td)
           typeDeclarations += (turi -> sparkTypeDec)
-          typeCache(o) = ret
 
           pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
           pilarTypeDec(URIS.REF_URI) = turi
@@ -1229,7 +1282,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val sparkTypeDec = SubTypeDecl(tname, turi, suri, cons)
           typeDeclarations += (turi -> sparkTypeDec)
-          typeCache(o) = ret
 
           pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
           pilarTypeDec(URIS.REF_URI) = turi
@@ -1259,7 +1311,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val sparkTypeDec = PrivateTypeDecl(tname, turi, false, isLimited, fullTypeDec.uri)
           typeDeclarations += (turi -> sparkTypeDec)
-          typeCache(o) = ret
 
           pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
           pilarTypeDec(URIS.REF_URI) = turi
@@ -1268,7 +1319,120 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           ret
         case _ => throw new RuntimeException("Unexpected: " + o)
       }
-      scope.typeDeclaration ++= typeDecl
+
+      this.typeCache(o) = typeDecls
+      typeDecls
+    }
+
+    def constructScope(v: => BVisitor, bodyDeclItems: Option[ElementList]): Scope = {
+      if (bodyDeclItems.isDefined) {
+        val consDecls = TranslatorUtil.getConstantDeclarations(bodyDeclItems.get.getElements)
+        val localDecls = TranslatorUtil.getVariableDeclarations(bodyDeclItems.get.getElements)
+        val typeDecls = TranslatorUtil.getTypeDeclarations(bodyDeclItems.get.getElements)
+
+        constructScope(v,
+          if (typeDecls.isEmpty) None else Some(typeDecls),
+          None,
+          if (consDecls.isEmpty) None else Some(consDecls),
+          None,
+          if (localDecls.isEmpty) None else Some(localDecls),
+          None,
+          None)
+      } else {
+        constructScope(v)
+      }
+    }
+
+    def constructScope(v: => BVisitor, o: PackageBodyDeclaration): Scope = {
+      val publicTypes = TranslatorUtil.getTypeDeclarations(o.getBodyDeclarativeItemsQl.getElements)
+      val publicConstants = TranslatorUtil.getConstantDeclarations(o.getBodyDeclarativeItemsQl.getElements)
+      val publicGlobals = TranslatorUtil.getVariableDeclarations(o.getBodyDeclarativeItemsQl.getElements)
+      val initBlock = if (o.getBodyStatementsQl.getStatements.isEmpty) None else Some(o.getBodyStatementsQl)
+
+      constructScope(v, 
+        if (publicTypes.isEmpty) None else Some(publicTypes),
+        None,
+        if (publicConstants.isEmpty) None else Some(publicConstants),
+        None,
+        if (publicGlobals.isEmpty) None else Some(publicGlobals),
+        None,
+        initBlock)
+    }
+
+    def constructScope(v: => BVisitor, o: PackageDeclaration): Scope = {
+      val publicTypes = TranslatorUtil.getTypeDeclarations(o.getVisiblePartDeclarativeItemsQl.getDeclarativeItems)
+      val privateTypes = TranslatorUtil.getTypeDeclarations(o.getPrivatePartDeclarativeItemsQl.getDeclarativeItems)
+
+      val publicConstants = TranslatorUtil.getConstantDeclarations(o.getVisiblePartDeclarativeItemsQl.getDeclarativeItems)
+      val privateConstants = TranslatorUtil.getConstantDeclarations(o.getPrivatePartDeclarativeItemsQl.getDeclarativeItems)
+
+      val publicGlobals = TranslatorUtil.getVariableDeclarations(o.getVisiblePartDeclarativeItemsQl.getDeclarativeItems)
+      val privateGlobals = TranslatorUtil.getVariableDeclarations(o.getPrivatePartDeclarativeItemsQl.getDeclarativeItems)
+
+      constructScope(v,
+        if (publicTypes.isEmpty) None else Some(publicTypes),
+        if (privateTypes.isEmpty) None else Some(privateTypes),
+        if (publicConstants.isEmpty) None else Some(publicConstants),
+        if (privateConstants.isEmpty) None else Some(privateConstants),
+        if (publicGlobals.isEmpty) None else Some(publicGlobals),
+        if (privateGlobals.isEmpty) None else Some(privateGlobals),
+        None)
+    }
+
+    def constructScope(v: => BVisitor,
+      publicTypes: Option[MBuffer[Base]] = None,
+      privateTypes: Option[MBuffer[Base]] = None,
+      publicConstants: Option[MBuffer[Base]] = None,
+      privateConstants: Option[MBuffer[Base]] = None,
+      publicVariables: Option[MBuffer[VariableDeclaration]] = None,
+      privateVariables: Option[MBuffer[VariableDeclaration]] = None,
+      bodyStatements: Option[StatementList] = None): Scope = {
+
+      var constants = mlistEmpty[ConstElement]
+      var initBlock: Option[MList[LocationDecl]] = None
+      var typeDeclarations = mlistEmpty[PackageElement]
+      var variableDeclarations = mlistEmpty[PilarAstNode]
+
+      val old = noTempVars
+      noTempVars(true)
+
+      if (privateTypes.isDefined)
+        for (td <- privateTypes.get)
+          typeDeclarations ++= handleTypeDeclaration(td, v)
+
+      if (publicTypes.isDefined)
+        for (td <- publicTypes.get)
+          typeDeclarations ++= handleTypeDeclaration(td, v)
+
+      if (publicConstants.isDefined)
+        for (c <- publicConstants.get)
+          constants ++= handleConstant(v, c)
+
+      if (privateConstants.isDefined)
+        for (c <- privateConstants.get)
+          constants ++= handleConstant(v, c)
+
+      noTempVars(old)
+
+      val ll = pushLocationList
+      if (publicVariables.isDefined)
+        for (g <- publicVariables.get)
+          variableDeclarations ++= handleVariableDeclaration(v, g)
+
+      if (privateVariables.isDefined)
+        for (g <- privateVariables.get)
+          variableDeclarations ++= handleVariableDeclaration(v, g)
+
+      if (bodyStatements.isDefined)
+        v(bodyStatements.get)
+
+      val _ll = popLocationList
+      assert(ll eq _ll)
+
+      if (!_ll.isEmpty)
+        initBlock = Some(_ll)
+
+      Scope(constants, initBlock, typeDeclarations, variableDeclarations)
     }
 
     /**
@@ -1357,15 +1521,17 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           v(unitDeclaration)
           ctx.popResult.asInstanceOf[PackageDecl]
         } else if (TranslatorUtil.isMethodDeclaration(unitDeclaration.getDeclaration)) {
-          val scope = ctx.pushScope
+
+          val scope = ctx.constructScope(v)
+          ctx.scopeStack.push(scope)
 
           v(unitDeclaration)
           val p: ProcedureDecl = ctx.popResult
-          val _scope = ctx.popScope
 
-          assert(scope == _scope)
+          val _scope = ctx.scopeStack.pop
+          assert(scope eq _scope)
 
-          val elements = _scope.typeDeclaration
+          val elements = _scope.typeDeclarations
           if (!_scope.constants.isEmpty)
             elements += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, _scope.constants.toList)
 
@@ -1426,53 +1592,22 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         false
       case o @ PackageDeclarationEx(sloc, names, aspectSpec,
         visiblePartDecItems, privatePartDecItems, checks) =>
-        if (DEBUG) println(o.getClass.getSimpleName)
 
         assert(names.getDefiningNames.length == 1)
         v(names.getDefiningNames.head)
         val pname: NameDefinition = ctx.popResult
 
-        ctx.pushContext((CTX.PACKAGE, pname.name))
-        ctx.pushScope
-
         if (!aspectSpec.getElements.isEmpty)
           if (DEBUG) Console.err.println("Need to handle package spec aspect clauses: " + pname)
 
-        val publicTypes = TranslatorUtil.getTypeDeclarations(visiblePartDecItems.getDeclarativeItems)
-        val privateTypes = TranslatorUtil.getTypeDeclarations(privatePartDecItems.getDeclarativeItems)
+        ctx.pushContext((CTX.PACKAGE, pname.name))
 
-        for (td <- privateTypes) ctx.handleTypeDeclaration(td, v)
-        for (td <- publicTypes) ctx.handleTypeDeclaration(td, v)
-
-        val publicConstants = TranslatorUtil.getConstantDeclarations(visiblePartDecItems.getDeclarativeItems)
-        val privateConstants = TranslatorUtil.getConstantDeclarations(privatePartDecItems.getDeclarativeItems)
-
-        for (c <- publicConstants) ctx.handleConstant(v, c)
-        for (c <- privateConstants) ctx.handleConstant(v, c)
+        val scope = if (ctx.scopeCache.contains(o)) ctx.scopeCache(o)
+        else ctx.constructScope(v, o)
+        ctx.scopeCache(o) = scope
+        ctx.scopeStack.push(scope)
 
         val packElems = mlistEmpty[PackageElement]
-
-        val publicGlobals = TranslatorUtil.getVariableDeclarations(visiblePartDecItems.getDeclarativeItems)
-        val privateGlobals = TranslatorUtil.getVariableDeclarations(privatePartDecItems.getDeclarativeItems)
-
-        val ll = ctx.pushLocationList
-        for (g <- publicGlobals) {
-          v(g)
-          packElems ++= ctx.popResultDummy
-          // TODO: add symbol entry
-        }
-        for (g <- privateGlobals) {
-          v(g)
-          packElems ++= ctx.popResultDummy
-          // TODO: add symbol entry        
-        }
-        val _ll = ctx.popLocationList
-        assert(ll eq _ll)
-
-        if (!_ll.isEmpty) {
-          // create an init procedure
-          packElems += createPackageInitProcedure(_ll, true)
-        }
 
         val publicMethods = TranslatorUtil.getMethodDeclarations(visiblePartDecItems.getDeclarativeItems)
         val privateMethods = TranslatorUtil.getMethodDeclarations(privatePartDecItems.getDeclarativeItems)
@@ -1486,14 +1621,18 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           packElems += ctx.popResult
         }
 
-        val s = ctx.popScope
+        val _scope = ctx.scopeStack.pop
+        assert(scope eq _scope)
 
-        val _p = s.typeDeclaration
-        if (!s.constants.isEmpty)
-          _p += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, s.constants.toList)
+        val elements = scope.typeDeclarations
+        if (!scope.constants.isEmpty)
+          elements += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, scope.constants.toList)
+        elements ++= scope.variableDeclarations.map(f => f.asInstanceOf[GlobalVarDecl])
+        if (scope.initBlock.isDefined)
+          elements += createPackageInitProcedure(scope.initBlock.get, true)
 
-        _p ++= packElems
-        val pack = PackageDecl(Some(pname), ivectorEmpty, _p.toList)
+        elements ++= packElems
+        val pack = PackageDecl(Some(pname), ivectorEmpty, elements.toList)
         ctx.pushResult(pack, sloc)
         ctx.popContext
 
@@ -1511,92 +1650,42 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val pname: NameDefinition = ctx.popResult
 
         ctx.pushContext((CTX.PACKAGE, pname.name))
-        ctx.pushScope
 
-        for (td <- TranslatorUtil.getTypeDeclarations(bodyDecItems.getElements))
-          ctx.handleTypeDeclaration(td, v)
-
-        for (c <- TranslatorUtil.getConstantDeclarations(bodyDecItems.getElements))
-          ctx.handleConstant(v, c)
+        val scope = if (ctx.scopeCache.contains(o)) ctx.scopeCache(o)
+        else ctx.constructScope(v, o)
+        ctx.scopeCache(o) = scope
+        ctx.scopeStack.push(scope)
 
         val packElems = mlistEmpty[PackageElement]
-        val ll = ctx.pushLocationList
-        for (f <- TranslatorUtil.getVariableDeclarations(bodyDecItems.getElements)) {
-          v(f)
-          packElems ++= ctx.popResultDummy
-        }
-
-        // process package init block
-        v(bodyStatements)
-
-        val _ll = ctx.popLocationList
-        assert(ll eq _ll)
-
-        if (!_ll.isEmpty) {
-          // create an init procedure
-          packElems += createPackageInitProcedure(_ll, false)
-        }
-
         for (m <- TranslatorUtil.getMethodDeclarations(bodyDecItems.getElements)) {
           v(m)
           packElems += ctx.popResult
         }
 
-        val s = ctx.popScope
+        val _scope = ctx.scopeStack.pop
+        assert(_scope eq scope)
 
-        val _p = s.typeDeclaration
+        val elements = scope.typeDeclarations
 
-        if (!s.constants.isEmpty)
-          _p += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, s.constants.toList)
+        if (!scope.constants.isEmpty)
+          elements += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, scope.constants.toList)
+        elements ++= scope.variableDeclarations.map(f => f.asInstanceOf[GlobalVarDecl])
+        if (scope.initBlock.isDefined)
+          elements += createPackageInitProcedure(scope.initBlock.get, false)
 
-        _p ++= packElems
+        elements ++= packElems
 
-        val pack = PackageDecl(Some(pname), ivectorEmpty, _p.toList)
+        val pack = PackageDecl(Some(pname), ivectorEmpty, elements.toList)
         ctx.pushResult(pack, sloc)
 
         ctx.popContext
-        false
-      case vd @ VariableDeclarationEx(sloc, names, hasAliased, objDecView, initExpr, aspectSpec, checks) =>
-        assert(ctx.isEmpty(hasAliased.getHasAliased))
-        assert(aspectSpec.getElements.isEmpty)
-
-        v(objDecView)
-        val odv: NameExp = ctx.popResult
-        val typeSpec = Some(NamedTypeSpec(odv.name, ivectorEmpty[TypeSpec]))
-
-        val varDecls = mlistEmpty[PilarAstNode]
-        names.getDefiningNames.foreach {
-          case di: DefiningIdentifier =>
-            val (sloc, defName, defUri, typ) = ctx.getName(di)
-            val (cdefName, cdefUri) =
-              if (ctx.processingPackage) ctx.convertGlobal(defName, defUri)
-              else (defName, defUri)
-            val name = ctx.addResourceUri(NameDefinition(cdefName), cdefUri)
-
-            val vd = if (ctx.processingPackage)
-              GlobalVarDecl(name, ivectorEmpty, typeSpec)
-            else
-              LocalVarDecl(typeSpec, name, ivectorEmpty)
-
-            if (!ctx.isEmpty(initExpr.getExpression)) {
-              var lhs = ctx.addTypeUri(typ,
-                NameExp(ctx.addResourceUri(NameUser(cdefName), cdefUri)))
-              v(initExpr.getExpression)
-              val rhs: Exp = ctx.popResult
-              ctx.createPushAssignmentLocation(lhs, rhs, ivectorEmpty, sloc)
-            }
-
-            varDecls += ctx.addSourceLoc(vd, sloc)
-          case _ => throw new RuntimeException("Unexpected")
-        }
-
-        ctx.pushResultDummy(varDecls, sloc)
         false
     }
   }
 
   def methodH(ctx: Context, v: => BVisitor): VisitorFunction = {
-    def handleMethod(sloc: SourceLocation,
+    def handleMethod(o: Base,
+      sloc: SourceLocation,
       names: DefiningNameList,
       paramProfile: ParameterSpecificationList,
       bodyDeclItems: Option[ElementList],
@@ -1616,6 +1705,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       mname at (ctx.fileUri, sloc2.getLine, sloc2.getCol)
 
       ctx.pushContext((CTX.METHOD, methodDefName))
+
+      val scope = if (ctx.scopeCache.contains(o)) ctx.scopeCache(o)
+      else ctx.constructScope(v, bodyDeclItems)
+      ctx.scopeCache(o) = scope
+      ctx.scopeStack.push(scope)
 
       val params = mlistEmpty[ParamDecl]
       paramProfile.getParameterSpecifications.foreach {
@@ -1647,25 +1741,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         case _ => throw new RuntimeException("Unexpected")
       }
 
-      ctx.localsInit
       ctx.pushLocationList
-
-      if (bodyDeclItems.isDefined) {
-        ctx.noTempVars(true)
-        val typeDecls = TranslatorUtil.getTypeDeclarations(bodyDeclItems.get.getElements)
-        for (t <- typeDecls) ctx.handleTypeDeclaration(t, v)
-
-        val consDecls = TranslatorUtil.getConstantDeclarations(bodyDeclItems.get.getElements)
-        for (c <- consDecls) ctx.handleConstant(v, c)
-        ctx.noTempVars(false)
-
-        val localDecl = TranslatorUtil.getVariableDeclarations(bodyDeclItems.get.getElements)
-        for (local <- localDecl) {
-          v(local)
-          val ls: MList[LocalVarDecl] = ctx.popResultDummy
-          ls.foreach(lvd => ctx.localsPush(lvd))
-        }
-      }
 
       if (bodyStatements.isDefined) {
         v(bodyStatements.get)
@@ -1689,15 +1765,25 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         }
       }
 
-      val locs = ctx.popLocationList.toList
-      val localVars = ctx.localsPop.toList
-      val body = if (!locs.isEmpty) ImplementedBody(localVars, locs, ivectorEmpty)
+      val _scope = ctx.scopeStack.pop
+      assert(_scope eq scope)
+
+      val parentScope = ctx.scopeStack.head
+      parentScope.constants ++= scope.constants
+      parentScope.typeDeclarations ++= scope.typeDeclarations
+
+      val locs =
+        if (scope.initBlock.isDefined) scope.initBlock.get ++ ctx.popLocationList
+        else ctx.popLocationList
+
+      val localVars = scope.variableDeclarations.asInstanceOf[MList[LocalVarDecl]]
+
+      val body = if (!locs.isEmpty) ImplementedBody(localVars.toList, locs.toList, ivectorEmpty)
       else EmptyBody()
 
       val typeVars = ivectorEmpty[(NameDefinition, ISeq[Annotation])]
-      val varArity = false
       val pd = ProcedureDecl(mname, ivectorEmpty, typeVars, params.toList,
-        returnType, varArity, body)
+        returnType, false, body)
 
       pd(URIS.REF_URI) = mname.uri //methodDefUri
 
@@ -1855,7 +1941,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val bodyStatements = new StatementList()
         bodyStatements.getStatements.add(rt)
 
-        val m = handleMethod(sloc, names, paramProfile, None,
+        val m = handleMethod(o, sloc, names, paramProfile, None,
           Some(bodyStatements), Some(resultProfile), aspectSpec, None, None)
 
         // FIXME: gnat2xml Pro 7.2.0rc (20131028) repeats the first param
@@ -1871,7 +1957,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         assert(ctx.isEmpty(isNotNullReturn.getIsNotNullReturn))
         assert(ctx.isEmpty(hasAbstract.getHasAbstract))
 
-        val m = handleMethod(sloc, names, paramProfile, None, None,
+        val m = handleMethod(o, sloc, names, paramProfile, None, None,
           Some(resultProfile),
           aspectSpec, Some(isOverridingDec.getIsOverriding),
           Some(isNotOverridingDec.getIsNotOverriding))
@@ -1885,7 +1971,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         assert(ctx.isEmpty(isNotNullReturn.getIsNotNullReturn))
         assert(bodyExceptionHandlers.getExceptionHandlers.isEmpty)
 
-        val m = handleMethod(sloc, names, paramProfile, Some(bodyDecItems),
+        val m = handleMethod(o, sloc, names, paramProfile, Some(bodyDecItems),
           Some(bodyStatements), Some(resultProfile), aspectSpec,
           Some(isOverridingDec.getIsOverriding), Some(isNotOverridingDec.getIsNotOverriding))
         ctx.pushResult(m, sloc)
@@ -1896,7 +1982,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         assert(bodyExceptionHandlers.getExceptionHandlers.isEmpty)
 
-        val m = handleMethod(sloc, names, paramProfile, Some(bodyDecItems),
+        val m = handleMethod(o, sloc, names, paramProfile, Some(bodyDecItems),
           Some(bodyStatements), None, aspectSpec,
           Some(isOverridingDec.getIsOverriding), Some(isNotOverridingDec.getIsNotOverriding))
         ctx.pushResult(m, sloc)
@@ -1907,7 +1993,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         assert(ctx.isEmpty(hasAbstract.getHasAbstract))
 
-        val m = handleMethod(sloc, names, paramProfile, None, None, None,
+        val m = handleMethod(o, sloc, names, paramProfile, None, None, None,
           aspectSpec, Some(isOverridingDec.getIsOverriding),
           Some(isNotOverridingDec.getIsNotOverriding))
 
@@ -2005,8 +2091,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       // FIXME: variable shadowing could occur, however this will just be the
       // name, not the uri.  
       for (local <- decItems.getDeclarativeItems) {
-        v(local)
-        val ls: MList[LocalVarDecl] = ctx.popResultDummy
+        val ls: MList[LocalVarDecl] = ctx.handleVariableDeclaration(v, local).asInstanceOf[MList[LocalVarDecl]]
         ls.foreach(lvd => ctx.localsPush(lvd))
       }
 
@@ -2866,16 +2951,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val pname = o.getNamesQl.getDefiningNames.head.asInstanceOf[DefiningIdentifier]
 
           theContext.pushContext((CTX.PACKAGE, pname.getDefName))
-          theContext.pushScope
 
-          val privateTypes = TranslatorUtil.getTypeDeclarations(o.getPrivatePartDeclarativeItemsQl.getDeclarativeItems)
-          for (t <- privateTypes)
-            theContext.handleTypeDeclaration(t, b)
-          val publicTypes = TranslatorUtil.getTypeDeclarations(o.getVisiblePartDeclarativeItemsQl.getDeclarativeItems)
-          for (t <- publicTypes)
-            theContext.handleTypeDeclaration(t, b)
+          val scope = theContext.constructScope(b, o)
+          theContext.scopeCache(o) = scope
 
-          theContext.popScope
           theContext.popContext
         case _ =>
       }

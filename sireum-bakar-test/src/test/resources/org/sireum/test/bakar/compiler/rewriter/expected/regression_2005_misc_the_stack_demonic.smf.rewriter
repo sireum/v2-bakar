@@ -34,7 +34,7 @@ procedure $$binit {
       __positional1 = 0ii
     };
 
-  #l4.
+  #l42.
     return;
 }
 
@@ -53,10 +53,10 @@ procedure Push (
   #rwl1.
     _t1 := 1ii;
 
-  #l5.
+  #l4.
     @@Pointer := _t0 + _t1;
 
-  #l6.
+  #l5.
     @@S[@@Pointer] := X;
 
   #rwl2.
@@ -65,10 +65,10 @@ procedure Push (
   #rwl3.
     _t3 := 1ii;
 
-  #l7.
+  #l6.
     @@AuditInfo.PushOps := _t2 + _t3;
 
-  #l8.
+  #l7.
     return;
 }
 
@@ -81,7 +81,7 @@ procedure Pop (
     FIXME _t7;
 
 
-  #l9.
+  #l8.
     X := @@S[@@Pointer];
 
   #rwl4.
@@ -90,7 +90,7 @@ procedure Pop (
   #rwl5.
     _t5 := 1ii;
 
-  #l10.
+  #l9.
     @@Pointer := _t4 - _t5;
 
   #rwl6.
@@ -99,10 +99,10 @@ procedure Pop (
   #rwl7.
     _t7 := 1ii;
 
-  #l11.
+  #l10.
     @@AuditInfo.PopOps := _t6 + _t7;
 
-  #l12.
+  #l11.
     return;
 }
 
@@ -123,13 +123,13 @@ procedure Boolean Value_Present (
     FIXME _t15;
 
 
-  #l13.
+  #l12.
     Result := false;
 
-  #l15.
+  #l14.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l16.
+  #l15.
     _tcomp1 := attribute__uif__last `Index_Range;
 
   #rwl8.
@@ -138,13 +138,13 @@ procedure Boolean Value_Present (
   #rwl9.
     _t9 := _tcomp1;
 
-  #l17.
-    if _t8 > _t9 then goto l14;
+  #l16.
+    if _t8 > _t9 then goto l13;
 
-  #l18.
+  #l17.
     I := _tcomp0;
 
-  #l19.
+  #l18.
     // empty loc
 
   #rwl10.
@@ -153,16 +153,16 @@ procedure Boolean Value_Present (
   #rwl11.
     _t11 := X;
 
-  #l21.
-    if !(_t10 == _t11) then goto l20;
+  #l20.
+    if !(_t10 == _t11) then goto l19;
 
-  #l22.
+  #l21.
     Result := true;
 
-  #l23.
-    goto l14;
+  #l22.
+    goto l13;
 
-  #l20.
+  #l19.
     // empty loc
 
   #rwl12.
@@ -171,8 +171,8 @@ procedure Boolean Value_Present (
   #rwl13.
     _t13 := _tcomp1;
 
-  #l24.
-    if _t12 == _t13 then goto l14;
+  #l23.
+    if _t12 == _t13 then goto l13;
 
   #rwl14.
     _t14 := I;
@@ -180,16 +180,16 @@ procedure Boolean Value_Present (
   #rwl15.
     _t15 := 1ii;
 
-  #l25.
+  #l24.
     I := _t14 + _t15;
 
-  #l26.
-    goto l19;
+  #l25.
+    goto l18;
 
-  #l14.
+  #l13.
     // empty loc
 
-  #l27.
+  #l26.
     return Result;
 }
 
@@ -210,13 +210,13 @@ procedure Index_Range Find_Stack_Pos (
     FIXME _t23;
 
 
-  #l28.
+  #l27.
     Result_Pos := attribute__uif__first `Index_Range;
 
-  #l30.
+  #l29.
     _tcomp2 := attribute__uif__first `Index_Range;
 
-  #l31.
+  #l30.
     _tcomp3 := attribute__uif__last `Index_Range;
 
   #rwl16.
@@ -225,13 +225,13 @@ procedure Index_Range Find_Stack_Pos (
   #rwl17.
     _t17 := _tcomp3;
 
-  #l32.
-    if _t16 > _t17 then goto l29;
+  #l31.
+    if _t16 > _t17 then goto l28;
 
-  #l33.
+  #l32.
     I := _tcomp2;
 
-  #l34.
+  #l33.
     // empty loc
 
   #rwl18.
@@ -240,16 +240,16 @@ procedure Index_Range Find_Stack_Pos (
   #rwl19.
     _t19 := X;
 
-  #l36.
-    if !(_t18 == _t19) then goto l35;
+  #l35.
+    if !(_t18 == _t19) then goto l34;
 
-  #l37.
+  #l36.
     Result_Pos := I;
 
-  #l38.
-    goto l29;
+  #l37.
+    goto l28;
 
-  #l35.
+  #l34.
     // empty loc
 
   #rwl20.
@@ -258,8 +258,8 @@ procedure Index_Range Find_Stack_Pos (
   #rwl21.
     _t21 := _tcomp3;
 
-  #l39.
-    if _t20 == _t21 then goto l29;
+  #l38.
+    if _t20 == _t21 then goto l28;
 
   #rwl22.
     _t22 := I;
@@ -267,16 +267,16 @@ procedure Index_Range Find_Stack_Pos (
   #rwl23.
     _t23 := 1ii;
 
-  #l40.
+  #l39.
     I := _t22 + _t23;
 
-  #l41.
-    goto l34;
+  #l40.
+    goto l33;
 
-  #l29.
+  #l28.
     // empty loc
 
-  #l42.
+  #l41.
     return Result_Pos;
 }package The_Stack_Demonic;
 

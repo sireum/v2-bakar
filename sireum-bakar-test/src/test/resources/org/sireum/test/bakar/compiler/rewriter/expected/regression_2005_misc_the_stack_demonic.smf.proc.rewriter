@@ -34,39 +34,39 @@ procedure $$binit {
       __positional1 = 0ii
     };
 
-  #l4.
+  #l42.
     return;
 }
 
 procedure Push (
         Integer X) {
 
-  #l5.
+  #l4.
     @@Pointer := @@Pointer + 1ii;
 
-  #l6.
+  #l5.
     @@S[@@Pointer] := X;
 
-  #l7.
+  #l6.
     @@AuditInfo.PushOps := @@AuditInfo.PushOps + 1ii;
 
-  #l8.
+  #l7.
     return;
 }
 
 procedure Pop (
         Integer X) {
 
-  #l9.
+  #l8.
     X := @@S[@@Pointer];
 
-  #l10.
+  #l9.
     @@Pointer := @@Pointer - 1ii;
 
-  #l11.
+  #l10.
     @@AuditInfo.PopOps := @@AuditInfo.PopOps + 1ii;
 
-  #l12.
+  #l11.
     return (X);
 }
 
@@ -79,49 +79,49 @@ procedure Boolean Value_Present (
     Index_Range _tcomp1;
 
 
-  #l13.
+  #l12.
     Result := false;
 
-  #l15.
+  #l14.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l16.
+  #l15.
     _tcomp1 := attribute__uif__last `Index_Range;
 
+  #l16.
+    if _tcomp0 > _tcomp1 then goto l13;
+
   #l17.
-    if _tcomp0 > _tcomp1 then goto l14;
+    I := _tcomp0;
 
   #l18.
-    I := _tcomp0;
+    // empty loc
+
+  #l20.
+    if !(@@S[I] == X) then goto l19;
+
+  #l21.
+    Result := true;
+
+  #l22.
+    goto l13;
 
   #l19.
     // empty loc
 
-  #l21.
-    if !(@@S[I] == X) then goto l20;
-
-  #l22.
-    Result := true;
-
   #l23.
-    goto l14;
-
-  #l20.
-    // empty loc
+    if I == _tcomp1 then goto l13;
 
   #l24.
-    if I == _tcomp1 then goto l14;
-
-  #l25.
     I := I + 1ii;
 
-  #l26.
-    goto l19;
+  #l25.
+    goto l18;
 
-  #l14.
+  #l13.
     // empty loc
 
-  #l27.
+  #l26.
     return Result;
 }
 
@@ -134,49 +134,49 @@ procedure Index_Range Find_Stack_Pos (
     Index_Range _tcomp3;
 
 
-  #l28.
+  #l27.
     Result_Pos := attribute__uif__first `Index_Range;
 
-  #l30.
+  #l29.
     _tcomp2 := attribute__uif__first `Index_Range;
 
-  #l31.
+  #l30.
     _tcomp3 := attribute__uif__last `Index_Range;
 
+  #l31.
+    if _tcomp2 > _tcomp3 then goto l28;
+
   #l32.
-    if _tcomp2 > _tcomp3 then goto l29;
+    I := _tcomp2;
 
   #l33.
-    I := _tcomp2;
+    // empty loc
+
+  #l35.
+    if !(@@S[I] == X) then goto l34;
+
+  #l36.
+    Result_Pos := I;
+
+  #l37.
+    goto l28;
 
   #l34.
     // empty loc
 
-  #l36.
-    if !(@@S[I] == X) then goto l35;
-
-  #l37.
-    Result_Pos := I;
-
   #l38.
-    goto l29;
-
-  #l35.
-    // empty loc
+    if I == _tcomp3 then goto l28;
 
   #l39.
-    if I == _tcomp3 then goto l29;
-
-  #l40.
     I := I + 1ii;
 
-  #l41.
-    goto l34;
+  #l40.
+    goto l33;
 
-  #l29.
+  #l28.
     // empty loc
 
-  #l42.
+  #l41.
     return Result_Pos;
 }package The_Stack_Demonic;
 

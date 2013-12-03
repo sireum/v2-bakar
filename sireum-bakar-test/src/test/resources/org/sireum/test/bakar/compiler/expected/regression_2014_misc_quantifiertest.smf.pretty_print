@@ -15,11 +15,11 @@ package QuantifierTest
 procedure $$binit {
 
   #l1.
-    V := `Vector { iter => 
+    @@V := `Vector { iter => 
         switch iter
           default => 0ii};
 
-  #l2.
+  #l6.
     return;
 }
 
@@ -60,22 +60,22 @@ procedure dummy (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.
+  #l2.
     assert proof__uif__for_some {Index J => 
         switch J
-          case (1ii, 2ii) => V[J] > 0ii && V[J] < 7ii
+          case (1ii, 2ii) => @@V[J] > 0ii && @@V[J] < 7ii
           default => true};
+
+  #l3.
+    @@V[I] := @@V[I] + 3ii;
 
   #l4.
-    V[I] := V[I] + 3ii;
-
-  #l5.
     assert 3ii == 3ii &&& proof__uif__for_all {Index J => 
         switch J
-          case (attribute__uif__first `Index, attribute__uif__last `Index) => V[J] > 0ii || V[J] < 7ii
+          case (attribute__uif__first `Index, attribute__uif__last `Index) => @@V[J] > 0ii || @@V[J] < 7ii
           default => true};
 
-  #l6.
+  #l5.
     return;
 }
 

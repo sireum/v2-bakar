@@ -8,7 +8,7 @@ procedure $$binit {
   #l1.
     @@B := 0ii;
 
-  #l2.
+  #l4.
     return;
 }
 
@@ -25,10 +25,10 @@ procedure Inc (
   #rwl1.
     _t1 := @@B;
 
-  #l3.
+  #l2.
     I := _t0 + _t1;
 
-  #l4.
+  #l3.
     return;
 }package SimpleMath1;
 

@@ -26,7 +26,7 @@ procedure $$binit {
           case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
     };
 
-  #l3.
+  #l9.
     return;
 }
 
@@ -43,13 +43,13 @@ procedure Push (
   #rwl1.
     _t1 := 1ii;
 
-  #l4.
+  #l3.
     @@Pointer := _t0 + _t1;
 
-  #l5.
+  #l4.
     @@S[@@Pointer] := X;
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -60,7 +60,7 @@ procedure Pop (
     FIXME _t3;
 
 
-  #l7.
+  #l6.
     X := @@S[@@Pointer];
 
   #rwl2.
@@ -69,10 +69,10 @@ procedure Pop (
   #rwl3.
     _t3 := 1ii;
 
-  #l8.
+  #l7.
     @@Pointer := _t2 - _t3;
 
-  #l9.
+  #l8.
     return;
 }package The_Stack_Praxis;
 

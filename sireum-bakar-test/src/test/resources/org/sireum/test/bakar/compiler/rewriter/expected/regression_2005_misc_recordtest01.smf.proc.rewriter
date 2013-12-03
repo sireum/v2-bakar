@@ -4,20 +4,20 @@ package RecordTest01;
 procedure $$binit {
 
   #l1.
-    anObject := `Object {
+    @@anObject := `Object {
       __positional0 = 1ii,
       __positional1 = 2ii
     };
 
   #l2.
-    aNestedObject := `NestedObject {
+    @@aNestedObject := `NestedObject {
       O = `Object {
         __positional0 = 1ii,
         __positional1 = 2ii
       }
     };
 
-  #l3.
+  #l12.
     return;
 }
 
@@ -27,16 +27,16 @@ procedure Test01 (
     Integer T;
 
 
-  #l4.
+  #l3.
     T := Q.X;
 
-  #l5.
+  #l4.
     Q.X := Q.Y;
 
-  #l6.
+  #l5.
     Q.Y := T;
 
-  #l7.
+  #l6.
     return (Q);
 }
 
@@ -49,19 +49,19 @@ procedure Test02 (
     NestedObject Q;
 
 
-  #l8.
+  #l7.
     Q.O.X := I1;
 
-  #l9.
+  #l8.
     Q.O.Y := I2;
 
-  #l10.
+  #l9.
     O1 := Q.O.X;
 
-  #l11.
+  #l10.
     O2 := Q.O.Y;
 
-  #l12.
+  #l11.
     return (O1, O2);
 }package RecordTest01;
 

@@ -14,10 +14,10 @@ procedure Incr_Threshold1 (
     _t0 := X;
 
   #rwl1.
-    _t1 := Threshold;
+    _t1 := @@Threshold;
 
-  #l2.
-    if !(_t0 < _t1) then goto l1;
+  #l3.
+    if !(_t0 < _t1) then goto l2;
 
   #rwl2.
     _t2 := X;
@@ -25,13 +25,13 @@ procedure Incr_Threshold1 (
   #rwl3.
     _t3 := 1ii;
 
-  #l3.
+  #l4.
     X := _t2 + _t3;
 
-  #l1.
+  #l2.
     // empty loc
 
-  #l4.
+  #l5.
     return;
 }
 
@@ -48,10 +48,10 @@ procedure Incr_Threshold2 (
     _t4 := X;
 
   #rwl5.
-    _t5 := Threshold;
+    _t5 := @@Threshold;
 
-  #l6.
-    if !(_t4 < _t5) then goto l5;
+  #l7.
+    if !(_t4 < _t5) then goto l6;
 
   #rwl6.
     _t6 := X;
@@ -59,13 +59,13 @@ procedure Incr_Threshold2 (
   #rwl7.
     _t7 := 1ii;
 
-  #l7.
+  #l8.
     X := _t6 + _t7;
 
-  #l5.
+  #l6.
     // empty loc
 
-  #l8.
+  #l9.
     return;
 }
 
@@ -82,10 +82,10 @@ procedure Incr_Threshold3 (
     _t8 := X;
 
   #rwl9.
-    _t9 := Threshold;
+    _t9 := @@Threshold;
 
-  #l10.
-    if !(_t8 < _t9) then goto l9;
+  #l11.
+    if !(_t8 < _t9) then goto l10;
 
   #rwl10.
     _t10 := X;
@@ -93,13 +93,13 @@ procedure Incr_Threshold3 (
   #rwl11.
     _t11 := 1ii;
 
-  #l11.
+  #l12.
     X := _t10 + _t11;
 
-  #l9.
+  #l10.
     // empty loc
 
-  #l12.
+  #l13.
     return;
 }
 
@@ -116,10 +116,10 @@ procedure Incr_Threshold4 (
     _t12 := X;
 
   #rwl13.
-    _t13 := Threshold;
+    _t13 := @@Threshold;
 
-  #l14.
-    if !(_t12 < _t13) then goto l13;
+  #l15.
+    if !(_t12 < _t13) then goto l14;
 
   #rwl14.
     _t14 := X;
@@ -127,13 +127,13 @@ procedure Incr_Threshold4 (
   #rwl15.
     _t15 := 1ii;
 
-  #l15.
+  #l16.
     X := _t14 + _t15;
 
-  #l13.
+  #l14.
     // empty loc
 
-  #l16.
+  #l17.
     return;
 }package P;
 
@@ -142,7 +142,7 @@ global Integer @@Threshold;
 
 procedure $$sinit {
 
-  #l17.
+  #l1.
     @@Threshold := 1000ii;
 
   #l18.

@@ -49,16 +49,16 @@ procedure Incr_Threshold1 (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l2.
-    if !(X < Threshold) then goto l1;
-
   #l3.
-    X := X + 1ii;
-
-  #l1.
-    // empty loc
+    if !(X < @@Threshold) then goto l2;
 
   #l4.
+    X := X + 1ii;
+
+  #l2.
+    // empty loc
+
+  #l5.
     return;
 }
 
@@ -99,16 +99,16 @@ procedure Incr_Threshold2 (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l6.
-    if !(X < Threshold) then goto l5;
-
   #l7.
-    X := X + 1ii;
-
-  #l5.
-    // empty loc
+    if !(X < @@Threshold) then goto l6;
 
   #l8.
+    X := X + 1ii;
+
+  #l6.
+    // empty loc
+
+  #l9.
     return;
 }
 
@@ -149,16 +149,16 @@ procedure Incr_Threshold3 (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l10.
-    if !(X < Threshold) then goto l9;
-
   #l11.
-    X := X + 1ii;
-
-  #l9.
-    // empty loc
+    if !(X < @@Threshold) then goto l10;
 
   #l12.
+    X := X + 1ii;
+
+  #l10.
+    // empty loc
+
+  #l13.
     return;
 }
 
@@ -199,16 +199,16 @@ procedure Incr_Threshold4 (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l14.
-    if !(X < Threshold) then goto l13;
-
   #l15.
-    X := X + 1ii;
-
-  #l13.
-    // empty loc
+    if !(X < @@Threshold) then goto l14;
 
   #l16.
+    X := X + 1ii;
+
+  #l14.
+    // empty loc
+
+  #l17.
     return;
 }
 
@@ -240,7 +240,7 @@ global Integer @@Threshold
 
 procedure $$sinit {
 
-  #l17.
+  #l1.
     @@Threshold := 1000ii;
 
   #l18.

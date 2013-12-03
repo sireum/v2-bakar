@@ -8,17 +8,17 @@ procedure $$binit {
   #l1.
     @@B := 0ii;
 
-  #l2.
+  #l4.
     return;
 }
 
 procedure Inc (
         Integer I) {
 
-  #l3.
+  #l2.
     I := I + @@B;
 
-  #l4.
+  #l3.
     return (I);
 }package SimpleMath1;
 

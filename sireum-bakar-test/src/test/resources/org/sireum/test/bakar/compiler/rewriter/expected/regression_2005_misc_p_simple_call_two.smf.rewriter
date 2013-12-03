@@ -6,15 +6,15 @@ global Integer @@B;
 procedure $$binit {
 
   #l1.
-    Y := 1ii;
+    @@Y := 1ii;
 
   #l2.
     @@B := 0ii;
 
   #l3.
-    C := 0ii;
+    @@C := 0ii;
 
-  #l4.
+  #l9.
     return;
 }
 
@@ -34,7 +34,7 @@ procedure R (
     _t0 := X;
 
   #rwl1.
-    _t1 := Y;
+    _t1 := @@Y;
 
   #rwl2.
     _t2 := _t0 + _t1;
@@ -46,12 +46,12 @@ procedure R (
     _t4 := _t2 + _t3;
 
   #rwl5.
-    _t5 := C;
+    _t5 := @@C;
 
-  #l5.
+  #l4.
     Z := _t4 + _t5;
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -63,7 +63,7 @@ procedure Q (
     FIXME _t7;
 
 
-  #l7.
+  #l6.
     call R (X, Z);
 
   #rwl6.
@@ -72,10 +72,10 @@ procedure Q (
   #rwl7.
     _t7 := X;
 
-  #l8.
+  #l7.
     Z := _t6 + _t7;
 
-  #l9.
+  #l8.
     return;
 }package P_Simple_Call_Two;
 

@@ -47,13 +47,13 @@ procedure $$binit {
           case _t2 / _t3 => 3ii
           default => 9ii};
 
-  #l3.
+  #l18.
     return;
 }
 
 procedure Boolean Dummy {
 
-  #l4.
+  #l3.
     return true;
 }
 
@@ -74,13 +74,13 @@ procedure Integer Max (
     FIXME _t11;
 
 
-  #l5.
+  #l4.
     M := V[0ii];
 
-  #l7.
+  #l6.
     _tcomp0 := attribute__uif__first `Index;
 
-  #l8.
+  #l7.
     _tcomp1 := attribute__uif__last `Index;
 
   #rwl4.
@@ -89,13 +89,13 @@ procedure Integer Max (
   #rwl5.
     _t5 := _tcomp1;
 
-  #l9.
-    if _t4 > _t5 then goto l6;
+  #l8.
+    if _t4 > _t5 then goto l5;
 
-  #l10.
+  #l9.
     I := _tcomp0;
 
-  #l11.
+  #l10.
     // empty loc
 
   #rwl6.
@@ -104,13 +104,13 @@ procedure Integer Max (
   #rwl7.
     _t7 := M;
 
-  #l13.
-    if !(_t6 > _t7) then goto l12;
+  #l12.
+    if !(_t6 > _t7) then goto l11;
 
-  #l14.
+  #l13.
     M := V[I];
 
-  #l12.
+  #l11.
     // empty loc
 
   #rwl8.
@@ -119,8 +119,8 @@ procedure Integer Max (
   #rwl9.
     _t9 := _tcomp1;
 
-  #l15.
-    if _t8 == _t9 then goto l6;
+  #l14.
+    if _t8 == _t9 then goto l5;
 
   #rwl10.
     _t10 := I;
@@ -128,16 +128,16 @@ procedure Integer Max (
   #rwl11.
     _t11 := 1ii;
 
-  #l16.
+  #l15.
     I := _t10 + _t11;
 
-  #l17.
-    goto l11;
+  #l16.
+    goto l10;
 
-  #l6.
+  #l5.
     // empty loc
 
-  #l18.
+  #l17.
     return M;
 }package SimpleArray;
 

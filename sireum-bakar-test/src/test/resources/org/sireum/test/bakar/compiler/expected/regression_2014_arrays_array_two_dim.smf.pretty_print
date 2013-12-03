@@ -14,8 +14,8 @@ package Array_Two_Dim
 
 procedure $$binit {
 
-  #l1.
-    Box := `Square { iter => 
+  #l3.
+    @@Box := `Square { iter => 
         switch iter
           case (1ii, constThree) => { iter => 
               switch iter
@@ -35,7 +35,7 @@ procedure $$binit {
               switch iter
                 default => 3ii}};
 
-  #l2.
+  #l8.
     return;
 }
 
@@ -97,10 +97,10 @@ procedure dummy (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.
-    Box[X, Y] := Box[X, Y] - 1ii;
-
   #l4.
+    @@Box[X, Y] := @@Box[X, Y] - 1ii;
+
+  #l5.
     return;
 }
 
@@ -162,10 +162,10 @@ procedure dummy2 (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l5.
-    aBoard[M][N] := aBoard[M][N] - 1ii;
-
   #l6.
+    @@aBoard[M][N] := @@aBoard[M][N] - 1ii;
+
+  #l7.
     return;
 }
 
@@ -543,14 +543,14 @@ global Board @@aBoard
 
 procedure $$sinit {
 
-  #l7.
+  #l1.
     @@Box2 := `Square { iter => 
         switch iter
           default => { iter => 
               switch iter
                 default => 0ii}};
 
-  #l8.
+  #l2.
     @@aBoard := `Board { iter => 
         switch iter
           default => `Row { iter => 

@@ -4,11 +4,11 @@ package QuantifierTest;
 procedure $$binit {
 
   #l1.
-    V := `Vector { iter => 
+    @@V := `Vector { iter => 
         switch iter
           default => 0ii};
 
-  #l2.
+  #l6.
     return;
 }
 
@@ -36,13 +36,13 @@ procedure dummy (
 
 
   #rwl0.
-    _t0 := V[J];
+    _t0 := @@V[J];
 
   #rwl1.
     _t1 := 0ii;
 
   #rwl2.
-    _t2 := V[J];
+    _t2 := @@V[J];
 
   #rwl3.
     _t3 := 7ii;
@@ -53,20 +53,20 @@ procedure dummy (
   #rwl5.
     _t5 := _t2 < _t3;
 
-  #l3.
+  #l2.
     assert proof__uif__for_some {Index J => 
         switch J
           case (1ii, 2ii) => _t4 && _t5
           default => true};
 
   #rwl6.
-    _t6 := V[I];
+    _t6 := @@V[I];
 
   #rwl7.
     _t7 := 3ii;
 
-  #l4.
-    V[I] := _t6 + _t7;
+  #l3.
+    @@V[I] := _t6 + _t7;
 
   #rwl8.
     _t8 := 3ii;
@@ -75,13 +75,13 @@ procedure dummy (
     _t9 := 3ii;
 
   #rwl10.
-    _t10 := V[J];
+    _t10 := @@V[J];
 
   #rwl11.
     _t11 := 0ii;
 
   #rwl12.
-    _t12 := V[J];
+    _t12 := @@V[J];
 
   #rwl13.
     _t13 := 7ii;
@@ -101,10 +101,10 @@ procedure dummy (
           case (attribute__uif__first `Index, attribute__uif__last `Index) => _t14 || _t15
           default => true};
 
-  #l5.
+  #l4.
     assert _t16 &&& _t17;
 
-  #l6.
+  #l5.
     return;
 }package QuantifierTest;
 

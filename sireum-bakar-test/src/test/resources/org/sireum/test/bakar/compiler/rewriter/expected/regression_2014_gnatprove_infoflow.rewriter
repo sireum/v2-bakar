@@ -18,97 +18,97 @@ procedure Machine_Step {
 
 
   #rwl0.
-    _t0 := In_0_Rdy_V1;
+    _t0 := @@In_0_Rdy_V1;
 
   #rwl1.
-    _t1 := !(Out_1_Rdy_V1);
+    _t1 := !(@@Out_1_Rdy_V1);
 
   #l2.
     if !(_t0 && _t1) then goto l1;
 
   #l3.
-    Data_0_V1 := In_0_Dat_V1;
+    Data_0_V1 := @@In_0_Dat_V1;
 
   #l4.
-    In_0_Rdy_V1 := false;
+    @@In_0_Rdy_V1 := false;
 
   #l5.
-    Out_1_Dat_V1 := Data_0_V1;
+    @@Out_1_Dat_V1 := Data_0_V1;
 
   #l6.
-    Out_1_Rdy_V1 := true;
+    @@Out_1_Rdy_V1 := true;
 
   #l1.
     // empty loc
 
   #rwl2.
-    _t2 := In_1_Rdy_V1;
+    _t2 := @@In_1_Rdy_V1;
 
   #rwl3.
-    _t3 := !(Out_0_Rdy_V1);
+    _t3 := !(@@Out_0_Rdy_V1);
 
   #l8.
     if !(_t2 && _t3) then goto l7;
 
   #l9.
-    Data_1_V1 := In_1_Dat_V1;
+    Data_1_V1 := @@In_1_Dat_V1;
 
   #l10.
-    In_1_Rdy_V1 := false;
+    @@In_1_Rdy_V1 := false;
 
   #l11.
-    Out_0_Dat_V1 := Data_1_V1;
+    @@Out_0_Dat_V1 := Data_1_V1;
 
   #l12.
-    Out_0_Rdy_V1 := true;
+    @@Out_0_Rdy_V1 := true;
 
   #l7.
     // empty loc
 
   #rwl4.
-    _t4 := In_0_Rdy_V2;
+    _t4 := @@In_0_Rdy_V2;
 
   #rwl5.
-    _t5 := !(Out_1_Rdy_V2);
+    _t5 := !(@@Out_1_Rdy_V2);
 
   #l14.
     if !(_t4 && _t5) then goto l13;
 
   #l15.
-    Data_0_V2 := In_0_Dat_V2;
+    Data_0_V2 := @@In_0_Dat_V2;
 
   #l16.
-    In_0_Rdy_V2 := false;
+    @@In_0_Rdy_V2 := false;
 
   #l17.
-    Out_1_Dat_V2 := Data_0_V2;
+    @@Out_1_Dat_V2 := Data_0_V2;
 
   #l18.
-    Out_1_Rdy_V2 := true;
+    @@Out_1_Rdy_V2 := true;
 
   #l13.
     // empty loc
 
   #rwl6.
-    _t6 := In_1_Rdy_V2;
+    _t6 := @@In_1_Rdy_V2;
 
   #rwl7.
-    _t7 := !(Out_0_Rdy_V2);
+    _t7 := !(@@Out_0_Rdy_V2);
 
   #l20.
     if !(_t6 && _t7) then goto l19;
 
   #l21.
-    Data_1_V2 := In_1_Dat_V2;
+    Data_1_V2 := @@In_1_Dat_V2;
 
   #l22.
-    In_1_Rdy_V2 := false;
+    @@In_1_Rdy_V2 := false;
 
   #l23.
-    Out_0_Dat_V2 := Data_1_V2;
+    @@Out_0_Dat_V2 := Data_1_V2;
 
   #l24.
-    Out_0_Rdy_V2 := true;
+    @@Out_0_Rdy_V2 := true;
 
   #l19.
     // empty loc
@@ -122,7 +122,7 @@ procedure SinglePositionAssign (
         FlagValue Value) {
 
   #l26.
-    Flags[Flag] := Value;
+    @@Flags[Flag] := Value;
 
   #l27.
     return;
@@ -135,10 +135,10 @@ procedure SinglePositionAssign (
         FlagValue Value_V2) {
 
   #l28.
-    Flags_V1[Flag_V1] := Value_V1;
+    @@Flags_V1[Flag_V1] := Value_V1;
 
   #l29.
-    Flags_V2[Flag_V2] := Value_V2;
+    @@Flags_V2[Flag_V2] := Value_V2;
 
   #l30.
     return;

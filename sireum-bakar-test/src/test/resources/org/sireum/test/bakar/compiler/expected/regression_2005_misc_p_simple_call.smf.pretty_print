@@ -27,15 +27,15 @@ global Integer @@B
 procedure $$binit {
 
   #l1.
-    Y := 1ii;
+    @@Y := 1ii;
 
   #l2.
     @@B := 0ii;
 
   #l3.
-    C := 0ii;
+    @@C := 0ii;
 
-  #l4.
+  #l17.
     return;
 }
 
@@ -76,10 +76,10 @@ procedure R (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l5.
-    X := Y + @@B + C;
+  #l4.
+    X := @@Y + @@B + @@C;
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -133,25 +133,25 @@ procedure Integer incX (
     ;
 
 
-  #l9.
-    if !(X == 0ii) then goto l8;
+  #l8.
+    if !(X == 0ii) then goto l7;
 
-  #l10.
+  #l9.
     result := X + 1ii;
 
-  #l11.
-    goto l7;
-
-  #l8.
-    // empty loc
-
-  #l12.
-    result := X - 1ii;
+  #l10.
+    goto l6;
 
   #l7.
     // empty loc
 
-  #l13.
+  #l11.
+    result := X - 1ii;
+
+  #l6.
+    // empty loc
+
+  #l12.
     return result;
 }
 
@@ -216,16 +216,16 @@ procedure Q (
     Integer _tcomp0;
 
 
-  #l14.
+  #l13.
     call R (Z);
 
-  #l15.
+  #l14.
     call _tcomp0 := incX (X);
 
-  #l16.
+  #l15.
     Z := Z + _tcomp0;
 
-  #l17.
+  #l16.
     return;
 }
 

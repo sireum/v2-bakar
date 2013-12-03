@@ -146,7 +146,7 @@ procedure $$binit {
           case 8ii / 2ii => 3ii
           default => 9ii};
 
-  #l3.
+  #l18.
     return;
 }
 
@@ -166,7 +166,7 @@ procedure Boolean Dummy
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l4.
+  #l3.
     return true;
 }
 
@@ -223,46 +223,46 @@ procedure Integer Max (
     Index _tcomp1;
 
 
-  #l5.
+  #l4.
     M := V[0ii];
 
-  #l7.
+  #l6.
     _tcomp0 := attribute__uif__first `Index;
 
-  #l8.
+  #l7.
     _tcomp1 := attribute__uif__last `Index;
 
+  #l8.
+    if _tcomp0 > _tcomp1 then goto l5;
+
   #l9.
-    if _tcomp0 > _tcomp1 then goto l6;
+    I := _tcomp0;
 
   #l10.
-    I := _tcomp0;
+    // empty loc
+
+  #l12.
+    if !(V[I] > M) then goto l11;
+
+  #l13.
+    M := V[I];
 
   #l11.
     // empty loc
 
-  #l13.
-    if !(V[I] > M) then goto l12;
-
   #l14.
-    M := V[I];
-
-  #l12.
-    // empty loc
+    if I == _tcomp1 then goto l5;
 
   #l15.
-    if I == _tcomp1 then goto l6;
-
-  #l16.
     I := I + 1ii;
 
-  #l17.
-    goto l11;
+  #l16.
+    goto l10;
 
-  #l6.
+  #l5.
     // empty loc
 
-  #l18.
+  #l17.
     return M;
 }
 
