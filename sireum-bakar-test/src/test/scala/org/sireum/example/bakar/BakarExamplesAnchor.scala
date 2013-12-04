@@ -11,7 +11,7 @@ object BakarExamplesAnchor {
   def sourceDirUri(claz: Class[_], path: String) = localize(claz) + path
 
   def localize(c : Class[_]) = {
-    val a = new File(BakarExamplesAnchor.getClass.getResource("").toURI).getCanonicalPath
+    val a = new File(c.getResource("").toURI).getCanonicalPath
     val sbt = "/target/scala-"
       
     if(a.contains(sbt)) {
