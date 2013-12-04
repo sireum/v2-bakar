@@ -2,26 +2,29 @@ package org.sireum.test.bakar.typ
 
 import java.io.Writer
 import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
 import org.sireum.bakar.compiler.module.BakarTranslatorModule
 import org.sireum.bakar.compiler.rewriter.BakarExpRewriterModule
-import org.sireum.bakar.compiler.rewriter.BakarPropertyMapRewriterModule
 import org.sireum.bakar.typ.BakarTypeResolverModule
-import org.sireum.bakar.typ.BakarTypeResolverModule.ConsumerView.BakarTypeResolverModuleConsumerView
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
-import org.sireum.test.bakar.compiler.rewriter.BakarExpRewriterTest
+import org.sireum.test.bakar.compiler.BakarTranslatorTest
+import org.sireum.util.ImplicitLogging
+import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class BakarTypeResolverTest extends BakarExpRewriterTest {
-
+class BakarTypeResolverTest extends BakarTranslatorTest {
   override def generateExpected = false
+  override def pipeline = BakarTypeResolverTest.pipeline
+  override def outputSuffix = BakarTypeResolverTest.outputSuffix
+  override def writeTestString(job: PipelineJob, w: Writer) = BakarTypeResolverTest.writeTestString(job, w)
+}
 
-  override def pipeline =
+object BakarTypeResolverTest extends ImplicitLogging {
+
+  def pipeline =
     PipelineConfiguration(
       "gnat2xml test pipeline",
       false,
@@ -44,12 +47,11 @@ class BakarTypeResolverTest extends BakarExpRewriterTest {
       PipelineStage(
         "type resolver stage",
         false,
-        BakarTypeResolverModule)
-    )
+        BakarTypeResolverModule))
 
-  override def outputSuffix = "typeresolver"
+  def outputSuffix = "typeresolver"
 
-  override def writeTestString(job : PipelineJob, w : Writer) = {
+  def writeTestString(job: PipelineJob, w: Writer) = {
     import BakarTypeResolverModule.ConsumerView._
     for ((k, v) <- job.bakarRef2TypeUriMap.toList.sortBy(_._1))
       w.write(s"$k -> $v\n")

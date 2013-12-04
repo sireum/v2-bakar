@@ -8,15 +8,15 @@ import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.framework.BakarTestFileFramework
-import org.sireum.test.bakar.framework.Project
+import org.sireum.test.bakar.framework.ProjectFile
 import org.sireum.util.FileResourceUri
 import org.sireum.util.ilistEmpty
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class BakarTypeTest_OCaml extends BakarTestFileFramework[Project] {
+class BakarTypeTest_OCaml extends BakarTestFileFramework[ProjectFile] {
   
-  this.execute(new Project {
+  this.execute(new ProjectFile {
     val projectName = "typ"
     val testName = "typ"
     val files = ilistEmpty[FileResourceUri]

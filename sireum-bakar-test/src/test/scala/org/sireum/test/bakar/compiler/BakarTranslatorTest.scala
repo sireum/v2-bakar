@@ -14,7 +14,7 @@ import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.framework.BakarDirectoryProjectProvider
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.test.bakar.framework.BakarTestFileFramework
-import org.sireum.test.bakar.framework.Project
+import org.sireum.test.bakar.framework.ProjectFile
 import org.sireum.test.bakar.framework.Projects
 import org.sireum.util.FileUtil
 import org.sireum.util.ISeq
@@ -22,7 +22,7 @@ import org.sireum.util.Visitor
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class BakarTranslatorTest extends BakarTestFileFramework[Project] {
+class BakarTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
   override def generateExpected = false
 
@@ -34,24 +34,6 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
     "2014_arrays",
     "2014_misc",
     "2014_sort",
-    "2014_gnatprove_arrays",
-    "2014_gnatprove_binary_search",
-    "2014_gnatprove_contract_cases",
-    "2014_gnatprove_fibonacci",
-    "2014_gnatprove_infoflow",
-    "2014_gnatprove_intro",
-    "2014_gnatprove_invert_injection",
-    "2014_gnatprove_LC17-035__update_attribute$",
-    "2014_gnatprove_LC17-035__update_big_test",
-    "2014_gnatprove_longest_common_prefix",
-    "2014_gnatprove_max_and_sum",
-    "2014_gnatprove_n_queens",
-    "2014_gnatprove_natural",
-    "2014_gnatprove_painting",
-    "2014_gnatprove_power_and_sum",
-    "2014_gnatprove_ring_buffer",
-    "2014_gnatprove_slice_sums",
-    "2014_gnatprove_TU__ghost_legal",
     "xxxxxx")
 
   override def ignores = {
@@ -67,14 +49,8 @@ class BakarTranslatorTest extends BakarTestFileFramework[Project] {
 
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR))
 
-  register(Projects.getProjects(BakarDirectoryProjectProvider,
-    BakarExamplesAnchor.REGRESSION_DIR + "/2014/gnatprove/", BakarExamplesAnchor.BASE_DIR))
-
   override def pre(c: Configuration): Boolean = {
-    val dest = new File(c.resultsDir + "/0")
-    dest.mkdirs
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
-    Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(dest)))
     BakarTranslatorModule.setRegression(c.job.properties, true)
     return true;
   }

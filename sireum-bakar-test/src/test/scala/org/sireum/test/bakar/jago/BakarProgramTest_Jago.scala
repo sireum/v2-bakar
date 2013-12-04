@@ -12,13 +12,13 @@ import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.test.bakar.framework.BakarTestFileFramework
-import org.sireum.test.bakar.framework.Project
+import org.sireum.test.bakar.framework.ProjectFile
 import org.sireum.test.bakar.framework.Projects
 import org.sireum.util.FileUtil
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class BakarProgramTest_Jago extends BakarTestFileFramework[Project] {
+class BakarProgramTest_Jago extends BakarTestFileFramework[ProjectFile] {
     
   this.register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 

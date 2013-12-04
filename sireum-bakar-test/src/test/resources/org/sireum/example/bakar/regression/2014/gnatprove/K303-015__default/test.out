@@ -1,4 +1,0 @@
-default.adb:5:16: warning: overflow check might fail
-default.adb:11:16: warning: overflow check might fail
-default.adb:16:25: warning: overflow check might fail
-default.adb:21:25: warning: overflow check might fail

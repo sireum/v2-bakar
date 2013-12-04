@@ -1,2 +1,0 @@
-test_equal.adb:25:4: info: assertion proved
-test_equal.adb:26:4: warning: assertion might fail, requires X /= Y

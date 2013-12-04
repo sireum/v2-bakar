@@ -40,14 +40,14 @@ object Projects {
   }
 }
 
-object BakarDirectoryProjectProvider extends ProjectProvider[Project] {
-  override def getProjects(dir: File, rootdir: File): ISeq[Project] = {
+object BakarDirectoryProjectProvider extends ProjectProvider[ProjectFile] {
+  override def getProjects(dir: File, rootdir: File): ISeq[ProjectFile] = {
     val _files = dir.listFiles.filter(f => f.getName.endsWith(".adb") || f.getName.endsWith(".ads"))
     val _testName = FileUtil.toUri(dir).replace(FileUtil.toUri(rootdir), "").replace("/", "_").dropRight(1)
     if (_files.isEmpty)
       ivectorEmpty
     else
-      ivector(new Project {
+      ivector(new ProjectFile {
         val projectName = _testName
         val testName = _testName
         val files = (_files.map(f => f.toURI.toASCIIString)).toList
@@ -55,9 +55,9 @@ object BakarDirectoryProjectProvider extends ProjectProvider[Project] {
   }
 }
 
-object BakarSmfProjectProvider extends ProjectProvider[Project] {
-  override def getProjects(dir: File, rootdir: File): ISeq[Project] = {
-    var projs = mlistEmpty[Project]
+object BakarSmfProjectProvider extends ProjectProvider[ProjectFile] {
+  override def getProjects(dir: File, rootdir: File): ISeq[ProjectFile] = {
+    var projs = mlistEmpty[ProjectFile]
     dir.listFiles.filter(f => f.getName.endsWith(".smf")).foreach { smf =>
       val _files = io.Source.fromFile(smf).getLines.toList.map { s =>
         if (new File(s).exists)
@@ -68,7 +68,7 @@ object BakarSmfProjectProvider extends ProjectProvider[Project] {
           throw new RuntimeException("Couldn't locate %s from %s".format(s, smf))
       }
       val _testName = FileUtil.toUri(smf).replace(FileUtil.toUri(rootdir), "").replace("/", "_")
-      projs += new Project {
+      projs += new ProjectFile {
         val projectName = smf.getName
         val testName = _testName
         val files = _files

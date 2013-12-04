@@ -1,4 +1,0 @@
-The for all expression at array.ads 7:23 causes gnat2xml to go into an loop and not return
-
-     Contract_Cases => (X'Length = 0 => (Sum'Result = 0),
-                       (for all J in X'Range => X (J) = 0) => (Sum'Result = 0)) --  The guard here is equivalent to requiring X'Length = 0, as all elements of the array are positive

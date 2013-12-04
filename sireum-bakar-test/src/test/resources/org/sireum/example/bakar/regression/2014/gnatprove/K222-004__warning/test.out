@@ -1,3 +1,0 @@
-pack.adb:16:09: warning: unused assignment
-pack.adb:17:07: warning: statement has no effect
-pack.ads:3:19: warning: postcondition might fail, requires not F'result

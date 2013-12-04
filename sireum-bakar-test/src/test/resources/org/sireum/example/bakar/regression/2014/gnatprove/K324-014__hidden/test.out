@@ -1,1 +1,0 @@
-qack.adb:12:19: warning: postcondition might fail, requires X = X'old

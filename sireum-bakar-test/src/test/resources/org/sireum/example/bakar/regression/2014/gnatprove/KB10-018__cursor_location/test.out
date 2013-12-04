@@ -1,3 +1,0 @@
-cursor_location.adb:17:11: warning: postcondition might fail
-cursor_location.ads:18:9: warning: postcondition might fail
-cursor_location.ads:27:9: info: postcondition proved

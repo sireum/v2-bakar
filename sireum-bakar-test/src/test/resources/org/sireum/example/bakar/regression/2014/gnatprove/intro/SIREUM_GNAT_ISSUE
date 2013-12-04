@@ -1,3 +1,0 @@
-The param profile given by gnat2xml Pro 7.2.0rc (20131028) for the 
-expression function dec "function Add (X , Y : My_Int) return My_Int is ..." is
-X, X rather than X, Y 

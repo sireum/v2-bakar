@@ -60,7 +60,12 @@ trait BakarTestFramework[P <: Project] extends TestFramework {
   }
 }
 
-trait BakarTestFileFramework[P <: Project] extends BakarTestFramework[P] {
+trait ProjectFile extends Project {
+  val expectedDir: Option[FileResourceUri] = None
+  val resultDir: Option[FileResourceUri] = None
+}
+
+trait BakarTestFileFramework[P <: ProjectFile] extends BakarTestFramework[P] {
   // abstract methods
   def generateExpected: Boolean
   def outputSuffix: String
@@ -81,12 +86,12 @@ trait BakarTestFileFramework[P <: Project] extends BakarTestFramework[P] {
 
       val testNamelc = p.testName.toLowerCase
 
-      val edir = new File(new URI(EXPECTED_DIR))
+      val edir = new File(new URI(if(p.expectedDir.isDefined) p.expectedDir.get else EXPECTED_DIR))
       val efile = new File(edir, testNamelc + "." + outputSuffix)
       if (!edir.exists && !edir.mkdirs)
         throw new RuntimeException("Could not create " + edir)
 
-      val rdir = new File(new URI(RESULTS_DIR))
+      val rdir = new File(new URI(if(p.resultDir.isDefined) p.resultDir.get else RESULTS_DIR))
       val rfile = new File(rdir, testNamelc + "." + outputSuffix)
       if (!rdir.exists) {
         if (!rdir.mkdirs)

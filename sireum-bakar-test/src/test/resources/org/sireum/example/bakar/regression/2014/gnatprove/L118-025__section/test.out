@@ -1,3 +1,0 @@
-p.adb:5:27: info: overflow check proved
-p.adb:10:32: info: overflow check proved
-p.ads:11:16: info: postcondition proved
