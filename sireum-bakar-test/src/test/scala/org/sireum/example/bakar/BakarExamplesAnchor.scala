@@ -4,14 +4,25 @@ import org.sireum.util.FileUtil
 import java.io.File
 
 object BakarExamplesAnchor {
-
+  
+  //def sourceDirUri(claz: Class[_], path: String) =
+  //  FileUtil.fileUri(claz, "").replaceFirst("/bin/", "/src/test/resources/") + path
+    
   def sourceDirUri(claz: Class[_], path: String) = localize(claz) + path
 
   def localize(c : Class[_]) = {
     val a = new File(BakarExamplesAnchor.getClass.getResource("").toURI).getCanonicalPath
-    val b = new File(BakarExamplesAnchor.getClass.getResource("/").toURI).getCanonicalPath
-    val c = new File(b, "../../../bakar/sireum-bakar-test/src/test/resources/").getCanonicalPath  
-    new File(a.replace(b, c)).getCanonicalFile.toURI.toASCIIString
+    val sbt = "/target/scala-"
+      
+    if(a.contains(sbt)) {
+      val b = new File(a.substring(0, a.indexOf(sbt))).getParentFile.getParentFile
+      val c = b + "/bakar/sireum-bakar-test/" + a.substring(a.indexOf(sbt) + 1, a.length)
+      new File(c).toURI.toASCIIString
+    } else {
+      val b = new File(BakarExamplesAnchor.getClass.getResource("/").toURI).getCanonicalPath
+      val c = new File(b, "../../../bakar/sireum-bakar-test/src/test/resources/").getCanonicalPath
+      new File(a.replace(b, c)).getCanonicalFile.toURI.toASCIIString      
+    }
   }
   
   val BASE_DIR = sourceDirUri(BakarExamplesAnchor.getClass, "")
