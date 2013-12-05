@@ -18,7 +18,7 @@ object BakarExamplesAnchor {
     implicit def s(f : File) = f.getCanonicalFile.toURI.toASCIIString
     if(a.contains(sbt)) {
       val b = new File(new URI(a.substring(0, a.indexOf(sbt)))).getParentFile.getParentFile
-      new File(b + "/bakar/sireum-bakar-test/" + a.substring(a.indexOf(sbt) + 1, s(a).length))
+      new File(new URI(b + "/bakar/sireum-bakar-test/" + a.substring(a.indexOf(sbt) + 1, s(a).length)))
     } else {
       val b = new File(BakarExamplesAnchor.getClass.getResource("/").toURI)
       val c = new File(b, "../../../bakar/sireum-bakar-test/src/test/resources/")
