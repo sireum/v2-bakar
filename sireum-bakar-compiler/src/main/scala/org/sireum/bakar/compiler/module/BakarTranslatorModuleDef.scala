@@ -356,7 +356,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     case class Scope(
       constants: MList[ConstElement] = mlistEmpty,
-      initBlock: Option[MList[LocationDecl]] = None,
+      var initBlock: Option[MList[LocationDecl]] = None,
       typeDeclarations: MList[PackageElement] = mlistEmpty,
       variableDeclarations: MList[PilarAstNode] = mlistEmpty)
 
@@ -1309,32 +1309,49 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       typeDecls
     }
 
-    def constructScope(v: => BVisitor, bodyDeclItems: Option[ElementList]): Scope = {
-      if (bodyDeclItems.isDefined) {
-        val consDecls = TranslatorUtil.getConstantDeclarations(bodyDeclItems.get.getElements)
-        val localDecls = TranslatorUtil.getVariableDeclarations(bodyDeclItems.get.getElements)
-        val typeDecls = TranslatorUtil.getTypeDeclarations(bodyDeclItems.get.getElements)
-
-        constructScope(v,
-          if (typeDecls.isEmpty) None else Some(typeDecls),
-          None,
-          if (consDecls.isEmpty) None else Some(consDecls),
-          None,
-          if (localDecls.isEmpty) None else Some(localDecls),
-          None,
-          None)
+    def constructScope(v: => BVisitor, o: Base, isMethodCompilationUnit: Boolean = false): Scope = {
+      if (scopeCache.contains(o)) {
+        scopeStack.push(scopeCache(o))
+        scopeStack.head
       } else {
-        constructScope(v)
+        if (isMethodCompilationUnit) constructPushScope(v, o)
+        else
+          o match {
+            case i: PackageBodyDeclaration => constructPushScope(v, i)
+            case i: PackageDeclaration => constructPushScope(v, i)
+
+            case i: ExpressionFunctionDeclaration => constructPushScope(v, i)
+            case i: FunctionBodyDeclaration => constructPushScope(v, i, i.getBodyDeclarativeItemsQl)
+            case i: FunctionDeclaration => constructPushScope(v, i)
+            case i: ProcedureBodyDeclaration => constructPushScope(v, i, i.getBodyDeclarativeItemsQl)
+            case i: ProcedureDeclaration => constructPushScope(v, i)
+            case x => throw new RuntimeException()
+          }
       }
     }
 
-    def constructScope(v: => BVisitor, o: PackageBodyDeclaration): Scope = {
+    private def constructPushScope(v: => BVisitor, o: Base, bodyDeclItems: ElementList): Scope = {
+      val consDecls = TranslatorUtil.getConstantDeclarations(bodyDeclItems.getElements)
+      val localDecls = TranslatorUtil.getVariableDeclarations(bodyDeclItems.getElements)
+      val typeDecls = TranslatorUtil.getTypeDeclarations(bodyDeclItems.getElements)
+
+      constructPushScope(v, o,
+        if (typeDecls.isEmpty) None else Some(typeDecls),
+        None,
+        if (consDecls.isEmpty) None else Some(consDecls),
+        None,
+        if (localDecls.isEmpty) None else Some(localDecls),
+        None,
+        None)
+    }
+
+    private def constructPushScope(v: => BVisitor, o: PackageBodyDeclaration): Scope = {
       val publicTypes = TranslatorUtil.getTypeDeclarations(o.getBodyDeclarativeItemsQl.getElements)
       val publicConstants = TranslatorUtil.getConstantDeclarations(o.getBodyDeclarativeItemsQl.getElements)
       val publicGlobals = TranslatorUtil.getVariableDeclarations(o.getBodyDeclarativeItemsQl.getElements)
       val initBlock = if (o.getBodyStatementsQl.getStatements.isEmpty) None else Some(o.getBodyStatementsQl)
 
-      constructScope(v, 
+      constructPushScope(v, o,
         if (publicTypes.isEmpty) None else Some(publicTypes),
         None,
         if (publicConstants.isEmpty) None else Some(publicConstants),
@@ -1344,7 +1361,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         initBlock)
     }
 
-    def constructScope(v: => BVisitor, o: PackageDeclaration): Scope = {
+    private def constructPushScope(v: => BVisitor, o: PackageDeclaration): Scope = {
       val publicTypes = TranslatorUtil.getTypeDeclarations(o.getVisiblePartDeclarativeItemsQl.getDeclarativeItems)
       val privateTypes = TranslatorUtil.getTypeDeclarations(o.getPrivatePartDeclarativeItemsQl.getDeclarativeItems)
 
@@ -1354,7 +1371,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val publicGlobals = TranslatorUtil.getVariableDeclarations(o.getVisiblePartDeclarativeItemsQl.getDeclarativeItems)
       val privateGlobals = TranslatorUtil.getVariableDeclarations(o.getPrivatePartDeclarativeItemsQl.getDeclarativeItems)
 
-      constructScope(v,
+      constructPushScope(v, o,
         if (publicTypes.isEmpty) None else Some(publicTypes),
         if (privateTypes.isEmpty) None else Some(privateTypes),
         if (publicConstants.isEmpty) None else Some(publicConstants),
@@ -1364,7 +1381,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         None)
     }
 
-    def constructScope(v: => BVisitor,
+    private def constructPushScope(v: => BVisitor, o: Base,
       publicTypes: Option[MBuffer[Base]] = None,
       privateTypes: Option[MBuffer[Base]] = None,
       publicConstants: Option[MBuffer[Base]] = None,
@@ -1373,10 +1390,13 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       privateVariables: Option[MBuffer[VariableDeclaration]] = None,
       bodyStatements: Option[StatementList] = None): Scope = {
 
-      var constants = mlistEmpty[ConstElement]
-      var initBlock: Option[MList[LocationDecl]] = None
-      var typeDeclarations = mlistEmpty[PackageElement]
-      var variableDeclarations = mlistEmpty[PilarAstNode]
+      val constants = mlistEmpty[ConstElement]
+      val typeDeclarations = mlistEmpty[PackageElement]
+      val variableDeclarations = mlistEmpty[PilarAstNode]
+
+      val ret = Scope(constants, None, typeDeclarations, variableDeclarations)
+      this.scopeStack.push(ret)
+      this.scopeCache(o) = ret
 
       val old = noTempVars
       noTempVars(true)
@@ -1415,9 +1435,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       assert(ll eq _ll)
 
       if (!_ll.isEmpty)
-        initBlock = Some(_ll)
+        ret.initBlock = Some(_ll)
 
-      Scope(constants, initBlock, typeDeclarations, variableDeclarations)
+      ret
     }
 
     /**
@@ -1480,7 +1500,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
   def packageH(ctx: Context, v: => BVisitor): VisitorFunction = {
 
-    def createPackageInitProcedure(locs: MList[LocationDecl], isSpec: Boolean = false) = {
+    def createPackageInitProcedure(locs: MList[LocationDecl], locals: MList[LocalVarDecl],
+      isSpec: Boolean = false) = {
       val name = if (isSpec) "$$sinit"
       else "$$binit"
 
@@ -1495,7 +1516,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       ProcedureDecl(nd, ivectorEmpty,
         ivectorEmpty, ivectorEmpty, None, false,
-        ImplementedBody(ivectorEmpty, locs.toList, ivectorEmpty))
+        ImplementedBody(locals.toList, locs.toList, ivectorEmpty))
     }
 
     {
@@ -1506,9 +1527,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           v(unitDeclaration)
           ctx.popResult.asInstanceOf[PackageDecl]
         } else if (TranslatorUtil.isMethodDeclaration(unitDeclaration.getDeclaration)) {
+          val pname = "__anonymousPackage$" + ctx.nextAnonymousPackage
 
-          val scope = ctx.constructScope(v)
-          ctx.scopeStack.push(scope)
+          ctx.pushContext(CTX.METHOD, pname)
+          val scope = ctx.constructScope(v, unitDeclaration.getDeclaration, true)
+          ctx.scopeCache -= unitDeclaration.getDeclaration
+          ctx.popContext
 
           v(unitDeclaration)
           val p: ProcedureDecl = ctx.popResult
@@ -1522,7 +1546,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           elements += p
 
-          val pname = "__anonymousPackage$" + ctx.nextAnonymousPackage
           val puri = "ada://package_body__anonymous/" + pname
           val name = Some(NameDefinition(pname))
 
@@ -1587,10 +1610,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         ctx.pushContext((CTX.PACKAGE, pname.name))
 
-        val scope = if (ctx.scopeCache.contains(o)) ctx.scopeCache(o)
-        else ctx.constructScope(v, o)
-        ctx.scopeCache(o) = scope
-        ctx.scopeStack.push(scope)
+        val scope = ctx.constructScope(v, o)
 
         val packElems = mlistEmpty[PackageElement]
 
@@ -1612,9 +1632,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val elements = scope.typeDeclarations
         if (!scope.constants.isEmpty)
           elements += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, scope.constants.toList)
-        elements ++= scope.variableDeclarations.map(f => f.asInstanceOf[GlobalVarDecl])
+
+        val (globals, locals) = scope.variableDeclarations.partition(_.isInstanceOf[GlobalVarDecl])
+        elements ++= globals.asInstanceOf[MList[GlobalVarDecl]]
+
         if (scope.initBlock.isDefined)
-          elements += createPackageInitProcedure(scope.initBlock.get, true)
+          elements += createPackageInitProcedure(scope.initBlock.get, locals.asInstanceOf[MList[LocalVarDecl]], true)
 
         elements ++= packElems
         val pack = PackageDecl(Some(pname), ivectorEmpty, elements.toList)
@@ -1636,10 +1659,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         ctx.pushContext((CTX.PACKAGE, pname.name))
 
-        val scope = if (ctx.scopeCache.contains(o)) ctx.scopeCache(o)
-        else ctx.constructScope(v, o)
-        ctx.scopeCache(o) = scope
-        ctx.scopeStack.push(scope)
+        val scope = ctx.constructScope(v, o)
 
         val packElems = mlistEmpty[PackageElement]
         for (m <- TranslatorUtil.getMethodDeclarations(bodyDecItems.getElements)) {
@@ -1654,9 +1674,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         if (!scope.constants.isEmpty)
           elements += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, scope.constants.toList)
-        elements ++= scope.variableDeclarations.map(f => f.asInstanceOf[GlobalVarDecl])
+
+        val (globals, locals) = scope.variableDeclarations.partition(_.isInstanceOf[GlobalVarDecl])
+        elements ++= globals.asInstanceOf[MList[GlobalVarDecl]]
+
         if (scope.initBlock.isDefined)
-          elements += createPackageInitProcedure(scope.initBlock.get, false)
+          elements += createPackageInitProcedure(scope.initBlock.get, locals.asInstanceOf[MList[LocalVarDecl]], false)
 
         elements ++= packElems
 
@@ -1691,10 +1714,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       ctx.pushContext((CTX.METHOD, methodDefName))
 
-      val scope = if (ctx.scopeCache.contains(o)) ctx.scopeCache(o)
-      else ctx.constructScope(v, bodyDeclItems)
-      ctx.scopeCache(o) = scope
-      ctx.scopeStack.push(scope)
+      val scope = ctx.constructScope(v, o)
 
       val params = mlistEmpty[ParamDecl]
       paramProfile.getParameterSpecifications.foreach {
@@ -1812,54 +1832,23 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             case "pre" =>
               v(aspectDef.getElement)
               pd.pre(ctx.popResult)
-            case "global" | "depends" =>
-
-              var assoc = ivectorEmpty[(ISet[String], ISet[String])]
-
-              aspectDef.getElement match {
-                case ra @ RecordAggregateEx(rasloc, associations, _, checks) =>
-                  associations.getAssociations.foreach {
-                    case rca @ RecordComponentAssociationEx(_, choices, exp, checks) =>
-
-                      def h(e: Any, isGlobalLhs: Boolean): ISet[String] = {
-                        var ret = isetEmpty[String]
-                        e match {
-                          case fc @ FunctionCallEx(sloc2, prefix, params, _, _, _, _) =>
-                            assert(prefix.getExpression.isInstanceOf[UnaryPlusOperator])
-                            assert(params.getAssociations.size == 1)
-                            
-                            val x = (params.getAssociations.head.asInstanceOf[ParameterAssociation]).getActualParameterQ.getExpression
-                            ret ++= h(x, isGlobalLhs)
-                          case paa @ PositionalArrayAggregateEx(sloc4, arrassoc, typ, checks) =>
-                            arrassoc.getAssociations.foreach {
-                              case ArrayComponentAssociationEx(_, _choices, _exp, checks) =>
-                                assert(_choices.getElements.isEmpty)
-                                val (_, _, refuri, _) = ctx.getName(ctx.stripParens(_exp.getExpression))
-                                ret += ctx.rewriteUri(refuri)
-                            }
-                          case i @ IdentifierEx(_, refName, refUri, _, checks) =>
-                            ret += ctx.rewriteUri(if (isGlobalLhs) refName else refUri)
-                        }
-                        ret
-                      }
-
-                      val rhs = h(ctx.stripParens(exp.getExpression), false)
-                      assert(choices.getExpressions.size == 1)
-                      val lhs = h(ctx.stripParens(choices.getExpressions.head), ml == "global")
-
-                      assoc :+= (lhs, rhs)
-                  }
-              }
-
-              ml match {
-                case "global" =>
-                  var ins = isetEmpty[ResourceUri]
-                  var outs = isetEmpty[ResourceUri]
-                  var proofs = isetEmpty[ResourceUri]
-
-                  for ((mode, values) <- assoc) {
-                    assert(mode.size == 1)
-                    mode.head.toLowerCase match {
+            case "global" =>
+              var ins = isetEmpty[ResourceUri]
+              var outs = isetEmpty[ResourceUri]
+              var proofs = isetEmpty[ResourceUri]
+              
+              v(aspectDef.getElement)
+              ctx.popResult.asInstanceOf[Exp] match {
+                case i: NewRecordExp =>
+                  for (ai <- i.attributeInits) {
+                    val values = ai.exp match {
+                      case i: NameExp => ivector(i.name.uri)
+                      case i: FunExp =>
+                        assert(i.matchings.size == 1)
+                        i.matchings.head.exp.asInstanceOf[SwitchExp].cases.map(f =>
+                          f.exp.asInstanceOf[NameExp].name.uri)
+                    }
+                    ai.name.name.toLowerCase match {
                       case "input" => ins ++= values
                       case "output" => outs ++= values
                       case "in_out" =>
@@ -1868,24 +1857,63 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                       case "proof_in" => proofs ++= values
                     }
                   }
-                  if (!ins.isEmpty) pd.globalsIn(ins)
-                  if (!outs.isEmpty) pd.globalsOut(outs)
-                  if (!proofs.isEmpty) pd.globalsProof(proofs)
-
-                case "depends" =>
-                  // FIXME: bug in asis/gnat2xml version 7.2.0w (20130829)
-                  // doesn't correctly handle the lhs of the following
-                  //   Depends => ((A, B) => (A, B))
-                  // rewrite to 
-                  //   Depends => (A => (A, B), (B => (A, B))
-
-                  var d = imapEmpty[ResourceUri, ISet[ResourceUri]]
-                  for ((outputs, inputs) <- assoc; out <- outputs) {
-                    d += (out -> inputs)
-                  }
-                  pd.depends(d)
+                case i: NameExp =>
+                  if (i.name.uri == "null")
+                    throw new RuntimeException("null URI for Global " + i.name.name)
+                  ins += i.name.uri
                 case x => throw new RuntimeException("Unexpected: " + x)
               }
+              if (!ins.isEmpty) pd.globalsIn(ins)
+              if (!outs.isEmpty) pd.globalsOut(outs)
+              if (!proofs.isEmpty) pd.globalsProof(proofs)
+            case "depends" =>
+              var assoc = ivectorEmpty[(ISet[String], ISet[String])]
+
+              ctx.stripParens(aspectDef.getElement) match {
+                case ra @ RecordAggregateEx(rasloc, associations, _, checks) =>
+                  associations.getAssociations.foreach {
+                    case rca @ RecordComponentAssociationEx(_, choices, exp, checks) =>
+
+                      def helper(e: Any): ISet[String] = {
+                        var ret = isetEmpty[String]
+                        e match {
+                          case fc @ FunctionCallEx(sloc2, prefix, params, _, _, _, _) =>
+                            assert(prefix.getExpression.isInstanceOf[UnaryPlusOperator])
+                            assert(params.getAssociations.size == 1)
+
+                            val x = (params.getAssociations.head.asInstanceOf[ParameterAssociation]).getActualParameterQ.getExpression
+                            ret ++= helper(x)
+                          case paa @ PositionalArrayAggregateEx(sloc4, arrassoc, typ, checks) =>
+                            arrassoc.getAssociations.foreach {
+                              case ArrayComponentAssociationEx(_, _choices, _exp, checks) =>
+                                assert(_choices.getElements.isEmpty)
+                                val (_, _, refuri, _) = ctx.getName(ctx.stripParens(_exp.getExpression))
+                                ret += ctx.rewriteUri(refuri)
+                            }
+                          case i @ IdentifierEx(_, refName, refUri, _, checks) =>
+                            ret += ctx.rewriteUri(refUri)
+                        }
+                        ret
+                      }
+
+                      val rhs = helper(ctx.stripParens(exp.getExpression))
+                      assert(choices.getExpressions.size == 1)
+                      val lhs = helper(ctx.stripParens(choices.getExpressions.head))
+
+                      assoc :+= (lhs, rhs)
+                  }
+              }
+              // FIXME: bug in asis/gnat2xml version 7.2.0w (20130829)
+              // doesn't correctly handle the lhs of the following
+              //   Depends => ((A, B) => (A, B))
+              // rewrite to 
+              //   Depends => (A => (A, B), (B => (A, B))
+
+              var d = imapEmpty[ResourceUri, ISet[ResourceUri]]
+              for ((outputs, inputs) <- assoc; out <- outputs) {
+                d += (out -> inputs)
+              }
+              pd.depends(d)
             case "test_case" =>
               v(aspectDef.getElement)
               val x: NewRecordExp = ctx.popResult
@@ -2946,7 +2974,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           theContext.pushContext((CTX.PACKAGE, pname.getDefName))
 
           val scope = theContext.constructScope(b, o)
-          theContext.scopeCache(o) = scope
 
           theContext.popContext
         case _ =>

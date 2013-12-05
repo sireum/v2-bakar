@@ -1,0 +1,17 @@
+ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Function_Simple-1:9/P1+9:13/M+9:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Function_Simple-1:9/P1+9:13/N+9:31 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Function_Simple-1:9/P2+19:13/M+19:16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://parameter/Function_Simple-1:9/P2+19:13/N+19:31 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/Function_Simple-1:9/@@B+2:3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/Function_Simple-1:9/@@C-13:4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable/Function_Simple-1:9/@@Y-6:4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/P1/Function_Simple/_tcomp0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/P2/Function_Simple/_tcomp1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Function_Simple/F1/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Function_Simple/F1/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Function_Simple/F1/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Function_Simple/F1/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Function_Simple/P2/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable_temp/Function_Simple/P2/_t5 -> ada://ordinary_type/Standard-1:1/Integer-1:1

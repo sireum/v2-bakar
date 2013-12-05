@@ -1,0 +1,91 @@
+package Function_Simple;
+
+
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    @@Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    @@C := 0ii;
+
+  #l11.
+    return;
+}
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+
+  #l4.
+    return X + Z + @@Y;
+}
+
+procedure P1 (
+        Integer M,
+        Integer N) {
+  local
+    Integer _tcomp0;
+
+
+  #l5.
+    call _tcomp0 := F1 (M, N);
+
+  #l6.
+    @@B := _tcomp0;
+
+  #l7.
+    return;
+}
+
+procedure P2 (
+        Integer M,
+        Integer N) {
+  local
+    Integer _tcomp1;
+
+
+  #l8.
+    call _tcomp1 := F1 (M, N);
+
+  #l9.
+    @@B := _tcomp1 + @@C;
+
+  #l10.
+    return;
+}package Function_Simple;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

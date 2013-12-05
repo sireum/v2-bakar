@@ -1,0 +1,117 @@
+package Function_Simple;
+
+
+global Integer @@B;
+
+procedure $$binit {
+
+  #l1.
+    @@Y := 1ii;
+
+  #l2.
+    @@B := 0ii;
+
+  #l3.
+    @@C := 0ii;
+
+  #l11.
+    return;
+}
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+
+
+  #rwl0.
+    _t0 := X;
+
+  #rwl1.
+    _t1 := Z;
+
+  #rwl2.
+    _t2 := _t0 + _t1;
+
+  #rwl3.
+    _t3 := @@Y;
+
+  #l4.
+    return _t2 + _t3;
+}
+
+procedure P1 (
+        Integer M,
+        Integer N) {
+  local
+    Integer _tcomp0;
+
+
+  #l5.
+    call _tcomp0 := F1 (M, N);
+
+  #l6.
+    @@B := _tcomp0;
+
+  #l7.
+    return;
+}
+
+procedure P2 (
+        Integer M,
+        Integer N) {
+  local
+    Integer _tcomp1;
+    FIXME _t4;
+    FIXME _t5;
+
+
+  #l8.
+    call _tcomp1 := F1 (M, N);
+
+  #rwl4.
+    _t4 := _tcomp1;
+
+  #rwl5.
+    _t5 := @@C;
+
+  #l9.
+    @@B := _t4 + _t5;
+
+  #l10.
+    return;
+}package Function_Simple;
+
+
+global Integer @@Y;
+
+global Integer @@C;
+
+procedure Integer F1 (
+        Integer X,
+        Integer Z) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;
