@@ -117,14 +117,14 @@ object BakarSymbol {
   implicit def pack2packInfo(p: PackageDecl): PackageInfo =
     p.getPropertyOrElseUpdate(INFO_PACKAGE,
       new PackageInfo {
-        private var _sparkMode: Boolean = false
+        private var _sparkMode: java.lang.Boolean = null
         private var _useClauses: ISeq[NameExp] = null
         private var _useTypeClauses: ISeq[NameExp] = null        
         private var _withClauses: ISeq[NameExp] = null
 
         implicit def wrap[T](t: T) = if (t == null) None else Some(t)
 
-        def sparkMode = _sparkMode
+        def sparkMode = if(_sparkMode == null) None else Some(_sparkMode)
         def sparkMode(o: Boolean) = _sparkMode = o
         
         def useClauses = _useClauses
@@ -138,7 +138,7 @@ object BakarSymbol {
       })
 
   trait PackageInfo {
-    def sparkMode: Boolean
+    def sparkMode: Option[Boolean]
     def sparkMode(o: Boolean)
     
     def useClauses: Option[ISeq[NameExp]]

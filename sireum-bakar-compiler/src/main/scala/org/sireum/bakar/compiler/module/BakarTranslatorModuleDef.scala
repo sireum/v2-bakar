@@ -1504,9 +1504,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       aspectSpec: ElementList, visibleDecls: java.util.List[Base],
       privateDecls: Option[java.util.List[Base]], checks: String) {
 
-      if (!aspectSpec.getElements.isEmpty)
-        if (DEBUG) Console.err.println("Need to handle package aspect clauses")
-
       assert(names.getDefiningNames.length == 1)
       v(names.getDefiningNames.head)
       val pname: NameDefinition = ctx.popResult
@@ -1562,8 +1559,30 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       elements ++= packElems
 
       val pack = PackageDecl(Some(pname), ivectorEmpty, elements.toList)
-      ctx.pushResult(pack, sloc)
 
+      import org.sireum.bakar.symbol.BakarSymbol._
+      aspectSpec.getElements.foreach {
+        case AspectSpecificationEx(sloc, mark, definition, checks) =>
+          v(mark)
+          val ne: NameExp = ctx.popResult
+
+          ne.name.name.toLowerCase match {
+            case "spark_mode" =>
+              val mode = if (!ctx.isEmpty(definition.getElement)) {
+                v(definition)
+                ctx.popResult.asInstanceOf[NameExp].name.name.toLowerCase match {
+                  case "on" => true
+                  case "off" => false
+                }
+              } else true
+              pack.sparkMode(mode)
+            case "initializes" =>
+              Console.err.println(s"Skipping Initializes clause for $pname")
+            case x => throw new RuntimeException("Unexpected: " + x)
+          }
+      }
+
+      ctx.pushResult(pack, sloc)
       ctx.popContext
     }
 
@@ -1619,7 +1638,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         var withClauses = ivectorEmpty[NameExp]
         var useClauses = ivectorEmpty[NameExp]
         var useTypeClauses = ivectorEmpty[NameExp]
-        var sparkMode = false
+
         import org.sireum.bakar.symbol.BakarSymbol._
         contextClauseElements.getContextClauses.foreach {
           case ImplementationDefinedPragmaEx(sloc2, assocs, pragmaName, checks2) =>

@@ -190,6 +190,12 @@ procedure Boolean indexIsValue (
 
 array_unconstrained.ads
 package Array_Unconstrained
+    @BAKAR_PACKAGE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+         <__sparkMode>true</__sparkMode>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -498,20 +504,10 @@ procedure Boolean indexIsValue (
 
 array_unconstrained_t.ads
 package Array_Unconstrained_T
-    @util.loc
-
-      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
-         <string sid="1">array_unconstrained_t.ads</string>
-         <int>3</int>
-         <int>1</int>
-         <int>11</int>
-         <int>26</int>
-       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-
     @BAKAR_PACKAGE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
-         <__sparkMode>false</__sparkMode>
+         <__sparkMode>true</__sparkMode>
          <__withClauses class="icol.Vector" ttype="ivector">
            <org.sireum.pilar.ast.NameExp cid="1" size="1">
              <org.sireum.pilar.ast.NameUser cid="2" size="1">
@@ -549,6 +545,16 @@ package Array_Unconstrained_T
            </org.sireum.pilar.ast.NameExp>
          </__withClauses>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
+
+    @util.loc
+
+      ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+         <string sid="1">array_unconstrained_t.ads</string>
+         <int>3</int>
+         <int>1</int>
+         <int>11</int>
+         <int>26</int>
+       </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
 
 

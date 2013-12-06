@@ -245,7 +245,6 @@ package PackageDemo_B
     @BAKAR_PACKAGE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
-         <__sparkMode>false</__sparkMode>
          <__withClauses class="icol.Vector" ttype="ivector">
            <org.sireum.pilar.ast.NameExp cid="1" size="1">
              <org.sireum.pilar.ast.NameUser cid="2" size="1">
