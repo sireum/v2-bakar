@@ -2,9 +2,10 @@ package org.sireum.bakar.compiler.module
 
 import scala.collection.JavaConversions.asScalaBuffer
 
+import org.sireum.bakar.symbol.BakarSymbol.TestCase
+import org.sireum.bakar.symbol.BakarSymbol.pack2packInfo
 import org.sireum.bakar.symbol.BakarSymbol.pd2pi
 import org.sireum.bakar.symbol.BakarSymbol.proc2procInfo
-import org.sireum.bakar.symbol.BakarSymbol.TestCase
 import org.sireum.bakar.symbol.ComponentDef
 import org.sireum.bakar.symbol.ConstrainedArrayDef
 import org.sireum.bakar.symbol.Constraint
@@ -19,47 +20,37 @@ import org.sireum.bakar.symbol.SimpleRangeConstraint
 import org.sireum.bakar.symbol.SparkTypeDecl
 import org.sireum.bakar.symbol.SubTypeDecl
 import org.sireum.bakar.symbol.TestCaseMode
-import org.sireum.bakar.symbol.Type
 import org.sireum.bakar.symbol.TypeDef
 import org.sireum.bakar.symbol.UnconstrainedArrayDef
-import org.sireum.bakar.xml.AbortStatementEx
-import org.sireum.bakar.xml.AcceptStatementEx
 import org.sireum.bakar.xml.AndOperator
 import org.sireum.bakar.xml.AndThenShortCircuitEx
 import org.sireum.bakar.xml.ArrayComponentAssociationEx
 import org.sireum.bakar.xml.AspectSpecificationEx
-import org.sireum.bakar.xml.AssociationList
 import org.sireum.bakar.xml.AssertPragmaEx
 import org.sireum.bakar.xml.AssignmentStatementEx
-import org.sireum.bakar.xml.AsynchronousSelectStatementEx
+import org.sireum.bakar.xml.AssociationList
 import org.sireum.bakar.xml.Base
 import org.sireum.bakar.xml.BlockStatementEx
 import org.sireum.bakar.xml.CaseExpressionEx
 import org.sireum.bakar.xml.CasePathEx
 import org.sireum.bakar.xml.CaseStatementEx
-import org.sireum.bakar.xml.CodeStatementEx
 import org.sireum.bakar.xml.CompilationUnit
 import org.sireum.bakar.xml.CompilationUnitEx
 import org.sireum.bakar.xml.ComponentDeclarationEx
 import org.sireum.bakar.xml.ComponentDefinitionEx
-import org.sireum.bakar.xml.ConditionalEntryCallStatementEx
 import org.sireum.bakar.xml.ConcatenateOperator
 import org.sireum.bakar.xml.ConstantDeclarationEx
 import org.sireum.bakar.xml.ConstrainedArrayDefinitionEx
 import org.sireum.bakar.xml.DeferredConstantDeclarationEx
 import org.sireum.bakar.xml.DefiningEnumerationLiteralEx
-import org.sireum.bakar.xml.DefiningExpandedNameEx
 import org.sireum.bakar.xml.DefiningIdentifier
 import org.sireum.bakar.xml.DefiningIdentifierEx
-import org.sireum.bakar.xml.DefiningNameClassEx
 import org.sireum.bakar.xml.DefiningNameList
 import org.sireum.bakar.xml.DefinitionClass
-import org.sireum.bakar.xml.DelayRelativeStatementEx
-import org.sireum.bakar.xml.DelayUntilStatementEx
 import org.sireum.bakar.xml.DerivedTypeDefinitionEx
 import org.sireum.bakar.xml.DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx
-import org.sireum.bakar.xml.DiscreteSimpleExpressionRangeEx
 import org.sireum.bakar.xml.DiscreteSimpleExpressionRangeAsSubtypeDefinitionEx
+import org.sireum.bakar.xml.DiscreteSimpleExpressionRangeEx
 import org.sireum.bakar.xml.DiscreteSubtypeIndicationAsSubtypeDefinitionEx
 import org.sireum.bakar.xml.DiscreteSubtypeIndicationEx
 import org.sireum.bakar.xml.DivideOperator
@@ -69,7 +60,6 @@ import org.sireum.bakar.xml.ElseExpressionPathEx
 import org.sireum.bakar.xml.ElsePathEx
 import org.sireum.bakar.xml.ElsifExpressionPathEx
 import org.sireum.bakar.xml.ElsifPathEx
-import org.sireum.bakar.xml.EntryCallStatementEx
 import org.sireum.bakar.xml.EnumerationLiteralEx
 import org.sireum.bakar.xml.EnumerationLiteralSpecificationEx
 import org.sireum.bakar.xml.EnumerationTypeDefinitionEx
@@ -80,7 +70,6 @@ import org.sireum.bakar.xml.ExpressionClass
 import org.sireum.bakar.xml.ExpressionClassEx
 import org.sireum.bakar.xml.ExpressionFunctionDeclaration
 import org.sireum.bakar.xml.ExpressionFunctionDeclarationEx
-import org.sireum.bakar.xml.ExtendedReturnStatementEx
 import org.sireum.bakar.xml.FirstAttributeEx
 import org.sireum.bakar.xml.ForAllQuantifiedExpressionEx
 import org.sireum.bakar.xml.ForLoopStatementEx
@@ -90,7 +79,6 @@ import org.sireum.bakar.xml.FunctionBodyDeclarationEx
 import org.sireum.bakar.xml.FunctionCallEx
 import org.sireum.bakar.xml.FunctionDeclaration
 import org.sireum.bakar.xml.FunctionDeclarationEx
-import org.sireum.bakar.xml.GotoStatementEx
 import org.sireum.bakar.xml.GreaterThanOperator
 import org.sireum.bakar.xml.GreaterThanOrEqualOperator
 import org.sireum.bakar.xml.Identifier
@@ -119,20 +107,17 @@ import org.sireum.bakar.xml.MinusOperator
 import org.sireum.bakar.xml.ModOperator
 import org.sireum.bakar.xml.ModularTypeDefinitionEx
 import org.sireum.bakar.xml.MultiplyOperator
-import org.sireum.bakar.xml.NameClassEx
 import org.sireum.bakar.xml.NamedArrayAggregateEx
 import org.sireum.bakar.xml.NotAnElement
 import org.sireum.bakar.xml.NotEqualOperator
 import org.sireum.bakar.xml.NotInMembershipTestEx
 import org.sireum.bakar.xml.NotOperatorEx
-import org.sireum.bakar.xml.NullLiteralEx
-import org.sireum.bakar.xml.NullStatementEx
 import org.sireum.bakar.xml.OrElseShortCircuitEx
 import org.sireum.bakar.xml.OrOperator
 import org.sireum.bakar.xml.OrdinaryTypeDeclarationEx
 import org.sireum.bakar.xml.OthersChoiceEx
-import org.sireum.bakar.xml.PackageBodyDeclarationEx
 import org.sireum.bakar.xml.PackageBodyDeclaration
+import org.sireum.bakar.xml.PackageBodyDeclarationEx
 import org.sireum.bakar.xml.PackageDeclaration
 import org.sireum.bakar.xml.PackageDeclarationEx
 import org.sireum.bakar.xml.ParameterAssociation
@@ -152,7 +137,6 @@ import org.sireum.bakar.xml.ProcedureCallStatementEx
 import org.sireum.bakar.xml.ProcedureDeclaration
 import org.sireum.bakar.xml.ProcedureDeclarationEx
 import org.sireum.bakar.xml.QualifiedExpressionEx
-import org.sireum.bakar.xml.RaiseStatementEx
 import org.sireum.bakar.xml.RangeAttributeEx
 import org.sireum.bakar.xml.RangeAttributeReferenceEx
 import org.sireum.bakar.xml.RealLiteralEx
@@ -162,12 +146,9 @@ import org.sireum.bakar.xml.RecordComponentAssociationEx
 import org.sireum.bakar.xml.RecordDefinitionEx
 import org.sireum.bakar.xml.RecordTypeDefinitionEx
 import org.sireum.bakar.xml.RemOperator
-import org.sireum.bakar.xml.RequeueStatementEx
-import org.sireum.bakar.xml.RequeueStatementWithAbortEx
 import org.sireum.bakar.xml.ReturnStatement
 import org.sireum.bakar.xml.ReturnStatementEx
 import org.sireum.bakar.xml.SelectedComponentEx
-import org.sireum.bakar.xml.SelectiveAcceptStatementEx
 import org.sireum.bakar.xml.SignedIntegerTypeDefinitionEx
 import org.sireum.bakar.xml.SimpleExpressionRangeEx
 import org.sireum.bakar.xml.SourceLocation
@@ -176,8 +157,6 @@ import org.sireum.bakar.xml.StringLiteralEx
 import org.sireum.bakar.xml.SubtypeDeclarationEx
 import org.sireum.bakar.xml.SubtypeIndicationEx
 import org.sireum.bakar.xml.SuccAttributeEx
-import org.sireum.bakar.xml.TerminateAlternativeStatementEx
-import org.sireum.bakar.xml.TimedEntryCallStatementEx
 import org.sireum.bakar.xml.TypeConversionEx
 import org.sireum.bakar.xml.UnaryMinusOperatorEx
 import org.sireum.bakar.xml.UnaryPlusOperator
@@ -264,8 +243,8 @@ import org.sireum.util.IMap
 import org.sireum.util.ISeq
 import org.sireum.util.ISet
 import org.sireum.util.Location
-import org.sireum.util.MList
 import org.sireum.util.MBuffer
+import org.sireum.util.MList
 import org.sireum.util.PropertyProvider
 import org.sireum.util.ResourceUri
 import org.sireum.util.SourceLocation.pp2sl
@@ -310,7 +289,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     var regression = false
 
-    var fileUri: String = null
+    var fileUri: ResourceUri = null
 
     var models = mlistEmpty[Model]
 
@@ -898,9 +877,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
 
     def addProperty[T <: PropertyProvider](key: String, value: Any, pp: T): T = {
-      if (value == "null") {
-        if (DEBUG) println("null/empty value for %s from %s".format(key, pp))
-      } else {
+      if (value != "null") {
         assert(value != null && value != "")
         pp.setProperty(key, value)
       }
@@ -1336,13 +1313,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val typeDecls = TranslatorUtil.getTypeDeclarations(bodyDeclItems.getElements)
 
       constructPushScope(v, o,
-        if (typeDecls.isEmpty) None else Some(typeDecls),
-        None,
-        if (consDecls.isEmpty) None else Some(consDecls),
-        None,
-        if (localDecls.isEmpty) None else Some(localDecls),
-        None,
-        None)
+        if (typeDecls.isEmpty) None else Some(typeDecls), None,
+        if (consDecls.isEmpty) None else Some(consDecls), None,
+        if (localDecls.isEmpty) None else Some(localDecls), None, None)
     }
 
     private def constructPushScope(v: => BVisitor, o: PackageBodyDeclaration): Scope = {
@@ -1352,12 +1325,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val bodyStatements = if (o.getBodyStatementsQl.getStatements.isEmpty) None else Some(o.getBodyStatementsQl)
 
       constructPushScope(v, o,
-        if (publicTypes.isEmpty) None else Some(publicTypes),
-        None,
-        if (publicConstants.isEmpty) None else Some(publicConstants),
-        None,
-        if (publicGlobals.isEmpty) None else Some(publicGlobals),
-        None,
+        if (publicTypes.isEmpty) None else Some(publicTypes), None,
+        if (publicConstants.isEmpty) None else Some(publicConstants), None,
+        if (publicGlobals.isEmpty) None else Some(publicGlobals), None,
         bodyStatements)
     }
 
@@ -2059,21 +2029,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           ret = Some(NameExp(NameUser(ns.name + "::" + sname)))
         case x: IndexingExp =>
           ret = Some(AccessExp(x, NameUser(sname)))
-        case q =>
-          if (DEBUG) println("what to do with " + q)
-          assert(false)
+        case q => throw new RuntimeException("Unexpected: " + q)
       }
       assert(ret.isDefined)
 
       ctx.pushResult(ret.get, sloc)
       false
-    case o @ (
-      DefiningNameClassEx(_) |
-      DefiningExpandedNameEx(_) |
-      NameClassEx(_) |
-      NullLiteralEx(_)) =>
-      if (DEBUG) println("nameH: need to handle: " + o.getClass.getSimpleName)
-      true
   }
 
   def statementH(ctx: Context, v: => BVisitor): VisitorFunction = {
@@ -2091,8 +2052,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       assert(exceptionHandlers.getExceptionHandlers.isEmpty)
 
       if (!ctx.isEmpty(id.getDefiningName)) {
-        // FIXME
-        println("Need to handle block ids")
+        // FIXME:
+        Console.err.println("Need to handle block ids")
       }
 
       // FIXME: variable shadowing could occur, however this will just be the
@@ -2330,7 +2291,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier,
       whileCondition, loopStatements, checks) =>
-      if (DEBUG) println(o.getClass.getSimpleName)
 
       val endLoc = ctx.createEmptyLocation(ctx.newLocLabel(sloc), ivectorEmpty)
       ctx.pushExitLocation(endLoc)
@@ -2358,28 +2318,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       assert(_exit == endLoc)
 
       false
-    case o @ (
-      AbortStatementEx(_) |
-      AcceptStatementEx(_) |
-      AsynchronousSelectStatementEx(_) |
-      BlockStatementEx(_) |
-      CodeStatementEx(_) |
-      ConditionalEntryCallStatementEx(_) |
-      DelayUntilStatementEx(_) |
-      DelayRelativeStatementEx(_) |
-      ExtendedReturnStatementEx(_) |
-      EntryCallStatementEx(_) |
-      GotoStatementEx(_) |
-      NullStatementEx(_) |
-      RaiseStatementEx(_) |
-      RequeueStatementEx(_) |
-      RequeueStatementWithAbortEx(_) |
-      SelectiveAcceptStatementEx(_) |
-      TerminateAlternativeStatementEx(_) |
-      TimedEntryCallStatementEx(_)
-      ) =>
-      if (DEBUG) println("statementH: need to handle " + o.getClass.getSimpleName)
-      true
   }
 
   def aggregateH(ctx: Context, v: => BVisitor): VisitorFunction = {
@@ -2642,9 +2580,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         ctx.pushResult(ce, sloc)
         false
       case FunctionCallEx(sloc, prefix, functionCallParameters, isPrefixCall, isPrefixNotation, callExpType, checks) =>
-        if (!ctx.isEmpty(isPrefixCall.getIsPrefixCall))
-          if (DEBUG) Console.err.println("Need to handle prefix calls")
-
         if (!ctx.isEmpty(isPrefixNotation.getIsPrefixNotation))
           if (DEBUG) Console.err.println("Need to handle prefix notation")
 
@@ -2656,14 +2591,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           plist += ctx.popResult
         }
 
-        if (ctx.isBinaryOp(prefix)) {
-          assert(plist.length == 2)
-          val be = ctx.handleBE(sloc, ctx.getBinaryOp(prefix).get, plist(0), plist(1), callExpType)
-          ctx.pushResult(be, sloc)
-        } else if (ctx.isUnaryOp(prefix)) {
-          assert(plist.length == 1)
-          val ue = ctx.handleUnaryExp(sloc, ctx.getUnaryOp(prefix).get, plist(0), callExpType)
-          ctx.pushResult(ue, sloc)
+        if (ctx.isEmpty(isPrefixCall.getIsPrefixCall)) {
+          if (ctx.isBinaryOp(prefix)) {
+            assert(plist.length == 2)
+            val be = ctx.handleBE(sloc, ctx.getBinaryOp(prefix).get, plist(0), plist(1), callExpType)
+            ctx.pushResult(be, sloc)
+          } else if (ctx.isUnaryOp(prefix)) {
+            assert(plist.length == 1)
+            val ue = ctx.handleUnaryExp(sloc, ctx.getUnaryOp(prefix).get, plist(0), callExpType)
+            ctx.pushResult(ue, sloc)
+          } else throw new RuntimeException("Unexpected infix expression")
         } else {
           v(prefix)
           ctx.popResult.asInstanceOf[Exp] match {

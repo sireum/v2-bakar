@@ -31,11 +31,21 @@ object URIS {
   def isTypeUri(u: ResourceUri) =
     u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/")
 
+  def convertSpec2BodyMethodUri(uri:ResourceUri) = 
+    uri.replaceFirst("procedure", "procedure_body").replaceFirst("function", "function_body")
+    
   def isMethodUri(u: ResourceUri) =
     u.startsWith("ada://procedure") || u.startsWith("ada://function")
   
-  def isPackageUri(u: ResourceUri) =
-    u.startsWith("ada://package")
+  def isAdaSpecMethodUri(u:ResourceUri) =
+    u.startsWith("ada://procedure/") || u.startsWith("ada://function/")
+    
+  def isAdaBodyMethodUri(u:ResourceUri) =
+    u.startsWith("ada://procedure_body/") || u.startsWith("ada://function_body/")    
+        
+  def isAdaMethodUri(u:ResourceUri) = isAdaSpecMethodUri(u) || isAdaBodyMethodUri(u)
+    
+  def isPackageUri(u: ResourceUri) = u.startsWith("ada://package")
 }
 
 object VariableURIs {
