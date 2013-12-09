@@ -1,0 +1,4 @@
+digraph G {
+  "AbsFunc" [ label="AbsPackage.AbsFunc" ];
+  "AbsFunc" [ label="AbsPackage.AbsFunc" ];
+}

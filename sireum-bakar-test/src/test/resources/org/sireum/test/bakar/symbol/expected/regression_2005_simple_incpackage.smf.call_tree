@@ -1,0 +1,4 @@
+digraph G {
+  "Inc" [ label="IncPackage.Inc" ];
+  "Inc" [ label="IncPackage.Inc" ];
+}

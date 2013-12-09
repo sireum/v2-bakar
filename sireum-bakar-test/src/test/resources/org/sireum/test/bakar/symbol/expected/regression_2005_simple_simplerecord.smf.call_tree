@@ -1,0 +1,7 @@
+digraph G {
+  "Dummy" [ label="SimpleRecord.Dummy" ];
+  "Add" [ label="SimpleRecord.Add" ];
+  "NAdd" [ label="SimpleRecord.NAdd" ];
+  "AAdd" [ label="SimpleRecord.AAdd" ];
+  "Dummy" [ label="SimpleRecord.Dummy" ];
+}

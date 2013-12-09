@@ -1,0 +1,4 @@
+digraph G {
+  "foo" [ label="Constraints.foo" ];
+  "foo" [ label="Constraints.foo" ];
+}

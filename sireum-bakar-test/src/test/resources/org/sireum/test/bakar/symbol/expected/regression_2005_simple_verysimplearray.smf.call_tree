@@ -1,0 +1,6 @@
+digraph G {
+  "Dummy" [ label="VerySimpleArray.Dummy" ];
+  "Add" [ label="VerySimpleArray.Add" ];
+  "Del" [ label="VerySimpleArray.Del" ];
+  "Dummy" [ label="VerySimpleArray.Dummy" ];
+}

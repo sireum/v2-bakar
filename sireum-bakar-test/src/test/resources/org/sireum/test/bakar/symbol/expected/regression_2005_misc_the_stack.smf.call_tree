@@ -1,0 +1,11 @@
+digraph G {
+  "$$binit" [ label="The_Stack.$$binit" ];
+  "Push" [ label="The_Stack.Push" ];
+  "Pop" [ label="The_Stack.Pop" ];
+  "Value_Present" [ label="The_Stack.Value_Present" ];
+  "Find_Stack_Pos" [ label="The_Stack.Find_Stack_Pos" ];
+  "aPrivateFunction" [ label="The_Stack.aPrivateFunction" ];
+  "Push" [ label="The_Stack.Push" ];
+  "Pop" [ label="The_Stack.Pop" ];
+  "aPrivateFunction" [ label="The_Stack.aPrivateFunction" ];
+}

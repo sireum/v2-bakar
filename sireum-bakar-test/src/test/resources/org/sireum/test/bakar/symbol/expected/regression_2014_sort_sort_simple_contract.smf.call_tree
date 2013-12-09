@@ -1,0 +1,24 @@
+digraph G {
+  "isSorted" [ label="Sort_Simple_Contract.isSorted" ];
+  "Num_Repetitions" [ label="Sort_Simple_Contract.Num_Repetitions" ];
+  "isSet" [ label="Sort_Simple_Contract.isSet" ];
+  "isPerm" [ label="Sort_Simple_Contract.isPerm" ];
+  "BubbleSort" [ label="Sort_Simple_Contract.BubbleSort" ];
+  "dddd" [ label="Sort_Simple_Contract.dddd" ];
+  "SwapElements" [ label="Sort_Simple_Contract.SwapElements" ];
+  "BubbleSort_using_SwapElements" [ label="Sort_Simple_Contract.BubbleSort_using_SwapElements" ];
+  "InsertionSort" [ label="Sort_Simple_Contract.InsertionSort" ];
+  "SelectionSort" [ label="Sort_Simple_Contract.SelectionSort" ];
+  "ShellSort" [ label="Sort_Simple_Contract.ShellSort" ];
+  "isSorted" [ label="Sort_Simple_Contract.isSorted" ];
+  "isPerm" [ label="Sort_Simple_Contract.isPerm" ];
+  "isSet" [ label="Sort_Simple_Contract.isSet" ];
+  "BubbleSort" [ label="Sort_Simple_Contract.BubbleSort" ];
+  "BubbleSort_using_SwapElements" [ label="Sort_Simple_Contract.BubbleSort_using_SwapElements" ];
+  "InsertionSort" [ label="Sort_Simple_Contract.InsertionSort" ];
+  "SelectionSort" [ label="Sort_Simple_Contract.SelectionSort" ];
+  "ShellSort" [ label="Sort_Simple_Contract.ShellSort" ];
+  "isPerm" -> "Num_Repetitions";
+  "isPerm" -> "Num_Repetitions";
+  "BubbleSort_using_SwapElements" -> "SwapElements";
+}

@@ -12,7 +12,13 @@ package Array_Of_Records
 ;
 
 
-procedure $$binit {
+procedure $$binit
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/Array_Of_Records-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+ {
 
   #l1.
     @@oArray := `ObjectArray { iter => 

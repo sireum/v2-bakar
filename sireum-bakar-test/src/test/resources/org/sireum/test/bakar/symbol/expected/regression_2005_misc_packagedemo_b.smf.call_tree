@@ -1,0 +1,7 @@
+digraph G {
+  "Q" [ label="PackageDemo_A.Q" ];
+  "Q" [ label="PackageDemo_A.Q" ];
+  "T" [ label="PackageDemo_B.T" ];
+  "T" [ label="PackageDemo_B.T" ];
+  "T" -> "Q";
+}

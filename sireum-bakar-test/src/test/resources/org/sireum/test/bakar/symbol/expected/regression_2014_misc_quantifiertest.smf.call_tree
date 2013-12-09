@@ -1,0 +1,5 @@
+digraph G {
+  "$$binit" [ label="QuantifierTest.$$binit" ];
+  "dummy" [ label="QuantifierTest.dummy" ];
+  "dummy" [ label="QuantifierTest.dummy" ];
+}

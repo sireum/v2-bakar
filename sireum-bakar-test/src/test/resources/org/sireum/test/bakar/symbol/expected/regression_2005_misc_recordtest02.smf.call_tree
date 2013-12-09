@@ -1,0 +1,6 @@
+digraph G {
+  "Test01" [ label="RecordTest02.Test01" ];
+  "Test02" [ label="RecordTest02.Test02" ];
+  "Test01" [ label="RecordTest02.Test01" ];
+  "Test02" [ label="RecordTest02.Test02" ];
+}

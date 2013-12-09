@@ -1,0 +1,5 @@
+digraph G {
+  "$$binit" [ label="SimpleMath1.$$binit" ];
+  "Inc" [ label="SimpleMath1.Inc" ];
+  "Inc" [ label="SimpleMath1.Inc" ];
+}

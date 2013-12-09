@@ -48,12 +48,12 @@ trait CallTree {
 
   def outputCallTree = {
     val vnp = new VertexNameProvider[ProcedureDecl] {
-      def getVertexName(m: ProcedureDecl) = m.name.name
+      def getVertexName(m: ProcedureDecl) = "\"" + m.name.name + "\""
     }
     val vnp2 = new VertexNameProvider[ProcedureDecl] {
       def getVertexName(m: ProcedureDecl) = {
         import org.sireum.bakar.symbol.BakarSymbol._
-        val pack = symbolTable.packages(m.parentUri.get)
+        val pack = symbolTable.package_(m.parentUri.get)
         pack.name.get.name + "." + m.name.name
       }
     }
@@ -121,9 +121,13 @@ class BakarCallTreeModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
       if (ctx.currentLoc != null) {
         val uri = o.name.uri
 
-        if (URIS.isAdaMethodUri(uri)) {
-          val target =
-            if (URIS.isAdaSpecMethodUri(uri)) URIS.convertSpec2BodyMethodUri(uri)
+        if (URIS.isAdaMethodUri(uri) && symbolTable.procedures.contains(uri)) {
+          val target = 
+            if (URIS.isAdaMethodSpecUri(uri)) {
+              val cand = symbolTable.procedures(uri) - uri
+              if(cand.size == 1) cand.head
+              else uri
+            }
             else uri
 
           val _target = this.symbolTable.procedureSymbolTable(target).procedure

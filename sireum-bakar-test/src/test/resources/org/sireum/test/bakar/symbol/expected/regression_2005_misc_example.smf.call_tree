@@ -1,0 +1,8 @@
+digraph G {
+  "add" [ label="Example.add" ];
+  "foo" [ label="Example.foo" ];
+  "add" [ label="Example.add" ];
+  "foo" [ label="Example.foo" ];
+  "foo" -> "add";
+  "foo" -> "add";
+}

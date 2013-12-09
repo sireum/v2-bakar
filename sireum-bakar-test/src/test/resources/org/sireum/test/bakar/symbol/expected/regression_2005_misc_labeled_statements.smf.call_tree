@@ -1,0 +1,6 @@
+digraph G {
+  "P" [ label="Labeled_Statements.P" ];
+  "Stupid" [ label="Labeled_Statements.Stupid" ];
+  "Stupid" [ label="Labeled_Statements.Stupid" ];
+  "Stupid" -> "P";
+}

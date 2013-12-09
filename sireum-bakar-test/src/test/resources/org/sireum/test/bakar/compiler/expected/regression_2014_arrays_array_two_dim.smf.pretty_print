@@ -12,7 +12,13 @@ package Array_Two_Dim
 ;
 
 
-procedure $$binit {
+procedure $$binit
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/Array_Two_Dim-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+ {
 
   #l3.
     @@Box := `Square { iter => 
@@ -559,7 +565,13 @@ global Board @@aBoard
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 ;
 
-procedure $$sinit {
+procedure $$sinit
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package/Array_Two_Dim-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+ {
 
   #l1.
     @@Box2 := `Square { iter => 

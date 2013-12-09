@@ -1,0 +1,10 @@
+digraph G {
+  "P" [ label="ProcedureTest01.P" ];
+  "helper" [ label="ProcedureTest01.helper" ];
+  "Q" [ label="ProcedureTest01.Q" ];
+  "P" [ label="ProcedureTest01.P" ];
+  "helper" [ label="ProcedureTest01.helper" ];
+  "Q" [ label="ProcedureTest01.Q" ];
+  "helper" -> "P";
+  "Q" -> "P";
+}

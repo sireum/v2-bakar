@@ -1,0 +1,5 @@
+digraph G {
+  "$$binit" [ label="P_Complex.$$binit" ];
+  "Q" [ label="P_Complex.Q" ];
+  "Q" [ label="P_Complex.Q" ];
+}

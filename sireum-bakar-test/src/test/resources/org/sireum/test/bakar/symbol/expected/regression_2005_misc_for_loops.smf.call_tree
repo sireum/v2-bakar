@@ -1,0 +1,5 @@
+digraph G {
+  "Stupid" [ label="for_loops.Stupid" ];
+  "$$sinit" [ label="for_loops.$$sinit" ];
+  "Stupid" [ label="for_loops.Stupid" ];
+}

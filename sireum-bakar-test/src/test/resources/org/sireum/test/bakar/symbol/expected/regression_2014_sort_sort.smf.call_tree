@@ -1,0 +1,35 @@
+digraph G {
+  "Num_Repetition" [ label="Sort.Num_Repetition" ];
+  "Perm" [ label="Sort.Perm" ];
+  "Ordered" [ label="Sort.Ordered" ];
+  "Partitioned" [ label="Sort.Partitioned" ];
+  "Swap_Elements" [ label="Sort.Swap_Elements" ];
+  "BubbleSort" [ label="Sort.BubbleSort" ];
+  "BubbleSortFast" [ label="Sort.BubbleSortFast" ];
+  "InsertionSort" [ label="Sort.InsertionSort" ];
+  "ShellSort" [ label="Sort.ShellSort" ];
+  "Ordered" [ label="Sort.Ordered" ];
+  "Perm" [ label="Sort.Perm" ];
+  "BubbleSort" [ label="Sort.BubbleSort" ];
+  "BubbleSortFast" [ label="Sort.BubbleSortFast" ];
+  "InsertionSort" [ label="Sort.InsertionSort" ];
+  "ShellSort" [ label="Sort.ShellSort" ];
+  "Perm" -> "Num_Repetition";
+  "Perm" -> "Num_Repetition";
+  "BubbleSort" -> "Swap_Elements";
+  "BubbleSort" -> "Perm";
+  "BubbleSort" -> "Ordered";
+  "BubbleSort" -> "Partitioned";
+  "BubbleSort" -> "Perm";
+  "BubbleSortFast" -> "Swap_Elements";
+  "BubbleSortFast" -> "Partitioned";
+  "BubbleSortFast" -> "Perm";
+  "BubbleSortFast" -> "Ordered";
+  "BubbleSortFast" -> "Partitioned";
+  "BubbleSortFast" -> "Perm";
+  "InsertionSort" -> "Ordered";
+  "InsertionSort" -> "Perm";
+  "InsertionSort" -> "Ordered";
+  "InsertionSort" -> "Perm";
+  "ShellSort" -> "Swap_Elements";
+}

@@ -1,0 +1,5 @@
+digraph G {
+  "Sum" [ label="SumPackage.Sum" ];
+  "Sum2" [ label="SumPackage.Sum2" ];
+  "Sum" [ label="SumPackage.Sum" ];
+}

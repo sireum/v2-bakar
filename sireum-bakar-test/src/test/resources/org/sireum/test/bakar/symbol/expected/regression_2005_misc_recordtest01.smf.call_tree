@@ -1,0 +1,6 @@
+digraph G {
+  "$$binit" [ label="RecordTest01.$$binit" ];
+  "Test01" [ label="RecordTest01.Test01" ];
+  "Test02" [ label="RecordTest01.Test02" ];
+  "Test01" [ label="RecordTest01.Test01" ];
+}

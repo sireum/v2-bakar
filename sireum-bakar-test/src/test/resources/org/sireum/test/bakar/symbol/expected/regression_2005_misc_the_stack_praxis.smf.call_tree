@@ -1,0 +1,7 @@
+digraph G {
+  "$$binit" [ label="The_Stack_Praxis.$$binit" ];
+  "Push" [ label="The_Stack_Praxis.Push" ];
+  "Pop" [ label="The_Stack_Praxis.Pop" ];
+  "Push" [ label="The_Stack_Praxis.Push" ];
+  "Pop" [ label="The_Stack_Praxis.Pop" ];
+}

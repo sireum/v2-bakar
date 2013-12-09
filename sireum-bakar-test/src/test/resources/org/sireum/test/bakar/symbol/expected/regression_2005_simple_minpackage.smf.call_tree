@@ -1,0 +1,4 @@
+digraph G {
+  "MinFunc" [ label="Minpackage.MinFunc" ];
+  "MinFunc" [ label="Minpackage.MinFunc" ];
+}

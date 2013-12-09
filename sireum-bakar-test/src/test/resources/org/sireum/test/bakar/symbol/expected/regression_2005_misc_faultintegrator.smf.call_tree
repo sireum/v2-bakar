@@ -1,0 +1,6 @@
+digraph G {
+  "Init" [ label="FaultIntegrator.Init" ];
+  "Test" [ label="FaultIntegrator.Test" ];
+  "Init" [ label="FaultIntegrator.Init" ];
+  "Test" [ label="FaultIntegrator.Test" ];
+}

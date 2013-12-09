@@ -1,0 +1,8 @@
+digraph G {
+  "X" [ label="BinaryExpressions.X" ];
+  "Add" [ label="BinaryExpressions.Add" ];
+  "Sub" [ label="BinaryExpressions.Sub" ];
+  "Mult" [ label="BinaryExpressions.Mult" ];
+  "Division" [ label="BinaryExpressions.Division" ];
+  "X" [ label="BinaryExpressions.X" ];
+}

@@ -1,0 +1,4 @@
+digraph G {
+  "isWorkDay" [ label="Case_Statement_Int.isWorkDay" ];
+  "isWorkDay" [ label="Case_Statement_Int.isWorkDay" ];
+}

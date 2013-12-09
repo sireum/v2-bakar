@@ -1,0 +1,9 @@
+digraph G {
+  "$$binit" [ label="Function_Simple.$$binit" ];
+  "F1" [ label="Function_Simple.F1" ];
+  "P1" [ label="Function_Simple.P1" ];
+  "P2" [ label="Function_Simple.P2" ];
+  "F1" [ label="Function_Simple.F1" ];
+  "P1" -> "F1";
+  "P2" -> "F1";
+}

@@ -1,0 +1,8 @@
+digraph G {
+  "$$binit" [ label="P_Simple_Call_Two.$$binit" ];
+  "R" [ label="P_Simple_Call_Two.R" ];
+  "Q" [ label="P_Simple_Call_Two.Q" ];
+  "Q" [ label="P_Simple_Call_Two.Q" ];
+  "R" [ label="P_Simple_Call_Two.R" ];
+  "Q" -> "R";
+}
