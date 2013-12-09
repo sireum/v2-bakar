@@ -1,0 +1,104 @@
+Package Table
+  ada://package/MyMatrix-1:9
+    ada://package/MyMatrix-1:9
+    ada://package_body/MyMatrix-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/MyMatrix-1:9
+    ada://package/MyMatrix-1:9
+    ada://package_body/MyMatrix-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/MyMatrix-1:9/Matrix-5:8 
+  ada://ordinary_type/MyMatrix-1:9/Matrix_Index-4:8 
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://private_type/MyMatrix-1:9/Matrix-5:8 
+  ada://private_type/MyMatrix-1:9/Matrix_Index-4:8 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/MyMatrix-1:9/Multiply-7:13 
+    ada://procedure/MyMatrix-1:9/Multiply-7:13 
+    ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
+  ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
+    ada://procedure/MyMatrix-1:9/Multiply-7:13 
+    ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
+
+Procedure Symbol Table
+  ada://procedure/MyMatrix-1:9/Multiply-7:13 
+
+    LocalVarTable
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
+
+    Params
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
+
+  ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
+
+    LocalVarTable
+      ada://loop_parameter/MyMatrix-1:9/Multiply-7:13/I+12:9 
+      ada://loop_parameter/MyMatrix-1:9/Multiply-7:13/J+13:11 
+      ada://loop_parameter/MyMatrix-1:9/Multiply-7:13/K+14:13 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
+      ada://variable__temp/Multiply/MyMatrix/_tcomp0 
+      ada://variable__temp/Multiply/MyMatrix/_tcomp1 
+      ada://variable__temp/Multiply/MyMatrix/_tcomp2 
+      ada://variable__temp/Multiply/MyMatrix/_tcomp3 
+      ada://variable__temp/Multiply/MyMatrix/_tcomp4 
+      ada://variable__temp/Multiply/MyMatrix/_tcomp5 
+      ada://variable_temp/MyMatrix/Multiply/_t0 
+      ada://variable_temp/MyMatrix/Multiply/_t1 
+      ada://variable_temp/MyMatrix/Multiply/_t10 
+      ada://variable_temp/MyMatrix/Multiply/_t11 
+      ada://variable_temp/MyMatrix/Multiply/_t12 
+      ada://variable_temp/MyMatrix/Multiply/_t13 
+      ada://variable_temp/MyMatrix/Multiply/_t14 
+      ada://variable_temp/MyMatrix/Multiply/_t15 
+      ada://variable_temp/MyMatrix/Multiply/_t16 
+      ada://variable_temp/MyMatrix/Multiply/_t17 
+      ada://variable_temp/MyMatrix/Multiply/_t18 
+      ada://variable_temp/MyMatrix/Multiply/_t19 
+      ada://variable_temp/MyMatrix/Multiply/_t2 
+      ada://variable_temp/MyMatrix/Multiply/_t20 
+      ada://variable_temp/MyMatrix/Multiply/_t21 
+      ada://variable_temp/MyMatrix/Multiply/_t3 
+      ada://variable_temp/MyMatrix/Multiply/_t4 
+      ada://variable_temp/MyMatrix/Multiply/_t5 
+      ada://variable_temp/MyMatrix/Multiply/_t6 
+      ada://variable_temp/MyMatrix/Multiply/_t7 
+      ada://variable_temp/MyMatrix/Multiply/_t8 
+      ada://variable_temp/MyMatrix/Multiply/_t9 
+
+    Params
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25 
+      ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
+
+

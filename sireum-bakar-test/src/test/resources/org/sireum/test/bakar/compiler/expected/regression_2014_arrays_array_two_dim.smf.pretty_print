@@ -86,6 +86,12 @@ procedure dummy (
 
       ("""<string sid="1">ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/Array_Two_Dim-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -150,6 +156,12 @@ procedure dummy2 (
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/Array_Two_Dim-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
 
@@ -633,7 +645,7 @@ procedure dummy (
          <__globalsout class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
          </__globalsout>
-         <__isGhostFunction>false</__isGhostFunction>
+         <__parentUri sid="4">ada://package/Array_Two_Dim-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -715,7 +727,7 @@ procedure dummy2 (
          <__globalsout class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
          </__globalsout>
-         <__isGhostFunction>false</__isGhostFunction>
+         <__parentUri sid="4">ada://package/Array_Two_Dim-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc

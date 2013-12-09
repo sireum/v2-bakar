@@ -58,6 +58,12 @@ procedure Test01 (
 
       ("""<string sid="1">ada://procedure_body/RecordTest01-1:9/Test01-16:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/RecordTest01-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -240,6 +246,12 @@ procedure Test02 (
 
       ("""<string sid="1">ada://procedure_body/RecordTest01-1:9/Test02+13:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/RecordTest01-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -421,12 +433,12 @@ record Object
                  <string sid="2">ada://component/RecordTest01-1:9/Object-6:8/X-8:5</string>
                  <string>Integer</string>
                  <string sid="3">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>8</lineBegin>
                    <columnBegin>5</columnBegin>
                    <lineEnd>8</lineEnd>
                    <columnEnd>5</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
              <entry>
@@ -435,12 +447,12 @@ record Object
                  <string sid="4">ada://component/RecordTest01-1:9/Object-6:8/Y-8:8</string>
                  <string>Integer</string>
                  <string srefid="3"/>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>8</lineBegin>
                    <columnBegin>8</columnBegin>
                    <lineEnd>8</lineEnd>
                    <columnEnd>8</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
            </imap>
@@ -492,12 +504,12 @@ record NestedObject
                  <string sid="2">ada://component/RecordTest01-1:9/NestedObject-11:8/O-13:5</string>
                  <string>Object</string>
                  <string sid="3">ada://ordinary_type/RecordTest01-1:9/Object-6:8</string>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>13</lineBegin>
                    <columnBegin>5</columnBegin>
                    <lineEnd>13</lineEnd>
                    <columnEnd>5</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
            </imap>
@@ -573,6 +585,12 @@ procedure Test01 (
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://procedure/RecordTest01-1:9/Test01-16:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package/RecordTest01-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
 

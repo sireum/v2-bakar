@@ -15,6 +15,14 @@ object URIS {
 
   val DUMMY_URI = "__DUMMY_URI__"
 
+  val uriPrefixExpressionFunction = "ada://expression_function/"
+  val uriPrefixFunctionBody = "ada://function_body/"
+  val uriPrefixFunctionSpec = "ada://function/"    
+  val uriPrefixPackageBody = "ada://package_body/"
+  val uriPrefixPackageSpec = "ada://package/"    
+  val uriPrefixProcedureBody = "ada://procedure_body/"
+  val uriPrefixProcedureSpec = "ada://procedure/"
+    
   def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) = {
 
     val u = new URI(uri)
@@ -31,21 +39,25 @@ object URIS {
   def isTypeUri(u: ResourceUri) =
     u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/")
 
-  def convertSpec2BodyMethodUri(uri:ResourceUri) = 
-    uri.replaceFirst("procedure", "procedure_body").replaceFirst("function", "function_body")
     
   def isMethodUri(u: ResourceUri) =
-    u.startsWith("ada://procedure") || u.startsWith("ada://function")
+    u.startsWith("ada://procedure") || u.startsWith("ada://function") ||
+    u.startsWith("ada://expression_function")
+
+  def isAdaMethodUri(u:ResourceUri) = isAdaMethodSpecUri(u) || isAdaMethodBodyUri(u)
   
-  def isAdaSpecMethodUri(u:ResourceUri) =
-    u.startsWith("ada://procedure/") || u.startsWith("ada://function/")
+  def isAdaMethodSpecUri(u:ResourceUri) =
+    u.startsWith(uriPrefixProcedureSpec) || u.startsWith(uriPrefixFunctionSpec) 
     
-  def isAdaBodyMethodUri(u:ResourceUri) =
-    u.startsWith("ada://procedure_body/") || u.startsWith("ada://function_body/")    
-        
-  def isAdaMethodUri(u:ResourceUri) = isAdaSpecMethodUri(u) || isAdaBodyMethodUri(u)
+  def isAdaMethodBodyUri(u:ResourceUri) =
+    u.startsWith(uriPrefixProcedureBody) || u.startsWith(uriPrefixFunctionBody) ||
+    u.startsWith(uriPrefixExpressionFunction)
+
     
   def isPackageUri(u: ResourceUri) = u.startsWith("ada://package")
+  def isAdaPackageUri(u: ResourceUri) = isAdaPackageSpecUri(u) || isAdaPackageBodyUri(u)
+  def isAdaPackageSpecUri(u: ResourceUri) = u.startsWith(uriPrefixPackageSpec)
+  def isAdaPackageBodyUri(u: ResourceUri) = u.startsWith(uriPrefixPackageBody)  
 }
 
 object VariableURIs {
@@ -56,10 +68,14 @@ object PackageURIs {
   import org.sireum.util.ResourceUri
 
   val standardPackageURI = "ada://package__default/standard"
-
+  val anonymousPackageBodyURIprefix = "ada://package_body__anonymous/"
+    
   val initBodyProcedureURIprefix = "ada://procedure_body__package_init/"
   val initSpecProcedureURIprefix = "ada://procedure__package_init/"
-
+    
+  val constSpecDeclPrefixUri = "ada://constant_declaration/"
+  val constBodyDeclPrefixUri = "ada://constant_declaration_body/"
+  
   def isPackageInitProcedure(u: ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
   def isPackageBodyInitProcedure(u: ResourceUri) = u.startsWith(initBodyProcedureURIprefix)
   def isPackageSpecInitProcedure(u: ResourceUri) = u.startsWith(initSpecProcedureURIprefix)

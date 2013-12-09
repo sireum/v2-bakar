@@ -1,0 +1,83 @@
+Package Table
+  ada://package/Minpackage-1:9
+    ada://package/Minpackage-1:9
+    ada://package_body/Minpackage-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Minpackage-1:9
+    ada://package/Minpackage-1:9
+    ada://package_body/Minpackage-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://function/Minpackage-1:9/MinFunc-2:12 
+    ada://function/Minpackage-1:9/MinFunc-2:12 
+    ada://function_body/Minpackage-1:9/MinFunc-2:12 
+  ada://function_body/Minpackage-1:9/MinFunc-2:12 
+    ada://function/Minpackage-1:9/MinFunc-2:12 
+    ada://function_body/Minpackage-1:9/MinFunc-2:12 
+
+Procedure Symbol Table
+  ada://function/Minpackage-1:9/MinFunc-2:12 
+
+    LocalVarTable
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
+
+    Params
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
+
+  ada://function_body/Minpackage-1:9/MinFunc-2:12 
+
+    LocalVarTable
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
+      ada://variable/Minpackage-1:9/MinFunc-2:12/Max+3:12 
+      ada://variable/Minpackage-1:9/MinFunc-2:12/Min+3:7 
+      ada://variable_temp/Minpackage/MinFunc/_t0 
+      ada://variable_temp/Minpackage/MinFunc/_t1 
+      ada://variable_temp/Minpackage/MinFunc/_t10 
+      ada://variable_temp/Minpackage/MinFunc/_t11 
+      ada://variable_temp/Minpackage/MinFunc/_t12 
+      ada://variable_temp/Minpackage/MinFunc/_t13 
+      ada://variable_temp/Minpackage/MinFunc/_t14 
+      ada://variable_temp/Minpackage/MinFunc/_t15 
+      ada://variable_temp/Minpackage/MinFunc/_t2 
+      ada://variable_temp/Minpackage/MinFunc/_t3 
+      ada://variable_temp/Minpackage/MinFunc/_t4 
+      ada://variable_temp/Minpackage/MinFunc/_t5 
+      ada://variable_temp/Minpackage/MinFunc/_t6 
+      ada://variable_temp/Minpackage/MinFunc/_t7 
+      ada://variable_temp/Minpackage/MinFunc/_t8 
+      ada://variable_temp/Minpackage/MinFunc/_t9 
+
+    Params
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 
+      ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
+
+

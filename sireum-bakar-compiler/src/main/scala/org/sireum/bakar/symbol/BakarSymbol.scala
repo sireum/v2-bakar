@@ -39,7 +39,8 @@ object BakarSymbol {
         private var _globalsin: ISet[ResourceUri] = null
         private var _globalsout: ISet[ResourceUri] = null
         private var _globalsproof: ISet[ResourceUri] = null
-        private var _isGhostFunction: Boolean = false
+        private var _isGhostFunction: java.lang.Boolean  = null
+        private var _parentUri: ResourceUri = null
         private var _pre: Exp = null
         private var _post: Exp = null
         private var _testCases: ISeq[TestCase] = null
@@ -61,9 +62,12 @@ object BakarSymbol {
         def globalsProof = _globalsproof
         def globalsProof(o: ISet[ResourceUri]) = _globalsproof = o
 
-        def isGhostFunction = _isGhostFunction
+        def isGhostFunction = wrap(_isGhostFunction)
         def isGhostFunction(o: Boolean) = _isGhostFunction = o
 
+        def parentUri = _parentUri
+        def parentUri(o: ResourceUri) = _parentUri = o
+        
         def pre = _pre
         def pre(o: Exp) = _pre = o
 
@@ -95,9 +99,12 @@ object BakarSymbol {
     def globalsProof: Option[ISet[ResourceUri]]
     def globalsProof(o: ISet[ResourceUri])
 
-    def isGhostFunction: Boolean
+    def isGhostFunction: Option[Boolean]
     def isGhostFunction(o: Boolean)
 
+    def parentUri: Option[ResourceUri]
+    def parentUri(o: ResourceUri)
+    
     def pre: Option[Exp]
     def pre(o: Exp)
 
@@ -124,7 +131,7 @@ object BakarSymbol {
 
         implicit def wrap[T](t: T) = if (t == null) None else Some(t)
 
-        def sparkMode = if(_sparkMode == null) None else Some(_sparkMode)
+        def sparkMode = wrap(_sparkMode)
         def sparkMode(o: Boolean) = _sparkMode = o
         
         def useClauses = _useClauses
@@ -151,4 +158,3 @@ object BakarSymbol {
     def withClauses(o: ISeq[NameExp])
   }
 }
-

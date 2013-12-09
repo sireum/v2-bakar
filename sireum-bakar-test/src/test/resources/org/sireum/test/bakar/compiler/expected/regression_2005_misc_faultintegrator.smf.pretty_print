@@ -59,6 +59,12 @@ procedure Init (
 
       ("""<string sid="1">ada://procedure_body/FaultIntegrator-1:9/Init-5:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/FaultIntegrator-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -148,6 +154,12 @@ procedure Test (
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://procedure_body/FaultIntegrator-1:9/Test-9:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/FaultIntegrator-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
 
@@ -384,12 +396,12 @@ record T
                  <string sid="2">ada://component/FaultIntegrator-1:9/T-3:8/Limit-17:15</string>
                  <string>Positive</string>
                  <string sid="3">ada://subtype/Standard-1:1/Positive-1:1</string>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>17</lineBegin>
                    <columnBegin>15</columnBegin>
                    <lineEnd>17</lineEnd>
                    <columnEnd>19</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
              <entry>
@@ -398,12 +410,12 @@ record T
                  <string sid="4">ada://component/FaultIntegrator-1:9/T-3:8/Counter-18:15</string>
                  <string>Natural</string>
                  <string sid="5">ada://subtype/Standard-1:1/Natural-1:1</string>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>18</lineBegin>
                    <columnBegin>15</columnBegin>
                    <lineEnd>18</lineEnd>
                    <columnEnd>21</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
              <entry>
@@ -412,12 +424,12 @@ record T
                  <string sid="6">ada://component/FaultIntegrator-1:9/T-3:8/Tripped-19:15</string>
                  <string>Boolean</string>
                  <string sid="7">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>19</lineBegin>
                    <columnBegin>15</columnBegin>
                    <lineEnd>19</lineEnd>
                    <columnEnd>21</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
            </imap>
@@ -531,6 +543,12 @@ procedure Init (
 
       ("""<string sid="1">ada://procedure/FaultIntegrator-1:9/Init-5:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package/FaultIntegrator-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -611,6 +629,12 @@ procedure Test (
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://procedure/FaultIntegrator-1:9/Test-9:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package/FaultIntegrator-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
 

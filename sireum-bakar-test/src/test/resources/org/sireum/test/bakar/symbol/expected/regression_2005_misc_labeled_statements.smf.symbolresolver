@@ -1,0 +1,97 @@
+Package Table
+  ada://package/Labeled_Statements-1:9
+    ada://package/Labeled_Statements-1:9
+    ada://package_body/Labeled_Statements-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Labeled_Statements-1:9
+    ada://package/Labeled_Statements-1:9
+    ada://package_body/Labeled_Statements-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Labeled_Statements-1:9/Index_Range-3:12 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://function/Labeled_Statements-1:9/Stupid-5:13 
+    ada://function/Labeled_Statements-1:9/Stupid-5:13 
+    ada://function_body/Labeled_Statements-1:9/Stupid-5:13 
+  ada://function_body/Labeled_Statements-1:9/Stupid-5:13 
+    ada://function/Labeled_Statements-1:9/Stupid-5:13 
+    ada://function_body/Labeled_Statements-1:9/Stupid-5:13 
+  ada://procedure_body/Labeled_Statements-1:9/P+4:14 
+    ada://procedure_body/Labeled_Statements-1:9/P+4:14 
+
+Procedure Symbol Table
+  ada://function/Labeled_Statements-1:9/Stupid-5:13 
+
+    LocalVarTable
+      ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
+
+    Params
+      ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
+
+  ada://function_body/Labeled_Statements-1:9/Stupid-5:13 
+
+    LocalVarTable
+      ada://loop_parameter/Labeled_Statements-1:9/Stupid-5:13/I+21:10 
+      ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
+      ada://variable/Labeled_Statements-1:9/Stupid-5:13/B+17:6 
+      ada://variable/Labeled_Statements-1:9/Stupid-5:13/J+16:6 
+      ada://variable__temp/Stupid/Labeled_Statements/_tcomp0 
+      ada://variable__temp/Stupid/Labeled_Statements/_tcomp1 
+      ada://variable_temp/Labeled_Statements/Stupid/_t10 
+      ada://variable_temp/Labeled_Statements/Stupid/_t11 
+      ada://variable_temp/Labeled_Statements/Stupid/_t12 
+      ada://variable_temp/Labeled_Statements/Stupid/_t13 
+      ada://variable_temp/Labeled_Statements/Stupid/_t14 
+      ada://variable_temp/Labeled_Statements/Stupid/_t15 
+      ada://variable_temp/Labeled_Statements/Stupid/_t2 
+      ada://variable_temp/Labeled_Statements/Stupid/_t3 
+      ada://variable_temp/Labeled_Statements/Stupid/_t4 
+      ada://variable_temp/Labeled_Statements/Stupid/_t5 
+      ada://variable_temp/Labeled_Statements/Stupid/_t6 
+      ada://variable_temp/Labeled_Statements/Stupid/_t7 
+      ada://variable_temp/Labeled_Statements/Stupid/_t8 
+      ada://variable_temp/Labeled_Statements/Stupid/_t9 
+
+    Params
+      ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
+
+  ada://procedure_body/Labeled_Statements-1:9/P+4:14 
+
+    LocalVarTable
+      ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17 
+      ada://parameter/Labeled_Statements-1:9/P+4:14/J+4:20 
+      ada://parameter/Labeled_Statements-1:9/P+4:14/Ret+4:33 
+      ada://variable_temp/Labeled_Statements/P/_t0 
+      ada://variable_temp/Labeled_Statements/P/_t1 
+
+    Params
+      ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17 
+      ada://parameter/Labeled_Statements-1:9/P+4:14/J+4:20 
+      ada://parameter/Labeled_Statements-1:9/P+4:14/Ret+4:33 
+
+

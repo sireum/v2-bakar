@@ -1,0 +1,108 @@
+Package Table
+  ada://package/Function_Simple-1:9
+    ada://package/Function_Simple-1:9
+    ada://package_body/Function_Simple-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Function_Simple-1:9
+    ada://package/Function_Simple-1:9
+    ada://package_body/Function_Simple-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+  ada://variable/Function_Simple-1:9/@@B+3:3 
+  ada://variable/Function_Simple-1:9/@@C-12:4 
+  ada://variable/Function_Simple-1:9/@@Y-6:4 
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://function/Function_Simple-1:9/F1-8:12 
+    ada://function/Function_Simple-1:9/F1-8:12 
+    ada://function_body/Function_Simple-1:9/F1-8:12 
+  ada://function_body/Function_Simple-1:9/F1-8:12 
+    ada://function/Function_Simple-1:9/F1-8:12 
+    ada://function_body/Function_Simple-1:9/F1-8:12 
+  ada://procedure_body/Function_Simple-1:9/P1+10:13 
+    ada://procedure_body/Function_Simple-1:9/P1+10:13 
+  ada://procedure_body/Function_Simple-1:9/P2+18:13 
+    ada://procedure_body/Function_Simple-1:9/P2+18:13 
+  ada://procedure_body__package_init/Function_Simple/$$binit 
+    ada://procedure_body__package_init/Function_Simple/$$binit 
+
+Procedure Symbol Table
+  ada://function/Function_Simple-1:9/F1-8:12 
+
+    LocalVarTable
+      ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
+      ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
+
+    Params
+      ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
+      ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
+
+  ada://function_body/Function_Simple-1:9/F1-8:12 
+
+    LocalVarTable
+      ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
+      ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
+      ada://variable_temp/Function_Simple/F1/_t0 
+      ada://variable_temp/Function_Simple/F1/_t1 
+      ada://variable_temp/Function_Simple/F1/_t2 
+      ada://variable_temp/Function_Simple/F1/_t3 
+
+    Params
+      ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
+      ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
+
+  ada://procedure_body/Function_Simple-1:9/P1+10:13 
+
+    LocalVarTable
+      ada://parameter/Function_Simple-1:9/P1+10:13/M+10:16 
+      ada://parameter/Function_Simple-1:9/P1+10:13/N+10:31 
+      ada://variable__temp/P1/Function_Simple/_tcomp0 
+
+    Params
+      ada://parameter/Function_Simple-1:9/P1+10:13/M+10:16 
+      ada://parameter/Function_Simple-1:9/P1+10:13/N+10:31 
+
+  ada://procedure_body/Function_Simple-1:9/P2+18:13 
+
+    LocalVarTable
+      ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 
+      ada://parameter/Function_Simple-1:9/P2+18:13/N+18:31 
+      ada://variable__temp/P2/Function_Simple/_tcomp1 
+      ada://variable_temp/Function_Simple/P2/_t4 
+      ada://variable_temp/Function_Simple/P2/_t5 
+
+    Params
+      ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 
+      ada://parameter/Function_Simple-1:9/P2+18:13/N+18:31 
+
+  ada://procedure_body__package_init/Function_Simple/$$binit 
+
+    LocalVarTable
+
+    Params
+
+

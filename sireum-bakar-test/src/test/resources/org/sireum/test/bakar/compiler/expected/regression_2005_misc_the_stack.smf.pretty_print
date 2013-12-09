@@ -294,6 +294,12 @@ procedure Push (
 
       ("""<string sid="1">ada://procedure_body/The_Stack-1:9/Push-31:14</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -372,6 +378,12 @@ procedure Pop (
 
       ("""<string sid="1">ada://procedure_body/The_Stack-1:9/Pop-36:14</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -449,6 +461,12 @@ procedure Boolean Value_Present (
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://function_body/The_Stack-1:9/Value_Present+46:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
 
@@ -549,6 +567,12 @@ procedure Index_Range Find_Stack_Pos (
 
       ("""<string sid="1">ada://function_body/The_Stack-1:9/Find_Stack_Pos+67:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -626,6 +650,12 @@ procedure Boolean aPrivateFunction
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://function_body/The_Stack-1:9/aPrivateFunction-48:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
 
@@ -1003,12 +1033,12 @@ record AuditInfoType
                  <string sid="2">ada://component/The_Stack-1:9/AuditInfoType-26:9/PushOps-27:7</string>
                  <string>AuditCountType</string>
                  <string sid="3">ada://subtype/The_Stack-1:9/AuditCountType-21:12</string>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>27</lineBegin>
                    <columnBegin>7</columnBegin>
                    <lineEnd>27</lineEnd>
                    <columnEnd>13</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
              <entry>
@@ -1017,12 +1047,12 @@ record AuditInfoType
                  <string sid="4">ada://component/The_Stack-1:9/AuditInfoType-26:9/PopOps-28:7</string>
                  <string>AuditCountType</string>
                  <string srefid="3"/>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>28</lineBegin>
                    <columnBegin>7</columnBegin>
                    <lineEnd>28</lineEnd>
                    <columnEnd>12</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
            </imap>
@@ -1095,6 +1125,12 @@ procedure Push (
 
       ("""<string sid="1">ada://procedure/The_Stack-1:9/Push-31:14</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -1134,6 +1170,12 @@ procedure Pop (
 
       ("""<string sid="1">ada://procedure/The_Stack-1:9/Pop-36:14</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -1151,6 +1193,12 @@ procedure Boolean aPrivateFunction
     @BAKAR_REF_URI
 
       ("""<string sid="1">ada://function/The_Stack-1:9/aPrivateFunction-48:13</string>""")
+
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
 

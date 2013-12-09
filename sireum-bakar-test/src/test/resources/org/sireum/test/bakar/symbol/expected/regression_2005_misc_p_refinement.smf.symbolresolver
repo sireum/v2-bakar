@@ -1,0 +1,78 @@
+Package Table
+  ada://package/P_Refinement-1:9
+    ada://package/P_Refinement-1:9
+    ada://package_body/P_Refinement-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/P_Refinement-1:9
+    ada://package/P_Refinement-1:9
+    ada://package_body/P_Refinement-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+  ada://variable/P_Refinement-1:9/@@B+5:4 
+  ada://variable/P_Refinement-1:9/@@C-10:4 
+  ada://variable/P_Refinement-1:9/@@Y-5:3 
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/P_Refinement-1:9/Q-6:13 
+    ada://procedure/P_Refinement-1:9/Q-6:13 
+    ada://procedure_body/P_Refinement-1:9/Q-6:13 
+  ada://procedure_body/P_Refinement-1:9/Q-6:13 
+    ada://procedure/P_Refinement-1:9/Q-6:13 
+    ada://procedure_body/P_Refinement-1:9/Q-6:13 
+  ada://procedure_body__package_init/P_Refinement/$$binit 
+    ada://procedure_body__package_init/P_Refinement/$$binit 
+
+Procedure Symbol Table
+  ada://procedure/P_Refinement-1:9/Q-6:13 
+
+    LocalVarTable
+      ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
+      ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30 
+
+    Params
+      ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
+      ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30 
+
+  ada://procedure_body/P_Refinement-1:9/Q-6:13 
+
+    LocalVarTable
+      ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
+      ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30 
+      ada://variable_temp/P_Refinement/Q/_t0 
+      ada://variable_temp/P_Refinement/Q/_t1 
+
+    Params
+      ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
+      ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30 
+
+  ada://procedure_body__package_init/P_Refinement/$$binit 
+
+    LocalVarTable
+
+    Params
+
+

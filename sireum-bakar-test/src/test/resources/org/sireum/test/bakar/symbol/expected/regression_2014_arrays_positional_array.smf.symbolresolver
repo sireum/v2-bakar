@@ -1,0 +1,83 @@
+Package Table
+  ada://package/Positional_Array-1:9
+    ada://package/Positional_Array-1:9
+    ada://package_body/Positional_Array-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Positional_Array-1:9
+    ada://package/Positional_Array-1:9
+    ada://package_body/Positional_Array-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+  ada://variable/Positional_Array-1:9/@@Box-15:3 
+  ada://variable/Positional_Array-1:9/@@Box2-17:3 
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Positional_Array-1:9/Square-12:8 
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Positional_Array-1:9/Index-11:11 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/Positional_Array-1:9/dummy-19:13 
+    ada://procedure/Positional_Array-1:9/dummy-19:13 
+    ada://procedure_body/Positional_Array-1:9/dummy-19:13 
+  ada://procedure__package_init/Positional_Array/$$sinit 
+    ada://procedure__package_init/Positional_Array/$$sinit 
+  ada://procedure_body/Positional_Array-1:9/dummy-19:13 
+    ada://procedure/Positional_Array-1:9/dummy-19:13 
+    ada://procedure_body/Positional_Array-1:9/dummy-19:13 
+  ada://procedure_body__package_init/Positional_Array/$$binit 
+    ada://procedure_body__package_init/Positional_Array/$$binit 
+
+Procedure Symbol Table
+  ada://procedure/Positional_Array-1:9/dummy-19:13 
+
+    LocalVarTable
+      ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19 
+
+    Params
+      ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19 
+
+  ada://procedure__package_init/Positional_Array/$$sinit 
+
+    LocalVarTable
+
+    Params
+
+  ada://procedure_body/Positional_Array-1:9/dummy-19:13 
+
+    LocalVarTable
+      ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19 
+      ada://variable_temp/Positional_Array/dummy/_t0 
+      ada://variable_temp/Positional_Array/dummy/_t1 
+
+    Params
+      ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19 
+
+  ada://procedure_body__package_init/Positional_Array/$$binit 
+
+    LocalVarTable
+
+    Params
+
+

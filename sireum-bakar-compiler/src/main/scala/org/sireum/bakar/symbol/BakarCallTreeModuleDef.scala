@@ -38,7 +38,8 @@ case class CallInfo(
 
 trait CallTree {
   val graph: DirectedMultigraph[ProcedureDecl, CallInfo]
-
+  val symbolTable : BakarSymbolTable
+  
   def getAllInfo = graph.edgeSet
 
   def getCalleeInfo(m: ProcedureDecl) = graph.outgoingEdgesOf(m)
@@ -50,7 +51,11 @@ trait CallTree {
       def getVertexName(m: ProcedureDecl) = m.name.name
     }
     val vnp2 = new VertexNameProvider[ProcedureDecl] {
-      def getVertexName(m: ProcedureDecl) = m.name.name
+      def getVertexName(m: ProcedureDecl) = {
+        import org.sireum.bakar.symbol.BakarSymbol._
+        val pack = symbolTable.packages(m.parentUri.get)
+        pack.name.get.name + "." + m.name.name
+      }
     }
     val sw = new StringWriter
     new DOTExporter[ProcedureDecl, CallInfo](vnp, vnp2, null).export(sw, this.graph)
@@ -62,8 +67,9 @@ trait CallTree {
     fw.write(outputCallTree)
     fw.close
 
-    val dot = System.getenv.get("SIREUM_HOME") + "/apps/graphviz/bin/dot"
-    val args = List(dot, "-Tpdf", "-o" + fileName)
+    //val dot = System.getenv.get("SIREUM_HOME") + "/apps/graphviz/bin/dot"
+    val dot = "/usr/local/bin/dot"
+    val args = List(dot, "-Tpdf", "-o", fileName + ".pdf", fileName)
     new Exec().run(10000, args, None)
   }
 
@@ -145,8 +151,11 @@ class BakarCallTreeModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
   val b = Visitor.build(impl(theVisitor))
 
   for (m <- this.models) b(m)
-
-  this.callTree = new CallTree { val graph = ctx.graph }
+  
+  this.callTree = new CallTree { 
+    val graph = ctx.graph
+    val symbolTable = BakarCallTreeModuleDef.this.symbolTable
+  }
 }
 
 case class BakarCallTree(

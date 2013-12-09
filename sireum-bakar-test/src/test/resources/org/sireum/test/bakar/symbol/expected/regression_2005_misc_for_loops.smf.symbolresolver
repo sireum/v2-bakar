@@ -1,0 +1,169 @@
+Package Table
+  ada://package/for_loops-1:9
+    ada://package/for_loops-1:9
+    ada://package_body/for_loops-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/for_loops-1:9
+    ada://package/for_loops-1:9
+    ada://package_body/for_loops-1:9
+
+Const Table
+  ada://constant_declaration/for_loops/$CONST 
+
+Const Element Table
+  ada://integer_number/for_loops-1:9/aIntConst-6:4 
+  ada://real_number/for_loops-1:9/aFloatConst-5:4 
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+  ada://variable/for_loops-1:9/@@A-9:4 
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/for_loops-1:9/Index_Range-7:9 
+  ada://ordinary_type/for_loops-1:9/Vector-8:9 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/for_loops-1:9/Stupid-11:14 
+    ada://procedure/for_loops-1:9/Stupid-11:14 
+    ada://procedure_body/for_loops-1:9/Stupid-11:14 
+  ada://procedure__package_init/for_loops/$$sinit 
+    ada://procedure__package_init/for_loops/$$sinit 
+  ada://procedure_body/for_loops-1:9/Stupid-11:14 
+    ada://procedure/for_loops-1:9/Stupid-11:14 
+    ada://procedure_body/for_loops-1:9/Stupid-11:14 
+
+Procedure Symbol Table
+  ada://procedure/for_loops-1:9/Stupid-11:14 
+
+    LocalVarTable
+      ada://parameter/for_loops-1:9/Stupid-11:14/Z-11:21 
+
+    Params
+      ada://parameter/for_loops-1:9/Stupid-11:14/Z-11:21 
+
+  ada://procedure__package_init/for_loops/$$sinit 
+
+    LocalVarTable
+
+    Params
+
+  ada://procedure_body/for_loops-1:9/Stupid-11:14 
+
+    LocalVarTable
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+12:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+16:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+20:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+25:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+30:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+35:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+39:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+43:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+47:10 
+      ada://loop_parameter/for_loops-1:9/Stupid-11:14/I+8:10 
+      ada://parameter/for_loops-1:9/Stupid-11:14/Z-11:21 
+      ada://variable__temp/Stupid/for_loops/_tcomp0 
+      ada://variable__temp/Stupid/for_loops/_tcomp1 
+      ada://variable__temp/Stupid/for_loops/_tcomp10 
+      ada://variable__temp/Stupid/for_loops/_tcomp11 
+      ada://variable__temp/Stupid/for_loops/_tcomp12 
+      ada://variable__temp/Stupid/for_loops/_tcomp13 
+      ada://variable__temp/Stupid/for_loops/_tcomp14 
+      ada://variable__temp/Stupid/for_loops/_tcomp15 
+      ada://variable__temp/Stupid/for_loops/_tcomp16 
+      ada://variable__temp/Stupid/for_loops/_tcomp17 
+      ada://variable__temp/Stupid/for_loops/_tcomp18 
+      ada://variable__temp/Stupid/for_loops/_tcomp19 
+      ada://variable__temp/Stupid/for_loops/_tcomp2 
+      ada://variable__temp/Stupid/for_loops/_tcomp3 
+      ada://variable__temp/Stupid/for_loops/_tcomp4 
+      ada://variable__temp/Stupid/for_loops/_tcomp5 
+      ada://variable__temp/Stupid/for_loops/_tcomp6 
+      ada://variable__temp/Stupid/for_loops/_tcomp7 
+      ada://variable__temp/Stupid/for_loops/_tcomp8 
+      ada://variable__temp/Stupid/for_loops/_tcomp9 
+      ada://variable_temp/for_loops/Stupid/_t0 
+      ada://variable_temp/for_loops/Stupid/_t1 
+      ada://variable_temp/for_loops/Stupid/_t10 
+      ada://variable_temp/for_loops/Stupid/_t11 
+      ada://variable_temp/for_loops/Stupid/_t12 
+      ada://variable_temp/for_loops/Stupid/_t13 
+      ada://variable_temp/for_loops/Stupid/_t14 
+      ada://variable_temp/for_loops/Stupid/_t15 
+      ada://variable_temp/for_loops/Stupid/_t16 
+      ada://variable_temp/for_loops/Stupid/_t17 
+      ada://variable_temp/for_loops/Stupid/_t18 
+      ada://variable_temp/for_loops/Stupid/_t19 
+      ada://variable_temp/for_loops/Stupid/_t2 
+      ada://variable_temp/for_loops/Stupid/_t20 
+      ada://variable_temp/for_loops/Stupid/_t21 
+      ada://variable_temp/for_loops/Stupid/_t22 
+      ada://variable_temp/for_loops/Stupid/_t23 
+      ada://variable_temp/for_loops/Stupid/_t24 
+      ada://variable_temp/for_loops/Stupid/_t25 
+      ada://variable_temp/for_loops/Stupid/_t26 
+      ada://variable_temp/for_loops/Stupid/_t27 
+      ada://variable_temp/for_loops/Stupid/_t28 
+      ada://variable_temp/for_loops/Stupid/_t29 
+      ada://variable_temp/for_loops/Stupid/_t3 
+      ada://variable_temp/for_loops/Stupid/_t30 
+      ada://variable_temp/for_loops/Stupid/_t31 
+      ada://variable_temp/for_loops/Stupid/_t32 
+      ada://variable_temp/for_loops/Stupid/_t33 
+      ada://variable_temp/for_loops/Stupid/_t34 
+      ada://variable_temp/for_loops/Stupid/_t35 
+      ada://variable_temp/for_loops/Stupid/_t36 
+      ada://variable_temp/for_loops/Stupid/_t37 
+      ada://variable_temp/for_loops/Stupid/_t38 
+      ada://variable_temp/for_loops/Stupid/_t39 
+      ada://variable_temp/for_loops/Stupid/_t4 
+      ada://variable_temp/for_loops/Stupid/_t40 
+      ada://variable_temp/for_loops/Stupid/_t41 
+      ada://variable_temp/for_loops/Stupid/_t42 
+      ada://variable_temp/for_loops/Stupid/_t43 
+      ada://variable_temp/for_loops/Stupid/_t44 
+      ada://variable_temp/for_loops/Stupid/_t45 
+      ada://variable_temp/for_loops/Stupid/_t46 
+      ada://variable_temp/for_loops/Stupid/_t47 
+      ada://variable_temp/for_loops/Stupid/_t48 
+      ada://variable_temp/for_loops/Stupid/_t49 
+      ada://variable_temp/for_loops/Stupid/_t5 
+      ada://variable_temp/for_loops/Stupid/_t50 
+      ada://variable_temp/for_loops/Stupid/_t51 
+      ada://variable_temp/for_loops/Stupid/_t52 
+      ada://variable_temp/for_loops/Stupid/_t53 
+      ada://variable_temp/for_loops/Stupid/_t54 
+      ada://variable_temp/for_loops/Stupid/_t55 
+      ada://variable_temp/for_loops/Stupid/_t56 
+      ada://variable_temp/for_loops/Stupid/_t57 
+      ada://variable_temp/for_loops/Stupid/_t58 
+      ada://variable_temp/for_loops/Stupid/_t59 
+      ada://variable_temp/for_loops/Stupid/_t6 
+      ada://variable_temp/for_loops/Stupid/_t60 
+      ada://variable_temp/for_loops/Stupid/_t61 
+      ada://variable_temp/for_loops/Stupid/_t62 
+      ada://variable_temp/for_loops/Stupid/_t63 
+      ada://variable_temp/for_loops/Stupid/_t7 
+      ada://variable_temp/for_loops/Stupid/_t8 
+      ada://variable_temp/for_loops/Stupid/_t9 
+
+    Params
+      ada://parameter/for_loops-1:9/Stupid-11:14/Z-11:21 
+
+

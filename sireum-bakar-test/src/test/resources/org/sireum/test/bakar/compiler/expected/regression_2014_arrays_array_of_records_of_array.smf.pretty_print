@@ -70,6 +70,12 @@ procedure Swap (
 
       ("""<string sid="1">ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/Array_Of_Records_Of_Array-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -301,12 +307,12 @@ record Object
                  <string sid="2">ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/X-17:7</string>
                  <string>IntArray</string>
                  <string sid="3">ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8</string>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>17</lineBegin>
                    <columnBegin>7</columnBegin>
                    <lineEnd>17</lineEnd>
                    <columnEnd>7</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
              <entry>
@@ -315,12 +321,12 @@ record Object
                  <string sid="4">ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/Y-18:7</string>
                  <string>IntArray</string>
                  <string srefid="3"/>
-                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 <org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                    <lineBegin>18</lineBegin>
                    <columnBegin>7</columnBegin>
                    <lineEnd>18</lineEnd>
                    <columnEnd>7</columnEnd>
-                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-Context__-__-anon__-1>
+                 </org.sireum.bakar.compiler.module.BakarTranslatorModuleDef__-VContext__-__-anon__-1>
                </org.sireum.bakar.symbol.ComponentDef>
              </entry>
            </imap>
@@ -463,7 +469,7 @@ procedure Swap (
              </iset>
            </entry>
          </__depends>
-         <__isGhostFunction>false</__isGhostFunction>
+         <__parentUri sid="3">ada://package/Array_Of_Records_Of_Array-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc

@@ -86,6 +86,12 @@ procedure Integer F1 (
 
       ("""<string sid="1">ada://function_body/Function_Simple-1:9/F1-8:12</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/Function_Simple-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -167,7 +173,7 @@ procedure P1 (
          <__globalsout class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
          </__globalsout>
-         <__isGhostFunction>false</__isGhostFunction>
+         <__parentUri sid="5">ada://package_body/Function_Simple-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -262,7 +268,7 @@ procedure P2 (
          <__globalsout class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
          </__globalsout>
-         <__isGhostFunction>false</__isGhostFunction>
+         <__parentUri sid="6">ada://package_body/Function_Simple-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc
@@ -380,7 +386,7 @@ procedure Integer F1 (
          <__globalsin class="icol.Set$Set1" ttype="iset">
            <string sid="1">ada://variable/Function_Simple-1:9/@@Y-6:4</string>
          </__globalsin>
-         <__isGhostFunction>false</__isGhostFunction>
+         <__parentUri sid="2">ada://package/Function_Simple-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc

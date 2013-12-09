@@ -80,6 +80,12 @@ procedure Multiply (
 
       ("""<string sid="1">ada://procedure_body/MyMatrix-1:9/Multiply-7:13</string>""")
 
+    @BAKAR_PROCEDURE_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+         <__parentUri sid="1">ada://package_body/MyMatrix-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -431,7 +437,7 @@ procedure Multiply (
              </iset>
            </entry>
          </__depends>
-         <__isGhostFunction>false</__isGhostFunction>
+         <__parentUri sid="4">ada://package/MyMatrix-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
 
     @util.loc

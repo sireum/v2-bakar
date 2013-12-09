@@ -1,0 +1,182 @@
+Package Table
+  ada://package/The_Stack-1:9
+    ada://package/The_Stack-1:9
+    ada://package_body/The_Stack-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/The_Stack-1:9
+    ada://package/The_Stack-1:9
+    ada://package_body/The_Stack-1:9
+
+Const Table
+  ada://constant_declaration/The_Stack/$CONST 
+  ada://constant_declaration_body/The_Stack/$CONST 
+
+Const Element Table
+  ada://constant/The_Stack-1:9/InitID-46:4 
+  ada://deferred_constant/The_Stack-1:9/InitID-11:4 
+  ada://integer_number/The_Stack-1:9/AuditCount_LowerLimit-19:4 
+  ada://integer_number/The_Stack-1:9/AuditCount_UpperLimit-20:4 
+  ada://integer_number/The_Stack-1:9/Stack_Size+6:4 
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+  ada://variable/The_Stack-1:9/@@AuditInfo+13:4 
+  ada://variable/The_Stack-1:9/@@Pointer+11:4 
+  ada://variable/The_Stack-1:9/@@S+10:4 
+
+Record Table
+  ada://ordinary_type/The_Stack-1:9/AuditInfoType-26:9 
+
+Attribute Table
+  ada://component/The_Stack-1:9/AuditInfoType-26:9/PopOps-28:7 
+  ada://component/The_Stack-1:9/AuditInfoType-26:9/PushOps-27:7 
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/The_Stack-1:9/Pointer_Range+7:9 
+  ada://ordinary_type/The_Stack-1:9/StackID-9:9 
+  ada://ordinary_type/The_Stack-1:9/Status-14:9 
+  ada://ordinary_type/The_Stack-1:9/Vector+9:9 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://private_type/The_Stack-1:9/StackID-9:9 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+  ada://subtype/The_Stack-1:9/AuditCountType-21:12 
+  ada://subtype/The_Stack-1:9/BoundaryStatus-15:12 
+  ada://subtype/The_Stack-1:9/Index_Range+8:12 
+
+Procedure Table
+  ada://function/The_Stack-1:9/aPrivateFunction-48:13 
+    ada://function/The_Stack-1:9/aPrivateFunction-48:13 
+    ada://function_body/The_Stack-1:9/aPrivateFunction-48:13 
+  ada://function_body/The_Stack-1:9/Find_Stack_Pos+67:13 
+    ada://function_body/The_Stack-1:9/Find_Stack_Pos+67:13 
+  ada://function_body/The_Stack-1:9/Value_Present+46:13 
+    ada://function_body/The_Stack-1:9/Value_Present+46:13 
+  ada://function_body/The_Stack-1:9/aPrivateFunction-48:13 
+    ada://function/The_Stack-1:9/aPrivateFunction-48:13 
+    ada://function_body/The_Stack-1:9/aPrivateFunction-48:13 
+  ada://procedure/The_Stack-1:9/Pop-36:14 
+    ada://procedure/The_Stack-1:9/Pop-36:14 
+    ada://procedure_body/The_Stack-1:9/Pop-36:14 
+  ada://procedure/The_Stack-1:9/Push-31:14 
+    ada://procedure/The_Stack-1:9/Push-31:14 
+    ada://procedure_body/The_Stack-1:9/Push-31:14 
+  ada://procedure_body/The_Stack-1:9/Pop-36:14 
+    ada://procedure/The_Stack-1:9/Pop-36:14 
+    ada://procedure_body/The_Stack-1:9/Pop-36:14 
+  ada://procedure_body/The_Stack-1:9/Push-31:14 
+    ada://procedure/The_Stack-1:9/Push-31:14 
+    ada://procedure_body/The_Stack-1:9/Push-31:14 
+  ada://procedure_body__package_init/The_Stack/$$binit 
+    ada://procedure_body__package_init/The_Stack/$$binit 
+
+Procedure Symbol Table
+  ada://function/The_Stack-1:9/aPrivateFunction-48:13 
+
+    LocalVarTable
+
+    Params
+
+  ada://function_body/The_Stack-1:9/Find_Stack_Pos+67:13 
+
+    LocalVarTable
+      ada://loop_parameter/The_Stack-1:9/Find_Stack_Pos+67:13/I+76:11 
+      ada://parameter/The_Stack-1:9/Find_Stack_Pos+67:13/X+67:29 
+      ada://variable/The_Stack-1:9/Find_Stack_Pos+67:13/Result_Pos+74:6 
+      ada://variable__temp/Find_Stack_Pos/The_Stack/_tcomp2 
+      ada://variable__temp/Find_Stack_Pos/The_Stack/_tcomp3 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t16 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t17 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t18 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t19 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t20 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t21 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t22 
+      ada://variable_temp/The_Stack/Find_Stack_Pos/_t23 
+
+    Params
+      ada://parameter/The_Stack-1:9/Find_Stack_Pos+67:13/X+67:29 
+
+  ada://function_body/The_Stack-1:9/Value_Present+46:13 
+
+    LocalVarTable
+      ada://loop_parameter/The_Stack-1:9/Value_Present+46:13/I+53:11 
+      ada://parameter/The_Stack-1:9/Value_Present+46:13/X+46:28 
+      ada://variable/The_Stack-1:9/Value_Present+46:13/Result+50:7 
+      ada://variable__temp/Value_Present/The_Stack/_tcomp0 
+      ada://variable__temp/Value_Present/The_Stack/_tcomp1 
+      ada://variable_temp/The_Stack/Value_Present/_t10 
+      ada://variable_temp/The_Stack/Value_Present/_t11 
+      ada://variable_temp/The_Stack/Value_Present/_t12 
+      ada://variable_temp/The_Stack/Value_Present/_t13 
+      ada://variable_temp/The_Stack/Value_Present/_t14 
+      ada://variable_temp/The_Stack/Value_Present/_t15 
+      ada://variable_temp/The_Stack/Value_Present/_t8 
+      ada://variable_temp/The_Stack/Value_Present/_t9 
+
+    Params
+      ada://parameter/The_Stack-1:9/Value_Present+46:13/X+46:28 
+
+  ada://function_body/The_Stack-1:9/aPrivateFunction-48:13 
+
+    LocalVarTable
+
+    Params
+
+  ada://procedure/The_Stack-1:9/Pop-36:14 
+
+    LocalVarTable
+      ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18 
+
+    Params
+      ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18 
+
+  ada://procedure/The_Stack-1:9/Push-31:14 
+
+    LocalVarTable
+      ada://parameter/The_Stack-1:9/Push-31:14/X-31:19 
+
+    Params
+      ada://parameter/The_Stack-1:9/Push-31:14/X-31:19 
+
+  ada://procedure_body/The_Stack-1:9/Pop-36:14 
+
+    LocalVarTable
+      ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18 
+      ada://variable_temp/The_Stack/Pop/_t4 
+      ada://variable_temp/The_Stack/Pop/_t5 
+      ada://variable_temp/The_Stack/Pop/_t6 
+      ada://variable_temp/The_Stack/Pop/_t7 
+
+    Params
+      ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18 
+
+  ada://procedure_body/The_Stack-1:9/Push-31:14 
+
+    LocalVarTable
+      ada://parameter/The_Stack-1:9/Push-31:14/X-31:19 
+      ada://variable_temp/The_Stack/Push/_t0 
+      ada://variable_temp/The_Stack/Push/_t1 
+      ada://variable_temp/The_Stack/Push/_t2 
+      ada://variable_temp/The_Stack/Push/_t3 
+
+    Params
+      ada://parameter/The_Stack-1:9/Push-31:14/X-31:19 
+
+  ada://procedure_body__package_init/The_Stack/$$binit 
+
+    LocalVarTable
+
+    Params
+
+

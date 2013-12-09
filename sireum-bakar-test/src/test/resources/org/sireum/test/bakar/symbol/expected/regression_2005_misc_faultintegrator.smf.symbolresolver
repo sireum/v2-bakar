@@ -1,0 +1,108 @@
+Package Table
+  ada://package/FaultIntegrator-1:9
+    ada://package/FaultIntegrator-1:9
+    ada://package_body/FaultIntegrator-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/FaultIntegrator-1:9
+    ada://package/FaultIntegrator-1:9
+    ada://package_body/FaultIntegrator-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+  ada://ordinary_type/FaultIntegrator-1:9/T-3:8 
+
+Attribute Table
+  ada://component/FaultIntegrator-1:9/T-3:8/Counter-18:15 
+  ada://component/FaultIntegrator-1:9/T-3:8/Limit-17:15 
+  ada://component/FaultIntegrator-1:9/T-3:8/Tripped-19:15 
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://private_type/FaultIntegrator-1:9/T-3:8 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/FaultIntegrator-1:9/Init-5:13 
+    ada://procedure/FaultIntegrator-1:9/Init-5:13 
+    ada://procedure_body/FaultIntegrator-1:9/Init-5:13 
+  ada://procedure/FaultIntegrator-1:9/Test-9:13 
+    ada://procedure/FaultIntegrator-1:9/Test-9:13 
+    ada://procedure_body/FaultIntegrator-1:9/Test-9:13 
+  ada://procedure_body/FaultIntegrator-1:9/Init-5:13 
+    ada://procedure/FaultIntegrator-1:9/Init-5:13 
+    ada://procedure_body/FaultIntegrator-1:9/Init-5:13 
+  ada://procedure_body/FaultIntegrator-1:9/Test-9:13 
+    ada://procedure/FaultIntegrator-1:9/Test-9:13 
+    ada://procedure_body/FaultIntegrator-1:9/Test-9:13 
+
+Procedure Symbol Table
+  ada://procedure/FaultIntegrator-1:9/Init-5:13 
+
+    LocalVarTable
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18 
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18 
+
+    Params
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18 
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18 
+
+  ada://procedure/FaultIntegrator-1:9/Test-9:13 
+
+    LocalVarTable
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18 
+
+    Params
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18 
+
+  ada://procedure_body/FaultIntegrator-1:9/Init-5:13 
+
+    LocalVarTable
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18 
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18 
+
+    Params
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18 
+      ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18 
+
+  ada://procedure_body/FaultIntegrator-1:9/Test-9:13 
+
+    LocalVarTable
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18 
+      ada://variable_temp/FaultIntegrator/Test/_t0 
+      ada://variable_temp/FaultIntegrator/Test/_t1 
+      ada://variable_temp/FaultIntegrator/Test/_t2 
+      ada://variable_temp/FaultIntegrator/Test/_t3 
+      ada://variable_temp/FaultIntegrator/Test/_t4 
+      ada://variable_temp/FaultIntegrator/Test/_t5 
+      ada://variable_temp/FaultIntegrator/Test/_t6 
+      ada://variable_temp/FaultIntegrator/Test/_t7 
+
+    Params
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18 
+      ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18 
+
+

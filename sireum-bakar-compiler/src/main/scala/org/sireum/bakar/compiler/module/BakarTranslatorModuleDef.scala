@@ -271,7 +271,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     type CTX = Value
     val PACKAGE, METHOD = Value
   }
-
+  
+    case class Context(
+        val kind : CTX.Value,
+        val name : String,
+        val uri : ResourceUri)
+        
   implicit def nu2nd(nu: NameUser) = {
     val nd = NameDefinition(nu.name)
     nd.propertyMap ++= nu.propertyMap
@@ -284,7 +289,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     nu
   }
 
-  trait Context {
+  trait VContext {
     val LOCATION_PREFIX = "l"
 
     var regression = false
@@ -297,7 +302,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     val typeCache = mmapEmpty[Base, ISeq[PackageElement]]
     var typeDeclarations = imapEmpty[ResourceUri, SparkTypeDecl]
-
+        
     var countLocation = 0
     var stackLocationList = mstackEmpty[MList[LocationDecl]]
     def pushLocationList = {
@@ -310,9 +315,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       stackLocationList.top += l
       l
     }
-
-    val contextStack = mstackEmpty[(CTX.Value, String)]
-    def pushContext(s: (CTX.Value, String)) = contextStack.push(s)
+        
+    val contextStack = mstackEmpty[Context]
+    def pushContext(s: Context) = contextStack.push(s)
     def popContext = contextStack.pop
 
     val exitLocations = mstackEmpty[LocationDecl]
@@ -383,7 +388,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val tempVarPrefix = "_tcomp"
       val name = tempVarPrefix + tempVarCounter
       tempVarCounter += 1
-      val path = (contextStack.map(_._2)).toList :+ name
+      val path = (contextStack.map(_.name)).toList :+ name
       val uri = VariableURIs.tempVarPrefix + path.mkString("/")
 
       val typeDecl = this.typeDeclarations(typeUri)
@@ -396,7 +401,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       addTypeUri(typeUri, ret)
     }
 
-    def processingPackage = contextStack.head._1 == CTX.PACKAGE
+    def processingPackage = contextStack.head.kind == CTX.PACKAGE
 
     var _noTempVars = false
     def noTempVars = _noTempVars
@@ -887,7 +892,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     def introduceAnonymousType(lowBound: Exp, highBound: Exp,
       parentTypeName: String, parentTypeUri: ResourceUri) = {
       val subtypeName = "anonymousType$" + nextAnonymousType
-      val path = (contextStack.map(_._2)).toList :+ subtypeName
+      val path = (contextStack.map(_.name)).toList :+ subtypeName
       val subtypeURI = "ada://ordinary_type__anonymous/" + path.mkString("/")
 
       val pilarTypeDec = TypeAliasDecl(NameDefinition(subtypeName), ivectorEmpty,
@@ -1468,8 +1473,17 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
   }
 
-  def packageH(ctx: Context, v: => BVisitor): VisitorFunction = {
-
+  def packageH(ctx: VContext, v: => BVisitor): VisitorFunction = {
+    def createConstDecl(isSpec : Boolean, constants : ISeq[ConstElement]) = {
+      val name = "$CONST"
+      val path = (ctx.contextStack.map(_.name)).toList :+ name
+      val uri = (if(isSpec) PackageURIs.constSpecDeclPrefixUri
+          else PackageURIs.constBodyDeclPrefixUri) + path.mkString("/")
+      val nd = NameDefinition(name)
+      ctx.addResourceUri(nd, uri)
+      ConstDecl(nd, ivectorEmpty, constants)
+    }
+    
     def handlePackage(o: Base, sloc: SourceLocation, names: DefiningNameList,
       aspectSpec: ElementList, visibleDecls: java.util.List[Base],
       privateDecls: Option[java.util.List[Base]], checks: String) {
@@ -1478,7 +1492,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       v(names.getDefiningNames.head)
       val pname: NameDefinition = ctx.popResult
 
-      ctx.pushContext((CTX.PACKAGE, pname.name))
+      val isSpec = o.isInstanceOf[PackageDeclaration]
+
+      ctx.pushContext(Context(CTX.PACKAGE, pname.name, pname.uri))
 
       val scope = ctx.constructScope(v, o)
 
@@ -1501,19 +1517,17 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val elements = scope.typeDeclarations
 
-      if (!scope.constants.isEmpty)
-        elements += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, scope.constants.toList)
+      if (!scope.constants.isEmpty) 
+        elements += createConstDecl(isSpec, scope.constants.toList)
 
       val (globals, locals) = scope.variableDeclarations.partition(_.isInstanceOf[GlobalVarDecl])
       elements ++= globals.asInstanceOf[MList[GlobalVarDecl]]
 
       if (scope.initBlock.isDefined) {
-        val isSpec = o.isInstanceOf[PackageDeclaration]
-
         val name = if (isSpec) "$$sinit"
         else "$$binit"
 
-        val path = (ctx.contextStack.map(_._2)).toList :+ name
+        val path = (ctx.contextStack.map(_.name)).toList :+ name
         val uri = if (isSpec) PackageURIs.initSpecProcedureURIprefix + path.mkString("/")
         else PackageURIs.initBodyProcedureURIprefix + path.mkString("/")
 
@@ -1522,9 +1536,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         scope.initBlock.get += JumpLocation(Some(ctx.newLocLabel(path.mkString("_"))), ivectorEmpty,
           ReturnJump(ivectorEmpty, None))
 
-        elements += ProcedureDecl(nd, ivectorEmpty,
+        val p = ProcedureDecl(nd, ivectorEmpty,
           ivectorEmpty, ivectorEmpty, None, false,
           ImplementedBody(locals.asInstanceOf[MList[LocalVarDecl]].toList, scope.initBlock.get.toList, ivectorEmpty))
+        
+        p.parentUri(pname.uri)
+        elements += p
       }
       elements ++= packElems
 
@@ -1565,11 +1582,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           ctx.popResult.asInstanceOf[PackageDecl]
         } else if (TranslatorUtil.isMethodDeclaration(unitDeclaration.getDeclaration)) {
           val pname = "__anonymousPackage$" + ctx.nextAnonymousPackage
-
-          ctx.pushContext(CTX.METHOD, pname)
+          val puri = PackageURIs.anonymousPackageBodyURIprefix + pname
+          
+          ctx.pushContext(Context(CTX.METHOD, pname, puri))
           val scope = ctx.constructScope(v, unitDeclaration.getDeclaration, true)
           ctx.scopeCache -= unitDeclaration.getDeclaration
-          ctx.popContext
 
           v(unitDeclaration)
           val p: ProcedureDecl = ctx.popResult
@@ -1579,14 +1596,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val elements = _scope.typeDeclarations
           if (!_scope.constants.isEmpty)
-            elements += ConstDecl(NameDefinition("$CONST"), ivectorEmpty, _scope.constants.toList)
+            elements += createConstDecl(false, _scope.constants.toList)
 
           elements += p
 
-          val puri = "ada://package_body__anonymous/" + pname
-          val name = Some(NameDefinition(pname))
+          val name = ctx.addResourceUri(NameDefinition(pname), puri)
+          ctx.popContext
 
-          PackageDecl(name, ivectorEmpty, elements.toList)
+          PackageDecl(Some(name), ivectorEmpty, elements.toList)
         } else
           throw new RuntimeException("Unexpected compilation unit: " + o)
 
@@ -1654,7 +1671,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
   }
 
-  def methodH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def methodH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     def handleMethod(o: Base, sloc: SourceLocation, names: DefiningNameList,
       paramProfile: ParameterSpecificationList,
       bodyDeclItems: Option[ElementList], bodyStatements: Option[StatementList],
@@ -1670,7 +1687,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val mname = ctx.addResourceUri(NameDefinition(methodDefName), methodDefUri)
       mname at (ctx.fileUri, sloc2.getLine, sloc2.getCol)
 
-      ctx.pushContext((CTX.METHOD, methodDefName))
+      ctx.pushContext(Context(CTX.METHOD, methodDefName, methodDefUri))
 
       val scope = ctx.constructScope(v, o)
 
@@ -1750,6 +1767,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       pd(URIS.REF_URI) = mname.uri //methodDefUri
 
+      pd.parentUri(ctx.contextStack.tail.head.uri)
+      
       ctx.noTempVars(true)
       aspectSpecs.getElements.foreach {
         case as @ AspectSpecificationEx(sloc, mark, aspectDef, checks) =>
@@ -1979,7 +1998,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
   }
 
-  def nameH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def nameH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     case o: DefiningIdentifier =>
       val (sloc, name, refUri, typeUri) = ctx.getName(o)
 
@@ -2037,7 +2056,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       false
   }
 
-  def statementH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def statementH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     case o @ AssignmentStatementEx(sloc, labelNames, assignmentVariableName, assignmentExpression, checks) =>
 
       v(assignmentVariableName)
@@ -2320,7 +2339,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       false
   }
 
-  def aggregateH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def aggregateH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     case o @ NamedArrayAggregateEx(sloc, arrayAssocs, typ, checks) =>
       // Table'(2 | 4 | 10 => 1, others => 0)
 
@@ -2409,7 +2428,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       false
   }
 
-  def attributeH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def attributeH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     def h(prefix: Base, attr: String, typeUri: String = null, createTypeExp: Boolean = true) = {
       v(prefix)
       val p: NameExp = ctx.popResult
@@ -2532,7 +2551,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
   }
 
-  def expressionH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def expressionH(ctx: VContext, v: => BVisitor): VisitorFunction = {
 
     def handleQuantifiedExp(isUniversal: Boolean, iter: Base, pred: Base, typ: String, checks: String) = {
       val (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound) = ctx.handleLoopParam(v, iter)
@@ -2779,7 +2798,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
   }
 
-  def contractsH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def contractsH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     case o @ AssertPragmaEx(sloc, pragmaArgumentAssociations, pragmaName, checks) =>
       ctx.noTempVars(true)
       for (a <- pragmaArgumentAssociations.getAssociations) {
@@ -2839,7 +2858,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       false
   }
 
-  def everythingElseH(ctx: Context, v: => BVisitor): VisitorFunction = {
+  def everythingElseH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     case o if (o != null) =>
       ctx.unhandledSet += o.getClass.getSimpleName
       true
@@ -2848,7 +2867,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
   }
 
   def theVisitor: BVisitor = b
-  val theContext = new Context {
+  val theContext = new VContext {
     stackLocationList.push(mlistEmpty[LocationDecl])
   }
 
@@ -2896,7 +2915,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           assert(o.getNamesQl.getDefiningNames.size == 1)
           val pname = o.getNamesQl.getDefiningNames.head.asInstanceOf[DefiningIdentifier]
 
-          theContext.pushContext((CTX.PACKAGE, pname.getDefName))
+          theContext.pushContext(Context(CTX.PACKAGE, pname.getDefName, pname.getDef))
 
           val scope = theContext.constructScope(b, o)
 

@@ -1,0 +1,104 @@
+Package Table
+  ada://package/in_range_name_exp-1:9
+    ada://package/in_range_name_exp-1:9
+    ada://package_body/in_range_name_exp-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/in_range_name_exp-1:9
+    ada://package/in_range_name_exp-1:9
+    ada://package_body/in_range_name_exp-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://function/in_range_name_exp-1:9/test-3:12 
+    ada://function/in_range_name_exp-1:9/test-3:12 
+    ada://function_body/in_range_name_exp-1:9/test-3:12 
+  ada://function_body/in_range_name_exp-1:9/test-3:12 
+    ada://function/in_range_name_exp-1:9/test-3:12 
+    ada://function_body/in_range_name_exp-1:9/test-3:12 
+
+Procedure Symbol Table
+  ada://function/in_range_name_exp-1:9/test-3:12 
+
+    LocalVarTable
+      ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 
+
+    Params
+      ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 
+
+  ada://function_body/in_range_name_exp-1:9/test-3:12 
+
+    LocalVarTable
+      ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 
+      ada://variable/in_range_name_exp-1:9/test-3:12/ret+7:5 
+      ada://variable_temp/in_range_name_exp/test/_t0 
+      ada://variable_temp/in_range_name_exp/test/_t1 
+      ada://variable_temp/in_range_name_exp/test/_t10 
+      ada://variable_temp/in_range_name_exp/test/_t11 
+      ada://variable_temp/in_range_name_exp/test/_t12 
+      ada://variable_temp/in_range_name_exp/test/_t13 
+      ada://variable_temp/in_range_name_exp/test/_t14 
+      ada://variable_temp/in_range_name_exp/test/_t15 
+      ada://variable_temp/in_range_name_exp/test/_t16 
+      ada://variable_temp/in_range_name_exp/test/_t17 
+      ada://variable_temp/in_range_name_exp/test/_t18 
+      ada://variable_temp/in_range_name_exp/test/_t19 
+      ada://variable_temp/in_range_name_exp/test/_t2 
+      ada://variable_temp/in_range_name_exp/test/_t20 
+      ada://variable_temp/in_range_name_exp/test/_t21 
+      ada://variable_temp/in_range_name_exp/test/_t22 
+      ada://variable_temp/in_range_name_exp/test/_t23 
+      ada://variable_temp/in_range_name_exp/test/_t24 
+      ada://variable_temp/in_range_name_exp/test/_t25 
+      ada://variable_temp/in_range_name_exp/test/_t26 
+      ada://variable_temp/in_range_name_exp/test/_t27 
+      ada://variable_temp/in_range_name_exp/test/_t28 
+      ada://variable_temp/in_range_name_exp/test/_t29 
+      ada://variable_temp/in_range_name_exp/test/_t3 
+      ada://variable_temp/in_range_name_exp/test/_t30 
+      ada://variable_temp/in_range_name_exp/test/_t31 
+      ada://variable_temp/in_range_name_exp/test/_t32 
+      ada://variable_temp/in_range_name_exp/test/_t33 
+      ada://variable_temp/in_range_name_exp/test/_t34 
+      ada://variable_temp/in_range_name_exp/test/_t35 
+      ada://variable_temp/in_range_name_exp/test/_t36 
+      ada://variable_temp/in_range_name_exp/test/_t37 
+      ada://variable_temp/in_range_name_exp/test/_t38 
+      ada://variable_temp/in_range_name_exp/test/_t39 
+      ada://variable_temp/in_range_name_exp/test/_t4 
+      ada://variable_temp/in_range_name_exp/test/_t40 
+      ada://variable_temp/in_range_name_exp/test/_t41 
+      ada://variable_temp/in_range_name_exp/test/_t5 
+      ada://variable_temp/in_range_name_exp/test/_t6 
+      ada://variable_temp/in_range_name_exp/test/_t7 
+      ada://variable_temp/in_range_name_exp/test/_t8 
+      ada://variable_temp/in_range_name_exp/test/_t9 
+
+    Params
+      ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 
+
+

@@ -1,0 +1,99 @@
+Package Table
+  ada://package/PackageDemo_A-1:9
+    ada://package/PackageDemo_A-1:9
+    ada://package_body/PackageDemo_A-1:9
+  ada://package/PackageDemo_B-3:9
+    ada://package/PackageDemo_B-3:9
+    ada://package_body/PackageDemo_B-3:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/PackageDemo_A-1:9
+    ada://package/PackageDemo_A-1:9
+    ada://package_body/PackageDemo_A-1:9
+  ada://package_body/PackageDemo_B-3:9
+    ada://package/PackageDemo_B-3:9
+    ada://package_body/PackageDemo_B-3:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/PackageDemo_A-1:9/Q-2:13 
+    ada://procedure/PackageDemo_A-1:9/Q-2:13 
+    ada://procedure_body/PackageDemo_A-1:9/Q-2:13 
+  ada://procedure/PackageDemo_B-3:9/T-4:13 
+    ada://procedure/PackageDemo_B-3:9/T-4:13 
+    ada://procedure_body/PackageDemo_B-3:9/T-4:13 
+  ada://procedure_body/PackageDemo_A-1:9/Q-2:13 
+    ada://procedure/PackageDemo_A-1:9/Q-2:13 
+    ada://procedure_body/PackageDemo_A-1:9/Q-2:13 
+  ada://procedure_body/PackageDemo_B-3:9/T-4:13 
+    ada://procedure/PackageDemo_B-3:9/T-4:13 
+    ada://procedure_body/PackageDemo_B-3:9/T-4:13 
+
+Procedure Symbol Table
+  ada://procedure/PackageDemo_A-1:9/Q-2:13 
+
+    LocalVarTable
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/X-2:15 
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/Z-2:30 
+
+    Params
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/X-2:15 
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/Z-2:30 
+
+  ada://procedure/PackageDemo_B-3:9/T-4:13 
+
+    LocalVarTable
+      ada://parameter/PackageDemo_B-3:9/T-4:13/M-4:15 
+      ada://parameter/PackageDemo_B-3:9/T-4:13/Z-4:30 
+
+    Params
+      ada://parameter/PackageDemo_B-3:9/T-4:13/M-4:15 
+      ada://parameter/PackageDemo_B-3:9/T-4:13/Z-4:30 
+
+  ada://procedure_body/PackageDemo_A-1:9/Q-2:13 
+
+    LocalVarTable
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/X-2:15 
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/Z-2:30 
+      ada://variable_temp/PackageDemo_A/Q/_t0 
+      ada://variable_temp/PackageDemo_A/Q/_t1 
+
+    Params
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/X-2:15 
+      ada://parameter/PackageDemo_A-1:9/Q-2:13/Z-2:30 
+
+  ada://procedure_body/PackageDemo_B-3:9/T-4:13 
+
+    LocalVarTable
+      ada://parameter/PackageDemo_B-3:9/T-4:13/M-4:15 
+      ada://parameter/PackageDemo_B-3:9/T-4:13/Z-4:30 
+
+    Params
+      ada://parameter/PackageDemo_B-3:9/T-4:13/M-4:15 
+      ada://parameter/PackageDemo_B-3:9/T-4:13/Z-4:30 
+
+

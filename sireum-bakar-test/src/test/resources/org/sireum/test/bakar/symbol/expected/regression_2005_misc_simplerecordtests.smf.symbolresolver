@@ -1,0 +1,105 @@
+Package Table
+  ada://package/SimpleRecordTests-1:9
+    ada://package/SimpleRecordTests-1:9
+    ada://package_body/SimpleRecordTests-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/SimpleRecordTests-1:9
+    ada://package/SimpleRecordTests-1:9
+    ada://package_body/SimpleRecordTests-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+  ada://ordinary_type/SimpleRecordTests-1:9/NestedObject-8:6 
+  ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6 
+
+Attribute Table
+  ada://component/SimpleRecordTests-1:9/NestedObject-8:6/O-10:10 
+  ada://component/SimpleRecordTests-1:9/Object-3:6/X-5:10 
+  ada://component/SimpleRecordTests-1:9/Object-3:6/Y-5:13 
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/SimpleRecordTests-1:9/Test01-14:11 
+    ada://procedure/SimpleRecordTests-1:9/Test01-14:11 
+    ada://procedure_body/SimpleRecordTests-1:9/Test01-14:11 
+  ada://procedure_body/SimpleRecordTests-1:9/Test01-14:11 
+    ada://procedure/SimpleRecordTests-1:9/Test01-14:11 
+    ada://procedure_body/SimpleRecordTests-1:9/Test01-14:11 
+  ada://procedure_body/SimpleRecordTests-1:9/Test02+24:12 
+    ada://procedure_body/SimpleRecordTests-1:9/Test02+24:12 
+  ada://procedure_body/SimpleRecordTests-1:9/Test03+45:12 
+    ada://procedure_body/SimpleRecordTests-1:9/Test03+45:12 
+
+Procedure Symbol Table
+  ada://procedure/SimpleRecordTests-1:9/Test01-14:11 
+
+    LocalVarTable
+      ada://parameter/SimpleRecordTests-1:9/Test01-14:11/Q-14:18 
+
+    Params
+      ada://parameter/SimpleRecordTests-1:9/Test01-14:11/Q-14:18 
+
+  ada://procedure_body/SimpleRecordTests-1:9/Test01-14:11 
+
+    LocalVarTable
+      ada://parameter/SimpleRecordTests-1:9/Test01-14:11/Q-14:18 
+      ada://variable/SimpleRecordTests-1:9/Test01-14:11/T+10:7 
+
+    Params
+      ada://parameter/SimpleRecordTests-1:9/Test01-14:11/Q-14:18 
+
+  ada://procedure_body/SimpleRecordTests-1:9/Test02+24:12 
+
+    LocalVarTable
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/I1+24:19 
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/I2+24:23 
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/O1+24:38 
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/O2+24:42 
+      ada://variable/SimpleRecordTests-1:9/Test02+24:12/Q+28:7 
+
+    Params
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/I1+24:19 
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/I2+24:23 
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/O1+24:38 
+      ada://parameter/SimpleRecordTests-1:9/Test02+24:12/O2+24:42 
+
+  ada://procedure_body/SimpleRecordTests-1:9/Test03+45:12 
+
+    LocalVarTable
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/I1+45:19 
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/I2+45:23 
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O1+45:38 
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O2+45:42 
+      ada://variable/SimpleRecordTests-1:9/Test03+45:12/Q+49:7 
+      ada://variable_temp/SimpleRecordTests/Test03/_t0 
+      ada://variable_temp/SimpleRecordTests/Test03/_t1 
+      ada://variable_temp/SimpleRecordTests/Test03/_t2 
+      ada://variable_temp/SimpleRecordTests/Test03/_t3 
+
+    Params
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/I1+45:19 
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/I2+45:23 
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O1+45:38 
+      ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O2+45:42 
+
+

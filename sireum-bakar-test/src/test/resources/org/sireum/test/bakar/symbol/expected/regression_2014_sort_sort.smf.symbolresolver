@@ -1,0 +1,472 @@
+Package Table
+  ada://package/Sort-1:9
+    ada://package/Sort-1:9
+    ada://package_body/Sort-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Sort-1:9
+    ada://package/Sort-1:9
+    ada://package_body/Sort-1:9
+
+Const Table
+  ada://constant_declaration/Sort/$CONST 
+
+Const Element Table
+  ada://integer_number/Sort-1:9/Max_Elements-4:3 
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Sort-1:9/Array_Type-10:8 
+  ada://ordinary_type/Sort-1:9/Contents_Type-9:8 
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Sort-1:9/Base_Index_Type-6:11 
+  ada://subtype/Sort-1:9/Index_Type-7:11 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://function/Sort-1:9/Ordered-12:12 
+    ada://function/Sort-1:9/Ordered-12:12 
+    ada://function_body/Sort-1:9/Ordered-12:12 
+  ada://function/Sort-1:9/Perm-14:12 
+    ada://function/Sort-1:9/Perm-14:12 
+    ada://function_body/Sort-1:9/Perm-14:12 
+  ada://function_body/Sort-1:9/Num_Repetition+2:12 
+    ada://function_body/Sort-1:9/Num_Repetition+2:12 
+  ada://function_body/Sort-1:9/Ordered-12:12 
+    ada://function/Sort-1:9/Ordered-12:12 
+    ada://function_body/Sort-1:9/Ordered-12:12 
+  ada://function_body/Sort-1:9/Partitioned+39:12 
+    ada://function_body/Sort-1:9/Partitioned+39:12 
+  ada://function_body/Sort-1:9/Perm-14:12 
+    ada://function/Sort-1:9/Perm-14:12 
+    ada://function_body/Sort-1:9/Perm-14:12 
+  ada://procedure/Sort-1:9/BubbleSort-16:13 
+    ada://procedure/Sort-1:9/BubbleSort-16:13 
+    ada://procedure_body/Sort-1:9/BubbleSort-16:13 
+  ada://procedure/Sort-1:9/BubbleSortFast-24:13 
+    ada://procedure/Sort-1:9/BubbleSortFast-24:13 
+    ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
+  ada://procedure/Sort-1:9/InsertionSort-32:13 
+    ada://procedure/Sort-1:9/InsertionSort-32:13 
+    ada://procedure_body/Sort-1:9/InsertionSort-32:13 
+  ada://procedure/Sort-1:9/ShellSort-40:13 
+    ada://procedure/Sort-1:9/ShellSort-40:13 
+    ada://procedure_body/Sort-1:9/ShellSort-40:13 
+  ada://procedure_body/Sort-1:9/BubbleSort-16:13 
+    ada://procedure/Sort-1:9/BubbleSort-16:13 
+    ada://procedure_body/Sort-1:9/BubbleSort-16:13 
+  ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
+    ada://procedure/Sort-1:9/BubbleSortFast-24:13 
+    ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
+  ada://procedure_body/Sort-1:9/InsertionSort-32:13 
+    ada://procedure/Sort-1:9/InsertionSort-32:13 
+    ada://procedure_body/Sort-1:9/InsertionSort-32:13 
+  ada://procedure_body/Sort-1:9/ShellSort-40:13 
+    ada://procedure/Sort-1:9/ShellSort-40:13 
+    ada://procedure_body/Sort-1:9/ShellSort-40:13 
+  ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
+    ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
+
+Procedure Symbol Table
+  ada://function/Sort-1:9/Ordered-12:12 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/Ordered-12:12/A-12:20 
+      ada://parameter/Sort-1:9/Ordered-12:12/L-12:36 
+      ada://parameter/Sort-1:9/Ordered-12:12/U-12:38 
+
+    Params
+      ada://parameter/Sort-1:9/Ordered-12:12/A-12:20 
+      ada://parameter/Sort-1:9/Ordered-12:12/L-12:36 
+      ada://parameter/Sort-1:9/Ordered-12:12/U-12:38 
+
+  ada://function/Sort-1:9/Perm-14:12 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/Perm-14:12/A-14:17 
+      ada://parameter/Sort-1:9/Perm-14:12/B-14:20 
+      ada://parameter/Sort-1:9/Perm-14:12/L-14:36 
+      ada://parameter/Sort-1:9/Perm-14:12/U-14:38 
+
+    Params
+      ada://parameter/Sort-1:9/Perm-14:12/A-14:17 
+      ada://parameter/Sort-1:9/Perm-14:12/B-14:20 
+      ada://parameter/Sort-1:9/Perm-14:12/L-14:36 
+      ada://parameter/Sort-1:9/Perm-14:12/U-14:38 
+
+  ada://function_body/Sort-1:9/Num_Repetition+2:12 
+
+    LocalVarTable
+      ada://loop_parameter/Sort-1:9/Num_Repetition+2:12/I+7:9 
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/A+2:27 
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/E+2:43 
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/L+3:27 
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/U+3:29 
+      ada://variable/Sort-1:9/Num_Repetition+2:12/Result+5:5 
+      ada://variable__temp/Num_Repetition/Sort/_tcomp0 
+      ada://variable__temp/Num_Repetition/Sort/_tcomp1 
+      ada://variable_temp/Sort/Num_Repetition/_t0 
+      ada://variable_temp/Sort/Num_Repetition/_t1 
+      ada://variable_temp/Sort/Num_Repetition/_t2 
+      ada://variable_temp/Sort/Num_Repetition/_t3 
+      ada://variable_temp/Sort/Num_Repetition/_t4 
+      ada://variable_temp/Sort/Num_Repetition/_t5 
+      ada://variable_temp/Sort/Num_Repetition/_t6 
+      ada://variable_temp/Sort/Num_Repetition/_t7 
+      ada://variable_temp/Sort/Num_Repetition/_t8 
+      ada://variable_temp/Sort/Num_Repetition/_t9 
+
+    Params
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/A+2:27 
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/E+2:43 
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/L+3:27 
+      ada://parameter/Sort-1:9/Num_Repetition+2:12/U+3:29 
+
+  ada://function_body/Sort-1:9/Ordered-12:12 
+
+    LocalVarTable
+      ada://loop_parameter/Sort-1:9/Ordered-12:12/I+31:9 
+      ada://parameter/Sort-1:9/Ordered-12:12/A-12:20 
+      ada://parameter/Sort-1:9/Ordered-12:12/L-12:36 
+      ada://parameter/Sort-1:9/Ordered-12:12/U-12:38 
+      ada://variable/Sort-1:9/Ordered-12:12/Result+29:5 
+      ada://variable__temp/Ordered/Sort/_tcomp6 
+      ada://variable__temp/Ordered/Sort/_tcomp7 
+      ada://variable_temp/Sort/Ordered/_t18 
+      ada://variable_temp/Sort/Ordered/_t19 
+      ada://variable_temp/Sort/Ordered/_t20 
+      ada://variable_temp/Sort/Ordered/_t21 
+      ada://variable_temp/Sort/Ordered/_t22 
+      ada://variable_temp/Sort/Ordered/_t23 
+      ada://variable_temp/Sort/Ordered/_t24 
+      ada://variable_temp/Sort/Ordered/_t25 
+      ada://variable_temp/Sort/Ordered/_t26 
+      ada://variable_temp/Sort/Ordered/_t27 
+      ada://variable_temp/Sort/Ordered/_t28 
+      ada://variable_temp/Sort/Ordered/_t29 
+
+    Params
+      ada://parameter/Sort-1:9/Ordered-12:12/A-12:20 
+      ada://parameter/Sort-1:9/Ordered-12:12/L-12:36 
+      ada://parameter/Sort-1:9/Ordered-12:12/U-12:38 
+
+  ada://function_body/Sort-1:9/Partitioned+39:12 
+
+    LocalVarTable
+      ada://loop_parameter/Sort-1:9/Partitioned+39:12/I+46:9 
+      ada://loop_parameter/Sort-1:9/Partitioned+39:12/J+47:11 
+      ada://parameter/Sort-1:9/Partitioned+39:12/A+39:24 
+      ada://parameter/Sort-1:9/Partitioned+39:12/L+40:24 
+      ada://parameter/Sort-1:9/Partitioned+39:12/M+40:27 
+      ada://parameter/Sort-1:9/Partitioned+39:12/U+40:30 
+      ada://variable/Sort-1:9/Partitioned+39:12/Result+44:5 
+      ada://variable__temp/Partitioned/Sort/_tcomp10 
+      ada://variable__temp/Partitioned/Sort/_tcomp11 
+      ada://variable__temp/Partitioned/Sort/_tcomp8 
+      ada://variable__temp/Partitioned/Sort/_tcomp9 
+      ada://variable_temp/Sort/Partitioned/_t30 
+      ada://variable_temp/Sort/Partitioned/_t31 
+      ada://variable_temp/Sort/Partitioned/_t32 
+      ada://variable_temp/Sort/Partitioned/_t33 
+      ada://variable_temp/Sort/Partitioned/_t34 
+      ada://variable_temp/Sort/Partitioned/_t35 
+      ada://variable_temp/Sort/Partitioned/_t36 
+      ada://variable_temp/Sort/Partitioned/_t37 
+      ada://variable_temp/Sort/Partitioned/_t38 
+      ada://variable_temp/Sort/Partitioned/_t39 
+      ada://variable_temp/Sort/Partitioned/_t40 
+      ada://variable_temp/Sort/Partitioned/_t41 
+      ada://variable_temp/Sort/Partitioned/_t42 
+      ada://variable_temp/Sort/Partitioned/_t43 
+      ada://variable_temp/Sort/Partitioned/_t44 
+      ada://variable_temp/Sort/Partitioned/_t45 
+
+    Params
+      ada://parameter/Sort-1:9/Partitioned+39:12/A+39:24 
+      ada://parameter/Sort-1:9/Partitioned+39:12/L+40:24 
+      ada://parameter/Sort-1:9/Partitioned+39:12/M+40:27 
+      ada://parameter/Sort-1:9/Partitioned+39:12/U+40:30 
+
+  ada://function_body/Sort-1:9/Perm-14:12 
+
+    LocalVarTable
+      ada://loop_parameter/Sort-1:9/Perm-14:12/I+19:9 
+      ada://parameter/Sort-1:9/Perm-14:12/A-14:17 
+      ada://parameter/Sort-1:9/Perm-14:12/B-14:20 
+      ada://parameter/Sort-1:9/Perm-14:12/L-14:36 
+      ada://parameter/Sort-1:9/Perm-14:12/U-14:38 
+      ada://variable/Sort-1:9/Perm-14:12/Result+17:5 
+      ada://variable__temp/Perm/Sort/_tcomp2 
+      ada://variable__temp/Perm/Sort/_tcomp3 
+      ada://variable__temp/Perm/Sort/_tcomp4 
+      ada://variable__temp/Perm/Sort/_tcomp5 
+      ada://variable_temp/Sort/Perm/_t10 
+      ada://variable_temp/Sort/Perm/_t11 
+      ada://variable_temp/Sort/Perm/_t12 
+      ada://variable_temp/Sort/Perm/_t13 
+      ada://variable_temp/Sort/Perm/_t14 
+      ada://variable_temp/Sort/Perm/_t15 
+      ada://variable_temp/Sort/Perm/_t16 
+      ada://variable_temp/Sort/Perm/_t17 
+
+    Params
+      ada://parameter/Sort-1:9/Perm-14:12/A-14:17 
+      ada://parameter/Sort-1:9/Perm-14:12/B-14:20 
+      ada://parameter/Sort-1:9/Perm-14:12/L-14:36 
+      ada://parameter/Sort-1:9/Perm-14:12/U-14:38 
+
+  ada://procedure/Sort-1:9/BubbleSort-16:13 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24 
+
+    Params
+      ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24 
+
+  ada://procedure/Sort-1:9/BubbleSortFast-24:13 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28 
+
+    Params
+      ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28 
+
+  ada://procedure/Sort-1:9/InsertionSort-32:13 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27 
+
+    Params
+      ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27 
+
+  ada://procedure/Sort-1:9/ShellSort-40:13 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23 
+
+    Params
+      ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23 
+
+  ada://procedure_body/Sort-1:9/BubbleSort-16:13 
+
+    LocalVarTable
+      ada://loop_parameter/Sort-1:9/BubbleSort-16:13/I+73:10 
+      ada://loop_parameter/Sort-1:9/BubbleSort-16:13/J+74:12 
+      ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24 
+      ada://variable__temp/BubbleSort/Sort/_tcomp12 
+      ada://variable__temp/BubbleSort/Sort/_tcomp13 
+      ada://variable__temp/BubbleSort/Sort/_tcomp14 
+      ada://variable__temp/BubbleSort/Sort/_tcomp15 
+      ada://variable_temp/Sort/BubbleSort/_t46 
+      ada://variable_temp/Sort/BubbleSort/_t47 
+      ada://variable_temp/Sort/BubbleSort/_t48 
+      ada://variable_temp/Sort/BubbleSort/_t49 
+      ada://variable_temp/Sort/BubbleSort/_t50 
+      ada://variable_temp/Sort/BubbleSort/_t51 
+      ada://variable_temp/Sort/BubbleSort/_t52 
+      ada://variable_temp/Sort/BubbleSort/_t53 
+      ada://variable_temp/Sort/BubbleSort/_t54 
+      ada://variable_temp/Sort/BubbleSort/_t55 
+      ada://variable_temp/Sort/BubbleSort/_t56 
+      ada://variable_temp/Sort/BubbleSort/_t57 
+      ada://variable_temp/Sort/BubbleSort/_t58 
+      ada://variable_temp/Sort/BubbleSort/_t59 
+      ada://variable_temp/Sort/BubbleSort/_t60 
+      ada://variable_temp/Sort/BubbleSort/_t61 
+      ada://variable_temp/Sort/BubbleSort/_t62 
+      ada://variable_temp/Sort/BubbleSort/_t63 
+      ada://variable_temp/Sort/BubbleSort/_t64 
+      ada://variable_temp/Sort/BubbleSort/_t65 
+      ada://variable_temp/Sort/BubbleSort/_t66 
+      ada://variable_temp/Sort/BubbleSort/_t67 
+      ada://variable_temp/Sort/BubbleSort/_t68 
+      ada://variable_temp/Sort/BubbleSort/_t69 
+      ada://variable_temp/Sort/BubbleSort/_t70 
+      ada://variable_temp/Sort/BubbleSort/_t71 
+      ada://variable_temp/Sort/BubbleSort/_t72 
+      ada://variable_temp/Sort/BubbleSort/_t73 
+      ada://variable_temp/Sort/BubbleSort/_t74 
+      ada://variable_temp/Sort/BubbleSort/_t75 
+
+    Params
+      ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24 
+
+  ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28 
+      ada://variable/Sort-1:9/BubbleSortFast-24:13/Bound+100:5 
+      ada://variable/Sort-1:9/BubbleSortFast-24:13/J+102:5 
+      ada://variable/Sort-1:9/BubbleSortFast-24:13/T+101:5 
+      ada://variable_temp/Sort/BubbleSortFast/_t100 
+      ada://variable_temp/Sort/BubbleSortFast/_t101 
+      ada://variable_temp/Sort/BubbleSortFast/_t76 
+      ada://variable_temp/Sort/BubbleSortFast/_t77 
+      ada://variable_temp/Sort/BubbleSortFast/_t78 
+      ada://variable_temp/Sort/BubbleSortFast/_t79 
+      ada://variable_temp/Sort/BubbleSortFast/_t80 
+      ada://variable_temp/Sort/BubbleSortFast/_t81 
+      ada://variable_temp/Sort/BubbleSortFast/_t82 
+      ada://variable_temp/Sort/BubbleSortFast/_t83 
+      ada://variable_temp/Sort/BubbleSortFast/_t84 
+      ada://variable_temp/Sort/BubbleSortFast/_t85 
+      ada://variable_temp/Sort/BubbleSortFast/_t86 
+      ada://variable_temp/Sort/BubbleSortFast/_t87 
+      ada://variable_temp/Sort/BubbleSortFast/_t88 
+      ada://variable_temp/Sort/BubbleSortFast/_t89 
+      ada://variable_temp/Sort/BubbleSortFast/_t90 
+      ada://variable_temp/Sort/BubbleSortFast/_t91 
+      ada://variable_temp/Sort/BubbleSortFast/_t92 
+      ada://variable_temp/Sort/BubbleSortFast/_t93 
+      ada://variable_temp/Sort/BubbleSortFast/_t94 
+      ada://variable_temp/Sort/BubbleSortFast/_t95 
+      ada://variable_temp/Sort/BubbleSortFast/_t96 
+      ada://variable_temp/Sort/BubbleSortFast/_t97 
+      ada://variable_temp/Sort/BubbleSortFast/_t98 
+      ada://variable_temp/Sort/BubbleSortFast/_t99 
+
+    Params
+      ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28 
+
+  ada://procedure_body/Sort-1:9/InsertionSort-32:13 
+
+    LocalVarTable
+      ada://loop_parameter/Sort-1:9/InsertionSort-32:13/P+142:9 
+      ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27 
+      ada://variable/Sort-1:9/InsertionSort-32:13/J+139:5 
+      ada://variable/Sort-1:9/InsertionSort-32:13/Temp+140:5 
+      ada://variable__temp/InsertionSort/Sort/_tcomp16 
+      ada://variable__temp/InsertionSort/Sort/_tcomp17 
+      ada://variable_temp/Sort/InsertionSort/_t102 
+      ada://variable_temp/Sort/InsertionSort/_t103 
+      ada://variable_temp/Sort/InsertionSort/_t104 
+      ada://variable_temp/Sort/InsertionSort/_t105 
+      ada://variable_temp/Sort/InsertionSort/_t106 
+      ada://variable_temp/Sort/InsertionSort/_t107 
+      ada://variable_temp/Sort/InsertionSort/_t108 
+      ada://variable_temp/Sort/InsertionSort/_t109 
+      ada://variable_temp/Sort/InsertionSort/_t110 
+      ada://variable_temp/Sort/InsertionSort/_t111 
+      ada://variable_temp/Sort/InsertionSort/_t112 
+      ada://variable_temp/Sort/InsertionSort/_t113 
+      ada://variable_temp/Sort/InsertionSort/_t114 
+      ada://variable_temp/Sort/InsertionSort/_t115 
+      ada://variable_temp/Sort/InsertionSort/_t116 
+      ada://variable_temp/Sort/InsertionSort/_t117 
+      ada://variable_temp/Sort/InsertionSort/_t118 
+      ada://variable_temp/Sort/InsertionSort/_t119 
+      ada://variable_temp/Sort/InsertionSort/_t120 
+      ada://variable_temp/Sort/InsertionSort/_t121 
+      ada://variable_temp/Sort/InsertionSort/_t122 
+      ada://variable_temp/Sort/InsertionSort/_t123 
+      ada://variable_temp/Sort/InsertionSort/_t124 
+      ada://variable_temp/Sort/InsertionSort/_t125 
+      ada://variable_temp/Sort/InsertionSort/_t126 
+      ada://variable_temp/Sort/InsertionSort/_t127 
+      ada://variable_temp/Sort/InsertionSort/_t128 
+      ada://variable_temp/Sort/InsertionSort/_t129 
+      ada://variable_temp/Sort/InsertionSort/_t130 
+      ada://variable_temp/Sort/InsertionSort/_t131 
+      ada://variable_temp/Sort/InsertionSort/_t132 
+      ada://variable_temp/Sort/InsertionSort/_t133 
+      ada://variable_temp/Sort/InsertionSort/_t134 
+      ada://variable_temp/Sort/InsertionSort/_t135 
+      ada://variable_temp/Sort/InsertionSort/_t136 
+      ada://variable_temp/Sort/InsertionSort/_t137 
+      ada://variable_temp/Sort/InsertionSort/_t138 
+      ada://variable_temp/Sort/InsertionSort/_t139 
+      ada://variable_temp/Sort/InsertionSort/_t140 
+      ada://variable_temp/Sort/InsertionSort/_t141 
+      ada://variable_temp/Sort/InsertionSort/_t142 
+      ada://variable_temp/Sort/InsertionSort/_t143 
+      ada://variable_temp/Sort/InsertionSort/_t144 
+      ada://variable_temp/Sort/InsertionSort/_t145 
+      ada://variable_temp/Sort/InsertionSort/_t146 
+      ada://variable_temp/Sort/InsertionSort/_t147 
+      ada://variable_temp/Sort/InsertionSort/_t148 
+      ada://variable_temp/Sort/InsertionSort/_t149 
+      ada://variable_temp/Sort/InsertionSort/_t150 
+      ada://variable_temp/Sort/InsertionSort/_t151 
+      ada://variable_temp/Sort/InsertionSort/_t152 
+      ada://variable_temp/Sort/InsertionSort/_t153 
+      ada://variable_temp/Sort/InsertionSort/_t154 
+      ada://variable_temp/Sort/InsertionSort/_t155 
+      ada://variable_temp/Sort/InsertionSort/_t156 
+      ada://variable_temp/Sort/InsertionSort/_t157 
+      ada://variable_temp/Sort/InsertionSort/_t158 
+      ada://variable_temp/Sort/InsertionSort/_t159 
+      ada://variable_temp/Sort/InsertionSort/_t160 
+      ada://variable_temp/Sort/InsertionSort/_t161 
+      ada://variable_temp/Sort/InsertionSort/_t162 
+      ada://variable_temp/Sort/InsertionSort/_t163 
+
+    Params
+      ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27 
+
+  ada://procedure_body/Sort-1:9/ShellSort-40:13 
+
+    LocalVarTable
+      ada://loop_parameter/Sort-1:9/ShellSort-40:13/I+188:11 
+      ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23 
+      ada://variable/Sort-1:9/ShellSort-40:13/Gap+182:5 
+      ada://variable/Sort-1:9/ShellSort-40:13/J+183:5 
+      ada://variable__temp/ShellSort/Sort/_tcomp18 
+      ada://variable__temp/ShellSort/Sort/_tcomp19 
+      ada://variable_temp/Sort/ShellSort/_t164 
+      ada://variable_temp/Sort/ShellSort/_t165 
+      ada://variable_temp/Sort/ShellSort/_t166 
+      ada://variable_temp/Sort/ShellSort/_t167 
+      ada://variable_temp/Sort/ShellSort/_t168 
+      ada://variable_temp/Sort/ShellSort/_t169 
+      ada://variable_temp/Sort/ShellSort/_t170 
+      ada://variable_temp/Sort/ShellSort/_t171 
+      ada://variable_temp/Sort/ShellSort/_t172 
+      ada://variable_temp/Sort/ShellSort/_t173 
+      ada://variable_temp/Sort/ShellSort/_t174 
+      ada://variable_temp/Sort/ShellSort/_t175 
+      ada://variable_temp/Sort/ShellSort/_t176 
+      ada://variable_temp/Sort/ShellSort/_t177 
+      ada://variable_temp/Sort/ShellSort/_t178 
+      ada://variable_temp/Sort/ShellSort/_t179 
+      ada://variable_temp/Sort/ShellSort/_t180 
+      ada://variable_temp/Sort/ShellSort/_t181 
+      ada://variable_temp/Sort/ShellSort/_t182 
+      ada://variable_temp/Sort/ShellSort/_t183 
+      ada://variable_temp/Sort/ShellSort/_t184 
+      ada://variable_temp/Sort/ShellSort/_t185 
+      ada://variable_temp/Sort/ShellSort/_t186 
+      ada://variable_temp/Sort/ShellSort/_t187 
+
+    Params
+      ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23 
+
+  ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
+
+    LocalVarTable
+      ada://parameter/Sort-1:9/Swap_Elements+56:13/I+56:50 
+      ada://parameter/Sort-1:9/Swap_Elements+56:13/J+56:53 
+      ada://parameter/Sort-1:9/Swap_Elements+56:13/T+56:27 
+      ada://variable/Sort-1:9/Swap_Elements+56:13/Temp+64:5 
+
+    Params
+      ada://parameter/Sort-1:9/Swap_Elements+56:13/I+56:50 
+      ada://parameter/Sort-1:9/Swap_Elements+56:13/J+56:53 
+      ada://parameter/Sort-1:9/Swap_Elements+56:13/T+56:27 
+
+

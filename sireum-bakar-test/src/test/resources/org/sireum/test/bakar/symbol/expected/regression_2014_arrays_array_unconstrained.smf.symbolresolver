@@ -1,0 +1,172 @@
+Package Table
+  ada://package/Array_Unconstrained-1:9
+    ada://package/Array_Unconstrained-1:9
+    ada://package_body/Array_Unconstrained-1:9
+  ada://package/Array_Unconstrained_T-3:9
+    ada://package/Array_Unconstrained_T-3:9
+    ada://package_body/Array_Unconstrained_T-3:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Array_Unconstrained-1:9
+    ada://package/Array_Unconstrained-1:9
+    ada://package_body/Array_Unconstrained-1:9
+  ada://package_body/Array_Unconstrained_T-3:9
+    ada://package/Array_Unconstrained_T-3:9
+    ada://package_body/Array_Unconstrained_T-3:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8 
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Array_Unconstrained_T-3:9/ConsVector-7:11 
+  ada://subtype/Array_Unconstrained_T-3:9/Index-6:11 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 
+    ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 
+    ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
+  ada://function/Array_Unconstrained-1:9/isSorted-6:12 
+    ada://function/Array_Unconstrained-1:9/isSorted-6:12 
+    ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
+  ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+  ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
+    ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
+    ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
+  ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
+    ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 
+    ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
+  ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
+    ada://function/Array_Unconstrained-1:9/isSorted-6:12 
+    ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
+  ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+  ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
+    ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
+    ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
+
+Procedure Symbol Table
+  ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 
+
+    LocalVarTable
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
+
+    Params
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
+
+  ada://function/Array_Unconstrained-1:9/isSorted-6:12 
+
+    LocalVarTable
+      ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
+
+    Params
+      ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
+
+  ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+
+    LocalVarTable
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25 
+
+    Params
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25 
+
+  ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
+
+    LocalVarTable
+      ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 
+
+    Params
+      ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 
+
+  ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
+
+    LocalVarTable
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
+      ada://variable_temp/Array_Unconstrained/indexIsValue/_t12 
+      ada://variable_temp/Array_Unconstrained/indexIsValue/_t13 
+
+    Params
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
+      ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
+
+  ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
+
+    LocalVarTable
+      ada://loop_parameter/Array_Unconstrained-1:9/isSorted-6:12/I+5:9 
+      ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
+      ada://variable/Array_Unconstrained-1:9/isSorted-6:12/B+3:5 
+      ada://variable__temp/isSorted/Array_Unconstrained/_tcomp0 
+      ada://variable__temp/isSorted/Array_Unconstrained/_tcomp1 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t0 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t1 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t10 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t11 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t2 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t3 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t4 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t5 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t6 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t7 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t8 
+      ada://variable_temp/Array_Unconstrained/isSorted/_t9 
+
+    Params
+      ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
+
+  ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+
+    LocalVarTable
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25 
+      ada://variable__temp/indexIsValue/Array_Unconstrained_T/_tcomp3 
+
+    Params
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52 
+      ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25 
+
+  ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
+
+    LocalVarTable
+      ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 
+      ada://variable__temp/isSorted/Array_Unconstrained_T/_tcomp2 
+
+    Params
+      ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 
+
+

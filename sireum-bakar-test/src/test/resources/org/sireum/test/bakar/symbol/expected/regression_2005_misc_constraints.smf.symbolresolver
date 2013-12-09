@@ -1,0 +1,82 @@
+Package Table
+  ada://package/Constraints-1:9
+    ada://package/Constraints-1:9
+    ada://package_body/Constraints-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Constraints-1:9
+    ada://package/Constraints-1:9
+    ada://package_body/Constraints-1:9
+
+Const Table
+  ada://constant_declaration/Constraints/$CONST 
+
+Const Element Table
+  ada://constant/Constraints-1:9/Int_Low_Const-4:3 
+  ada://integer_number/Constraints-1:9/Int_High_Const-5:3 
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Constraints-1:9/Day-8:8 
+  ada://ordinary_type/Constraints-1:9/Int_Range-6:8 
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Constraints-1:9/Sub_Int-3:11 
+  ada://subtype/Constraints-1:9/Weekday-9:11 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/Constraints-1:9/foo-11:13 
+    ada://procedure/Constraints-1:9/foo-11:13 
+    ada://procedure_body/Constraints-1:9/foo-11:13 
+  ada://procedure_body/Constraints-1:9/foo-11:13 
+    ada://procedure/Constraints-1:9/foo-11:13 
+    ada://procedure_body/Constraints-1:9/foo-11:13 
+
+Procedure Symbol Table
+  ada://procedure/Constraints-1:9/foo-11:13 
+
+    LocalVarTable
+      ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
+      ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
+
+    Params
+      ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
+      ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
+
+  ada://procedure_body/Constraints-1:9/foo-11:13 
+
+    LocalVarTable
+      ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
+      ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
+      ada://variable_temp/Constraints/foo/_t0 
+      ada://variable_temp/Constraints/foo/_t1 
+      ada://variable_temp/Constraints/foo/_t2 
+      ada://variable_temp/Constraints/foo/_t3 
+      ada://variable_temp/Constraints/foo/_t4 
+      ada://variable_temp/Constraints/foo/_t5 
+      ada://variable_temp/Constraints/foo/_t6 
+      ada://variable_temp/Constraints/foo/_t7 
+      ada://variable_temp/Constraints/foo/_t8 
+      ada://variable_temp/Constraints/foo/_t9 
+
+    Params
+      ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
+      ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
+
+

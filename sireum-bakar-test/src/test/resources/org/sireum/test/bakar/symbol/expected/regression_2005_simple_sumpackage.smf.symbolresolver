@@ -1,0 +1,100 @@
+Package Table
+  ada://package/SumPackage-1:9
+    ada://package/SumPackage-1:9
+    ada://package_body/SumPackage-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/SumPackage-1:9
+    ada://package/SumPackage-1:9
+    ada://package_body/SumPackage-1:9
+
+Const Table
+
+Const Element Table
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+
+Record Table
+
+Attribute Table
+
+Type Alias Table
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://function/SumPackage-1:9/Sum-2:12 
+    ada://function/SumPackage-1:9/Sum-2:12 
+    ada://function_body/SumPackage-1:9/Sum-2:12 
+  ada://function_body/SumPackage-1:9/Sum-2:12 
+    ada://function/SumPackage-1:9/Sum-2:12 
+    ada://function_body/SumPackage-1:9/Sum-2:12 
+  ada://procedure_body/SumPackage-1:9/Sum2+20:13 
+    ada://procedure_body/SumPackage-1:9/Sum2+20:13 
+
+Procedure Symbol Table
+  ada://function/SumPackage-1:9/Sum-2:12 
+
+    LocalVarTable
+      ada://parameter/SumPackage-1:9/Sum-2:12/N-2:16 
+
+    Params
+      ada://parameter/SumPackage-1:9/Sum-2:12/N-2:16 
+
+  ada://function_body/SumPackage-1:9/Sum-2:12 
+
+    LocalVarTable
+      ada://parameter/SumPackage-1:9/Sum-2:12/N-2:16 
+      ada://variable/SumPackage-1:9/Sum-2:12/R+4:5 
+      ada://variable/SumPackage-1:9/Sum-2:12/T+4:8 
+      ada://variable_temp/SumPackage/Sum/_t0 
+      ada://variable_temp/SumPackage/Sum/_t1 
+      ada://variable_temp/SumPackage/Sum/_t10 
+      ada://variable_temp/SumPackage/Sum/_t11 
+      ada://variable_temp/SumPackage/Sum/_t2 
+      ada://variable_temp/SumPackage/Sum/_t3 
+      ada://variable_temp/SumPackage/Sum/_t4 
+      ada://variable_temp/SumPackage/Sum/_t5 
+      ada://variable_temp/SumPackage/Sum/_t6 
+      ada://variable_temp/SumPackage/Sum/_t7 
+      ada://variable_temp/SumPackage/Sum/_t8 
+      ada://variable_temp/SumPackage/Sum/_t9 
+
+    Params
+      ada://parameter/SumPackage-1:9/Sum-2:12/N-2:16 
+
+  ada://procedure_body/SumPackage-1:9/Sum2+20:13 
+
+    LocalVarTable
+      ada://parameter/SumPackage-1:9/Sum2+20:13/N+20:18 
+      ada://parameter/SumPackage-1:9/Sum2+20:13/R+20:31 
+      ada://variable/SumPackage-1:9/Sum2+20:13/T+23:5 
+      ada://variable_temp/SumPackage/Sum2/_t12 
+      ada://variable_temp/SumPackage/Sum2/_t13 
+      ada://variable_temp/SumPackage/Sum2/_t14 
+      ada://variable_temp/SumPackage/Sum2/_t15 
+      ada://variable_temp/SumPackage/Sum2/_t16 
+      ada://variable_temp/SumPackage/Sum2/_t17 
+      ada://variable_temp/SumPackage/Sum2/_t18 
+      ada://variable_temp/SumPackage/Sum2/_t19 
+      ada://variable_temp/SumPackage/Sum2/_t20 
+      ada://variable_temp/SumPackage/Sum2/_t21 
+      ada://variable_temp/SumPackage/Sum2/_t22 
+      ada://variable_temp/SumPackage/Sum2/_t23 
+
+    Params
+      ada://parameter/SumPackage-1:9/Sum2+20:13/N+20:18 
+      ada://parameter/SumPackage-1:9/Sum2+20:13/R+20:31 
+
+

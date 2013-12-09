@@ -1,0 +1,88 @@
+Package Table
+  ada://package/Array_Of_Records_Of_Array-1:9
+    ada://package/Array_Of_Records_Of_Array-1:9
+    ada://package_body/Array_Of_Records_Of_Array-1:9
+  ada://package__default/standard
+    ada://package__default/standard
+  ada://package_body/Array_Of_Records_Of_Array-1:9
+    ada://package/Array_Of_Records_Of_Array-1:9
+    ada://package_body/Array_Of_Records_Of_Array-1:9
+
+Const Table
+  ada://constant_declaration/Array_Of_Records_Of_Array/$CONST 
+
+Const Element Table
+  ada://constant/Array_Of_Records_Of_Array-1:9/dummyObject-21:3 
+
+Enum Table
+
+Enum Element Table
+
+Global Var Table
+  ada://variable/Array_Of_Records_Of_Array-1:9/@@oArray-25:3 
+
+Record Table
+  ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Object-15:8 
+
+Attribute Table
+  ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/X-17:7 
+  ada://component/Array_Of_Records_Of_Array-1:9/Object-15:8/Y-18:7 
+
+Type Alias Table
+  ada://ordinary_type/Array_Of_Records_Of_Array-1:9/Index_Range-11:8 
+  ada://ordinary_type/Array_Of_Records_Of_Array-1:9/IntArray-13:8 
+  ada://ordinary_type/Array_Of_Records_Of_Array-1:9/ObjectArray-23:8 
+  ada://ordinary_type/Standard-1:1/Boolean-1:1 
+  ada://ordinary_type/Standard-1:1/Character-1:1 
+  ada://ordinary_type/Standard-1:1/Float-1:1 
+  ada://ordinary_type/Standard-1:1/Integer-1:1 
+  ada://ordinary_type/Standard-1:1/String-1:1 
+  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/universal_real 
+  ada://subtype/Standard-1:1/Natural-1:1 
+  ada://subtype/Standard-1:1/Positive-1:1 
+
+Procedure Table
+  ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+  ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+  ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+    ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+
+Procedure Symbol Table
+  ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+
+    LocalVarTable
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
+
+    Params
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
+
+  ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+
+    LocalVarTable
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
+      ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp1+4:6 
+      ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp2+5:6 
+      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t0 
+      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t1 
+      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t2 
+      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t3 
+
+    Params
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 
+      ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
+
+  ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+
+    LocalVarTable
+
+    Params
+
+
