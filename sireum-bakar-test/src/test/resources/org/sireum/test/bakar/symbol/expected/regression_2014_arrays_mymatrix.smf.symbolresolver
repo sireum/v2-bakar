@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/MyMatrix-1:9
-    ada://package/MyMatrix-1:9
-    ada://package_body/MyMatrix-1:9
+    SPEC: ada://package/MyMatrix-1:9
+    BODY: ada://package_body/MyMatrix-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/MyMatrix-1:9
-    ada://package/MyMatrix-1:9
-    ada://package_body/MyMatrix-1:9
+    SPEC: ada://package/MyMatrix-1:9
+    BODY: ada://package_body/MyMatrix-1:9
 
 Const Table
 
@@ -44,6 +44,14 @@ Procedure Table
   ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
     ada://procedure/MyMatrix-1:9/Multiply-7:13 
     ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
+
+Spark Method Table
+  ada://procedure/MyMatrix-1:9/Multiply-7:13 
+    SPEC: ada://procedure/MyMatrix-1:9/Multiply-7:13 
+    BODY: ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
+  ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
+    SPEC: ada://procedure/MyMatrix-1:9/Multiply-7:13 
+    BODY: ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
 
 Procedure Symbol Table
   ada://procedure/MyMatrix-1:9/Multiply-7:13 

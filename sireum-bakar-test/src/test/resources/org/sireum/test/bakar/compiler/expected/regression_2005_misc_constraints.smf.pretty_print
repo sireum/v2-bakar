@@ -295,7 +295,7 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
       ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Int_Range-6:8</string>""")
 ;
 
-typealias _ENUMERATION_TYPE_ Day
+enum Day
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -342,7 +342,9 @@ typealias _ENUMERATION_TYPE_ Day
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Day-8:8</string>""")
-;
+ {
+  Mon, Tue, Wed, Thur, Fri, Sat, Sun
+}
 
 typealias Day Weekday
     @BAKAR_TYPE_DEF

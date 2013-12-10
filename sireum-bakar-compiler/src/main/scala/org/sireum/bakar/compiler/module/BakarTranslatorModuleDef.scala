@@ -188,6 +188,8 @@ import org.sireum.pilar.ast.ConstDecl
 import org.sireum.pilar.ast.ConstElement
 import org.sireum.pilar.ast.EmptyBody
 import org.sireum.pilar.ast.EmptyLocation
+import org.sireum.pilar.ast.EnumDecl
+import org.sireum.pilar.ast.EnumElement
 import org.sireum.pilar.ast.Exp
 import org.sireum.pilar.ast.ExtendClause
 import org.sireum.pilar.ast.ExternalExp
@@ -1190,8 +1192,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
                 NamedTypeSpec(NameUser("_SIGNED_INTEGER_TYPE_"), ilistEmpty[TypeSpec]))
             case etd: EnumerationTypeDef =>
-              TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
-                NamedTypeSpec(NameUser("_ENUMERATION_TYPE_"), ilistEmpty[TypeSpec]))
+              val elems = for((n,u) <- etd.elems) yield {
+                EnumElement(this.addResourceUri(NameDefinition(n), u), ivectorEmpty)
+              }
+              EnumDecl(NameDefinition(tname), ivectorEmpty, elems.toList)
             case uad: UnconstrainedArrayDef =>
               TypeAliasDecl(NameDefinition(tname),
                 ivectorEmpty,

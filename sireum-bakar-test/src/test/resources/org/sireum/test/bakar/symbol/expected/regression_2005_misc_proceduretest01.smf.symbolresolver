@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/ProcedureTest01-1:9
-    ada://package/ProcedureTest01-1:9
-    ada://package_body/ProcedureTest01-1:9
+    SPEC: ada://package/ProcedureTest01-1:9
+    BODY: ada://package_body/ProcedureTest01-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/ProcedureTest01-1:9
-    ada://package/ProcedureTest01-1:9
-    ada://package_body/ProcedureTest01-1:9
+    SPEC: ada://package/ProcedureTest01-1:9
+    BODY: ada://package_body/ProcedureTest01-1:9
 
 Const Table
 
@@ -52,6 +52,26 @@ Procedure Table
   ada://procedure_body/ProcedureTest01-1:9/helper-7:13 
     ada://procedure/ProcedureTest01-1:9/helper-7:13 
     ada://procedure_body/ProcedureTest01-1:9/helper-7:13 
+
+Spark Method Table
+  ada://procedure/ProcedureTest01-1:9/P-3:13 
+    SPEC: ada://procedure/ProcedureTest01-1:9/P-3:13 
+    BODY: ada://procedure_body/ProcedureTest01-1:9/P-3:13 
+  ada://procedure/ProcedureTest01-1:9/Q-11:13 
+    SPEC: ada://procedure/ProcedureTest01-1:9/Q-11:13 
+    BODY: ada://procedure_body/ProcedureTest01-1:9/Q-11:13 
+  ada://procedure/ProcedureTest01-1:9/helper-7:13 
+    SPEC: ada://procedure/ProcedureTest01-1:9/helper-7:13 
+    BODY: ada://procedure_body/ProcedureTest01-1:9/helper-7:13 
+  ada://procedure_body/ProcedureTest01-1:9/P-3:13 
+    SPEC: ada://procedure/ProcedureTest01-1:9/P-3:13 
+    BODY: ada://procedure_body/ProcedureTest01-1:9/P-3:13 
+  ada://procedure_body/ProcedureTest01-1:9/Q-11:13 
+    SPEC: ada://procedure/ProcedureTest01-1:9/Q-11:13 
+    BODY: ada://procedure_body/ProcedureTest01-1:9/Q-11:13 
+  ada://procedure_body/ProcedureTest01-1:9/helper-7:13 
+    SPEC: ada://procedure/ProcedureTest01-1:9/helper-7:13 
+    BODY: ada://procedure_body/ProcedureTest01-1:9/helper-7:13 
 
 Procedure Symbol Table
   ada://procedure/ProcedureTest01-1:9/P-3:13 

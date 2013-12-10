@@ -1,18 +1,18 @@
-Package Table
+Spark Package Table
   ada://package/PackageDemo_A-1:9
-    ada://package/PackageDemo_A-1:9
-    ada://package_body/PackageDemo_A-1:9
+    SPEC: ada://package/PackageDemo_A-1:9
+    BODY: ada://package_body/PackageDemo_A-1:9
   ada://package/PackageDemo_B-3:9
-    ada://package/PackageDemo_B-3:9
-    ada://package_body/PackageDemo_B-3:9
+    SPEC: ada://package/PackageDemo_B-3:9
+    BODY: ada://package_body/PackageDemo_B-3:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/PackageDemo_A-1:9
-    ada://package/PackageDemo_A-1:9
-    ada://package_body/PackageDemo_A-1:9
+    SPEC: ada://package/PackageDemo_A-1:9
+    BODY: ada://package_body/PackageDemo_A-1:9
   ada://package_body/PackageDemo_B-3:9
-    ada://package/PackageDemo_B-3:9
-    ada://package_body/PackageDemo_B-3:9
+    SPEC: ada://package/PackageDemo_B-3:9
+    BODY: ada://package_body/PackageDemo_B-3:9
 
 Const Table
 
@@ -52,6 +52,20 @@ Procedure Table
   ada://procedure_body/PackageDemo_B-3:9/T-4:13 
     ada://procedure/PackageDemo_B-3:9/T-4:13 
     ada://procedure_body/PackageDemo_B-3:9/T-4:13 
+
+Spark Method Table
+  ada://procedure/PackageDemo_A-1:9/Q-2:13 
+    SPEC: ada://procedure/PackageDemo_A-1:9/Q-2:13 
+    BODY: ada://procedure_body/PackageDemo_A-1:9/Q-2:13 
+  ada://procedure/PackageDemo_B-3:9/T-4:13 
+    SPEC: ada://procedure/PackageDemo_B-3:9/T-4:13 
+    BODY: ada://procedure_body/PackageDemo_B-3:9/T-4:13 
+  ada://procedure_body/PackageDemo_A-1:9/Q-2:13 
+    SPEC: ada://procedure/PackageDemo_A-1:9/Q-2:13 
+    BODY: ada://procedure_body/PackageDemo_A-1:9/Q-2:13 
+  ada://procedure_body/PackageDemo_B-3:9/T-4:13 
+    SPEC: ada://procedure/PackageDemo_B-3:9/T-4:13 
+    BODY: ada://procedure_body/PackageDemo_B-3:9/T-4:13 
 
 Procedure Symbol Table
   ada://procedure/PackageDemo_A-1:9/Q-2:13 

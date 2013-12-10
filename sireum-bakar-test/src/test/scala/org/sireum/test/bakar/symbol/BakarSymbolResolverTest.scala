@@ -60,11 +60,11 @@ object BakarSymbolResolverTest extends ImplicitLogging {
     import BakarSymbolResolverModule.ConsumerView._
     val st = job.symbolTable
     
-    w.write("Package Table\n")
-    for((k, vals) <- st.packagesTable.toSeq.sortBy(_._1)){
+    w.write("Spark Package Table\n")
+    for((k, vals) <- st.sparkPackageTable.toSeq.sortBy(_._1)){
       w.write(s"  $k\n")
-      for(v <- vals.sortBy(f => f))
-        w.write(s"    $v\n")
+      if(vals.spec.isDefined) w.write(s"    SPEC: ${vals.spec.get.name.get.uri}\n")
+      if(vals.body.isDefined) w.write(s"    BODY: ${vals.body.get.name.get.uri}\n")      
     }
     w.write("\n")
     
@@ -115,6 +115,14 @@ object BakarSymbolResolverTest extends ImplicitLogging {
         w.write(s"    $v \n")
     }
     w.write("\n")
+    
+    w.write("Spark Method Table\n")    
+    for((k, vals) <- st.sparkMethodTable.toSeq.sortBy(_._1)) { 
+      w.write(s"  $k \n")
+      if(vals.spec.isDefined) w.write(s"    SPEC: ${vals.spec.get.name.uri} \n")
+      if(vals.body.isDefined) w.write(s"    BODY: ${vals.body.get.name.uri} \n")      
+    }
+    w.write("\n")    
 
     w.write("Procedure Symbol Table\n")        
     for(bst <- st.procedureSymbolTables.toSeq.sortBy(f => f.procedureUri)) {

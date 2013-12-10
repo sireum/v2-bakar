@@ -1,8 +1,8 @@
 digraph G {
-  "$$binit" [ label="P_Simple_Call_Two.$$binit" ];
-  "R" [ label="P_Simple_Call_Two.R" ];
-  "Q" [ label="P_Simple_Call_Two.Q" ];
-  "Q" [ label="P_Simple_Call_Two.Q" ];
-  "R" [ label="P_Simple_Call_Two.R" ];
-  "Q" -> "R";
+  "ada://procedure_body__package_init/P_Simple_Call_Two/$$binit" [ label="P_Simple_Call_Two.$$binit" ];
+  "ada://procedure_body/P_Simple_Call_Two-1:9/R-11:13" [ label="P_Simple_Call_Two.R" ];
+  "ada://procedure_body/P_Simple_Call_Two-1:9/Q-7:13" [ label="P_Simple_Call_Two.Q" ];
+  "ada://procedure/P_Simple_Call_Two-1:9/Q-7:13" [ label="P_Simple_Call_Two.Q" ];
+  "ada://procedure/P_Simple_Call_Two-1:9/R-11:13" [ label="P_Simple_Call_Two.R" ];
+  "ada://procedure_body/P_Simple_Call_Two-1:9/Q-7:13" -> "ada://procedure_body/P_Simple_Call_Two-1:9/R-11:13";
 }

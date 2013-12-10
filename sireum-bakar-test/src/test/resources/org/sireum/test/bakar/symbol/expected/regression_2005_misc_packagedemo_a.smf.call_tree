@@ -1,4 +1,4 @@
 digraph G {
-  "Q" [ label="PackageDemo_A.Q" ];
-  "Q" [ label="PackageDemo_A.Q" ];
+  "ada://procedure_body/PackageDemo_A-1:9/Q-2:13" [ label="PackageDemo_A.Q" ];
+  "ada://procedure/PackageDemo_A-1:9/Q-2:13" [ label="PackageDemo_A.Q" ];
 }

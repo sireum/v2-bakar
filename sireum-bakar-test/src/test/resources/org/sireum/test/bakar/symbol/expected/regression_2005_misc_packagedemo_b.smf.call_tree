@@ -1,7 +1,7 @@
 digraph G {
-  "Q" [ label="PackageDemo_A.Q" ];
-  "Q" [ label="PackageDemo_A.Q" ];
-  "T" [ label="PackageDemo_B.T" ];
-  "T" [ label="PackageDemo_B.T" ];
-  "T" -> "Q";
+  "ada://procedure_body/PackageDemo_A-1:9/Q-2:13" [ label="PackageDemo_A.Q" ];
+  "ada://procedure/PackageDemo_A-1:9/Q-2:13" [ label="PackageDemo_A.Q" ];
+  "ada://procedure_body/PackageDemo_B-3:9/T-4:13" [ label="PackageDemo_B.T" ];
+  "ada://procedure/PackageDemo_B-3:9/T-4:13" [ label="PackageDemo_B.T" ];
+  "ada://procedure_body/PackageDemo_B-3:9/T-4:13" -> "ada://procedure_body/PackageDemo_A-1:9/Q-2:13";
 }

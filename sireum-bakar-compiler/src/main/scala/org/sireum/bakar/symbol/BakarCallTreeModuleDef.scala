@@ -38,8 +38,8 @@ case class CallInfo(
 
 trait CallTree {
   val graph: DirectedMultigraph[ProcedureDecl, CallInfo]
-  val symbolTable : BakarSymbolTable
-  
+  val symbolTable: BakarSymbolTable
+
   def getAllInfo = graph.edgeSet
 
   def getCalleeInfo(m: ProcedureDecl) = graph.outgoingEdgesOf(m)
@@ -48,7 +48,7 @@ trait CallTree {
 
   def outputCallTree = {
     val vnp = new VertexNameProvider[ProcedureDecl] {
-      def getVertexName(m: ProcedureDecl) = "\"" + m.name.name + "\""
+      def getVertexName(m: ProcedureDecl) = "\"" + m.name.uri + "\""
     }
     val vnp2 = new VertexNameProvider[ProcedureDecl] {
       def getVertexName(m: ProcedureDecl) = {
@@ -122,23 +122,22 @@ class BakarCallTreeModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
         val uri = o.name.uri
 
         if (URIS.isAdaMethodUri(uri) && symbolTable.procedures.contains(uri)) {
-          val target = 
+          val target =
             if (URIS.isAdaMethodSpecUri(uri)) {
               val cand = symbolTable.procedures(uri) - uri
-              if(cand.size == 1) cand.head
+              if (cand.size == 1) cand.head
               else uri
-            }
-            else uri
+            } else uri
 
           val _target = this.symbolTable.procedureSymbolTable(target).procedure
           ctx.graph.addVertex(_target)
-          val ci = CallInfo(
+          val edge = CallInfo(
             location = ctx.currentLoc,
             name = o,
             target = _target,
             source = ctx.currentProc)
 
-          ctx.graph.addEdge(ctx.currentProc, _target, ci)
+          ctx.graph.addEdge(ctx.currentProc, _target, edge)
         }
       }
       false
@@ -155,8 +154,8 @@ class BakarCallTreeModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
   val b = Visitor.build(impl(theVisitor))
 
   for (m <- this.models) b(m)
-  
-  this.callTree = new CallTree { 
+
+  this.callTree = new CallTree {
     val graph = ctx.graph
     val symbolTable = BakarCallTreeModuleDef.this.symbolTable
   }

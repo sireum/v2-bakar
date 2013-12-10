@@ -751,7 +751,7 @@ typealias _PRIVATE_TYPE_DECLARATION_ StackID
       ("""<string sid="1">ada://private_type/The_Stack_Demonic-1:9/StackID-9:9</string>""")
 ;
 
-typealias _ENUMERATION_TYPE_ Status
+enum Status
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -782,7 +782,9 @@ typealias _ENUMERATION_TYPE_ Status
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/The_Stack_Demonic-1:9/Status-14:9</string>""")
-;
+ {
+  Empty, Full, Normal
+}
 
 typealias Status BoundaryStatus
     @BAKAR_TYPE_DEF

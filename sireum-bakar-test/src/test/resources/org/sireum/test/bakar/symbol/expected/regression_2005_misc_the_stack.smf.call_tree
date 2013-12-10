@@ -1,11 +1,11 @@
 digraph G {
-  "$$binit" [ label="The_Stack.$$binit" ];
-  "Push" [ label="The_Stack.Push" ];
-  "Pop" [ label="The_Stack.Pop" ];
-  "Value_Present" [ label="The_Stack.Value_Present" ];
-  "Find_Stack_Pos" [ label="The_Stack.Find_Stack_Pos" ];
-  "aPrivateFunction" [ label="The_Stack.aPrivateFunction" ];
-  "Push" [ label="The_Stack.Push" ];
-  "Pop" [ label="The_Stack.Pop" ];
-  "aPrivateFunction" [ label="The_Stack.aPrivateFunction" ];
+  "ada://procedure_body__package_init/The_Stack/$$binit" [ label="The_Stack.$$binit" ];
+  "ada://procedure_body/The_Stack-1:9/Push-31:14" [ label="The_Stack.Push" ];
+  "ada://procedure_body/The_Stack-1:9/Pop-36:14" [ label="The_Stack.Pop" ];
+  "ada://function_body/The_Stack-1:9/Value_Present+46:13" [ label="The_Stack.Value_Present" ];
+  "ada://function_body/The_Stack-1:9/Find_Stack_Pos+67:13" [ label="The_Stack.Find_Stack_Pos" ];
+  "ada://function_body/The_Stack-1:9/aPrivateFunction-48:13" [ label="The_Stack.aPrivateFunction" ];
+  "ada://procedure/The_Stack-1:9/Push-31:14" [ label="The_Stack.Push" ];
+  "ada://procedure/The_Stack-1:9/Pop-36:14" [ label="The_Stack.Pop" ];
+  "ada://function/The_Stack-1:9/aPrivateFunction-48:13" [ label="The_Stack.aPrivateFunction" ];
 }

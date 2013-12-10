@@ -1,6 +1,6 @@
 digraph G {
-  "Test01" [ label="SimpleRecordTests.Test01" ];
-  "Test02" [ label="SimpleRecordTests.Test02" ];
-  "Test03" [ label="SimpleRecordTests.Test03" ];
-  "Test01" [ label="SimpleRecordTests.Test01" ];
+  "ada://procedure_body/SimpleRecordTests-1:9/Test01-14:11" [ label="SimpleRecordTests.Test01" ];
+  "ada://procedure_body/SimpleRecordTests-1:9/Test02+24:12" [ label="SimpleRecordTests.Test02" ];
+  "ada://procedure_body/SimpleRecordTests-1:9/Test03+45:12" [ label="SimpleRecordTests.Test03" ];
+  "ada://procedure/SimpleRecordTests-1:9/Test01-14:11" [ label="SimpleRecordTests.Test01" ];
 }

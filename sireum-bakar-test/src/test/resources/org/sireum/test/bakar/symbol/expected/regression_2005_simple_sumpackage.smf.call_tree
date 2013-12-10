@@ -1,5 +1,5 @@
 digraph G {
-  "Sum" [ label="SumPackage.Sum" ];
-  "Sum2" [ label="SumPackage.Sum2" ];
-  "Sum" [ label="SumPackage.Sum" ];
+  "ada://function_body/SumPackage-1:9/Sum-2:12" [ label="SumPackage.Sum" ];
+  "ada://procedure_body/SumPackage-1:9/Sum2+20:13" [ label="SumPackage.Sum2" ];
+  "ada://function/SumPackage-1:9/Sum-2:12" [ label="SumPackage.Sum" ];
 }

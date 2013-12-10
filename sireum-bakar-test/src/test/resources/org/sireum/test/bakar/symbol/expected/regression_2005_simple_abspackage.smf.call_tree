@@ -1,4 +1,4 @@
 digraph G {
-  "AbsFunc" [ label="AbsPackage.AbsFunc" ];
-  "AbsFunc" [ label="AbsPackage.AbsFunc" ];
+  "ada://function_body/AbsPackage-1:9/AbsFunc-2:14" [ label="AbsPackage.AbsFunc" ];
+  "ada://function/AbsPackage-1:9/AbsFunc-2:14" [ label="AbsPackage.AbsFunc" ];
 }

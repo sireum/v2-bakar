@@ -1,5 +1,5 @@
 digraph G {
-  "$$binit" [ label="Array_Of_Records_Of_Array.$$binit" ];
-  "Swap" [ label="Array_Of_Records_Of_Array.Swap" ];
-  "Swap" [ label="Array_Of_Records_Of_Array.Swap" ];
+  "ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit" [ label="Array_Of_Records_Of_Array.$$binit" ];
+  "ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13" [ label="Array_Of_Records_Of_Array.Swap" ];
+  "ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13" [ label="Array_Of_Records_Of_Array.Swap" ];
 }

@@ -1,4 +1,4 @@
 digraph G {
-  "MinFunc" [ label="Minpackage.MinFunc" ];
-  "MinFunc" [ label="Minpackage.MinFunc" ];
+  "ada://function_body/Minpackage-1:9/MinFunc-2:12" [ label="Minpackage.MinFunc" ];
+  "ada://function/Minpackage-1:9/MinFunc-2:12" [ label="Minpackage.MinFunc" ];
 }

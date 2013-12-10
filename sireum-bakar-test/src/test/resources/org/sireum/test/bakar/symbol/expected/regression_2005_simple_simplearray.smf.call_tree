@@ -1,6 +1,6 @@
 digraph G {
-  "$$binit" [ label="SimpleArray.$$binit" ];
-  "Dummy" [ label="SimpleArray.Dummy" ];
-  "Max" [ label="SimpleArray.Max" ];
-  "Dummy" [ label="SimpleArray.Dummy" ];
+  "ada://procedure_body__package_init/SimpleArray/$$binit" [ label="SimpleArray.$$binit" ];
+  "ada://function_body/SimpleArray-1:9/Dummy-3:13" [ label="SimpleArray.Dummy" ];
+  "ada://function_body/SimpleArray-1:9/Max+11:13" [ label="SimpleArray.Max" ];
+  "ada://function/SimpleArray-1:9/Dummy-3:13" [ label="SimpleArray.Dummy" ];
 }

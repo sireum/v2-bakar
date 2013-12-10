@@ -1,7 +1,7 @@
 digraph G {
-  "Dummy" [ label="SimpleRecord.Dummy" ];
-  "Add" [ label="SimpleRecord.Add" ];
-  "NAdd" [ label="SimpleRecord.NAdd" ];
-  "AAdd" [ label="SimpleRecord.AAdd" ];
-  "Dummy" [ label="SimpleRecord.Dummy" ];
+  "ada://function_body/SimpleRecord-1:9/Dummy-2:13" [ label="SimpleRecord.Dummy" ];
+  "ada://procedure_body/SimpleRecord-1:9/Add+18:14" [ label="SimpleRecord.Add" ];
+  "ada://procedure_body/SimpleRecord-1:9/NAdd+23:14" [ label="SimpleRecord.NAdd" ];
+  "ada://procedure_body/SimpleRecord-1:9/AAdd+28:14" [ label="SimpleRecord.AAdd" ];
+  "ada://function/SimpleRecord-1:9/Dummy-2:13" [ label="SimpleRecord.Dummy" ];
 }

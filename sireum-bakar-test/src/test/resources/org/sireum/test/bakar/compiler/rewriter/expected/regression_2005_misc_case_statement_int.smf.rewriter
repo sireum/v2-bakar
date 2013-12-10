@@ -194,7 +194,9 @@ procedure Activity isWorkDay (
 }package Case_Statement_Int;
 
 
-typealias _ENUMERATION_TYPE_ Activity;
+enum Activity {
+  Work, Party, Drink
+}
 
 typealias Integer IntType;
 

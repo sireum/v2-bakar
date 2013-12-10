@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/Sort_Simple_Contract-1:9
-    ada://package/Sort_Simple_Contract-1:9
-    ada://package_body/Sort_Simple_Contract-1:9
+    SPEC: ada://package/Sort_Simple_Contract-1:9
+    BODY: ada://package_body/Sort_Simple_Contract-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Sort_Simple_Contract-1:9
-    ada://package/Sort_Simple_Contract-1:9
-    ada://package_body/Sort_Simple_Contract-1:9
+    SPEC: ada://package/Sort_Simple_Contract-1:9
+    BODY: ada://package_body/Sort_Simple_Contract-1:9
 
 Const Table
   ada://constant_declaration/Sort_Simple_Contract/$CONST 
@@ -92,6 +92,62 @@ Procedure Table
     ada://procedure_body/Sort_Simple_Contract-1:9/SwapElements+82:13 
   ada://procedure_body/Sort_Simple_Contract-1:9/dddd+76:13 
     ada://procedure_body/Sort_Simple_Contract-1:9/dddd+76:13 
+
+Spark Method Table
+  ada://function/Sort_Simple_Contract-1:9/isPerm-12:12 
+    SPEC: ada://function/Sort_Simple_Contract-1:9/isPerm-12:12 
+    BODY: ada://function_body/Sort_Simple_Contract-1:9/isPerm-12:12 
+  ada://function/Sort_Simple_Contract-1:9/isSet-13:12 
+    SPEC: ada://function/Sort_Simple_Contract-1:9/isSet-13:12 
+    BODY: ada://function_body/Sort_Simple_Contract-1:9/isSet-13:12 
+  ada://function/Sort_Simple_Contract-1:9/isSorted-9:12 
+    SPEC: ada://function/Sort_Simple_Contract-1:9/isSorted-9:12 
+    BODY: ada://function_body/Sort_Simple_Contract-1:9/isSorted-9:12 
+  ada://function_body/Sort_Simple_Contract-1:9/Num_Repetitions+13:12 
+    BODY: ada://function_body/Sort_Simple_Contract-1:9/Num_Repetitions+13:12 
+  ada://function_body/Sort_Simple_Contract-1:9/isPerm-12:12 
+    SPEC: ada://function/Sort_Simple_Contract-1:9/isPerm-12:12 
+    BODY: ada://function_body/Sort_Simple_Contract-1:9/isPerm-12:12 
+  ada://function_body/Sort_Simple_Contract-1:9/isSet-13:12 
+    SPEC: ada://function/Sort_Simple_Contract-1:9/isSet-13:12 
+    BODY: ada://function_body/Sort_Simple_Contract-1:9/isSet-13:12 
+  ada://function_body/Sort_Simple_Contract-1:9/isSorted-9:12 
+    SPEC: ada://function/Sort_Simple_Contract-1:9/isSorted-9:12 
+    BODY: ada://function_body/Sort_Simple_Contract-1:9/isSorted-9:12 
+  ada://procedure/Sort_Simple_Contract-1:9/BubbleSort-15:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/BubbleSort-15:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort-15:13 
+  ada://procedure/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
+  ada://procedure/Sort_Simple_Contract-1:9/InsertionSort-25:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/InsertionSort-25:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/InsertionSort-25:13 
+  ada://procedure/Sort_Simple_Contract-1:9/SelectionSort-30:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/SelectionSort-30:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/SelectionSort-30:13 
+  ada://procedure/Sort_Simple_Contract-1:9/ShellSort-35:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/ShellSort-35:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/ShellSort-35:13 
+  ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort-15:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/BubbleSort-15:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort-15:13 
+  ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
+  ada://procedure_body/Sort_Simple_Contract-1:9/InsertionSort-25:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/InsertionSort-25:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/InsertionSort-25:13 
+  ada://procedure_body/Sort_Simple_Contract-1:9/SelectionSort-30:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/SelectionSort-30:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/SelectionSort-30:13 
+  ada://procedure_body/Sort_Simple_Contract-1:9/ShellSort-35:13 
+    SPEC: ada://procedure/Sort_Simple_Contract-1:9/ShellSort-35:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/ShellSort-35:13 
+  ada://procedure_body/Sort_Simple_Contract-1:9/SwapElements+82:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/SwapElements+82:13 
+  ada://procedure_body/Sort_Simple_Contract-1:9/dddd+76:13 
+    BODY: ada://procedure_body/Sort_Simple_Contract-1:9/dddd+76:13 
 
 Procedure Symbol Table
   ada://function/Sort_Simple_Contract-1:9/isPerm-12:12 

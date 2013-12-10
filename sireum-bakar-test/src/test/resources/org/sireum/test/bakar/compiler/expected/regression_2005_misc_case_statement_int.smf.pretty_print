@@ -140,7 +140,7 @@ package Case_Statement_Int
 ;
 
 
-typealias _ENUMERATION_TYPE_ Activity
+enum Activity
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -171,7 +171,9 @@ typealias _ENUMERATION_TYPE_ Activity
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Int-1:9/Activity-3:8</string>""")
-;
+ {
+  Work, Party, Drink
+}
 
 typealias Integer IntType
     @BAKAR_TYPE_DEF

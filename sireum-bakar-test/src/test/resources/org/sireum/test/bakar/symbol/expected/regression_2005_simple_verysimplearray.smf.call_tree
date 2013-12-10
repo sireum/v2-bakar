@@ -1,6 +1,6 @@
 digraph G {
-  "Dummy" [ label="VerySimpleArray.Dummy" ];
-  "Add" [ label="VerySimpleArray.Add" ];
-  "Del" [ label="VerySimpleArray.Del" ];
-  "Dummy" [ label="VerySimpleArray.Dummy" ];
+  "ada://function_body/VerySimpleArray-1:9/Dummy-3:13" [ label="VerySimpleArray.Dummy" ];
+  "ada://procedure_body/VerySimpleArray-1:9/Add+11:14" [ label="VerySimpleArray.Add" ];
+  "ada://procedure_body/VerySimpleArray-1:9/Del+16:14" [ label="VerySimpleArray.Del" ];
+  "ada://function/VerySimpleArray-1:9/Dummy-3:13" [ label="VerySimpleArray.Dummy" ];
 }

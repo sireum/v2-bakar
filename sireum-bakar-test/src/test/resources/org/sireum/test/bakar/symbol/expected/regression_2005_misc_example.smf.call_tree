@@ -1,8 +1,8 @@
 digraph G {
-  "add" [ label="Example.add" ];
-  "foo" [ label="Example.foo" ];
-  "add" [ label="Example.add" ];
-  "foo" [ label="Example.foo" ];
-  "foo" -> "add";
-  "foo" -> "add";
+  "ada://procedure_body/Example-1:9/add-2:15" [ label="Example.add" ];
+  "ada://procedure_body/Example-1:9/foo-5:15" [ label="Example.foo" ];
+  "ada://procedure/Example-1:9/add-2:15" [ label="Example.add" ];
+  "ada://procedure/Example-1:9/foo-5:15" [ label="Example.foo" ];
+  "ada://procedure_body/Example-1:9/foo-5:15" -> "ada://procedure_body/Example-1:9/add-2:15";
+  "ada://procedure_body/Example-1:9/foo-5:15" -> "ada://procedure_body/Example-1:9/add-2:15";
 }

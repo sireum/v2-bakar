@@ -1,4 +1,4 @@
 digraph G {
-  "test" [ label="in_range_name_exp.test" ];
-  "test" [ label="in_range_name_exp.test" ];
+  "ada://function_body/in_range_name_exp-1:9/test-3:12" [ label="in_range_name_exp.test" ];
+  "ada://function/in_range_name_exp-1:9/test-3:12" [ label="in_range_name_exp.test" ];
 }

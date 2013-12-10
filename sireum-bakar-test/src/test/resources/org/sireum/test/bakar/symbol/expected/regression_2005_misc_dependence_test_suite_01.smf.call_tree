@@ -1,14 +1,14 @@
 digraph G {
-  "Success0" [ label="Dependence_Test_Suite_01.Success0" ];
-  "Success1" [ label="Dependence_Test_Suite_01.Success1" ];
-  "Success2" [ label="Dependence_Test_Suite_01.Success2" ];
-  "Success3" [ label="Dependence_Test_Suite_01.Success3" ];
-  "Success4" [ label="Dependence_Test_Suite_01.Success4" ];
-  "Success5" [ label="Dependence_Test_Suite_01.Success5" ];
-  "Success6" [ label="Dependence_Test_Suite_01.Success6" ];
-  "Success7" [ label="Dependence_Test_Suite_01.Success7" ];
-  "Success8" [ label="Dependence_Test_Suite_01.Success8" ];
-  "Success9" [ label="Dependence_Test_Suite_01.Success9" ];
-  "Success10" [ label="Dependence_Test_Suite_01.Success10" ];
-  "Success0" [ label="Dependence_Test_Suite_01.Success0" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success0-3:13" [ label="Dependence_Test_Suite_01.Success0" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success1+12:13" [ label="Dependence_Test_Suite_01.Success1" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success2+20:13" [ label="Dependence_Test_Suite_01.Success2" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success3+36:13" [ label="Dependence_Test_Suite_01.Success3" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success4+48:13" [ label="Dependence_Test_Suite_01.Success4" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success5+60:13" [ label="Dependence_Test_Suite_01.Success5" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success6+75:13" [ label="Dependence_Test_Suite_01.Success6" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success7+90:13" [ label="Dependence_Test_Suite_01.Success7" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success8+105:13" [ label="Dependence_Test_Suite_01.Success8" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success9+121:13" [ label="Dependence_Test_Suite_01.Success9" ];
+  "ada://procedure_body/Dependence_Test_Suite_01-1:9/Success10+142:13" [ label="Dependence_Test_Suite_01.Success10" ];
+  "ada://procedure/Dependence_Test_Suite_01-1:9/Success0-3:13" [ label="Dependence_Test_Suite_01.Success0" ];
 }

@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/Test_Case_10-1:9
-    ada://package/Test_Case_10-1:9
-    ada://package_body/Test_Case_10-1:9
+    SPEC: ada://package/Test_Case_10-1:9
+    BODY: ada://package_body/Test_Case_10-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Test_Case_10-1:9
-    ada://package/Test_Case_10-1:9
-    ada://package_body/Test_Case_10-1:9
+    SPEC: ada://package/Test_Case_10-1:9
+    BODY: ada://package_body/Test_Case_10-1:9
 
 Const Table
 
@@ -40,6 +40,14 @@ Procedure Table
   ada://procedure_body/Test_Case_10-1:9/P1-2:15 
     ada://procedure/Test_Case_10-1:9/P1-2:15 
     ada://procedure_body/Test_Case_10-1:9/P1-2:15 
+
+Spark Method Table
+  ada://procedure/Test_Case_10-1:9/P1-2:15 
+    SPEC: ada://procedure/Test_Case_10-1:9/P1-2:15 
+    BODY: ada://procedure_body/Test_Case_10-1:9/P1-2:15 
+  ada://procedure_body/Test_Case_10-1:9/P1-2:15 
+    SPEC: ada://procedure/Test_Case_10-1:9/P1-2:15 
+    BODY: ada://procedure_body/Test_Case_10-1:9/P1-2:15 
 
 Procedure Symbol Table
   ada://procedure/Test_Case_10-1:9/P1-2:15 

@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/Sort-1:9
-    ada://package/Sort-1:9
-    ada://package_body/Sort-1:9
+    SPEC: ada://package/Sort-1:9
+    BODY: ada://package_body/Sort-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Sort-1:9
-    ada://package/Sort-1:9
-    ada://package_body/Sort-1:9
+    SPEC: ada://package/Sort-1:9
+    BODY: ada://package_body/Sort-1:9
 
 Const Table
   ada://constant_declaration/Sort/$CONST 
@@ -82,6 +82,50 @@ Procedure Table
     ada://procedure_body/Sort-1:9/ShellSort-40:13 
   ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
     ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
+
+Spark Method Table
+  ada://function/Sort-1:9/Ordered-12:12 
+    SPEC: ada://function/Sort-1:9/Ordered-12:12 
+    BODY: ada://function_body/Sort-1:9/Ordered-12:12 
+  ada://function/Sort-1:9/Perm-14:12 
+    SPEC: ada://function/Sort-1:9/Perm-14:12 
+    BODY: ada://function_body/Sort-1:9/Perm-14:12 
+  ada://function_body/Sort-1:9/Num_Repetition+2:12 
+    BODY: ada://function_body/Sort-1:9/Num_Repetition+2:12 
+  ada://function_body/Sort-1:9/Ordered-12:12 
+    SPEC: ada://function/Sort-1:9/Ordered-12:12 
+    BODY: ada://function_body/Sort-1:9/Ordered-12:12 
+  ada://function_body/Sort-1:9/Partitioned+39:12 
+    BODY: ada://function_body/Sort-1:9/Partitioned+39:12 
+  ada://function_body/Sort-1:9/Perm-14:12 
+    SPEC: ada://function/Sort-1:9/Perm-14:12 
+    BODY: ada://function_body/Sort-1:9/Perm-14:12 
+  ada://procedure/Sort-1:9/BubbleSort-16:13 
+    SPEC: ada://procedure/Sort-1:9/BubbleSort-16:13 
+    BODY: ada://procedure_body/Sort-1:9/BubbleSort-16:13 
+  ada://procedure/Sort-1:9/BubbleSortFast-24:13 
+    SPEC: ada://procedure/Sort-1:9/BubbleSortFast-24:13 
+    BODY: ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
+  ada://procedure/Sort-1:9/InsertionSort-32:13 
+    SPEC: ada://procedure/Sort-1:9/InsertionSort-32:13 
+    BODY: ada://procedure_body/Sort-1:9/InsertionSort-32:13 
+  ada://procedure/Sort-1:9/ShellSort-40:13 
+    SPEC: ada://procedure/Sort-1:9/ShellSort-40:13 
+    BODY: ada://procedure_body/Sort-1:9/ShellSort-40:13 
+  ada://procedure_body/Sort-1:9/BubbleSort-16:13 
+    SPEC: ada://procedure/Sort-1:9/BubbleSort-16:13 
+    BODY: ada://procedure_body/Sort-1:9/BubbleSort-16:13 
+  ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
+    SPEC: ada://procedure/Sort-1:9/BubbleSortFast-24:13 
+    BODY: ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
+  ada://procedure_body/Sort-1:9/InsertionSort-32:13 
+    SPEC: ada://procedure/Sort-1:9/InsertionSort-32:13 
+    BODY: ada://procedure_body/Sort-1:9/InsertionSort-32:13 
+  ada://procedure_body/Sort-1:9/ShellSort-40:13 
+    SPEC: ada://procedure/Sort-1:9/ShellSort-40:13 
+    BODY: ada://procedure_body/Sort-1:9/ShellSort-40:13 
+  ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
+    BODY: ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
 
 Procedure Symbol Table
   ada://function/Sort-1:9/Ordered-12:12 

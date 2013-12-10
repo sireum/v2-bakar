@@ -1,4 +1,4 @@
 digraph G {
-  "Convert" [ label="Type_Conversion.Convert" ];
-  "Convert" [ label="Type_Conversion.Convert" ];
+  "ada://procedure_body/Type_Conversion-1:9/Convert-3:14" [ label="Type_Conversion.Convert" ];
+  "ada://procedure/Type_Conversion-1:9/Convert-3:14" [ label="Type_Conversion.Convert" ];
 }

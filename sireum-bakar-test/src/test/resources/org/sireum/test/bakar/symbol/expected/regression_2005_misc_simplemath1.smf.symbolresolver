@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/SimpleMath1-1:9
-    ada://package/SimpleMath1-1:9
-    ada://package_body/SimpleMath1-1:9
+    SPEC: ada://package/SimpleMath1-1:9
+    BODY: ada://package_body/SimpleMath1-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/SimpleMath1-1:9
-    ada://package/SimpleMath1-1:9
-    ada://package_body/SimpleMath1-1:9
+    SPEC: ada://package/SimpleMath1-1:9
+    BODY: ada://package_body/SimpleMath1-1:9
 
 Const Table
 
@@ -43,6 +43,16 @@ Procedure Table
     ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
   ada://procedure_body__package_init/SimpleMath1/$$binit 
     ada://procedure_body__package_init/SimpleMath1/$$binit 
+
+Spark Method Table
+  ada://procedure/SimpleMath1-1:9/Inc-6:13 
+    SPEC: ada://procedure/SimpleMath1-1:9/Inc-6:13 
+    BODY: ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
+  ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
+    SPEC: ada://procedure/SimpleMath1-1:9/Inc-6:13 
+    BODY: ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
+  ada://procedure_body__package_init/SimpleMath1/$$binit 
+    BODY: ada://procedure_body__package_init/SimpleMath1/$$binit 
 
 Procedure Symbol Table
   ada://procedure/SimpleMath1-1:9/Inc-6:13 

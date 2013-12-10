@@ -1,18 +1,18 @@
-Package Table
+Spark Package Table
   ada://package/Array_Unconstrained-1:9
-    ada://package/Array_Unconstrained-1:9
-    ada://package_body/Array_Unconstrained-1:9
+    SPEC: ada://package/Array_Unconstrained-1:9
+    BODY: ada://package_body/Array_Unconstrained-1:9
   ada://package/Array_Unconstrained_T-3:9
-    ada://package/Array_Unconstrained_T-3:9
-    ada://package_body/Array_Unconstrained_T-3:9
+    SPEC: ada://package/Array_Unconstrained_T-3:9
+    BODY: ada://package_body/Array_Unconstrained_T-3:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Array_Unconstrained-1:9
-    ada://package/Array_Unconstrained-1:9
-    ada://package_body/Array_Unconstrained-1:9
+    SPEC: ada://package/Array_Unconstrained-1:9
+    BODY: ada://package_body/Array_Unconstrained-1:9
   ada://package_body/Array_Unconstrained_T-3:9
-    ada://package/Array_Unconstrained_T-3:9
-    ada://package_body/Array_Unconstrained_T-3:9
+    SPEC: ada://package/Array_Unconstrained_T-3:9
+    BODY: ada://package_body/Array_Unconstrained_T-3:9
 
 Const Table
 
@@ -67,6 +67,32 @@ Procedure Table
   ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
     ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
     ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
+
+Spark Method Table
+  ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 
+    SPEC: ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 
+    BODY: ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
+  ada://function/Array_Unconstrained-1:9/isSorted-6:12 
+    SPEC: ada://function/Array_Unconstrained-1:9/isSorted-6:12 
+    BODY: ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
+  ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    SPEC: ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    BODY: ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+  ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
+    SPEC: ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
+    BODY: ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
+  ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
+    SPEC: ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 
+    BODY: ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
+  ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
+    SPEC: ada://function/Array_Unconstrained-1:9/isSorted-6:12 
+    BODY: ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
+  ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    SPEC: ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+    BODY: ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
+  ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
+    SPEC: ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
+    BODY: ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
 
 Procedure Symbol Table
   ada://function/Array_Unconstrained-1:9/indexIsValue-7:12 

@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/QuantifierTest-1:9
-    ada://package/QuantifierTest-1:9
-    ada://package_body/QuantifierTest-1:9
+    SPEC: ada://package/QuantifierTest-1:9
+    BODY: ada://package_body/QuantifierTest-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/QuantifierTest-1:9
-    ada://package/QuantifierTest-1:9
-    ada://package_body/QuantifierTest-1:9
+    SPEC: ada://package/QuantifierTest-1:9
+    BODY: ada://package_body/QuantifierTest-1:9
 
 Const Table
 
@@ -45,6 +45,16 @@ Procedure Table
     ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
   ada://procedure_body__package_init/QuantifierTest/$$binit 
     ada://procedure_body__package_init/QuantifierTest/$$binit 
+
+Spark Method Table
+  ada://procedure/QuantifierTest-1:9/dummy-15:13 
+    SPEC: ada://procedure/QuantifierTest-1:9/dummy-15:13 
+    BODY: ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
+  ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
+    SPEC: ada://procedure/QuantifierTest-1:9/dummy-15:13 
+    BODY: ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
+  ada://procedure_body__package_init/QuantifierTest/$$binit 
+    BODY: ada://procedure_body__package_init/QuantifierTest/$$binit 
 
 Procedure Symbol Table
   ada://procedure/QuantifierTest-1:9/dummy-15:13 

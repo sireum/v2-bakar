@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/P_Complex-1:9
-    ada://package/P_Complex-1:9
-    ada://package_body/P_Complex-1:9
+    SPEC: ada://package/P_Complex-1:9
+    BODY: ada://package_body/P_Complex-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/P_Complex-1:9
-    ada://package/P_Complex-1:9
-    ada://package_body/P_Complex-1:9
+    SPEC: ada://package/P_Complex-1:9
+    BODY: ada://package_body/P_Complex-1:9
 
 Const Table
 
@@ -45,6 +45,16 @@ Procedure Table
     ada://procedure_body/P_Complex-1:9/Q-6:13 
   ada://procedure_body__package_init/P_Complex/$$binit 
     ada://procedure_body__package_init/P_Complex/$$binit 
+
+Spark Method Table
+  ada://procedure/P_Complex-1:9/Q-6:13 
+    SPEC: ada://procedure/P_Complex-1:9/Q-6:13 
+    BODY: ada://procedure_body/P_Complex-1:9/Q-6:13 
+  ada://procedure_body/P_Complex-1:9/Q-6:13 
+    SPEC: ada://procedure/P_Complex-1:9/Q-6:13 
+    BODY: ada://procedure_body/P_Complex-1:9/Q-6:13 
+  ada://procedure_body__package_init/P_Complex/$$binit 
+    BODY: ada://procedure_body__package_init/P_Complex/$$binit 
 
 Procedure Symbol Table
   ada://procedure/P_Complex-1:9/Q-6:13 

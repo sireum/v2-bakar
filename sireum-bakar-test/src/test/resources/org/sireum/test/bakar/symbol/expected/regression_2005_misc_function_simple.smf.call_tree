@@ -1,9 +1,9 @@
 digraph G {
-  "$$binit" [ label="Function_Simple.$$binit" ];
-  "F1" [ label="Function_Simple.F1" ];
-  "P1" [ label="Function_Simple.P1" ];
-  "P2" [ label="Function_Simple.P2" ];
-  "F1" [ label="Function_Simple.F1" ];
-  "P1" -> "F1";
-  "P2" -> "F1";
+  "ada://procedure_body__package_init/Function_Simple/$$binit" [ label="Function_Simple.$$binit" ];
+  "ada://function_body/Function_Simple-1:9/F1-8:12" [ label="Function_Simple.F1" ];
+  "ada://procedure_body/Function_Simple-1:9/P1+10:13" [ label="Function_Simple.P1" ];
+  "ada://procedure_body/Function_Simple-1:9/P2+18:13" [ label="Function_Simple.P2" ];
+  "ada://function/Function_Simple-1:9/F1-8:12" [ label="Function_Simple.F1" ];
+  "ada://procedure_body/Function_Simple-1:9/P1+10:13" -> "ada://function_body/Function_Simple-1:9/F1-8:12";
+  "ada://procedure_body/Function_Simple-1:9/P2+18:13" -> "ada://function_body/Function_Simple-1:9/F1-8:12";
 }

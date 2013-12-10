@@ -1,5 +1,5 @@
 digraph G {
-  "Stupid" [ label="for_loops.Stupid" ];
-  "$$sinit" [ label="for_loops.$$sinit" ];
-  "Stupid" [ label="for_loops.Stupid" ];
+  "ada://procedure_body/for_loops-1:9/Stupid-11:14" [ label="for_loops.Stupid" ];
+  "ada://procedure__package_init/for_loops/$$sinit" [ label="for_loops.$$sinit" ];
+  "ada://procedure/for_loops-1:9/Stupid-11:14" [ label="for_loops.Stupid" ];
 }

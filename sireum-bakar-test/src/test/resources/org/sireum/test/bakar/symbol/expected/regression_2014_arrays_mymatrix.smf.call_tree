@@ -1,4 +1,4 @@
 digraph G {
-  "Multiply" [ label="MyMatrix.Multiply" ];
-  "Multiply" [ label="MyMatrix.Multiply" ];
+  "ada://procedure_body/MyMatrix-1:9/Multiply-7:13" [ label="MyMatrix.Multiply" ];
+  "ada://procedure/MyMatrix-1:9/Multiply-7:13" [ label="MyMatrix.Multiply" ];
 }

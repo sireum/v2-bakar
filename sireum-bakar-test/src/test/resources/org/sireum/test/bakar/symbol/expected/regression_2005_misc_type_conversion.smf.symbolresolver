@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/Type_Conversion-1:9
-    ada://package/Type_Conversion-1:9
-    ada://package_body/Type_Conversion-1:9
+    SPEC: ada://package/Type_Conversion-1:9
+    BODY: ada://package_body/Type_Conversion-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Type_Conversion-1:9
-    ada://package/Type_Conversion-1:9
-    ada://package_body/Type_Conversion-1:9
+    SPEC: ada://package/Type_Conversion-1:9
+    BODY: ada://package_body/Type_Conversion-1:9
 
 Const Table
 
@@ -40,6 +40,14 @@ Procedure Table
   ada://procedure_body/Type_Conversion-1:9/Convert-3:14 
     ada://procedure/Type_Conversion-1:9/Convert-3:14 
     ada://procedure_body/Type_Conversion-1:9/Convert-3:14 
+
+Spark Method Table
+  ada://procedure/Type_Conversion-1:9/Convert-3:14 
+    SPEC: ada://procedure/Type_Conversion-1:9/Convert-3:14 
+    BODY: ada://procedure_body/Type_Conversion-1:9/Convert-3:14 
+  ada://procedure_body/Type_Conversion-1:9/Convert-3:14 
+    SPEC: ada://procedure/Type_Conversion-1:9/Convert-3:14 
+    BODY: ada://procedure_body/Type_Conversion-1:9/Convert-3:14 
 
 Procedure Symbol Table
   ada://procedure/Type_Conversion-1:9/Convert-3:14 

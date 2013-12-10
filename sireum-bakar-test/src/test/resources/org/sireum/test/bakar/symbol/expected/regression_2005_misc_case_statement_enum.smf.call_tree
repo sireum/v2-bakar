@@ -1,4 +1,4 @@
 digraph G {
-  "isWorkDay" [ label="Case_Statement_Enum.isWorkDay" ];
-  "isWorkDay" [ label="Case_Statement_Enum.isWorkDay" ];
+  "ada://function_body/Case_Statement_Enum-1:9/isWorkDay-10:12" [ label="Case_Statement_Enum.isWorkDay" ];
+  "ada://function/Case_Statement_Enum-1:9/isWorkDay-10:12" [ label="Case_Statement_Enum.isWorkDay" ];
 }

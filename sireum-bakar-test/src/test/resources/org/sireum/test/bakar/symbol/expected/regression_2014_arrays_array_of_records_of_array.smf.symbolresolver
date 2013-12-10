@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/Array_Of_Records_Of_Array-1:9
-    ada://package/Array_Of_Records_Of_Array-1:9
-    ada://package_body/Array_Of_Records_Of_Array-1:9
+    SPEC: ada://package/Array_Of_Records_Of_Array-1:9
+    BODY: ada://package_body/Array_Of_Records_Of_Array-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Array_Of_Records_Of_Array-1:9
-    ada://package/Array_Of_Records_Of_Array-1:9
-    ada://package_body/Array_Of_Records_Of_Array-1:9
+    SPEC: ada://package/Array_Of_Records_Of_Array-1:9
+    BODY: ada://package_body/Array_Of_Records_Of_Array-1:9
 
 Const Table
   ada://constant_declaration/Array_Of_Records_Of_Array/$CONST 
@@ -51,6 +51,16 @@ Procedure Table
     ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
   ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
     ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+
+Spark Method Table
+  ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    SPEC: ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    BODY: ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+  ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    SPEC: ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+    BODY: ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
+  ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+    BODY: ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
 
 Procedure Symbol Table
   ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 

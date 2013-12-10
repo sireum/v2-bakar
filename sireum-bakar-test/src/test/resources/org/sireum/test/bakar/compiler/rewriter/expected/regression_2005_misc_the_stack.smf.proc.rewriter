@@ -191,7 +191,9 @@ typealias _SIGNED_INTEGER_TYPE_ StackID;
 
 typealias _PRIVATE_TYPE_DECLARATION_ StackID;
 
-typealias _ENUMERATION_TYPE_ Status;
+enum Status {
+  Empty, Full, Normal
+}
 
 typealias Status BoundaryStatus;
 

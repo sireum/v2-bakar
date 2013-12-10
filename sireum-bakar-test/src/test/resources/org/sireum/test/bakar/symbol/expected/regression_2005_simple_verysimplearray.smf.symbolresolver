@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/VerySimpleArray-1:9
-    ada://package/VerySimpleArray-1:9
-    ada://package_body/VerySimpleArray-1:9
+    SPEC: ada://package/VerySimpleArray-1:9
+    BODY: ada://package_body/VerySimpleArray-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/VerySimpleArray-1:9
-    ada://package/VerySimpleArray-1:9
-    ada://package_body/VerySimpleArray-1:9
+    SPEC: ada://package/VerySimpleArray-1:9
+    BODY: ada://package_body/VerySimpleArray-1:9
 
 Const Table
 
@@ -48,6 +48,18 @@ Procedure Table
     ada://procedure_body/VerySimpleArray-1:9/Add+11:14 
   ada://procedure_body/VerySimpleArray-1:9/Del+16:14 
     ada://procedure_body/VerySimpleArray-1:9/Del+16:14 
+
+Spark Method Table
+  ada://function/VerySimpleArray-1:9/Dummy-3:13 
+    SPEC: ada://function/VerySimpleArray-1:9/Dummy-3:13 
+    BODY: ada://function_body/VerySimpleArray-1:9/Dummy-3:13 
+  ada://function_body/VerySimpleArray-1:9/Dummy-3:13 
+    SPEC: ada://function/VerySimpleArray-1:9/Dummy-3:13 
+    BODY: ada://function_body/VerySimpleArray-1:9/Dummy-3:13 
+  ada://procedure_body/VerySimpleArray-1:9/Add+11:14 
+    BODY: ada://procedure_body/VerySimpleArray-1:9/Add+11:14 
+  ada://procedure_body/VerySimpleArray-1:9/Del+16:14 
+    BODY: ada://procedure_body/VerySimpleArray-1:9/Del+16:14 
 
 Procedure Symbol Table
   ada://function/VerySimpleArray-1:9/Dummy-3:13 

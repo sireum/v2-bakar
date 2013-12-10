@@ -1,7 +1,7 @@
 digraph G {
-  "$$binit" [ label="The_Stack_Praxis.$$binit" ];
-  "Push" [ label="The_Stack_Praxis.Push" ];
-  "Pop" [ label="The_Stack_Praxis.Pop" ];
-  "Push" [ label="The_Stack_Praxis.Push" ];
-  "Pop" [ label="The_Stack_Praxis.Pop" ];
+  "ada://procedure_body__package_init/The_Stack_Praxis/$$binit" [ label="The_Stack_Praxis.$$binit" ];
+  "ada://procedure_body/The_Stack_Praxis-1:9/Push-5:14" [ label="The_Stack_Praxis.Push" ];
+  "ada://procedure_body/The_Stack_Praxis-1:9/Pop-9:14" [ label="The_Stack_Praxis.Pop" ];
+  "ada://procedure/The_Stack_Praxis-1:9/Push-5:14" [ label="The_Stack_Praxis.Push" ];
+  "ada://procedure/The_Stack_Praxis-1:9/Pop-9:14" [ label="The_Stack_Praxis.Pop" ];
 }

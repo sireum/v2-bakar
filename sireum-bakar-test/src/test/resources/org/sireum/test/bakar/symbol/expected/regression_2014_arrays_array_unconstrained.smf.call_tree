@@ -1,12 +1,12 @@
 digraph G {
-  "isSorted" [ label="Array_Unconstrained.isSorted" ];
-  "indexIsValue" [ label="Array_Unconstrained.indexIsValue" ];
-  "isSorted" [ label="Array_Unconstrained.isSorted" ];
-  "indexIsValue" [ label="Array_Unconstrained.indexIsValue" ];
-  "isSorted" [ label="Array_Unconstrained_T.isSorted" ];
-  "indexIsValue" [ label="Array_Unconstrained_T.indexIsValue" ];
-  "isSorted" [ label="Array_Unconstrained_T.isSorted" ];
-  "indexIsValue" [ label="Array_Unconstrained_T.indexIsValue" ];
-  "isSorted" -> "isSorted";
-  "indexIsValue" -> "indexIsValue";
+  "ada://function_body/Array_Unconstrained-1:9/isSorted-6:12" [ label="Array_Unconstrained.isSorted" ];
+  "ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12" [ label="Array_Unconstrained.indexIsValue" ];
+  "ada://function/Array_Unconstrained-1:9/isSorted-6:12" [ label="Array_Unconstrained.isSorted" ];
+  "ada://function/Array_Unconstrained-1:9/indexIsValue-7:12" [ label="Array_Unconstrained.indexIsValue" ];
+  "ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12" [ label="Array_Unconstrained_T.isSorted" ];
+  "ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12" [ label="Array_Unconstrained_T.indexIsValue" ];
+  "ada://function/Array_Unconstrained_T-3:9/isSorted-9:12" [ label="Array_Unconstrained_T.isSorted" ];
+  "ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12" [ label="Array_Unconstrained_T.indexIsValue" ];
+  "ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12" -> "ada://function_body/Array_Unconstrained-1:9/isSorted-6:12";
+  "ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12" -> "ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12";
 }

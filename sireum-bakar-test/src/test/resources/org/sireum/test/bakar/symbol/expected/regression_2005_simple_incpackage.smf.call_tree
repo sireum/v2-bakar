@@ -1,4 +1,4 @@
 digraph G {
-  "Inc" [ label="IncPackage.Inc" ];
-  "Inc" [ label="IncPackage.Inc" ];
+  "ada://function_body/IncPackage-1:9/Inc-2:13" [ label="IncPackage.Inc" ];
+  "ada://function/IncPackage-1:9/Inc-2:13" [ label="IncPackage.Inc" ];
 }

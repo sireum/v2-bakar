@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/Dependence_Test_Suite_01-1:9
-    ada://package/Dependence_Test_Suite_01-1:9
-    ada://package_body/Dependence_Test_Suite_01-1:9
+    SPEC: ada://package/Dependence_Test_Suite_01-1:9
+    BODY: ada://package_body/Dependence_Test_Suite_01-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Dependence_Test_Suite_01-1:9
-    ada://package/Dependence_Test_Suite_01-1:9
-    ada://package_body/Dependence_Test_Suite_01-1:9
+    SPEC: ada://package/Dependence_Test_Suite_01-1:9
+    BODY: ada://package_body/Dependence_Test_Suite_01-1:9
 
 Const Table
 
@@ -61,6 +61,34 @@ Procedure Table
     ada://procedure_body/Dependence_Test_Suite_01-1:9/Success8+105:13 
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success9+121:13 
     ada://procedure_body/Dependence_Test_Suite_01-1:9/Success9+121:13 
+
+Spark Method Table
+  ada://procedure/Dependence_Test_Suite_01-1:9/Success0-3:13 
+    SPEC: ada://procedure/Dependence_Test_Suite_01-1:9/Success0-3:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success0-3:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success0-3:13 
+    SPEC: ada://procedure/Dependence_Test_Suite_01-1:9/Success0-3:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success0-3:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success1+12:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success1+12:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success10+142:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success10+142:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success2+20:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success2+20:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success3+36:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success3+36:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success4+48:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success4+48:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success5+60:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success5+60:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success6+75:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success6+75:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success7+90:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success7+90:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success8+105:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success8+105:13 
+  ada://procedure_body/Dependence_Test_Suite_01-1:9/Success9+121:13 
+    BODY: ada://procedure_body/Dependence_Test_Suite_01-1:9/Success9+121:13 
 
 Procedure Symbol Table
   ada://procedure/Dependence_Test_Suite_01-1:9/Success0-3:13 

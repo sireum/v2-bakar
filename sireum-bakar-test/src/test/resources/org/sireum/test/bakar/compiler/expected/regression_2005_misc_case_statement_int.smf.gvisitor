@@ -259,21 +259,28 @@ Model(Some(case_statement_int.adb),Vector(),Vector(PackageDecl(Some(NameDefiniti
                     NameExp(NameUser(ret))
                       NameUser(ret)
             List()
-Model(Some(case_statement_int.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Case_Statement_Int)),Vector(),List(TypeAliasDecl(NameDefinition(Act
+Model(Some(case_statement_int.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Case_Statement_Int)),Vector(),List(EnumDecl(NameDefinition(Activity
   Some(case_statement_int.ads)
   List()
-  Vector(PackageDecl(Some(NameDefinition(Case_Statement_Int)),Vector(),List(TypeAliasDecl(NameDefinition(Activity),Vector(),NamedTypeSpec(NameUser(_ENUM
-    PackageDecl(Some(NameDefinition(Case_Statement_Int)),Vector(),List(TypeAliasDecl(NameDefinition(Activity),Vector(),NamedTypeSpec(NameUser(_ENUMERATION
+  Vector(PackageDecl(Some(NameDefinition(Case_Statement_Int)),Vector(),List(EnumDecl(NameDefinition(Activity),Vector(),List(EnumElement(NameDefinition(W
+    PackageDecl(Some(NameDefinition(Case_Statement_Int)),Vector(),List(EnumDecl(NameDefinition(Activity),Vector(),List(EnumElement(NameDefinition(Work),Ve
       Some(NameDefinition(Case_Statement_Int))
         NameDefinition(Case_Statement_Int)
       List()
-      List(TypeAliasDecl(NameDefinition(Activity),Vector(),NamedTypeSpec(NameUser(_ENUMERATION_TYPE_),List())), TypeAliasDecl(NameDefinition(IntType),Vector
-        TypeAliasDecl(NameDefinition(Activity),Vector(),NamedTypeSpec(NameUser(_ENUMERATION_TYPE_),List()))
+      List(EnumDecl(NameDefinition(Activity),Vector(),List(EnumElement(NameDefinition(Work),Vector()), EnumElement(NameDefinition(Party),Vector()), EnumElem
+        EnumDecl(NameDefinition(Activity),Vector(),List(EnumElement(NameDefinition(Work),Vector()), EnumElement(NameDefinition(Party),Vector()), EnumElement(N
           NameDefinition(Activity)
           List()
-          NamedTypeSpec(NameUser(_ENUMERATION_TYPE_),List())
-            NameUser(_ENUMERATION_TYPE_)
-            List()
+          List(EnumElement(NameDefinition(Work),Vector()), EnumElement(NameDefinition(Party),Vector()), EnumElement(NameDefinition(Drink),Vector()))
+            EnumElement(NameDefinition(Work),Vector())
+              NameDefinition(Work)
+              List()
+            EnumElement(NameDefinition(Party),Vector())
+              NameDefinition(Party)
+              List()
+            EnumElement(NameDefinition(Drink),Vector())
+              NameDefinition(Drink)
+              List()
         TypeAliasDecl(NameDefinition(IntType),Vector(),NamedTypeSpec(NameUser(Integer),List()))
           NameDefinition(IntType)
           List()

@@ -24,6 +24,11 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       case o : ProcedureDecl =>
         proc :+= o
         false
+      case o : EnumDecl =>
+        assert(o ? URIS.TYPE_URI)
+        assert(o ? URIS.TYPE_DEF)
+        typeMap(o(URIS.TYPE_URI)) = o(URIS.TYPE_DEF)
+        true        
       case o : RecordDecl =>
         assert(o ? URIS.TYPE_URI)
         assert(o ? URIS.TYPE_DEF)

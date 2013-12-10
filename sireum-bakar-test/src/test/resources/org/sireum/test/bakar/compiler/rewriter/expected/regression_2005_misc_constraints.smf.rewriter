@@ -86,7 +86,9 @@ typealias Integer Sub_Int;
 
 typealias _SIGNED_INTEGER_TYPE_ Int_Range;
 
-typealias _ENUMERATION_TYPE_ Day;
+enum Day {
+  Mon, Tue, Wed, Thur, Fri, Sat, Sun
+}
 
 typealias Day Weekday;
 

@@ -1,6 +1,6 @@
 digraph G {
-  "$$binit" [ label="Positional_Array.$$binit" ];
-  "dummy" [ label="Positional_Array.dummy" ];
-  "$$sinit" [ label="Positional_Array.$$sinit" ];
-  "dummy" [ label="Positional_Array.dummy" ];
+  "ada://procedure_body__package_init/Positional_Array/$$binit" [ label="Positional_Array.$$binit" ];
+  "ada://procedure_body/Positional_Array-1:9/dummy-19:13" [ label="Positional_Array.dummy" ];
+  "ada://procedure__package_init/Positional_Array/$$sinit" [ label="Positional_Array.$$sinit" ];
+  "ada://procedure/Positional_Array-1:9/dummy-19:13" [ label="Positional_Array.dummy" ];
 }

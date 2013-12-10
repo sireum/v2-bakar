@@ -53,6 +53,8 @@ object URIS {
     u.startsWith(uriPrefixProcedureBody) || u.startsWith(uriPrefixFunctionBody) ||
     u.startsWith(uriPrefixExpressionFunction)
 
+  def isExpressionFunctionUri(u:ResourceUri) = 
+    u.startsWith(uriPrefixExpressionFunction)
     
   def isPackageUri(u: ResourceUri) = u.startsWith("ada://package")
   def isAdaPackageUri(u: ResourceUri) = isAdaPackageSpecUri(u) || isAdaPackageBodyUri(u)
@@ -75,6 +77,8 @@ object PackageURIs {
     
   val constSpecDeclPrefixUri = "ada://constant_declaration/"
   val constBodyDeclPrefixUri = "ada://constant_declaration_body/"
+  
+  def isPackageAnonymous(u: ResourceUri) = u.startsWith(anonymousPackageBodyURIprefix)
   
   def isPackageInitProcedure(u: ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
   def isPackageBodyInitProcedure(u: ResourceUri) = u.startsWith(initBodyProcedureURIprefix)

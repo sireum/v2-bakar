@@ -69,7 +69,9 @@ procedure Activity isWorkDay (
 }package Case_Statement_Enum;
 
 
-typealias _ENUMERATION_TYPE_ Week;
+enum Week {
+  Mon, Tue, Wed, Thur, Fri, FriPart2, Sat, Sun
+}
 
 typealias Week WeekDay;
 
@@ -77,7 +79,9 @@ typealias WeekDay HumpDay;
 
 typealias Week WeekEnd;
 
-typealias _ENUMERATION_TYPE_ Activity;
+enum Activity {
+  Work, Sleep, Party, Drink
+}
 
 procedure Activity isWorkDay (
         Week d) {

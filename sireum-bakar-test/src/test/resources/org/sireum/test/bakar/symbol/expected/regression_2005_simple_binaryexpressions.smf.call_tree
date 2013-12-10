@@ -1,8 +1,8 @@
 digraph G {
-  "X" [ label="BinaryExpressions.X" ];
-  "Add" [ label="BinaryExpressions.Add" ];
-  "Sub" [ label="BinaryExpressions.Sub" ];
-  "Mult" [ label="BinaryExpressions.Mult" ];
-  "Division" [ label="BinaryExpressions.Division" ];
-  "X" [ label="BinaryExpressions.X" ];
+  "ada://function_body/BinaryExpressions-1:9/X-4:12" [ label="BinaryExpressions.X" ];
+  "ada://function_body/BinaryExpressions-1:9/Add+5:12" [ label="BinaryExpressions.Add" ];
+  "ada://function_body/BinaryExpressions-1:9/Sub+20:12" [ label="BinaryExpressions.Sub" ];
+  "ada://function_body/BinaryExpressions-1:9/Mult+35:12" [ label="BinaryExpressions.Mult" ];
+  "ada://function_body/BinaryExpressions-1:9/Division+50:12" [ label="BinaryExpressions.Division" ];
+  "ada://function/BinaryExpressions-1:9/X-4:12" [ label="BinaryExpressions.X" ];
 }

@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/Constraints-1:9
-    ada://package/Constraints-1:9
-    ada://package_body/Constraints-1:9
+    SPEC: ada://package/Constraints-1:9
+    BODY: ada://package_body/Constraints-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/Constraints-1:9
-    ada://package/Constraints-1:9
-    ada://package_body/Constraints-1:9
+    SPEC: ada://package/Constraints-1:9
+    BODY: ada://package_body/Constraints-1:9
 
 Const Table
   ada://constant_declaration/Constraints/$CONST 
@@ -26,7 +26,6 @@ Record Table
 Attribute Table
 
 Type Alias Table
-  ada://ordinary_type/Constraints-1:9/Day-8:8 
   ada://ordinary_type/Constraints-1:9/Int_Range-6:8 
   ada://ordinary_type/Standard-1:1/Boolean-1:1 
   ada://ordinary_type/Standard-1:1/Character-1:1 
@@ -47,6 +46,14 @@ Procedure Table
   ada://procedure_body/Constraints-1:9/foo-11:13 
     ada://procedure/Constraints-1:9/foo-11:13 
     ada://procedure_body/Constraints-1:9/foo-11:13 
+
+Spark Method Table
+  ada://procedure/Constraints-1:9/foo-11:13 
+    SPEC: ada://procedure/Constraints-1:9/foo-11:13 
+    BODY: ada://procedure_body/Constraints-1:9/foo-11:13 
+  ada://procedure_body/Constraints-1:9/foo-11:13 
+    SPEC: ada://procedure/Constraints-1:9/foo-11:13 
+    BODY: ada://procedure_body/Constraints-1:9/foo-11:13 
 
 Procedure Symbol Table
   ada://procedure/Constraints-1:9/foo-11:13 

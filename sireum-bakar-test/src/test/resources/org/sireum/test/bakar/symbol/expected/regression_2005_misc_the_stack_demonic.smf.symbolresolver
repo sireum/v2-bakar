@@ -1,12 +1,12 @@
-Package Table
+Spark Package Table
   ada://package/The_Stack_Demonic-1:9
-    ada://package/The_Stack_Demonic-1:9
-    ada://package_body/The_Stack_Demonic-1:9
+    SPEC: ada://package/The_Stack_Demonic-1:9
+    BODY: ada://package_body/The_Stack_Demonic-1:9
   ada://package__default/standard
-    ada://package__default/standard
+    BODY: ada://package__default/standard
   ada://package_body/The_Stack_Demonic-1:9
-    ada://package/The_Stack_Demonic-1:9
-    ada://package_body/The_Stack_Demonic-1:9
+    SPEC: ada://package/The_Stack_Demonic-1:9
+    BODY: ada://package_body/The_Stack_Demonic-1:9
 
 Const Table
   ada://constant_declaration/The_Stack_Demonic/$CONST 
@@ -43,7 +43,6 @@ Type Alias Table
   ada://ordinary_type/Standard-1:1/String-1:1 
   ada://ordinary_type/The_Stack_Demonic-1:9/Pointer_Range+7:9 
   ada://ordinary_type/The_Stack_Demonic-1:9/StackID-9:9 
-  ada://ordinary_type/The_Stack_Demonic-1:9/Status-14:9 
   ada://ordinary_type/The_Stack_Demonic-1:9/Vector+9:9 
   ada://ordinary_type/universal_integer 
   ada://ordinary_type/universal_real 
@@ -73,6 +72,26 @@ Procedure Table
     ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
   ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
     ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
+
+Spark Method Table
+  ada://function_body/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13 
+    BODY: ada://function_body/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13 
+  ada://function_body/The_Stack_Demonic-1:9/Value_Present+46:13 
+    BODY: ada://function_body/The_Stack_Demonic-1:9/Value_Present+46:13 
+  ada://procedure/The_Stack_Demonic-1:9/Pop-36:14 
+    SPEC: ada://procedure/The_Stack_Demonic-1:9/Pop-36:14 
+    BODY: ada://procedure_body/The_Stack_Demonic-1:9/Pop-36:14 
+  ada://procedure/The_Stack_Demonic-1:9/Push-31:14 
+    SPEC: ada://procedure/The_Stack_Demonic-1:9/Push-31:14 
+    BODY: ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
+  ada://procedure_body/The_Stack_Demonic-1:9/Pop-36:14 
+    SPEC: ada://procedure/The_Stack_Demonic-1:9/Pop-36:14 
+    BODY: ada://procedure_body/The_Stack_Demonic-1:9/Pop-36:14 
+  ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
+    SPEC: ada://procedure/The_Stack_Demonic-1:9/Push-31:14 
+    BODY: ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
+  ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
+    BODY: ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
 
 Procedure Symbol Table
   ada://function_body/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13 

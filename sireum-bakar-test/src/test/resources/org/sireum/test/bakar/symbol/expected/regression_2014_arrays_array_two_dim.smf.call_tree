@@ -1,8 +1,8 @@
 digraph G {
-  "$$binit" [ label="Array_Two_Dim.$$binit" ];
-  "dummy" [ label="Array_Two_Dim.dummy" ];
-  "dummy2" [ label="Array_Two_Dim.dummy2" ];
-  "$$sinit" [ label="Array_Two_Dim.$$sinit" ];
-  "dummy" [ label="Array_Two_Dim.dummy" ];
-  "dummy2" [ label="Array_Two_Dim.dummy2" ];
+  "ada://procedure_body__package_init/Array_Two_Dim/$$binit" [ label="Array_Two_Dim.$$binit" ];
+  "ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13" [ label="Array_Two_Dim.dummy" ];
+  "ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13" [ label="Array_Two_Dim.dummy2" ];
+  "ada://procedure__package_init/Array_Two_Dim/$$sinit" [ label="Array_Two_Dim.$$sinit" ];
+  "ada://procedure/Array_Two_Dim-1:9/dummy-40:13" [ label="Array_Two_Dim.dummy" ];
+  "ada://procedure/Array_Two_Dim-1:9/dummy2-46:13" [ label="Array_Two_Dim.dummy2" ];
 }

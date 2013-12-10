@@ -1,10 +1,10 @@
 digraph G {
-  "$$binit" [ label="P_Simple_Call.$$binit" ];
-  "R" [ label="P_Simple_Call.R" ];
-  "incX" [ label="P_Simple_Call.incX" ];
-  "Q" [ label="P_Simple_Call.Q" ];
-  "Q" [ label="P_Simple_Call.Q" ];
-  "R" [ label="P_Simple_Call.R" ];
-  "Q" -> "R";
-  "Q" -> "incX";
+  "ada://procedure_body__package_init/P_Simple_Call/$$binit" [ label="P_Simple_Call.$$binit" ];
+  "ada://procedure_body/P_Simple_Call-1:9/R-11:13" [ label="P_Simple_Call.R" ];
+  "ada://function_body/P_Simple_Call-1:9/incX+11:12" [ label="P_Simple_Call.incX" ];
+  "ada://procedure_body/P_Simple_Call-1:9/Q-7:13" [ label="P_Simple_Call.Q" ];
+  "ada://procedure/P_Simple_Call-1:9/Q-7:13" [ label="P_Simple_Call.Q" ];
+  "ada://procedure/P_Simple_Call-1:9/R-11:13" [ label="P_Simple_Call.R" ];
+  "ada://procedure_body/P_Simple_Call-1:9/Q-7:13" -> "ada://procedure_body/P_Simple_Call-1:9/R-11:13";
+  "ada://procedure_body/P_Simple_Call-1:9/Q-7:13" -> "ada://function_body/P_Simple_Call-1:9/incX+11:12";
 }

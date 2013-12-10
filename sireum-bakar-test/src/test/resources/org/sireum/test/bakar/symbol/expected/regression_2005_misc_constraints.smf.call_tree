@@ -1,4 +1,4 @@
 digraph G {
-  "foo" [ label="Constraints.foo" ];
-  "foo" [ label="Constraints.foo" ];
+  "ada://procedure_body/Constraints-1:9/foo-11:13" [ label="Constraints.foo" ];
+  "ada://procedure/Constraints-1:9/foo-11:13" [ label="Constraints.foo" ];
 }

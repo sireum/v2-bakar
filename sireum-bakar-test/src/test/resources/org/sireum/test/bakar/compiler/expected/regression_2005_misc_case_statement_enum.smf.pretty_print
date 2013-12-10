@@ -143,7 +143,7 @@ package Case_Statement_Enum
 ;
 
 
-typealias _ENUMERATION_TYPE_ Week
+enum Week
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -194,7 +194,9 @@ typealias _ENUMERATION_TYPE_ Week
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>""")
-;
+ {
+  Mon, Tue, Wed, Thur, Fri, FriPart2, Sat, Sun
+}
 
 typealias Week WeekDay
     @BAKAR_TYPE_DEF
@@ -568,7 +570,7 @@ typealias Week WeekEnd
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekEnd-6:11</string>""")
 ;
 
-typealias _ENUMERATION_TYPE_ Activity
+enum Activity
     @BAKAR_TYPE_DEF
 
       ("""<org.sireum.bakar.symbol.FullTypeDecl cid="1" size="3">
@@ -603,7 +605,9 @@ typealias _ENUMERATION_TYPE_ Activity
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8</string>""")
-;
+ {
+  Work, Sleep, Party, Drink
+}
 
 procedure Activity isWorkDay (
         Week d

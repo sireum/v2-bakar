@@ -1,9 +1,9 @@
 digraph G {
-  "$$binit" [ label="The_Stack_Demonic.$$binit" ];
-  "Push" [ label="The_Stack_Demonic.Push" ];
-  "Pop" [ label="The_Stack_Demonic.Pop" ];
-  "Value_Present" [ label="The_Stack_Demonic.Value_Present" ];
-  "Find_Stack_Pos" [ label="The_Stack_Demonic.Find_Stack_Pos" ];
-  "Push" [ label="The_Stack_Demonic.Push" ];
-  "Pop" [ label="The_Stack_Demonic.Pop" ];
+  "ada://procedure_body__package_init/The_Stack_Demonic/$$binit" [ label="The_Stack_Demonic.$$binit" ];
+  "ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14" [ label="The_Stack_Demonic.Push" ];
+  "ada://procedure_body/The_Stack_Demonic-1:9/Pop-36:14" [ label="The_Stack_Demonic.Pop" ];
+  "ada://function_body/The_Stack_Demonic-1:9/Value_Present+46:13" [ label="The_Stack_Demonic.Value_Present" ];
+  "ada://function_body/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13" [ label="The_Stack_Demonic.Find_Stack_Pos" ];
+  "ada://procedure/The_Stack_Demonic-1:9/Push-31:14" [ label="The_Stack_Demonic.Push" ];
+  "ada://procedure/The_Stack_Demonic-1:9/Pop-36:14" [ label="The_Stack_Demonic.Pop" ];
 }
