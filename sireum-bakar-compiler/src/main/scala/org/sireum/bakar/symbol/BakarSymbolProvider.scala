@@ -393,7 +393,9 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
       case None => None
     }
   }
-    
+  
+  def getSparkMethods = sparkMethodTable.values.toSet
+  
   def getSparkMethod(methodUri: ResourceUri) = sparkMethodTable.get(methodUri)
 
   def getMethodSpec(methodUri: ResourceUri) =
@@ -408,6 +410,8 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
       case _ => None
     }
 
+  def getSparkPackages = sparkPackageTable.values.toSet
+  
   def getSparkPackage(packageUri: ResourceUri) = sparkPackageTable.get(packageUri)
 
   def getPackageSpec(packageUri: ResourceUri) =

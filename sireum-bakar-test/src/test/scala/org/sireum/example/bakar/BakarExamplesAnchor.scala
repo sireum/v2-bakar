@@ -20,7 +20,7 @@ object BakarExamplesAnchor {
       val b = new File(new URI(a.substring(0, a.indexOf(sbt)))).getParentFile.getParentFile
       new File(new URI(b + "/bakar/sireum-bakar-test/" + a.substring(a.indexOf(sbt) + 1, s(a).length)))
     } else {
-      val b = new File(BakarExamplesAnchor.getClass.getResource("/").toURI)
+      val b = new File(new URI(a.substring(0, a.indexOf("/org/sireum/"))))
       val c = new File(b, "../../../bakar/sireum-bakar-test/src/test/resources/")
       new File(new URI(a.replace(b, c)))
     }
