@@ -39,7 +39,7 @@ object BakarSymbolTable {
       case a: AttributeDecl =>
         assert(!tables.attributeTable.contains(a.name.uri))
         tables.attributeTable(a.name.uri) = a
-        false      
+        false
       case t: ConstDecl =>
         assert(!tables.constTable.contains(t.name.uri))
         tables.constTable(t.name.uri) = mlistEmpty += t
@@ -49,13 +49,13 @@ object BakarSymbolTable {
       case t: EnumDecl =>
         assert(!tables.enumTable.contains(t.name.uri))
         tables.enumTable(t.name.uri) = mlistEmpty += t
-        for(k <- t.elements)
+        for (k <- t.elements)
           tables.enumElementTable(k.name.uri) = k
         false
       case a: GlobalVarDecl =>
         assert(!tables.globalVarTable.contains(a.name.uri))
         tables.globalVarTable(a.name.uri) = a
-        false        
+        false
       case r: RecordDecl =>
         assert(!tables.recordTable.contains(r.name.uri))
         tables.recordTable(r.name.uri) = r
@@ -88,7 +88,6 @@ object BakarSymbolTable {
           x
         }
 
-        //ptables += puri
         packagesTable(puri) = ptables
 
         packageAbsTable(puri) = p
@@ -103,77 +102,36 @@ object BakarSymbolTable {
           // ada://procedure/  or  ada://function/
           if (procUri.contains(URIS.uriPrefixFunctionSpec)) {
             // ada://function/
+
+            // expression functions that implement a function declaration don't  
+            // follow the same uri name mangling as procedures and functions
+            //   e.g.   ada://expression_function/Arrays-1:9/Count_Odd+22:13 
+            //          ada://function/Arrays-1:9/Count_Odd-30:13 
+            // so we'll need to search for the companion using the method name
+
             import org.sireum.bakar.symbol.BakarSymbol._
-            val parentUri = p.parentUri.get
-            val sparkPack = packagesTable(parentUri) 
+            val sparkPack = packagesTable(p.parentUri.get)
+            val pack =
+              if (sparkPack.body.isDefined) sparkPack.body.get
+              else sparkPack.spec.get
 
-            // expression functions declared in the spec don't have the same 
-            // mangled name as their body counterpart. For example,
-            //   ada://expression_function/Arrays-1:9/Count_Odd+22:13 
-            //   ada://function/Arrays-1:9/Count_Odd-30:13 
-            // so try to find the function or expression_function in the package 
-            // body
+            val cand = if (PackageURIs.isPackageAnonymous(pack.name.get.uri)) {
+              // it's possible to have a compilation unit function declaration
+              // in one file and its companion function implementation in another
+              bst.getSparkMethodCompilationUnit(p.name.name)
+            } else
+              bst.getSparkMethod(pack.name.get.name, p.name.name)
 
-            def z(b: PackageDecl, origUri: ResourceUri) = {
-              val proc = b.elements.find {
-                case i: ProcedureDecl =>
-                  i.name.name.toLowerCase == p.name.name.toLowerCase &&
-                    i.name.uri != origUri
-                case x => false
-              }
-
-              if (proc.isDefined) {
-                if (tables.procedureTable.contains(proc.get.name.uri)) {
-                  val x = tables.procedureTable(proc.get.name.uri)
-                  val y = bst.sparkMethodTable(proc.get.name.uri)
-                  Some((x, y))
-                } else if (URIS.isExpressionFunctionUri(proc.get.name.uri)) {
-                  // the companion to origUri is an expression function
-                  // defined within the same package declaration.  We'll visit
-                  // the function declaration first so just return an empty
-                  // collection
-                  Some((mlistEmpty[ResourceUri], new SparkMethod {}))
-                } else
-                  None
-              } else
-                None
-            }
-
-            if (sparkPack.body.isDefined) {
-              z(sparkPack.body.get, procUri) match {
-                case Some((x, y)) =>
-                  y.spec = Some(p)
-                  (x, y)
-                case None =>
-                  if (PackageURIs.isPackageAnonymous(sparkPack.body.get.name.get.uri)) {
-                    val anonPacks = packagesTable.keys.filter(PackageURIs.isPackageAnonymous(_)).toSet - parentUri
-
-                    var dkd: Option[(MBuffer[ResourceUri], SparkMethod)] = None
-                    for (a <- anonPacks) if (dkd == None) {
-                      val q = packagesTable(a)
-                      dkd = z(q.body.get, procUri)
-                    }
-                    if (dkd.isDefined) {
-                      val (x, y) = dkd.get
-                      y.spec = Some(p)
-                      (x,y)
-                    }
-                    else throw new RuntimeException()
-                  } else if (sparkPack.spec.isDefined) {
-                    z(sparkPack.spec.get, procUri) match {
-                      case Some((x, y)) =>
-                        y.spec = Some(p)
-                        (x, y)
-                      case None => throw new RuntimeException()
-                    }
-                  } else {
-                    throw new RuntimeException()
-                  }
-              }
-            } else {
-              val x = new SparkMethod {}
-              x.spec = Some(p)
-              (mlistEmpty[ResourceUri], x)
+            cand match {
+              case Some(y) =>
+                assert(y.spec == None)
+                val x = tables.procedureTable(y.body.get.name.uri)
+                y.spec = Some(p)
+                (x, y)
+              case None =>
+                val x = new SparkMethod {}
+                x.spec = Some(p)
+                (mlistEmpty[ResourceUri], x)
             }
           } else { // ada://procedure/
             val bodyUri = procUri.replace(URIS.uriPrefixProcedureSpec, URIS.uriPrefixProcedureBody)
@@ -199,22 +157,27 @@ object BakarSymbolTable {
             (a, x)
           } else {
             // ada://expresion_function/
-            // FIXME: see name mangling issue above
+            // see name mangling issue above
+            import org.sireum.bakar.symbol.BakarSymbol._
+            val sparkPack = packagesTable(p.parentUri.get)
+            val pack = if (sparkPack.body.isDefined) sparkPack.body.get
+            else sparkPack.spec.get
 
-            // TODO: need to look w/in the current package, then in the
-            // package spec (if avail), then in any anonymous packages
-            val specUri = procUri.replace(URIS.uriPrefixExpressionFunction, URIS.uriPrefixFunctionSpec)
+            val cand = if (PackageURIs.isPackageAnonymous(pack.name.get.uri))
+              bst.getSparkMethodCompilationUnit(p.name.name)
+            else
+              bst.getSparkMethod(pack.name.get.name, p.name.name)
 
-            if (bst.sparkMethodTable.contains(specUri)) {
-              val a = tables.procedureTable(specUri)
-              val x = bst.sparkMethodTable(specUri)
-              x.body = Some(p)
-              (a, x)
-            } else {
-              val a = mlistEmpty[ResourceUri]
-              val x = new SparkMethod {}
-              x.body = Some(p)
-              (a, x)
+            cand match {
+              case Some(y) =>
+                assert(y.body == None)
+                val x = tables.procedureTable(y.spec.get.name.uri)
+                y.body = Some(p)
+                (x, y)
+              case None =>
+                val x = new SparkMethod {}
+                x.body = Some(p)
+                (mlistEmpty[ResourceUri], x)
             }
           }
         } else if (PackageURIs.isPackageInitProcedure(procUri)) {
@@ -356,18 +319,20 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
   def procedureSymbolTables = pdMap.values
   def procedureSymbolTable(procedureAbsUri: ResourceUri): BakarProcedureSymbolTable =
     procedureSymbolTableProducer(procedureAbsUri)
-
+  
   /**
    * This is intended only for methods declared as a compilation unit (i.e. not
    * embedded in a package)
    */
-  def getCompilationUnitMethod(methodName: String) : Option[SparkMethod] =
+  def getSparkMethodCompilationUnit(methodName: String): Option[SparkMethod] =
     packages.filter(PackageURIs.isPackageAnonymous(_)).collectFirst(u =>
       getSparkMethod(getPackageBody(u).get.name.get.name, methodName) match {
         case Some(p) => p
       })
-    
-  def getSparkMethod(packageName: String, methodName: String) : Option[SparkMethod] = {
+  
+  def getSparkMethod(methodUri: ResourceUri) = sparkMethodTable.get(methodUri)      
+
+  def getSparkMethod(packageName: String, methodName: String): Option[SparkMethod] = {
     packageAbsTable.find(_._2.name.get.name.toLowerCase == packageName.toLowerCase) match {
       case Some((packUri, p)) =>
         // found the package, now try to find the method
@@ -386,17 +351,17 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
           findMethod(getPackageBody(packUri).get.elements)
         else None
 
-        assert(ret.isDefined || getPackageSpec(packUri).isDefined)
-
         if (ret.isDefined) ret
-        else findMethod(getPackageSpec(packUri).get.elements)
+        else
+          getPackageSpec(packUri) match {
+            case Some(q) => findMethod(q.elements)
+            case _ => None
+          }
       case None => None
     }
   }
-  
+
   def getSparkMethods = sparkMethodTable.values.toSet
-  
-  def getSparkMethod(methodUri: ResourceUri) = sparkMethodTable.get(methodUri)
 
   def getMethodSpec(methodUri: ResourceUri) =
     getSparkMethod(methodUri) match {
@@ -410,9 +375,9 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
       case _ => None
     }
 
-  def getSparkPackages = sparkPackageTable.values.toSet
-  
   def getSparkPackage(packageUri: ResourceUri) = sparkPackageTable.get(packageUri)
+  
+  def getSparkPackages = sparkPackageTable.values.toSet
 
   def getPackageSpec(packageUri: ResourceUri) =
     getSparkPackage(packageUri) match {
