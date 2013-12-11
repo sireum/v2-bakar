@@ -26,11 +26,6 @@ object BakarSymbolTable {
     parallel: Boolean) =
     buildSymbolTable(models, stpConstructor, parallel)
 
-  implicit def getUri(p: PilarAstNode): ResourceUri = {
-    assert(p ? URIS.REF_URI)
-    p(URIS.REF_URI)
-  }
-
   def buildSymbolTable(models: ISeq[Model],
     stpConstructor: Unit => SymbolTableProducer,
     parallel: Boolean) = {
@@ -41,28 +36,33 @@ object BakarSymbolTable {
     val packagesTable = bst.sparkPackageTable
 
     val v = Visitor.build({
+      case a: AttributeDecl =>
+        assert(!tables.attributeTable.contains(a.name.uri))
+        tables.attributeTable(a.name.uri) = a
+        false      
       case t: ConstDecl =>
         assert(!tables.constTable.contains(t.name.uri))
         tables.constTable(t.name.uri) = mlistEmpty += t
         for (k <- t.elements)
           tables.constElementTable(k.name.uri) = k
         false
-      case t: TypeAliasDecl =>
-        assert(!tables.typeAliasTable.contains(t))
-        tables.typeAliasTable(t) = t
-        false
-      case r: RecordDecl =>
-        assert(!tables.recordTable.contains(r))
-        tables.recordTable(r) = r
-        true
-      case a: AttributeDecl =>
-        assert(!tables.attributeTable.contains(a))
-        tables.attributeTable(a) = a
+      case t: EnumDecl =>
+        assert(!tables.enumTable.contains(t.name.uri))
+        tables.enumTable(t.name.uri) = mlistEmpty += t
+        for(k <- t.elements)
+          tables.enumElementTable(k.name.uri) = k
         false
       case a: GlobalVarDecl =>
-        val uri = a.name.uri
-        assert(!tables.globalVarTable.contains(uri))
-        tables.globalVarTable(uri) = a
+        assert(!tables.globalVarTable.contains(a.name.uri))
+        tables.globalVarTable(a.name.uri) = a
+        false        
+      case r: RecordDecl =>
+        assert(!tables.recordTable.contains(r.name.uri))
+        tables.recordTable(r.name.uri) = r
+        true
+      case t: TypeAliasDecl =>
+        assert(!tables.typeAliasTable.contains(t.name.uri))
+        tables.typeAliasTable(t.name.uri) = t
         false
       case p: PackageDecl =>
         val puri = p.name.get.uri

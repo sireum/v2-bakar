@@ -180,10 +180,6 @@ typealias Boolean Boolean
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
 typealias Integer Integer
@@ -199,10 +195,6 @@ typealias Integer Integer
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
@@ -222,10 +214,6 @@ typealias Integer Natural
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
 typealias Integer Positive
@@ -241,10 +229,6 @@ typealias Integer Positive
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
@@ -264,10 +248,6 @@ typealias Float Float
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
 typealias universal_integer universal_integer
@@ -283,10 +263,6 @@ typealias universal_integer universal_integer
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
@@ -306,10 +282,6 @@ typealias universal_real universal_real
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
 ;
 
 typealias Character Character
@@ -327,10 +299,6 @@ typealias Character Character
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
 ;
 
 typealias String String
@@ -346,10 +314,6 @@ typealias String String
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;

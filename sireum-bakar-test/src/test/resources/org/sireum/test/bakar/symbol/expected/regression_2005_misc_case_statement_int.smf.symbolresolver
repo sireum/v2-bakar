@@ -13,8 +13,12 @@ Const Table
 Const Element Table
 
 Enum Table
+  ada://ordinary_type/Case_Statement_Int-1:9/Activity-3:8 
 
 Enum Element Table
+  ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Drink-3:34 
+  ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Party-3:27 
+  ada://enumeration_literal/Case_Statement_Int-1:9/Activity-3:8/Work-3:21 
 
 Global Var Table
 

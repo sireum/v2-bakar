@@ -187,10 +187,6 @@ enum Week
          </org.sireum.bakar.symbol.EnumerationTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>""")
-
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>""")
@@ -321,10 +317,6 @@ typealias Week WeekDay
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekDay-4:11</string>""")
-
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekDay-4:11</string>""")
@@ -428,10 +420,6 @@ typealias WeekDay HumpDay
            </org.sireum.pilar.ast.NameExp>
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/HumpDay-5:11</string>""")
 
     @BAKAR_TYPE_URI
 
@@ -561,10 +549,6 @@ typealias Week WeekEnd
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekEnd-6:11</string>""")
-
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Case_Statement_Enum-1:9/WeekEnd-6:11</string>""")
@@ -597,10 +581,6 @@ enum Activity
            </ivector>
          </org.sireum.bakar.symbol.EnumerationTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8</string>""")
 
     @BAKAR_TYPE_URI
 
@@ -673,10 +653,6 @@ typealias Boolean Boolean
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
 typealias Integer Integer
@@ -692,10 +668,6 @@ typealias Integer Integer
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
@@ -715,10 +687,6 @@ typealias Integer Natural
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
 typealias Integer Positive
@@ -734,10 +702,6 @@ typealias Integer Positive
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
@@ -757,10 +721,6 @@ typealias Float Float
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
 typealias universal_integer universal_integer
@@ -776,10 +736,6 @@ typealias universal_integer universal_integer
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
@@ -799,10 +755,6 @@ typealias universal_real universal_real
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
 ;
 
 typealias Character Character
@@ -820,10 +772,6 @@ typealias Character Character
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
 ;
 
 typealias String String
@@ -839,10 +787,6 @@ typealias String String
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;

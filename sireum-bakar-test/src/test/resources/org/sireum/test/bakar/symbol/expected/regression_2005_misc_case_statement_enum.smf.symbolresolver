@@ -13,8 +13,22 @@ Const Table
 Const Element Table
 
 Enum Table
+  ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8 
+  ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8 
 
 Enum Element Table
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Drink-8:41 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Party-8:34 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Sleep-8:27 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Activity-8:8/Work-8:21 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Fri-3:38 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/FriPart2-3:43 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Mon-3:17 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sat-3:53 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sun-3:58 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Thur-3:32 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Tue-3:22 
+  ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Wed-3:27 
 
 Global Var Table
 

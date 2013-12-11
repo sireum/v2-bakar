@@ -150,7 +150,8 @@ object StandardTypeDefs {
   import org.sireum.pilar.ast.TypeSpec
 
   def createType(typName: String, baseType: String, typURI: String): TypeAliasDecl = {
-    val pilarTypeDec = TypeAliasDecl(NameDefinition(typName), ivectorEmpty,
+    val pilarTypeDec = TypeAliasDecl(
+      URIS.addResourceUri(NameDefinition(typName), typURI), ivectorEmpty,
       NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec]))
 
     val sparkTypeDec = FullTypeDecl(typName, typURI,
@@ -158,7 +159,6 @@ object StandardTypeDefs {
 
     pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
     pilarTypeDec(URIS.TYPE_URI) = typURI
-    pilarTypeDec(URIS.REF_URI) = typURI
     pilarTypeDec
   }
 

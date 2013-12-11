@@ -181,10 +181,6 @@ typealias Integer Sub_Int
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Constraints-1:9/Sub_Int-3:11</string>""")
-
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Constraints-1:9/Sub_Int-3:11</string>""")
@@ -286,10 +282,6 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Int_Range-6:8</string>""")
-
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Int_Range-6:8</string>""")
@@ -334,10 +326,6 @@ enum Day
            </ivector>
          </org.sireum.bakar.symbol.EnumerationTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Constraints-1:9/Day-8:8</string>""")
 
     @BAKAR_TYPE_URI
 
@@ -445,10 +433,6 @@ typealias Day Weekday
          </some>
        </org.sireum.bakar.symbol.SubTypeDecl>""")
 
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Constraints-1:9/Weekday-9:11</string>""")
-
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Constraints-1:9/Weekday-9:11</string>""")
@@ -545,10 +529,6 @@ typealias Boolean Boolean
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>""")
 ;
 
 typealias Integer Integer
@@ -564,10 +544,6 @@ typealias Integer Integer
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>""")
 ;
@@ -587,10 +563,6 @@ typealias Integer Natural
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>""")
 ;
 
 typealias Integer Positive
@@ -606,10 +578,6 @@ typealias Integer Positive
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>""")
 ;
@@ -629,10 +597,6 @@ typealias Float Float
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Float-1:1</string>""")
 ;
 
 typealias universal_integer universal_integer
@@ -648,10 +612,6 @@ typealias universal_integer universal_integer
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_integer</string>""")
 ;
@@ -671,10 +631,6 @@ typealias universal_real universal_real
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/universal_real</string>""")
 ;
 
 typealias Character Character
@@ -692,10 +648,6 @@ typealias Character Character
     @BAKAR_TYPE_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
-
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/Character-1:1</string>""")
 ;
 
 typealias String String
@@ -711,10 +663,6 @@ typealias String String
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
     @BAKAR_TYPE_URI
-
-      ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
-
-    @BAKAR_REF_URI
 
       ("""<string sid="1">ada://ordinary_type/Standard-1:1/String-1:1</string>""")
 ;

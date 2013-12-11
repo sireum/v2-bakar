@@ -273,12 +273,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     type CTX = Value
     val PACKAGE, METHOD = Value
   }
-  
-    case class Context(
-        val kind : CTX.Value,
-        val name : String,
-        val uri : ResourceUri)
-        
+
+  case class Context(
+    val kind: CTX.Value,
+    val name: String,
+    val uri: ResourceUri)
+
   implicit def nu2nd(nu: NameUser) = {
     val nd = NameDefinition(nu.name)
     nd.propertyMap ++= nu.propertyMap
@@ -304,7 +304,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     val typeCache = mmapEmpty[Base, ISeq[PackageElement]]
     var typeDeclarations = imapEmpty[ResourceUri, SparkTypeDecl]
-        
+
     var countLocation = 0
     var stackLocationList = mstackEmpty[MList[LocationDecl]]
     def pushLocationList = {
@@ -317,7 +317,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       stackLocationList.top += l
       l
     }
-        
+
     val contextStack = mstackEmpty[Context]
     def pushContext(s: Context) = contextStack.push(s)
     def popContext = contextStack.pop
@@ -897,7 +897,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val path = (contextStack.map(_.name)).toList :+ subtypeName
       val subtypeURI = "ada://ordinary_type__anonymous/" + path.mkString("/")
 
-      val pilarTypeDec = TypeAliasDecl(NameDefinition(subtypeName), ivectorEmpty,
+      val pilarTypeDec = TypeAliasDecl(
+        addResourceUri(NameDefinition(subtypeName), subtypeURI), ivectorEmpty,
         NamedTypeSpec(NameUser(parentTypeName), ilistEmpty[TypeSpec]))
 
       val cons = Some(SimpleRangeConstraint(lowBound, highBound))
@@ -905,7 +906,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       typeDeclarations += (subtypeURI -> sparkTypeDec)
 
       pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
-      pilarTypeDec(URIS.REF_URI) = subtypeURI
       addTypeUri(subtypeURI, pilarTypeDec)
     }
 
@@ -997,7 +997,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
                     auxTypes :+= anon
                     compTypeName = Some(anon.name.name)
-                    compTypeUri = Some(anon(URIS.REF_URI))
+                    compTypeUri = Some(anon.name.uri)
                   } else {
                     compTypeName = Some(tname)
                     compTypeUri = Some(turi)
@@ -1019,10 +1019,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 v(stcons.getConstraint)
                 val t: TupleExp = popResult
 
-                val anon = this.introduceAnonymousType(t.exps(0), t.exps(1), itname, ituri)
+                val anon = introduceAnonymousType(t.exps(0), t.exps(1), itname, ituri)
 
                 auxTypes :+= anon
-                _indexUri = anon(URIS.REF_URI)
+                _indexUri = anon.name.uri
               } else
                 _indexUri = ituri
 
@@ -1039,7 +1039,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               val i: FullTypeDecl = StandardTypeDefs.StandardInteger(URIS.TYPE_DEF)
               val anon = introduceAnonymousType(lowBound, highBound, i.id, i.uri)
               auxTypes :+= anon
-              indexTypes :+= anon(URIS.REF_URI)
+              indexTypes :+= anon.name.uri
             case x => throw new RuntimeException("Unexpected: " + x)
           }
 
@@ -1189,42 +1189,32 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val pilarTypeDec = td match {
             case sit: SignedIntegerTypeDef =>
-              TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
+              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_SIGNED_INTEGER_TYPE_"), ilistEmpty[TypeSpec]))
             case etd: EnumerationTypeDef =>
-              val elems = for((n,u) <- etd.elems) yield {
-                EnumElement(this.addResourceUri(NameDefinition(n), u), ivectorEmpty)
-              }
-              EnumDecl(NameDefinition(tname), ivectorEmpty, elems.toList)
+              val elems = for ((n, u) <- etd.elems) yield EnumElement(addResourceUri(NameDefinition(n), u), ivectorEmpty)
+              EnumDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty, elems.toList)
             case uad: UnconstrainedArrayDef =>
-              TypeAliasDecl(NameDefinition(tname),
-                ivectorEmpty,
+              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_UNCONSTRAINED_ARRAY_"), ilistEmpty[TypeSpec]))
             case cad: ConstrainedArrayDef =>
-              TypeAliasDecl(NameDefinition(tname),
-                ivectorEmpty,
+              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_ARRAY_"), ilistEmpty[TypeSpec]))
             case dtd: DerivedTypeDef =>
-              TypeAliasDecl(NameDefinition(tname),
-                ivectorEmpty,
+              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_DERIVED_TYPE_"), ilistEmpty[TypeSpec]))
             case rtd: RecordTypeDef =>
               var attrs = ivectorEmpty[AttributeDecl]
               for ((k, v) <- rtd.components) {
                 val attr = AttributeDecl(
-                  NameDefinition(k),
-                  ivectorEmpty,
-                  Some(NamedTypeSpec(NameUser(v.typeName), ilistEmpty[TypeSpec])),
-                  None)
-                attr(URIS.REF_URI) = v.refUri
+                  addResourceUri(NameDefinition(k), v.refUri), ivectorEmpty,
+                  Some(NamedTypeSpec(NameUser(v.typeName), ilistEmpty[TypeSpec])), None)
                 addTypeUri(v.typeUri, attr)
                 attrs :+= attr
               }
               RecordDecl(
-                NameDefinition(tname),
-                ivectorEmpty,
-                ilistEmpty[(NameDefinition, ISeq[Annotation])],
-                ilistEmpty[ExtendClause],
+                addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+                ilistEmpty[(NameDefinition, ISeq[Annotation])], ilistEmpty[ExtendClause],
                 attrs)
             case _ => throw new RuntimeException("Unexpected")
           }
@@ -1234,7 +1224,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           typeDeclarations += (turi -> sparkTypeDec)
 
           pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
-          pilarTypeDec(URIS.REF_URI) = turi
           addTypeUri(turi, pilarTypeDec)
 
           ret
@@ -1246,7 +1235,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val (sname, suri, cons) = handleSubtypeDef(typeDeclView.getDefinition, v)
 
-          val pilarTypeDec = TypeAliasDecl(NameDefinition(tname), ivectorEmpty,
+          val pilarTypeDec = TypeAliasDecl(
+            addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
             NamedTypeSpec(NameUser(sname), ilistEmpty[TypeSpec]))
 
           val ret = ivector(pilarTypeDec)
@@ -1255,7 +1245,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           typeDeclarations += (turi -> sparkTypeDec)
 
           pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
-          pilarTypeDec(URIS.REF_URI) = turi
           addTypeUri(turi, pilarTypeDec)
 
           ret
@@ -1272,8 +1261,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               !isEmpty(hasLimited.getHasLimited)
             case x => throw new RuntimeException("Unexpected: " + x)
           }
-          val pilarTypeDec = TypeAliasDecl(NameDefinition(tname),
-            ivectorEmpty,
+          val pilarTypeDec = TypeAliasDecl(
+            addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
             NamedTypeSpec(NameUser("_PRIVATE_TYPE_DECLARATION_"), ilistEmpty[TypeSpec]))
 
           val ret = ivector(pilarTypeDec)
@@ -1284,7 +1273,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           typeDeclarations += (turi -> sparkTypeDec)
 
           pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
-          pilarTypeDec(URIS.REF_URI) = turi
           addTypeUri(turi, pilarTypeDec)
 
           ret
@@ -1478,16 +1466,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
   }
 
   def packageH(ctx: VContext, v: => BVisitor): VisitorFunction = {
-    def createConstDecl(isSpec : Boolean, constants : ISeq[ConstElement]) = {
+    def createConstDecl(isSpec: Boolean, constants: ISeq[ConstElement]) = {
       val name = "$CONST"
       val path = (ctx.contextStack.map(_.name)).toList :+ name
-      val uri = (if(isSpec) PackageURIs.constSpecDeclPrefixUri
-          else PackageURIs.constBodyDeclPrefixUri) + path.mkString("/")
+      val uri = (if (isSpec) PackageURIs.constSpecDeclPrefixUri
+      else PackageURIs.constBodyDeclPrefixUri) + path.mkString("/")
       val nd = NameDefinition(name)
       ctx.addResourceUri(nd, uri)
       ConstDecl(nd, ivectorEmpty, constants)
     }
-    
+
     def handlePackage(o: Base, sloc: SourceLocation, names: DefiningNameList,
       aspectSpec: ElementList, visibleDecls: java.util.List[Base],
       privateDecls: Option[java.util.List[Base]], checks: String) {
@@ -1521,7 +1509,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val elements = scope.typeDeclarations
 
-      if (!scope.constants.isEmpty) 
+      if (!scope.constants.isEmpty)
         elements += createConstDecl(isSpec, scope.constants.toList)
 
       val (globals, locals) = scope.variableDeclarations.partition(_.isInstanceOf[GlobalVarDecl])
@@ -1543,7 +1531,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val p = ProcedureDecl(nd, ivectorEmpty,
           ivectorEmpty, ivectorEmpty, None, false,
           ImplementedBody(locals.asInstanceOf[MList[LocalVarDecl]].toList, scope.initBlock.get.toList, ivectorEmpty))
-        
+
         p.parentUri(pname.uri)
         elements += p
       }
@@ -1587,7 +1575,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         } else if (TranslatorUtil.isMethodDeclaration(unitDeclaration.getDeclaration)) {
           val pname = "__anonymousPackage$" + ctx.nextAnonymousPackage
           val puri = PackageURIs.anonymousPackageBodyURIprefix + pname
-          
+
           ctx.pushContext(Context(CTX.METHOD, pname, puri))
           val scope = ctx.constructScope(v, unitDeclaration.getDeclaration, true)
           ctx.scopeCache -= unitDeclaration.getDeclaration
@@ -1772,7 +1760,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       pd(URIS.REF_URI) = mname.uri //methodDefUri
 
       pd.parentUri(ctx.contextStack.tail.head.uri)
-      
+
       ctx.noTempVars(true)
       aspectSpecs.getElements.foreach {
         case as @ AspectSpecificationEx(sloc, mark, aspectDef, checks) =>

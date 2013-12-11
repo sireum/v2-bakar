@@ -16,8 +16,16 @@ Const Element Table
   ada://integer_number/Constraints-1:9/Int_High_Const-5:3 
 
 Enum Table
+  ada://ordinary_type/Constraints-1:9/Day-8:8 
 
 Enum Element Table
+  ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37 
+  ada://enumeration_literal/Constraints-1:9/Day-8:8/Mon-8:16 
+  ada://enumeration_literal/Constraints-1:9/Day-8:8/Sat-8:42 
+  ada://enumeration_literal/Constraints-1:9/Day-8:8/Sun-8:47 
+  ada://enumeration_literal/Constraints-1:9/Day-8:8/Thur-8:31 
+  ada://enumeration_literal/Constraints-1:9/Day-8:8/Tue-8:21 
+  ada://enumeration_literal/Constraints-1:9/Day-8:8/Wed-8:26 
 
 Global Var Table
 

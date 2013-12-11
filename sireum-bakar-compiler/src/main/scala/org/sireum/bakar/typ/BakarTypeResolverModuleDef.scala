@@ -35,11 +35,10 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         typeMap(o(URIS.TYPE_URI)) = o(URIS.TYPE_DEF)
         true
       case o : AttributeDecl =>
-        assert(o ? URIS.REF_URI)
         assert(o ? URIS.TYPE_URI)
         //assert(o ? URIS.TYPE_DEF)
         
-        val rf : ResourceUri = o(URIS.REF_URI)
+        val rf : ResourceUri = o.name.uri
         val tu : ResourceUri = o(URIS.TYPE_URI)
         
         // FIXME: type erasure
