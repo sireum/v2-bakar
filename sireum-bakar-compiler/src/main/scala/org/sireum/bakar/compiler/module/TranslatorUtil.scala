@@ -124,15 +124,15 @@ object Proof {
 }
 
 object StandardURIs {
-  val universalIntURI = "ada://ordinary_type/universal_integer".intern
-  val universalRealURI = "ada://ordinary_type/universal_real".intern
+  val universalIntURI = "ada://ordinary_type/universal_integer"
+  val universalRealURI = "ada://ordinary_type/universal_real"
 
-  val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1".intern
-  val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1".intern
-  val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1".intern
-  val positiveURI = "ada://subtype/Standard-1:1/Positive-1:1".intern
+  val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1"
+  val integerURI = "ada://ordinary_type/Standard-1:1/Integer-1:1"
+  val naturalURI = "ada://subtype/Standard-1:1/Natural-1:1"
+  val positiveURI = "ada://subtype/Standard-1:1/Positive-1:1"
 
-  val floatURI = "ada://ordinary_type/Standard-1:1/Float-1:1".intern
+  val floatURI = "ada://ordinary_type/Standard-1:1/Float-1:1"
 
   val charURI = "ada://ordinary_type/Standard-1:1/Character-1:1"
   val stringURI = "ada://ordinary_type/Standard-1:1/String-1:1"
