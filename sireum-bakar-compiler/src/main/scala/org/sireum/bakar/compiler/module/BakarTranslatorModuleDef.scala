@@ -328,6 +328,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     def peekExitLocation = exitLocations.top
 
     var resultStack: PilarAstNode = null;
+    
     def pushResult[T <: PilarAstNode](o: T, sloc: SourceLocation) {
       assert(resultStack == null)
       addSourceLoc(o, sloc)
@@ -814,8 +815,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 else (defName, defUri)
               val name = addResourceUri(NameDefinition(cdefName), cdefUri)
 
-              val vd = if (processingPackage)
-                GlobalVarDecl(name, ivectorEmpty, typeSpec)
+              val vd = if (processingPackage) {
+                import org.sireum.bakar.symbol.BakarSymbol._
+                val gvd = GlobalVarDecl(name, ivectorEmpty, typeSpec)
+                gvd.parentUri = contextStack.top.uri
+                gvd
+              }
               else
                 LocalVarDecl(typeSpec, name, ivectorEmpty)
 
@@ -1508,7 +1513,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           ivectorEmpty, ivectorEmpty, None, false,
           ImplementedBody(locals.asInstanceOf[MList[LocalVarDecl]].toList, scope.initBlock.get.toList, ivectorEmpty))
 
-        p.parentUri(pname.uri)
+        p.parentUri = pname.uri
         elements += p
       }
       elements ++= packElems
@@ -1530,7 +1535,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   case "off" => false
                 }
               } else true
-              pack.sparkMode(mode)
+              pack.sparkMode = mode
             case "initializes" =>
               Console.err.println(s"Skipping Initializes clause for $pname")
             case x => throw new RuntimeException("Unexpected: " + x)
@@ -1598,7 +1603,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         contextClauseElements.getContextClauses.foreach {
           case ImplementationDefinedPragmaEx(sloc2, assocs, pragmaName, checks2) =>
             assert(pragmaName.toLowerCase == "spark_mode")
-            pack.sparkMode(sparkModeOn(assocs))
+            pack.sparkMode = sparkModeOn(assocs)
           case WithClauseEx(sloc2, hasLimited, hasPrivate, names, checks2) =>
             assert(ctx.isEmpty(hasLimited.getHasLimited))
             assert(ctx.isEmpty(hasPrivate.getHasPrivate))
@@ -1609,14 +1614,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             useTypeClauses ++= vi(names.getNames)
           case x => throw new RuntimeException("Unknown: " + x)
         }
-        if (!withClauses.isEmpty) pack.withClauses(withClauses)
-        if (!useClauses.isEmpty) pack.useClauses(useClauses)
-        if (!useTypeClauses.isEmpty) pack.useTypeClauses(useTypeClauses)
+        if (!withClauses.isEmpty) pack.withClauses = withClauses
+        if (!useClauses.isEmpty) pack.useClauses = useClauses
+        if (!useTypeClauses.isEmpty) pack.useTypeClauses = useTypeClauses
 
         pragmasAfter.getElements.foreach {
           case ImplementationDefinedPragmaEx(sloc2, assocs, pragmaName, checks2) =>
             assert(pragmaName.toLowerCase == "spark_mode")
-            pack.sparkMode(sparkModeOn(assocs))
+            pack.sparkMode = sparkModeOn(assocs)
         }
 
         false
@@ -1681,7 +1686,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               pd(URIS.REF_URI) = defUri
 
               import org.sireum.bakar.symbol.BakarSymbol._
-              pd.mode(mode)
+              pd.mode = mode
 
               params += ctx.addSourceLoc(pd, sloc)
             case _ => throw new RuntimeException("Unexpected")
@@ -1735,7 +1740,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       pd(URIS.REF_URI) = mname.uri //methodDefUri
 
-      pd.parentUri(ctx.contextStack.tail.head.uri)
+      pd.parentUri = ctx.contextStack.tail.head.uri
 
       ctx.noTempVars(true)
       aspectSpecs.getElements.foreach {
@@ -1763,20 +1768,20 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                       }
                   }
               }
-              pd.contractCases(exps)
+              pd.contractCases = exps
             case "convention" =>
               v(aspectDef.getElement)
               val ne: NameExp = ctx.popResult
 
               ne.name.name.toLowerCase match {
-                case "ghost" => pd.isGhostFunction(true)
+                case "ghost" => pd.isGhostFunction = true
               }
             case "post" =>
               v(aspectDef.getElement)
-              pd.post(ctx.popResult)
+              pd.post = ctx.popResult
             case "pre" =>
               v(aspectDef.getElement)
-              pd.pre(ctx.popResult)
+              pd.pre = ctx.popResult
             case "global" =>
               var ins = isetEmpty[ResourceUri]
               var outs = isetEmpty[ResourceUri]
@@ -1808,9 +1813,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   ins += i.name.uri
                 case x => throw new RuntimeException("Unexpected: " + x)
               }
-              if (!ins.isEmpty) pd.globalsIn(ins)
-              if (!outs.isEmpty) pd.globalsOut(outs)
-              if (!proofs.isEmpty) pd.globalsProof(proofs)
+              if (!ins.isEmpty) pd.globalsIn = ins
+              if (!outs.isEmpty) pd.globalsOut = outs
+              if (!proofs.isEmpty) pd.globalsProof = proofs
             case "depends" =>
               var assoc = ivectorEmpty[(ISet[String], ISet[String])]
 
@@ -1858,7 +1863,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               for ((outputs, inputs) <- assoc; out <- outputs) {
                 d += (out -> inputs)
               }
-              pd.depends(d)
+              pd.depends = d
             case "test_case" =>
               v(aspectDef.getElement)
               val x: NewRecordExp = ctx.popResult
@@ -1882,7 +1887,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               var testCases = if (pd.testCases.isDefined) pd.testCases.get
               else ivectorEmpty[TestCase]
 
-              pd.testCases(testCases :+ TestCase(name, mode, requires, ensures))
+              pd.testCases = testCases :+ TestCase(name, mode, requires, ensures)
           }
         case x => throw new RuntimeException("Unexpected: " + x)
       }
@@ -2670,17 +2675,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val v = litVal.replaceAll("_", "") // e.g. 3_500
 
         def num(base: String, numeral: String, exponent: String = null) = {
-          val bi = new java.math.BigInteger(numeral, Integer.parseInt(base))
-
-          if (exponent != null) { // integer literal can't have negative exponent
-            val e = if (exponent.charAt(1) == '+') Integer.parseInt(exponent.drop(2))
-            else Integer.parseInt(exponent.drop(1))
-            bi.pow(e).toString
-          } else
-            bi.toString
+          val padded = numeral + "0" *
+            (if (exponent != null) { // integer literal can't have negative exponent
+              if (exponent.charAt(1) == '+') Integer.parseInt(exponent.drop(2))
+              else Integer.parseInt(exponent.drop(1))
+            } else 0)
+          new java.math.BigInteger(padded, Integer.parseInt(base)).toString
         }
 
-        val _v = if (v.contains("#")) { // e.g. 16#000186A0#E+2
+        val _v = if (v.contains("#")) {
+          // e.g. 16#E#E1 => 16#E0# => 224
           v.split("#").toList match {
             case base :: numeral :: Nil => num(base, numeral)
             case base :: numeral :: exponent :: Nil => num(base, numeral, exponent)
@@ -2728,6 +2732,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         false
       case RealLiteralEx(sloc, litVal, typUri, checks) =>
         val v = litVal.replaceAll("_", "")
+
+        // TODO: handle base literals 
+        // 16#1b.1392#E1
+        // base#whole.frac#exp
+        // var _frac = 0.0
+        // for(i <- frac.size - 1 to 0 by -1) 
+        //   _frac = (_frac + Integer.parseInt(frac.charAt(i).toString)) / base
+          
         val le = LiteralExp(LiteralType.FLOAT, v, v)
         ctx.addTypeUri(typUri, le)
         ctx.pushResult(le, sloc)

@@ -200,6 +200,12 @@ const $CONST {
 }
 
 global Vector @@S
+    @BAKAR_GLOBAL_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -212,6 +218,12 @@ global Vector @@S
 ;
 
 global Pointer_Range @@Pointer
+    @BAKAR_GLOBAL_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -224,6 +236,12 @@ global Pointer_Range @@Pointer
 ;
 
 global AuditInfoType @@AuditInfo
+    @BAKAR_GLOBAL_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>
+         <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -238,9 +256,9 @@ global AuditInfoType @@AuditInfo
 procedure $$binit
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
   #l1.
@@ -270,9 +288,9 @@ procedure Push (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -290,9 +308,9 @@ procedure Push (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -354,9 +372,9 @@ procedure Pop (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -374,9 +392,9 @@ procedure Pop (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -438,9 +456,9 @@ procedure Boolean Value_Present (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -458,9 +476,9 @@ procedure Boolean Value_Present (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -543,9 +561,9 @@ procedure Index_Range Find_Stack_Pos (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -563,9 +581,9 @@ procedure Index_Range Find_Stack_Pos (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -647,9 +665,9 @@ procedure Boolean aPrivateFunction
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -1071,9 +1089,9 @@ procedure Push (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -1091,9 +1109,9 @@ procedure Push (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -1116,9 +1134,9 @@ procedure Pop (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -1136,9 +1154,9 @@ procedure Pop (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -1160,9 +1178,9 @@ procedure Boolean aPrivateFunction
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package/The_Stack-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 

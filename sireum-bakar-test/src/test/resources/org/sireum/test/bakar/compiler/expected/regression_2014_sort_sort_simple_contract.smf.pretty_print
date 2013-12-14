@@ -20,9 +20,9 @@ procedure Boolean isSorted (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -40,9 +40,9 @@ procedure Boolean isSorted (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -116,9 +116,9 @@ procedure Integer Num_Repetitions (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -137,9 +137,9 @@ procedure Integer Num_Repetitions (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -157,9 +157,9 @@ procedure Integer Num_Repetitions (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -239,9 +239,9 @@ procedure Boolean isSet (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -259,9 +259,9 @@ procedure Boolean isSet (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -368,9 +368,9 @@ procedure Boolean isPerm (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -389,9 +389,9 @@ procedure Boolean isPerm (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -409,9 +409,9 @@ procedure Boolean isPerm (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -502,9 +502,9 @@ procedure BubbleSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -522,9 +522,9 @@ procedure BubbleSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -653,9 +653,9 @@ procedure dddd (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -674,9 +674,9 @@ procedure dddd (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -694,7 +694,7 @@ procedure dddd (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map2" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/I+76:18</string>
@@ -712,7 +712,7 @@ procedure dddd (
            </entry>
          </__depends>
          <__parentUri sid="3">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -740,9 +740,9 @@ procedure SwapElements (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -761,9 +761,9 @@ procedure SwapElements (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -782,9 +782,9 @@ procedure SwapElements (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -802,7 +802,7 @@ procedure SwapElements (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/A+82:26</string>
@@ -1778,7 +1778,7 @@ procedure SwapElements (
              </entry>
            </properties>
          </__post>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -1825,9 +1825,9 @@ procedure BubbleSort_using_SwapElements (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -1845,9 +1845,9 @@ procedure BubbleSort_using_SwapElements (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -1959,9 +1959,9 @@ procedure InsertionSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -1979,9 +1979,9 @@ procedure InsertionSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -2087,9 +2087,9 @@ procedure SelectionSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -2107,9 +2107,9 @@ procedure SelectionSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -2245,9 +2245,9 @@ procedure ShellSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -2265,9 +2265,9 @@ procedure ShellSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -2398,9 +2398,9 @@ sort_simple_contract.ads
 package Sort_Simple_Contract
     @BAKAR_PACKAGE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-4>
          <__sparkMode>true</__sparkMode>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-4>""")
 
     @util.loc
 
@@ -2528,9 +2528,9 @@ procedure Boolean isSorted (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -2548,7 +2548,7 @@ procedure Boolean isSorted (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package/Sort_Simple_Contract-1:9</__parentUri>
          <__post class="org.sireum.pilar.ast.CallExp" cid="1" size="2">
            <org.sireum.pilar.ast.NameExp cid="2" size="1">
@@ -2621,7 +2621,7 @@ procedure Boolean isSorted (
              </entry>
            </properties>
          </__post>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -2644,9 +2644,9 @@ procedure Boolean isPerm (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -2665,9 +2665,9 @@ procedure Boolean isPerm (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -2685,9 +2685,9 @@ procedure Boolean isPerm (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -2710,9 +2710,9 @@ procedure Boolean isSet (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -2730,9 +2730,9 @@ procedure Boolean isSet (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package/Sort_Simple_Contract-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -2755,9 +2755,9 @@ procedure BubbleSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -2775,7 +2775,7 @@ procedure BubbleSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24</string>
@@ -3094,7 +3094,7 @@ procedure BubbleSort (
              </entry>
            </properties>
          </__post>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -3117,9 +3117,9 @@ procedure BubbleSort_using_SwapElements (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -3137,7 +3137,7 @@ procedure BubbleSort_using_SwapElements (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43</string>
@@ -3456,7 +3456,7 @@ procedure BubbleSort_using_SwapElements (
              </entry>
            </properties>
          </__post>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -3479,9 +3479,9 @@ procedure InsertionSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -3499,7 +3499,7 @@ procedure InsertionSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27</string>
@@ -3818,7 +3818,7 @@ procedure InsertionSort (
              </entry>
            </properties>
          </__post>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -3841,9 +3841,9 @@ procedure SelectionSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -3861,7 +3861,7 @@ procedure SelectionSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27</string>
@@ -4180,7 +4180,7 @@ procedure SelectionSort (
              </entry>
            </properties>
          </__post>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -4203,9 +4203,9 @@ procedure ShellSort (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -4223,7 +4223,7 @@ procedure ShellSort (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23</string>
@@ -4542,7 +4542,7 @@ procedure ShellSort (
              </entry>
            </properties>
          </__post>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 

@@ -10,11 +10,12 @@ import org.sireum.pipeline.Output
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineJobModuleInfo
 import org.sireum.util._
+import org.sireum.bakar.symbol.TypeDecl
 
 class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTypeResolverModule {
   
   // type uri to type definition
-  val typeMap = mlinkedMapEmpty[ResourceUri, Type]
+  val typeMap = mlinkedMapEmpty[ResourceUri, TypeDecl]
 
   var proc = ivectorEmpty[ProcedureDecl]
 
@@ -146,7 +147,7 @@ case class BakarTypeResolver(
 
   @Output bakarRef2TypeUriMap : IMap[ResourceUri, ResourceUri],
 
-  @Output bakarTypeUri2TypeMap : IMap[ResourceUri, Type])
+  @Output bakarTypeUri2TypeMap : IMap[ResourceUri, TypeDecl])
 
 object BakarTypeResolver {
   def main(args : Array[String]) {

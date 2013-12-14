@@ -157,6 +157,12 @@ typealias _ARRAY_ Vector
 ;
 
 global Vector @@V
+    @BAKAR_GLOBAL_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>
+         <__parentUri sid="1">ada://package_body/VerySimpleArray-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -175,9 +181,9 @@ procedure Boolean Dummy
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/VerySimpleArray-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -202,9 +208,9 @@ procedure Add (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -222,9 +228,9 @@ procedure Add (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/VerySimpleArray-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -251,9 +257,9 @@ procedure Del
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/VerySimpleArray-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -310,9 +316,9 @@ procedure Boolean Dummy
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package/VerySimpleArray-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 

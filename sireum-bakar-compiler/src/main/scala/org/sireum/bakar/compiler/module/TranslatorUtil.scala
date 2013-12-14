@@ -7,6 +7,7 @@ object BAKAR_KEYS {
 object URIS {
   import java.net.URI
   import org.sireum.util.ResourceUri
+  import org.sireum.pilar.ast.Exp
 
   val TYPE_MAP = "BAKAR_TYPE_MAP"
   val TYPE_DEF = "BAKAR_TYPE_DEF"
@@ -23,6 +24,11 @@ object URIS {
   val uriPrefixProcedureBody = "ada://procedure_body/"
   val uriPrefixProcedureSpec = "ada://procedure/"
     
+  def addTypeUri[E <: Exp](e: E, uri: String) : E = {
+    e(TYPE_URI) = uri
+    e
+  }
+  
   def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) = {
 
     val u = new URI(uri)
@@ -39,6 +45,7 @@ object URIS {
   def isTypeUri(u: ResourceUri) =
     u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/")
 
+  def isUIFUri(u:ResourceUri) = u.startsWith(UIF.uifURIprefix)
     
   def isMethodUri(u: ResourceUri) =
     u.startsWith("ada://procedure") || u.startsWith("ada://function") ||
@@ -96,7 +103,7 @@ object Attribute {
 
   val ATTRIBUTE_UIF_ARRAY_UPDATE = "attribute__uif__array_update"
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
-  val ATTRIBUTE_UIF_IMAGE = "attribute__uif__iamge"
+  val ATTRIBUTE_UIF_IMAGE = "attribute__uif__image"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
   val ATTRIBUTE_UIF_LENGTH = "attribute__uif__length"
   val ATTRIBUTE_UIF_LOOP_ENTRY = "attribute__uif__loop_entry"

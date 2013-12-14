@@ -15,9 +15,9 @@ package Array_Of_Records_Of_Array
 procedure $$binit
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Array_Of_Records_Of_Array-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
   #l1.
@@ -37,9 +37,9 @@ procedure Swap (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -58,9 +58,9 @@ procedure Swap (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -78,9 +78,9 @@ procedure Swap (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__parentUri sid="1">ada://package_body/Array_Of_Records_Of_Array-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
@@ -193,9 +193,9 @@ array_of_records_of_array.ads
 package Array_Of_Records_Of_Array
     @BAKAR_PACKAGE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-4>
          <__sparkMode>true</__sparkMode>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-3>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pack2packInfo_-1_-_-anon_-4>""")
 
     @util.loc
 
@@ -381,6 +381,12 @@ const $CONST {
 }
 
 global ObjectArray @@oArray
+    @BAKAR_GLOBAL_INFO
+
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>
+         <__parentUri sid="1">ada://package/Array_Of_Records_Of_Array-1:9</__parentUri>
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-gd2gi_-1_-_-anon_-1>""")
+
     @util.loc
 
       ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -400,9 +406,9 @@ procedure Swap (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN_OUT</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -421,9 +427,9 @@ procedure Swap (
 
             @BAKAR_PARAM_INFO
 
-              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>
+              ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
                  <__paramMode>IN</__paramMode>
-               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-1>""")
+               </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>""")
 
             @util.loc
 
@@ -441,7 +447,7 @@ procedure Swap (
 
     @BAKAR_PROCEDURE_INFO
 
-      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>
+      ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
          <__depends class="icol.Map$Map1" mtype="imap">
            <entry>
              <string sid="1">ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18</string>
@@ -452,7 +458,7 @@ procedure Swap (
            </entry>
          </__depends>
          <__parentUri sid="3">ada://package/Array_Of_Records_Of_Array-1:9</__parentUri>
-       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-2>""")
+       </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
     @util.loc
 
