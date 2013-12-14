@@ -52,17 +52,18 @@ object URIS {
     u.startsWith("ada://expression_function")
 
   def isAdaMethodUri(u:ResourceUri) = isAdaMethodSpecUri(u) || isAdaMethodBodyUri(u)
+  def isAdaMethodSpecUri(u:ResourceUri) = isAdaProcedureSpecUri(u) || isAdaFunctionSpecUri(u)
+  def isAdaMethodBodyUri(u:ResourceUri) = isAdaProcedureBodyUri(u) || isAdaFunctionBodyUri(u)
+    
+  def isAdaProcedureUri(u:ResourceUri) = isAdaProcedureSpecUri(u) || isAdaProcedureBodyUri(u)
+  def isAdaProcedureSpecUri(u:ResourceUri) = u.startsWith(uriPrefixProcedureSpec)     
+  def isAdaProcedureBodyUri(u:ResourceUri) = u.startsWith(uriPrefixProcedureBody) 
+    
+  def isAdaFunctionUri(u:ResourceUri) = isAdaFunctionSpecUri(u) || isAdaFunctionBodyUri(u)
+  def isAdaFunctionSpecUri(u:ResourceUri) = u.startsWith(uriPrefixFunctionSpec)    
+  def isAdaFunctionBodyUri(u:ResourceUri) = u.startsWith(uriPrefixFunctionBody) || isAdaExpressionFunctionUri(u)
+  def isAdaExpressionFunctionUri(u:ResourceUri) = u.startsWith(uriPrefixExpressionFunction)
   
-  def isAdaMethodSpecUri(u:ResourceUri) =
-    u.startsWith(uriPrefixProcedureSpec) || u.startsWith(uriPrefixFunctionSpec) 
-    
-  def isAdaMethodBodyUri(u:ResourceUri) =
-    u.startsWith(uriPrefixProcedureBody) || u.startsWith(uriPrefixFunctionBody) ||
-    u.startsWith(uriPrefixExpressionFunction)
-
-  def isExpressionFunctionUri(u:ResourceUri) = 
-    u.startsWith(uriPrefixExpressionFunction)
-    
   def isPackageUri(u: ResourceUri) = u.startsWith("ada://package")
   def isAdaPackageUri(u: ResourceUri) = isAdaPackageSpecUri(u) || isAdaPackageBodyUri(u)
   def isAdaPackageSpecUri(u: ResourceUri) = u.startsWith(uriPrefixPackageSpec)
