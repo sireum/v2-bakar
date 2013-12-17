@@ -242,9 +242,19 @@ typealias Week WeekDay
                        <string>BAKAR_REF_URI</string>
                        <string srefid="2"/>
                      </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
                    </properties>
                  </org.sireum.pilar.ast.NameUser>
                  <ivector ttype="ivector"/>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="2"/>
+                   </entry>
+                 </properties>
                </org.sireum.pilar.ast.NamedTypeSpec>
                <properties mtype="mlinkedmap">
                  <entry>
@@ -518,9 +528,19 @@ typealias Week WeekEnd
                        <string>BAKAR_REF_URI</string>
                        <string srefid="2"/>
                      </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
                    </properties>
                  </org.sireum.pilar.ast.NameUser>
                  <ivector ttype="ivector"/>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="2"/>
+                   </entry>
+                 </properties>
                </org.sireum.pilar.ast.NamedTypeSpec>
                <properties mtype="mlinkedmap">
                  <entry>

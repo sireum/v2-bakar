@@ -10,7 +10,7 @@ import org.sireum.pilar.ast._
 import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.bakar.compiler.module.URIS
 
-class BakarExpRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarExpRewriterModule {
+class BakarExpRewriterModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends BakarExpRewriterModule {
   var r = ilistEmpty[Model]
   for (m <- this.models) {
     r :+= BakarRewriter.rewriter(m)
@@ -19,7 +19,7 @@ class BakarExpRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleI
 }
 
 object BakarRewriter {
-  def rewriter(m : Model) : Model = new BakarRewriter().rewrite(m)
+  def rewriter(m: Model): Model = new BakarRewriter().rewrite(m)
 }
 
 class BakarRewriter {
@@ -33,14 +33,14 @@ class BakarRewriter {
   val TEMP_VAR_TYPE = "variable_temp"
 
   val eannot = ilistEmpty[Annotation]
-  def newTempVar(typeName : String, typeUri : String) = {
+  def newTempVar(typeName: String, typeUri: String) = {
     import org.sireum.pilar.symbol.Symbol
 
     val name = tempVarPrefix + tcounter
     val path = ilist(this.currentPackage, this.currentMethod, name)
     val uri = SCHEME + "://" + TEMP_VAR_TYPE + "/" + path.mkString("/")
 
-    val nts = Some(NamedTypeSpec(URIS.addResourceUri(NameUser(typeName), typeUri), ilistEmpty[TypeSpec]))
+    val nts = Some(createNamedTypeSpec(NameUser(typeName), typeUri))
     val lname = URIS.addResourceUri(NameDefinition(name), uri)
     val lvd = LocalVarDecl(nts, lname, ilistEmpty[Annotation])
     this.newTempVars :+= lvd
@@ -49,6 +49,12 @@ class BakarRewriter {
     ret(URIS.TYPE_URI) = typeUri
     tcounter += 1
     ret
+  }
+
+  def createNamedTypeSpec(name: NameUser, typUri: ResourceUri) = {
+    assert(URIS.isTypeUri(typUri))
+    val nu = URIS.addTypeUri(name, typUri)
+    URIS.addTypeUri(NamedTypeSpec(nu, ivectorEmpty), typUri)
   }
 
   def newLabel = {
@@ -63,26 +69,26 @@ class BakarRewriter {
     Some(ret)
   }
 
-  var clhs : Option[Exp] = None
+  var clhs: Option[Exp] = None
   var prelocs = ilistEmpty[LocationDecl]
   var postlocs = ilistEmpty[LocationDecl]
   var newTempVars = ilistEmpty[LocalVarDecl]
 
-  var currentPackage : String = null
-  var currentMethod : String = null
+  var currentPackage: String = null
+  var currentMethod: String = null
 
-  def getTypeUri(e : Exp) : String = {
+  def getTypeUri(e: Exp): String = {
     assert(e ? URIS.TYPE_URI)
     e(URIS.TYPE_URI)
   }
 
-  def copyMap[T <: PilarAstNode](orig : T, n : T) : T = {
+  def copyMap[T <: PilarAstNode](orig: T, n: T): T = {
     n.propertyMap ++= orig.propertyMap
     n
   }
 
   val rewriter = Rewriter.build[LocationDecl]({
-    case l : LocationDecl => l
+    case l: LocationDecl => l
     case b @ BinaryExp(o, l, r) =>
       val btype = getTypeUri(b)
       val ltype = getTypeUri(l)
@@ -128,31 +134,31 @@ class BakarRewriter {
       ie
 
     // the rest of these are sanity checks
-    case te : TupleExp => te // tuple exp don't need a type
-    case fe : FunExp => fe
-    case se : SwitchExp => se
+    case te: TupleExp => te // tuple exp don't need a type
+    case fe: FunExp => fe
+    case se: SwitchExp => se
     case e @ CallExp(NameExp(n), _) =>
       assert(n.uri.startsWith("ada://procedure") || e ? URIS.TYPE_URI)
       e
     case e @ NameExp(n) =>
       assert(n.uri.startsWith("ada://procedure") || n.uri.startsWith("ada://function") ||
-          e ? URIS.TYPE_URI)
+        e ? URIS.TYPE_URI)
       e
-    case e : Exp =>
-      if(!(e ? URIS.TYPE_URI)) 
-        print (e)
+    case e: Exp =>
+      if (!(e ? URIS.TYPE_URI))
+        print(e)
       assert(e ? URIS.TYPE_URI)
       e
   }, Rewriter.TraversalMode.BOTTOM_UP, true)
 
-  def rewrite(m : Model) : Model = {
+  def rewrite(m: Model): Model = {
     var packages = ilistEmpty[PackageDecl]
     Visitor.build({
       case p @ PackageDecl(packName, _, elements) =>
         var elems = ivectorEmpty[PackageElement]
         this.currentPackage = packName.get.name
         elements.foreach {
-          case pd @ ProcedureDecl(methName, a, tv, params, rt, va, body : ImplementedBody) => {
+          case pd @ ProcedureDecl(methName, a, tv, params, rt, va, body: ImplementedBody) => {
 
             var locmap = ilinkedMapEmpty[LocationDecl, (ISeq[LocationDecl], ISeq[LocationDecl])]
 
@@ -163,9 +169,9 @@ class BakarRewriter {
               l match {
                 case ActionLocation(_, _, AssignAction(_, lhs, _, _)) =>
                   lhs match {
-                    case a : AccessExp   => clhs = Some(lhs)
-                    case i : IndexingExp => clhs = Some(lhs)
-                    case _               =>
+                    case a: AccessExp => clhs = Some(lhs)
+                    case i: IndexingExp => clhs = Some(lhs)
+                    case _ =>
                   }
                 case _ =>
               }
@@ -195,12 +201,12 @@ class BakarRewriter {
 
 case class BakarExpRewriter(
 
-  title : String = "Bakar Exp Rewriter",
+  title: String = "Bakar Exp Rewriter",
 
-  @Input @Output models : ISeq[Model])
+  @Input @Output models: ISeq[Model])
 
 object BakarExpRewriter {
-  def main(args : Array[String]) {
+  def main(args: Array[String]) {
     val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
     val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"
     val cname = BakarExpRewriter.getClass.getName.dropRight(1)

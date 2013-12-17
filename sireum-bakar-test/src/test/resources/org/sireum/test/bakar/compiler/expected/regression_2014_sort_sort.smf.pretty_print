@@ -635,9 +635,19 @@ procedure Boolean Partitioned (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="4"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="4"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="4"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -1058,9 +1068,19 @@ procedure Boolean Partitioned (
                          <string>BAKAR_REF_URI</string>
                          <string srefid="4"/>
                        </entry>
+                       <entry>
+                         <string>BAKAR_TYPE_URI</string>
+                         <string srefid="4"/>
+                       </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
                    <ivector ttype="ivector"/>
+                   <properties mtype="mlinkedmap">
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="4"/>
+                     </entry>
+                   </properties>
                  </org.sireum.pilar.ast.NamedTypeSpec>
                  <properties mtype="mlinkedmap">
                    <entry>
@@ -2085,9 +2105,19 @@ procedure Swap_Elements (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="11"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="11"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="11"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -2153,9 +2183,19 @@ procedure Swap_Elements (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="11"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="11"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="11"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -2978,9 +3018,19 @@ typealias Base_Index_Type Index_Type
                        <string>BAKAR_REF_URI</string>
                        <string srefid="2"/>
                      </entry>
+                     <entry>
+                       <string>BAKAR_TYPE_URI</string>
+                       <string srefid="2"/>
+                     </entry>
                    </properties>
                  </org.sireum.pilar.ast.NameUser>
                  <ivector ttype="ivector"/>
+                 <properties mtype="mlinkedmap">
+                   <entry>
+                     <string>BAKAR_TYPE_URI</string>
+                     <string srefid="2"/>
+                   </entry>
+                 </properties>
                </org.sireum.pilar.ast.NamedTypeSpec>
                <properties mtype="mlinkedmap">
                  <entry>
@@ -3479,9 +3529,19 @@ procedure BubbleSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -3547,9 +3607,19 @@ procedure BubbleSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -3800,9 +3870,19 @@ procedure BubbleSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -3868,9 +3948,19 @@ procedure BubbleSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -4113,9 +4203,19 @@ procedure BubbleSortFast (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -4181,9 +4281,19 @@ procedure BubbleSortFast (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -4434,9 +4544,19 @@ procedure BubbleSortFast (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -4502,9 +4622,19 @@ procedure BubbleSortFast (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -4747,9 +4877,19 @@ procedure InsertionSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -4815,9 +4955,19 @@ procedure InsertionSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -5068,9 +5218,19 @@ procedure InsertionSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -5136,9 +5296,19 @@ procedure InsertionSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="9"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="9"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="9"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -5381,9 +5551,19 @@ procedure ShellSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="8"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="8"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="8"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -5449,9 +5629,19 @@ procedure ShellSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="8"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="8"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="8"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -5702,9 +5892,19 @@ procedure ShellSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="8"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="8"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="8"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>
@@ -5770,9 +5970,19 @@ procedure ShellSort (
                              <string>BAKAR_REF_URI</string>
                              <string srefid="8"/>
                            </entry>
+                           <entry>
+                             <string>BAKAR_TYPE_URI</string>
+                             <string srefid="8"/>
+                           </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
                        <ivector ttype="ivector"/>
+                       <properties mtype="mlinkedmap">
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="8"/>
+                         </entry>
+                       </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
                      <properties mtype="mlinkedmap">
                        <entry>

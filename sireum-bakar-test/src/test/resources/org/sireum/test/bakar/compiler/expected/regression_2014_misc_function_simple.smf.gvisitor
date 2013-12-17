@@ -120,11 +120,11 @@ Model(Some(function_simple.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
               NameDefinition(N)
               List()
           None
-          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),List())),NameDefinition(_tcomp0),List())),List(JumpLocation(Some(NameDefinition
-            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),List())),NameDefinition(_tcomp0),List()))
-              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),List())),NameDefinition(_tcomp0),List())
-                Some(NamedTypeSpec(NameUser(Integer),List()))
-                  NamedTypeSpec(NameUser(Integer),List())
+          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List())),List(JumpLocation(Some(NameDefiniti
+            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List()))
+              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List())
+                Some(NamedTypeSpec(NameUser(Integer),Vector()))
+                  NamedTypeSpec(NameUser(Integer),Vector())
                     NameUser(Integer)
                     List()
                 NameDefinition(_tcomp0)
@@ -187,11 +187,11 @@ Model(Some(function_simple.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
               NameDefinition(N)
               List()
           None
-          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),List())),NameDefinition(_tcomp1),List())),List(JumpLocation(Some(NameDefinition
-            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),List())),NameDefinition(_tcomp1),List()))
-              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),List())),NameDefinition(_tcomp1),List())
-                Some(NamedTypeSpec(NameUser(Integer),List()))
-                  NamedTypeSpec(NameUser(Integer),List())
+          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),List())),List(JumpLocation(Some(NameDefiniti
+            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),List()))
+              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),List())
+                Some(NamedTypeSpec(NameUser(Integer),Vector()))
+                  NamedTypeSpec(NameUser(Integer),Vector())
                     NameUser(Integer)
                     List()
                 NameDefinition(_tcomp1)

@@ -1,5 +1,7 @@
 package org.sireum.bakar.compiler.module
 
+import org.sireum.util.PropertyProvider
+
 object BAKAR_KEYS {
   val PARAM_INFO = "BAKAR_PARAM_INFO"
 }
@@ -24,10 +26,12 @@ object URIS {
   val uriPrefixProcedureBody = "ada://procedure_body/"
   val uriPrefixProcedureSpec = "ada://procedure/"
     
-  def addTypeUri[E <: Exp](e: E, uri: String) : E = {
+  def addTypeUri[E <: PropertyProvider](e: E, uri: String) : E = {
     e(TYPE_URI) = uri
     e
   }
+  
+  def getTypeUri[E <: PropertyProvider](e: E) : ResourceUri = e(TYPE_URI)
   
   def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) = {
 
@@ -43,7 +47,8 @@ object URIS {
   }
 
   def isTypeUri(u: ResourceUri) =
-    u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/")
+    u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/") ||
+    u.startsWith("ada://private_type/")
 
   def isUIFUri(u:ResourceUri) = u.startsWith(UIF.uifURIprefix)
     
@@ -128,7 +133,9 @@ object Proof {
   val PROOF_UIF_LOOP_INVARIANT = "proof__uif__loop_invariant"
   val PROOF_UIF_LOOP_VARIANT = "proof__uif__loop_variant"
   val PROOF_UIF_FOR_ALL = "proof__uif__for_all"
+  val PROOF_UIF_FOR_ALL_REV = "proof__uif__for_all_rev"
   val PROOF_UIF_FOR_SOME = "proof__uif__for_some"
+  val PROOF_UIF_FOR_SOME_REV = "proof__uif__for_some_rev"    
 }
 
 object StandardURIs {
