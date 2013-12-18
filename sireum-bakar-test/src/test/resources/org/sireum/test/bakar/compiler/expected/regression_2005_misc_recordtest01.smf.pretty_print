@@ -22,15 +22,15 @@ procedure $$binit
 
   #l1.
     @@anObject := `Object {
-      __positional0 = 1ii,
-      __positional1 = 2ii
+      X = 1ii,
+      Y = 2ii
     };
 
   #l2.
     @@aNestedObject := `NestedObject {
       O = `Object {
-        __positional0 = 1ii,
-        __positional1 = 2ii
+        X = 1ii,
+        Y = 2ii
       }
     };
 

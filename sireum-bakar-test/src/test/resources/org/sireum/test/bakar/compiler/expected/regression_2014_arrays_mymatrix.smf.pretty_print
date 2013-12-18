@@ -131,7 +131,11 @@ procedure Multiply (
   #l6.
     I := _tcomp0;
 
-  #l7.
+  #l7.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l9.
@@ -146,7 +150,11 @@ procedure Multiply (
   #l12.
     J := _tcomp2;
 
-  #l13.
+  #l13.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l15.
@@ -161,7 +169,11 @@ procedure Multiply (
   #l18.
     K := _tcomp4;
 
-  #l19.
+  #l19.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_2</string>""")
+  >
     // empty loc
 
   #l20.

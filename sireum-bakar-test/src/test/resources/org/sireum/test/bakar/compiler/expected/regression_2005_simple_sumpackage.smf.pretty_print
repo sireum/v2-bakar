@@ -88,7 +88,11 @@ procedure Integer Sum (
   #l4.
     T := N - 1ii;
 
-  #l6.
+  #l6.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l7.
@@ -202,7 +206,11 @@ procedure Sum2 (
   #l16.
     T := N - 1ii;
 
-  #l18.
+  #l18.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l19.

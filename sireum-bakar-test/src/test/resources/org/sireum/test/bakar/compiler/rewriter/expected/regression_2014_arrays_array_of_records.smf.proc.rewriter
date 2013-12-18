@@ -50,8 +50,8 @@ typealias _ARRAY_ ObjectArray;
 
 const $CONST {
   dummyObject = (Object) `Object {
-    __positional0 = 0ii,
-    __positional1 = 0ii
+    X = 0ii,
+    Y = 0ii
   };
 }
 

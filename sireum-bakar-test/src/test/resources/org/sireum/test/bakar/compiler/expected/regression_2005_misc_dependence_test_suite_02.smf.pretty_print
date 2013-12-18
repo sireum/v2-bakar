@@ -1486,7 +1486,11 @@ procedure Success11 (
   #l79.
     Sum := 0ii;
 
-  #l81.
+  #l81.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l82.
@@ -1626,7 +1630,11 @@ procedure Success12 (
   #l89.
     Sum := 0ii;
 
-  #l91.
+  #l91.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l92.
@@ -1789,13 +1797,21 @@ procedure Success13 (
   #l103.
     Sum := 0ii;
 
-  #l105.
+  #l105.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_2</string>""")
+  >
     // empty loc
 
   #l106.
     if !(J1 <= I1) then goto l104;
 
-  #l108.
+  #l108.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_3</string>""")
+  >
     // empty loc
 
   #l109.
@@ -1948,7 +1964,11 @@ procedure Success14 (
   #l119.
     L2 := 0ii;
 
-  #l121.
+  #l121.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_4</string>""")
+  >
     // empty loc
 
   #l122.
@@ -2053,7 +2073,11 @@ procedure Success15 (
   #l135.
     J := _tcomp0;
 
-  #l136.
+  #l136.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_5</string>""")
+  >
     // empty loc
 
   #l137.
@@ -2173,7 +2197,11 @@ procedure Success16 (
   #l148.
     J := _tcomp3;
 
-  #l149.
+  #l149.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_6</string>""")
+  >
     // empty loc
 
   #l150.
@@ -2314,7 +2342,11 @@ procedure Success17 (
   #l161.
     J := _tcomp4;
 
-  #l162.
+  #l162.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_7</string>""")
+  >
     // empty loc
 
   #l163.
@@ -2467,7 +2499,11 @@ procedure Success18 (
   #l177.
     J1 := _tcomp6;
 
-  #l178.
+  #l178.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_8</string>""")
+  >
     // empty loc
 
   #l180.
@@ -2482,7 +2518,11 @@ procedure Success18 (
   #l183.
     J2 := _tcomp8;
 
-  #l184.
+  #l184.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_9</string>""")
+  >
     // empty loc
 
   #l185.
@@ -2635,7 +2675,11 @@ procedure Success19 (
   #l199.
     J1 := _tcomp10;
 
-  #l200.
+  #l200.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_10</string>""")
+  >
     // empty loc
 
   #l201.
@@ -2754,7 +2798,11 @@ procedure Success20 (
   #l208.
     Sum := 0ii;
 
-  #l209.
+  #l209.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_11</string>""")
+  >
     // empty loc
 
   #l211.
@@ -2873,7 +2921,11 @@ procedure Success21 (
   #l218.
     Sum := 0ii;
 
-  #l219.
+  #l219.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_12</string>""")
+  >
     // empty loc
 
   #l221.
@@ -3019,7 +3071,11 @@ procedure Success22 (
   #l230.
     Sum := 0ii;
 
-  #l231.
+  #l231.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_13</string>""")
+  >
     // empty loc
 
   #l233.
@@ -3182,10 +3238,18 @@ procedure Success23 (
   #l244.
     Sum := 0ii;
 
-  #l245.
+  #l245.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_14</string>""")
+  >
     // empty loc
 
-  #l247.
+  #l247.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_15</string>""")
+  >
     // empty loc
 
   #l249.
@@ -3316,7 +3380,11 @@ procedure Success24 (
   #l259.
     Sum := 0ii;
 
-  #l260.
+  #l260.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_16</string>""")
+  >
     // empty loc
 
   #l262.
@@ -3438,7 +3506,11 @@ procedure Success25 (
   #l270.
     Sum := 0ii;
 
-  #l271.
+  #l271.<
+      @LOOP_LABEL
+
+        ("""<string>MyLoop</string>""")
+  >
     // empty loc
 
   #l273.
@@ -3578,7 +3650,11 @@ procedure Success26 (
   #l280.
     Sum := 0ii;
 
-  #l282.
+  #l282.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_17</string>""")
+  >
     // empty loc
 
   #l283.
@@ -3722,7 +3798,11 @@ procedure Success27 (
   #l295.
     J := _tcomp12;
 
-  #l296.
+  #l296.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_18</string>""")
+  >
     // empty loc
 
   #l297.

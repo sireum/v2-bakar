@@ -371,10 +371,10 @@ typealias _ARRAY_ ObjectArray
 
 const $CONST {
   dummyObject = (Object) `Object {
-    __positional0 = `IntArray { iter => 
+    X = `IntArray { iter => 
         switch iter
           default => 0ii},
-    __positional1 = `IntArray { iter => 
+    Y = `IntArray { iter => 
         switch iter
           default => 0ii}
   };

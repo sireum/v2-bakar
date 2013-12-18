@@ -149,7 +149,11 @@ procedure Integer Num_Repetition (
   #l6.
     I := _tcomp0;
 
-  #l7.
+  #l7.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l9.
@@ -316,7 +320,11 @@ procedure Boolean Perm (
   #l20.
     I := _tcomp2;
 
-  #l21.
+  #l21.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l23.
@@ -466,7 +474,11 @@ procedure Boolean Ordered (
   #l36.
     I := _tcomp6;
 
-  #l37.
+  #l37.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_2</string>""")
+  >
     // empty loc
 
   #l39.
@@ -1187,7 +1199,11 @@ procedure Boolean Partitioned (
   #l50.
     I := _tcomp8;
 
-  #l51.
+  #l51.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_3</string>""")
+  >
     // empty loc
 
   #l53.
@@ -1202,7 +1218,11 @@ procedure Boolean Partitioned (
   #l56.
     J := _tcomp10;
 
-  #l57.
+  #l57.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_4</string>""")
+  >
     // empty loc
 
   #l59.
@@ -2359,7 +2379,11 @@ procedure BubbleSort (
   #l76.
     I := _tcomp13;
 
-  #l77.
+  #l77.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_5</string>""")
+  >
     // empty loc
 
   #l79.
@@ -2374,7 +2398,11 @@ procedure BubbleSort (
   #l82.
     J := _tcomp14;
 
-  #l83.
+  #l83.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_6</string>""")
+  >
     // empty loc
 
   #l85.
@@ -2504,7 +2532,11 @@ procedure BubbleSortFast (
   #l96.
     Bound := attribute__uif__last `Index_Type;
 
-  #l97.
+  #l97.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_7</string>""")
+  >
     // empty loc
 
   #l99.
@@ -2516,7 +2548,11 @@ procedure BubbleSortFast (
   #l101.
     T := 0ii;
 
-  #l103.
+  #l103.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_8</string>""")
+  >
     // empty loc
 
   #l104.
@@ -2647,7 +2683,11 @@ procedure InsertionSort (
   #l120.
     P := _tcomp16;
 
-  #l121.
+  #l121.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_9</string>""")
+  >
     // empty loc
 
   #l122.
@@ -2656,7 +2696,11 @@ procedure InsertionSort (
   #l123.
     J := P;
 
-  #l125.
+  #l125.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_10</string>""")
+  >
     // empty loc
 
   #l126.
@@ -2778,7 +2822,11 @@ procedure ShellSort (
   #l137.
     Gap := attribute__uif__last `Index_Type;
 
-  #l138.
+  #l138.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_11</string>""")
+  >
     // empty loc
 
   #l140.
@@ -2796,13 +2844,21 @@ procedure ShellSort (
   #l145.
     I := _tcomp18;
 
-  #l146.
+  #l146.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_12</string>""")
+  >
     // empty loc
 
   #l147.
     J := I - Gap;
 
-  #l149.
+  #l149.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_13</string>""")
+  >
     // empty loc
 
   #l150.

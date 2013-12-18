@@ -215,17 +215,17 @@ Model(Some(array_of_records_of_array.ads),Vector(),Vector(PackageDecl(Some(NameD
           List(ConstElement(NameDefinition(dummyObject),CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),V
             ConstElement(NameDefinition(dummyObject),CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector
               NameDefinition(dummyObject)
-              CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),Ca
+              CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),CallExp(TypeEx
                 NamedTypeSpec(NameUser(Object),Vector())
                   NameUser(Object)
                   List()
-                NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Ve
+                NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),Fun
                   NamedTypeSpec(NameUser(Object),Vector())
                     NameUser(Object)
                     List()
-                  Vector(AttributeInit(NameUser(__positional0),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,
-                    AttributeInit(NameUser(__positional0),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDef
-                      NameUser(__positional0)
+                  Vector(AttributeInit(NameUser(X),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefiniti
+                    AttributeInit(NameUser(X),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter
+                      NameUser(X)
                       CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(Nam
                         TypeExp(NamedTypeSpec(NameUser(IntArray),Vector()))
                           NamedTypeSpec(NameUser(IntArray),Vector())
@@ -244,8 +244,8 @@ Model(Some(array_of_records_of_array.ads),Vector(),Vector(PackageDecl(Some(NameD
                                   NameUser(iter)
                                 List()
                                 LiteralExp(INTEGER,0,0ii)
-                    AttributeInit(NameUser(__positional1),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDef
-                      NameUser(__positional1)
+                    AttributeInit(NameUser(Y),CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter
+                      NameUser(Y)
                       CallExp(TypeExp(NamedTypeSpec(NameUser(IntArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(Nam
                         TypeExp(NamedTypeSpec(NameUser(IntArray),Vector()))
                           NamedTypeSpec(NameUser(IntArray),Vector())

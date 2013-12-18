@@ -3,7 +3,7 @@ package org.sireum.bakar.compiler.module
 import org.sireum.util.PropertyProvider
 
 object BAKAR_KEYS {
-  val PARAM_INFO = "BAKAR_PARAM_INFO"
+  val LOOP_LABEL_KEY = "LOOP_LABEL"
 }
 
 object URIS {

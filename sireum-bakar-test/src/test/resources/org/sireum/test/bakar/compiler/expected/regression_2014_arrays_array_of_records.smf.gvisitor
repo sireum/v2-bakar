@@ -209,20 +209,20 @@ Model(Some(array_of_records.ads),Vector(),Vector(PackageDecl(Some(NameDefinition
           List(ConstElement(NameDefinition(dummyObject),CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),V
             ConstElement(NameDefinition(dummyObject),CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector
               NameDefinition(dummyObject)
-              CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),Li
+              CastExp(NamedTypeSpec(NameUser(Object),Vector()),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),LiteralExp(INT
                 NamedTypeSpec(NameUser(Object),Vector())
                   NameUser(Object)
                   List()
-                NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,0,0ii)), AttributeInit(NameUser(
+                NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,0,0ii)), AttributeInit(NameUser(Y),LiteralEx
                   NamedTypeSpec(NameUser(Object),Vector())
                     NameUser(Object)
                     List()
-                  Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,0,0ii)), AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,0,0ii)))
-                    AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,0,0ii))
-                      NameUser(__positional0)
+                  Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,0,0ii)), AttributeInit(NameUser(Y),LiteralExp(INTEGER,0,0ii)))
+                    AttributeInit(NameUser(X),LiteralExp(INTEGER,0,0ii))
+                      NameUser(X)
                       LiteralExp(INTEGER,0,0ii)
-                    AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,0,0ii))
-                      NameUser(__positional1)
+                    AttributeInit(NameUser(Y),LiteralExp(INTEGER,0,0ii))
+                      NameUser(Y)
                       LiteralExp(INTEGER,0,0ii)
               List()
         GlobalVarDecl(NameDefinition(@@oArray),Vector(),Some(NamedTypeSpec(NameUser(ObjectArray),Vector())))

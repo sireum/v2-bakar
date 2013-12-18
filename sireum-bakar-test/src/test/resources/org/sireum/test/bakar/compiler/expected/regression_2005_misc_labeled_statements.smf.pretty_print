@@ -201,13 +201,21 @@ procedure Integer Stupid (
   #l12.
     I := _tcomp0;
 
-  #l13.
+  #l13.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l14.
     J := 0ii;
 
-  #l16.
+  #l16.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l17.

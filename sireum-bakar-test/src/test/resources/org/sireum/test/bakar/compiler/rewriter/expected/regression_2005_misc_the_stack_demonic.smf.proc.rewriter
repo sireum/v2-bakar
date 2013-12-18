@@ -30,8 +30,8 @@ procedure $$binit {
 
   #l3.
     @@AuditInfo := `AuditInfoType {
-      __positional0 = 0ii,
-      __positional1 = 0ii
+      PushOps = 0ii,
+      PopOps = 0ii
     };
 
   #l42.

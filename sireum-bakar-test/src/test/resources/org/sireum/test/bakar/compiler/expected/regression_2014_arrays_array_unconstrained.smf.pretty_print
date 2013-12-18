@@ -86,7 +86,11 @@ procedure Boolean isSorted (
   #l6.
     I := _tcomp0;
 
-  #l7.
+  #l7.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l8.

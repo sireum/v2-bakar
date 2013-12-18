@@ -99,7 +99,11 @@ procedure Stupid (
   #l6.
     I := _tcomp0;
 
-  #l7.
+  #l7.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l8.
@@ -129,7 +133,11 @@ procedure Stupid (
   #l16.
     I0 := _tcomp3;
 
-  #l17.
+  #l17.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l18.
@@ -159,7 +167,11 @@ procedure Stupid (
   #l26.
     I1 := _tcomp4;
 
-  #l27.
+  #l27.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_2</string>""")
+  >
     // empty loc
 
   #l28.
@@ -189,7 +201,11 @@ procedure Stupid (
   #l36.
     I2 := _tcomp7;
 
-  #l37.
+  #l37.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_3</string>""")
+  >
     // empty loc
 
   #l38.
@@ -219,7 +235,11 @@ procedure Stupid (
   #l46.
     I3 := _tcomp8;
 
-  #l47.
+  #l47.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_4</string>""")
+  >
     // empty loc
 
   #l48.
@@ -249,7 +269,11 @@ procedure Stupid (
   #l56.
     I4 := _tcomp11;
 
-  #l57.
+  #l57.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_5</string>""")
+  >
     // empty loc
 
   #l58.
@@ -279,7 +303,11 @@ procedure Stupid (
   #l66.
     I5 := _tcomp12;
 
-  #l67.
+  #l67.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_6</string>""")
+  >
     // empty loc
 
   #l68.
@@ -309,7 +337,11 @@ procedure Stupid (
   #l76.
     I6 := _tcomp15;
 
-  #l77.
+  #l77.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_7</string>""")
+  >
     // empty loc
 
   #l78.
@@ -339,7 +371,11 @@ procedure Stupid (
   #l86.
     I7 := _tcomp16;
 
-  #l87.
+  #l87.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_8</string>""")
+  >
     // empty loc
 
   #l88.
@@ -369,7 +405,11 @@ procedure Stupid (
   #l96.
     I8 := _tcomp19;
 
-  #l97.
+  #l97.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_9</string>""")
+  >
     // empty loc
 
   #l98.

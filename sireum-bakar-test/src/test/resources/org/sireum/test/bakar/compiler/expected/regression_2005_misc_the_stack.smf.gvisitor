@@ -124,20 +124,20 @@ Model(Some(the_stack.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(The_St
                 Some(NameDefinition(l3))
                   NameDefinition(l3)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(@@AuditInfo)),:=,NewRecordExp(NamedTypeSpec(NameUser(AuditInfoType),Vector()),Vector(AttributeInit(NameUser(__p
+                AssignAction(Vector(),NameExp(NameUser(@@AuditInfo)),:=,NewRecordExp(NamedTypeSpec(NameUser(AuditInfoType),Vector()),Vector(AttributeInit(NameUser(Pus
                   List()
                   NameExp(NameUser(@@AuditInfo))
                     NameUser(@@AuditInfo)
-                  NewRecordExp(NamedTypeSpec(NameUser(AuditInfoType),Vector()),Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,0,0ii)), AttributeInit(Na
+                  NewRecordExp(NamedTypeSpec(NameUser(AuditInfoType),Vector()),Vector(AttributeInit(NameUser(PushOps),LiteralExp(INTEGER,0,0ii)), AttributeInit(NameUser
                     NamedTypeSpec(NameUser(AuditInfoType),Vector())
                       NameUser(AuditInfoType)
                       List()
-                    Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,0,0ii)), AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,0,0ii)))
-                      AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,0,0ii))
-                        NameUser(__positional0)
+                    Vector(AttributeInit(NameUser(PushOps),LiteralExp(INTEGER,0,0ii)), AttributeInit(NameUser(PopOps),LiteralExp(INTEGER,0,0ii)))
+                      AttributeInit(NameUser(PushOps),LiteralExp(INTEGER,0,0ii))
+                        NameUser(PushOps)
                         LiteralExp(INTEGER,0,0ii)
-                      AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,0,0ii))
-                        NameUser(__positional1)
+                      AttributeInit(NameUser(PopOps),LiteralExp(INTEGER,0,0ii))
+                        NameUser(PopOps)
                         LiteralExp(INTEGER,0,0ii)
               JumpLocation(Some(NameDefinition(l43)),Vector(),ReturnJump(Vector(),None))
                 Some(NameDefinition(l43))

@@ -83,7 +83,11 @@ procedure Boolean isSorted (
   #l5.
     I := _tcomp0;
 
-  #l6.
+  #l6.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l7.
@@ -203,7 +207,11 @@ procedure Integer Num_Repetitions (
   #l18.
     I := _tcomp2;
 
-  #l19.
+  #l19.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l21.
@@ -305,7 +313,11 @@ procedure Boolean isSet (
   #l31.
     I := _tcomp4;
 
-  #l32.
+  #l32.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_2</string>""")
+  >
     // empty loc
 
   #l34.
@@ -320,7 +332,11 @@ procedure Boolean isSet (
   #l37.
     J := _tcomp6;
 
-  #l38.
+  #l38.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_3</string>""")
+  >
     // empty loc
 
   #l39.
@@ -457,7 +473,11 @@ procedure Boolean isPerm (
   #l54.
     I := _tcomp8;
 
-  #l55.
+  #l55.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_4</string>""")
+  >
     // empty loc
 
   #l57.
@@ -578,7 +598,11 @@ procedure BubbleSort (
   #l66.
     N := attribute__uif__last `A;
 
-  #l67.
+  #l67.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_5</string>""")
+  >
     // empty loc
 
   #l69.
@@ -596,7 +620,11 @@ procedure BubbleSort (
   #l74.
     I := _tcomp12;
 
-  #l75.
+  #l75.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_6</string>""")
+  >
     // empty loc
 
   #l77.
@@ -1890,7 +1918,11 @@ procedure BubbleSort_using_SwapElements (
   #l95.
     N := attribute__uif__last `A;
 
-  #l96.
+  #l96.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_7</string>""")
+  >
     // empty loc
 
   #l98.
@@ -1908,7 +1940,11 @@ procedure BubbleSort_using_SwapElements (
   #l103.
     I := _tcomp14;
 
-  #l104.
+  #l104.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_8</string>""")
+  >
     // empty loc
 
   #l106.
@@ -2033,7 +2069,11 @@ procedure InsertionSort (
   #l120.
     I := _tcomp16;
 
-  #l121.
+  #l121.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_9</string>""")
+  >
     // empty loc
 
   #l122.
@@ -2042,7 +2082,11 @@ procedure InsertionSort (
   #l123.
     J := I - 1ii;
 
-  #l125.
+  #l125.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_10</string>""")
+  >
     // empty loc
 
   #l126.
@@ -2164,7 +2208,11 @@ procedure SelectionSort (
   #l139.
     Pos := _tcomp18;
 
-  #l140.
+  #l140.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_11</string>""")
+  >
     // empty loc
 
   #l141.
@@ -2182,7 +2230,11 @@ procedure SelectionSort (
   #l146.
     I := _tcomp20;
 
-  #l147.
+  #l147.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_12</string>""")
+  >
     // empty loc
 
   #l149.
@@ -2321,7 +2373,11 @@ procedure ShellSort (
   #l163.
     Increment := attribute__uif__last `Index_Type / 2ii;
 
-  #l165.
+  #l165.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_13</string>""")
+  >
     // empty loc
 
   #l166.
@@ -2339,7 +2395,11 @@ procedure ShellSort (
   #l171.
     I := _tcomp22;
 
-  #l172.
+  #l172.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_14</string>""")
+  >
     // empty loc
 
   #l173.
@@ -2348,7 +2408,11 @@ procedure ShellSort (
   #l174.
     Temp := A[I];
 
-  #l176.
+  #l176.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_15</string>""")
+  >
     // empty loc
 
   #l177.

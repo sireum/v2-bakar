@@ -272,8 +272,8 @@ procedure $$binit
 
   #l3.
     @@AuditInfo := `AuditInfoType {
-      __positional0 = 0ii,
-      __positional1 = 0ii
+      PushOps = 0ii,
+      PopOps = 0ii
     };
 
   #l43.
@@ -522,7 +522,11 @@ procedure Boolean Value_Present (
   #l17.
     I := _tcomp0;
 
-  #l18.
+  #l18.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_0</string>""")
+  >
     // empty loc
 
   #l20.
@@ -627,7 +631,11 @@ procedure Index_Range Find_Stack_Pos (
   #l32.
     I := _tcomp2;
 
-  #l33.
+  #l33.<
+      @LOOP_LABEL
+
+        ("""<string>LOOP_LABEL_1</string>""")
+  >
     // empty loc
 
   #l35.

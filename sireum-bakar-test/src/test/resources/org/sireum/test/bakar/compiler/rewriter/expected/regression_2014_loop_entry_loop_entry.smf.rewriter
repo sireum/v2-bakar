@@ -1,0 +1,400 @@
+package Loop_Entry;
+
+
+procedure Array_Loop_Entry (
+        Array_Of_Int A) {
+  local
+    Integer Temp;
+    universal_integer Index;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+    FIXME _t10;
+    FIXME _t11;
+    FIXME _t12;
+    FIXME _t13;
+    FIXME _t14;
+    FIXME _t15;
+    FIXME _t16;
+    FIXME _t17;
+    FIXME _t18;
+    FIXME _t19;
+    FIXME _t20;
+    FIXME _t21;
+    FIXME _t22;
+    FIXME _t23;
+    FIXME _t24;
+    FIXME _t25;
+    FIXME _t26;
+    FIXME _t27;
+    FIXME _t28;
+    FIXME _t29;
+    FIXME _t30;
+    FIXME _t31;
+    FIXME _t32;
+    FIXME _t33;
+    FIXME _t34;
+    FIXME _t35;
+    FIXME _t36;
+    FIXME _t37;
+    FIXME _t38;
+    FIXME _t39;
+    FIXME _t40;
+    FIXME _t41;
+    FIXME _t42;
+
+
+  #l1.
+    // empty loc
+
+  #l4.
+    _tcomp0 := attribute__uif__first `A;
+
+  #rwl0.
+    _t0 := attribute__uif__last `A;
+
+  #rwl1.
+    _t1 := 1ii;
+
+  #rwl2.
+    _t2 := _t0 + _t1;
+
+  #rwl3.
+    _t3 := 2ii;
+
+  #l5.
+    _tcomp1 := _t2 / _t3;
+
+  #rwl4.
+    _t4 := _tcomp0;
+
+  #rwl5.
+    _t5 := _tcomp1;
+
+  #l6.
+    if _t4 > _t5 then goto l3;
+
+  #l7.
+    Index := _tcomp0;
+
+  #l8.
+    // empty loc
+
+  #l9.
+    Temp := A[Index];
+
+  #rwl6.
+    _t6 := attribute__uif__last `A;
+
+  #rwl7.
+    _t7 := Index;
+
+  #rwl8.
+    _t8 := _t6 - _t7;
+
+  #rwl9.
+    _t9 := 1ii;
+
+  #l10.
+    A[Index] := A[_t8 + _t9];
+
+  #rwl10.
+    _t10 := attribute__uif__last `A;
+
+  #rwl11.
+    _t11 := Index;
+
+  #rwl12.
+    _t12 := _t10 - _t11;
+
+  #rwl13.
+    _t13 := 1ii;
+
+  #l11.
+    A[_t12 + _t13] := Temp;
+
+  #rwl14.
+    _t14 := attribute__uif__last `A;
+
+  #rwl15.
+    _t15 := J;
+
+  #rwl16.
+    _t16 := _t14 - _t15;
+
+  #rwl17.
+    _t17 := 1ii;
+
+  #rwl18.
+    _t18 := attribute__uif__loop_entry (Inner, A);
+
+  #rwl19.
+    _t19 := A[J];
+
+  #rwl20.
+    _t20 := _t18[_t16 + _t17];
+
+  #rwl21.
+    _t21 := attribute__uif__last `A;
+
+  #rwl22.
+    _t22 := J;
+
+  #rwl23.
+    _t23 := _t21 - _t22;
+
+  #rwl24.
+    _t24 := 1ii;
+
+  #rwl25.
+    _t25 := attribute__uif__loop_entry (Outer, A);
+
+  #rwl26.
+    _t26 := A[_t23 + _t24];
+
+  #rwl27.
+    _t27 := _t25[J];
+
+  #rwl28.
+    _t28 := _t19 == _t20;
+
+  #rwl29.
+    _t29 := _t26 == _t27;
+
+  #rwl30.
+    _t30 := Index;
+
+  #rwl31.
+    _t31 := 1ii;
+
+  #rwl32.
+    _t32 := attribute__uif__last `A;
+
+  #rwl33.
+    _t33 := Index;
+
+  #rwl34.
+    _t34 := attribute__uif__loop_entry (Inner, A);
+
+  #rwl35.
+    _t35 := A[J];
+
+  #rwl36.
+    _t36 := _t34[J];
+
+  #rwl37.
+    _t37 := proof__uif__for_all {universal_integer J => 
+        switch J
+          case (attribute__uif__first `A, Index) => _t28 && _t29
+          default => true};
+
+  #rwl38.
+    _t38 := proof__uif__for_all {universal_integer J => 
+        switch J
+          case (_t30 + _t31, _t32 - _t33) => _t35 == _t36
+          default => true};
+
+  #l12.
+    assert proof__uif__loop_invariant _t37 &&& _t38;
+
+  #rwl39.
+    _t39 := Index;
+
+  #rwl40.
+    _t40 := _tcomp1;
+
+  #l13.
+    if _t39 == _t40 then goto l3;
+
+  #rwl41.
+    _t41 := Index;
+
+  #rwl42.
+    _t42 := 1ii;
+
+  #l14.
+    Index := _t41 + _t42;
+
+  #l15.
+    goto l8;
+
+  #l3.
+    // empty loc
+
+  #l16.
+    goto l2;
+
+  #l17.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l18.
+    return;
+}
+
+procedure Record_Loop_Entry (
+        Record_Of_Array_Of_Int A) {
+  local
+    Integer Temp;
+    Integer Z;
+    FIXME _t43;
+    FIXME _t44;
+    FIXME _t45;
+    FIXME _t46;
+    FIXME _t47;
+    FIXME _t48;
+    FIXME _t49;
+    FIXME _t50;
+    FIXME _t51;
+    FIXME _t52;
+    FIXME _t53;
+    FIXME _t54;
+    FIXME _t55;
+
+
+  #l19.
+    Temp := 0ii;
+
+  #l20.
+    // empty loc
+
+  #l22.
+    Z := 3ii;
+
+  #rwl43.
+    _t43 := Temp;
+
+  #rwl44.
+    _t44 := 1ii;
+
+  #l23.
+    Temp := _t43 + _t44;
+
+  #l24.
+    A := `Record_Of_Array_Of_Int {
+      T = 3ii,
+      Z = 5ii,
+      U = `Array_Of_Int { iter => 
+          switch iter
+            default => 1ii},
+      X = `Array_Of_Int { iter => 
+          switch iter
+            default => 1ii}
+    };
+
+  #l25.
+    // empty loc
+
+  #rwl45.
+    _t45 := attribute__uif__loop_entry (OuterLoop2, A);
+
+  #rwl46.
+    _t46 := _t45.X;
+
+  #rwl47.
+    _t47 := A.X;
+
+  #l27.
+    assert proof__uif__loop_invariant _t46 == _t47;
+
+  #rwl48.
+    _t48 := attribute__uif__loop_entry (InnerLoop2, A.X);
+
+  #rwl49.
+    _t49 := A.X;
+
+  #rwl50.
+    _t50 := _t48[Temp];
+
+  #rwl51.
+    _t51 := _t49[Temp];
+
+  #l28.
+    assert proof__uif__loop_invariant _t50 == _t51;
+
+  #rwl52.
+    _t52 := A.X;
+
+  #rwl53.
+    _t53 := A.X;
+
+  #rwl54.
+    _t54 := attribute__uif__loop_entry (InnerLoop2, _t52[Z]);
+
+  #rwl55.
+    _t55 := _t53[Z];
+
+  #l29.
+    assert proof__uif__loop_invariant _t54 == _t55;
+
+  #l30.
+    goto l25;
+
+  #l26.
+    // empty loc
+
+  #l31.
+    goto l20;
+
+  #l21.
+    // empty loc
+
+  #l32.
+    return;
+}package Loop_Entry;
+
+
+typealias Integer anonymousType$0;
+
+typealias _ARRAY_ Array_Of_Int;
+
+record Record_Of_Array_Of_Int {
+
+  Integer T;
+
+  Array_Of_Int U;
+
+  Integer Z;
+
+  Array_Of_Int X;
+}
+
+procedure Array_Loop_Entry (
+        Array_Of_Int A) {
+
+}
+
+procedure Record_Loop_Entry (
+        Record_Of_Array_Of_Int A) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

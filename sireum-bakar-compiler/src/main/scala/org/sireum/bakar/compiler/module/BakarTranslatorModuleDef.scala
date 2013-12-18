@@ -22,6 +22,7 @@ import org.sireum.bakar.symbol.SubTypeDecl
 import org.sireum.bakar.symbol.TestCaseMode
 import org.sireum.bakar.symbol.TypeDef
 import org.sireum.bakar.symbol.UnconstrainedArrayDef
+import org.sireum.bakar.symbol.SymbolUtil
 import org.sireum.bakar.xml.AndOperator
 import org.sireum.bakar.xml.AndThenShortCircuitEx
 import org.sireum.bakar.xml.ArrayComponentAssociationEx
@@ -115,6 +116,7 @@ import org.sireum.bakar.xml.NotOperatorEx
 import org.sireum.bakar.xml.OrElseShortCircuitEx
 import org.sireum.bakar.xml.OrOperator
 import org.sireum.bakar.xml.OrdinaryTypeDeclarationEx
+import org.sireum.bakar.xml.OthersChoice
 import org.sireum.bakar.xml.OthersChoiceEx
 import org.sireum.bakar.xml.PackageBodyDeclaration
 import org.sireum.bakar.xml.PackageBodyDeclarationEx
@@ -304,6 +306,18 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     val typeCache = mmapEmpty[Base, ISeq[PackageElement]]
     var typeDeclarations = imapEmpty[ResourceUri, SparkTypeDecl]
+
+    var loopCounter = 0
+    def nextLoopLabel = {
+      val ret = loopCounter
+      loopCounter += 1
+      "LOOP_LABEL_" + ret
+    }
+
+    def addLoopLabel(ld: LocationDecl): Unit = addLoopLabel(ld, nextLoopLabel)
+
+    def addLoopLabel(ld: LocationDecl, label: String): Unit =
+      ld(BAKAR_KEYS.LOOP_LABEL_KEY) = label
 
     var countLocation = 0
     var stackLocationList = mstackEmpty[MList[LocationDecl]]
@@ -780,12 +794,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       loc
     }
 
-    def createNamedTypeSpec(name : NameUser, typUri : ResourceUri) = {
+    def createNamedTypeSpec(name: NameUser, typUri: ResourceUri) = {
       assert(URIS.isTypeUri(typUri))
       val nu = URIS.addTypeUri(name, typUri)
       URIS.addTypeUri(NamedTypeSpec(nu, ivectorEmpty), typUri)
     }
-    
+
     def createJumpLocation(j: Jump, s: SourceLocation) =
       JumpLocation(Some(newLocLabel(s)), ivectorEmpty, j)
 
@@ -1712,7 +1726,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           v(e)
           val ne: NameExp = ctx.popResult
           val typUri = ne.name.uri
-          val nts = ctx.createNamedTypeSpec(ne.name, typUri) 
+          val nts = ctx.createNamedTypeSpec(ne.name, typUri)
           ne.propertyMap.foreach { case (key, value) => nts.setProperty(key, value) }
           Some(nts)
         case None => {
@@ -2127,7 +2141,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       false
     case ForLoopStatementEx(sloc, labelnames, statementIdentifier,
       forLoopParameterSpecification, loopStatements, checks) =>
-      assert(ctx.isEmpty(statementIdentifier.getDefiningName))
 
       val (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound) = ctx.handleLoopParam(v, forLoopParameterSpecification.getDeclaration)
 
@@ -2136,7 +2149,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       // introduce a local variable for iterVar
       val typUri = markNE.name.uri
-      val typeSpec = Some(ctx.createNamedTypeSpec(markNE.name, typUri)) 
+      val typeSpec = Some(ctx.createNamedTypeSpec(markNE.name, typUri))
       val lvd = LocalVarDecl(typeSpec, iterND, ivectorEmpty)
       ctx.localsPush(lvd)
 
@@ -2160,8 +2173,13 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       ctx.createPushAssignmentLocation(iterNE,
         if (isRev) hightemp else lowtemp, ivectorEmpty, sloc)
 
-      val loopStart = ctx.createEmptyLocation(ctx.newLocLabel(sloc), ivectorEmpty)
-      ctx.pushLocation(loopStart)
+      val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
+
+      if (!ctx.isEmpty(statementIdentifier.getDefiningName)) {
+        val (sloc, refName, refUri, _) = ctx.getName(statementIdentifier.getDefiningName)
+        ctx.addLoopLabel(loopStart, refName)
+      } else
+        ctx.addLoopLabel(loopStart)
 
       v(loopStatements)
 
@@ -2240,10 +2258,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       false
     case LoopStatementEx(sloc, labelNames, statementIdentifier, loopStatements, checks) =>
-      // TODO: currently ignoring statementIdentifier
-
       // #loopStart.
       val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
+
+      if (!ctx.isEmpty(statementIdentifier.getDefiningName)) {
+        val (sloc, refName, refUri, _) = ctx.getName(statementIdentifier.getDefiningName)
+        ctx.addLoopLabel(loopStart, refName)
+      } else
+        ctx.addLoopLabel(loopStart)
 
       val endLoc = ctx.createEmptyLocation(ctx.newLocLabel(sloc), ivectorEmpty)
       ctx.pushExitLocation(endLoc)
@@ -2298,6 +2320,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       // #loopStart.
       val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
+
+      if (!ctx.isEmpty(statementIdentifier.getDefiningName)) {
+        val (sloc, refName, refUri, _) = ctx.getName(statementIdentifier.getDefiningName)
+        ctx.addLoopLabel(loopStart, refName)
+      } else
+        ctx.addLoopLabel(loopStart)
 
       v(whileCondition)
 
@@ -2386,22 +2414,37 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     case RecordAggregateEx(sloc, recAssocs, typ, checks) =>
       var inits = ivectorEmpty[AttributeInit]
       var i = 0
+      val rtd = if (typ == "null") null
+      else SymbolUtil.getTypeDef(ctx.typeDeclarations(typ), ctx.typeDeclarations).asInstanceOf[RecordTypeDef]
+
+      val seenAttributes = mlistEmpty[ResourceUri]
       recAssocs.getAssociations.foreach {
         case RecordComponentAssociationEx(sloc2, choices, exp, checks2) =>
           v(exp)
           val rhs: Exp = ctx.popResult
 
           if (!choices.getExpressions.isEmpty) {
-            // named
-            for (c <- choices.getExpressions) {
-              v(c)
-              val ne: NameExp = ctx.popResult
+            choices.getExpressions.foreach {
+              case i: OthersChoice =>
+                for (a <- rtd.components) if (!seenAttributes.contains(a._2.refUri)) {
+                  val nu = URIS.addResourceUri(NameUser(a._1), a._2.refUri)
+                  inits :+= AttributeInit(nu, rhs)
+                }
+              case c =>
+                v(c)
+                val ne: NameExp = ctx.popResult
 
-              inits :+= AttributeInit(ne.name, rhs)
+                if (rtd != null) {
+                  assert(rtd.components.exists(p => p._2.refUri == ne.name.uri))
+                  seenAttributes += ne.name.uri
+                }
+                inits :+= AttributeInit(ne.name, rhs)
             }
           } else {
-            // TODO: positional
-            inits :+= AttributeInit(NameUser(s"__positional$i"), rhs)
+            val attr = rtd.components.toList(i)
+            seenAttributes += attr._2.refUri
+            val nu = URIS.addResourceUri(NameUser(attr._1), attr._2.refUri)
+            inits :+= AttributeInit(nu, rhs)
             i += 1
           }
         case x => throw new RuntimeException("Unexpected: " + x)
@@ -2523,8 +2566,15 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             val _args = TupleExp(ivector(component, fe))
             (Attribute.ATTRIBUTE_UIF_ARRAY_UPDATE, _args)
           case "loop_entry" =>
-            assert(designatorExps.getExpressions.isEmpty)
-            (Attribute.ATTRIBUTE_UIF_LOOP_ENTRY, component)
+            val _args = if (!designatorExps.getExpressions.isEmpty) {
+              assert(designatorExps.getExpressions.size == 1)
+              v(designatorExps.getExpressions.get(0))
+              val loopLabel: NameExp = ctx.popResult
+
+              TupleExp(ivector(loopLabel, component))
+            } else component
+
+            (Attribute.ATTRIBUTE_UIF_LOOP_ENTRY, _args)
         }
 
         val a = ctx.createUIFCall(uif, args, typ)
@@ -2547,13 +2597,13 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         LiteralExp(LiteralType.BOOLEAN, true, "true"))
       val se = SwitchExp(iterNE, cases, defaultCase)
 
-      val typUri = if(markNE ? URIS.TYPE_URI) {
-        URIS.getTypeUri(markNE)  
+      val typUri = if (markNE ? URIS.TYPE_URI) {
+        URIS.getTypeUri(markNE)
       } else {
         assert(URIS.isTypeUri(markNE.name(URIS.REF_URI)))
         markNE.name(URIS.REF_URI)
       }
-      
+
       val nts = ctx.createNamedTypeSpec(markNE.name, typUri)
       val pd = ParamDecl(Some(nts), iterND, ivectorEmpty)
       val m = Matching(ivector(pd), se)
@@ -2679,12 +2729,18 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val ie = ctx.addTypeUri(typ, IfExp(ifThens, elseExp))
         ctx.pushResult(ie, sloc)
         false
-      case IndexedComponentEx(sloc, prefix, indexExp, theType, checks) =>
+      case IndexedComponentEx(_, ExpressionClassEx(ua @ UnknownAttributeEx(_, _,
+        ExpressionClassEx(IdentifierEx(_, "Loop_Entry", _, _, _)), exps, _, _)), _, _, _) if (!exps.getExpressions.isEmpty) =>
+        // special case to handle expressions like
+        // A.X'Loop_Entry(InnerLoop2)(Temp)
+        v(ua)
+        false
+      case IndexedComponentEx(sloc, prefix, indexExps, theType, checks) =>
         v(prefix)
-        val pprefix: Exp = ctx.popResult
+        val pprefix = ctx.popResult.asInstanceOf[Exp]
 
         val indices = mlistEmpty[Exp]
-        indexExp.getExpressions.foreach { e =>
+        indexExps.getExpressions.foreach { e =>
           v(e)
           indices += ctx.popResult
         }

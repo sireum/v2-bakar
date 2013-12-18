@@ -24,12 +24,13 @@ class BakarXmlTest extends BakarTestFileFramework[ProjectFile] {
 
   override def generateExpected = false
   
-  //override def includes = super.includes ++= Set("2014_gnatprove_LC17-035__update_big_test")
+  //override def includes = super.includes ++= Set("2014_loop_entry")
 
   override def includes = super.includes ++= Set(
     "2005_misc",
     "2005_simple",
     "2014_arrays",
+    "2014_loop_entry",
     "2014_misc",
     "2014_sort",
     "xxxxxx")

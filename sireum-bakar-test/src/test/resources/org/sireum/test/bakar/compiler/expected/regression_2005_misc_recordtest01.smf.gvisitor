@@ -20,20 +20,20 @@ Model(Some(recordtest01.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Rec
                 Some(NameDefinition(l1))
                   NameDefinition(l1)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(@@anObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positiona
+                AssignAction(Vector(),NameExp(NameUser(@@anObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),LiteralE
                   List()
                   NameExp(NameUser(@@anObject))
                     NameUser(@@anObject)
-                  NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(
+                  NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(Y),LiteralEx
                     NamedTypeSpec(NameUser(Object),Vector())
                       NameUser(Object)
                       List()
-                    Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,2,2ii)))
-                      AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,1,1ii))
-                        NameUser(__positional0)
+                    Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(Y),LiteralExp(INTEGER,2,2ii)))
+                      AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii))
+                        NameUser(X)
                         LiteralExp(INTEGER,1,1ii)
-                      AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,2,2ii))
-                        NameUser(__positional1)
+                      AttributeInit(NameUser(Y),LiteralExp(INTEGER,2,2ii))
+                        NameUser(Y)
                         LiteralExp(INTEGER,2,2ii)
               ActionLocation(Some(NameDefinition(l2)),Vector(),AssignAction(Vector(),NameExp(NameUser(@@aNestedObject)),:=,NewRecordExp(NamedTypeSpec(NameUser(Neste
                 Some(NameDefinition(l2))
@@ -47,19 +47,19 @@ Model(Some(recordtest01.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Rec
                     NamedTypeSpec(NameUser(NestedObject),Vector())
                       NameUser(NestedObject)
                       List()
-                    Vector(AttributeInit(NameUser(O),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER
-                      AttributeInit(NameUser(O),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,1,1ii)
+                    Vector(AttributeInit(NameUser(O),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii)), At
+                      AttributeInit(NameUser(O),NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii)), Attribute
                         NameUser(O)
-                        NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(
+                        NewRecordExp(NamedTypeSpec(NameUser(Object),Vector()),Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(Y),LiteralEx
                           NamedTypeSpec(NameUser(Object),Vector())
                             NameUser(Object)
                             List()
-                          Vector(AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,2,2ii)))
-                            AttributeInit(NameUser(__positional0),LiteralExp(INTEGER,1,1ii))
-                              NameUser(__positional0)
+                          Vector(AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii)), AttributeInit(NameUser(Y),LiteralExp(INTEGER,2,2ii)))
+                            AttributeInit(NameUser(X),LiteralExp(INTEGER,1,1ii))
+                              NameUser(X)
                               LiteralExp(INTEGER,1,1ii)
-                            AttributeInit(NameUser(__positional1),LiteralExp(INTEGER,2,2ii))
-                              NameUser(__positional1)
+                            AttributeInit(NameUser(Y),LiteralExp(INTEGER,2,2ii))
+                              NameUser(Y)
                               LiteralExp(INTEGER,2,2ii)
               JumpLocation(Some(NameDefinition(l12)),Vector(),ReturnJump(Vector(),None))
                 Some(NameDefinition(l12))

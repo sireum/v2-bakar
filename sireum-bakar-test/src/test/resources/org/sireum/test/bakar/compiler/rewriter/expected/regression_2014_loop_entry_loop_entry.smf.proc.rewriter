@@ -1,0 +1,176 @@
+package Loop_Entry;
+
+
+procedure Array_Loop_Entry (
+        Array_Of_Int A) {
+  local
+    Integer Temp;
+    universal_integer Index;
+    universal_integer _tcomp0;
+    universal_integer _tcomp1;
+
+
+  #l1.
+    // empty loc
+
+  #l4.
+    _tcomp0 := attribute__uif__first `A;
+
+  #l5.
+    _tcomp1 := attribute__uif__last `A + 1ii / 2ii;
+
+  #l6.
+    if _tcomp0 > _tcomp1 then goto l3;
+
+  #l7.
+    Index := _tcomp0;
+
+  #l8.
+    // empty loc
+
+  #l9.
+    Temp := A[Index];
+
+  #l10.
+    A[Index] := A[attribute__uif__last `A - Index + 1ii];
+
+  #l11.
+    A[attribute__uif__last `A - Index + 1ii] := Temp;
+
+  #l12.
+    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer J => 
+        switch J
+          case (attribute__uif__first `A, Index) => A[J] == attribute__uif__loop_entry (Inner, A)[attribute__uif__last `A - J + 1ii] && A[attribute__uif__last `A - J + 1ii] == attribute__uif__loop_entry (Outer, A)[J]
+          default => true} &&& proof__uif__for_all {universal_integer J => 
+        switch J
+          case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == attribute__uif__loop_entry (Inner, A)[J]
+          default => true};
+
+  #l13.
+    if Index == _tcomp1 then goto l3;
+
+  #l14.
+    Index := Index + 1ii;
+
+  #l15.
+    goto l8;
+
+  #l3.
+    // empty loc
+
+  #l16.
+    goto l2;
+
+  #l17.
+    goto l1;
+
+  #l2.
+    // empty loc
+
+  #l18.
+    return (A);
+}
+
+procedure Record_Loop_Entry (
+        Record_Of_Array_Of_Int A) {
+  local
+    Integer Temp;
+    Integer Z;
+
+
+  #l19.
+    Temp := 0ii;
+
+  #l20.
+    // empty loc
+
+  #l22.
+    Z := 3ii;
+
+  #l23.
+    Temp := Temp + 1ii;
+
+  #l24.
+    A := `Record_Of_Array_Of_Int {
+      T = 3ii,
+      Z = 5ii,
+      U = `Array_Of_Int { iter => 
+          switch iter
+            default => 1ii},
+      X = `Array_Of_Int { iter => 
+          switch iter
+            default => 1ii}
+    };
+
+  #l25.
+    // empty loc
+
+  #l27.
+    assert proof__uif__loop_invariant attribute__uif__loop_entry (OuterLoop2, A).X == A.X;
+
+  #l28.
+    assert proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X)[Temp] == A.X[Temp];
+
+  #l29.
+    assert proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X[Z]) == A.X[Z];
+
+  #l30.
+    goto l25;
+
+  #l26.
+    // empty loc
+
+  #l31.
+    goto l20;
+
+  #l21.
+    // empty loc
+
+  #l32.
+    return (A);
+}package Loop_Entry;
+
+
+typealias Integer anonymousType$0;
+
+typealias _ARRAY_ Array_Of_Int;
+
+record Record_Of_Array_Of_Int {
+
+  Integer T;
+
+  Array_Of_Int U;
+
+  Integer Z;
+
+  Array_Of_Int X;
+}
+
+procedure Array_Loop_Entry (
+        Array_Of_Int A) {
+
+}
+
+procedure Record_Loop_Entry (
+        Record_Of_Array_Of_Int A) {
+
+}package Standard;
+
+
+typealias Boolean Boolean;
+
+typealias Integer Integer;
+
+typealias Integer Natural;
+
+typealias Integer Positive;
+
+typealias Float Float;
+
+typealias universal_integer universal_integer;
+
+typealias universal_real universal_real;
+
+typealias Character Character;
+
+typealias String String;

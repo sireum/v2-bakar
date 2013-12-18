@@ -1,0 +1,6 @@
+digraph G {
+  "ada://procedure_body/Loop_Entry-1:9/Array_Loop_Entry-14:14" [ label="Loop_Entry.Array_Loop_Entry" ];
+  "ada://procedure_body/Loop_Entry-1:9/Record_Loop_Entry-18:14" [ label="Loop_Entry.Record_Loop_Entry" ];
+  "ada://procedure/Loop_Entry-1:9/Array_Loop_Entry-14:14" [ label="Loop_Entry.Array_Loop_Entry" ];
+  "ada://procedure/Loop_Entry-1:9/Record_Loop_Entry-18:14" [ label="Loop_Entry.Record_Loop_Entry" ];
+}
