@@ -317,6 +317,14 @@ def get_spark_source_files(source_path):
 	return spark_files_list
 
 
+def run_examiner(current_file):
+	import spark
+	#spark.examine_file(current_file)
+	GPS.BuildTarget('Examine SPARK File').execute(synchronous=True)
+	if not GPS.Locations().list_locations("SPARK", current_file.name()):
+		return True
+	return False
+
 
 GPS.parse_xml ("""
 	<filter_and name="Source editor in Ada" >
@@ -328,7 +336,7 @@ GPS.parse_xml ("""
   	</filter_and>
 	<action name="run Kiasan V1">
 		<filter id="Source editor in Ada" />
-		<shell lang="python">sireum_v1.run_kiasan_plugin()</shell>
+		<shell lang="python">if sireum_v1.run_examiner(GPS.current_context().file()): sireum_v1.run_kiasan_plugin()</shell>
 	</action>	
     <submenu before="Window">
         <title>Sireum Bakar (v1)</title>
