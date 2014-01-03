@@ -107,12 +107,13 @@ object BakarSymbolResolverTest extends ImplicitLogging {
     for(k <- st.tables.typeAliasTable.keys.toSeq.sortBy(f => f))
       w.write(s"  $k \n")
     w.write("\n")
-    
+
     w.write("Procedure Table\n")    
-    for((k, vals) <- st.tables.procedureTable.toSeq.sortBy(_._1)) { 
+    for((k, vals) <- st.tables.procedureTable.toSeq.sortBy(_._1)) {
       w.write(s"  $k \n")
-      for (v <- vals.toSeq.sortBy(f => f)) 
+      for (v <- vals.toSeq.sortBy(f => f)) {
         w.write(s"    $v \n")
+      }
     }
     w.write("\n")
     
@@ -137,6 +138,11 @@ object BakarSymbolResolverTest extends ImplicitLogging {
       for(k <- bst.tables.params.toSeq.sortBy(f => f))
         w.write(s"      $k \n")
       w.write("\n")
+      
+      w.write("    Loop Locations\n") 
+      for((uri, label) <- bst.loopLocations)
+        w.write(s"      $uri -> $label \n")
+      w.write("\n")        
     }
     w.write("\n")
   }

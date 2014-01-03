@@ -152,11 +152,23 @@ procedure Integer Num_Repetition (
   #l7.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l9.
+  #l9.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>8</int>
+           <int>10</int>
+           <int>8</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(A[I] == E) then goto l8;
 
   #l10.
@@ -323,7 +335,9 @@ procedure Boolean Perm (
   #l21.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -333,7 +347,17 @@ procedure Boolean Perm (
   #l24.
     call _tcomp5 := Num_Repetition (B, A[I], L, U);
 
-  #l25.
+  #l25.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>20</int>
+           <int>10</int>
+           <int>20</int>
+           <int>71</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(_tcomp4 != _tcomp5) then goto l22;
 
   #l26.
@@ -477,11 +501,23 @@ procedure Boolean Ordered (
   #l37.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_2</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_2</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l39.
+  #l39.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>32</int>
+           <int>10</int>
+           <int>32</int>
+           <int>24</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(A[I] > A[I + 1ii]) then goto l38;
 
   #l40.
@@ -1202,7 +1238,9 @@ procedure Boolean Partitioned (
   #l51.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_3</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_3</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -1221,11 +1259,23 @@ procedure Boolean Partitioned (
   #l57.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_4</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_4</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l59.
+  #l59.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>48</int>
+           <int>12</int>
+           <int>48</int>
+           <int>22</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(A[I] > A[J]) then goto l58;
 
   #l60.
@@ -1395,7 +1445,7 @@ procedure Swap_Elements (
              <org.sireum.pilar.ast.CallExp cid="7" size="2">
                <org.sireum.pilar.ast.NameExp cid="8" size="1">
                  <org.sireum.pilar.ast.NameUser cid="9" size="1">
-                   <string sid="7">attribute__uif__array_update</string>
+                   <string sid="7">attribute__uif__update_exp</string>
                    <properties mtype="mlinkedmap">
                      <entry>
                        <string>pilar.symbol</string>
@@ -1405,7 +1455,7 @@ procedure Swap_Elements (
                          <ilist ttype="ilist">
                            <string srefid="7"/>
                          </ilist>
-                         <string sid="8">ada://function__uif/attribute__uif__array_update</string>
+                         <string sid="8">ada://function__uif/attribute__uif__update_exp</string>
                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                      </entry>
                    </properties>
@@ -2382,7 +2432,9 @@ procedure BubbleSort (
   #l77.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_5</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_5</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2401,11 +2453,23 @@ procedure BubbleSort (
   #l83.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_6</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_6</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l85.
+  #l85.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>75</int>
+           <int>13</int>
+           <int>75</int>
+           <int>35</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Table[J - 1ii] > Table[J]) then goto l84;
 
   #l86.
@@ -2415,10 +2479,14 @@ procedure BubbleSort (
     // empty loc
 
   #l87.
-    assert proof__uif__for_all {Index_Type K => 
+    assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Array_Type, J - 1ii) => Table[K] <= Table[J]
-          default => true} && Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+          default => true} && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l88.
     if J == _tcomp15 then goto l78;
@@ -2433,7 +2501,11 @@ procedure BubbleSort (
     // empty loc
 
   #l91.
-    assert Ordered (Table, I, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    assert proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l92.
     if I == _tcomp12 then goto l72;
@@ -2535,7 +2607,9 @@ procedure BubbleSortFast (
   #l97.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_7</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_7</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2551,14 +2625,26 @@ procedure BubbleSortFast (
   #l103.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_8</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_8</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
   #l104.
     if !(J <= Bound - 1ii) then goto l102;
 
-  #l106.
+  #l106.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>108</int>
+           <int>12</int>
+           <int>108</int>
+           <int>34</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Table[J] > Table[J + 1ii]) then goto l105;
 
   #l107.
@@ -2574,10 +2660,14 @@ procedure BubbleSortFast (
     J := J + 1ii;
 
   #l110.
-    assert proof__uif__for_all {Index_Type K => 
+    assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Index_Type, J - 1ii) => Table[K] <= Table[J]
-          default => true} && Partitioned (Table, attribute__uif__first `Index_Type, T, J) && Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+          default => true} && Partitioned (Table, attribute__uif__first `Index_Type, T, J) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l111.
     goto l103;
@@ -2586,7 +2676,11 @@ procedure BubbleSortFast (
     // empty loc
 
   #l112.
-    assert Ordered (Table, Bound, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    assert proof__uif__assert Ordered (Table, Bound, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l113.
     Bound := T;
@@ -2686,7 +2780,9 @@ procedure InsertionSort (
   #l121.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_9</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_9</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2699,7 +2795,9 @@ procedure InsertionSort (
   #l125.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_10</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_10</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2713,10 +2811,14 @@ procedure InsertionSort (
     J := J - 1ii;
 
   #l129.
-    assert Temp == attribute__uif__loop_entry Table[P] && attribute__uif__first `Index_Type <= J && J < P && proof__uif__for_all {Index_Type K => 
+    assert proof__uif__assert Temp == attribute__uif__loop_entry (LOOP_LABEL_10, Table)[P] && attribute__uif__first `Index_Type <= J && J < P && proof__uif__for_all {Index_Type K => 
         switch K
           case (J + 1ii, P) => Table[K] > Temp
-          default => true} && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (attribute__uif__array_update (Table, ^{J -> Temp}), attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, P);
+          default => true} && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P)
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l130.
     goto l125;
@@ -2728,10 +2830,14 @@ procedure InsertionSort (
     Table[J] := Temp;
 
   #l132.
-    assert attribute__uif__first `Index_Type + 1ii <= P && P <= attribute__uif__last `Index_Type && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, P) && proof__uif__for_all {Index_Type K => 
+    assert proof__uif__assert attribute__uif__first `Index_Type + 1ii <= P && P <= attribute__uif__last `Index_Type && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P) && proof__uif__for_all {Index_Type K => 
         switch K
-          case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry Table[K]
-          default => true};
+          case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry (LOOP_LABEL_9, Table)[K]
+          default => true}
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l133.
     if P == _tcomp17 then goto l116;
@@ -2825,7 +2931,9 @@ procedure ShellSort (
   #l138.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_11</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_11</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2847,7 +2955,9 @@ procedure ShellSort (
   #l146.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_12</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_12</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2857,7 +2967,9 @@ procedure ShellSort (
   #l149.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_13</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_13</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 

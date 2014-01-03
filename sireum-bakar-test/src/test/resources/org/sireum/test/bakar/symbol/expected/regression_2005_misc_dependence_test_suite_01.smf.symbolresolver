@@ -99,6 +99,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success0-3:13/O-3:23 
 
+    Loop Locations
+
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success0-3:13 
 
     LocalVarTable
@@ -106,6 +108,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success0-3:13/O-3:23 
+
+    Loop Locations
 
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success1+12:13 
 
@@ -116,6 +120,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success1+12:13/I+12:23 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success1+12:13/O+12:39 
+
+    Loop Locations
 
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success10+142:13 
 
@@ -139,6 +145,8 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success10+142:13/O1+142:49 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success10+142:13/O2+142:53 
 
+    Loop Locations
+
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success2+20:13 
 
     LocalVarTable
@@ -152,6 +160,8 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success2+20:13/I+20:23 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success2+20:13/O+20:39 
 
+    Loop Locations
+
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success3+36:13 
 
     LocalVarTable
@@ -164,6 +174,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success3+36:13/I+36:23 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success3+36:13/O+36:39 
+
+    Loop Locations
 
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success4+48:13 
 
@@ -181,6 +193,8 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success4+48:13/I1+48:23 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success4+48:13/I2+48:27 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success4+48:13/O+48:44 
+
+    Loop Locations
 
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success5+60:13 
 
@@ -201,6 +215,8 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success5+60:13/O1+60:44 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success5+60:13/O2+60:48 
 
+    Loop Locations
+
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success6+75:13 
 
     LocalVarTable
@@ -217,6 +233,8 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success6+75:13/O1+75:44 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success6+75:13/O2+75:48 
 
+    Loop Locations
+
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success7+90:13 
 
     LocalVarTable
@@ -231,6 +249,8 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success7+90:13/I1+90:23 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success7+90:13/I2+90:27 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success7+90:13/O+90:44 
+
+    Loop Locations
 
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success8+105:13 
 
@@ -247,6 +267,8 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success8+105:13/I1+105:23 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success8+105:13/I2+105:27 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success8+105:13/O+105:44 
+
+    Loop Locations
 
   ada://procedure_body/Dependence_Test_Suite_01-1:9/Success9+121:13 
 
@@ -267,5 +289,7 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success9+121:13/I2+121:27 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success9+121:13/I3+121:31 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success9+121:13/O+121:48 
+
+    Loop Locations
 
 

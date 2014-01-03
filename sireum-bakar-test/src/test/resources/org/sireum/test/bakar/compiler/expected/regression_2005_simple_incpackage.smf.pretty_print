@@ -72,7 +72,11 @@ procedure Integer Inc (
     R := X + 1ii;
 
   #l2.
-    assert R > X;
+    assert proof__uif__assert R > X
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l3.
     return R;

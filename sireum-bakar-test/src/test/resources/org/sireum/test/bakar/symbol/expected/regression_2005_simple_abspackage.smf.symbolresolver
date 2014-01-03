@@ -58,6 +58,8 @@ Procedure Symbol Table
     Params
       ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22 
 
+    Loop Locations
+
   ada://function_body/AbsPackage-1:9/AbsFunc-2:14 
 
     LocalVarTable
@@ -72,5 +74,7 @@ Procedure Symbol Table
 
     Params
       ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22 
+
+    Loop Locations
 
 

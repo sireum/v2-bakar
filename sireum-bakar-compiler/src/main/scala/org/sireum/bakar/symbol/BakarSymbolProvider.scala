@@ -19,6 +19,7 @@ import org.sireum.pilar.state.State
 import org.sireum.pilar.state.Value
 import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.bakar.compiler.module.PackageURIs
+import org.sireum.bakar.compiler.module.BAKAR_KEYS
 
 object BakarSymbolTable {
   def apply(models: ISeq[Model],
@@ -227,6 +228,10 @@ object BakarSymbolTable {
               assert(!bstd.locationTable.contains(luri))
               bstd.locationTable(luri) = loc
 
+              if(loc ? BAKAR_KEYS.LOOP_LABEL_KEY) {
+                bpst.loopLocations(luri) = loc(BAKAR_KEYS.LOOP_LABEL_KEY).asInstanceOf[NameDefinition].name
+              }
+              
               loc match {
                 case l: ActionLocation =>
                   l.action.commandDescriptorInfo(Some(luri), index, 0, 0)
@@ -395,6 +400,8 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
     extends ProcedureSymbolTable with ProcedureSymbolTableProducer {
     val tables = ProcedureSymbolTableData()
 
+    val loopLocations = mmapEmpty[ResourceUri, String] 
+      
     def symbolTable = bst
     def symbolTableProducer = bst
     def procedure = bst.tables.procedureAbsTable(procedureUri)

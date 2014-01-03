@@ -89,7 +89,9 @@ procedure Boolean isSorted (
   #l7.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 

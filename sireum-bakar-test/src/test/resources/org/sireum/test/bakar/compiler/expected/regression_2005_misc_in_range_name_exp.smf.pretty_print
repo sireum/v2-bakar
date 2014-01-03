@@ -71,7 +71,17 @@ procedure Boolean test (
   #l1.
     ret := attribute__uif__first `Natural <= Z &&& Z <= attribute__uif__last `Natural;
 
-  #l3.
+  #l3.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">in_range_name_exp.adb</string>
+           <int>11</int>
+           <int>8</int>
+           <int>11</int>
+           <int>10</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(ret) then goto l2;
 
   #l4.
@@ -80,7 +90,17 @@ procedure Boolean test (
   #l2.
     // empty loc
 
-  #l6.
+  #l6.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">in_range_name_exp.adb</string>
+           <int>15</int>
+           <int>8</int>
+           <int>15</int>
+           <int>10</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(ret) then goto l5;
 
   #l7.
@@ -89,7 +109,17 @@ procedure Boolean test (
   #l5.
     // empty loc
 
-  #l9.
+  #l9.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">in_range_name_exp.adb</string>
+           <int>19</int>
+           <int>8</int>
+           <int>19</int>
+           <int>10</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(ret) then goto l8;
 
   #l10.

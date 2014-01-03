@@ -66,6 +66,8 @@ Procedure Symbol Table
       ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25 
       ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
 
+    Loop Locations
+
   ada://procedure_body/MyMatrix-1:9/Multiply-7:13 
 
     LocalVarTable
@@ -108,5 +110,10 @@ Procedure Symbol Table
       ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22 
       ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25 
       ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
+
+    Loop Locations
+      l7_12.5_18.13 -> LOOP_LABEL_0 
+      l13_13.7_17.15 -> LOOP_LABEL_1 
+      l19_14.9_16.17 -> LOOP_LABEL_2 
 
 

@@ -63,57 +63,60 @@ Model(Some(quantifiertest.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Q
               NameDefinition(I)
               List()
           None
-          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__for_some)),Fun
+          ImplementedBody(List(),List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),CallE
             List()
-            List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__for_some)),FunExp(Vector(Matching(Vec
-              ActionLocation(Some(NameDefinition(l2)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__for_some)),FunExp(Vector(Matching(Vector(P
+            List(ActionLocation(Some(NameDefinition(l2)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),CallExp(NameExp(NameUser(pro
+              ActionLocation(Some(NameDefinition(l2)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),CallExp(NameExp(NameUser(proof__u
                 Some(NameDefinition(l2))
                   NameDefinition(l2)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__for_some)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vecto
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),CallExp(NameExp(NameUser(proof__uif__for_some)),FunExp(Vector(Matching(Vector(Para
                   List()
-                  CallExp(NameExp(NameUser(proof__uif__for_some)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J
-                    NameExp(NameUser(proof__uif__for_some))
-                      NameUser(proof__uif__for_some)
-                    FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vect
-                      Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(Swit
-                        Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseE
-                          Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector()))
-                            ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())
-                              Some(NamedTypeSpec(NameUser(Index),Vector()))
-                                NamedTypeSpec(NameUser(Index),Vector())
-                                  NameUser(Index)
-                                  List()
-                              NameDefinition(J)
-                              List()
-                          SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseExp(TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))),Vector(),BinaryExp(&&,Binar
-                            NameExp(NameUser(J))
-                              NameUser(J)
-                            Vector(SwitchCaseExp(TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))),Vector(),BinaryExp(&&,BinaryExp(>,IndexingExp(NameExp(Name
-                              SwitchCaseExp(TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))),Vector(),BinaryExp(&&,BinaryExp(>,IndexingExp(NameExp(NameUser(@@
-                                TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii)))
-                                  Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))
-                                    LiteralExp(INTEGER,1,1ii)
-                                    LiteralExp(INTEGER,2,2ii)
+                  CallExp(NameExp(NameUser(proof__uif__assert)),CallExp(NameExp(NameUser(proof__uif__for_some)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSp
+                    NameExp(NameUser(proof__uif__assert))
+                      NameUser(proof__uif__assert)
+                    CallExp(NameExp(NameUser(proof__uif__for_some)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J
+                      NameExp(NameUser(proof__uif__for_some))
+                        NameUser(proof__uif__for_some)
+                      FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vect
+                        Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(Swit
+                          Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseE
+                            Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector()))
+                              ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())
+                                Some(NamedTypeSpec(NameUser(Index),Vector()))
+                                  NamedTypeSpec(NameUser(Index),Vector())
+                                    NameUser(Index)
+                                    List()
+                                NameDefinition(J)
                                 List()
-                                BinaryExp(&&,BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii)),BinaryExp(<,IndexingExp(NameExp(Nam
-                                  BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii))
-                                    IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
-                                      NameExp(NameUser(@@V))
-                                        NameUser(@@V)
-                                      List(NameExp(NameUser(J)))
-                                        NameExp(NameUser(J))
-                                          NameUser(J)
-                                    LiteralExp(INTEGER,0,0ii)
-                                  BinaryExp(<,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,7,7ii))
-                                    IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
-                                      NameExp(NameUser(@@V))
-                                        NameUser(@@V)
-                                      List(NameExp(NameUser(J)))
-                                        NameExp(NameUser(J))
-                                          NameUser(J)
-                                    LiteralExp(INTEGER,7,7ii)
-                            LiteralExp(BOOLEAN,true,true)
+                            SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseExp(TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))),Vector(),BinaryExp(&&,Binar
+                              NameExp(NameUser(J))
+                                NameUser(J)
+                              Vector(SwitchCaseExp(TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))),Vector(),BinaryExp(&&,BinaryExp(>,IndexingExp(NameExp(Name
+                                SwitchCaseExp(TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))),Vector(),BinaryExp(&&,BinaryExp(>,IndexingExp(NameExp(NameUser(@@
+                                  TupleExp(Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii)))
+                                    Vector(LiteralExp(INTEGER,1,1ii), LiteralExp(INTEGER,2,2ii))
+                                      LiteralExp(INTEGER,1,1ii)
+                                      LiteralExp(INTEGER,2,2ii)
+                                  List()
+                                  BinaryExp(&&,BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii)),BinaryExp(<,IndexingExp(NameExp(Nam
+                                    BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii))
+                                      IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
+                                        NameExp(NameUser(@@V))
+                                          NameUser(@@V)
+                                        List(NameExp(NameUser(J)))
+                                          NameExp(NameUser(J))
+                                            NameUser(J)
+                                      LiteralExp(INTEGER,0,0ii)
+                                    BinaryExp(<,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,7,7ii))
+                                      IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
+                                        NameExp(NameUser(@@V))
+                                          NameUser(@@V)
+                                        List(NameExp(NameUser(J)))
+                                          NameExp(NameUser(J))
+                                            NameUser(J)
+                                      LiteralExp(INTEGER,7,7ii)
+                              LiteralExp(BOOLEAN,true,true)
                   None
               ActionLocation(Some(NameDefinition(l3)),Vector(),AssignAction(Vector(),IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(I)))),:=,BinaryExp(+,I
                 Some(NameDefinition(l3))
@@ -135,70 +138,73 @@ Model(Some(quantifiertest.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Q
                         NameExp(NameUser(I))
                           NameUser(I)
                     LiteralExp(INTEGER,3,3ii)
-              ActionLocation(Some(NameDefinition(l4)),Vector(),AssertAction(Vector(),BinaryExp(&&&,BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii))
+              ActionLocation(Some(NameDefinition(l4)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&&,BinaryExp(==,Litera
                 Some(NameDefinition(l4))
                   NameDefinition(l4)
                 List()
-                AssertAction(Vector(),BinaryExp(&&&,BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii)),CallExp(NameExp(NameUser(proof__uif__for_all)),F
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&&,BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii)),Ca
                   List()
-                  BinaryExp(&&&,BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii)),CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(
-                    BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii))
-                      LiteralExp(INTEGER,3,3ii)
-                      LiteralExp(INTEGER,3,3ii)
-                    CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J)
-                      NameExp(NameUser(proof__uif__for_all))
-                        NameUser(proof__uif__for_all)
-                      FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vect
-                        Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(Swit
-                          Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseE
-                            Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector()))
-                              ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())
-                                Some(NamedTypeSpec(NameUser(Index),Vector()))
-                                  NamedTypeSpec(NameUser(Index),Vector())
-                                    NameUser(Index)
-                                    List()
-                                NameDefinition(J)
-                                List()
-                            SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseExp(TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(In
-                              NameExp(NameUser(J))
-                                NameUser(J)
-                              Vector(SwitchCaseExp(TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameE
-                                SwitchCaseExp(TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameExp(Name
-                                  TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameExp(NameUser(attribute
-                                    Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameExp(NameUser(attribute__uif__la
-                                      CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector())))
-                                        NameExp(NameUser(attribute__uif__first))
-                                          NameUser(attribute__uif__first)
-                                        TypeExp(NamedTypeSpec(NameUser(Index),Vector()))
-                                          NamedTypeSpec(NameUser(Index),Vector())
-                                            NameUser(Index)
-                                            List()
-                                      CallExp(NameExp(NameUser(attribute__uif__last)),TypeExp(NamedTypeSpec(NameUser(Index),Vector())))
-                                        NameExp(NameUser(attribute__uif__last))
-                                          NameUser(attribute__uif__last)
-                                        TypeExp(NamedTypeSpec(NameUser(Index),Vector()))
-                                          NamedTypeSpec(NameUser(Index),Vector())
-                                            NameUser(Index)
-                                            List()
+                  CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&&,BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii)),CallExp(NameExp(NameUser
+                    NameExp(NameUser(proof__uif__assert))
+                      NameUser(proof__uif__assert)
+                    BinaryExp(&&&,BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii)),CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(
+                      BinaryExp(==,LiteralExp(INTEGER,3,3ii),LiteralExp(INTEGER,3,3ii))
+                        LiteralExp(INTEGER,3,3ii)
+                        LiteralExp(INTEGER,3,3ii)
+                      CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J)
+                        NameExp(NameUser(proof__uif__for_all))
+                          NameUser(proof__uif__for_all)
+                        FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vect
+                          Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(Swit
+                            Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())),SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseE
+                              Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector()))
+                                ParamDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(J),Vector())
+                                  Some(NamedTypeSpec(NameUser(Index),Vector()))
+                                    NamedTypeSpec(NameUser(Index),Vector())
+                                      NameUser(Index)
+                                      List()
+                                  NameDefinition(J)
                                   List()
-                                  BinaryExp(||,BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii)),BinaryExp(<,IndexingExp(NameExp(Nam
-                                    BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii))
-                                      IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
-                                        NameExp(NameUser(@@V))
-                                          NameUser(@@V)
-                                        List(NameExp(NameUser(J)))
-                                          NameExp(NameUser(J))
-                                            NameUser(J)
-                                      LiteralExp(INTEGER,0,0ii)
-                                    BinaryExp(<,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,7,7ii))
-                                      IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
-                                        NameExp(NameUser(@@V))
-                                          NameUser(@@V)
-                                        List(NameExp(NameUser(J)))
-                                          NameExp(NameUser(J))
-                                            NameUser(J)
-                                      LiteralExp(INTEGER,7,7ii)
-                              LiteralExp(BOOLEAN,true,true)
+                              SwitchExp(NameExp(NameUser(J)),Vector(SwitchCaseExp(TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(In
+                                NameExp(NameUser(J))
+                                  NameUser(J)
+                                Vector(SwitchCaseExp(TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameE
+                                  SwitchCaseExp(TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameExp(Name
+                                    TupleExp(Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameExp(NameUser(attribute
+                                      Vector(CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector()))), CallExp(NameExp(NameUser(attribute__uif__la
+                                        CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index),Vector())))
+                                          NameExp(NameUser(attribute__uif__first))
+                                            NameUser(attribute__uif__first)
+                                          TypeExp(NamedTypeSpec(NameUser(Index),Vector()))
+                                            NamedTypeSpec(NameUser(Index),Vector())
+                                              NameUser(Index)
+                                              List()
+                                        CallExp(NameExp(NameUser(attribute__uif__last)),TypeExp(NamedTypeSpec(NameUser(Index),Vector())))
+                                          NameExp(NameUser(attribute__uif__last))
+                                            NameUser(attribute__uif__last)
+                                          TypeExp(NamedTypeSpec(NameUser(Index),Vector()))
+                                            NamedTypeSpec(NameUser(Index),Vector())
+                                              NameUser(Index)
+                                              List()
+                                    List()
+                                    BinaryExp(||,BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii)),BinaryExp(<,IndexingExp(NameExp(Nam
+                                      BinaryExp(>,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,0,0ii))
+                                        IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
+                                          NameExp(NameUser(@@V))
+                                            NameUser(@@V)
+                                          List(NameExp(NameUser(J)))
+                                            NameExp(NameUser(J))
+                                              NameUser(J)
+                                        LiteralExp(INTEGER,0,0ii)
+                                      BinaryExp(<,IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J)))),LiteralExp(INTEGER,7,7ii))
+                                        IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(J))))
+                                          NameExp(NameUser(@@V))
+                                            NameUser(@@V)
+                                          List(NameExp(NameUser(J)))
+                                            NameExp(NameUser(J))
+                                              NameUser(J)
+                                        LiteralExp(INTEGER,7,7ii)
+                                LiteralExp(BOOLEAN,true,true)
                   None
               JumpLocation(Some(NameDefinition(l5)),Vector(),ReturnJump(Vector(),None))
                 Some(NameDefinition(l5))

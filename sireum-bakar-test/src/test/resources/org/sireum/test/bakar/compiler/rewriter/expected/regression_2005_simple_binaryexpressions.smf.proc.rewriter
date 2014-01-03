@@ -42,7 +42,7 @@ procedure Integer Add (
     r6 := J + 1ii;
 
   #l9.
-    assert r2 == r5;
+    assert proof__uif__assert r2 == r5;
 
   #l10.
     return r6;
@@ -121,7 +121,7 @@ procedure Integer Mult (
     r6 := J * 1ii;
 
   #l26.
-    assert r2 == r5;
+    assert proof__uif__assert r2 == r5;
 
   #l27.
     return r6;

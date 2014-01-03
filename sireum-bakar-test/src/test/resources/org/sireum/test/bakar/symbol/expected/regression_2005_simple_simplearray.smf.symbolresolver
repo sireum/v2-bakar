@@ -68,11 +68,15 @@ Procedure Symbol Table
 
     Params
 
+    Loop Locations
+
   ada://function_body/SimpleArray-1:9/Dummy-3:13 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
   ada://function_body/SimpleArray-1:9/Max+11:13 
 
@@ -94,6 +98,9 @@ Procedure Symbol Table
     Params
       ada://parameter/SimpleArray-1:9/Max+11:13/V+11:18 
 
+    Loop Locations
+      l10_15.7_19.15 -> LOOP_LABEL_0 
+
   ada://procedure_body__package_init/SimpleArray/$$binit 
 
     LocalVarTable
@@ -103,5 +110,7 @@ Procedure Symbol Table
       ada://variable_temp/SimpleArray/$$binit/_t3 
 
     Params
+
+    Loop Locations
 
 

@@ -140,6 +140,8 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/Ordered-12:12/L-12:36 
       ada://parameter/Sort-1:9/Ordered-12:12/U-12:38 
 
+    Loop Locations
+
   ada://function/Sort-1:9/Perm-14:12 
 
     LocalVarTable
@@ -153,6 +155,8 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/Perm-14:12/B-14:20 
       ada://parameter/Sort-1:9/Perm-14:12/L-14:36 
       ada://parameter/Sort-1:9/Perm-14:12/U-14:38 
+
+    Loop Locations
 
   ada://function_body/Sort-1:9/Num_Repetition+2:12 
 
@@ -182,6 +186,9 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/Num_Repetition+2:12/L+3:27 
       ada://parameter/Sort-1:9/Num_Repetition+2:12/U+3:29 
 
+    Loop Locations
+      l7_7.5_11.13 -> LOOP_LABEL_0 
+
   ada://function_body/Sort-1:9/Ordered-12:12 
 
     LocalVarTable
@@ -209,6 +216,9 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/Ordered-12:12/A-12:20 
       ada://parameter/Sort-1:9/Ordered-12:12/L-12:36 
       ada://parameter/Sort-1:9/Ordered-12:12/U-12:38 
+
+    Loop Locations
+      l37_31.5_35.13 -> LOOP_LABEL_2 
 
   ada://function_body/Sort-1:9/Partitioned+39:12 
 
@@ -247,6 +257,10 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/Partitioned+39:12/M+40:27 
       ada://parameter/Sort-1:9/Partitioned+39:12/U+40:30 
 
+    Loop Locations
+      l57_47.7_51.15 -> LOOP_LABEL_4 
+      l51_46.5_52.13 -> LOOP_LABEL_3 
+
   ada://function_body/Sort-1:9/Perm-14:12 
 
     LocalVarTable
@@ -275,6 +289,9 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/Perm-14:12/L-14:36 
       ada://parameter/Sort-1:9/Perm-14:12/U-14:38 
 
+    Loop Locations
+      l21_19.5_23.13 -> LOOP_LABEL_1 
+
   ada://procedure/Sort-1:9/BubbleSort-16:13 
 
     LocalVarTable
@@ -282,6 +299,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24 
+
+    Loop Locations
 
   ada://procedure/Sort-1:9/BubbleSortFast-24:13 
 
@@ -291,6 +310,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28 
 
+    Loop Locations
+
   ada://procedure/Sort-1:9/InsertionSort-32:13 
 
     LocalVarTable
@@ -299,6 +320,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27 
 
+    Loop Locations
+
   ada://procedure/Sort-1:9/ShellSort-40:13 
 
     LocalVarTable
@@ -306,6 +329,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23 
+
+    Loop Locations
 
   ada://procedure_body/Sort-1:9/BubbleSort-16:13 
 
@@ -351,6 +376,10 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24 
 
+    Loop Locations
+      l77_73.6_95.14 -> LOOP_LABEL_5 
+      l83_74.8_86.16 -> LOOP_LABEL_6 
+
   ada://procedure_body/Sort-1:9/BubbleSortFast-24:13 
 
     LocalVarTable
@@ -387,6 +416,10 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28 
+
+    Loop Locations
+      l97_104.5_134.13 -> LOOP_LABEL_7 
+      l103_107.7_123.15 -> LOOP_LABEL_8 
 
   ada://procedure_body/Sort-1:9/InsertionSort-32:13 
 
@@ -463,6 +496,10 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27 
 
+    Loop Locations
+      l121_142.5_176.13 -> LOOP_LABEL_9 
+      l125_145.7_160.15 -> LOOP_LABEL_10 
+
   ada://procedure_body/Sort-1:9/ShellSort-40:13 
 
     LocalVarTable
@@ -500,6 +537,11 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23 
 
+    Loop Locations
+      l138_186.5_204.13 -> LOOP_LABEL_11 
+      l149_190.9_196.17 -> LOOP_LABEL_13 
+      l146_188.7_200.15 -> LOOP_LABEL_12 
+
   ada://procedure_body/Sort-1:9/Swap_Elements+56:13 
 
     LocalVarTable
@@ -512,5 +554,7 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/Swap_Elements+56:13/I+56:50 
       ada://parameter/Sort-1:9/Swap_Elements+56:13/J+56:53 
       ada://parameter/Sort-1:9/Swap_Elements+56:13/T+56:27 
+
+    Loop Locations
 
 

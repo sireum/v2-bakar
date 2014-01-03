@@ -54,7 +54,7 @@ procedure dummy (
     _t5 := _t2 < _t3;
 
   #l2.
-    assert proof__uif__for_some {Index J => 
+    assert proof__uif__assert proof__uif__for_some {Index J => 
         switch J
           case (1ii, 2ii) => _t4 && _t5
           default => true};
@@ -102,7 +102,7 @@ procedure dummy (
           default => true};
 
   #l4.
-    assert _t16 &&& _t17;
+    assert proof__uif__assert _t16 &&& _t17;
 
   #l5.
     return;

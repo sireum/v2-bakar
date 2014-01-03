@@ -60,6 +60,8 @@ Procedure Symbol Table
       ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 
       ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
 
+    Loop Locations
+
   ada://function_body/Minpackage-1:9/MinFunc-2:12 
 
     LocalVarTable
@@ -87,5 +89,7 @@ Procedure Symbol Table
     Params
       ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 
       ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
+
+    Loop Locations
 
 

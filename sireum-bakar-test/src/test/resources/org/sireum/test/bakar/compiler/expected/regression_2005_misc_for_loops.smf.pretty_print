@@ -102,7 +102,9 @@ procedure Stupid (
   #l7.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -136,7 +138,9 @@ procedure Stupid (
   #l17.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -170,7 +174,9 @@ procedure Stupid (
   #l27.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_2</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_2</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -204,7 +210,9 @@ procedure Stupid (
   #l37.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_3</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_3</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -238,7 +246,9 @@ procedure Stupid (
   #l47.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_4</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_4</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -272,7 +282,9 @@ procedure Stupid (
   #l57.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_5</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_5</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -306,7 +318,9 @@ procedure Stupid (
   #l67.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_6</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_6</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -340,7 +354,9 @@ procedure Stupid (
   #l77.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_7</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_7</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -374,7 +390,9 @@ procedure Stupid (
   #l87.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_8</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_8</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -408,7 +426,9 @@ procedure Stupid (
   #l97.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_9</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_9</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 

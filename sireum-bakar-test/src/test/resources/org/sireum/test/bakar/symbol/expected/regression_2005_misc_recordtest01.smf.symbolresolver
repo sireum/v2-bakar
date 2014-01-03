@@ -73,6 +73,8 @@ Procedure Symbol Table
     Params
       ada://parameter/RecordTest01-1:9/Test01-16:13/Q-16:20 
 
+    Loop Locations
+
   ada://procedure_body/RecordTest01-1:9/Test01-16:13 
 
     LocalVarTable
@@ -81,6 +83,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/RecordTest01-1:9/Test01-16:13/Q-16:20 
+
+    Loop Locations
 
   ada://procedure_body/RecordTest01-1:9/Test02+13:13 
 
@@ -101,10 +105,14 @@ Procedure Symbol Table
       ada://parameter/RecordTest01-1:9/Test02+13:13/O1+13:41 
       ada://parameter/RecordTest01-1:9/Test02+13:13/O2+13:45 
 
+    Loop Locations
+
   ada://procedure_body__package_init/RecordTest01/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

@@ -27,7 +27,7 @@ procedure Integer Inc (
     _t3 := X;
 
   #l2.
-    assert _t2 > _t3;
+    assert proof__uif__assert _t2 > _t3;
 
   #l3.
     return R;

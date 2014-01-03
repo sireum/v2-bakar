@@ -118,6 +118,9 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/X+67:29 
 
+    Loop Locations
+      l33_76.7_81.15 -> LOOP_LABEL_1 
+
   ada://function_body/The_Stack_Demonic-1:9/Value_Present+46:13 
 
     LocalVarTable
@@ -138,6 +141,9 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Demonic-1:9/Value_Present+46:13/X+46:28 
 
+    Loop Locations
+      l18_53.7_62.15 -> LOOP_LABEL_0 
+
   ada://procedure/The_Stack_Demonic-1:9/Pop-36:14 
 
     LocalVarTable
@@ -146,6 +152,8 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Demonic-1:9/Pop-36:14/X-36:18 
 
+    Loop Locations
+
   ada://procedure/The_Stack_Demonic-1:9/Push-31:14 
 
     LocalVarTable
@@ -153,6 +161,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/The_Stack_Demonic-1:9/Push-31:14/X-31:19 
+
+    Loop Locations
 
   ada://procedure_body/The_Stack_Demonic-1:9/Pop-36:14 
 
@@ -166,6 +176,8 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Demonic-1:9/Pop-36:14/X-36:18 
 
+    Loop Locations
+
   ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
 
     LocalVarTable
@@ -178,10 +190,14 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Demonic-1:9/Push-31:14/X-31:19 
 
+    Loop Locations
+
   ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

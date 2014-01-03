@@ -75,6 +75,8 @@ Procedure Symbol Table
       ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
       ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
 
+    Loop Locations
+
   ada://function_body/Function_Simple-1:9/F1-8:12 
 
     LocalVarTable
@@ -89,6 +91,8 @@ Procedure Symbol Table
       ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
       ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
 
+    Loop Locations
+
   ada://procedure_body/Function_Simple-1:9/P1+10:13 
 
     LocalVarTable
@@ -99,6 +103,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Function_Simple-1:9/P1+10:13/M+10:16 
       ada://parameter/Function_Simple-1:9/P1+10:13/N+10:31 
+
+    Loop Locations
 
   ada://procedure_body/Function_Simple-1:9/P2+18:13 
 
@@ -113,10 +119,14 @@ Procedure Symbol Table
       ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 
       ada://parameter/Function_Simple-1:9/P2+18:13/N+18:31 
 
+    Loop Locations
+
   ada://procedure_body__package_init/Function_Simple/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

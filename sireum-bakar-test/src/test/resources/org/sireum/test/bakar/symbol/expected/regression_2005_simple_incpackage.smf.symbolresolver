@@ -58,6 +58,8 @@ Procedure Symbol Table
     Params
       ada://parameter/IncPackage-1:9/Inc-2:13/X-2:17 
 
+    Loop Locations
+
   ada://function_body/IncPackage-1:9/Inc-2:13 
 
     LocalVarTable
@@ -70,5 +72,7 @@ Procedure Symbol Table
 
     Params
       ada://parameter/IncPackage-1:9/Inc-2:13/X-2:17 
+
+    Loop Locations
 
 

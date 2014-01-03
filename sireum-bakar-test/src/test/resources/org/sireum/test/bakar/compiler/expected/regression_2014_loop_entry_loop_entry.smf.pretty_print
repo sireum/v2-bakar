@@ -74,7 +74,37 @@ procedure Array_Loop_Entry (
   #l1.<
       @LOOP_LABEL
 
-        ("""<string>Outer</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>Outer</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>pilar.symbol</string>
+               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="2" size="4">
+                 <string>ada</string>
+                 <string>procedure_body</string>
+                 <ilist ttype="ilist">
+                   <string>Loop_Entry-1:9</string>
+                   <string>Outer+6:6</string>
+                 </ilist>
+                 <string sid="1">ada://procedure_body/Loop_Entry-1:9/Outer+6:6</string>
+               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+             </entry>
+             <entry>
+               <string>BAKAR_REF_URI</string>
+               <string srefid="1"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string>loop_entry.adb</string>
+                 <int>6</int>
+                 <int>6</int>
+                 <int>6</int>
+                 <int>10</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -93,7 +123,37 @@ procedure Array_Loop_Entry (
   #l8.<
       @LOOP_LABEL
 
-        ("""<string>Inner</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>Inner</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>pilar.symbol</string>
+               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="2" size="4">
+                 <string>ada</string>
+                 <string>procedure_body</string>
+                 <ilist ttype="ilist">
+                   <string>Loop_Entry-1:9</string>
+                   <string>Inner+8:8</string>
+                 </ilist>
+                 <string sid="1">ada://procedure_body/Loop_Entry-1:9/Inner+8:8</string>
+               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+             </entry>
+             <entry>
+               <string>BAKAR_REF_URI</string>
+               <string srefid="1"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string>loop_entry.adb</string>
+                 <int>8</int>
+                 <int>8</int>
+                 <int>8</int>
+                 <int>12</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -217,7 +277,37 @@ procedure Record_Loop_Entry (
   #l20.<
       @LOOP_LABEL
 
-        ("""<string>OuterLoop2</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>OuterLoop2</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>pilar.symbol</string>
+               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="2" size="4">
+                 <string>ada</string>
+                 <string>procedure_body</string>
+                 <ilist ttype="ilist">
+                   <string>Loop_Entry-1:9</string>
+                   <string>OuterLoop2+31:6</string>
+                 </ilist>
+                 <string sid="1">ada://procedure_body/Loop_Entry-1:9/OuterLoop2+31:6</string>
+               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+             </entry>
+             <entry>
+               <string>BAKAR_REF_URI</string>
+               <string srefid="1"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string>loop_entry.adb</string>
+                 <int>31</int>
+                 <int>6</int>
+                 <int>31</int>
+                 <int>15</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -242,7 +332,37 @@ procedure Record_Loop_Entry (
   #l25.<
       @LOOP_LABEL
 
-        ("""<string>InnerLoop2</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>InnerLoop2</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>pilar.symbol</string>
+               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="2" size="4">
+                 <string>ada</string>
+                 <string>procedure_body</string>
+                 <ilist ttype="ilist">
+                   <string>Loop_Entry-1:9</string>
+                   <string sid="1">InnerLoop2+39:10</string>
+                 </ilist>
+                 <string sid="2">ada://procedure_body/Loop_Entry-1:9/InnerLoop2+39:10</string>
+               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+             </entry>
+             <entry>
+               <string>BAKAR_REF_URI</string>
+               <string srefid="2"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string>loop_entry.adb</string>
+                 <int>39</int>
+                 <int>10</int>
+                 <int>39</int>
+                 <int>19</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 

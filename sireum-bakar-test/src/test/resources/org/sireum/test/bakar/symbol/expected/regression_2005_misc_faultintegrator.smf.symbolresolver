@@ -77,6 +77,8 @@ Procedure Symbol Table
       ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18 
       ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18 
 
+    Loop Locations
+
   ada://procedure/FaultIntegrator-1:9/Test-9:13 
 
     LocalVarTable
@@ -89,6 +91,8 @@ Procedure Symbol Table
       ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18 
       ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18 
 
+    Loop Locations
+
   ada://procedure_body/FaultIntegrator-1:9/Init-5:13 
 
     LocalVarTable
@@ -98,6 +102,8 @@ Procedure Symbol Table
     Params
       ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18 
       ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18 
+
+    Loop Locations
 
   ada://procedure_body/FaultIntegrator-1:9/Test-9:13 
 
@@ -118,5 +124,7 @@ Procedure Symbol Table
       ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18 
       ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18 
       ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18 
+
+    Loop Locations
 
 

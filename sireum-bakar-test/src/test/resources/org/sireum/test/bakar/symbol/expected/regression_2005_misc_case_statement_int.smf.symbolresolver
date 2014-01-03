@@ -64,6 +64,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Case_Statement_Int-1:9/isWorkDay-7:12/d-7:23 
 
+    Loop Locations
+
   ada://function_body/Case_Statement_Int-1:9/isWorkDay-7:12 
 
     LocalVarTable
@@ -104,5 +106,7 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Case_Statement_Int-1:9/isWorkDay-7:12/d-7:23 
+
+    Loop Locations
 
 

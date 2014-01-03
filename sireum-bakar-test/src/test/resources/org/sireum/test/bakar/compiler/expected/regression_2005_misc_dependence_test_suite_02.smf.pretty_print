@@ -743,7 +743,17 @@ procedure Success6 (
   #l25.
     O1 := I1;
 
-  #l28.
+  #l28.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>74</int>
+           <int>10</int>
+           <int>74</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I2 > 5ii) then goto l27;
 
   #l29.
@@ -866,7 +876,17 @@ procedure Success7 (
   #l33.
     L1 := I1;
 
-  #l36.
+  #l36.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>89</int>
+           <int>10</int>
+           <int>89</int>
+           <int>16</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > I2) then goto l35;
 
   #l37.
@@ -1000,7 +1020,17 @@ procedure Success8 (
   #l41.
     L1 := I1;
 
-  #l44.
+  #l44.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>104</int>
+           <int>10</int>
+           <int>104</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > 5ii) then goto l43;
 
   #l45.
@@ -1158,7 +1188,17 @@ procedure Success9 (
   #l50.
     L1 := I1;
 
-  #l53.
+  #l53.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>120</int>
+           <int>10</int>
+           <int>120</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > 5ii) then goto l52;
 
   #l54.
@@ -1170,7 +1210,17 @@ procedure Success9 (
   #l52.
     // empty loc
 
-  #l58.
+  #l58.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>124</int>
+           <int>13</int>
+           <int>124</int>
+           <int>18</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I2 < 0ii) then goto l57;
 
   #l59.
@@ -1361,10 +1411,30 @@ procedure Success10 (
   #l67.
     L1 := I2;
 
-  #l69.
+  #l69.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>145</int>
+           <int>10</int>
+           <int>145</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > 5ii) then goto l68;
 
-  #l72.
+  #l72.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>147</int>
+           <int>13</int>
+           <int>147</int>
+           <int>18</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I1 < 0ii) then goto l71;
 
   #l73.
@@ -1489,7 +1559,9 @@ procedure Success11 (
   #l81.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -1633,7 +1705,9 @@ procedure Success12 (
   #l91.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -1643,7 +1717,17 @@ procedure Success12 (
   #l93.
     Sum := Sum + J;
 
-  #l95.
+  #l95.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>184</int>
+           <int>13</int>
+           <int>184</int>
+           <int>20</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Sum > I2) then goto l94;
 
   #l96.
@@ -1800,7 +1884,9 @@ procedure Success13 (
   #l105.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_2</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_2</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -1810,7 +1896,9 @@ procedure Success13 (
   #l108.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_3</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_3</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -1967,7 +2055,9 @@ procedure Success14 (
   #l121.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_4</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_4</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2076,7 +2166,9 @@ procedure Success15 (
   #l136.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_5</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_5</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2200,7 +2292,9 @@ procedure Success16 (
   #l149.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_6</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_6</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2345,14 +2439,26 @@ procedure Success17 (
   #l162.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_7</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_7</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
   #l163.
     Sum := Sum + J;
 
-  #l165.
+  #l165.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>276</int>
+           <int>13</int>
+           <int>276</int>
+           <int>20</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Sum > I2) then goto l164;
 
   #l166.
@@ -2502,7 +2608,9 @@ procedure Success18 (
   #l178.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_8</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_8</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2521,7 +2629,9 @@ procedure Success18 (
   #l184.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_9</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_9</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2678,7 +2788,9 @@ procedure Success19 (
   #l200.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_10</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_10</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2801,7 +2913,9 @@ procedure Success20 (
   #l209.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_11</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_11</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2924,7 +3038,9 @@ procedure Success21 (
   #l219.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_12</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_12</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2934,7 +3050,17 @@ procedure Success21 (
   #l222.
     J := J + 1ii;
 
-  #l224.
+  #l224.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>358</int>
+           <int>13</int>
+           <int>358</int>
+           <int>19</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(J >= I1) then goto l223;
 
   #l225.
@@ -3074,7 +3200,9 @@ procedure Success22 (
   #l231.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_13</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_13</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -3084,7 +3212,17 @@ procedure Success22 (
   #l234.
     Sum := Sum + J;
 
-  #l236.
+  #l236.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_02.adb</string>
+           <int>379</int>
+           <int>13</int>
+           <int>379</int>
+           <int>20</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Sum > I2) then goto l235;
 
   #l237.
@@ -3241,14 +3379,18 @@ procedure Success23 (
   #l245.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_14</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_14</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
   #l247.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_15</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_15</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -3383,7 +3525,9 @@ procedure Success24 (
   #l260.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_16</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_16</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -3509,7 +3653,37 @@ procedure Success25 (
   #l271.<
       @LOOP_LABEL
 
-        ("""<string>MyLoop</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>MyLoop</string>
+           <properties mtype="mlinkedmap">
+             <entry>
+               <string>pilar.symbol</string>
+               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="2" size="4">
+                 <string>ada</string>
+                 <string>procedure_body</string>
+                 <ilist ttype="ilist">
+                   <string sid="1">Dependence_Test_Suite_02-1:9</string>
+                   <string>MyLoop+443:7</string>
+                 </ilist>
+                 <string sid="2">ada://procedure_body/Dependence_Test_Suite_02-1:9/MyLoop+443:7</string>
+               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+             </entry>
+             <entry>
+               <string>BAKAR_REF_URI</string>
+               <string srefid="2"/>
+             </entry>
+             <entry>
+               <string>util.loc</string>
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
+                 <string sid="3">dependence_test_suite_02.adb</string>
+                 <int>443</int>
+                 <int>7</int>
+                 <int>443</int>
+                 <int>12</int>
+               </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
+             </entry>
+           </properties>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -3653,7 +3827,9 @@ procedure Success26 (
   #l282.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_17</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_17</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -3801,7 +3977,9 @@ procedure Success27 (
   #l296.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_18</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_18</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 

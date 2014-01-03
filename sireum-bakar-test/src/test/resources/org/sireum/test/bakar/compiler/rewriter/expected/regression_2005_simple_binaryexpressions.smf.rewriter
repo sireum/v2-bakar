@@ -106,7 +106,7 @@ procedure Integer Add (
     _t15 := r5;
 
   #l9.
-    assert _t14 == _t15;
+    assert proof__uif__assert _t14 == _t15;
 
   #l10.
     return r6;
@@ -305,7 +305,7 @@ procedure Integer Mult (
     _t45 := r5;
 
   #l26.
-    assert _t44 == _t45;
+    assert proof__uif__assert _t44 == _t45;
 
   #l27.
     return r6;

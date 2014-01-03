@@ -178,10 +178,30 @@ procedure P1 (
   #l5.
     L1 := I1 + I2;
 
-  #l7.
+  #l7.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">test_case_10.adb</string>
+           <int>11</int>
+           <int>12</int>
+           <int>11</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > 5ii) then goto l6;
 
-  #l10.
+  #l10.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">test_case_10.adb</string>
+           <int>13</int>
+           <int>16</int>
+           <int>13</int>
+           <int>21</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I1 < 0ii) then goto l9;
 
   #l11.

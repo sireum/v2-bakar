@@ -74,6 +74,8 @@ Procedure Symbol Table
       ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
       ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
 
+    Loop Locations
+
   ada://procedure_body/Constraints-1:9/foo-11:13 
 
     LocalVarTable
@@ -93,5 +95,7 @@ Procedure Symbol Table
     Params
       ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
       ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
+
+    Loop Locations
 
 

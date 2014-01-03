@@ -73,6 +73,8 @@ Procedure Symbol Table
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
 
+    Loop Locations
+
   ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
 
     LocalVarTable
@@ -89,10 +91,14 @@ Procedure Symbol Table
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
 
+    Loop Locations
+
   ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

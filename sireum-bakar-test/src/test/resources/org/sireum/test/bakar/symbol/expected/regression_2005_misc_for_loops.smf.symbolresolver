@@ -68,11 +68,15 @@ Procedure Symbol Table
     Params
       ada://parameter/for_loops-1:9/Stupid-11:14/Z-11:21 
 
+    Loop Locations
+
   ada://procedure__package_init/for_loops/$$sinit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
   ada://procedure_body/for_loops-1:9/Stupid-11:14 
 
@@ -175,5 +179,17 @@ Procedure Symbol Table
 
     Params
       ada://parameter/for_loops-1:9/Stupid-11:14/Z-11:21 
+
+    Loop Locations
+      l97_47.6_49.14 -> LOOP_LABEL_9 
+      l67_35.6_37.14 -> LOOP_LABEL_6 
+      l17_12.6_14.14 -> LOOP_LABEL_1 
+      l47_25.6_27.14 -> LOOP_LABEL_4 
+      l27_16.6_18.14 -> LOOP_LABEL_2 
+      l7_8.6_10.14 -> LOOP_LABEL_0 
+      l57_30.6_32.14 -> LOOP_LABEL_5 
+      l87_43.6_45.14 -> LOOP_LABEL_8 
+      l77_39.6_41.14 -> LOOP_LABEL_7 
+      l37_20.6_22.14 -> LOOP_LABEL_3 
 
 

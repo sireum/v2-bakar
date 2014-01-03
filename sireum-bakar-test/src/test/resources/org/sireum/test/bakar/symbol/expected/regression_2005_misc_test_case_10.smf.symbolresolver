@@ -66,6 +66,8 @@ Procedure Symbol Table
       ada://parameter/Test_Case_10-1:9/P1-2:15/O1-2:44 
       ada://parameter/Test_Case_10-1:9/P1-2:15/O2-2:48 
 
+    Loop Locations
+
   ada://procedure_body/Test_Case_10-1:9/P1-2:15 
 
     LocalVarTable
@@ -89,5 +91,7 @@ Procedure Symbol Table
       ada://parameter/Test_Case_10-1:9/P1-2:15/I3-2:27 
       ada://parameter/Test_Case_10-1:9/P1-2:15/O1-2:44 
       ada://parameter/Test_Case_10-1:9/P1-2:15/O2-2:48 
+
+    Loop Locations
 
 

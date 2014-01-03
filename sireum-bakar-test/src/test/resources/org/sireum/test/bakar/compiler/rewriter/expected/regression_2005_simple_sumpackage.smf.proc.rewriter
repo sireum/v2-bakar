@@ -36,7 +36,7 @@ procedure Integer Sum (
     // empty loc
 
   #l11.
-    assert N == R;
+    assert proof__uif__assert N == R;
 
   #l2.
     // empty loc
@@ -80,7 +80,7 @@ procedure Sum2 (
     // empty loc
 
   #l23.
-    assert N == R;
+    assert proof__uif__assert N == R;
 
   #l14.
     // empty loc

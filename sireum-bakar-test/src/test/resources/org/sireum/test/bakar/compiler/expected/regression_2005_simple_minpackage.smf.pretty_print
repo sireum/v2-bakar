@@ -100,7 +100,17 @@ procedure Integer MinFunc (
     ;
 
 
-  #l3.
+  #l3.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>minpackage.adb</string>
+           <int>5</int>
+           <int>10</int>
+           <int>5</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(X >= Y) then goto l2;
 
   #l4.
@@ -125,7 +135,11 @@ procedure Integer MinFunc (
     // empty loc
 
   #l9.
-    assert Min <= X &&& Min <= Y &&& X <= Max &&& Y <= Max;
+    assert proof__uif__assert Min <= X &&& Min <= Y &&& X <= Max &&& Y <= Max
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l10.
     return Min;

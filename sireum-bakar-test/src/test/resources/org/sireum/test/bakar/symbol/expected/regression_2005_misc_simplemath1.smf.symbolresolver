@@ -63,6 +63,8 @@ Procedure Symbol Table
     Params
       ada://parameter/SimpleMath1-1:9/Inc-6:13/I-6:17 
 
+    Loop Locations
+
   ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
 
     LocalVarTable
@@ -73,10 +75,14 @@ Procedure Symbol Table
     Params
       ada://parameter/SimpleMath1-1:9/Inc-6:13/I-6:17 
 
+    Loop Locations
+
   ada://procedure_body__package_init/SimpleMath1/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

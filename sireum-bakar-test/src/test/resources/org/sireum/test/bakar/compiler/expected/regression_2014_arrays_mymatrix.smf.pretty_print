@@ -134,7 +134,9 @@ procedure Multiply (
   #l7.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -153,7 +155,9 @@ procedure Multiply (
   #l13.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -172,7 +176,9 @@ procedure Multiply (
   #l19.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_2</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_2</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 

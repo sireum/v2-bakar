@@ -81,6 +81,8 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 
 
+    Loop Locations
+
   ada://procedure/The_Stack_Praxis-1:9/Push-5:14 
 
     LocalVarTable
@@ -88,6 +90,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 
+
+    Loop Locations
 
   ada://procedure_body/The_Stack_Praxis-1:9/Pop-9:14 
 
@@ -99,6 +103,8 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 
 
+    Loop Locations
+
   ada://procedure_body/The_Stack_Praxis-1:9/Push-5:14 
 
     LocalVarTable
@@ -109,10 +115,14 @@ Procedure Symbol Table
     Params
       ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 
 
+    Loop Locations
+
   ada://procedure_body__package_init/The_Stack_Praxis/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

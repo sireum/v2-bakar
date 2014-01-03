@@ -278,7 +278,17 @@ procedure Success2 (
   #l6.
     O := L;
 
-  #l9.
+  #l9.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>27</int>
+           <int>9</int>
+           <int>27</int>
+           <int>30</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I < attribute__uif__last `History_Range) then goto l8;
 
   #l10.
@@ -823,7 +833,17 @@ procedure Success6 (
   #l31.
     O1 := I1;
 
-  #l34.
+  #l34.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>81</int>
+           <int>9</int>
+           <int>81</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I2 > 5ii) then goto l33;
 
   #l35.
@@ -946,7 +966,17 @@ procedure Success7 (
   #l39.
     L1 := I1;
 
-  #l42.
+  #l42.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>96</int>
+           <int>9</int>
+           <int>96</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > I2) then goto l41;
 
   #l43.
@@ -1080,7 +1110,17 @@ procedure Success8 (
   #l47.
     L1 := I1;
 
-  #l50.
+  #l50.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>111</int>
+           <int>9</int>
+           <int>111</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > 5ii) then goto l49;
 
   #l51.
@@ -1238,7 +1278,17 @@ procedure Success9 (
   #l56.
     L1 := I1;
 
-  #l59.
+  #l59.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>127</int>
+           <int>9</int>
+           <int>127</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > 5ii) then goto l58;
 
   #l60.
@@ -1250,7 +1300,17 @@ procedure Success9 (
   #l58.
     // empty loc
 
-  #l64.
+  #l64.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>131</int>
+           <int>12</int>
+           <int>131</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I2 < 0ii) then goto l63;
 
   #l65.
@@ -1441,10 +1501,30 @@ procedure Success10 (
   #l73.
     L1 := I2;
 
-  #l75.
+  #l75.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>152</int>
+           <int>9</int>
+           <int>152</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(L1 > 5ii) then goto l74;
 
-  #l78.
+  #l78.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">dependence_test_suite_01.adb</string>
+           <int>154</int>
+           <int>12</int>
+           <int>154</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I1 < 0ii) then goto l77;
 
   #l79.

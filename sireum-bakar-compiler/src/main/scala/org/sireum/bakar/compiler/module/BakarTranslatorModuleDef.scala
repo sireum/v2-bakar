@@ -240,6 +240,7 @@ import org.sireum.pipeline.Output
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineJobModuleInfo
 import org.sireum.util.BeginEndLineColumnLocation
+import org.sireum.util.SourceLocation.SourceLocationWithAt
 import org.sireum.util.Exec
 import org.sireum.util.FileLineColumnLocation.pp2flcl
 import org.sireum.util.FileResourceUri
@@ -311,13 +312,21 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     def nextLoopLabel = {
       val ret = loopCounter
       loopCounter += 1
-      "LOOP_LABEL_" + ret
+      NameDefinition("LOOP_LABEL_" + ret)
     }
-
+    
+    val loopLabelStack = mstackEmpty[NameDefinition]
+    def peekLoopLabel = 
+      URIS.addTypeUri(NameExp(URIS.addResourceUri(loopLabelStack.top, URIS.DUMMY_URI)), URIS.DUMMY_URI)      
+    def popLoopLabel = loopLabelStack.pop
+    def pushLoopLabel(s : NameDefinition) = loopLabelStack.push(s)
+    
     def addLoopLabel(ld: LocationDecl): Unit = addLoopLabel(ld, nextLoopLabel)
 
-    def addLoopLabel(ld: LocationDecl, label: String): Unit =
+    def addLoopLabel(ld: LocationDecl, label: NameDefinition): Unit = {
       ld(BAKAR_KEYS.LOOP_LABEL_KEY) = label
+      pushLoopLabel(label)
+    }
 
     var countLocation = 0
     var stackLocationList = mstackEmpty[MList[LocationDecl]]
@@ -327,11 +336,15 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       locs
     }
     def popLocationList = stackLocationList.pop
-    def pushLocation(l: LocationDecl) = {
+    def pushLocation(l: LocationDecl) : LocationDecl = {
       stackLocationList.top += l
       l
     }
-
+    def pushLocation(l: LocationDecl, sloc : SourceLocation) : LocationDecl = {
+      this.addSourceLoc(l, sloc)
+      pushLocation(l)
+    }
+    
     val contextStack = mstackEmpty[Context]
     def pushContext(s: Context) = contextStack.push(s)
     def popContext = contextStack.pop
@@ -399,7 +412,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val lvd = LocalVarDecl(nts, lname, ilistEmpty)
       localsPush(lvd)
 
-      val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
+      val ret = URIS.addTypeUri(NameExp(URIS.addResourceUri(NameUser(name), uri)), typeUri)
       addTypeUri(typeUri, ret)
     }
 
@@ -716,6 +729,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         case _ =>
       }
       o
+    }
+    
+    def getSourceLoc(o : PilarAstNode) : Option[SourceLocationWithAt[PilarAstNode]] = {
+      if (o ? Location.locPropKey){
+        val x = o(Location.locPropKey).asInstanceOf[SourceLocationWithAt[PilarAstNode]]
+        Some(x)
+      }
+      else None
     }
 
     def isEmpty(o: Base): Boolean = o.isInstanceOf[NotAnElement]
@@ -2176,8 +2197,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
 
       if (!ctx.isEmpty(statementIdentifier.getDefiningName)) {
-        val (sloc, refName, refUri, _) = ctx.getName(statementIdentifier.getDefiningName)
-        ctx.addLoopLabel(loopStart, refName)
+        v(statementIdentifier) 
+        ctx.addLoopLabel(loopStart, ctx.popResult.asInstanceOf[NameDefinition])
       } else
         ctx.addLoopLabel(loopStart)
 
@@ -2206,35 +2227,42 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val _exitLoc = ctx.popExitLocation
       assert(_exitLoc == endLoc)
 
+      ctx.popLoopLabel
+      
       false
     case IfStatementEx(sloc, labelNames, statementPaths, checks) =>
       val isSingle = statementPaths.getPaths.size == 1
       val endLoc = ctx.newLocLabel(sloc)
       var gotoLoc = if (isSingle) endLoc else ctx.newLocLabel(sloc)
 
-      def render(sloc: SourceLocation, condExp: ExpressionClass, statements: StatementList, isIfElse: Boolean) = {
+      def render(sloc1: SourceLocation, condExp: ExpressionClass, statements: StatementList, isIfElse: Boolean) = {
         if (isIfElse) {
           // #<gotoLoc>.
           ctx.pushLocation(ctx.createEmptyLocation(gotoLoc, ivectorEmpty))
-          gotoLoc = ctx.newLocLabel(sloc)
+          gotoLoc = ctx.newLocLabel(sloc1)
         }
 
         v(condExp)
 
+        val cond :Exp = ctx.popResult
+        val condLoc = ctx.getSourceLoc(cond)
+        
         // #l0. if(!condExp) then goto <gotoLoc>;
-        val ue = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult)
+        val ue = UnaryExp(PilarAstUtil.NOT_UNOP, cond)
         ctx.addTypeUri(StandardURIs.boolURI, ue)
         val itj = IfThenJump(ue, ivectorEmpty, gotoLoc)
         val ij = IfJump(ivectorEmpty, ivector(itj), None)
-        val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, ij)
+        val jl = JumpLocation(Some(ctx.newLocLabel(sloc1)), ivectorEmpty, ij)
+        
+        jl(Location.locPropKey) = condLoc.get
         ctx.pushLocation(jl)
-
+        
         // ... eval body statements
         v(statements)
 
         if (!isSingle) {
           // # goto endLoc;
-          val gl = ctx.createGotoJumpLocation(endLoc, ivectorEmpty, sloc)
+          val gl = ctx.createGotoJumpLocation(endLoc, ivectorEmpty, sloc1)
           ctx.pushLocation(gl)
         }
       }
@@ -2262,8 +2290,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
 
       if (!ctx.isEmpty(statementIdentifier.getDefiningName)) {
-        val (sloc, refName, refUri, _) = ctx.getName(statementIdentifier.getDefiningName)
-        ctx.addLoopLabel(loopStart, refName)
+        v(statementIdentifier)
+        ctx.addLoopLabel(loopStart, ctx.popResult.asInstanceOf[NameDefinition])
       } else
         ctx.addLoopLabel(loopStart)
 
@@ -2280,6 +2308,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val _exit = ctx.popExitLocation
       assert(_exit == endLoc)
 
+      ctx.popLoopLabel
+      
       false
     case ProcedureCallStatementEx(sloc, labelNames, calledName, params, isPrefixNotation, checks) =>
       assert(ctx.isEmpty(isPrefixNotation.getIsPrefixNotation))
@@ -2322,8 +2352,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel(sloc)))
 
       if (!ctx.isEmpty(statementIdentifier.getDefiningName)) {
-        val (sloc, refName, refUri, _) = ctx.getName(statementIdentifier.getDefiningName)
-        ctx.addLoopLabel(loopStart, refName)
+        v(statementIdentifier)
+        ctx.addLoopLabel(loopStart, ctx.popResult.asInstanceOf[NameDefinition])
       } else
         ctx.addLoopLabel(loopStart)
 
@@ -2346,6 +2376,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val _exit = ctx.popExitLocation
       assert(_exit == endLoc)
 
+      ctx.popLoopLabel
+      
       false
   }
 
@@ -2564,7 +2596,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             }
             val fe = ctx.addTypeUri(typ, NewFunctionExp(elements))
             val _args = TupleExp(ivector(component, fe))
-            (Attribute.ATTRIBUTE_UIF_ARRAY_UPDATE, _args)
+            (Attribute.ATTRIBUTE_UIF_UPDATE_EXP, _args)
           case "loop_entry" =>
             val _args = if (!designatorExps.getExpressions.isEmpty) {
               assert(designatorExps.getExpressions.size == 1)
@@ -2572,7 +2604,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               val loopLabel: NameExp = ctx.popResult
 
               TupleExp(ivector(loopLabel, component))
-            } else component
+            } else 
+              TupleExp(ivector(ctx.peekLoopLabel, component))
 
             (Attribute.ATTRIBUTE_UIF_LOOP_ENTRY, _args)
         }
@@ -2885,7 +2918,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       ctx.noTempVars(true)
       for (a <- pragmaArgumentAssociations.getAssociations) {
         v(a)
-        val aa = AssertAction(ivectorEmpty, ctx.popResult, None)
+        val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT, ctx.popResult, StandardURIs.boolURI)
+        val aa = AssertAction(ivectorEmpty, uif, None)
+        aa("ASSERT") = true
         ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }
       ctx.noTempVars(false)
@@ -2897,7 +2932,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           assert(pragmaArgAssociations.getAssociations.size == 1)
 
           v(pragmaArgAssociations.getAssociations.head)
-          val aa = AssumeAction(ivectorEmpty, ctx.popResult)
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSUME, ctx.popResult, StandardURIs.boolURI)
+          val aa = AssumeAction(ivectorEmpty, uif)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
         case "assert_and_cut" =>
           assert(pragmaArgAssociations.getAssociations.size == 1)
@@ -2930,8 +2966,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               matchings :+= Matching(ivector(pd), e)
             case x => throw new RuntimeException()
           }
-          val fe = new FunExp(matchings)
-          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_VARIANT, fe, StandardURIs.boolURI)
+          val ne = ctx.peekLoopLabel
+          val te = TupleExp(ivector(ne, FunExp(matchings)))
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_VARIANT, te, StandardURIs.boolURI)
           val aa = AssertAction(ivectorEmpty, uif, None)
           aa("LOOP_VARIANT") = true
           ctx.createPushLocation(aa, ivectorEmpty, sloc)

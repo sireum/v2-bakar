@@ -67,6 +67,8 @@ Procedure Symbol Table
       ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
       ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30 
 
+    Loop Locations
+
   ada://procedure_body/P_Refinement-1:9/Q-6:13 
 
     LocalVarTable
@@ -79,10 +81,14 @@ Procedure Symbol Table
       ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
       ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30 
 
+    Loop Locations
+
   ada://procedure_body__package_init/P_Refinement/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

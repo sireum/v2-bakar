@@ -82,7 +82,17 @@ procedure Integer Sum (
   #l1.
     R := 0ii;
 
-  #l3.
+  #l3.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sumpackage.adb</string>
+           <int>9</int>
+           <int>9</int>
+           <int>9</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(N >= 0ii) then goto l2;
 
   #l4.
@@ -91,7 +101,9 @@ procedure Integer Sum (
   #l6.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -111,7 +123,11 @@ procedure Integer Sum (
     // empty loc
 
   #l11.
-    assert N == R;
+    assert proof__uif__assert N == R
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l2.
     // empty loc
@@ -200,7 +216,17 @@ procedure Sum2 (
   #l13.
     R := 0ii;
 
-  #l15.
+  #l15.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sumpackage.adb</string>
+           <int>26</int>
+           <int>9</int>
+           <int>26</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(N >= 0ii) then goto l14;
 
   #l16.
@@ -209,7 +235,9 @@ procedure Sum2 (
   #l18.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -229,7 +257,11 @@ procedure Sum2 (
     // empty loc
 
   #l23.
-    assert N == R;
+    assert proof__uif__assert N == R
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l14.
     // empty loc

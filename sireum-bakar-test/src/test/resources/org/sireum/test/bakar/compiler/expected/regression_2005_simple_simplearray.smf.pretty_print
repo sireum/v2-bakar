@@ -263,11 +263,23 @@ procedure Integer Max (
   #l10.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l12.
+  #l12.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>simplearray.adb</string>
+           <int>16</int>
+           <int>14</int>
+           <int>16</int>
+           <int>21</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(V[I] > M) then goto l11;
 
   #l13.

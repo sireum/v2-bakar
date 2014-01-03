@@ -63,6 +63,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
 
+    Loop Locations
+
   ada://function_body/Labeled_Statements-1:9/Stupid-5:13 
 
     LocalVarTable
@@ -90,6 +92,10 @@ Procedure Symbol Table
     Params
       ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
 
+    Loop Locations
+      l16_26.8_49.16 -> LOOP_LABEL_1 
+      l13_20.6_52.14 -> LOOP_LABEL_0 
+
   ada://procedure_body/Labeled_Statements-1:9/P+4:14 
 
     LocalVarTable
@@ -103,5 +109,7 @@ Procedure Symbol Table
       ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17 
       ada://parameter/Labeled_Statements-1:9/P+4:14/J+4:20 
       ada://parameter/Labeled_Statements-1:9/P+4:14/Ret+4:33 
+
+    Loop Locations
 
 

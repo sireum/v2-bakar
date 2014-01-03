@@ -98,7 +98,7 @@ procedure Integer MinFunc (
     _t15 := _t12 <= _t13;
 
   #l9.
-    assert _t14 &&& _t15;
+    assert proof__uif__assert _t14 &&& _t15;
 
   #l10.
     return Min;

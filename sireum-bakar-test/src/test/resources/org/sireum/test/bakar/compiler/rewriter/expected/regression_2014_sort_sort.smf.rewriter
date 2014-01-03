@@ -598,10 +598,10 @@ procedure BubbleSort (
           default => true};
 
   #rwl63.
-    _t63 := Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    _t63 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
 
   #l87.
-    assert _t62 && _t63;
+    assert proof__uif__assert _t62 && _t63;
 
   #rwl64.
     _t64 := J;
@@ -637,10 +637,10 @@ procedure BubbleSort (
     _t70 := _t68 && _t69;
 
   #rwl71.
-    _t71 := Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    _t71 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
 
   #l91.
-    assert _t70 && _t71;
+    assert proof__uif__assert _t70 && _t71;
 
   #rwl72.
     _t72 := I;
@@ -807,10 +807,10 @@ procedure BubbleSortFast (
     _t96 := _t94 && _t95;
 
   #rwl97.
-    _t97 := Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    _t97 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
 
   #l110.
-    assert _t96 && _t97;
+    assert proof__uif__assert _t96 && _t97;
 
   #l111.
     goto l103;
@@ -828,10 +828,10 @@ procedure BubbleSortFast (
     _t100 := _t98 && _t99;
 
   #rwl101.
-    _t101 := Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    _t101 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
 
   #l112.
-    assert _t100 && _t101;
+    assert proof__uif__assert _t100 && _t101;
 
   #l113.
     Bound := T;
@@ -1006,7 +1006,7 @@ procedure InsertionSort (
     J := _t118 - _t119;
 
   #rwl120.
-    _t120 := attribute__uif__loop_entry Table;
+    _t120 := attribute__uif__loop_entry (LOOP_LABEL_10, Table);
 
   #rwl121.
     _t121 := Temp;
@@ -1069,10 +1069,10 @@ procedure InsertionSort (
     _t139 := _t137 && _t138;
 
   #rwl140.
-    _t140 := Perm (attribute__uif__array_update (Table, ^{J -> Temp}), attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, P);
+    _t140 := Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P);
 
   #l129.
-    assert _t139 && _t140;
+    assert proof__uif__assert _t139 && _t140;
 
   #l130.
     goto l125;
@@ -1117,7 +1117,7 @@ procedure InsertionSort (
     _t151 := _t149 && _t150;
 
   #rwl152.
-    _t152 := Perm (Table, attribute__uif__loop_entry Table, attribute__uif__first `Index_Type, P);
+    _t152 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P);
 
   #rwl153.
     _t153 := P;
@@ -1126,7 +1126,7 @@ procedure InsertionSort (
     _t154 := 1ii;
 
   #rwl155.
-    _t155 := attribute__uif__loop_entry Table;
+    _t155 := attribute__uif__loop_entry (LOOP_LABEL_9, Table);
 
   #rwl156.
     _t156 := Table[K];
@@ -1144,7 +1144,7 @@ procedure InsertionSort (
           default => true};
 
   #l132.
-    assert _t158 && _t159;
+    assert proof__uif__assert _t158 && _t159;
 
   #rwl160.
     _t160 := P;

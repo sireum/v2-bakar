@@ -75,6 +75,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Case_Statement_Enum-1:9/isWorkDay-10:12/d-10:23 
 
+    Loop Locations
+
   ada://function_body/Case_Statement_Enum-1:9/isWorkDay-10:12 
 
     LocalVarTable
@@ -109,5 +111,7 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Case_Statement_Enum-1:9/isWorkDay-10:12/d-10:23 
+
+    Loop Locations
 
 

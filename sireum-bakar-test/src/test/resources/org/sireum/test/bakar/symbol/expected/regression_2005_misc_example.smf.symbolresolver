@@ -72,6 +72,8 @@ Procedure Symbol Table
       ada://parameter/Example-1:9/add-2:15/x-2:21 
       ada://parameter/Example-1:9/add-2:15/y-2:41 
 
+    Loop Locations
+
   ada://procedure/Example-1:9/foo-5:15 
 
     LocalVarTable
@@ -81,6 +83,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Example-1:9/foo-5:15/A-5:21 
       ada://parameter/Example-1:9/foo-5:15/B-5:41 
+
+    Loop Locations
 
   ada://procedure_body/Example-1:9/add-2:15 
 
@@ -93,6 +97,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Example-1:9/add-2:15/x-2:21 
       ada://parameter/Example-1:9/add-2:15/y-2:41 
+
+    Loop Locations
 
   ada://procedure_body/Example-1:9/foo-5:15 
 
@@ -108,5 +114,7 @@ Procedure Symbol Table
     Params
       ada://parameter/Example-1:9/foo-5:15/A-5:21 
       ada://parameter/Example-1:9/foo-5:15/B-5:41 
+
+    Loop Locations
 
 

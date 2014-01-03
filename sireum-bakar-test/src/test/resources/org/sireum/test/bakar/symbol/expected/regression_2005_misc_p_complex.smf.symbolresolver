@@ -67,6 +67,8 @@ Procedure Symbol Table
       ada://parameter/P_Complex-1:9/Q-6:13/X-6:15 
       ada://parameter/P_Complex-1:9/Q-6:13/Z-6:30 
 
+    Loop Locations
+
   ada://procedure_body/P_Complex-1:9/Q-6:13 
 
     LocalVarTable
@@ -79,10 +81,14 @@ Procedure Symbol Table
       ada://parameter/P_Complex-1:9/Q-6:13/X-6:15 
       ada://parameter/P_Complex-1:9/Q-6:13/Z-6:30 
 
+    Loop Locations
+
   ada://procedure_body__package_init/P_Complex/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

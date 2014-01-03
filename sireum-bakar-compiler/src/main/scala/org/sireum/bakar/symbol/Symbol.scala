@@ -35,14 +35,14 @@ trait SparkTypeDecl extends Type {
   val uri : String
 }
 
+trait TypeDecl extends SparkTypeDecl
+
 case class SubTypeDecl(
   val id : String,
   val uri : String,
   val parentUri : String,
-  val cons : Option[Constraint]) extends SparkTypeDecl
-
-trait TypeDecl extends SparkTypeDecl
-
+  val cons : Option[Constraint]) extends TypeDecl
+  
 case class FullTypeDecl(
   val id : String,
   val uri : String,

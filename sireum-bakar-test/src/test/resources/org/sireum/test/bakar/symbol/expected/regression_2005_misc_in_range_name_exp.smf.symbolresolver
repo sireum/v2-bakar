@@ -58,6 +58,8 @@ Procedure Symbol Table
     Params
       ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 
 
+    Loop Locations
+
   ada://function_body/in_range_name_exp-1:9/test-3:12 
 
     LocalVarTable
@@ -108,5 +110,7 @@ Procedure Symbol Table
 
     Params
       ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 
+
+    Loop Locations
 
 

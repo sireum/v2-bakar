@@ -97,7 +97,17 @@ procedure P (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.
+  #l3.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>7</int>
+           <int>9</int>
+           <int>7</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I > J) then goto l2;
 
   #l4.
@@ -204,7 +214,9 @@ procedure Integer Stupid (
   #l13.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -214,7 +226,9 @@ procedure Integer Stupid (
   #l16.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -227,7 +241,17 @@ procedure Integer Stupid (
   #l19.
     call P (I, J, B);
 
-  #l21.
+  #l21.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>35</int>
+           <int>13</int>
+           <int>35</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(B) then goto l20;
 
   #l22.

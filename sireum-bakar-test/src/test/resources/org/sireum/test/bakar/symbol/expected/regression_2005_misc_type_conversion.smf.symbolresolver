@@ -60,6 +60,8 @@ Procedure Symbol Table
       ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33 
       ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22 
 
+    Loop Locations
+
   ada://procedure_body/Type_Conversion-1:9/Convert-3:14 
 
     LocalVarTable
@@ -69,5 +71,7 @@ Procedure Symbol Table
     Params
       ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33 
       ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22 
+
+    Loop Locations
 
 

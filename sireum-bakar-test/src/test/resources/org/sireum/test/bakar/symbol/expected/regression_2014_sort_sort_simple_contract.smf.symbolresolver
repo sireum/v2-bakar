@@ -160,6 +160,8 @@ Procedure Symbol Table
       ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/A-12:19 
       ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/B-12:22 
 
+    Loop Locations
+
   ada://function/Sort_Simple_Contract-1:9/isSet-13:12 
 
     LocalVarTable
@@ -168,6 +170,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/isSet-13:12/A-13:18 
 
+    Loop Locations
+
   ada://function/Sort_Simple_Contract-1:9/isSorted-9:12 
 
     LocalVarTable
@@ -175,6 +179,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort_Simple_Contract-1:9/isSorted-9:12/Z-9:21 
+
+    Loop Locations
 
   ada://function_body/Sort_Simple_Contract-1:9/Num_Repetitions+13:12 
 
@@ -199,6 +205,9 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/Num_Repetitions+13:12/A+13:28 
       ada://parameter/Sort_Simple_Contract-1:9/Num_Repetitions+13:12/E+13:40 
+
+    Loop Locations
+      l19_17.5_21.13 -> LOOP_LABEL_1 
 
   ada://function_body/Sort_Simple_Contract-1:9/isPerm-12:12 
 
@@ -231,6 +240,9 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/A-12:19 
       ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/B-12:22 
+
+    Loop Locations
+      l55_43.5_50.13 -> LOOP_LABEL_4 
 
   ada://function_body/Sort_Simple_Contract-1:9/isSet-13:12 
 
@@ -265,6 +277,10 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/isSet-13:12/A-13:18 
 
+    Loop Locations
+      l38_30.7_33.15 -> LOOP_LABEL_3 
+      l32_29.5_35.13 -> LOOP_LABEL_2 
+
   ada://function_body/Sort_Simple_Contract-1:9/isSorted-9:12 
 
     LocalVarTable
@@ -289,6 +305,9 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/isSorted-9:12/Z-9:21 
 
+    Loop Locations
+      l6_6.5_9.13 -> LOOP_LABEL_0 
+
   ada://procedure/Sort_Simple_Contract-1:9/BubbleSort-15:13 
 
     LocalVarTable
@@ -296,6 +315,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24 
+
+    Loop Locations
 
   ada://procedure/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
 
@@ -305,6 +326,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43 
 
+    Loop Locations
+
   ada://procedure/Sort_Simple_Contract-1:9/InsertionSort-25:13 
 
     LocalVarTable
@@ -312,6 +335,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27 
+
+    Loop Locations
 
   ada://procedure/Sort_Simple_Contract-1:9/SelectionSort-30:13 
 
@@ -321,6 +346,8 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27 
 
+    Loop Locations
+
   ada://procedure/Sort_Simple_Contract-1:9/ShellSort-35:13 
 
     LocalVarTable
@@ -328,6 +355,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23 
+
+    Loop Locations
 
   ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort-15:13 
 
@@ -361,6 +390,10 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24 
 
+    Loop Locations
+      l75_63.7_70.15 -> LOOP_LABEL_6 
+      l67_61.5_73.13 -> LOOP_LABEL_5 
+
   ada://procedure_body/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13 
 
     LocalVarTable
@@ -389,6 +422,10 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43 
+
+    Loop Locations
+      l104_106.7_111.15 -> LOOP_LABEL_8 
+      l96_104.5_114.13 -> LOOP_LABEL_7 
 
   ada://procedure_body/Sort_Simple_Contract-1:9/InsertionSort-25:13 
 
@@ -425,6 +462,10 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27 
 
+    Loop Locations
+      l121_122.5_130.13 -> LOOP_LABEL_9 
+      l125_125.7_128.15 -> LOOP_LABEL_10 
+
   ada://procedure_body/Sort_Simple_Contract-1:9/SelectionSort-30:13 
 
     LocalVarTable
@@ -458,6 +499,10 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27 
+
+    Loop Locations
+      l147_140.7_144.15 -> LOOP_LABEL_12 
+      l140_138.5_151.13 -> LOOP_LABEL_11 
 
   ada://procedure_body/Sort_Simple_Contract-1:9/ShellSort-35:13 
 
@@ -497,6 +542,11 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23 
 
+    Loop Locations
+      l165_159.5_171.13 -> LOOP_LABEL_13 
+      l176_163.9_166.17 -> LOOP_LABEL_15 
+      l172_160.7_168.15 -> LOOP_LABEL_14 
+
   ada://procedure_body/Sort_Simple_Contract-1:9/SwapElements+82:13 
 
     LocalVarTable
@@ -510,6 +560,8 @@ Procedure Symbol Table
       ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/I+82:45 
       ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/J+82:48 
 
+    Loop Locations
+
   ada://procedure_body/Sort_Simple_Contract-1:9/dddd+76:13 
 
     LocalVarTable
@@ -519,5 +571,7 @@ Procedure Symbol Table
     Params
       ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/I+76:18 
       ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/J+76:21 
+
+    Loop Locations
 
 

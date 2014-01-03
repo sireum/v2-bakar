@@ -107,7 +107,6 @@ object Attribute {
   val FIRST = "FIRST"
   val LAST = "LAST"
 
-  val ATTRIBUTE_UIF_ARRAY_UPDATE = "attribute__uif__array_update"
   val ATTRIBUTE_UIF_FIRST = "attribute__uif__first"
   val ATTRIBUTE_UIF_IMAGE = "attribute__uif__image"
   val ATTRIBUTE_UIF_LAST = "attribute__uif__last"
@@ -119,6 +118,7 @@ object Attribute {
   val ATTRIBUTE_UIF_PRED = "attribute__uif__pred"
   val ATTRIBUTE_UIF_RESULT = "attribute__uif__result"
   val ATTRIBUTE_UIF_SUCC = "attribute__uif__succ"
+  val ATTRIBUTE_UIF_UPDATE_EXP = "attribute__uif__update_exp"    
 }
 
 object BinaryOps {
@@ -129,7 +129,9 @@ object BinaryOps {
 }
 
 object Proof {
+  val PROOF_UIF_ASSERT = "proof__uif__assert"  
   val PROOF_UIF_ASSERT_AND_CUT = "proof__uif__assert_and_cut"
+  val PROOF_UIF_ASSUME = "proof__uif__assume"  
   val PROOF_UIF_LOOP_INVARIANT = "proof__uif__loop_invariant"
   val PROOF_UIF_LOOP_VARIANT = "proof__uif__loop_variant"
   val PROOF_UIF_FOR_ALL = "proof__uif__for_all"

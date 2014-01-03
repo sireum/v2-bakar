@@ -68,7 +68,17 @@ procedure Integer AbsFunc (
     ;
 
 
-  #l3.
+  #l3.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>abspackage.adb</string>
+           <int>6</int>
+           <int>8</int>
+           <int>6</int>
+           <int>12</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(x < 0ii) then goto l2;
 
   #l4.
@@ -87,7 +97,11 @@ procedure Integer AbsFunc (
     // empty loc
 
   #l7.
-    assert r >= 0ii;
+    assert proof__uif__assert r >= 0ii
+        @ASSERT
+
+          ("""<boolean>true</boolean>""")
+    ;
 
   #l8.
     return r;

@@ -73,6 +73,8 @@ Procedure Symbol Table
     Params
       ada://parameter/RecordTest02-1:9/Test01-14:11/Q-14:18 
 
+    Loop Locations
+
   ada://procedure/RecordTest02-1:9/Test02-17:11 
 
     LocalVarTable
@@ -87,6 +89,8 @@ Procedure Symbol Table
       ada://parameter/RecordTest02-1:9/Test02-17:11/O1-17:37 
       ada://parameter/RecordTest02-1:9/Test02-17:11/O2-17:41 
 
+    Loop Locations
+
   ada://procedure_body/RecordTest02-1:9/Test01-14:11 
 
     LocalVarTable
@@ -95,6 +99,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/RecordTest02-1:9/Test01-14:11/Q-14:18 
+
+    Loop Locations
 
   ada://procedure_body/RecordTest02-1:9/Test02-17:11 
 
@@ -110,5 +116,7 @@ Procedure Symbol Table
       ada://parameter/RecordTest02-1:9/Test02-17:11/I2-17:22 
       ada://parameter/RecordTest02-1:9/Test02-17:11/O1-17:37 
       ada://parameter/RecordTest02-1:9/Test02-17:11/O2-17:41 
+
+    Loop Locations
 
 

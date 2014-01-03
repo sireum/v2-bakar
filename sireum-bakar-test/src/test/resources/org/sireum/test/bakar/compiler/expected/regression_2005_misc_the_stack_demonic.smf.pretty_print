@@ -525,11 +525,23 @@ procedure Boolean Value_Present (
   #l18.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l20.
+  #l20.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">the_stack_demonic.adb</string>
+           <int>54</int>
+           <int>13</int>
+           <int>54</int>
+           <int>20</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(@@S[I] == X) then goto l19;
 
   #l21.
@@ -634,11 +646,23 @@ procedure Index_Range Find_Stack_Pos (
   #l33.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l35.
+  #l35.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">the_stack_demonic.adb</string>
+           <int>77</int>
+           <int>13</int>
+           <int>77</int>
+           <int>20</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(@@S[I] == X) then goto l34;
 
   #l36.

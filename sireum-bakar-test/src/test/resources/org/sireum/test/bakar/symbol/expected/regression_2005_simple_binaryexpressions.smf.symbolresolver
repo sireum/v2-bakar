@@ -72,6 +72,8 @@ Procedure Symbol Table
 
     Params
 
+    Loop Locations
+
   ada://function_body/BinaryExpressions-1:9/Add+5:12 
 
     LocalVarTable
@@ -105,6 +107,8 @@ Procedure Symbol Table
       ada://parameter/BinaryExpressions-1:9/Add+5:12/I+5:16 
       ada://parameter/BinaryExpressions-1:9/Add+5:12/J+5:19 
 
+    Loop Locations
+
   ada://function_body/BinaryExpressions-1:9/Division+50:12 
 
     LocalVarTable
@@ -135,6 +139,8 @@ Procedure Symbol Table
     Params
       ada://parameter/BinaryExpressions-1:9/Division+50:12/I+50:21 
       ada://parameter/BinaryExpressions-1:9/Division+50:12/J+50:24 
+
+    Loop Locations
 
   ada://function_body/BinaryExpressions-1:9/Mult+35:12 
 
@@ -169,6 +175,8 @@ Procedure Symbol Table
       ada://parameter/BinaryExpressions-1:9/Mult+35:12/I+35:17 
       ada://parameter/BinaryExpressions-1:9/Mult+35:12/J+35:20 
 
+    Loop Locations
+
   ada://function_body/BinaryExpressions-1:9/Sub+20:12 
 
     LocalVarTable
@@ -200,10 +208,14 @@ Procedure Symbol Table
       ada://parameter/BinaryExpressions-1:9/Sub+20:12/I+20:16 
       ada://parameter/BinaryExpressions-1:9/Sub+20:12/J+20:19 
 
+    Loop Locations
+
   ada://function_body/BinaryExpressions-1:9/X-4:12 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

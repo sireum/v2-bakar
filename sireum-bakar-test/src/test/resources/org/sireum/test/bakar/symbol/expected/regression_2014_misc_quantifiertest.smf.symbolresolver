@@ -65,6 +65,8 @@ Procedure Symbol Table
     Params
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 
 
+    Loop Locations
+
   ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
 
     LocalVarTable
@@ -91,10 +93,14 @@ Procedure Symbol Table
     Params
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 
 
+    Loop Locations
+
   ada://procedure_body__package_init/QuantifierTest/$$binit 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
 

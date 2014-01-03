@@ -68,11 +68,15 @@ Procedure Symbol Table
 
     Params
 
+    Loop Locations
+
   ada://function_body/VerySimpleArray-1:9/Dummy-3:13 
 
     LocalVarTable
 
     Params
+
+    Loop Locations
 
   ada://procedure_body/VerySimpleArray-1:9/Add+11:14 
 
@@ -82,6 +86,8 @@ Procedure Symbol Table
     Params
       ada://parameter/VerySimpleArray-1:9/Add+11:14/X+11:18 
 
+    Loop Locations
+
   ada://procedure_body/VerySimpleArray-1:9/Del+16:14 
 
     LocalVarTable
@@ -90,5 +96,7 @@ Procedure Symbol Table
       ada://variable_temp/VerySimpleArray/Del/_t1 
 
     Params
+
+    Loop Locations
 
 

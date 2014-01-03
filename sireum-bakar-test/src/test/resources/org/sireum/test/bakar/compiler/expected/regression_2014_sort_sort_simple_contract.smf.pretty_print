@@ -86,7 +86,9 @@ procedure Boolean isSorted (
   #l6.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_0</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_0</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -210,11 +212,23 @@ procedure Integer Num_Repetitions (
   #l19.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_1</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_1</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l21.
+  #l21.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>18</int>
+           <int>10</int>
+           <int>18</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(A[I] == E) then goto l20;
 
   #l22.
@@ -316,7 +330,9 @@ procedure Boolean isSet (
   #l32.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_2</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_2</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -335,7 +351,9 @@ procedure Boolean isSet (
   #l38.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_3</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_3</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -476,11 +494,23 @@ procedure Boolean isPerm (
   #l55.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_4</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_4</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l57.
+  #l57.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>46</int>
+           <int>10</int>
+           <int>46</int>
+           <int>54</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(I == attribute__uif__first `Index_Type ||| A[I - 1ii] != A[I]) then goto l56;
 
   #l58.
@@ -601,7 +631,9 @@ procedure BubbleSort (
   #l67.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_5</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_5</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -623,11 +655,23 @@ procedure BubbleSort (
   #l75.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_6</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_6</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l77.
+  #l77.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>64</int>
+           <int>12</int>
+           <int>64</int>
+           <int>26</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(A[I] > A[I + 1ii]) then goto l76;
 
   #l78.
@@ -1390,7 +1434,7 @@ procedure SwapElements (
            <org.sireum.pilar.ast.CallExp cid="61" size="2">
              <org.sireum.pilar.ast.NameExp cid="62" size="1">
                <org.sireum.pilar.ast.NameUser cid="63" size="1">
-                 <string sid="17">attribute__uif__array_update</string>
+                 <string sid="17">attribute__uif__update_exp</string>
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
@@ -1400,7 +1444,7 @@ procedure SwapElements (
                        <ilist ttype="ilist">
                          <string srefid="17"/>
                        </ilist>
-                       <string sid="18">ada://function__uif/attribute__uif__array_update</string>
+                       <string sid="18">ada://function__uif/attribute__uif__update_exp</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                  </properties>
@@ -1921,7 +1965,9 @@ procedure BubbleSort_using_SwapElements (
   #l96.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_7</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_7</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -1943,11 +1989,23 @@ procedure BubbleSort_using_SwapElements (
   #l104.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_8</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_8</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l106.
+  #l106.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>107</int>
+           <int>12</int>
+           <int>107</int>
+           <int>26</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(A[I] > A[I + 1ii]) then goto l105;
 
   #l107.
@@ -2072,7 +2130,9 @@ procedure InsertionSort (
   #l121.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_9</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_9</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2085,7 +2145,9 @@ procedure InsertionSort (
   #l125.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_10</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_10</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2211,7 +2273,9 @@ procedure SelectionSort (
   #l140.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_11</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_11</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2233,11 +2297,23 @@ procedure SelectionSort (
   #l147.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_12</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_12</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
-  #l149.
+  #l149.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>141</int>
+           <int>12</int>
+           <int>141</int>
+           <int>24</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(A[I] < A[Min]) then goto l148;
 
   #l150.
@@ -2258,7 +2334,17 @@ procedure SelectionSort (
   #l142.
     // empty loc
 
-  #l155.
+  #l155.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>146</int>
+           <int>10</int>
+           <int>146</int>
+           <int>19</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Pos != Min) then goto l154;
 
   #l156.
@@ -2376,7 +2462,9 @@ procedure ShellSort (
   #l165.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_13</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_13</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2398,7 +2486,9 @@ procedure ShellSort (
   #l172.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_14</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_14</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 
@@ -2411,7 +2501,9 @@ procedure ShellSort (
   #l176.<
       @LOOP_LABEL
 
-        ("""<string>LOOP_LABEL_15</string>""")
+        ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
+           <string>LOOP_LABEL_15</string>
+         </org.sireum.pilar.ast.NameDefinition>""")
   >
     // empty loc
 

@@ -107,6 +107,8 @@ Procedure Symbol Table
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
 
+    Loop Locations
+
   ada://function/Array_Unconstrained-1:9/isSorted-6:12 
 
     LocalVarTable
@@ -114,6 +116,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
+
+    Loop Locations
 
   ada://function/Array_Unconstrained_T-3:9/indexIsValue-10:12 
 
@@ -127,6 +131,8 @@ Procedure Symbol Table
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52 
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25 
 
+    Loop Locations
+
   ada://function/Array_Unconstrained_T-3:9/isSorted-9:12 
 
     LocalVarTable
@@ -134,6 +140,8 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 
+
+    Loop Locations
 
   ada://function_body/Array_Unconstrained-1:9/indexIsValue-7:12 
 
@@ -148,6 +156,8 @@ Procedure Symbol Table
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
+
+    Loop Locations
 
   ada://function_body/Array_Unconstrained-1:9/isSorted-6:12 
 
@@ -173,6 +183,9 @@ Procedure Symbol Table
     Params
       ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
 
+    Loop Locations
+      l7_5.5_8.13 -> LOOP_LABEL_0 
+
   ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
 
     LocalVarTable
@@ -186,6 +199,8 @@ Procedure Symbol Table
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52 
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25 
 
+    Loop Locations
+
   ada://function_body/Array_Unconstrained_T-3:9/isSorted-9:12 
 
     LocalVarTable
@@ -194,5 +209,7 @@ Procedure Symbol Table
 
     Params
       ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 
+
+    Loop Locations
 
 

@@ -157,7 +157,17 @@ procedure Integer incX (
     ;
 
 
-  #l8.
+  #l8.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">p_simple_call.adb</string>
+           <int>16</int>
+           <int>8</int>
+           <int>16</int>
+           <int>12</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(X == 0ii) then goto l7;
 
   #l9.

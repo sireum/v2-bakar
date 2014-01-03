@@ -50,7 +50,7 @@ procedure Integer AbsFunc (
     _t5 := 0ii;
 
   #l7.
-    assert _t4 >= _t5;
+    assert proof__uif__assert _t4 >= _t5;
 
   #l8.
     return r;
