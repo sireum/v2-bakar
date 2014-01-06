@@ -18,6 +18,9 @@ object URIS {
 
   val DUMMY_URI = "__DUMMY_URI__"
 
+  val uriPrefixParameter = "ada://parameter/"
+  val uriPrefixVariable = "ada://variable/"
+    
   val uriPrefixExpressionFunction = "ada://expression_function/"
   val uriPrefixFunctionBody = "ada://function_body/"
   val uriPrefixFunctionSpec = "ada://function/"    
