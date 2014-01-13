@@ -154,7 +154,7 @@ class Method(Entity):
         
         if base_type_dict is not None:
             for variable_name in base_type_dict:
-                variable_value = base_type_dict[variable_name]["theValue"]            
+                variable_value = base_type_dict[variable_name]["theValue"]
                 base_structure[variable_name] = variable_value
         
         return base_structure
