@@ -407,9 +407,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val uri = VariableURIs.tempVarPrefix + path.mkString("/")
 
       val typeDecl = typeDeclarations(typeUri)
-      val nts = Some(this.createNamedTypeSpec(NameUser(typeDecl.id), typeUri))
-      val lname = URIS.addResourceUri(NameDefinition(name), uri)
-      val lvd = LocalVarDecl(nts, lname, ilistEmpty)
+      val nts = PilarNodeBuilder.buildNamedTypeSpec(typeDecl.id, typeUri)
+      val lvd = PilarNodeBuilder.buildLocalVar(name, uri, nts)
       localsPush(lvd)
 
       val ret = URIS.addTypeUri(NameExp(URIS.addResourceUri(NameUser(name), uri)), typeUri)
@@ -641,7 +640,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           addTypeUri(URIS.DUMMY_URI,
             NameExp(addResourceUri(NameUser("__DEFERRED_CONSTANT__"), URIS.DUMMY_URI)))
         }
-        val castExp = CastExp(this.createNamedTypeSpec(NameUser(typeName), typeUri), ie)
+        val castExp = CastExp(PilarNodeBuilder.buildNamedTypeSpec(typeName, typeUri), ie)
         val constElems = mlistEmpty[ConstElement]
         for (n <- names.getDefiningNames) {
           v(n)
@@ -815,12 +814,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       loc
     }
 
-    def createNamedTypeSpec(name: NameUser, typUri: ResourceUri) = {
-      assert(URIS.isTypeUri(typUri))
-      val nu = URIS.addTypeUri(name, typUri)
-      URIS.addTypeUri(NamedTypeSpec(nu, ivectorEmpty), typUri)
-    }
-
     def createJumpLocation(j: Jump, s: SourceLocation) =
       JumpLocation(Some(newLocLabel(s)), ivectorEmpty, j)
 
@@ -844,8 +837,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           v(objDecView)
           val odv: NameExp = popResult
-          val typUri = odv.name.uri
-          val typeSpec = Some(createNamedTypeSpec(odv.name, typUri))
+          val typeName = odv.name.name
+          val typeUri = odv.name.uri
+          val typeSpec = PilarNodeBuilder.buildNamedTypeSpec(typeName, typeUri)
 
           val varDecls = mlistEmpty[PilarAstNode]
           names.getDefiningNames.foreach {
@@ -854,15 +848,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               val (cdefName, cdefUri) =
                 if (processingPackage) convertGlobal(defName, defUri)
                 else (defName, defUri)
-              val name = addResourceUri(NameDefinition(cdefName), cdefUri)
 
-              val vd = if (processingPackage) {
-                import org.sireum.bakar.symbol.BakarSymbol._
-                val gvd = GlobalVarDecl(name, ivectorEmpty, typeSpec)
-                gvd.parentUri = contextStack.top.uri
-                gvd
-              } else
-                LocalVarDecl(typeSpec, name, ivectorEmpty)
+              val vd = if (processingPackage)
+                PilarNodeBuilder.buildGlobalVar(cdefName, cdefUri, contextStack.top.uri, typeSpec)
+              else
+                PilarNodeBuilder.buildLocalVar(cdefName, cdefUri, typeSpec)
 
               if (!isEmpty(initExpr.getExpression)) {
                 var lhs = addTypeUri(typ,
@@ -920,7 +910,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val pilarTypeDec = TypeAliasDecl(
         addResourceUri(NameDefinition(subtypeName), subtypeURI), ivectorEmpty,
-        NamedTypeSpec(NameUser(parentTypeName), ivectorEmpty))
+        PilarNodeBuilder.buildNamedTypeSpec(parentTypeName, parentTypeUri))
 
       val cons = Some(SimpleRangeConstraint(lowBound, highBound))
       val sparkTypeDec = SubTypeDecl(subtypeName, subtypeURI, parentTypeUri, cons)
@@ -1137,7 +1127,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
 
     def makeTypeExp(typeName: NameExp, typUri: String) =
-      URIS.addTypeUri(TypeExp(createNamedTypeSpec(typeName.name, typUri)), typUri)
+      URIS.addTypeUri(TypeExp(PilarNodeBuilder.buildNamedTypeSpec(typeName.name.name, typUri)), typUri)
 
     def createUIFCall(uif: String, arg: Exp, typUri: String) = {
       assert(typUri != null)
@@ -1258,7 +1248,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val pilarTypeDec = TypeAliasDecl(
             addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
-            NamedTypeSpec(NameUser(sname), ilistEmpty[TypeSpec]))
+            PilarNodeBuilder.buildNamedTypeSpec(sname, suri))
 
           val ret = ivector(pilarTypeDec)
 
@@ -1549,11 +1539,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         scope.initBlock.get += JumpLocation(Some(ctx.newLocLabel(path.mkString("_"))), ivectorEmpty,
           ReturnJump(ivectorEmpty, None))
 
-        val p = ProcedureDecl(nd, ivectorEmpty,
-          ivectorEmpty, ivectorEmpty, None, false,
-          ImplementedBody(locals.asInstanceOf[MList[LocalVarDecl]].toList, scope.initBlock.get.toList, ivectorEmpty))
-
-        p.parentUri = pname.uri
+        val body = ImplementedBody(locals.asInstanceOf[MList[LocalVarDecl]].toList, 
+          scope.initBlock.get.toList, ivectorEmpty)
+        val p = PilarNodeBuilder.buildProcedureDecl(name, uri, pname.uri, 
+            ivectorEmpty, None, body) 
         elements += p
       }
       elements ++= packElems
@@ -1697,8 +1686,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       import org.sireum.util.FileLineColumnLocation._
       assert(names.getDefiningNames.length == 1)
       val (sloc2, methodDefName, methodDefUri, methodTypeUri) = ctx.getName(names.getDefiningNames.get(0))
-      val mname = ctx.addResourceUri(NameDefinition(methodDefName), methodDefUri)
-      mname at (ctx.fileUri, sloc2.getLine, sloc2.getCol)
 
       ctx.pushContext(Context(CTX.METHOD, methodDefName, methodDefUri))
 
@@ -1722,7 +1709,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             case pname: DefiningIdentifier =>
               val (sloc, defName, defUri, typ) = ctx.getName(pname)
               val name = ctx.addResourceUri(NameDefinition(pname.getDefName), defUri)
-              val typeSpec = Some(ctx.createNamedTypeSpec(odv.name, typUri))
+              val typeSpec = Some(PilarNodeBuilder.buildNamedTypeSpec(odv.name.name, typUri))
 
               val pd = ParamDecl(typeSpec, name, ivectorEmpty)
               pd(URIS.REF_URI) = defUri
@@ -1746,8 +1733,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         case Some(e) =>
           v(e)
           val ne: NameExp = ctx.popResult
-          val typUri = ne.name.uri
-          val nts = ctx.createNamedTypeSpec(ne.name, typUri)
+          val typeName = ne.name.name
+          val typeUri = ne.name.uri
+          val nts = PilarNodeBuilder.buildNamedTypeSpec(typeName, typeUri)
           ne.propertyMap.foreach { case (key, value) => nts.setProperty(key, value) }
           Some(nts)
         case None => {
@@ -1776,14 +1764,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val body = if (!locs.isEmpty) ImplementedBody(localVars.toList, locs.toList, ivectorEmpty)
       else EmptyBody()
-
-      val typeVars = ivectorEmpty[(NameDefinition, ISeq[Annotation])]
-      val pd = ProcedureDecl(mname, ivectorEmpty, typeVars, params.toList,
-        returnType, false, body)
-
-      pd(URIS.REF_URI) = mname.uri //methodDefUri
-
-      pd.parentUri = ctx.contextStack.tail.head.uri
+      
+      val parentUri = ctx.contextStack.tail.head.uri
+      val pd = PilarNodeBuilder.buildProcedureDecl(methodDefName, methodDefUri,
+          parentUri, params.toList, returnType, body)
+      pd.name at (ctx.fileUri, sloc2.getLine, sloc2.getCol)
 
       ctx.noTempVars(true)
       aspectSpecs.getElements.foreach {
@@ -2169,9 +2154,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       ctx.pushExitLocation(endLoc)
 
       // introduce a local variable for iterVar
-      val typUri = markNE.name.uri
-      val typeSpec = Some(ctx.createNamedTypeSpec(markNE.name, typUri))
-      val lvd = LocalVarDecl(typeSpec, iterND, ivectorEmpty)
+      val typeName = markNE.name.name
+      val typeUri = markNE.name.uri
+      val typeSpec = PilarNodeBuilder.buildNamedTypeSpec(typeName, typeUri)
+      val lvd = PilarNodeBuilder.buildLocalVar(iterND, typeSpec)
       ctx.localsPush(lvd)
 
       // NOTE: in ADA the loop bounds are fixed by the initial values of 
@@ -2637,7 +2623,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         markNE.name(URIS.REF_URI)
       }
 
-      val nts = ctx.createNamedTypeSpec(markNE.name, typUri)
+      val nts = PilarNodeBuilder.buildNamedTypeSpec(markNE.name.name, typUri)
       val pd = ParamDecl(Some(nts), iterND, ivectorEmpty)
       val m = Matching(ivector(pd), se)
       val arg = ctx.addTypeUri(typ, FunExp(ivector(m)))
@@ -2825,7 +2811,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val (sloc, typeName, trefUri, typeUri) = ctx.getName(mark)
         assert(typeUri == "null")
         val nu = ctx.addResourceUri(NameUser(typeName), URIS.DUMMY_URI)
-        val nts = ctx.createNamedTypeSpec(nu, trefUri)
+        val nts = PilarNodeBuilder.buildNamedTypeSpec(nu.name, trefUri)
 
         v(exp)
         ctx.popResult.asInstanceOf[Any] match {
@@ -2903,7 +2889,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       case TypeConversionEx(sloc, mark, exp, typ, checks) =>
         val (sloc2, refName, refUri, typUri) = ctx.getName(mark)
 
-        val nts = ctx.addSourceLoc(ctx.createNamedTypeSpec(NameUser(refName), refUri), sloc2)
+        val nts = ctx.addSourceLoc(PilarNodeBuilder.buildNamedTypeSpec(refName, refUri), sloc2)
 
         v(exp)
         val _exp: Exp = ctx.popResult

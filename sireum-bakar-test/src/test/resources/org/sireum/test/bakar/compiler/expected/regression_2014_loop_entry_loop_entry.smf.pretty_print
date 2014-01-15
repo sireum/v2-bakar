@@ -34,10 +34,6 @@ procedure Array_Loop_Entry (
                  <int>32</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Loop_Entry-1:9/Array_Loop_Entry-14:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -226,10 +222,6 @@ procedure Record_Loop_Entry (
                  <int>32</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Loop_Entry-1:9/Record_Loop_Entry-18:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -704,10 +696,6 @@ procedure Array_Loop_Entry (
                  <int>32</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Loop_Entry-1:9/Array_Loop_Entry-14:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -741,23 +729,8 @@ procedure Array_Loop_Entry (
                          <string sid="4">universal_integer</string>
                          <properties mtype="mlinkedmap">
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string sid="5">ada://ordinary_type/universal_integer</string>
-                           </entry>
-                           <entry>
-                             <string>pilar.symbol</string>
-                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
-                               <string>ada</string>
-                               <string>ordinary_type</string>
-                               <ilist ttype="ilist">
-                                 <string srefid="4"/>
-                               </ilist>
-                               <string srefid="5"/>
-                             </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="5"/>
+                             <string sid="5">ada://ordinary_type/universal_integer</string>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -769,12 +742,12 @@ procedure Array_Loop_Entry (
                          </entry>
                        </properties>
                      </some>
-                     <org.sireum.pilar.ast.NameDefinition cid="11" size="1">
+                     <org.sireum.pilar.ast.NameDefinition cid="10" size="1">
                        <string>J</string>
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="12" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="11" size="4">
                              <string>ada</string>
                              <string>loop_parameter</string>
                              <ilist ttype="ilist">
@@ -791,7 +764,7 @@ procedure Array_Loop_Entry (
                          </entry>
                          <entry>
                            <string>util.loc</string>
-                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="13" size="5">
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="12" size="5">
                              <string>loop_entry.ads</string>
                              <int>15</int>
                              <int>28</int>
@@ -808,14 +781,14 @@ procedure Array_Loop_Entry (
                      <ivector ttype="ivector"/>
                    </org.sireum.pilar.ast.ParamDecl>
                  </ivector>
-                 <org.sireum.pilar.ast.SwitchExp cid="14" size="3">
-                   <org.sireum.pilar.ast.NameExp cid="15" size="1">
-                     <org.sireum.pilar.ast.NameUser cid="16" size="1">
+                 <org.sireum.pilar.ast.SwitchExp cid="13" size="3">
+                   <org.sireum.pilar.ast.NameExp cid="14" size="1">
+                     <org.sireum.pilar.ast.NameUser cid="15" size="1">
                        <string>J</string>
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 crefid="12"/>
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 crefid="11"/>
                          </entry>
                          <entry>
                            <string>BAKAR_REF_URI</string>
@@ -823,7 +796,7 @@ procedure Array_Loop_Entry (
                          </entry>
                          <entry>
                            <string>util.loc</string>
-                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl crefid="13"/>
+                           <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl crefid="12"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NameUser>
@@ -835,17 +808,17 @@ procedure Array_Loop_Entry (
                      </properties>
                    </org.sireum.pilar.ast.NameExp>
                    <ivector ttype="ivector">
-                     <org.sireum.pilar.ast.SwitchCaseExp cid="17" size="3">
-                       <org.sireum.pilar.ast.TupleExp cid="18" size="1">
+                     <org.sireum.pilar.ast.SwitchCaseExp cid="16" size="3">
+                       <org.sireum.pilar.ast.TupleExp cid="17" size="1">
                          <ivector ttype="ivector">
-                           <org.sireum.pilar.ast.CallExp cid="19" size="2">
-                             <org.sireum.pilar.ast.NameExp cid="20" size="1">
-                               <org.sireum.pilar.ast.NameUser cid="21" size="1">
+                           <org.sireum.pilar.ast.CallExp cid="18" size="2">
+                             <org.sireum.pilar.ast.NameExp cid="19" size="1">
+                               <org.sireum.pilar.ast.NameUser cid="20" size="1">
                                  <string sid="8">attribute__uif__first</string>
                                  <properties mtype="mlinkedmap">
                                    <entry>
                                      <string>pilar.symbol</string>
-                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="22" size="4">
+                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="21" size="4">
                                        <string>ada</string>
                                        <string>function__uif</string>
                                        <ilist ttype="ilist">
@@ -857,15 +830,15 @@ procedure Array_Loop_Entry (
                                  </properties>
                                </org.sireum.pilar.ast.NameUser>
                              </org.sireum.pilar.ast.NameExp>
-                             <org.sireum.pilar.ast.TupleExp cid="23" size="1">
+                             <org.sireum.pilar.ast.TupleExp cid="22" size="1">
                                <ivector ttype="ivector">
-                                 <org.sireum.pilar.ast.NameExp cid="24" size="1">
-                                   <org.sireum.pilar.ast.NameUser cid="25" size="1">
+                                 <org.sireum.pilar.ast.NameExp cid="23" size="1">
+                                   <org.sireum.pilar.ast.NameUser cid="24" size="1">
                                      <string>A</string>
                                      <properties mtype="mlinkedmap">
                                        <entry>
                                          <string>pilar.symbol</string>
-                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
+                                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="25" size="4">
                                            <string>ada</string>
                                            <string>parameter</string>
                                            <ilist ttype="ilist">
@@ -893,7 +866,7 @@ procedure Array_Loop_Entry (
                                      </entry>
                                      <entry>
                                        <string>util.loc</string>
-                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="27" size="5">
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="26" size="5">
                                          <string>loop_entry.ads</string>
                                          <int>15</int>
                                          <int>33</int>
@@ -912,14 +885,14 @@ procedure Array_Loop_Entry (
                                </entry>
                              </properties>
                            </org.sireum.pilar.ast.CallExp>
-                           <org.sireum.pilar.ast.CallExp cid="28" size="2">
-                             <org.sireum.pilar.ast.NameExp cid="29" size="1">
-                               <org.sireum.pilar.ast.NameUser cid="30" size="1">
+                           <org.sireum.pilar.ast.CallExp cid="27" size="2">
+                             <org.sireum.pilar.ast.NameExp cid="28" size="1">
+                               <org.sireum.pilar.ast.NameUser cid="29" size="1">
                                  <string sid="12">attribute__uif__last</string>
                                  <properties mtype="mlinkedmap">
                                    <entry>
                                      <string>pilar.symbol</string>
-                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="31" size="4">
+                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="30" size="4">
                                        <string>ada</string>
                                        <string>function__uif</string>
                                        <ilist ttype="ilist">
@@ -931,7 +904,7 @@ procedure Array_Loop_Entry (
                                  </properties>
                                </org.sireum.pilar.ast.NameUser>
                              </org.sireum.pilar.ast.NameExp>
-                             <org.sireum.pilar.ast.TupleExp crefid="23"/>
+                             <org.sireum.pilar.ast.TupleExp crefid="22"/>
                              <properties mtype="mlinkedmap">
                                <entry>
                                  <string>BAKAR_TYPE_URI</string>
@@ -942,18 +915,18 @@ procedure Array_Loop_Entry (
                          </ivector>
                        </org.sireum.pilar.ast.TupleExp>
                        <ivector ttype="ivector"/>
-                       <org.sireum.pilar.ast.BinaryExp cid="32" size="3">
+                       <org.sireum.pilar.ast.BinaryExp cid="31" size="3">
                          <string>&amp;&amp;</string>
-                         <org.sireum.pilar.ast.BinaryExp cid="33" size="3">
+                         <org.sireum.pilar.ast.BinaryExp cid="32" size="3">
                            <string>==</string>
-                           <org.sireum.pilar.ast.IndexingExp cid="34" size="2">
-                             <org.sireum.pilar.ast.NameExp cid="35" size="1">
-                               <org.sireum.pilar.ast.NameUser cid="36" size="1">
+                           <org.sireum.pilar.ast.IndexingExp cid="33" size="2">
+                             <org.sireum.pilar.ast.NameExp cid="34" size="1">
+                               <org.sireum.pilar.ast.NameUser cid="35" size="1">
                                  <string>A</string>
                                  <properties mtype="mlinkedmap">
                                    <entry>
                                      <string>pilar.symbol</string>
-                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="37" size="4">
+                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="36" size="4">
                                        <string>ada</string>
                                        <string>parameter</string>
                                        <ilist ttype="ilist">
@@ -981,7 +954,7 @@ procedure Array_Loop_Entry (
                                  </entry>
                                  <entry>
                                    <string>util.loc</string>
-                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="38" size="5">
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="37" size="5">
                                      <string>loop_entry.ads</string>
                                      <int>15</int>
                                      <int>44</int>
@@ -992,13 +965,13 @@ procedure Array_Loop_Entry (
                                </properties>
                              </org.sireum.pilar.ast.NameExp>
                              <ilist ttype="ilist">
-                               <org.sireum.pilar.ast.NameExp cid="39" size="1">
-                                 <org.sireum.pilar.ast.NameUser cid="40" size="1">
+                               <org.sireum.pilar.ast.NameExp cid="38" size="1">
+                                 <org.sireum.pilar.ast.NameUser cid="39" size="1">
                                    <string>J</string>
                                    <properties mtype="mlinkedmap">
                                      <entry>
                                        <string>pilar.symbol</string>
-                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="41" size="4">
+                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="40" size="4">
                                          <string>ada</string>
                                          <string>loop_parameter</string>
                                          <ilist ttype="ilist">
@@ -1026,7 +999,7 @@ procedure Array_Loop_Entry (
                                    </entry>
                                    <entry>
                                      <string>util.loc</string>
-                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="42" size="5">
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="41" size="5">
                                        <string>loop_entry.ads</string>
                                        <int>15</int>
                                        <int>47</int>
@@ -1044,7 +1017,7 @@ procedure Array_Loop_Entry (
                                </entry>
                                <entry>
                                  <string>util.loc</string>
-                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="43" size="5">
+                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="42" size="5">
                                    <string>loop_entry.ads</string>
                                    <int>15</int>
                                    <int>44</int>
@@ -1054,15 +1027,15 @@ procedure Array_Loop_Entry (
                                </entry>
                              </properties>
                            </org.sireum.pilar.ast.IndexingExp>
-                           <org.sireum.pilar.ast.IndexingExp cid="44" size="2">
-                             <org.sireum.pilar.ast.CallExp cid="45" size="2">
-                               <org.sireum.pilar.ast.NameExp cid="46" size="1">
-                                 <org.sireum.pilar.ast.NameUser cid="47" size="1">
+                           <org.sireum.pilar.ast.IndexingExp cid="43" size="2">
+                             <org.sireum.pilar.ast.CallExp cid="44" size="2">
+                               <org.sireum.pilar.ast.NameExp cid="45" size="1">
+                                 <org.sireum.pilar.ast.NameUser cid="46" size="1">
                                    <string sid="15">attribute__uif__old</string>
                                    <properties mtype="mlinkedmap">
                                      <entry>
                                        <string>pilar.symbol</string>
-                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="48" size="4">
+                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="47" size="4">
                                          <string>ada</string>
                                          <string>function__uif</string>
                                          <ilist ttype="ilist">
@@ -1074,13 +1047,13 @@ procedure Array_Loop_Entry (
                                    </properties>
                                  </org.sireum.pilar.ast.NameUser>
                                </org.sireum.pilar.ast.NameExp>
-                               <org.sireum.pilar.ast.NameExp cid="49" size="1">
-                                 <org.sireum.pilar.ast.NameUser cid="50" size="1">
+                               <org.sireum.pilar.ast.NameExp cid="48" size="1">
+                                 <org.sireum.pilar.ast.NameUser cid="49" size="1">
                                    <string>A</string>
                                    <properties mtype="mlinkedmap">
                                      <entry>
                                        <string>pilar.symbol</string>
-                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="51" size="4">
+                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="50" size="4">
                                          <string>ada</string>
                                          <string>parameter</string>
                                          <ilist ttype="ilist">
@@ -1108,7 +1081,7 @@ procedure Array_Loop_Entry (
                                    </entry>
                                    <entry>
                                      <string>util.loc</string>
-                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="52" size="5">
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="51" size="5">
                                        <string>loop_entry.ads</string>
                                        <int>15</int>
                                        <int>52</int>
@@ -1125,7 +1098,7 @@ procedure Array_Loop_Entry (
                                  </entry>
                                  <entry>
                                    <string>util.loc</string>
-                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="53" size="5">
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="52" size="5">
                                      <string>loop_entry.ads</string>
                                      <int>15</int>
                                      <int>52</int>
@@ -1136,18 +1109,18 @@ procedure Array_Loop_Entry (
                                </properties>
                              </org.sireum.pilar.ast.CallExp>
                              <ilist ttype="ilist">
-                               <org.sireum.pilar.ast.BinaryExp cid="54" size="3">
+                               <org.sireum.pilar.ast.BinaryExp cid="53" size="3">
                                  <string>+</string>
-                                 <org.sireum.pilar.ast.BinaryExp cid="55" size="3">
+                                 <org.sireum.pilar.ast.BinaryExp cid="54" size="3">
                                    <string>-</string>
-                                   <org.sireum.pilar.ast.CallExp cid="56" size="2">
-                                     <org.sireum.pilar.ast.NameExp cid="57" size="1">
-                                       <org.sireum.pilar.ast.NameUser cid="58" size="1">
+                                   <org.sireum.pilar.ast.CallExp cid="55" size="2">
+                                     <org.sireum.pilar.ast.NameExp cid="56" size="1">
+                                       <org.sireum.pilar.ast.NameUser cid="57" size="1">
                                          <string srefid="12"/>
                                          <properties mtype="mlinkedmap">
                                            <entry>
                                              <string>pilar.symbol</string>
-                                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="59" size="4">
+                                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="58" size="4">
                                                <string>ada</string>
                                                <string>function__uif</string>
                                                <ilist ttype="ilist">
@@ -1159,28 +1132,11 @@ procedure Array_Loop_Entry (
                                          </properties>
                                        </org.sireum.pilar.ast.NameUser>
                                      </org.sireum.pilar.ast.NameExp>
-                                     <org.sireum.pilar.ast.TypeExp cid="60" size="1">
-                                       <org.sireum.pilar.ast.NamedTypeSpec cid="61" size="2">
-                                         <org.sireum.pilar.ast.NameUser cid="62" size="1">
+                                     <org.sireum.pilar.ast.TypeExp cid="59" size="1">
+                                       <org.sireum.pilar.ast.NamedTypeSpec cid="60" size="2">
+                                         <org.sireum.pilar.ast.NameUser cid="61" size="1">
                                            <string>A</string>
                                            <properties mtype="mlinkedmap">
-                                             <entry>
-                                               <string>pilar.symbol</string>
-                                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="63" size="4">
-                                                 <string>ada</string>
-                                                 <string>parameter</string>
-                                                 <ilist ttype="ilist">
-                                                   <string>Loop_Entry-1:9</string>
-                                                   <string srefid="6"/>
-                                                   <string>A-14:32</string>
-                                                 </ilist>
-                                                 <string srefid="10"/>
-                                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                             </entry>
-                                             <entry>
-                                               <string>BAKAR_REF_URI</string>
-                                               <string srefid="10"/>
-                                             </entry>
                                              <entry>
                                                <string>BAKAR_TYPE_URI</string>
                                                <string srefid="11"/>
@@ -1209,7 +1165,7 @@ procedure Array_Loop_Entry (
                                        </entry>
                                        <entry>
                                          <string>util.loc</string>
-                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="64" size="5">
+                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="62" size="5">
                                            <string>loop_entry.ads</string>
                                            <int>15</int>
                                            <int>59</int>
@@ -1219,13 +1175,13 @@ procedure Array_Loop_Entry (
                                        </entry>
                                      </properties>
                                    </org.sireum.pilar.ast.CallExp>
-                                   <org.sireum.pilar.ast.NameExp cid="65" size="1">
-                                     <org.sireum.pilar.ast.NameUser cid="66" size="1">
+                                   <org.sireum.pilar.ast.NameExp cid="63" size="1">
+                                     <org.sireum.pilar.ast.NameUser cid="64" size="1">
                                        <string>J</string>
                                        <properties mtype="mlinkedmap">
                                          <entry>
                                            <string>pilar.symbol</string>
-                                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="67" size="4">
+                                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="65" size="4">
                                              <string>ada</string>
                                              <string>loop_parameter</string>
                                              <ilist ttype="ilist">
@@ -1253,7 +1209,7 @@ procedure Array_Loop_Entry (
                                        </entry>
                                        <entry>
                                          <string>util.loc</string>
-                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="68" size="5">
+                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="66" size="5">
                                            <string>loop_entry.ads</string>
                                            <int>15</int>
                                            <int>68</int>
@@ -1270,7 +1226,7 @@ procedure Array_Loop_Entry (
                                      </entry>
                                      <entry>
                                        <string>util.loc</string>
-                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="69" size="5">
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="67" size="5">
                                          <string>loop_entry.ads</string>
                                          <int>15</int>
                                          <int>59</int>
@@ -1280,7 +1236,7 @@ procedure Array_Loop_Entry (
                                      </entry>
                                    </properties>
                                  </org.sireum.pilar.ast.BinaryExp>
-                                 <org.sireum.pilar.ast.LiteralExp cid="70" size="3">
+                                 <org.sireum.pilar.ast.LiteralExp cid="68" size="3">
                                    <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
                                    <scala.math.BigInt>
                                      <bigInteger>1</bigInteger>
@@ -1293,7 +1249,7 @@ procedure Array_Loop_Entry (
                                      </entry>
                                      <entry>
                                        <string>util.loc</string>
-                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="71" size="5">
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="69" size="5">
                                          <string>loop_entry.ads</string>
                                          <int>15</int>
                                          <int>72</int>
@@ -1310,7 +1266,7 @@ procedure Array_Loop_Entry (
                                    </entry>
                                    <entry>
                                      <string>util.loc</string>
-                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="72" size="5">
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="70" size="5">
                                        <string>loop_entry.ads</string>
                                        <int>15</int>
                                        <int>59</int>
@@ -1328,7 +1284,7 @@ procedure Array_Loop_Entry (
                                </entry>
                                <entry>
                                  <string>util.loc</string>
-                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="73" size="5">
+                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="71" size="5">
                                    <string>loop_entry.ads</string>
                                    <int>15</int>
                                    <int>52</int>
@@ -1345,7 +1301,7 @@ procedure Array_Loop_Entry (
                              </entry>
                              <entry>
                                <string>util.loc</string>
-                               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="74" size="5">
+                               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="72" size="5">
                                  <string>loop_entry.ads</string>
                                  <int>15</int>
                                  <int>44</int>
@@ -1355,16 +1311,16 @@ procedure Array_Loop_Entry (
                              </entry>
                            </properties>
                          </org.sireum.pilar.ast.BinaryExp>
-                         <org.sireum.pilar.ast.BinaryExp cid="75" size="3">
+                         <org.sireum.pilar.ast.BinaryExp cid="73" size="3">
                            <string>==</string>
-                           <org.sireum.pilar.ast.IndexingExp cid="76" size="2">
-                             <org.sireum.pilar.ast.NameExp cid="77" size="1">
-                               <org.sireum.pilar.ast.NameUser cid="78" size="1">
+                           <org.sireum.pilar.ast.IndexingExp cid="74" size="2">
+                             <org.sireum.pilar.ast.NameExp cid="75" size="1">
+                               <org.sireum.pilar.ast.NameUser cid="76" size="1">
                                  <string>A</string>
                                  <properties mtype="mlinkedmap">
                                    <entry>
                                      <string>pilar.symbol</string>
-                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="79" size="4">
+                                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="77" size="4">
                                        <string>ada</string>
                                        <string>parameter</string>
                                        <ilist ttype="ilist">
@@ -1392,7 +1348,7 @@ procedure Array_Loop_Entry (
                                  </entry>
                                  <entry>
                                    <string>util.loc</string>
-                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="80" size="5">
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="78" size="5">
                                      <string>loop_entry.ads</string>
                                      <int>16</int>
                                      <int>22</int>
@@ -1403,18 +1359,18 @@ procedure Array_Loop_Entry (
                                </properties>
                              </org.sireum.pilar.ast.NameExp>
                              <ilist ttype="ilist">
-                               <org.sireum.pilar.ast.BinaryExp cid="81" size="3">
+                               <org.sireum.pilar.ast.BinaryExp cid="79" size="3">
                                  <string>+</string>
-                                 <org.sireum.pilar.ast.BinaryExp cid="82" size="3">
+                                 <org.sireum.pilar.ast.BinaryExp cid="80" size="3">
                                    <string>-</string>
-                                   <org.sireum.pilar.ast.CallExp cid="83" size="2">
-                                     <org.sireum.pilar.ast.NameExp cid="84" size="1">
-                                       <org.sireum.pilar.ast.NameUser cid="85" size="1">
+                                   <org.sireum.pilar.ast.CallExp cid="81" size="2">
+                                     <org.sireum.pilar.ast.NameExp cid="82" size="1">
+                                       <org.sireum.pilar.ast.NameUser cid="83" size="1">
                                          <string srefid="12"/>
                                          <properties mtype="mlinkedmap">
                                            <entry>
                                              <string>pilar.symbol</string>
-                                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="86" size="4">
+                                             <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="84" size="4">
                                                <string>ada</string>
                                                <string>function__uif</string>
                                                <ilist ttype="ilist">
@@ -1426,28 +1382,11 @@ procedure Array_Loop_Entry (
                                          </properties>
                                        </org.sireum.pilar.ast.NameUser>
                                      </org.sireum.pilar.ast.NameExp>
-                                     <org.sireum.pilar.ast.TypeExp cid="87" size="1">
-                                       <org.sireum.pilar.ast.NamedTypeSpec cid="88" size="2">
-                                         <org.sireum.pilar.ast.NameUser cid="89" size="1">
+                                     <org.sireum.pilar.ast.TypeExp cid="85" size="1">
+                                       <org.sireum.pilar.ast.NamedTypeSpec cid="86" size="2">
+                                         <org.sireum.pilar.ast.NameUser cid="87" size="1">
                                            <string>A</string>
                                            <properties mtype="mlinkedmap">
-                                             <entry>
-                                               <string>pilar.symbol</string>
-                                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="90" size="4">
-                                                 <string>ada</string>
-                                                 <string>parameter</string>
-                                                 <ilist ttype="ilist">
-                                                   <string>Loop_Entry-1:9</string>
-                                                   <string srefid="6"/>
-                                                   <string>A-14:32</string>
-                                                 </ilist>
-                                                 <string srefid="10"/>
-                                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                             </entry>
-                                             <entry>
-                                               <string>BAKAR_REF_URI</string>
-                                               <string srefid="10"/>
-                                             </entry>
                                              <entry>
                                                <string>BAKAR_TYPE_URI</string>
                                                <string srefid="11"/>
@@ -1476,7 +1415,7 @@ procedure Array_Loop_Entry (
                                        </entry>
                                        <entry>
                                          <string>util.loc</string>
-                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="91" size="5">
+                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="88" size="5">
                                            <string>loop_entry.ads</string>
                                            <int>16</int>
                                            <int>25</int>
@@ -1486,13 +1425,13 @@ procedure Array_Loop_Entry (
                                        </entry>
                                      </properties>
                                    </org.sireum.pilar.ast.CallExp>
-                                   <org.sireum.pilar.ast.NameExp cid="92" size="1">
-                                     <org.sireum.pilar.ast.NameUser cid="93" size="1">
+                                   <org.sireum.pilar.ast.NameExp cid="89" size="1">
+                                     <org.sireum.pilar.ast.NameUser cid="90" size="1">
                                        <string>J</string>
                                        <properties mtype="mlinkedmap">
                                          <entry>
                                            <string>pilar.symbol</string>
-                                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="94" size="4">
+                                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="91" size="4">
                                              <string>ada</string>
                                              <string>loop_parameter</string>
                                              <ilist ttype="ilist">
@@ -1520,7 +1459,7 @@ procedure Array_Loop_Entry (
                                        </entry>
                                        <entry>
                                          <string>util.loc</string>
-                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="95" size="5">
+                                         <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="92" size="5">
                                            <string>loop_entry.ads</string>
                                            <int>16</int>
                                            <int>34</int>
@@ -1537,7 +1476,7 @@ procedure Array_Loop_Entry (
                                      </entry>
                                      <entry>
                                        <string>util.loc</string>
-                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="96" size="5">
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="93" size="5">
                                          <string>loop_entry.ads</string>
                                          <int>16</int>
                                          <int>25</int>
@@ -1547,7 +1486,7 @@ procedure Array_Loop_Entry (
                                      </entry>
                                    </properties>
                                  </org.sireum.pilar.ast.BinaryExp>
-                                 <org.sireum.pilar.ast.LiteralExp cid="97" size="3">
+                                 <org.sireum.pilar.ast.LiteralExp cid="94" size="3">
                                    <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
                                    <scala.math.BigInt>
                                      <bigInteger>1</bigInteger>
@@ -1560,7 +1499,7 @@ procedure Array_Loop_Entry (
                                      </entry>
                                      <entry>
                                        <string>util.loc</string>
-                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="98" size="5">
+                                       <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="95" size="5">
                                          <string>loop_entry.ads</string>
                                          <int>16</int>
                                          <int>38</int>
@@ -1577,7 +1516,7 @@ procedure Array_Loop_Entry (
                                    </entry>
                                    <entry>
                                      <string>util.loc</string>
-                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="99" size="5">
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="96" size="5">
                                        <string>loop_entry.ads</string>
                                        <int>16</int>
                                        <int>25</int>
@@ -1595,7 +1534,7 @@ procedure Array_Loop_Entry (
                                </entry>
                                <entry>
                                  <string>util.loc</string>
-                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="100" size="5">
+                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="97" size="5">
                                    <string>loop_entry.ads</string>
                                    <int>16</int>
                                    <int>22</int>
@@ -1605,15 +1544,15 @@ procedure Array_Loop_Entry (
                                </entry>
                              </properties>
                            </org.sireum.pilar.ast.IndexingExp>
-                           <org.sireum.pilar.ast.IndexingExp cid="101" size="2">
-                             <org.sireum.pilar.ast.CallExp cid="102" size="2">
-                               <org.sireum.pilar.ast.NameExp cid="103" size="1">
-                                 <org.sireum.pilar.ast.NameUser cid="104" size="1">
+                           <org.sireum.pilar.ast.IndexingExp cid="98" size="2">
+                             <org.sireum.pilar.ast.CallExp cid="99" size="2">
+                               <org.sireum.pilar.ast.NameExp cid="100" size="1">
+                                 <org.sireum.pilar.ast.NameUser cid="101" size="1">
                                    <string srefid="15"/>
                                    <properties mtype="mlinkedmap">
                                      <entry>
                                        <string>pilar.symbol</string>
-                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="105" size="4">
+                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="102" size="4">
                                          <string>ada</string>
                                          <string>function__uif</string>
                                          <ilist ttype="ilist">
@@ -1625,13 +1564,13 @@ procedure Array_Loop_Entry (
                                    </properties>
                                  </org.sireum.pilar.ast.NameUser>
                                </org.sireum.pilar.ast.NameExp>
-                               <org.sireum.pilar.ast.NameExp cid="106" size="1">
-                                 <org.sireum.pilar.ast.NameUser cid="107" size="1">
+                               <org.sireum.pilar.ast.NameExp cid="103" size="1">
+                                 <org.sireum.pilar.ast.NameUser cid="104" size="1">
                                    <string>A</string>
                                    <properties mtype="mlinkedmap">
                                      <entry>
                                        <string>pilar.symbol</string>
-                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="108" size="4">
+                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="105" size="4">
                                          <string>ada</string>
                                          <string>parameter</string>
                                          <ilist ttype="ilist">
@@ -1659,7 +1598,7 @@ procedure Array_Loop_Entry (
                                    </entry>
                                    <entry>
                                      <string>util.loc</string>
-                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="109" size="5">
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="106" size="5">
                                        <string>loop_entry.ads</string>
                                        <int>16</int>
                                        <int>43</int>
@@ -1676,7 +1615,7 @@ procedure Array_Loop_Entry (
                                  </entry>
                                  <entry>
                                    <string>util.loc</string>
-                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="110" size="5">
+                                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="107" size="5">
                                      <string>loop_entry.ads</string>
                                      <int>16</int>
                                      <int>43</int>
@@ -1687,13 +1626,13 @@ procedure Array_Loop_Entry (
                                </properties>
                              </org.sireum.pilar.ast.CallExp>
                              <ilist ttype="ilist">
-                               <org.sireum.pilar.ast.NameExp cid="111" size="1">
-                                 <org.sireum.pilar.ast.NameUser cid="112" size="1">
+                               <org.sireum.pilar.ast.NameExp cid="108" size="1">
+                                 <org.sireum.pilar.ast.NameUser cid="109" size="1">
                                    <string>J</string>
                                    <properties mtype="mlinkedmap">
                                      <entry>
                                        <string>pilar.symbol</string>
-                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="113" size="4">
+                                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="110" size="4">
                                          <string>ada</string>
                                          <string>loop_parameter</string>
                                          <ilist ttype="ilist">
@@ -1721,7 +1660,7 @@ procedure Array_Loop_Entry (
                                    </entry>
                                    <entry>
                                      <string>util.loc</string>
-                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="114" size="5">
+                                     <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="111" size="5">
                                        <string>loop_entry.ads</string>
                                        <int>16</int>
                                        <int>50</int>
@@ -1739,7 +1678,7 @@ procedure Array_Loop_Entry (
                                </entry>
                                <entry>
                                  <string>util.loc</string>
-                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="115" size="5">
+                                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="112" size="5">
                                    <string>loop_entry.ads</string>
                                    <int>16</int>
                                    <int>43</int>
@@ -1756,7 +1695,7 @@ procedure Array_Loop_Entry (
                              </entry>
                              <entry>
                                <string>util.loc</string>
-                               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="116" size="5">
+                               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="113" size="5">
                                  <string>loop_entry.ads</string>
                                  <int>16</int>
                                  <int>22</int>
@@ -1773,7 +1712,7 @@ procedure Array_Loop_Entry (
                            </entry>
                            <entry>
                              <string>util.loc</string>
-                             <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="117" size="5">
+                             <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="114" size="5">
                                <string>loop_entry.ads</string>
                                <int>15</int>
                                <int>44</int>
@@ -1785,7 +1724,7 @@ procedure Array_Loop_Entry (
                        </org.sireum.pilar.ast.BinaryExp>
                      </org.sireum.pilar.ast.SwitchCaseExp>
                    </ivector>
-                   <org.sireum.pilar.ast.LiteralExp cid="118" size="3">
+                   <org.sireum.pilar.ast.LiteralExp cid="115" size="3">
                      <org.sireum.pilar.ast.LiteralType>BOOLEAN</org.sireum.pilar.ast.LiteralType>
                      <boolean>true</boolean>
                      <string>true</string>
@@ -1813,7 +1752,7 @@ procedure Array_Loop_Entry (
              </entry>
              <entry>
                <string>util.loc</string>
-               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="119" size="5">
+               <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="116" size="5">
                  <string>loop_entry.ads</string>
                  <int>15</int>
                  <int>20</int>
@@ -1860,10 +1799,6 @@ procedure Record_Loop_Entry (
                  <int>33</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Loop_Entry-1:9/Record_Loop_Entry-18:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

@@ -76,10 +76,6 @@ procedure Multiply (
                  <int>22</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/MyMatrix-1:9/Multiply-7:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -423,10 +419,6 @@ procedure Multiply (
                  <int>22</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/MyMatrix-1:9/Multiply-7:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

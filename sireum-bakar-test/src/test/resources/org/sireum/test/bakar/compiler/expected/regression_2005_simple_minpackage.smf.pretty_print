@@ -55,10 +55,6 @@ procedure Integer MinFunc (
                  <int>24</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/Minpackage-1:9/MinFunc-2:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -202,10 +198,6 @@ procedure Integer MinFunc (
                  <int>23</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/Minpackage-1:9/MinFunc-2:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

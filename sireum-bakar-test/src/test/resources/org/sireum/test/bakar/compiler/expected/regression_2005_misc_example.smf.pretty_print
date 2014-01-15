@@ -55,10 +55,6 @@ procedure add (
                  <int>38</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Example-1:9/add-2:15</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -126,10 +122,6 @@ procedure foo (
                  <int>39</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Example-1:9/foo-5:15</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -236,10 +228,6 @@ procedure add (
                  <int>41</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Example-1:9/add-2:15</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -302,10 +290,6 @@ procedure foo (
                  <int>41</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Example-1:9/foo-5:15</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

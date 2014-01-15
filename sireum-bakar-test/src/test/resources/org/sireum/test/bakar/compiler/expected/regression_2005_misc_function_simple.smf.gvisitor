@@ -120,9 +120,9 @@ Model(Some(function_simple.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
               NameDefinition(N)
               List()
           None
-          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List())),List(JumpLocation(Some(NameDefiniti
-            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List()))
-              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List())
+          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),Vector())),List(JumpLocation(Some(NameDefini
+            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),Vector()))
+              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),Vector())
                 Some(NamedTypeSpec(NameUser(Integer),Vector()))
                   NamedTypeSpec(NameUser(Integer),Vector())
                     NameUser(Integer)
@@ -187,9 +187,9 @@ Model(Some(function_simple.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(
               NameDefinition(N)
               List()
           None
-          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),List())),List(JumpLocation(Some(NameDefiniti
-            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),List()))
-              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),List())
+          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),Vector())),List(JumpLocation(Some(NameDefini
+            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),Vector()))
+              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp1),Vector())
                 Some(NamedTypeSpec(NameUser(Integer),Vector()))
                   NamedTypeSpec(NameUser(Integer),Vector())
                     NameUser(Integer)

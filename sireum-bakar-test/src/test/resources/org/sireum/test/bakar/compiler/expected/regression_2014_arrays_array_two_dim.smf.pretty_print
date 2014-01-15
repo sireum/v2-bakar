@@ -88,10 +88,6 @@ procedure dummy (
                  <int>34</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -159,10 +155,6 @@ procedure dummy2 (
                  <int>39</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -624,10 +616,6 @@ procedure dummy (
                  <int>33</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Array_Two_Dim-1:9/dummy-40:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -706,10 +694,6 @@ procedure dummy2 (
                  <int>40</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure/Array_Two_Dim-1:9/dummy2-46:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

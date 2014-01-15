@@ -212,10 +212,6 @@ record NestedRec
 }
 
 procedure Boolean Dummy
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/SimpleRecord-1:9/Dummy-2:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -280,10 +276,6 @@ procedure Add (
                  <int>32</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/SimpleRecord-1:9/Add+18:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -379,10 +371,6 @@ procedure NAdd (
                  <int>34</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/SimpleRecord-1:9/NAdd+23:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -506,10 +494,6 @@ procedure AAdd (
                  <int>33</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/SimpleRecord-1:9/AAdd+28:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -563,10 +547,6 @@ package SimpleRecord
 
 
 procedure Boolean Dummy
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/SimpleRecord-1:9/Dummy-2:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

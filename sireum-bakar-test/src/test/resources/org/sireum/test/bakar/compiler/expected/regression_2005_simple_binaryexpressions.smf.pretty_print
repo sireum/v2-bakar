@@ -13,10 +13,6 @@ package BinaryExpressions
 
 
 procedure Integer X
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/X-4:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -81,10 +77,6 @@ procedure Integer Add (
                  <int>19</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Add+5:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -256,10 +248,6 @@ procedure Integer Sub (
                  <int>19</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Sub+20:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -424,10 +412,6 @@ procedure Integer Mult (
                  <int>20</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Mult+35:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -599,10 +583,6 @@ procedure Integer Division (
                  <int>24</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/BinaryExpressions-1:9/Division+50:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -739,10 +719,6 @@ package BinaryExpressions
 
 
 procedure Integer X
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/BinaryExpressions-1:9/X-4:12</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

@@ -6,11 +6,11 @@ Model(Some(dependence_test_suite_01.adb),Vector(),Vector(PackageDecl(Some(NameDe
       Some(NameDefinition(Dependence_Test_Suite_01))
         NameDefinition(Dependence_Test_Suite_01)
       List()
-      List(TypeAliasDecl(NameDefinition(History_Range),Vector(),NamedTypeSpec(NameUser(Integer),List())), ProcedureDecl(NameDefinition(Success0),Vector(),Ve
-        TypeAliasDecl(NameDefinition(History_Range),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      List(TypeAliasDecl(NameDefinition(History_Range),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), ProcedureDecl(NameDefinition(Success0),Vector(),
+        TypeAliasDecl(NameDefinition(History_Range),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(History_Range)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
         ProcedureDecl(NameDefinition(Success0),Vector(),Vector(),List(ParamDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(O),Vector())),N

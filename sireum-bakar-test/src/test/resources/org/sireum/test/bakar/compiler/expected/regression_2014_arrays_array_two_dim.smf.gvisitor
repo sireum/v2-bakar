@@ -298,22 +298,22 @@ Model(Some(array_two_dim.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Ar
 Model(Some(array_two_dim.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Array_Two_Dim)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector
   Some(array_two_dim.ads)
   List()
-  Vector(PackageDecl(Some(NameDefinition(Array_Two_Dim)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List
-    PackageDecl(Some(NameDefinition(Array_Two_Dim)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())), T
+  Vector(PackageDecl(Some(NameDefinition(Array_Two_Dim)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vect
+    PackageDecl(Some(NameDefinition(Array_Two_Dim)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector())),
       Some(NameDefinition(Array_Two_Dim))
         NameDefinition(Array_Two_Dim)
       List()
-      List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(subIndexRange),Vector(),Named
-        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), TypeAliasDecl(NameDefinition(subIndexRange),Vector(),Nam
+        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(Index)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
-        TypeAliasDecl(NameDefinition(subIndexRange),Vector(),NamedTypeSpec(NameUser(Index),List()))
+        TypeAliasDecl(NameDefinition(subIndexRange),Vector(),NamedTypeSpec(NameUser(Index),Vector()))
           NameDefinition(subIndexRange)
           List()
-          NamedTypeSpec(NameUser(Index),List())
+          NamedTypeSpec(NameUser(Index),Vector())
             NameUser(Index)
             List()
         TypeAliasDecl(NameDefinition(Matrix),Vector(),NamedTypeSpec(NameUser(_UNCONSTRAINED_ARRAY_),List()))
@@ -322,10 +322,10 @@ Model(Some(array_two_dim.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Ar
           NamedTypeSpec(NameUser(_UNCONSTRAINED_ARRAY_),List())
             NameUser(_UNCONSTRAINED_ARRAY_)
             List()
-        TypeAliasDecl(NameDefinition(Square),Vector(),NamedTypeSpec(NameUser(Matrix),List()))
+        TypeAliasDecl(NameDefinition(Square),Vector(),NamedTypeSpec(NameUser(Matrix),Vector()))
           NameDefinition(Square)
           List()
-          NamedTypeSpec(NameUser(Matrix),List())
+          NamedTypeSpec(NameUser(Matrix),Vector())
             NameUser(Matrix)
             List()
         TypeAliasDecl(NameDefinition(Board_Index),Vector(),NamedTypeSpec(NameUser(_SIGNED_INTEGER_TYPE_),List()))

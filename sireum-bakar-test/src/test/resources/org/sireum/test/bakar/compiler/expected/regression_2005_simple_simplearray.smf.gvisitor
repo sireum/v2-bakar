@@ -1,16 +1,16 @@
 Model(Some(simplearray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(SimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),N
   Some(simplearray.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(SimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()
-    PackageDecl(Some(NameDefinition(SimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())), Typ
+  Vector(PackageDecl(Some(NameDefinition(SimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector
+    PackageDecl(Some(NameDefinition(SimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), T
       Some(NameDefinition(SimpleArray))
         NameDefinition(SimpleArray)
       List()
-      List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Vector),Vector(),NamedTypeSpe
-        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), TypeAliasDecl(NameDefinition(Vector),Vector(),NamedTypeS
+        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(Index)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
         TypeAliasDecl(NameDefinition(Vector),Vector(),NamedTypeSpec(NameUser(_ARRAY_),List()))
@@ -195,14 +195,14 @@ Model(Some(simplearray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Simp
                     List()
                 NameDefinition(I)
                 List()
-              LocalVarDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(_tcomp0),List())
+              LocalVarDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(_tcomp0),Vector())
                 Some(NamedTypeSpec(NameUser(Index),Vector()))
                   NamedTypeSpec(NameUser(Index),Vector())
                     NameUser(Index)
                     List()
                 NameDefinition(_tcomp0)
                 List()
-              LocalVarDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(_tcomp1),List())
+              LocalVarDecl(Some(NamedTypeSpec(NameUser(Index),Vector())),NameDefinition(_tcomp1),Vector())
                 Some(NamedTypeSpec(NameUser(Index),Vector()))
                   NamedTypeSpec(NameUser(Index),Vector())
                     NameUser(Index)

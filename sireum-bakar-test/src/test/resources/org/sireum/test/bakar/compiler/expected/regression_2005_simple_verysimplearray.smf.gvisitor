@@ -1,22 +1,22 @@
 Model(Some(verysimplearray.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Ve
   Some(verysimplearray.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),Li
-    PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),List())),
+  Vector(PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),Ve
+    PackageDecl(Some(NameDefinition(VerySimpleArray)),Vector(),List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),Vector())
       Some(NameDefinition(VerySimpleArray))
         NameDefinition(VerySimpleArray)
       List()
-      List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec
-        TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      List(TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSp
+        TypeAliasDecl(NameDefinition(MyInt),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(MyInt)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
-        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(Index)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
         TypeAliasDecl(NameDefinition(Vector),Vector(),NamedTypeSpec(NameUser(_ARRAY_),List()))

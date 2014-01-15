@@ -209,9 +209,9 @@ Model(Some(p_simple_call.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(P_
               NameDefinition(Z)
               List()
           None
-          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List())),List(JumpLocation(Some(NameDefiniti
-            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List()))
-              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),List())
+          ImplementedBody(List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),Vector())),List(JumpLocation(Some(NameDefini
+            List(LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),Vector()))
+              LocalVarDecl(Some(NamedTypeSpec(NameUser(Integer),Vector())),NameDefinition(_tcomp0),Vector())
                 Some(NamedTypeSpec(NameUser(Integer),Vector()))
                   NamedTypeSpec(NameUser(Integer),Vector())
                     NameUser(Integer)

@@ -175,10 +175,6 @@ global Vector @@V
 ;
 
 procedure Boolean Dummy
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/VerySimpleArray-1:9/Dummy-3:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -222,10 +218,6 @@ procedure Add (
                  <int>18</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/VerySimpleArray-1:9/Add+11:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -251,10 +243,6 @@ procedure Add (
 }
 
 procedure Del
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://procedure_body/VerySimpleArray-1:9/Del+16:14</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -310,10 +298,6 @@ package VerySimpleArray
 
 
 procedure Boolean Dummy
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/VerySimpleArray-1:9/Dummy-3:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

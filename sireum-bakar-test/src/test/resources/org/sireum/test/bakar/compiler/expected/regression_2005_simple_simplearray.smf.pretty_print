@@ -161,10 +161,6 @@ procedure $$binit
 }
 
 procedure Boolean Dummy
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/SimpleArray-1:9/Dummy-3:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -208,10 +204,6 @@ procedure Integer Max (
                  <int>18</int>
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
 )
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function_body/SimpleArray-1:9/Max+11:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>
@@ -319,10 +311,6 @@ package SimpleArray
 
 
 procedure Boolean Dummy
-    @BAKAR_REF_URI
-
-      ("""<string sid="1">ada://function/SimpleArray-1:9/Dummy-3:13</string>""")
-
     @BAKAR_PROCEDURE_INFO
 
       ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>

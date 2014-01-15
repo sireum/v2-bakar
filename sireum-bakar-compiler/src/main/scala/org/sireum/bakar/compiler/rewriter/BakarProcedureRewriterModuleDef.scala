@@ -76,7 +76,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
                   if (calledProc.params(i).mode != Mode.IN) {
                     val ptypeSpec = calledProc.params(i).typeSpec.get.asInstanceOf[NamedTypeSpec]
                     val lhsTypeName : String = ptypeSpec.name.name
-                    val lhsTypeUri : String = ptypeSpec.name(URIS.REF_URI)
+                    val lhsTypeUri : ResourceUri = URIS.getTypeUri(ptypeSpec)
                     val (lhsLvd, lhsTempVar) = RewriteUtil.createTempVar(lhsTypeName, lhsTypeUri, newPath)
                     newTempLocals +:= lhsLvd
                     _lhss :+= lhsTempVar

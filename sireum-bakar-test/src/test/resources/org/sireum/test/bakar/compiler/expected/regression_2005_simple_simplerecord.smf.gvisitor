@@ -1,16 +1,16 @@
 Model(Some(simplerecord.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(SimpleRecord)),Vector(),List(TypeAliasDecl(NameDefinition(SmallInt),Vecto
   Some(simplerecord.adb)
   List()
-  Vector(PackageDecl(Some(NameDefinition(SimpleRecord)),Vector(),List(TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),Li
-    PackageDecl(Some(NameDefinition(SimpleRecord)),Vector(),List(TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),List())),
+  Vector(PackageDecl(Some(NameDefinition(SimpleRecord)),Vector(),List(TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),Ve
+    PackageDecl(Some(NameDefinition(SimpleRecord)),Vector(),List(TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),Vector())
       Some(NameDefinition(SimpleRecord))
         NameDefinition(SimpleRecord)
       List()
-      List(TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Vector),Vector(),NamedType
-        TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      List(TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), TypeAliasDecl(NameDefinition(Vector),Vector(),NamedTy
+        TypeAliasDecl(NameDefinition(SmallInt),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(SmallInt)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
         TypeAliasDecl(NameDefinition(Vector),Vector(),NamedTypeSpec(NameUser(_ARRAY_),List()))

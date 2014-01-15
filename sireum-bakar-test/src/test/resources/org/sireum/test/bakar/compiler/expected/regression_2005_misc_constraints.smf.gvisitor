@@ -147,16 +147,16 @@ Model(Some(constraints.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Cons
 Model(Some(constraints.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Constraints)),Vector(),List(TypeAliasDecl(NameDefinition(Sub_Int),Vector()
   Some(constraints.ads)
   List()
-  Vector(PackageDecl(Some(NameDefinition(Constraints)),Vector(),List(TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),List
-    PackageDecl(Some(NameDefinition(Constraints)),Vector(),List(TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),List())), T
+  Vector(PackageDecl(Some(NameDefinition(Constraints)),Vector(),List(TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),Vect
+    PackageDecl(Some(NameDefinition(Constraints)),Vector(),List(TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),Vector())),
       Some(NameDefinition(Constraints))
         NameDefinition(Constraints)
       List()
-      List(TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Int_Range),Vector(),NamedTy
-        TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      List(TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), TypeAliasDecl(NameDefinition(Int_Range),Vector(),Named
+        TypeAliasDecl(NameDefinition(Sub_Int),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(Sub_Int)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
         TypeAliasDecl(NameDefinition(Int_Range),Vector(),NamedTypeSpec(NameUser(_SIGNED_INTEGER_TYPE_),List()))
@@ -190,10 +190,10 @@ Model(Some(constraints.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Cons
             EnumElement(NameDefinition(Sun),Vector())
               NameDefinition(Sun)
               List()
-        TypeAliasDecl(NameDefinition(Weekday),Vector(),NamedTypeSpec(NameUser(Day),List()))
+        TypeAliasDecl(NameDefinition(Weekday),Vector(),NamedTypeSpec(NameUser(Day),Vector()))
           NameDefinition(Weekday)
           List()
-          NamedTypeSpec(NameUser(Day),List())
+          NamedTypeSpec(NameUser(Day),Vector())
             NameUser(Day)
             List()
         ConstDecl(NameDefinition($CONST),Vector(),List(ConstElement(NameDefinition(Int_Low_Const),CastExp(NamedTypeSpec(NameUser(Sub_Int),Vector()),LiteralExp

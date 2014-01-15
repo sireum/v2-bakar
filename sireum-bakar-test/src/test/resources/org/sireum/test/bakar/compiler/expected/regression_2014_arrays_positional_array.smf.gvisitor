@@ -102,16 +102,16 @@ Model(Some(positional_array.adb),Vector(),Vector(PackageDecl(Some(NameDefinition
 Model(Some(positional_array.ads),Vector(),Vector(PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),
   Some(positional_array.ads)
   List()
-  Vector(PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),L
-    PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+  Vector(PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),V
+    PackageDecl(Some(NameDefinition(Positional_Array)),Vector(),List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector()
       Some(NameDefinition(Positional_Array))
         NameDefinition(Positional_Array)
       List()
-      List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List())), TypeAliasDecl(NameDefinition(Square),Vector(),NamedTypeSpe
-        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),List()))
+      List(TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector())), TypeAliasDecl(NameDefinition(Square),Vector(),NamedTypeS
+        TypeAliasDecl(NameDefinition(Index),Vector(),NamedTypeSpec(NameUser(Integer),Vector()))
           NameDefinition(Index)
           List()
-          NamedTypeSpec(NameUser(Integer),List())
+          NamedTypeSpec(NameUser(Integer),Vector())
             NameUser(Integer)
             List()
         TypeAliasDecl(NameDefinition(Square),Vector(),NamedTypeSpec(NameUser(_ARRAY_),List()))
