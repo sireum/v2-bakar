@@ -81,16 +81,16 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
       ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
-      ada://variable_temp/Constraints/foo/_t0 
-      ada://variable_temp/Constraints/foo/_t1 
-      ada://variable_temp/Constraints/foo/_t2 
-      ada://variable_temp/Constraints/foo/_t3 
-      ada://variable_temp/Constraints/foo/_t4 
-      ada://variable_temp/Constraints/foo/_t5 
-      ada://variable_temp/Constraints/foo/_t6 
-      ada://variable_temp/Constraints/foo/_t7 
-      ada://variable_temp/Constraints/foo/_t8 
-      ada://variable_temp/Constraints/foo/_t9 
+      ada://variable__temp/Constraints/foo/_t0 
+      ada://variable__temp/Constraints/foo/_t1 
+      ada://variable__temp/Constraints/foo/_t2 
+      ada://variable__temp/Constraints/foo/_t3 
+      ada://variable__temp/Constraints/foo/_t4 
+      ada://variable__temp/Constraints/foo/_t5 
+      ada://variable__temp/Constraints/foo/_t6 
+      ada://variable__temp/Constraints/foo/_t7 
+      ada://variable__temp/Constraints/foo/_t8 
+      ada://variable__temp/Constraints/foo/_t9 
 
     Params
       ada://parameter/Constraints-1:9/foo-11:13/a-11:17 

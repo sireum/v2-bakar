@@ -14,10 +14,6 @@ package Type_Conversion
 
 procedure Convert (
         Float Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -35,10 +31,6 @@ procedure Convert (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -95,10 +87,6 @@ package Type_Conversion
 
 procedure Convert (
         Float Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -116,10 +104,6 @@ procedure Convert (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Type_Conversion-1:9/Convert-3:14/X-3:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

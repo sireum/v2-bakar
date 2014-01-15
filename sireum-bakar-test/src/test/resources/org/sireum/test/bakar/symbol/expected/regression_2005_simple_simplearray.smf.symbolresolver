@@ -86,14 +86,14 @@ Procedure Symbol Table
       ada://variable/SimpleArray-1:9/Max+11:13/M+12:7 
       ada://variable__temp/Max/SimpleArray/_tcomp0 
       ada://variable__temp/Max/SimpleArray/_tcomp1 
-      ada://variable_temp/SimpleArray/Max/_t10 
-      ada://variable_temp/SimpleArray/Max/_t11 
-      ada://variable_temp/SimpleArray/Max/_t4 
-      ada://variable_temp/SimpleArray/Max/_t5 
-      ada://variable_temp/SimpleArray/Max/_t6 
-      ada://variable_temp/SimpleArray/Max/_t7 
-      ada://variable_temp/SimpleArray/Max/_t8 
-      ada://variable_temp/SimpleArray/Max/_t9 
+      ada://variable__temp/SimpleArray/Max/_t10 
+      ada://variable__temp/SimpleArray/Max/_t11 
+      ada://variable__temp/SimpleArray/Max/_t4 
+      ada://variable__temp/SimpleArray/Max/_t5 
+      ada://variable__temp/SimpleArray/Max/_t6 
+      ada://variable__temp/SimpleArray/Max/_t7 
+      ada://variable__temp/SimpleArray/Max/_t8 
+      ada://variable__temp/SimpleArray/Max/_t9 
 
     Params
       ada://parameter/SimpleArray-1:9/Max+11:13/V+11:18 
@@ -104,10 +104,10 @@ Procedure Symbol Table
   ada://procedure_body__package_init/SimpleArray/$$binit 
 
     LocalVarTable
-      ada://variable_temp/SimpleArray/$$binit/_t0 
-      ada://variable_temp/SimpleArray/$$binit/_t1 
-      ada://variable_temp/SimpleArray/$$binit/_t2 
-      ada://variable_temp/SimpleArray/$$binit/_t3 
+      ada://variable__temp/SimpleArray/$$binit/_t0 
+      ada://variable__temp/SimpleArray/$$binit/_t1 
+      ada://variable__temp/SimpleArray/$$binit/_t2 
+      ada://variable__temp/SimpleArray/$$binit/_t3 
 
     Params
 

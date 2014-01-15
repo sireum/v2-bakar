@@ -14,10 +14,6 @@ package Case_Statement_Enum
 
 procedure Activity isWorkDay (
         Week d
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Case_Statement_Enum-1:9/isWorkDay-10:12/d-10:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -575,10 +571,6 @@ enum Activity
 
 procedure Activity isWorkDay (
         Week d
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Case_Statement_Enum-1:9/isWorkDay-10:12/d-10:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

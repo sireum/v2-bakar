@@ -14,10 +14,6 @@ package Dependence_Test_Suite_02
 
 procedure Success0 (
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success0-3:14/O-3:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -60,10 +56,6 @@ procedure Success0 (
 
 procedure Success1 (
         Integer I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success1+11:14/I+11:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -81,10 +73,6 @@ procedure Success1 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success1+11:14/O+11:40</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -127,10 +115,6 @@ procedure Success1 (
 
 procedure Success2 (
         Integer I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success2+19:14/I+19:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -148,10 +132,6 @@ procedure Success2 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success2+19:14/O+19:40</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -210,10 +190,6 @@ procedure Success2 (
 
 procedure Success3 (
         Integer I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success3+29:14/I+29:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -231,10 +207,6 @@ procedure Success3 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success3+29:14/O+29:40</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -321,10 +293,6 @@ procedure Success3 (
 
 procedure Success4 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/I1+41:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -342,10 +310,6 @@ procedure Success4 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/I2+41:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -363,10 +327,6 @@ procedure Success4 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success4+41:14/O+41:45</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -453,10 +413,6 @@ procedure Success4 (
 
 procedure Success5 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/I1+53:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -474,10 +430,6 @@ procedure Success5 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/I2+53:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -495,10 +447,6 @@ procedure Success5 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/O1+53:45</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -516,10 +464,6 @@ procedure Success5 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success5+53:14/O2+53:49</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -612,10 +556,6 @@ procedure Success5 (
 
 procedure Success6 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/I1+68:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -633,10 +573,6 @@ procedure Success6 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/I2+68:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -654,10 +590,6 @@ procedure Success6 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/O1+68:45</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -675,10 +607,6 @@ procedure Success6 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success6+68:14/O2+68:49</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -749,10 +677,6 @@ procedure Success6 (
 
 procedure Success7 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/I1+83:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -770,10 +694,6 @@ procedure Success7 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/I2+83:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -791,10 +711,6 @@ procedure Success7 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success7+83:14/O+83:45</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -878,10 +794,6 @@ procedure Success7 (
 
 procedure Success8 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/I1+98:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -899,10 +811,6 @@ procedure Success8 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/I2+98:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -920,10 +828,6 @@ procedure Success8 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success8+98:14/O+98:45</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1021,10 +925,6 @@ procedure Success8 (
 
 procedure Success9 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I1+114:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1042,10 +942,6 @@ procedure Success9 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I2+114:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1063,10 +959,6 @@ procedure Success9 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I3
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/I3+114:32</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1084,10 +976,6 @@ procedure Success9 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success9+114:14/O+114:49</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1210,10 +1098,6 @@ procedure Success9 (
 
 procedure Success10 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I1+135:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1231,10 +1115,6 @@ procedure Success10 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I2+135:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1252,10 +1132,6 @@ procedure Success10 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I3
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/I3+135:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1273,10 +1149,6 @@ procedure Success10 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/O1+135:50</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1294,10 +1166,6 @@ procedure Success10 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success10+135:14/O2+135:54</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1420,10 +1288,6 @@ procedure Success10 (
 
 procedure Success11 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success11+158:14/I1+158:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1441,10 +1305,6 @@ procedure Success11 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success11+158:14/O1+158:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1541,10 +1401,6 @@ procedure Success11 (
 
 procedure Success12 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/I1+175:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1562,10 +1418,6 @@ procedure Success12 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/I2+175:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1583,10 +1435,6 @@ procedure Success12 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success12+175:14/O1+175:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1702,10 +1550,6 @@ procedure Success12 (
 
 procedure Success13 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/I1+194:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1723,10 +1567,6 @@ procedure Success13 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/I2+194:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1744,10 +1584,6 @@ procedure Success13 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success13+194:14/O1+194:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1879,10 +1715,6 @@ procedure Success13 (
 
 procedure Success14 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success14+214:14/I1+214:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1900,10 +1732,6 @@ procedure Success14 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success14+214:14/O1+214:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2031,10 +1859,6 @@ procedure Success14 (
 
 procedure Success15 (
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success15+234:14/O1+234:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2132,10 +1956,6 @@ procedure Success15 (
 
 procedure Success16 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success16+253:14/I1+253:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2153,10 +1973,6 @@ procedure Success16 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success16+253:14/O1+253:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2254,10 +2070,6 @@ procedure Success16 (
 
 procedure Success17 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/I1+268:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2275,10 +2087,6 @@ procedure Success17 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/I2+268:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2296,10 +2104,6 @@ procedure Success17 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success17+268:14/O1+268:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2416,10 +2220,6 @@ procedure Success17 (
 
 procedure Success18 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/I1+285:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2437,10 +2237,6 @@ procedure Success18 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/I2+285:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2458,10 +2254,6 @@ procedure Success18 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success18+285:14/O1+285:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2595,10 +2387,6 @@ procedure Success18 (
 
 procedure Success19 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/I1+301:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2616,10 +2404,6 @@ procedure Success19 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/I2+301:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2637,10 +2421,6 @@ procedure Success19 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success19+301:14/O1+301:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2738,10 +2518,6 @@ procedure Success19 (
 
 procedure Success20 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success20+329:14/I1+329:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2759,10 +2535,6 @@ procedure Success20 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success20+329:14/O1+329:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2859,10 +2631,6 @@ procedure Success20 (
 
 procedure Success21 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success21+348:14/I1+348:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2880,10 +2648,6 @@ procedure Success21 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success21+348:14/O1+348:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2996,10 +2760,6 @@ procedure Success21 (
 
 procedure Success22 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/I1+369:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3017,10 +2777,6 @@ procedure Success22 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/I2+369:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3038,10 +2794,6 @@ procedure Success22 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success22+369:14/O1+369:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3157,10 +2909,6 @@ procedure Success22 (
 
 procedure Success23 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/I1+389:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3178,10 +2926,6 @@ procedure Success23 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/I2+389:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3199,10 +2943,6 @@ procedure Success23 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success23+389:14/O1+389:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3334,10 +3074,6 @@ procedure Success23 (
 
 procedure Success24 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success24+412:14/I1+412:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3355,10 +3091,6 @@ procedure Success24 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success24+412:14/O1+412:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3458,10 +3190,6 @@ procedure Success24 (
 
 procedure Success25 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success25+436:14/I1+436:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3479,10 +3207,6 @@ procedure Success25 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success25+436:14/O1+436:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3607,10 +3331,6 @@ procedure Success25 (
 
 procedure Success26 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/I1+455:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3628,10 +3348,6 @@ procedure Success26 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/I2+455:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3649,10 +3365,6 @@ procedure Success26 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success26+455:14/O1+455:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3752,10 +3464,6 @@ procedure Success26 (
 
 procedure Success27 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/I1+473:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3773,10 +3481,6 @@ procedure Success27 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/I2+473:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3794,10 +3498,6 @@ procedure Success27 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success27+473:14/O1+473:46</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3912,10 +3612,6 @@ package Dependence_Test_Suite_02
 
 procedure Success0 (
         Integer O
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Dependence_Test_Suite_02-1:9/Success0-3:14/O-3:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

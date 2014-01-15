@@ -198,10 +198,6 @@ procedure Boolean Dummy
 
 procedure Add (
         Vector X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/VerySimpleArray-1:9/Add+11:14/X+11:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

@@ -82,32 +82,32 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Case_Statement_Enum-1:9/isWorkDay-10:12/d-10:23 
       ada://variable/Case_Statement_Enum-1:9/isWorkDay-10:12/ret+6:5 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t0 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t1 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t10 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t11 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t12 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t13 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t14 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t15 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t16 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t17 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t18 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t19 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t2 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t20 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t21 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t22 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t23 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t24 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t25 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t3 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t4 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t5 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t6 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t7 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t8 
-      ada://variable_temp/Case_Statement_Enum/isWorkDay/_t9 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t0 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t1 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t10 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t11 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t12 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t13 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t14 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t15 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t16 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t17 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t18 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t19 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t2 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t20 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t21 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t22 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t23 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t24 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t25 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t3 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t4 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t5 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t6 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t7 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t8 
+      ada://variable__temp/Case_Statement_Enum/isWorkDay/_t9 
 
     Params
       ada://parameter/Case_Statement_Enum-1:9/isWorkDay-10:12/d-10:23 

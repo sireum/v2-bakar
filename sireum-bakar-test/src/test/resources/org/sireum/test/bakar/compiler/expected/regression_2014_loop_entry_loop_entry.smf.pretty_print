@@ -14,10 +14,6 @@ package Loop_Entry
 
 procedure Array_Loop_Entry (
         Array_Of_Int A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Loop_Entry-1:9/Array_Loop_Entry-14:14/A-14:32</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -202,10 +198,6 @@ procedure Array_Loop_Entry (
 
 procedure Record_Loop_Entry (
         Record_Of_Array_Of_Int A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Loop_Entry-1:9/Record_Loop_Entry-18:14/A-18:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -676,10 +668,6 @@ record Record_Of_Array_Of_Int
 
 procedure Array_Loop_Entry (
         Array_Of_Int A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Loop_Entry-1:9/Array_Loop_Entry-14:14/A-14:32</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1779,10 +1767,6 @@ procedure Array_Loop_Entry (
 
 procedure Record_Loop_Entry (
         Record_Of_Array_Of_Int A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Loop_Entry-1:9/Record_Loop_Entry-18:14/A-18:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

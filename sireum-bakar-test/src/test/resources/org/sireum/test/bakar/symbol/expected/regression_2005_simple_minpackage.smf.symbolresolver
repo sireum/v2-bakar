@@ -69,22 +69,22 @@ Procedure Symbol Table
       ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
       ada://variable/Minpackage-1:9/MinFunc-2:12/Max+3:12 
       ada://variable/Minpackage-1:9/MinFunc-2:12/Min+3:7 
-      ada://variable_temp/Minpackage/MinFunc/_t0 
-      ada://variable_temp/Minpackage/MinFunc/_t1 
-      ada://variable_temp/Minpackage/MinFunc/_t10 
-      ada://variable_temp/Minpackage/MinFunc/_t11 
-      ada://variable_temp/Minpackage/MinFunc/_t12 
-      ada://variable_temp/Minpackage/MinFunc/_t13 
-      ada://variable_temp/Minpackage/MinFunc/_t14 
-      ada://variable_temp/Minpackage/MinFunc/_t15 
-      ada://variable_temp/Minpackage/MinFunc/_t2 
-      ada://variable_temp/Minpackage/MinFunc/_t3 
-      ada://variable_temp/Minpackage/MinFunc/_t4 
-      ada://variable_temp/Minpackage/MinFunc/_t5 
-      ada://variable_temp/Minpackage/MinFunc/_t6 
-      ada://variable_temp/Minpackage/MinFunc/_t7 
-      ada://variable_temp/Minpackage/MinFunc/_t8 
-      ada://variable_temp/Minpackage/MinFunc/_t9 
+      ada://variable__temp/Minpackage/MinFunc/_t0 
+      ada://variable__temp/Minpackage/MinFunc/_t1 
+      ada://variable__temp/Minpackage/MinFunc/_t10 
+      ada://variable__temp/Minpackage/MinFunc/_t11 
+      ada://variable__temp/Minpackage/MinFunc/_t12 
+      ada://variable__temp/Minpackage/MinFunc/_t13 
+      ada://variable__temp/Minpackage/MinFunc/_t14 
+      ada://variable__temp/Minpackage/MinFunc/_t15 
+      ada://variable__temp/Minpackage/MinFunc/_t2 
+      ada://variable__temp/Minpackage/MinFunc/_t3 
+      ada://variable__temp/Minpackage/MinFunc/_t4 
+      ada://variable__temp/Minpackage/MinFunc/_t5 
+      ada://variable__temp/Minpackage/MinFunc/_t6 
+      ada://variable__temp/Minpackage/MinFunc/_t7 
+      ada://variable__temp/Minpackage/MinFunc/_t8 
+      ada://variable__temp/Minpackage/MinFunc/_t9 
 
     Params
       ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 

@@ -149,8 +149,8 @@ Procedure Symbol Table
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
-      ada://variable_temp/Array_Unconstrained/indexIsValue/_t12 
-      ada://variable_temp/Array_Unconstrained/indexIsValue/_t13 
+      ada://variable__temp/Array_Unconstrained/indexIsValue/_t12 
+      ada://variable__temp/Array_Unconstrained/indexIsValue/_t13 
 
     Params
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
@@ -165,20 +165,20 @@ Procedure Symbol Table
       ada://loop_parameter/Array_Unconstrained-1:9/isSorted-6:12/I+5:9 
       ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
       ada://variable/Array_Unconstrained-1:9/isSorted-6:12/B+3:5 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t0 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t1 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t10 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t11 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t2 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t3 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t4 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t5 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t6 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t7 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t8 
+      ada://variable__temp/Array_Unconstrained/isSorted/_t9 
       ada://variable__temp/isSorted/Array_Unconstrained/_tcomp0 
       ada://variable__temp/isSorted/Array_Unconstrained/_tcomp1 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t0 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t1 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t10 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t11 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t2 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t3 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t4 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t5 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t6 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t7 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t8 
-      ada://variable_temp/Array_Unconstrained/isSorted/_t9 
 
     Params
       ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 

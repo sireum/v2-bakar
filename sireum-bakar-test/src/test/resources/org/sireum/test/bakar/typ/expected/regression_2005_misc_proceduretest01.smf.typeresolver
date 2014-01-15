@@ -8,9 +8,9 @@ ada://parameter/ProcedureTest01-1:9/helper-7:13/x-7:20 -> ada://ordinary_type/St
 ada://parameter/ProcedureTest01-1:9/helper-7:13/y-7:39 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/ProcedureTest01-1:9/Q-11:13/L1+18:6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/ProcedureTest01-1:9/helper-7:13/arg0+11:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/ProcedureTest01/P/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/ProcedureTest01/P/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/ProcedureTest01/P/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/ProcedureTest01/P/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/ProcedureTest01/Q/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/ProcedureTest01/Q/_t5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/ProcedureTest01/P/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/ProcedureTest01/P/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/ProcedureTest01/P/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/ProcedureTest01/P/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/ProcedureTest01/Q/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/ProcedureTest01/Q/_t5 -> ada://ordinary_type/Standard-1:1/Integer-1:1

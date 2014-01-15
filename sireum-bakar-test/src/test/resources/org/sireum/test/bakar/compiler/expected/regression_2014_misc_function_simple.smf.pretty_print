@@ -53,10 +53,6 @@ procedure $$binit
 
 procedure Integer F1 (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -74,10 +70,6 @@ procedure Integer F1 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -117,10 +109,6 @@ procedure Integer F1 (
 
 procedure P1 (
         Integer M
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/P1+9:13/M+9:16</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -138,10 +126,6 @@ procedure P1 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer N
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/P1+9:13/N+9:31</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -206,10 +190,6 @@ procedure P1 (
 
 procedure P2 (
         Integer M
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/P2+19:13/M+19:16</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -227,10 +207,6 @@ procedure P2 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer N
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/P2+19:13/N+19:31</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -347,10 +323,6 @@ global Integer @@C
 
 procedure Integer F1 (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -368,10 +340,6 @@ procedure Integer F1 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

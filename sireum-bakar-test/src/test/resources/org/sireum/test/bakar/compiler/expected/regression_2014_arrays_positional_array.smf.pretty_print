@@ -32,10 +32,6 @@ procedure $$binit
 
 procedure dummy (
         Index X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -238,10 +234,6 @@ procedure $$sinit
 
 procedure dummy (
         Index X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

@@ -282,10 +282,6 @@ procedure $$binit
 
 procedure Push (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Demonic-1:9/Push-31:14/X-31:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -362,10 +358,6 @@ procedure Push (
 
 procedure Pop (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Demonic-1:9/Pop-36:14/X-36:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -442,10 +434,6 @@ procedure Pop (
 
 procedure Boolean Value_Present (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Demonic-1:9/Value_Present+46:13/X+46:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -559,10 +547,6 @@ procedure Boolean Value_Present (
 
 procedure Index_Range Find_Stack_Pos (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/X+67:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1073,10 +1057,6 @@ const $CONST {
 
 procedure Push (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Demonic-1:9/Push-31:14/X-31:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1114,10 +1094,6 @@ procedure Push (
 
 procedure Pop (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/The_Stack_Demonic-1:9/Pop-36:14/X-36:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

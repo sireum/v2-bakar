@@ -14,10 +14,6 @@ package MyMatrix
 
 procedure Multiply (
         Matrix X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -35,10 +31,6 @@ procedure Multiply (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Matrix Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -56,10 +48,6 @@ procedure Multiply (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Matrix Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -357,10 +345,6 @@ typealias _PRIVATE_TYPE_DECLARATION_ Matrix
 
 procedure Multiply (
         Matrix X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -378,10 +362,6 @@ procedure Multiply (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Matrix Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -399,10 +379,6 @@ procedure Multiply (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Matrix Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

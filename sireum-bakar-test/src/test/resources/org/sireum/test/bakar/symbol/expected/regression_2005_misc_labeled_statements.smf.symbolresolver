@@ -72,22 +72,22 @@ Procedure Symbol Table
       ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
       ada://variable/Labeled_Statements-1:9/Stupid-5:13/B+17:6 
       ada://variable/Labeled_Statements-1:9/Stupid-5:13/J+16:6 
+      ada://variable__temp/Labeled_Statements/Stupid/_t10 
+      ada://variable__temp/Labeled_Statements/Stupid/_t11 
+      ada://variable__temp/Labeled_Statements/Stupid/_t12 
+      ada://variable__temp/Labeled_Statements/Stupid/_t13 
+      ada://variable__temp/Labeled_Statements/Stupid/_t14 
+      ada://variable__temp/Labeled_Statements/Stupid/_t15 
+      ada://variable__temp/Labeled_Statements/Stupid/_t2 
+      ada://variable__temp/Labeled_Statements/Stupid/_t3 
+      ada://variable__temp/Labeled_Statements/Stupid/_t4 
+      ada://variable__temp/Labeled_Statements/Stupid/_t5 
+      ada://variable__temp/Labeled_Statements/Stupid/_t6 
+      ada://variable__temp/Labeled_Statements/Stupid/_t7 
+      ada://variable__temp/Labeled_Statements/Stupid/_t8 
+      ada://variable__temp/Labeled_Statements/Stupid/_t9 
       ada://variable__temp/Stupid/Labeled_Statements/_tcomp0 
       ada://variable__temp/Stupid/Labeled_Statements/_tcomp1 
-      ada://variable_temp/Labeled_Statements/Stupid/_t10 
-      ada://variable_temp/Labeled_Statements/Stupid/_t11 
-      ada://variable_temp/Labeled_Statements/Stupid/_t12 
-      ada://variable_temp/Labeled_Statements/Stupid/_t13 
-      ada://variable_temp/Labeled_Statements/Stupid/_t14 
-      ada://variable_temp/Labeled_Statements/Stupid/_t15 
-      ada://variable_temp/Labeled_Statements/Stupid/_t2 
-      ada://variable_temp/Labeled_Statements/Stupid/_t3 
-      ada://variable_temp/Labeled_Statements/Stupid/_t4 
-      ada://variable_temp/Labeled_Statements/Stupid/_t5 
-      ada://variable_temp/Labeled_Statements/Stupid/_t6 
-      ada://variable_temp/Labeled_Statements/Stupid/_t7 
-      ada://variable_temp/Labeled_Statements/Stupid/_t8 
-      ada://variable_temp/Labeled_Statements/Stupid/_t9 
 
     Params
       ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
@@ -102,8 +102,8 @@ Procedure Symbol Table
       ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17 
       ada://parameter/Labeled_Statements-1:9/P+4:14/J+4:20 
       ada://parameter/Labeled_Statements-1:9/P+4:14/Ret+4:33 
-      ada://variable_temp/Labeled_Statements/P/_t0 
-      ada://variable_temp/Labeled_Statements/P/_t1 
+      ada://variable__temp/Labeled_Statements/P/_t0 
+      ada://variable__temp/Labeled_Statements/P/_t1 
 
     Params
       ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17 

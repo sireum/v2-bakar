@@ -14,10 +14,6 @@ package Sort_Simple_Contract
 
 procedure Boolean isSorted (
         Vector Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSorted-9:12/Z-9:21</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -112,10 +108,6 @@ procedure Boolean isSorted (
 
 procedure Integer Num_Repetitions (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/Num_Repetitions+13:12/A+13:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -133,10 +125,6 @@ procedure Integer Num_Repetitions (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer E
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/Num_Repetitions+13:12/E+13:40</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -247,10 +235,6 @@ procedure Integer Num_Repetitions (
 
 procedure Boolean isSet (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSet-13:12/A-13:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -384,10 +368,6 @@ procedure Boolean isSet (
 
 procedure Boolean isPerm (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/A-12:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -405,10 +385,6 @@ procedure Boolean isPerm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Vector B
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/B-12:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -530,10 +506,6 @@ procedure Boolean isPerm (
 
 procedure BubbleSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -699,10 +671,6 @@ procedure BubbleSort (
 
 procedure dddd (
         Integer I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/I+76:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -720,10 +688,6 @@ procedure dddd (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer J
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/dddd+76:13/J+76:21</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -782,10 +746,6 @@ procedure dddd (
 
 procedure SwapElements (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/A+82:26</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -803,10 +763,6 @@ procedure SwapElements (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/I+82:45</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -824,10 +780,6 @@ procedure SwapElements (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer J
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/J+82:48</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1863,10 +1815,6 @@ procedure SwapElements (
 
 procedure BubbleSort_using_SwapElements (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2015,10 +1963,6 @@ procedure BubbleSort_using_SwapElements (
 
 procedure InsertionSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2151,10 +2095,6 @@ procedure InsertionSort (
 
 procedure SelectionSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2337,10 +2277,6 @@ procedure SelectionSort (
 
 procedure ShellSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2634,10 +2570,6 @@ const $CONST {
 
 procedure Boolean isSorted (
         Vector Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSorted-9:12/Z-9:21</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2746,10 +2678,6 @@ procedure Boolean isSorted (
 
 procedure Boolean isPerm (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/A-12:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2767,10 +2695,6 @@ procedure Boolean isPerm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Vector B
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/B-12:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2808,10 +2732,6 @@ procedure Boolean isPerm (
 
 procedure Boolean isSet (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/isSet-13:12/A-13:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2849,10 +2769,6 @@ procedure Boolean isSet (
 
 procedure BubbleSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort-15:13/A-15:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3207,10 +3123,6 @@ procedure BubbleSort (
 
 procedure BubbleSort_using_SwapElements (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/A-20:43</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3565,10 +3477,6 @@ procedure BubbleSort_using_SwapElements (
 
 procedure InsertionSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3923,10 +3831,6 @@ procedure InsertionSort (
 
 procedure SelectionSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/SelectionSort-30:13/A-30:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -4281,10 +4185,6 @@ procedure SelectionSort (
 
 procedure ShellSort (
         Vector A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort_Simple_Contract-1:9/ShellSort-35:13/A-35:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

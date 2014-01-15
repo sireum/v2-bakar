@@ -14,10 +14,6 @@ package AbsPackage
 
 procedure Integer AbsFunc (
         Integer x
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -119,10 +115,6 @@ package AbsPackage
 
 procedure Integer AbsFunc (
         Integer x
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

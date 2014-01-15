@@ -5,7 +5,7 @@ ada://parameter/Array_Of_Records-1:9/Swap-24:13/theIndex-24:41 -> ada://ordinary
 ada://variable/Array_Of_Records-1:9/@@oArray-22:3 -> ada://ordinary_type/Array_Of_Records-1:9/ObjectArray-20:8
 ada://variable/Array_Of_Records-1:9/Swap-24:13/temp1+4:6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Array_Of_Records-1:9/Swap-24:13/temp2+5:6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable_temp/Array_Of_Records/Swap/_t0 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8
-ada://variable_temp/Array_Of_Records/Swap/_t1 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8
-ada://variable_temp/Array_Of_Records/Swap/_t2 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8
-ada://variable_temp/Array_Of_Records/Swap/_t3 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8
+ada://variable__temp/Array_Of_Records/Swap/_t0 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8
+ada://variable__temp/Array_Of_Records/Swap/_t1 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8
+ada://variable__temp/Array_Of_Records/Swap/_t2 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8
+ada://variable__temp/Array_Of_Records/Swap/_t3 -> ada://ordinary_type/Array_Of_Records-1:9/Object-11:8

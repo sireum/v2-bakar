@@ -14,6 +14,7 @@ import org.sireum.util.Rewriter
 import org.sireum.util.ilistEmpty
 import org.sireum.pipeline.Input
 import org.sireum.pipeline.Output
+import org.sireum.bakar.compiler.module.PilarNodeFactory
 
 object Names {
   val tempVarPrefix = "_tbpr"
@@ -118,7 +119,10 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
         val modLocs = newlocs.flatMap(rewriteCallJumps(_))
         val modLocals = locals ++ newTempLocals
 
-        cp(pd, ProcedureDecl(procName, a, t, params, None, v, cp(ib, ImplementedBody(modLocals, modLocs, cc))))
+        import org.sireum.bakar.symbol.BakarSymbol._
+        val body = cp(ib, ImplementedBody(modLocals, modLocs, cc))
+        val parentUri = pd.parentUri.get
+        cp(pd, PilarNodeFactory.buildProcedureDecl(procName, parentUri, params, None, body)) 
       } else pd
   }, Rewriter.TraversalMode.TOP_DOWN, true)
 

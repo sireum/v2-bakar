@@ -120,10 +120,10 @@ Procedure Symbol Table
       ada://parameter/ProcedureTest01-1:9/P-3:13/a-3:15 
       ada://parameter/ProcedureTest01-1:9/P-3:13/b-3:30 
       ada://parameter/ProcedureTest01-1:9/P-3:13/c-3:49 
-      ada://variable_temp/ProcedureTest01/P/_t0 
-      ada://variable_temp/ProcedureTest01/P/_t1 
-      ada://variable_temp/ProcedureTest01/P/_t2 
-      ada://variable_temp/ProcedureTest01/P/_t3 
+      ada://variable__temp/ProcedureTest01/P/_t0 
+      ada://variable__temp/ProcedureTest01/P/_t1 
+      ada://variable__temp/ProcedureTest01/P/_t2 
+      ada://variable__temp/ProcedureTest01/P/_t3 
 
     Params
       ada://parameter/ProcedureTest01-1:9/P-3:13/a-3:15 
@@ -139,8 +139,8 @@ Procedure Symbol Table
       ada://parameter/ProcedureTest01-1:9/Q-11:13/S-11:15 
       ada://parameter/ProcedureTest01-1:9/Q-11:13/T-11:30 
       ada://variable/ProcedureTest01-1:9/Q-11:13/L1+18:6 
-      ada://variable_temp/ProcedureTest01/Q/_t4 
-      ada://variable_temp/ProcedureTest01/Q/_t5 
+      ada://variable__temp/ProcedureTest01/Q/_t4 
+      ada://variable__temp/ProcedureTest01/Q/_t5 
 
     Params
       ada://parameter/ProcedureTest01-1:9/Q-11:13/R-11:46 

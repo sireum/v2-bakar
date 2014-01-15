@@ -82,10 +82,10 @@ Procedure Symbol Table
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
       ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp1+4:6 
       ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp2+5:6 
-      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t0 
-      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t1 
-      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t2 
-      ada://variable_temp/Array_Of_Records_Of_Array/Swap/_t3 
+      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t0 
+      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t1 
+      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t2 
+      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t3 
 
     Params
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 

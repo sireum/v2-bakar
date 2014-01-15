@@ -169,7 +169,7 @@ object StandardTypeDefs {
   import org.sireum.pilar.ast.TypeAliasDecl
   import org.sireum.pilar.ast.TypeSpec
 
-  def createType(typName: String, baseType: String, typURI: String): TypeAliasDecl = {
+  private def createType(typName: String, baseType: String, typURI: String): TypeAliasDecl = {
     val pilarTypeDec = TypeAliasDecl(
       URIS.addResourceUri(NameDefinition(typName), typURI), ivectorEmpty,
       NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec]))

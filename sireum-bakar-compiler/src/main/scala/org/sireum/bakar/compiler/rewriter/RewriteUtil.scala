@@ -3,6 +3,8 @@ package org.sireum.bakar.compiler.rewriter
 import org.sireum.pilar.ast._
 import org.sireum.util._
 import org.sireum.bakar.compiler.module.URIS
+import org.sireum.bakar.compiler.module.PilarNodeFactory
+import org.sireum.bakar.compiler.module.VariableURIs
 
 object RewriteUtil {
   
@@ -10,14 +12,11 @@ object RewriteUtil {
   val TEMP_VAR_TYPE = "variable_temp"
     
   def createTempVar(typeName : String, typeUri : String, path : ISeq[String]) : (LocalVarDecl, NameExp)= {
-    import org.sireum.pilar.symbol.Symbol
-
     val name = path(path.size - 1)
-    val uri = SCHEME + "://" + TEMP_VAR_TYPE + "/" + path.mkString("/")
+    val uri = VariableURIs.tempVarPrefix + path.mkString("/")
 
-    val nts = Some(NamedTypeSpec(URIS.addResourceUri(NameUser(typeName), typeUri), ilistEmpty[TypeSpec]))
-    val lname = URIS.addResourceUri(NameDefinition(name), uri)
-    val lvd = LocalVarDecl(nts, lname, ilistEmpty[Annotation])
+    val nts = PilarNodeFactory.buildNamedTypeSpec(typeName, typeUri)
+    val lvd = PilarNodeFactory.buildLocalVar(name, uri, nts)
 
     val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
     ret(URIS.TYPE_URI) = typeUri

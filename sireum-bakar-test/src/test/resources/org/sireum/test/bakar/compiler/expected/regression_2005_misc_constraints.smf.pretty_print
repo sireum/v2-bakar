@@ -14,10 +14,6 @@ package Constraints
 
 procedure foo (
         Integer a
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Constraints-1:9/foo-11:13/a-11:17</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -35,10 +31,6 @@ procedure foo (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Day dayVar
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -462,10 +454,6 @@ const $CONST {
 
 procedure foo (
         Integer a
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Constraints-1:9/foo-11:13/a-11:17</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -483,10 +471,6 @@ procedure foo (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Day dayVar
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

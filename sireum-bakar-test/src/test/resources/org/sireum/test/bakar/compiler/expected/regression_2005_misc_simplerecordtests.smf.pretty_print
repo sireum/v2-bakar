@@ -14,10 +14,6 @@ package SimpleRecordTests
 
 procedure Test01 (
         Object Q
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test01-14:11/Q-14:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -135,10 +131,6 @@ procedure Test01 (
 
 procedure Test02 (
         Float I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test02+24:12/I1+24:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -156,10 +148,6 @@ procedure Test02 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Float I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test02+24:12/I2+24:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -177,10 +165,6 @@ procedure Test02 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Float O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test02+24:12/O1+24:38</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -198,10 +182,6 @@ procedure Test02 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Float O2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test02+24:12/O2+24:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -322,10 +302,6 @@ procedure Test02 (
 
 procedure Test03 (
         Float I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test03+45:12/I1+45:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -343,10 +319,6 @@ procedure Test03 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Float I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test03+45:12/I2+45:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -364,10 +336,6 @@ procedure Test03 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Float O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O1+45:38</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -385,10 +353,6 @@ procedure Test03 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Float O2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O2+45:42</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -677,10 +641,6 @@ record NestedObject
 
 procedure Test01 (
         Object Q
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecordTests-1:9/Test01-14:11/Q-14:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

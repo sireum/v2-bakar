@@ -9,6 +9,7 @@ import org.sireum.util._
 import org.sireum.pilar.ast._
 import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.bakar.compiler.module.URIS
+import org.sireum.bakar.compiler.module.PilarNodeFactory
 
 class BakarExpRewriterModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends BakarExpRewriterModule {
   var r = ilistEmpty[Model]
@@ -34,27 +35,15 @@ class BakarRewriter {
 
   val eannot = ilistEmpty[Annotation]
   def newTempVar(typeName: String, typeUri: String) = {
-    import org.sireum.pilar.symbol.Symbol
-
     val name = tempVarPrefix + tcounter
+    tcounter += 1
+    
     val path = ilist(this.currentPackage, this.currentMethod, name)
-    val uri = SCHEME + "://" + TEMP_VAR_TYPE + "/" + path.mkString("/")
+    val (lvd, ret) = RewriteUtil.createTempVar(typeName, typeUri, path)
 
-    val nts = Some(createNamedTypeSpec(NameUser(typeName), typeUri))
-    val lname = URIS.addResourceUri(NameDefinition(name), uri)
-    val lvd = LocalVarDecl(nts, lname, ilistEmpty[Annotation])
     this.newTempVars :+= lvd
 
-    val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
-    ret(URIS.TYPE_URI) = typeUri
-    tcounter += 1
     ret
-  }
-
-  def createNamedTypeSpec(name: NameUser, typUri: ResourceUri) = {
-    assert(URIS.isTypeUri(typUri))
-    val nu = URIS.addTypeUri(name, typUri)
-    URIS.addTypeUri(NamedTypeSpec(nu, ivectorEmpty), typUri)
   }
 
   def newLabel = {
@@ -181,10 +170,12 @@ class BakarRewriter {
               val rl = rewriter(l)
               locmap += (rl -> (prelocs, postlocs))
             }
-
+            
+            import org.sireum.bakar.symbol.BakarSymbol._
             val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
-            val modpd = ProcedureDecl(methName, a, tv, params, rt, va,
-              ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses))
+            val _body = ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses)
+            val parentUri = pd.parentUri.get
+            val modpd = PilarNodeFactory.buildProcedureDecl(methName, parentUri, params, rt, _body) 
             copyMap(pd, modpd)
             elems :+= modpd
 

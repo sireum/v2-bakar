@@ -14,10 +14,6 @@ package FaultIntegrator
 
 procedure Init (
         T FI
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -35,10 +31,6 @@ procedure Init (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Positive Threshold
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -85,10 +77,6 @@ procedure Init (
 
 procedure Test (
         T FI
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -106,10 +94,6 @@ procedure Test (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Boolean CurrentEvent
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -127,10 +111,6 @@ procedure Test (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Boolean IntegratedEvent
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -500,10 +480,6 @@ typealias _PRIVATE_TYPE_DECLARATION_ T
 
 procedure Init (
         T FI
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Init-5:13/FI-5:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -521,10 +497,6 @@ procedure Init (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Positive Threshold
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Init-5:13/Threshold-6:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -562,10 +534,6 @@ procedure Init (
 
 procedure Test (
         T FI
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -583,10 +551,6 @@ procedure Test (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Boolean CurrentEvent
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -604,10 +568,6 @@ procedure Test (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Boolean IntegratedEvent
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

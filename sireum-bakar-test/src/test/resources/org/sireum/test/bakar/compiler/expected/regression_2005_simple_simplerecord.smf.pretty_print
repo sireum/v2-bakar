@@ -235,10 +235,6 @@ procedure Boolean Dummy
 
 procedure Add (
         SmallInt I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecord-1:9/Add+18:14/I+18:18</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -256,10 +252,6 @@ procedure Add (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Rec R
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecord-1:9/Add+18:14/R+18:32</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -330,10 +322,6 @@ procedure Add (
 
 procedure NAdd (
         SmallInt I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecord-1:9/NAdd+23:14/I+23:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -351,10 +339,6 @@ procedure NAdd (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         NestedRec NR
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecord-1:9/NAdd+23:14/NR+23:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -453,10 +437,6 @@ procedure NAdd (
 
 procedure AAdd (
         SmallInt I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecord-1:9/AAdd+28:14/I+28:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -474,10 +454,6 @@ procedure AAdd (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Rec R
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/SimpleRecord-1:9/AAdd+28:14/R+28:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

@@ -47,10 +47,6 @@ procedure $$binit
 
 procedure dummy (
         Index X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -68,10 +64,6 @@ procedure dummy (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/Y-40:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -114,10 +106,6 @@ procedure dummy (
 
 procedure dummy2 (
         Board_Index M
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -135,10 +123,6 @@ procedure dummy2 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Board_Index N
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -575,10 +559,6 @@ procedure $$sinit
 
 procedure dummy (
         Index X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -596,10 +576,6 @@ procedure dummy (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy-40:13/Y-40:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -653,10 +629,6 @@ procedure dummy (
 
 procedure dummy2 (
         Board_Index M
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -674,10 +646,6 @@ procedure dummy2 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Board_Index N
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

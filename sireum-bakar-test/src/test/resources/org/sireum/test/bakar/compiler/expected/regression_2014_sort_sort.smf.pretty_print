@@ -14,10 +14,6 @@ package Sort
 
 procedure Integer Num_Repetition (
         Array_Type A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Num_Repetition+2:12/A+2:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -35,10 +31,6 @@ procedure Integer Num_Repetition (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Contents_Type E
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Num_Repetition+2:12/E+2:43</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -56,10 +48,6 @@ procedure Integer Num_Repetition (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type L
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Num_Repetition+2:12/L+3:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -77,10 +65,6 @@ procedure Integer Num_Repetition (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type U
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Num_Repetition+2:12/U+3:29</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -191,10 +175,6 @@ procedure Integer Num_Repetition (
 
 procedure Boolean Perm (
         Array_Type A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/A-14:17</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -212,10 +192,6 @@ procedure Boolean Perm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Array_Type B
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/B-14:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -233,10 +209,6 @@ procedure Boolean Perm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type L
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/L-14:36</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -254,10 +226,6 @@ procedure Boolean Perm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type U
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/U-14:38</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -376,10 +344,6 @@ procedure Boolean Perm (
 
 procedure Boolean Ordered (
         Array_Type A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Ordered-12:12/A-12:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -397,10 +361,6 @@ procedure Boolean Ordered (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type L
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Ordered-12:12/L-12:36</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -418,10 +378,6 @@ procedure Boolean Ordered (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type U
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Ordered-12:12/U-12:38</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -532,10 +488,6 @@ procedure Boolean Ordered (
 
 procedure Boolean Partitioned (
         Array_Type A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Partitioned+39:12/A+39:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -553,10 +505,6 @@ procedure Boolean Partitioned (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type L
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Partitioned+39:12/L+40:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -574,10 +522,6 @@ procedure Boolean Partitioned (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type M
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Partitioned+39:12/M+40:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -595,10 +539,6 @@ procedure Boolean Partitioned (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type U
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Partitioned+39:12/U+40:30</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1266,10 +1206,6 @@ procedure Boolean Partitioned (
 
 procedure Swap_Elements (
         Array_Type T
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Swap_Elements+56:13/T+56:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1287,10 +1223,6 @@ procedure Swap_Elements (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Swap_Elements+56:13/I+56:50</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -1308,10 +1240,6 @@ procedure Swap_Elements (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type J
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Swap_Elements+56:13/J+56:53</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2284,10 +2212,6 @@ procedure Swap_Elements (
 
 procedure BubbleSort (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2437,10 +2361,6 @@ procedure BubbleSort (
 
 procedure BubbleSortFast (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2605,10 +2525,6 @@ procedure BubbleSortFast (
 
 procedure InsertionSort (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -2761,10 +2677,6 @@ procedure InsertionSort (
 
 procedure ShellSort (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3222,10 +3134,6 @@ const $CONST {
 
 procedure Boolean Ordered (
         Array_Type A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Ordered-12:12/A-12:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3243,10 +3151,6 @@ procedure Boolean Ordered (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type L
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Ordered-12:12/L-12:36</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3264,10 +3168,6 @@ procedure Boolean Ordered (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type U
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Ordered-12:12/U-12:38</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3305,10 +3205,6 @@ procedure Boolean Ordered (
 
 procedure Boolean Perm (
         Array_Type A
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/A-14:17</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3326,10 +3222,6 @@ procedure Boolean Perm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Array_Type B
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/B-14:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3347,10 +3239,6 @@ procedure Boolean Perm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type L
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/L-14:36</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3368,10 +3256,6 @@ procedure Boolean Perm (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Index_Type U
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/Perm-14:12/U-14:38</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -3409,10 +3293,6 @@ procedure Boolean Perm (
 
 procedure BubbleSort (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/BubbleSort-16:13/Table-16:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -4015,10 +3895,6 @@ procedure BubbleSort (
 
 procedure BubbleSortFast (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/BubbleSortFast-24:13/Table-24:28</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -4621,10 +4497,6 @@ procedure BubbleSortFast (
 
 procedure InsertionSort (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -5227,10 +5099,6 @@ procedure InsertionSort (
 
 procedure ShellSort (
         Array_Type Table
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

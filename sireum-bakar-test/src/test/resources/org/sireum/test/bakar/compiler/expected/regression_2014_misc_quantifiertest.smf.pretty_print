@@ -31,10 +31,6 @@ procedure $$binit
 
 procedure dummy (
         Index I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -210,10 +206,6 @@ global Vector @@V
 
 procedure dummy (
         Index I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

@@ -71,24 +71,24 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 
-      ada://variable_temp/QuantifierTest/dummy/_t0 
-      ada://variable_temp/QuantifierTest/dummy/_t1 
-      ada://variable_temp/QuantifierTest/dummy/_t10 
-      ada://variable_temp/QuantifierTest/dummy/_t11 
-      ada://variable_temp/QuantifierTest/dummy/_t12 
-      ada://variable_temp/QuantifierTest/dummy/_t13 
-      ada://variable_temp/QuantifierTest/dummy/_t14 
-      ada://variable_temp/QuantifierTest/dummy/_t15 
-      ada://variable_temp/QuantifierTest/dummy/_t16 
-      ada://variable_temp/QuantifierTest/dummy/_t17 
-      ada://variable_temp/QuantifierTest/dummy/_t2 
-      ada://variable_temp/QuantifierTest/dummy/_t3 
-      ada://variable_temp/QuantifierTest/dummy/_t4 
-      ada://variable_temp/QuantifierTest/dummy/_t5 
-      ada://variable_temp/QuantifierTest/dummy/_t6 
-      ada://variable_temp/QuantifierTest/dummy/_t7 
-      ada://variable_temp/QuantifierTest/dummy/_t8 
-      ada://variable_temp/QuantifierTest/dummy/_t9 
+      ada://variable__temp/QuantifierTest/dummy/_t0 
+      ada://variable__temp/QuantifierTest/dummy/_t1 
+      ada://variable__temp/QuantifierTest/dummy/_t10 
+      ada://variable__temp/QuantifierTest/dummy/_t11 
+      ada://variable__temp/QuantifierTest/dummy/_t12 
+      ada://variable__temp/QuantifierTest/dummy/_t13 
+      ada://variable__temp/QuantifierTest/dummy/_t14 
+      ada://variable__temp/QuantifierTest/dummy/_t15 
+      ada://variable__temp/QuantifierTest/dummy/_t16 
+      ada://variable__temp/QuantifierTest/dummy/_t17 
+      ada://variable__temp/QuantifierTest/dummy/_t2 
+      ada://variable__temp/QuantifierTest/dummy/_t3 
+      ada://variable__temp/QuantifierTest/dummy/_t4 
+      ada://variable__temp/QuantifierTest/dummy/_t5 
+      ada://variable__temp/QuantifierTest/dummy/_t6 
+      ada://variable__temp/QuantifierTest/dummy/_t7 
+      ada://variable__temp/QuantifierTest/dummy/_t8 
+      ada://variable__temp/QuantifierTest/dummy/_t9 
 
     Params
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 

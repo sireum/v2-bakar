@@ -14,10 +14,6 @@ package Minpackage
 
 procedure Integer MinFunc (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -35,10 +31,6 @@ procedure Integer MinFunc (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -157,10 +149,6 @@ package Minpackage
 
 procedure Integer MinFunc (
         Integer X
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -178,10 +166,6 @@ procedure Integer MinFunc (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer Y
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

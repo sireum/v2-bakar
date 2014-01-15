@@ -2,7 +2,7 @@ ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 -> ada://ordinary_type/Stan
 ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/The_Stack_Praxis-1:9/@@Pointer+10:4 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
 ada://variable/The_Stack_Praxis-1:9/@@S+9:4 -> ada://ordinary_type/The_Stack_Praxis-1:9/Vector+8:9
-ada://variable_temp/The_Stack_Praxis/Pop/_t2 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
-ada://variable_temp/The_Stack_Praxis/Pop/_t3 -> ada://ordinary_type/universal_integer
-ada://variable_temp/The_Stack_Praxis/Push/_t0 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
-ada://variable_temp/The_Stack_Praxis/Push/_t1 -> ada://ordinary_type/universal_integer
+ada://variable__temp/The_Stack_Praxis/Pop/_t2 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
+ada://variable__temp/The_Stack_Praxis/Pop/_t3 -> ada://ordinary_type/universal_integer
+ada://variable__temp/The_Stack_Praxis/Push/_t0 -> ada://ordinary_type/The_Stack_Praxis-1:9/Pointer_Range+6:9
+ada://variable__temp/The_Stack_Praxis/Push/_t1 -> ada://ordinary_type/universal_integer

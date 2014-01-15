@@ -97,8 +97,8 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 
-      ada://variable_temp/The_Stack_Praxis/Pop/_t2 
-      ada://variable_temp/The_Stack_Praxis/Pop/_t3 
+      ada://variable__temp/The_Stack_Praxis/Pop/_t2 
+      ada://variable__temp/The_Stack_Praxis/Pop/_t3 
 
     Params
       ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 
@@ -109,8 +109,8 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 
-      ada://variable_temp/The_Stack_Praxis/Push/_t0 
-      ada://variable_temp/The_Stack_Praxis/Push/_t1 
+      ada://variable__temp/The_Stack_Praxis/Push/_t0 
+      ada://variable__temp/The_Stack_Praxis/Push/_t1 
 
     Params
       ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 

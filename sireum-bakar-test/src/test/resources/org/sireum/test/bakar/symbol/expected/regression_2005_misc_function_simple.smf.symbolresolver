@@ -82,10 +82,10 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
       ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
-      ada://variable_temp/Function_Simple/F1/_t0 
-      ada://variable_temp/Function_Simple/F1/_t1 
-      ada://variable_temp/Function_Simple/F1/_t2 
-      ada://variable_temp/Function_Simple/F1/_t3 
+      ada://variable__temp/Function_Simple/F1/_t0 
+      ada://variable__temp/Function_Simple/F1/_t1 
+      ada://variable__temp/Function_Simple/F1/_t2 
+      ada://variable__temp/Function_Simple/F1/_t3 
 
     Params
       ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
@@ -111,9 +111,9 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 
       ada://parameter/Function_Simple-1:9/P2+18:13/N+18:31 
+      ada://variable__temp/Function_Simple/P2/_t4 
+      ada://variable__temp/Function_Simple/P2/_t5 
       ada://variable__temp/P2/Function_Simple/_tcomp1 
-      ada://variable_temp/Function_Simple/P2/_t4 
-      ada://variable_temp/Function_Simple/P2/_t5 
 
     Params
       ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 

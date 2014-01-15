@@ -126,14 +126,14 @@ Procedure Symbol Table
       ada://variable/The_Stack-1:9/Find_Stack_Pos+67:13/Result_Pos+74:6 
       ada://variable__temp/Find_Stack_Pos/The_Stack/_tcomp2 
       ada://variable__temp/Find_Stack_Pos/The_Stack/_tcomp3 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t16 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t17 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t18 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t19 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t20 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t21 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t22 
-      ada://variable_temp/The_Stack/Find_Stack_Pos/_t23 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t16 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t17 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t18 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t19 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t20 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t21 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t22 
+      ada://variable__temp/The_Stack/Find_Stack_Pos/_t23 
 
     Params
       ada://parameter/The_Stack-1:9/Find_Stack_Pos+67:13/X+67:29 
@@ -147,16 +147,16 @@ Procedure Symbol Table
       ada://loop_parameter/The_Stack-1:9/Value_Present+46:13/I+53:11 
       ada://parameter/The_Stack-1:9/Value_Present+46:13/X+46:28 
       ada://variable/The_Stack-1:9/Value_Present+46:13/Result+50:7 
+      ada://variable__temp/The_Stack/Value_Present/_t10 
+      ada://variable__temp/The_Stack/Value_Present/_t11 
+      ada://variable__temp/The_Stack/Value_Present/_t12 
+      ada://variable__temp/The_Stack/Value_Present/_t13 
+      ada://variable__temp/The_Stack/Value_Present/_t14 
+      ada://variable__temp/The_Stack/Value_Present/_t15 
+      ada://variable__temp/The_Stack/Value_Present/_t8 
+      ada://variable__temp/The_Stack/Value_Present/_t9 
       ada://variable__temp/Value_Present/The_Stack/_tcomp0 
       ada://variable__temp/Value_Present/The_Stack/_tcomp1 
-      ada://variable_temp/The_Stack/Value_Present/_t10 
-      ada://variable_temp/The_Stack/Value_Present/_t11 
-      ada://variable_temp/The_Stack/Value_Present/_t12 
-      ada://variable_temp/The_Stack/Value_Present/_t13 
-      ada://variable_temp/The_Stack/Value_Present/_t14 
-      ada://variable_temp/The_Stack/Value_Present/_t15 
-      ada://variable_temp/The_Stack/Value_Present/_t8 
-      ada://variable_temp/The_Stack/Value_Present/_t9 
 
     Params
       ada://parameter/The_Stack-1:9/Value_Present+46:13/X+46:28 
@@ -196,10 +196,10 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18 
-      ada://variable_temp/The_Stack/Pop/_t4 
-      ada://variable_temp/The_Stack/Pop/_t5 
-      ada://variable_temp/The_Stack/Pop/_t6 
-      ada://variable_temp/The_Stack/Pop/_t7 
+      ada://variable__temp/The_Stack/Pop/_t4 
+      ada://variable__temp/The_Stack/Pop/_t5 
+      ada://variable__temp/The_Stack/Pop/_t6 
+      ada://variable__temp/The_Stack/Pop/_t7 
 
     Params
       ada://parameter/The_Stack-1:9/Pop-36:14/X-36:18 
@@ -210,10 +210,10 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack-1:9/Push-31:14/X-31:19 
-      ada://variable_temp/The_Stack/Push/_t0 
-      ada://variable_temp/The_Stack/Push/_t1 
-      ada://variable_temp/The_Stack/Push/_t2 
-      ada://variable_temp/The_Stack/Push/_t3 
+      ada://variable__temp/The_Stack/Push/_t0 
+      ada://variable__temp/The_Stack/Push/_t1 
+      ada://variable__temp/The_Stack/Push/_t2 
+      ada://variable__temp/The_Stack/Push/_t3 
 
     Params
       ada://parameter/The_Stack-1:9/Push-31:14/X-31:19 

@@ -91,8 +91,8 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Example-1:9/add-2:15/x-2:21 
       ada://parameter/Example-1:9/add-2:15/y-2:41 
-      ada://variable_temp/Example/add/_t0 
-      ada://variable_temp/Example/add/_t1 
+      ada://variable__temp/Example/add/_t0 
+      ada://variable__temp/Example/add/_t1 
 
     Params
       ada://parameter/Example-1:9/add-2:15/x-2:21 
@@ -106,10 +106,10 @@ Procedure Symbol Table
       ada://parameter/Example-1:9/foo-5:15/A-5:21 
       ada://parameter/Example-1:9/foo-5:15/B-5:41 
       ada://variable/Example-1:9/foo-5:15/M+12:3 
-      ada://variable_temp/Example/foo/_t2 
-      ada://variable_temp/Example/foo/_t3 
-      ada://variable_temp/Example/foo/_t4 
-      ada://variable_temp/Example/foo/_t5 
+      ada://variable__temp/Example/foo/_t2 
+      ada://variable__temp/Example/foo/_t3 
+      ada://variable__temp/Example/foo/_t4 
+      ada://variable__temp/Example/foo/_t5 
 
     Params
       ada://parameter/Example-1:9/foo-5:15/A-5:21 

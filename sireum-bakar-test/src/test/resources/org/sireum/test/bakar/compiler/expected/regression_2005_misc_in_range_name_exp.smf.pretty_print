@@ -14,10 +14,6 @@ package in_range_name_exp
 
 procedure Boolean test (
         Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -144,10 +140,6 @@ package in_range_name_exp
 
 procedure Boolean test (
         Integer Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

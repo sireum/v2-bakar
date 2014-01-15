@@ -40,10 +40,6 @@ procedure $$binit
 
 procedure Test01 (
         Object Q
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest01-1:9/Test01-16:13/Q-16:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -161,10 +157,6 @@ procedure Test01 (
 
 procedure Test02 (
         Integer I1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest01-1:9/Test02+13:13/I1+13:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -182,10 +174,6 @@ procedure Test02 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer I2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest01-1:9/Test02+13:13/I2+13:24</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -203,10 +191,6 @@ procedure Test02 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O1
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest01-1:9/Test02+13:13/O1+13:41</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -224,10 +208,6 @@ procedure Test02 (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer O2
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest01-1:9/Test02+13:13/O2+13:45</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -552,10 +532,6 @@ global Object @@anObject
 
 procedure Test01 (
         Object Q
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/RecordTest01-1:9/Test01-16:13/Q-16:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

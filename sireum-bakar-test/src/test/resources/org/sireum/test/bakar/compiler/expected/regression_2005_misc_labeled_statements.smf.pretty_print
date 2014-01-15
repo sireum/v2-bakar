@@ -14,10 +14,6 @@ package Labeled_Statements
 
 procedure P (
         Integer I
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -35,10 +31,6 @@ procedure P (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Integer J
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Labeled_Statements-1:9/P+4:14/J+4:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -56,10 +48,6 @@ procedure P (
                </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
         ,
         Boolean Ret
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Labeled_Statements-1:9/P+4:14/Ret+4:33</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -127,10 +115,6 @@ procedure P (
 
 procedure Integer Stupid (
         Index_Range Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -370,10 +354,6 @@ typealias Integer Index_Range
 
 procedure Integer Stupid (
         Index_Range Z
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>

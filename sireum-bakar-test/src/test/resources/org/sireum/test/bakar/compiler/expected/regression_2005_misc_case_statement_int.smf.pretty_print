@@ -14,10 +14,6 @@ package Case_Statement_Int
 
 procedure Activity isWorkDay (
         Integer d
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Case_Statement_Int-1:9/isWorkDay-7:12/d-7:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
@@ -293,10 +289,6 @@ typealias Integer SixType
 
 procedure Activity isWorkDay (
         Integer d
-            @BAKAR_REF_URI
-
-              ("""<string sid="1">ada://parameter/Case_Statement_Int-1:9/isWorkDay-7:12/d-7:23</string>""")
-
             @BAKAR_PARAM_INFO
 
               ("""<org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-pd2pi_-1_-_-anon_-2>
