@@ -102,14 +102,14 @@ ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t108 -> ada://ordinary_
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t109 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t110 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t111 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t90 -> ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8
+ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t90 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t91 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t92 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t93 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t94 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t95 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t96 -> ada://subtype/Standard-1:1/Natural-1:1
-ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t97 -> ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8
+ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t97 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t98 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/InsertionSort/_t99 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/Num_Repetitions/_t12 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
@@ -140,7 +140,7 @@ ada://variable__temp/Sort_Simple_Contract/SelectionSort/_t126 -> ada://subtype/S
 ada://variable__temp/Sort_Simple_Contract/SelectionSort/_t127 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/SelectionSort/_t128 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/SelectionSort/_t129 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Sort_Simple_Contract/ShellSort/_t130 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
+ada://variable__temp/Sort_Simple_Contract/ShellSort/_t130 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/ShellSort/_t131 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Sort_Simple_Contract/ShellSort/_t132 -> ada://subtype/Standard-1:1/Natural-1:1
 ada://variable__temp/Sort_Simple_Contract/ShellSort/_t133 -> ada://ordinary_type/universal_integer
@@ -167,7 +167,7 @@ ada://variable__temp/Sort_Simple_Contract/ShellSort/_t153 -> ada://ordinary_type
 ada://variable__temp/Sort_Simple_Contract/isPerm/_t40 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/isPerm/_t41 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/isPerm/_t42 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
-ada://variable__temp/Sort_Simple_Contract/isPerm/_t43 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
+ada://variable__temp/Sort_Simple_Contract/isPerm/_t43 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/isPerm/_t44 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/isPerm/_t45 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Sort_Simple_Contract/isPerm/_t46 -> ada://ordinary_type/Standard-1:1/Integer-1:1
@@ -198,7 +198,7 @@ ada://variable__temp/Sort_Simple_Contract/isSet/_t36 -> ada://subtype/Sort_Simpl
 ada://variable__temp/Sort_Simple_Contract/isSet/_t37 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/isSet/_t38 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/isSet/_t39 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Sort_Simple_Contract/isSorted/_t0 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
+ada://variable__temp/Sort_Simple_Contract/isSorted/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract/isSorted/_t1 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Sort_Simple_Contract/isSorted/_t10 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract/isSorted/_t11 -> ada://ordinary_type/universal_integer

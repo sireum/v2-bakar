@@ -10,7 +10,7 @@ ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 -> ada://subtype
 ada://variable/Array_Unconstrained-1:9/isSorted-6:12/B+3:5 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
 ada://variable__temp/Array_Unconstrained/indexIsValue/_t12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained/indexIsValue/_t13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Array_Unconstrained/isSorted/_t0 -> ada://ordinary_type/Array_Unconstrained-1:9/Vector-4:8
+ada://variable__temp/Array_Unconstrained/isSorted/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained/isSorted/_t1 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Array_Unconstrained/isSorted/_t10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained/isSorted/_t11 -> ada://ordinary_type/universal_integer

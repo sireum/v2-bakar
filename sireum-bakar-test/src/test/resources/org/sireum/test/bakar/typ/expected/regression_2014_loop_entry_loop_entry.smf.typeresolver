@@ -9,13 +9,13 @@ ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Temp+28:6 -> ada://ordinar
 ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Z+35:10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Loop_Entry/Loop_Entry/_tcomp0 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Array_Loop_Entry/Loop_Entry/_tcomp1 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t0 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
+ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t1 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t10 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
+ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t13 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t14 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
+ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t14 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t17 -> ada://ordinary_type/universal_integer
@@ -23,7 +23,7 @@ ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t18 -> ada://ordinary_type/Loo
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t19 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t20 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t21 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
+ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t21 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t22 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t23 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t24 -> ada://ordinary_type/universal_integer
@@ -35,7 +35,7 @@ ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t29 -> ada://ordinary_type/Sta
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t3 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t30 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t31 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t32 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
+ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t32 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t33 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t34 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t35 -> ada://ordinary_type/Standard-1:1/Integer-1:1
@@ -48,7 +48,7 @@ ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t40 -> ada://ordinary_type/uni
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t41 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t42 -> ada://ordinary_type/universal_integer
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t5 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t6 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
+ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Loop_Entry/Array_Loop_Entry/_t9 -> ada://ordinary_type/universal_integer

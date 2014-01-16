@@ -1127,7 +1127,7 @@ procedure Array_Loop_Entry (
                                            <properties mtype="mlinkedmap">
                                              <entry>
                                                <string>BAKAR_TYPE_URI</string>
-                                               <string srefid="11"/>
+                                               <string srefid="14"/>
                                              </entry>
                                            </properties>
                                          </org.sireum.pilar.ast.NameUser>
@@ -1135,21 +1135,21 @@ procedure Array_Loop_Entry (
                                          <properties mtype="mlinkedmap">
                                            <entry>
                                              <string>BAKAR_TYPE_URI</string>
-                                             <string srefid="11"/>
+                                             <string srefid="14"/>
                                            </entry>
                                          </properties>
                                        </org.sireum.pilar.ast.NamedTypeSpec>
                                        <properties mtype="mlinkedmap">
                                          <entry>
                                            <string>BAKAR_TYPE_URI</string>
-                                           <string srefid="11"/>
+                                           <string srefid="14"/>
                                          </entry>
                                        </properties>
                                      </org.sireum.pilar.ast.TypeExp>
                                      <properties mtype="mlinkedmap">
                                        <entry>
                                          <string>BAKAR_TYPE_URI</string>
-                                         <string srefid="11"/>
+                                         <string srefid="14"/>
                                        </entry>
                                        <entry>
                                          <string>util.loc</string>
@@ -1377,7 +1377,7 @@ procedure Array_Loop_Entry (
                                            <properties mtype="mlinkedmap">
                                              <entry>
                                                <string>BAKAR_TYPE_URI</string>
-                                               <string srefid="11"/>
+                                               <string srefid="14"/>
                                              </entry>
                                            </properties>
                                          </org.sireum.pilar.ast.NameUser>
@@ -1385,21 +1385,21 @@ procedure Array_Loop_Entry (
                                          <properties mtype="mlinkedmap">
                                            <entry>
                                              <string>BAKAR_TYPE_URI</string>
-                                             <string srefid="11"/>
+                                             <string srefid="14"/>
                                            </entry>
                                          </properties>
                                        </org.sireum.pilar.ast.NamedTypeSpec>
                                        <properties mtype="mlinkedmap">
                                          <entry>
                                            <string>BAKAR_TYPE_URI</string>
-                                           <string srefid="11"/>
+                                           <string srefid="14"/>
                                          </entry>
                                        </properties>
                                      </org.sireum.pilar.ast.TypeExp>
                                      <properties mtype="mlinkedmap">
                                        <entry>
                                          <string>BAKAR_TYPE_URI</string>
-                                         <string srefid="11"/>
+                                         <string srefid="14"/>
                                        </entry>
                                        <entry>
                                          <string>util.loc</string>

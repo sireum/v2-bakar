@@ -30,6 +30,7 @@ object URIS {
   val uriPrefixProcedureSpec = "ada://procedure/"
     
   def addTypeUri[E <: PropertyProvider](e: E, uri: String) : E = {
+    assert(isTypeUri(uri) || uri == DUMMY_URI)
     e(TYPE_URI) = uri
     e
   }
@@ -50,8 +51,8 @@ object URIS {
   }
 
   def isTypeUri(u: ResourceUri) =
-    u.startsWith("ada://ordinary_type/") || u.startsWith("ada://subtype/") ||
-    u.startsWith("ada://private_type/")
+    u.startsWith("ada://ordinary_type") || u.startsWith("ada://subtype") ||
+    u.startsWith("ada://private_type")
 
   def isUIFUri(u:ResourceUri) = u.startsWith(UIF.uifURIprefix)
     
