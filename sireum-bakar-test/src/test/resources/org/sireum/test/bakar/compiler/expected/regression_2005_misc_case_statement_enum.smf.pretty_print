@@ -219,6 +219,22 @@ typealias Week WeekDay
                    <string>Week</string>
                    <properties mtype="mlinkedmap">
                      <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                         <string>ada</string>
+                         <string>ordinary_type</string>
+                         <ilist ttype="ilist">
+                           <string sid="5">Case_Statement_Enum-1:9</string>
+                           <string>Week-3:8</string>
+                         </ilist>
+                         <string srefid="2"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
                        <string>BAKAR_TYPE_URI</string>
                        <string srefid="2"/>
                      </entry>
@@ -246,8 +262,8 @@ typealias Week WeekDay
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="10" size="5">
-                   <string sid="5">case_statement_enum.ads</string>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="11" size="5">
+                   <string sid="6">case_statement_enum.ads</string>
                    <int>4</int>
                    <int>33</int>
                    <int>4</int>
@@ -256,17 +272,17 @@ typealias Week WeekDay
                </entry>
              </properties>
            </org.sireum.pilar.ast.CallExp>
-           <org.sireum.pilar.ast.NameExp cid="11" size="1">
-             <org.sireum.pilar.ast.NameUser cid="12" size="1">
+           <org.sireum.pilar.ast.NameExp cid="12" size="1">
+             <org.sireum.pilar.ast.NameUser cid="13" size="1">
                <string>Fri</string>
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="13" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="14" size="4">
                      <string>ada</string>
-                     <string sid="6">enumeration_literal</string>
+                     <string sid="7">enumeration_literal</string>
                      <ilist ttype="ilist">
-                       <string sid="7">Case_Statement_Enum-1:9</string>
+                       <string srefid="5"/>
                        <string>Week-3:8</string>
                        <string>Fri-3:38</string>
                      </ilist>
@@ -290,8 +306,8 @@ typealias Week WeekDay
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="14" size="5">
-                   <string srefid="5"/>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
+                   <string srefid="6"/>
                    <int>4</int>
                    <int>47</int>
                    <int>4</int>
@@ -489,6 +505,22 @@ typealias Week WeekEnd
                    <string>Week</string>
                    <properties mtype="mlinkedmap">
                      <entry>
+                       <string>pilar.symbol</string>
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="14" size="4">
+                         <string>ada</string>
+                         <string>ordinary_type</string>
+                         <ilist ttype="ilist">
+                           <string srefid="4"/>
+                           <string>Week-3:8</string>
+                         </ilist>
+                         <string srefid="2"/>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </entry>
+                     <entry>
+                       <string>BAKAR_REF_URI</string>
+                       <string srefid="2"/>
+                     </entry>
+                     <entry>
                        <string>BAKAR_TYPE_URI</string>
                        <string srefid="2"/>
                      </entry>
@@ -516,7 +548,7 @@ typealias Week WeekEnd
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="14" size="5">
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="15" size="5">
                    <string srefid="6"/>
                    <int>6</int>
                    <int>40</int>

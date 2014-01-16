@@ -6,6 +6,28 @@ import org.sireum.pilar.symbol._
 
 object PilarNodeFactory {
 
+  def buildCallExp(methodName: String, methodUri: ResourceUri, typeUri: ResourceUri, arg: Exp): CallExp = {
+    val nu = URIS.addResourceUri(NameUser(methodName), methodUri)
+    val ne = NameExp(nu)
+    buildCallExp(ne, typeUri, arg)
+  }
+
+  def buildCallExp(ne: NameExp, typeUri: ResourceUri, arg: Exp): CallExp = {
+    assert(ne.name ? Symbol.symbolPropKey)
+    val ce = CallExp(ne, arg)
+    if (typeUri != "null") URIS.addTypeUri(ce, typeUri)
+    ce
+  }
+
+  def buildCallExp(te: TypeExp, typeUri: ResourceUri, arg: Exp): CallExp = {
+    val ce = CallExp(te, arg)
+    if (typeUri != "null") {
+      URIS.addTypeUri(ce, typeUri)
+      URIS.addTypeUri(te, typeUri)
+    }
+    ce
+  }
+
   def buildGlobalVar(varName: String, varUri: ResourceUri,
     parentUri: ResourceUri, nts: NamedTypeSpec): GlobalVarDecl = {
     assert(nts ? URIS.TYPE_URI)
@@ -31,15 +53,21 @@ object PilarNodeFactory {
     LocalVarDecl(Some(ts), varND, ivectorEmpty)
   }
 
-  def buildNamedTypeSpec(typeName: String, typeUri: ResourceUri) = {
+  def buildNamedTypeSpec(typeName: String, typeUri: ResourceUri) : NamedTypeSpec = {
     assert(URIS.isTypeUri(typeUri))
     val nu = NameUser(typeName)
     URIS.addTypeUri(nu, typeUri)
 
-    val nts = NamedTypeSpec(nu, ivectorEmpty)
-    URIS.addTypeUri(nts, typeUri)
+    buildNamedTypeSpec(nu, typeUri)
   }
 
+  def buildNamedTypeSpec(name : NameUser, typeUri: ResourceUri) : NamedTypeSpec = {
+    assert(URIS.isTypeUri(URIS.getTypeUri(name)))
+    
+    val nts = NamedTypeSpec(name, ivectorEmpty)
+    URIS.addTypeUri(nts, typeUri)
+  }
+    
   def buildParamDecl(paramName: String, paramUri: ResourceUri, ts: TypeSpec): ParamDecl = {
     val nd = URIS.addResourceUri(NameDefinition(paramName), paramUri)
     buildParamDecl(nd, ts)
