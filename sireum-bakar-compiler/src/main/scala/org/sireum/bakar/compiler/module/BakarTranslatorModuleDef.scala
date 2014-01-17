@@ -787,9 +787,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
      */
     def newLocLabel(s: String): NameDefinition = {
       countLocation += 1
-      val simpName = LOCATION_PREFIX + countLocation
-      val urlName = simpName + "_" + s
-      addResourceUri(NameDefinition(simpName), urlName)
+      val label = LOCATION_PREFIX + countLocation
+      val uri = label + "_" + s
+      PNF.buildLocationLabel(label, uri)
     }
 
     def newLocLabel(s: SourceLocation): NameDefinition =

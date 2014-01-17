@@ -53,6 +53,22 @@ object PilarNodeFactory {
     LocalVarDecl(Some(ts), varND, ivectorEmpty)
   }
 
+  def buildLocalTempVar(typeName : String, typeUri : String, path : ISeq[String]) : (LocalVarDecl, NameExp) = {
+    val name = path(path.size - 1)
+    val uri = VariableURIs.tempVarPrefix + path.mkString("/")
+
+    val nts = buildNamedTypeSpec(typeName, typeUri)
+    val lvd = buildLocalVar(name, uri, nts)
+
+    val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
+    ret(URIS.TYPE_URI) = typeUri
+    (lvd, ret)    
+  }
+
+  def buildLocationLabel (label : String, uri:ResourceUri) : NameDefinition = {
+    URIS.addResourceUri(NameDefinition(label), uri)
+  }
+  
   def buildNamedTypeSpec(typeName: String, typeUri: ResourceUri) : NamedTypeSpec = {
     assert(URIS.isTypeUri(typeUri))
     val nu = NameUser(typeName)

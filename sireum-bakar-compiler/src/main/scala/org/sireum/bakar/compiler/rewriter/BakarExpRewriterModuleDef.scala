@@ -39,7 +39,7 @@ class BakarRewriter {
     tcounter += 1
     
     val path = ilist(this.currentPackage, this.currentMethod, name)
-    val (lvd, ret) = RewriteUtil.createTempVar(typeName, typeUri, path)
+    val (lvd, ret) = PilarNodeFactory.buildLocalTempVar(typeName, typeUri, path)
 
     this.newTempVars :+= lvd
 

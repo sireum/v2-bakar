@@ -14,6 +14,7 @@ import org.sireum.util.Rewriter
 import org.sireum.util.ilistEmpty
 import org.sireum.pipeline.Input
 import org.sireum.pipeline.Output
+import org.sireum.bakar.compiler.module.{PilarNodeFactory => PNF}
 import org.sireum.bakar.compiler.module.PilarNodeFactory
 
 object Names {
@@ -61,7 +62,10 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
 
         var newTempLocals = ivectorEmpty[LocalVarDecl]
           def newPath = ilist(currentPackage, procName.name, Names.tempVarPrefix + nextCounter)
-          def newLocLabel = RewriteUtil.createLocationLabel(Names.locationPrefix + nextCounter)
+          def newLocLabel = {
+            val labelName = Names.locationPrefix + nextCounter
+            PilarNodeFactory.buildLocationLabel(labelName, labelName)
+          }
 
           def rewriteCallJumps(l : LocationDecl) : ISeq[LocationDecl] = {
             l match {
@@ -78,7 +82,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
                     val ptypeSpec = calledProc.params(i).typeSpec.get.asInstanceOf[NamedTypeSpec]
                     val lhsTypeName : String = ptypeSpec.name.name
                     val lhsTypeUri : ResourceUri = URIS.getTypeUri(ptypeSpec)
-                    val (lhsLvd, lhsTempVar) = RewriteUtil.createTempVar(lhsTypeName, lhsTypeUri, newPath)
+                    val (lhsLvd, lhsTempVar) = PNF.buildLocalTempVar(lhsTypeName, lhsTypeUri, newPath)
                     newTempLocals +:= lhsLvd
                     _lhss :+= lhsTempVar
                       def rewriteComplexExp(e : Exp) : Exp = {
@@ -86,7 +90,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
                           case ie @ IndexingExp(e, indices) =>
                             val modIndices = for (index <- indices) yield {
                               val iuri : String = e(URIS.TYPE_URI)
-                              val (lvd, tempVar) = RewriteUtil.createTempVar("FIXME", iuri, newPath)
+                              val (lvd, tempVar) = PNF.buildLocalTempVar("FIXME", iuri, newPath)
                               newTempLocals +:= lvd
                               prelocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
                                 AssignAction(ivectorEmpty, tempVar, ":=", index))
@@ -122,7 +126,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
         import org.sireum.bakar.symbol.BakarSymbol._
         val body = cp(ib, ImplementedBody(modLocals, modLocs, cc))
         val parentUri = pd.parentUri.get
-        cp(pd, PilarNodeFactory.buildProcedureDecl(procName, parentUri, params, None, body)) 
+        cp(pd, PNF.buildProcedureDecl(procName, parentUri, params, None, body)) 
       } else pd
   }, Rewriter.TraversalMode.TOP_DOWN, true)
 
