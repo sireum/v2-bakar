@@ -7,6 +7,11 @@ import org.sireum.bakar.symbol.SparkTypeDecl
 
 object PilarNodeFactory {
 
+  def buildAssertAction(e : Exp, message : String) = {
+    val _m = URIS.addTypeUri(LiteralExp(LiteralType.STRING, message, message), StandardURIs.stringURI)
+    AssertAction(ivectorEmpty, e, Some(_m))
+  }
+  
   def buildCallExp(methodName: String, methodUri: ResourceUri, typeUri: ResourceUri, arg: Exp): CallExp = {
     val nu = URIS.addResourceUri(NameUser(methodName), methodUri)
     val ne = NameExp(nu)
