@@ -2382,11 +2382,7 @@ procedure BubbleSort (
     assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Array_Type, J - 1ii) => Table[K] <= Table[J]
-          default => true} && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
-        @ASSERT
-
-          ("""<boolean>true</boolean>""")
-    ;
+          default => true} && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [79, 9]";
 
   #l88.
     if J == _tcomp15 then goto l78;
@@ -2401,11 +2397,7 @@ procedure BubbleSort (
     // empty loc
 
   #l91.
-    assert proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
-        @ASSERT
-
-          ("""<boolean>true</boolean>""")
-    ;
+    assert proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [88, 8]";
 
   #l92.
     if I == _tcomp12 then goto l72;
@@ -2555,11 +2547,7 @@ procedure BubbleSortFast (
     assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Index_Type, J - 1ii) => Table[K] <= Table[J]
-          default => true} && Partitioned (Table, attribute__uif__first `Index_Type, T, J) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
-        @ASSERT
-
-          ("""<boolean>true</boolean>""")
-    ;
+          default => true} && Partitioned (Table, attribute__uif__first `Index_Type, T, J) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [114, 9]";
 
   #l111.
     goto l103;
@@ -2568,11 +2556,7 @@ procedure BubbleSortFast (
     // empty loc
 
   #l112.
-    assert proof__uif__assert Ordered (Table, Bound, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type)
-        @ASSERT
-
-          ("""<boolean>true</boolean>""")
-    ;
+    assert proof__uif__assert Ordered (Table, Bound, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [125, 9]";
 
   #l113.
     Bound := T;
@@ -2698,11 +2682,7 @@ procedure InsertionSort (
     assert proof__uif__assert Temp == attribute__uif__loop_entry (LOOP_LABEL_10, Table)[P] && attribute__uif__first `Index_Type <= J && J < P && proof__uif__for_all {Index_Type K => 
         switch K
           case (J + 1ii, P) => Table[K] > Temp
-          default => true} && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P)
-        @ASSERT
-
-          ("""<boolean>true</boolean>""")
-    ;
+          default => true} && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P) "Assertion failed at [149, 9]";
 
   #l130.
     goto l125;
@@ -2717,11 +2697,7 @@ procedure InsertionSort (
     assert proof__uif__assert attribute__uif__first `Index_Type + 1ii <= P && P <= attribute__uif__last `Index_Type && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P) && proof__uif__for_all {Index_Type K => 
         switch K
           case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry (LOOP_LABEL_9, Table)[K]
-          default => true}
-        @ASSERT
-
-          ("""<boolean>true</boolean>""")
-    ;
+          default => true} "Assertion failed at [164, 9]";
 
   #l133.
     if P == _tcomp17 then goto l116;

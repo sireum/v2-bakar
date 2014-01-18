@@ -91,7 +91,7 @@ Model(Some(abspackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(AbsPa
                 Some(NameDefinition(l7))
                   NameDefinition(l7)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(>=,NameExp(NameUser(r)),LiteralExp(INTEGER,0,0ii))),None)
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(>=,NameExp(NameUser(r)),LiteralExp(INTEGER,0,0ii))),Some(LiteralExp(STRI
                   List()
                   CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(>=,NameExp(NameUser(r)),LiteralExp(INTEGER,0,0ii)))
                     NameExp(NameUser(proof__uif__assert))
@@ -100,7 +100,8 @@ Model(Some(abspackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(AbsPa
                       NameExp(NameUser(r))
                         NameUser(r)
                       LiteralExp(INTEGER,0,0ii)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [11, 5],Assertion failed at [11, 5]))
+                    LiteralExp(STRING,Assertion failed at [11, 5],Assertion failed at [11, 5])
               JumpLocation(Some(NameDefinition(l8)),Vector(),ReturnJump(Vector(),Some(NameExp(NameUser(r)))))
                 Some(NameDefinition(l8))
                   NameDefinition(l8)

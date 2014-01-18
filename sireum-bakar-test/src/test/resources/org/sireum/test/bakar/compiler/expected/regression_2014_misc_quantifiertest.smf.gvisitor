@@ -117,7 +117,8 @@ Model(Some(quantifiertest.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Q
                                             NameUser(J)
                                       LiteralExp(INTEGER,7,7ii)
                               LiteralExp(BOOLEAN,true,true)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [7, 5],Assertion failed at [7, 5]))
+                    LiteralExp(STRING,Assertion failed at [7, 5],Assertion failed at [7, 5])
               ActionLocation(Some(NameDefinition(l3)),Vector(),AssignAction(Vector(),IndexingExp(NameExp(NameUser(@@V)),List(NameExp(NameUser(I)))),:=,BinaryExp(+,I
                 Some(NameDefinition(l3))
                   NameDefinition(l3)
@@ -205,7 +206,8 @@ Model(Some(quantifiertest.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Q
                                               NameUser(J)
                                         LiteralExp(INTEGER,7,7ii)
                                 LiteralExp(BOOLEAN,true,true)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [12, 5],Assertion failed at [12, 5]))
+                    LiteralExp(STRING,Assertion failed at [12, 5],Assertion failed at [12, 5])
               JumpLocation(Some(NameDefinition(l5)),Vector(),ReturnJump(Vector(),None))
                 Some(NameDefinition(l5))
                   NameDefinition(l5)

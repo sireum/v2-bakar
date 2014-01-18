@@ -57,7 +57,7 @@ procedure dummy (
     assert proof__uif__assert proof__uif__for_some {Index J => 
         switch J
           case (1ii, 2ii) => _t4 && _t5
-          default => true};
+          default => true} "Assertion failed at [7, 5]";
 
   #rwl6.
     _t6 := @@V[I];
@@ -102,7 +102,7 @@ procedure dummy (
           default => true};
 
   #l4.
-    assert proof__uif__assert _t16 &&& _t17;
+    assert proof__uif__assert _t16 &&& _t17 "Assertion failed at [12, 5]";
 
   #l5.
     return;

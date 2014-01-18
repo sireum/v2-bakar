@@ -1436,7 +1436,8 @@ Model(Some(sort.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Sort)),Vect
                                 NamedTypeSpec(NameUser(Index_Type),Vector())
                                   NameUser(Index_Type)
                                   List()
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [79, 9],Assertion failed at [79, 9]))
+                    LiteralExp(STRING,Assertion failed at [79, 9],Assertion failed at [79, 9])
               JumpLocation(Some(NameDefinition(l88)),Vector(),IfJump(Vector(),Vector(IfThenJump(BinaryExp(==,NameExp(NameUser(J)),NameExp(NameUser(_tcomp15))),Vecto
                 Some(NameDefinition(l88))
                   NameDefinition(l88)
@@ -1556,7 +1557,8 @@ Model(Some(sort.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Sort)),Vect
                                 NamedTypeSpec(NameUser(Index_Type),Vector())
                                   NameUser(Index_Type)
                                   List()
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [88, 8],Assertion failed at [88, 8]))
+                    LiteralExp(STRING,Assertion failed at [88, 8],Assertion failed at [88, 8])
               JumpLocation(Some(NameDefinition(l92)),Vector(),IfJump(Vector(),Vector(IfThenJump(BinaryExp(==,NameExp(NameUser(I)),NameExp(NameUser(_tcomp12))),Vecto
                 Some(NameDefinition(l92))
                   NameDefinition(l92)
@@ -1902,7 +1904,8 @@ Model(Some(sort.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Sort)),Vect
                                 NamedTypeSpec(NameUser(Index_Type),Vector())
                                   NameUser(Index_Type)
                                   List()
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [114, 9],Assertion failed at [114, 9]))
+                    LiteralExp(STRING,Assertion failed at [114, 9],Assertion failed at [114, 9])
               JumpLocation(Some(NameDefinition(l111)),Vector(),GotoJump(Vector(),NameUser(l103)))
                 Some(NameDefinition(l111))
                   NameDefinition(l111)
@@ -1994,7 +1997,8 @@ Model(Some(sort.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Sort)),Vect
                                 NamedTypeSpec(NameUser(Index_Type),Vector())
                                   NameUser(Index_Type)
                                   List()
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [125, 9],Assertion failed at [125, 9]))
+                    LiteralExp(STRING,Assertion failed at [125, 9],Assertion failed at [125, 9])
               ActionLocation(Some(NameDefinition(l113)),Vector(),AssignAction(Vector(),NameExp(NameUser(Bound)),:=,NameExp(NameUser(T))))
                 Some(NameDefinition(l113))
                   NameDefinition(l113)
@@ -2368,7 +2372,8 @@ Model(Some(sort.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Sort)),Vect
                                   List()
                             NameExp(NameUser(P))
                               NameUser(P)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [149, 9],Assertion failed at [149, 9]))
+                    LiteralExp(STRING,Assertion failed at [149, 9],Assertion failed at [149, 9])
               JumpLocation(Some(NameDefinition(l130)),Vector(),GotoJump(Vector(),NameUser(l125)))
                 Some(NameDefinition(l130))
                   NameDefinition(l130)
@@ -2524,7 +2529,8 @@ Model(Some(sort.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Sort)),Vect
                                           NameExp(NameUser(K))
                                             NameUser(K)
                                 LiteralExp(BOOLEAN,true,true)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [164, 9],Assertion failed at [164, 9]))
+                    LiteralExp(STRING,Assertion failed at [164, 9],Assertion failed at [164, 9])
               JumpLocation(Some(NameDefinition(l133)),Vector(),IfJump(Vector(),Vector(IfThenJump(BinaryExp(==,NameExp(NameUser(P)),NameExp(NameUser(_tcomp17))),Vect
                 Some(NameDefinition(l133))
                   NameDefinition(l133)

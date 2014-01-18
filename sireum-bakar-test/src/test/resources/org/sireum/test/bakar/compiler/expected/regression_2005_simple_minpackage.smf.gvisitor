@@ -151,7 +151,8 @@ Model(Some(minpackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Minpa
                           NameUser(Y)
                         NameExp(NameUser(Max))
                           NameUser(Max)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [13, 7],Assertion failed at [13, 7]))
+                    LiteralExp(STRING,Assertion failed at [13, 7],Assertion failed at [13, 7])
               JumpLocation(Some(NameDefinition(l10)),Vector(),ReturnJump(Vector(),Some(NameExp(NameUser(Min)))))
                 Some(NameDefinition(l10))
                   NameDefinition(l10)

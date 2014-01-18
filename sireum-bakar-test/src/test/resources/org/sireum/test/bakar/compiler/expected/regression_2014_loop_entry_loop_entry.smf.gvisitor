@@ -345,7 +345,8 @@ Model(Some(loop_entry.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Loop_
                                           NameExp(NameUser(J))
                                             NameUser(J)
                                 LiteralExp(BOOLEAN,true,true)
-                  None
+                  Some(LiteralExp(STRING,Loop Invariant failed at [13, 10],Loop Invariant failed at [13, 10]))
+                    LiteralExp(STRING,Loop Invariant failed at [13, 10],Loop Invariant failed at [13, 10])
               JumpLocation(Some(NameDefinition(l13)),Vector(),IfJump(Vector(),Vector(IfThenJump(BinaryExp(==,NameExp(NameUser(Index)),NameExp(NameUser(_tcomp1))),Ve
                 Some(NameDefinition(l13))
                   NameDefinition(l13)
@@ -563,7 +564,8 @@ Model(Some(loop_entry.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Loop_
                         NameExp(NameUser(A))
                           NameUser(A)
                         NameUser(X)
-                  None
+                  Some(LiteralExp(STRING,Loop Invariant failed at [41, 12],Loop Invariant failed at [41, 12]))
+                    LiteralExp(STRING,Loop Invariant failed at [41, 12],Loop Invariant failed at [41, 12])
               ActionLocation(Some(NameDefinition(l28)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(==,IndexingExp
                 Some(NameDefinition(l28))
                   NameDefinition(l28)
@@ -597,7 +599,8 @@ Model(Some(loop_entry.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Loop_
                         List(NameExp(NameUser(Temp)))
                           NameExp(NameUser(Temp))
                             NameUser(Temp)
-                  None
+                  Some(LiteralExp(STRING,Loop Invariant failed at [42, 12],Loop Invariant failed at [42, 12]))
+                    LiteralExp(STRING,Loop Invariant failed at [42, 12],Loop Invariant failed at [42, 12])
               ActionLocation(Some(NameDefinition(l29)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(==,CallExp(Nam
                 Some(NameDefinition(l29))
                   NameDefinition(l29)
@@ -631,7 +634,8 @@ Model(Some(loop_entry.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Loop_
                         List(NameExp(NameUser(Z)))
                           NameExp(NameUser(Z))
                             NameUser(Z)
-                  None
+                  Some(LiteralExp(STRING,Loop Invariant failed at [43, 12],Loop Invariant failed at [43, 12]))
+                    LiteralExp(STRING,Loop Invariant failed at [43, 12],Loop Invariant failed at [43, 12])
               JumpLocation(Some(NameDefinition(l30)),Vector(),GotoJump(Vector(),NameUser(l25)))
                 Some(NameDefinition(l30))
                   NameDefinition(l30)

@@ -165,11 +165,7 @@ procedure Array_Loop_Entry (
           default => true} &&& proof__uif__for_all {universal_integer J => 
         switch J
           case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == attribute__uif__loop_entry (Inner, A)[J]
-          default => true}
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
+          default => true} "Loop Invariant failed at [13, 10]";
 
   #l13.
     if Index == _tcomp1 then goto l3;
@@ -379,11 +375,7 @@ procedure Record_Loop_Entry (
              <int>41</int>
              <int>67</int>
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
+     "Loop Invariant failed at [41, 12]";
 
   #l28.
     assert proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X
@@ -414,11 +406,7 @@ procedure Record_Loop_Entry (
              <int>42</int>
              <int>72</int>
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    [Temp]
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
+    [Temp] "Loop Invariant failed at [42, 12]";
 
   #l29.
     assert proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X
@@ -449,11 +437,7 @@ procedure Record_Loop_Entry (
              <int>43</int>
              <int>69</int>
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    [Z]
-        @LOOP_INVARIANT
-
-          ("""<boolean>true</boolean>""")
-    ;
+    [Z] "Loop Invariant failed at [43, 12]";
 
   #l30.
     goto l25;

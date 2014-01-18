@@ -204,7 +204,7 @@ procedure Array_Loop_Entry (
           default => true};
 
   #l12.
-    assert proof__uif__loop_invariant _t37 &&& _t38;
+    assert proof__uif__loop_invariant _t37 &&& _t38 "Loop Invariant failed at [13, 10]";
 
   #rwl39.
     _t39 := Index;
@@ -306,7 +306,7 @@ procedure Record_Loop_Entry (
     _t47 := A.X;
 
   #l27.
-    assert proof__uif__loop_invariant _t46 == _t47;
+    assert proof__uif__loop_invariant _t46 == _t47 "Loop Invariant failed at [41, 12]";
 
   #rwl48.
     _t48 := attribute__uif__loop_entry (InnerLoop2, A.X);
@@ -321,7 +321,7 @@ procedure Record_Loop_Entry (
     _t51 := _t49[Temp];
 
   #l28.
-    assert proof__uif__loop_invariant _t50 == _t51;
+    assert proof__uif__loop_invariant _t50 == _t51 "Loop Invariant failed at [42, 12]";
 
   #rwl52.
     _t52 := A.X;
@@ -336,7 +336,7 @@ procedure Record_Loop_Entry (
     _t55 := _t53[Z];
 
   #l29.
-    assert proof__uif__loop_invariant _t54 == _t55;
+    assert proof__uif__loop_invariant _t54 == _t55 "Loop Invariant failed at [43, 12]";
 
   #l30.
     goto l25;

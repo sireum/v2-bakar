@@ -902,6 +902,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       }
       pp
     }
+    
+    def buildAssertAction(e : Exp, message : String) = {
+      val _m = addTypeUri(LiteralExp(LiteralType.STRING, message, message), StandardURIs.stringURI)
+      AssertAction(ivectorEmpty, e, Some(_m))
+    }
 
     def introduceAnonymousType(lowBound: Exp, highBound: Exp,
       parentTypeName: String, parentTypeUri: ResourceUri) = {
@@ -1470,6 +1475,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         case o: ExpressionClass => stripParens(o.getExpression)
         case _ => x
       }
+    }
+    
+    def toString(s : SourceLocation) = {
+      s"[${s.getLine}, ${s.getCol}]"
     }
   }
 
@@ -2903,8 +2912,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       for (a <- pragmaArgumentAssociations.getAssociations) {
         v(a)
         val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT, ctx.popResult, StandardURIs.boolURI)
-        val aa = AssertAction(ivectorEmpty, uif, None)
-        aa("ASSERT") = true
+        val m = s"Assertion failed at ${ctx.toString(sloc)}"
+        val aa = ctx.buildAssertAction(uif, m)
         ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }
       ctx.noTempVars(false)
@@ -2924,16 +2933,16 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           v(pragmaArgAssociations.getAssociations.head)
           val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT_AND_CUT, ctx.popResult, StandardURIs.boolURI)
-          val aa = AssertAction(ivectorEmpty, uif, None)
-          aa("ASSERT_AND_CUT") = true
+          val m = s"Assertion failed at ${ctx.toString(sloc)}"          
+          val aa = ctx.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
         case "loop_invariant" =>
           assert(pragmaArgAssociations.getAssociations.size == 1)
 
           v(pragmaArgAssociations.getAssociations.head)
           val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_INVARIANT, ctx.popResult, StandardURIs.boolURI)
-          val aa = AssertAction(ivectorEmpty, uif, None)
-          aa("LOOP_INVARIANT") = true
+          val m = s"Loop Invariant failed at ${ctx.toString(sloc)}"          
+          val aa = ctx.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
         case "loop_variant" =>
           var matchings = ivectorEmpty[Matching]
@@ -2953,8 +2962,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val ne = ctx.peekLoopLabel
           val te = TupleExp(ivector(ne, FunExp(matchings)))
           val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_VARIANT, te, StandardURIs.boolURI)
-          val aa = AssertAction(ivectorEmpty, uif, None)
-          aa("LOOP_VARIANT") = true
+          val m = s"Loop Variant failed at ${ctx.toString(sloc)}"          
+          val aa = ctx.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }
       ctx.noTempVars(false)

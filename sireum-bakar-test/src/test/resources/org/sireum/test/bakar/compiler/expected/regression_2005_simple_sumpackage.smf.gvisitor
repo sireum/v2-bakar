@@ -136,7 +136,7 @@ Model(Some(sumpackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(SumPa
                 Some(NameDefinition(l11))
                   NameDefinition(l11)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(N)),NameExp(NameUser(R)))),None)
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(N)),NameExp(NameUser(R)))),Some(LiteralExp(STRING,As
                   List()
                   CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(N)),NameExp(NameUser(R))))
                     NameExp(NameUser(proof__uif__assert))
@@ -146,7 +146,8 @@ Model(Some(sumpackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(SumPa
                         NameUser(N)
                       NameExp(NameUser(R))
                         NameUser(R)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [15, 7],Assertion failed at [15, 7]))
+                    LiteralExp(STRING,Assertion failed at [15, 7],Assertion failed at [15, 7])
               EmptyLocation(Some(NameDefinition(l2)),Vector())
                 Some(NameDefinition(l2))
                   NameDefinition(l2)
@@ -287,7 +288,7 @@ Model(Some(sumpackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(SumPa
                 Some(NameDefinition(l23))
                   NameDefinition(l23)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(N)),NameExp(NameUser(R)))),None)
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(N)),NameExp(NameUser(R)))),Some(LiteralExp(STRING,As
                   List()
                   CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(N)),NameExp(NameUser(R))))
                     NameExp(NameUser(proof__uif__assert))
@@ -297,7 +298,8 @@ Model(Some(sumpackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(SumPa
                         NameUser(N)
                       NameExp(NameUser(R))
                         NameUser(R)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [32, 7],Assertion failed at [32, 7]))
+                    LiteralExp(STRING,Assertion failed at [32, 7],Assertion failed at [32, 7])
               EmptyLocation(Some(NameDefinition(l14)),Vector())
                 Some(NameDefinition(l14))
                   NameDefinition(l14)

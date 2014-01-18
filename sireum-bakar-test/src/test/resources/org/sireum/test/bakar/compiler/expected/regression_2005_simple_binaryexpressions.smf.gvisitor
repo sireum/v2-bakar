@@ -194,7 +194,7 @@ Model(Some(binaryexpressions.adb),Vector(),Vector(PackageDecl(Some(NameDefinitio
                 Some(NameDefinition(l9))
                   NameDefinition(l9)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(r2)),NameExp(NameUser(r5)))),None)
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(r2)),NameExp(NameUser(r5)))),Some(LiteralExp(STRING,
                   List()
                   CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(r2)),NameExp(NameUser(r5))))
                     NameExp(NameUser(proof__uif__assert))
@@ -204,7 +204,8 @@ Model(Some(binaryexpressions.adb),Vector(),Vector(PackageDecl(Some(NameDefinitio
                         NameUser(r2)
                       NameExp(NameUser(r5))
                         NameUser(r5)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [16, 5],Assertion failed at [16, 5]))
+                    LiteralExp(STRING,Assertion failed at [16, 5],Assertion failed at [16, 5])
               JumpLocation(Some(NameDefinition(l10)),Vector(),ReturnJump(Vector(),Some(NameExp(NameUser(r6)))))
                 Some(NameDefinition(l10))
                   NameDefinition(l10)
@@ -553,7 +554,7 @@ Model(Some(binaryexpressions.adb),Vector(),Vector(PackageDecl(Some(NameDefinitio
                 Some(NameDefinition(l26))
                   NameDefinition(l26)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(r2)),NameExp(NameUser(r5)))),None)
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(r2)),NameExp(NameUser(r5)))),Some(LiteralExp(STRING,
                   List()
                   CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(==,NameExp(NameUser(r2)),NameExp(NameUser(r5))))
                     NameExp(NameUser(proof__uif__assert))
@@ -563,7 +564,8 @@ Model(Some(binaryexpressions.adb),Vector(),Vector(PackageDecl(Some(NameDefinitio
                         NameUser(r2)
                       NameExp(NameUser(r5))
                         NameUser(r5)
-                  None
+                  Some(LiteralExp(STRING,Assertion failed at [46, 5],Assertion failed at [46, 5]))
+                    LiteralExp(STRING,Assertion failed at [46, 5],Assertion failed at [46, 5])
               JumpLocation(Some(NameDefinition(l27)),Vector(),ReturnJump(Vector(),Some(NameExp(NameUser(r6)))))
                 Some(NameDefinition(l27))
                   NameDefinition(l27)

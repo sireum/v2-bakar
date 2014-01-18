@@ -84,7 +84,7 @@ procedure Integer Sum (
     _t11 := R;
 
   #l11.
-    assert proof__uif__assert _t10 == _t11;
+    assert proof__uif__assert _t10 == _t11 "Assertion failed at [15, 7]";
 
   #l2.
     // empty loc
@@ -176,7 +176,7 @@ procedure Sum2 (
     _t23 := R;
 
   #l23.
-    assert proof__uif__assert _t22 == _t23;
+    assert proof__uif__assert _t22 == _t23 "Assertion failed at [32, 7]";
 
   #l14.
     // empty loc

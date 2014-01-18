@@ -3,6 +3,7 @@ package org.sireum.bakar.compiler.module
 import org.sireum.util._
 import org.sireum.pilar.ast._
 import org.sireum.pilar.symbol._
+import org.sireum.bakar.symbol.SparkTypeDecl
 
 object PilarNodeFactory {
 
@@ -61,13 +62,16 @@ object PilarNodeFactory {
     val lvd = buildLocalVar(name, uri, nts)
 
     val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
-    ret(URIS.TYPE_URI) = typeUri
+    URIS.addTypeUri(ret, typeUri)
     (lvd, ret)    
   }
 
   def buildLocationLabel (label : String, uri:ResourceUri) : NameDefinition = {
     URIS.addResourceUri(NameDefinition(label), uri)
   }
+  
+  def buildNamedTypeSpec(td : SparkTypeDecl) : NamedTypeSpec = 
+    buildNamedTypeSpec(td.id, td.uri)
   
   def buildNamedTypeSpec(typeName: String, typeUri: ResourceUri) : NamedTypeSpec = {
     assert(URIS.isTypeUri(typeUri))
