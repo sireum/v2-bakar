@@ -1132,7 +1132,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     def createUIFCall(uif: String, arg: Exp, typUri: String) = {
       assert(typUri != null)
-      val _typeUri = if(typUri == "null") None else Some(typUri)
+      val _typeUri = if (typUri == "null") None else Some(typUri)
       PNF.buildCallExp(uif, UIF.uifURIprefix + uif, _typeUri, arg)
     }
 
@@ -1472,8 +1472,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         case _ => x
       }
     }
-    
-    def toString(s : SourceLocation) = {
+
+    def toString(s: SourceLocation) = {
       s"[${s.getLine}, ${s.getCol}]"
     }
   }
@@ -2013,8 +2013,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     case EnumerationLiteralEx(sloc, refName, refUri, typeUri, checks) =>
       if (typeUri == StandardURIs.boolURI) {
         val v = refName.toLowerCase == "true"
-        val le = LiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase)
-        ctx.addTypeUri(le, StandardURIs.boolURI)
+        val le = PNF.buildLiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase, StandardURIs.boolURI)
         ctx.pushResult(le, sloc)
       } else {
         val nu = ctx.addResourceUri(NameUser(refName), refUri)
@@ -2204,7 +2203,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val endCheck = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, endij)
       ctx.pushLocation(endCheck)
 
-      val ONE = ctx.addTypeUri(LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii"), StandardURIs.universalIntURI)
+      val ONE = PNF.buildLiteralExp(LiteralType.INTEGER, BigInt(1), "1ii", StandardURIs.universalIntURI)
 
       // increment/decrement iter var
       val incbe = ctx.handleBE(sloc, if (isRev) PilarAstUtil.SUB_BINOP else PilarAstUtil.PLUS_UNOP,
@@ -2616,7 +2615,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val cond = TupleExp(ivector(lowBound, highBound))
       val cases = ivector(SwitchCaseExp(cond, ivectorEmpty, _pred))
-      val defaultCase = ctx.addTypeUri(LiteralExp(LiteralType.BOOLEAN, true, "true"), typ)
+      val defaultCase = PNF.buildLiteralExp(LiteralType.BOOLEAN, true, "true", ctx.convertTypeUri(typ))
       val se = SwitchExp(iterNE, cases, defaultCase)
 
       val typUri = if (markNE ? URIS.TYPE_URI) {
@@ -2745,7 +2744,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           // according to ARM 4.5.7, when there is no else clause then the value
           // of the if expression is True
           assert(typ == StandardURIs.boolURI)
-          elseExp = ctx.addTypeUri(LiteralExp(LiteralType.BOOLEAN, true, "true"), typ)
+          elseExp = PNF.buildLiteralExp(LiteralType.BOOLEAN, true, "true", ctx.convertTypeUri(typ))
         }
 
         val ie = ctx.addTypeUri(IfExp(ifThens, elseExp), typ)
@@ -2796,8 +2795,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           }
         } else v
 
-        val le = LiteralExp(LiteralType.INTEGER, BigInt(_v), _v + "ii")
-        ctx.addTypeUri(le, typUri)
+        val le = PNF.buildLiteralExp(LiteralType.INTEGER, BigInt(_v), _v + "ii", ctx.convertTypeUri(typUri))
         ctx.pushResult(le, sloc)
         false
       case NotInMembershipTestEx(sloc, exp, choices, typ, checks) =>
@@ -2845,8 +2843,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         // for(i <- frac.size - 1 to 0 by -1) 
         //   _frac = (_frac + Integer.parseInt(frac.charAt(i).toString)) / base
 
-        val le = LiteralExp(LiteralType.FLOAT, v, v)
-        ctx.addTypeUri(le, typUri)
+        val le = PNF.buildLiteralExp(LiteralType.FLOAT, v, v, ctx.convertTypeUri(typUri))
         ctx.pushResult(le, sloc)
         false
       case SelectedComponentEx(sloc, prefix, selector, typUri, checks) =>
@@ -2885,8 +2882,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       case StringLiteralEx(sloc, litVal, typUri, checks) =>
         assert(litVal.startsWith("\"") && litVal.endsWith("\""))
         val s = litVal.drop(1).dropRight(1)
-        val le = LiteralExp(LiteralType.STRING, s, s)
-        ctx.addTypeUri(le, typUri)
+        val le = PNF.buildLiteralExp(LiteralType.STRING, s, s, ctx.convertTypeUri(typUri))
         ctx.pushResult(le, sloc)
         false
       case TypeConversionEx(sloc, mark, exp, typ, checks) =>
@@ -2929,7 +2925,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           v(pragmaArgAssociations.getAssociations.head)
           val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT_AND_CUT, ctx.popResult, StandardURIs.boolURI)
-          val m = s"Assertion failed at ${ctx.toString(sloc)}"          
+          val m = s"Assertion failed at ${ctx.toString(sloc)}"
           val aa = PNF.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
         case "loop_invariant" =>
@@ -2937,7 +2933,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           v(pragmaArgAssociations.getAssociations.head)
           val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_INVARIANT, ctx.popResult, StandardURIs.boolURI)
-          val m = s"Loop Invariant failed at ${ctx.toString(sloc)}"          
+          val m = s"Loop Invariant failed at ${ctx.toString(sloc)}"
           val aa = PNF.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
         case "loop_variant" =>
@@ -2958,7 +2954,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val ne = ctx.peekLoopLabel
           val te = TupleExp(ivector(ne, FunExp(matchings)))
           val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_VARIANT, te, StandardURIs.boolURI)
-          val m = s"Loop Variant failed at ${ctx.toString(sloc)}"          
+          val m = s"Loop Variant failed at ${ctx.toString(sloc)}"
           val aa = PNF.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }

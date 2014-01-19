@@ -48,6 +48,12 @@ object PilarNodeFactory {
     gvd
   }
 
+  def buildLiteralExp(literalType: LiteralType, literal: Any, text: String,
+    typeUri: ResourceUri) = {
+    assert(URIS.isTypeUri(typeUri))
+    URIS.addTypeUri(LiteralExp(literalType, literal, text), typeUri)
+  }
+
   def buildLocalVar(varName: String, varUri: ResourceUri, ts: TypeSpec): LocalVarDecl = {
     val nd = URIS.addResourceUri(NameDefinition(varName), varUri)
     buildLocalVar(nd, ts)
@@ -93,7 +99,6 @@ object PilarNodeFactory {
     ne
   }
 
-  
   def buildNamedTypeSpec(td: SparkTypeDecl): NamedTypeSpec =
     buildNamedTypeSpec(td.id, td.uri)
 
