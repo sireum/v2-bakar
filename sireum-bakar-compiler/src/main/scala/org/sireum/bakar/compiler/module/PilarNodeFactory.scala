@@ -7,21 +7,23 @@ import org.sireum.bakar.symbol.SparkTypeDecl
 
 object PilarNodeFactory {
 
-  def buildAssertAction(e : Exp, message : String) = {
+  def buildAssertAction(e: Exp, message: String) = {
     val _m = URIS.addTypeUri(LiteralExp(LiteralType.STRING, message, message), StandardURIs.stringURI)
     AssertAction(ivectorEmpty, e, Some(_m))
   }
-  
-  def buildCallExp(methodName: String, methodUri: ResourceUri, typeUri: ResourceUri, arg: Exp): CallExp = {
-    val nu = URIS.addResourceUri(NameUser(methodName), methodUri)
-    val ne = NameExp(nu)
+
+  def buildCallExp(methodName: String, methodUri: ResourceUri,
+    typeUri: Option[ResourceUri], arg: Exp): CallExp = {
+    val ne = buildNameExp(methodName, methodUri)
     buildCallExp(ne, typeUri, arg)
   }
 
-  def buildCallExp(ne: NameExp, typeUri: ResourceUri, arg: Exp): CallExp = {
+  def buildCallExp(ne: NameExp, typeUri: Option[ResourceUri], arg: Exp): CallExp = {
     assert(ne.name ? Symbol.symbolPropKey)
     val ce = CallExp(ne, arg)
-    if (typeUri != "null") URIS.addTypeUri(ce, typeUri)
+    if (typeUri.isDefined) {
+      URIS.addTypeUri(ce, typeUri.get)
+    }
     ce
   }
 
@@ -59,26 +61,43 @@ object PilarNodeFactory {
     LocalVarDecl(Some(ts), varND, ivectorEmpty)
   }
 
-  def buildLocalTempVar(typeName : String, typeUri : String, path : ISeq[String]) : (LocalVarDecl, NameExp) = {
+  def buildLocalTempVar(typeName: String, typeUri: ResourceUri, path: ISeq[String]): (LocalVarDecl, NameExp) = {
     val name = path(path.size - 1)
     val uri = VariableURIs.tempVarPrefix + path.mkString("/")
 
     val nts = buildNamedTypeSpec(typeName, typeUri)
     val lvd = buildLocalVar(name, uri, nts)
 
-    val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
-    URIS.addTypeUri(ret, typeUri)
-    (lvd, ret)    
+    val ret = buildNameExp(name, uri, Some(typeUri))
+    (lvd, ret)
   }
 
-  def buildLocationLabel (label : String, uri:ResourceUri) : NameDefinition = {
+  def buildLocationLabel(label: String, uri: ResourceUri): NameDefinition = {
     URIS.addResourceUri(NameDefinition(label), uri)
   }
+
+  def buildNameExp(name: String, uri: ResourceUri): NameExp = buildNameExp(name, uri, None)
+
+  def buildNameExp(name: String, uri: ResourceUri, typeUri: Option[ResourceUri]): NameExp = {
+    val nu = URIS.addResourceUri(NameUser(name), uri)
+    buildNameExp(nu, typeUri)
+  }
+
+  def buildNameExp(nu: NameUser, typeUri: Option[ResourceUri]): NameExp = {
+    assert(nu ? Symbol.symbolPropKey)
+    val ne = NameExp(nu)
+    if (typeUri.isDefined) {
+      assert(URIS.isTypeUri(typeUri.get))
+      URIS.addTypeUri(ne, typeUri.get)
+    }
+    ne
+  }
+
   
-  def buildNamedTypeSpec(td : SparkTypeDecl) : NamedTypeSpec = 
+  def buildNamedTypeSpec(td: SparkTypeDecl): NamedTypeSpec =
     buildNamedTypeSpec(td.id, td.uri)
-  
-  def buildNamedTypeSpec(typeName: String, typeUri: ResourceUri) : NamedTypeSpec = {
+
+  def buildNamedTypeSpec(typeName: String, typeUri: ResourceUri): NamedTypeSpec = {
     assert(URIS.isTypeUri(typeUri))
     val nu = NameUser(typeName)
     URIS.addTypeUri(nu, typeUri)
@@ -86,13 +105,13 @@ object PilarNodeFactory {
     buildNamedTypeSpec(nu, typeUri)
   }
 
-  def buildNamedTypeSpec(name : NameUser, typeUri: ResourceUri) : NamedTypeSpec = {
+  def buildNamedTypeSpec(name: NameUser, typeUri: ResourceUri): NamedTypeSpec = {
     assert(URIS.isTypeUri(URIS.getTypeUri(name)))
-    
+
     val nts = NamedTypeSpec(name, ivectorEmpty)
     URIS.addTypeUri(nts, typeUri)
   }
-    
+
   def buildParamDecl(paramName: String, paramUri: ResourceUri, ts: TypeSpec): ParamDecl = {
     val nd = URIS.addResourceUri(NameDefinition(paramName), paramUri)
     buildParamDecl(nd, ts)

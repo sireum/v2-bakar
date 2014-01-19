@@ -15,7 +15,6 @@ import org.sireum.util.ilistEmpty
 import org.sireum.pipeline.Input
 import org.sireum.pipeline.Output
 import org.sireum.bakar.compiler.module.{PilarNodeFactory => PNF}
-import org.sireum.bakar.compiler.module.PilarNodeFactory
 
 object Names {
   val tempVarPrefix = "_tbpr"
@@ -44,7 +43,7 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
 
       if (!outParams.isEmpty) {
         val te = TupleExp(outParams.map(p =>
-          NameExp(URIS.addResourceUri(NameUser(p.name.name), p.name.uri))))
+          PNF.buildNameExp(p.name.name, p.name.uri, Some(URIS.getTypeUri(p.typeSpec.get)))))
 
         val lastLoc = locations(locations.size - 1) match {
           case jl @ JumpLocation(label, annots, ReturnJump(retAnnots, None)) =>
@@ -64,13 +63,13 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
           def newPath = ilist(currentPackage, procName.name, Names.tempVarPrefix + nextCounter)
           def newLocLabel = {
             val labelName = Names.locationPrefix + nextCounter
-            PilarNodeFactory.buildLocationLabel(labelName, labelName)
+            PNF.buildLocationLabel(labelName, labelName)
           }
 
           def rewriteCallJumps(l : LocationDecl) : ISeq[LocationDecl] = {
             l match {
               case jl @ JumpLocation(jn, ja,
-                cj @ CallJump(a, lhss, ce @ CallExp(NameExp(nu), TupleExp(args)), jump)) if (lhss.isEmpty) =>
+                cj @ CallJump(a, lhss, ce @ CallExp(ne @ NameExp(nu), TupleExp(args)), jump)) if (lhss.isEmpty) =>
                 val calledProc = this.symbolTable.procedureSymbolTable(nu.uri).procedure
 
                 var prelocs = ivectorEmpty[LocationDecl]
@@ -111,9 +110,12 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
                     modArgs :+= args(i)
                   }
                 }
+                val typeUri = if(ce ? URIS.TYPE_URI) Some(URIS.getTypeUri(ce))
+                else None
+                
                 val modJL = cp(jl, JumpLocation(jn, ja,
                   cp(cj, CallJump(a, _lhss,
-                    cp(ce, CallExp(NameExp(nu), TupleExp(modArgs))), jump))))
+                    cp(ce, PNF.buildCallExp(ne, typeUri, TupleExp(modArgs))), jump))))
 
                 (prelocs :+ modJL) ++ postlocs
               case _ => ivector(l)

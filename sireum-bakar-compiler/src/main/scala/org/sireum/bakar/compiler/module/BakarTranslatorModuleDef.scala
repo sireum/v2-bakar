@@ -1132,7 +1132,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     def createUIFCall(uif: String, arg: Exp, typUri: String) = {
       assert(typUri != null)
-      PNF.buildCallExp(uif, UIF.uifURIprefix + uif, typUri, arg)
+      val _typeUri = if(typUri == "null") None else Some(typUri)
+      PNF.buildCallExp(uif, UIF.uifURIprefix + uif, _typeUri, arg)
     }
 
     def handleSubtypeDef(o: Base, v: => BVisitor) = {
@@ -2315,7 +2316,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       }
 
       // procedures don't have a return type
-      val ce = PNF.buildCallExp(ne, "null", TupleExp(plist.toList))
+      val ce = PNF.buildCallExp(ne, None, TupleExp(plist.toList))
       val cj = CallJump(ivectorEmpty, ivectorEmpty, ce, None)
       val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, cj)
 
@@ -2689,7 +2690,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               // the name of the method is an identifier and has no type
               if (!(ne ? URIS.TYPE_URI)) ctx.addTypeUri(ne, callExpType)
 
-              val ce = PNF.buildCallExp(ne, callExpType, TupleExp(plist.toList))
+              val ce = PNF.buildCallExp(ne, Some(callExpType), TupleExp(plist.toList))
 
               if (ctx.noTempVars) {
                 ctx.pushResult(ctx.handleExp(ce), sloc)
@@ -2710,7 +2711,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   nu.name == Attribute.ATTRIBUTE_UIF_PRED ||
                   nu.name == Attribute.ATTRIBUTE_UIF_SUCC)
 
-              val _ce = PNF.buildCallExp(ne, callExpType, TupleExp(arg +: plist.toList))
+              val _ce = PNF.buildCallExp(ne, Some(callExpType), TupleExp(arg +: plist.toList))
               ctx.copyPropertyMap(ce, _ce)
 
               ctx.pushResult(ctx.handleExp(_ce), sloc)
