@@ -405,15 +405,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val name = tempVarPrefix + tempVarCounter
       tempVarCounter += 1
       val path = (contextStack.map(_.name)).toList :+ name
-      val uri = VariableURIs.tempVarPrefix + path.mkString("/")
-
       val typeDecl = typeDeclarations(typeUri)
-      val nts = PNF.buildNamedTypeSpec(typeDecl.id, typeUri)
-      val lvd = PNF.buildLocalVar(name, uri, nts)
+      
+      val (lvd, ret) = PNF.buildLocalTempVar(typeDecl.id, typeUri, path)
       localsPush(lvd)
-
-      val ret = NameExp(URIS.addResourceUri(NameUser(name), uri))
-      addTypeUri(ret, typeUri)
+      ret
     }
 
     def processingPackage = contextStack.head.kind == CTX.PACKAGE
@@ -701,19 +697,19 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           // x in Positive 
           // ===> (Positive'First <= x &&& x <= Positive'Last)
           assert(o.exps.size == 2)
-          val lhs = addTypeUri(BinaryExp(PilarAstUtil.LE_BINOP, o.exps(0), e), StandardURIs.boolURI)
-          val rhs = addTypeUri(BinaryExp(PilarAstUtil.LE_BINOP, e, o.exps(1)), StandardURIs.boolURI)
+          val lhs = PNF.buildBinaryExp(PilarAstUtil.LE_BINOP, o.exps(0), e, StandardURIs.boolURI)
+          val rhs = PNF.buildBinaryExp(PilarAstUtil.LE_BINOP, e, o.exps(1), StandardURIs.boolURI)
 
-          addTypeUri(BinaryExp(PilarAstUtil.LOGICAL_AND_BINOP, lhs, rhs), StandardURIs.boolURI)
+          PNF.buildBinaryExp(PilarAstUtil.LOGICAL_AND_BINOP, lhs, rhs, StandardURIs.boolURI)
         case x =>
           // x in 5 + 3
           // ===> (x == 5 + 3)
           // OR
           // x in 9
           // ===> (x == 9)            
-          addTypeUri(BinaryExp(PilarAstUtil.EQ_BINOP, e, x), StandardURIs.boolURI)
+          PNF.buildBinaryExp(PilarAstUtil.EQ_BINOP, e, x, StandardURIs.boolURI)
       } reduce { (a, b) =>
-        addTypeUri(BinaryExp(PilarAstUtil.LOGICAL_OR_BINOP, a, b), StandardURIs.boolURI)
+        PNF.buildBinaryExp(PilarAstUtil.LOGICAL_OR_BINOP, a, b, StandardURIs.boolURI)
       }
     }
 
@@ -866,7 +862,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
 
     def handleBE(sloc: SourceLocation, op: BinaryOp, lhs: Exp, rhs: Exp, theType: String): Exp =
-      addSourceLoc(handleExp(addTypeUri(BinaryExp(op, lhs, rhs), theType)), sloc)
+      addSourceLoc(handleExp(PNF.buildBinaryExp(op, lhs, rhs, theType)), sloc)
 
     def handleBE(v: => BVisitor, sloc: SourceLocation,
       op: BinaryOp, lhs: ExpressionClass, rhs: ExpressionClass, theType: String): Exp = {

@@ -1,6 +1,7 @@
 package org.sireum.bakar.compiler.module
 
 import org.sireum.util._
+import org.sireum.pilar._
 import org.sireum.pilar.ast._
 import org.sireum.pilar.symbol._
 import org.sireum.bakar.symbol.SparkTypeDecl
@@ -12,6 +13,11 @@ object PilarNodeFactory {
     AssertAction(ivectorEmpty, e, Some(_m))
   }
 
+  def buildBinaryExp(op : BinaryOp, lhs:Exp, rhs:Exp, typeUri:ResourceUri) : BinaryExp = {
+    assert(URIS.isTypeUri(typeUri))
+    URIS.addTypeUri(BinaryExp(op, lhs, rhs), typeUri)
+  }
+  
   def buildCallExp(methodName: String, methodUri: ResourceUri,
     typeUri: Option[ResourceUri], arg: Exp): CallExp = {
     val ne = buildNameExp(methodName, methodUri)
