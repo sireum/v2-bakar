@@ -609,7 +609,7 @@ procedure Boolean Partitioned (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="4"/>
+                             <string sid="5">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -617,7 +617,7 @@ procedure Boolean Partitioned (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
-                           <string sid="5">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                           <string srefid="5"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
@@ -1042,7 +1042,7 @@ procedure Boolean Partitioned (
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
-                         <string srefid="4"/>
+                         <string srefid="5"/>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -2085,7 +2085,7 @@ procedure Swap_Elements (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="11"/>
+                             <string sid="17">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -2093,7 +2093,7 @@ procedure Swap_Elements (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
-                           <string sid="17">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                           <string srefid="17"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
@@ -2163,7 +2163,7 @@ procedure Swap_Elements (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="11"/>
+                             <string srefid="17"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -3040,7 +3040,7 @@ typealias Base_Index_Type Index_Type
                      </entry>
                      <entry>
                        <string>BAKAR_TYPE_URI</string>
-                       <string srefid="2"/>
+                       <string sid="7">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                      </entry>
                    </properties>
                  </org.sireum.pilar.ast.NameUser>
@@ -3048,7 +3048,7 @@ typealias Base_Index_Type Index_Type
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>BAKAR_TYPE_URI</string>
-                     <string sid="7">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                     <string srefid="7"/>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NamedTypeSpec>
@@ -3507,7 +3507,7 @@ procedure BubbleSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string sid="10">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -3515,7 +3515,7 @@ procedure BubbleSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
-                           <string sid="10">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                           <string srefid="10"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
@@ -3585,7 +3585,7 @@ procedure BubbleSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -3848,7 +3848,7 @@ procedure BubbleSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -3926,7 +3926,7 @@ procedure BubbleSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -4173,7 +4173,7 @@ procedure BubbleSortFast (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string sid="10">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -4181,7 +4181,7 @@ procedure BubbleSortFast (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
-                           <string sid="10">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                           <string srefid="10"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
@@ -4251,7 +4251,7 @@ procedure BubbleSortFast (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -4514,7 +4514,7 @@ procedure BubbleSortFast (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -4592,7 +4592,7 @@ procedure BubbleSortFast (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -4839,7 +4839,7 @@ procedure InsertionSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string sid="10">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -4847,7 +4847,7 @@ procedure InsertionSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
-                           <string sid="10">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                           <string srefid="10"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
@@ -4917,7 +4917,7 @@ procedure InsertionSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -5180,7 +5180,7 @@ procedure InsertionSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -5258,7 +5258,7 @@ procedure InsertionSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="9"/>
+                             <string srefid="10"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -5505,7 +5505,7 @@ procedure ShellSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="8"/>
+                             <string sid="9">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -5513,7 +5513,7 @@ procedure ShellSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
-                           <string sid="9">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
+                           <string srefid="9"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NamedTypeSpec>
@@ -5583,7 +5583,7 @@ procedure ShellSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="8"/>
+                             <string srefid="9"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -5846,7 +5846,7 @@ procedure ShellSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="8"/>
+                             <string srefid="9"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>
@@ -5924,7 +5924,7 @@ procedure ShellSort (
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
-                             <string srefid="8"/>
+                             <string srefid="9"/>
                            </entry>
                          </properties>
                        </org.sireum.pilar.ast.NameUser>

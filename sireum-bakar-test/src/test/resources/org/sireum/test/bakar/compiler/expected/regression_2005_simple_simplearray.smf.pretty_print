@@ -141,10 +141,10 @@ procedure $$binit
   #l1.
     @@A := `Vector { iter => 
         switch iter
-          case __positional0 => 0ii
-          case __positional1 => 1ii
-          case __positional2 => 2ii
-          case __positional3 => 3ii
+          case attribute__uif__first `Index + 0ii => 0ii
+          case attribute__uif__first `Index + 1ii => 1ii
+          case attribute__uif__first `Index + 2ii => 2ii
+          case attribute__uif__first `Index + 3ii => 3ii
           default => 9ii};
 
   #l2.

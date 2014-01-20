@@ -2,11 +2,21 @@ package Positional_Array;
 
 
 procedure $$binit {
+  local
+    FIXME _t0;
+    FIXME _t1;
+
+
+  #rwl0.
+    _t0 := attribute__uif__first `Index;
+
+  #rwl1.
+    _t1 := 0ii;
 
   #l2.
     @@Box2 := `Square { iter => 
         switch iter
-          case __positional0 => 77ii
+          case _t0 + _t1 => 77ii
           default => 5ii};
 
   #l5.
@@ -16,18 +26,18 @@ procedure $$binit {
 procedure dummy (
         Index X) {
   local
-    FIXME _t0;
-    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
 
 
-  #rwl0.
-    _t0 := @@Box[X];
+  #rwl2.
+    _t2 := @@Box[X];
 
-  #rwl1.
-    _t1 := 1ii;
+  #rwl3.
+    _t3 := 1ii;
 
   #l3.
-    @@Box[X] := _t0 - _t1;
+    @@Box[X] := _t2 - _t3;
 
   #l4.
     return;
@@ -43,15 +53,57 @@ global Square @@Box;
 global Square @@Box2;
 
 procedure $$sinit {
+  local
+    FIXME _t0;
+    FIXME _t1;
+    FIXME _t2;
+    FIXME _t3;
+    FIXME _t4;
+    FIXME _t5;
+    FIXME _t6;
+    FIXME _t7;
+    FIXME _t8;
+    FIXME _t9;
+
+
+  #rwl0.
+    _t0 := attribute__uif__first `Index;
+
+  #rwl1.
+    _t1 := 0ii;
+
+  #rwl2.
+    _t2 := attribute__uif__first `Index;
+
+  #rwl3.
+    _t3 := 1ii;
+
+  #rwl4.
+    _t4 := attribute__uif__first `Index;
+
+  #rwl5.
+    _t5 := 2ii;
+
+  #rwl6.
+    _t6 := attribute__uif__first `Index;
+
+  #rwl7.
+    _t7 := 3ii;
+
+  #rwl8.
+    _t8 := attribute__uif__first `Index;
+
+  #rwl9.
+    _t9 := 4ii;
 
   #l1.
     @@Box := `Square { iter => 
         switch iter
-          case __positional0 => -(1ii)
-          case __positional1 => -(2ii)
-          case __positional2 => 7ii
-          case __positional3 => 3ii
-          case __positional4 => 2ii
+          case _t0 + _t1 => -(1ii)
+          case _t2 + _t3 => -(2ii)
+          case _t4 + _t5 => 7ii
+          case _t6 + _t7 => 3ii
+          case _t8 + _t9 => 2ii
           default => 3ii};
 
   #l6.

@@ -701,10 +701,6 @@ procedure Array_Loop_Entry (
                          <string sid="4">universal_integer</string>
                          <properties mtype="mlinkedmap">
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string sid="5">ada://ordinary_type/universal_integer</string>
-                           </entry>
-                           <entry>
                              <string>pilar.symbol</string>
                              <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
                                <string>ada</string>
@@ -712,7 +708,7 @@ procedure Array_Loop_Entry (
                                <ilist ttype="ilist">
                                  <string srefid="4"/>
                                </ilist>
-                               <string srefid="5"/>
+                               <string sid="5">ada://ordinary_type/universal_integer</string>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
@@ -784,6 +780,10 @@ procedure Array_Loop_Entry (
                          <entry>
                            <string>util.loc</string>
                            <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl crefid="13"/>
+                         </entry>
+                         <entry>
+                           <string>BAKAR_TYPE_URI</string>
+                           <string srefid="5"/>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NameUser>
@@ -1143,7 +1143,7 @@ procedure Array_Loop_Entry (
                                              </entry>
                                              <entry>
                                                <string>BAKAR_TYPE_URI</string>
-                                               <string srefid="11"/>
+                                               <string srefid="14"/>
                                              </entry>
                                            </properties>
                                          </org.sireum.pilar.ast.NameUser>
@@ -1410,7 +1410,7 @@ procedure Array_Loop_Entry (
                                              </entry>
                                              <entry>
                                                <string>BAKAR_TYPE_URI</string>
-                                               <string srefid="11"/>
+                                               <string srefid="14"/>
                                              </entry>
                                            </properties>
                                          </org.sireum.pilar.ast.NameUser>

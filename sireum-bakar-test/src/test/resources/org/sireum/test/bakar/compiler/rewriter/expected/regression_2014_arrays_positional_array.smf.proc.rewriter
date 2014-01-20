@@ -6,7 +6,7 @@ procedure $$binit {
   #l2.
     @@Box2 := `Square { iter => 
         switch iter
-          case __positional0 => 77ii
+          case attribute__uif__first `Index + 0ii => 77ii
           default => 5ii};
 
   #l5.
@@ -37,11 +37,11 @@ procedure $$sinit {
   #l1.
     @@Box := `Square { iter => 
         switch iter
-          case __positional0 => -(1ii)
-          case __positional1 => -(2ii)
-          case __positional2 => 7ii
-          case __positional3 => 3ii
-          case __positional4 => 2ii
+          case attribute__uif__first `Index + 0ii => -(1ii)
+          case attribute__uif__first `Index + 1ii => -(2ii)
+          case attribute__uif__first `Index + 2ii => 7ii
+          case attribute__uif__first `Index + 3ii => 3ii
+          case attribute__uif__first `Index + 4ii => 2ii
           default => 3ii};
 
   #l6.

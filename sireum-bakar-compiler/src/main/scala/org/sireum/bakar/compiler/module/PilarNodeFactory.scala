@@ -117,7 +117,11 @@ object PilarNodeFactory {
   }
 
   def buildNamedTypeSpec(name: NameUser, typeUri: ResourceUri): NamedTypeSpec = {
-    assert(URIS.isTypeUri(URIS.getTypeUri(name)))
+    if(!(name ? URIS.TYPE_URI)){
+      URIS.addTypeUri(name, typeUri)
+    } else {
+      assert(URIS.isTypeUri(URIS.getTypeUri(name)) && URIS.getTypeUri(name) == typeUri)
+    }
 
     val nts = NamedTypeSpec(name, ivectorEmpty)
     URIS.addTypeUri(nts, typeUri)
@@ -151,5 +155,17 @@ object PilarNodeFactory {
     val pd = ProcedureDecl(name, ivectorEmpty, ivectorEmpty, params, retType, false, body)
     pd.parentUri = parentUri
     pd
+  }
+  
+  def buildTypeExp(typeName : String, typeUri : ResourceUri) : TypeExp = {
+    val nu = URIS.addResourceUri(NameUser(typeName), typeUri)
+    buildTypeExp(nu, typeUri)
+  }
+  
+  def buildTypeExp(typeName : NameUser, typeUri : ResourceUri) : TypeExp = {
+    assert(typeName ? Symbol.symbolPropKey)
+    URIS.addTypeUri(typeName, typeUri)
+    val ts = buildNamedTypeSpec(typeName, typeUri)
+    URIS.addTypeUri(TypeExp(ts), typeUri)
   }
 }
