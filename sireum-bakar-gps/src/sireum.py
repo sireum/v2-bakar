@@ -4,9 +4,7 @@
 from __future__ import division
 import GPS
 import os
-import pygtk
-pygtk.require('2.0')
-import gtk
+from gi.repository import Gtk
 import warnings
 import kiasan.gui
 import kiasan.logic
@@ -36,23 +34,27 @@ def run_kiasan_plugin():
         if GPS.current_context().file().entities(False) == []:
             raise ProjectNotBuiltException    
         
-        if GPS.current_context().entity().category() == "subprogram":
+        #if GPS.current_context().entity().category() == "subprogram":
+        if GPS.current_context().entity().is_subprogram():
             # get package name        
             for entity in GPS.current_context().file().entities(False):
                 warnings.warn("the second condition of below if is UGLY...but I didn't find the better way \
                 to check if entity is subprogram's package because file can have entities from external files")
-                if entity.category() == 'package/namespace' and \
+                #if entity.category() == 'package/namespace' and \
+                if entity.is_container and \
                     entity.name().lower() == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
                     package_name = entity.name()
             # set methods_list to only one method
             methods_list = [GPS.current_context().entity().name()]    
-        elif GPS.current_context().entity().category() == "package/namespace":
+        #elif GPS.current_context().entity().category() == "package/namespace":
+        elif GPS.current_context().entity().is_container():
             # get package name
             package_name = GPS.current_context().entity().name()    
             # fetch all methods from file (method=subprogram)
             methods_list = []
             for entity in GPS.current_context().file().entities(False):
-                if entity.category() == 'subprogram':
+                #if entity.category() == 'subprogram':
+                if entity.is_subprogram():
                     methods_list.append(entity.name())    
         
         SIREUM_PATH = get_sireum_path()    
@@ -118,16 +120,16 @@ def run_kiasan_alasysis_async(progressbar, project_path, kiasan_run_cmd, kiasan_
             #update progress bar
             progressbar.set_fraction(float(method_no)/len(methods_list))
             progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
-            while gtk.events_pending():
-                gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation    
+            while Gtk.events_pending():
+                Gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation    
             method_no += 1
             run_kiasan(kiasan_run_cmd, method)
                     
         #update progress bar    
         progressbar.set_fraction(float(method_no)/len(methods_list))
         progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
-        while gtk.events_pending():
-            gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
+        while Gtk.events_pending():
+            Gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
         method_no += 1
         
             
@@ -135,8 +137,8 @@ def run_kiasan_alasysis_async(progressbar, project_path, kiasan_run_cmd, kiasan_
         run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
         progressbar.set_fraction(float(method_no)/len(methods_list))
         progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
-        while gtk.events_pending():
-            gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
+        while Gtk.events_pending():
+            Gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
         
         # process results
         kiasan_logic = kiasan.logic.KiasanLogic()
@@ -174,19 +176,19 @@ def run_kiasan(kiasan_run_cmd, method):
         
 
 def init_progressbar():
-    main_box = gtk.VBox()
+    main_box = Gtk.VBox()
 
-    progressbar = gtk.ProgressBar()
+    progressbar = Gtk.ProgressBar()
 
-    progressbar_box = gtk.HBox(False, 20)
+    progressbar_box = Gtk.HBox(homogeneous=False, spacing=20)
     main_box.pack_start(progressbar_box, False, False, 20)
-    progressbar_box.pack_start(progressbar)
+    progressbar_box.pack_start(progressbar, True, True, 0)
 
-    info_box = gtk.VBox()
+    info_box = Gtk.VBox()
     main_box.pack_start(info_box, False, False, 10)
     
-    info_label = gtk.Label(u"Kiasan is running...")
-    info_box.pack_start(info_label)
+    info_label = Gtk.Label(u"Kiasan is running...")
+    info_box.pack_start(info_label, True, True, 0)
     
     #cancel_box = gtk.HBox()
     #info_box.pack_start(cancel_box)
@@ -330,6 +332,7 @@ def get_spark_source_files(source_path):
 
 
 def run_examiner(current_file):
+    return True
     import spark
     #spark.examine_file(current_file)
     GPS.BuildTarget('Examine SPARK File').execute(synchronous=True)
@@ -344,7 +347,7 @@ GPS.parse_xml ("""
         <filter id="Source editor" />
         <filter 
             shell_lang="python" 
-            shell_cmd="GPS.current_context().entity().category() in ['subprogram', 'package/namespace'] " />
+            shell_cmd="GPS.current_context().entity().is_subprogram() or GPS.current_context().entity().is_container() " />
       </filter_and>
     <action name="run Kiasan">
         <filter id="Source editor in Ada" />
