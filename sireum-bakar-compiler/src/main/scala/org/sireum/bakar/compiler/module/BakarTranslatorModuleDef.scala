@@ -406,7 +406,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       tempVarCounter += 1
       val path = (contextStack.map(_.name)).toList :+ name
       val typeDecl = typeDeclarations(typeUri)
-      
+
       val (lvd, ret) = PNF.buildLocalTempVar(typeDecl.id, typeUri, path)
       localsPush(lvd)
       ret
@@ -470,10 +470,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
               val markURI = td.uri
               val markNE = PNF.buildNameExp(td.id, markURI, Some(markURI))
-              
+
               addTypeUri(iterND, markURI)
               val iterNE = PNF.buildNameExp(iterND, Some(markURI))
-              
+
               return (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound)
             case DiscreteRangeAttributeReferenceAsSubtypeDefinitionEx(sloc2, attr, checks) =>
               attr.getExpression match {
@@ -815,7 +815,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       AssignAction(annots, lhs, ":=", rhs)
 
     def handleUnaryExp(sloc: SourceLocation, op: UnaryOp, exp: Exp, theType: String): Exp =
-      addSourceLoc(handleExp(addTypeUri(UnaryExp(op, exp), theType)), sloc)
+      addSourceLoc(handleExp(PNF.buildUnaryExp(op, exp, theType)), sloc)
 
     def handleVariableDeclaration(v: => BVisitor, o: Base): MList[PilarAstNode] = {
       o match {
@@ -2104,7 +2104,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               true
             case x =>
               // #l0. if(!condExp) then goto <gotoLoc>;
-              val ue = ctx.addTypeUri(UnaryExp(PilarAstUtil.NOT_UNOP, x), StandardURIs.boolURI)
+              val ue = PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP, x, StandardURIs.boolURI)
               val itj = IfThenJump(ue, ivectorEmpty, if (e eq last) endLoc else gotoLoc)
               val ij = IfJump(ivectorEmpty, ivector(itj), None)
               val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, ij)
@@ -2228,8 +2228,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val condLoc = ctx.getSourceLoc(cond)
 
         // #l0. if(!condExp) then goto <gotoLoc>;
-        val ue = UnaryExp(PilarAstUtil.NOT_UNOP, cond)
-        ctx.addTypeUri(ue, StandardURIs.boolURI)
+        val ue = PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP, cond, StandardURIs.boolURI)
         val itj = IfThenJump(ue, ivectorEmpty, gotoLoc)
         val ij = IfJump(ivectorEmpty, ivector(itj), None)
         val jl = JumpLocation(Some(ctx.newLocLabel(sloc1)), ivectorEmpty, ij)
@@ -2341,8 +2340,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       v(whileCondition)
 
       // # if (!loopCond) goto endLocLabel;
-      val ue = UnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult)
-      ctx.addTypeUri(ue, StandardURIs.boolURI)
+      val ue = PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult, StandardURIs.boolURI)
       val itj = IfThenJump(ue, ivectorEmpty, endLoc.name.get)
       val ij = IfJump(ivectorEmpty, ivector(itj), None)
       val jl = JumpLocation(Some(ctx.newLocLabel(sloc)), ivectorEmpty, ij)
@@ -2381,8 +2379,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               cases :+= SwitchCaseExp(x, ivectorEmpty, rhs)
           }
       }
-            
-      val (iterNE, iterND) = if(typeUri == "null") {
+
+      val (iterNE, iterND) = if (typeUri == "null") {
         val indexType = ctx.typeDeclarations(StandardURIs.integerURI)
         val iterNE = PNF.buildNameExp("iter", indexType.uri, Some(indexType.uri))
         val iterND = ctx.addResourceUri(NameDefinition("iter"), indexType.uri)
@@ -2390,15 +2388,15 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       } else {
         val arrayType = SymbolUtil.getTypeDef(ctx.typeDeclarations(typeUri), ctx.typeDeclarations)
         val indexTypeUri = arrayType match {
-          case i:ConstrainedArrayDef => i.discreteSubtypes.head
-          case i:UnconstrainedArrayDef=> i.indexSubtypes.head
+          case i: ConstrainedArrayDef => i.discreteSubtypes.head
+          case i: UnconstrainedArrayDef => i.indexSubtypes.head
         }
-        
+
         val iterNE = PNF.buildNameExp("iter", indexTypeUri, Some(indexTypeUri))
         val iterND = ctx.addResourceUri(NameDefinition("iter"), indexTypeUri)
         (iterNE, iterND)
       }
-      
+
       val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
 
       val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
@@ -2411,20 +2409,20 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       var cases = ivectorEmpty[SwitchCaseExp]
       var default: Option[Exp] = None
 
-      val indexType = if(typeUri != "null") {
+      val indexType = if (typeUri != "null") {
         val arrayType = SymbolUtil.getTypeDef(ctx.typeDeclarations(typeUri), ctx.typeDeclarations)
         val indexTypeUri = arrayType match {
-          case i:ConstrainedArrayDef => i.discreteSubtypes.head
-          case i:UnconstrainedArrayDef=> i.indexSubtypes.head
+          case i: ConstrainedArrayDef => i.discreteSubtypes.head
+          case i: UnconstrainedArrayDef => i.indexSubtypes.head
         }
         ctx.typeDeclarations(indexTypeUri)
       } else {
         ctx.typeDeclarations(StandardURIs.integerURI)
       }
-      
+
       val te = PNF.buildTypeExp(indexType.id, indexType.uri)
       val first = ctx.createUIFCall(Attribute.ATTRIBUTE_UIF_FIRST, te, indexType.uri)
-      
+
       var i = 0
       arrayAssocs.getAssociations.foreach {
         case ArrayComponentAssociationEx(sloc2, choices, exp, checks2) =>
@@ -2817,9 +2815,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         ctx.pushResult(le, sloc)
         false
       case NotInMembershipTestEx(sloc, exp, choices, typ, checks) =>
-        val ue = ctx.addTypeUri(
-          UnaryExp(PilarAstUtil.NOT_UNOP, ctx.handleMembershipTest(v, exp, choices)), StandardURIs.boolURI)
-
+        val ue = PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP,
+          ctx.handleMembershipTest(v, exp, choices), StandardURIs.boolURI)
         ctx.pushResult(ue, sloc)
         false
       case OrElseShortCircuitEx(sloc, lhs, rhs, theType, checks) =>
@@ -2881,7 +2878,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           assert(URIS.isPackageUri(seluri) || URIS.isMethodUri(seluri) || URIS.isTypeUri(seluri))
           e match {
             case NameExp(nu) =>
-              val _typeUri = if (typUri != "null") Some(typUri) else None              
+              val _typeUri = if (typUri != "null") Some(typUri) else None
               val ret = PNF.buildNameExp(nu.name + "::" + selname, seluri, _typeUri)
               ctx.pushResult(ret, sloc)
             case x => throw new RuntimeException("Unexpected: " + x)

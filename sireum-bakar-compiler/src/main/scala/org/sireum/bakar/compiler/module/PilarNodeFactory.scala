@@ -13,11 +13,11 @@ object PilarNodeFactory {
     AssertAction(ivectorEmpty, e, Some(_m))
   }
 
-  def buildBinaryExp(op : BinaryOp, lhs:Exp, rhs:Exp, typeUri:ResourceUri) : BinaryExp = {
+  def buildBinaryExp(op: BinaryOp, lhs: Exp, rhs: Exp, typeUri: ResourceUri): BinaryExp = {
     assert(URIS.isTypeUri(typeUri))
     URIS.addTypeUri(BinaryExp(op, lhs, rhs), typeUri)
   }
-  
+
   def buildCallExp(methodName: String, methodUri: ResourceUri,
     typeUri: Option[ResourceUri], arg: Exp): CallExp = {
     val ne = buildNameExp(methodName, methodUri)
@@ -117,7 +117,7 @@ object PilarNodeFactory {
   }
 
   def buildNamedTypeSpec(name: NameUser, typeUri: ResourceUri): NamedTypeSpec = {
-    if(!(name ? URIS.TYPE_URI)){
+    if (!(name ? URIS.TYPE_URI)) {
       URIS.addTypeUri(name, typeUri)
     } else {
       assert(URIS.isTypeUri(URIS.getTypeUri(name)) && URIS.getTypeUri(name) == typeUri)
@@ -156,16 +156,20 @@ object PilarNodeFactory {
     pd.parentUri = parentUri
     pd
   }
-  
-  def buildTypeExp(typeName : String, typeUri : ResourceUri) : TypeExp = {
+
+  def buildTypeExp(typeName: String, typeUri: ResourceUri): TypeExp = {
     val nu = URIS.addResourceUri(NameUser(typeName), typeUri)
     buildTypeExp(nu, typeUri)
   }
-  
-  def buildTypeExp(typeName : NameUser, typeUri : ResourceUri) : TypeExp = {
+
+  def buildTypeExp(typeName: NameUser, typeUri: ResourceUri): TypeExp = {
     assert(typeName ? Symbol.symbolPropKey)
     URIS.addTypeUri(typeName, typeUri)
     val ts = buildNamedTypeSpec(typeName, typeUri)
     URIS.addTypeUri(TypeExp(ts), typeUri)
+  }
+
+  def buildUnaryExp(op: UnaryOp, exp: Exp, typeUri: ResourceUri) = {
+    URIS.addTypeUri(UnaryExp(op, exp), typeUri)
   }
 }
