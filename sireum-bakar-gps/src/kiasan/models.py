@@ -23,7 +23,7 @@ class Entity:
 
 
     def convert_milis_to_secs(self, time):
-        """Convert miliseconds to seconds"""        
+        """Convert miliseconds to seconds"""
         return str(float(time) / 1000) + "s"
     
     
