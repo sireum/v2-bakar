@@ -19,7 +19,7 @@ record NestedRec {
 
 procedure Boolean Dummy {
 
-  #l1.
+  #l0.
     return true;
 }
 
@@ -27,10 +27,10 @@ procedure Add (
         SmallInt I,
         Rec R) {
 
-  #l2.
+  #l1.
     R.A := R.A + I;
 
-  #l3.
+  #l2.
     return (R);
 }
 
@@ -38,10 +38,10 @@ procedure NAdd (
         SmallInt I,
         NestedRec NR) {
 
-  #l4.
+  #l3.
     NR.X.A := NR.X.A + I;
 
-  #l5.
+  #l4.
     return (NR);
 }
 
@@ -49,10 +49,10 @@ procedure AAdd (
         SmallInt I,
         Rec R) {
 
-  #l6.
+  #l5.
     R.B[I] := I + 1ii;
 
-  #l7.
+  #l6.
     return (R);
 }package SimpleRecord;
 

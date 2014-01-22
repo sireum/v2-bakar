@@ -5,10 +5,10 @@ procedure add (
         Integer x,
         Integer y) {
 
-  #l1.
+  #l0.
     x := x + y;
 
-  #l2.
+  #l1.
     return (x);
 }
 
@@ -21,28 +21,28 @@ procedure foo (
     Integer _tbpr1;
 
 
-  #l3.
+  #l2.
     M := 3ii;
 
-  #l4.
+  #l3.
     call _tbpr1 := add (A, M);
 
   #_lbpr2.
     A := _tbpr1;
 
-  #l5.
+  #l4.
     call _tbpr3 := add (B, 5ii);
 
   #_lbpr4.
     B := _tbpr3;
 
-  #l6.
+  #l5.
     A := A + 2ii;
 
-  #l7.
+  #l6.
     B := B + 5ii;
 
-  #l8.
+  #l7.
     return (A, B);
 }package Example;
 

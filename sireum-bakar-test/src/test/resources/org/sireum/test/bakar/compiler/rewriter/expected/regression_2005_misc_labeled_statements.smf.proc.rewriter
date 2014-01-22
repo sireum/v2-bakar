@@ -6,25 +6,25 @@ procedure P (
         Integer J,
         Boolean Ret) {
 
-  #l3.
-    if !(I > J) then goto l2;
+  #l2.
+    if !(I > J) then goto l1;
 
-  #l4.
+  #l3.
     Ret := true;
 
-  #l5.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l6.
-    Ret := false;
+  #l4.
+    goto l0;
 
   #l1.
     // empty loc
 
-  #l7.
+  #l5.
+    Ret := false;
+
+  #l0.
+    // empty loc
+
+  #l6.
     return (Ret);
 }
 
@@ -38,82 +38,82 @@ procedure Integer Stupid (
     Index_Range _tcomp1;
 
 
-  #l9.
+  #l8.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l10.
+  #l9.
     _tcomp1 := attribute__uif__last `Index_Range;
 
-  #l11.
-    if _tcomp0 > _tcomp1 then goto l8;
+  #l10.
+    if _tcomp0 > _tcomp1 then goto l7;
 
-  #l12.
+  #l11.
     I := _tcomp0;
 
+  #l12.
+    // empty loc
+
   #l13.
-    // empty loc
-
-  #l14.
     J := 0ii;
-
-  #l16.
-    // empty loc
-
-  #l17.
-    if !(J < Z) then goto l15;
-
-  #l18.
-    J := J + 1ii;
-
-  #l19.
-    call P (I, J, B);
-
-  #l21.
-    if !(B) then goto l20;
-
-  #l22.
-    goto l15;
-
-  #l20.
-    // empty loc
-
-  #l25.
-    if !(J == 3ii) then goto l24;
-
-  #l26.
-    J := J + 1ii;
-
-  #l27.
-    goto l23;
-
-  #l24.
-    // empty loc
-
-  #l29.
-    J := J;
-
-  #l23.
-    // empty loc
-
-  #l30.
-    goto l16;
 
   #l15.
     // empty loc
 
-  #l31.
-    if I == _tcomp1 then goto l8;
+  #l16.
+    if !(J < Z) then goto l14;
 
-  #l32.
-    I := I + 1ii;
+  #l17.
+    J := J + 1ii;
 
-  #l33.
-    goto l13;
+  #l18.
+    call P (I, J, B);
 
-  #l8.
+  #l20.
+    if !(B) then goto l19;
+
+  #l21.
+    goto l14;
+
+  #l19.
     // empty loc
 
-  #l34.
+  #l24.
+    if !(J == 3ii) then goto l23;
+
+  #l25.
+    J := J + 1ii;
+
+  #l26.
+    goto l22;
+
+  #l23.
+    // empty loc
+
+  #l28.
+    J := J;
+
+  #l22.
+    // empty loc
+
+  #l29.
+    goto l15;
+
+  #l14.
+    // empty loc
+
+  #l30.
+    if I == _tcomp1 then goto l7;
+
+  #l31.
+    I := I + 1ii;
+
+  #l32.
+    goto l12;
+
+  #l7.
+    // empty loc
+
+  #l33.
     return J;
 }package Labeled_Statements;
 

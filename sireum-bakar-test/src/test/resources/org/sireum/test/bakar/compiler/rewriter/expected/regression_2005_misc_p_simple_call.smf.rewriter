@@ -5,16 +5,16 @@ global Integer @@B;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@Y := 1ii;
 
-  #l2.
+  #l1.
     @@B := 0ii;
 
-  #l3.
+  #l2.
     @@C := 0ii;
 
-  #l17.
+  #l16.
     return;
 }
 
@@ -39,10 +39,10 @@ procedure R (
   #rwl3.
     _t3 := @@C;
 
-  #l4.
+  #l3.
     X := _t2 + _t3;
 
-  #l5.
+  #l4.
     return;
 }
 
@@ -64,8 +64,8 @@ procedure Integer incX (
   #rwl5.
     _t5 := 0ii;
 
-  #l8.
-    if !(_t4 == _t5) then goto l7;
+  #l7.
+    if !(_t4 == _t5) then goto l6;
 
   #rwl6.
     _t6 := X;
@@ -73,13 +73,13 @@ procedure Integer incX (
   #rwl7.
     _t7 := 1ii;
 
-  #l9.
+  #l8.
     result := _t6 + _t7;
 
-  #l10.
-    goto l6;
+  #l9.
+    goto l5;
 
-  #l7.
+  #l6.
     // empty loc
 
   #rwl8.
@@ -88,13 +88,13 @@ procedure Integer incX (
   #rwl9.
     _t9 := 1ii;
 
-  #l11.
+  #l10.
     result := _t8 - _t9;
 
-  #l6.
+  #l5.
     // empty loc
 
-  #l12.
+  #l11.
     return result;
 }
 
@@ -107,10 +107,10 @@ procedure Q (
     FIXME _t11;
 
 
-  #l13.
+  #l12.
     call R (Z);
 
-  #l14.
+  #l13.
     call _tcomp0 := incX (X);
 
   #rwl10.
@@ -119,10 +119,10 @@ procedure Q (
   #rwl11.
     _t11 := _tcomp0;
 
-  #l15.
+  #l14.
     Z := _t10 + _t11;
 
-  #l16.
+  #l15.
     return;
 }package P_Simple_Call;
 

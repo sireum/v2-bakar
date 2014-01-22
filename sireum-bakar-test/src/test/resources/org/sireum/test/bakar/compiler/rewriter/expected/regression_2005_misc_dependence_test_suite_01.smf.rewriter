@@ -6,10 +6,10 @@ typealias Integer History_Range;
 procedure Success0 (
         Integer O) {
 
-  #l1.
+  #l0.
     O := 5ii;
 
-  #l2.
+  #l1.
     return;
 }
 
@@ -17,10 +17,10 @@ procedure Success1 (
         Integer I,
         Integer O) {
 
-  #l3.
+  #l2.
     O := I;
 
-  #l4.
+  #l3.
     return;
 }
 
@@ -33,10 +33,10 @@ procedure Success2 (
     FIXME _t1;
 
 
-  #l5.
+  #l4.
     L := I;
 
-  #l6.
+  #l5.
     O := L;
 
   #rwl0.
@@ -45,25 +45,25 @@ procedure Success2 (
   #rwl1.
     _t1 := attribute__uif__last `History_Range;
 
-  #l9.
-    if !(_t0 < _t1) then goto l8;
+  #l8.
+    if !(_t0 < _t1) then goto l7;
 
-  #l10.
+  #l9.
     O := L;
 
-  #l11.
-    goto l7;
-
-  #l8.
-    // empty loc
-
-  #l12.
-    O := I;
+  #l10.
+    goto l6;
 
   #l7.
     // empty loc
 
-  #l13.
+  #l11.
+    O := I;
+
+  #l6.
+    // empty loc
+
+  #l12.
     return;
 }
 
@@ -76,19 +76,19 @@ procedure Success3 (
     Integer L3;
 
 
-  #l14.
+  #l13.
     L1 := I;
 
-  #l15.
+  #l14.
     L2 := L1;
 
-  #l16.
+  #l15.
     L3 := L2;
 
-  #l17.
+  #l16.
     O := L3;
 
-  #l18.
+  #l17.
     return;
 }
 
@@ -104,10 +104,10 @@ procedure Success4 (
     FIXME _t3;
 
 
-  #l19.
+  #l18.
     L1 := I1;
 
-  #l20.
+  #l19.
     L2 := I2;
 
   #rwl2.
@@ -116,13 +116,13 @@ procedure Success4 (
   #rwl3.
     _t3 := L2;
 
-  #l21.
+  #l20.
     L3 := _t2 + _t3;
 
-  #l22.
+  #l21.
     O := L3;
 
-  #l23.
+  #l22.
     return;
 }
 
@@ -139,13 +139,13 @@ procedure Success5 (
     FIXME _t5;
 
 
-  #l24.
+  #l23.
     O1 := I2;
 
-  #l25.
+  #l24.
     L1 := I1;
 
-  #l26.
+  #l25.
     L2 := L1;
 
   #rwl4.
@@ -154,16 +154,16 @@ procedure Success5 (
   #rwl5.
     _t5 := L2;
 
-  #l27.
+  #l26.
     L3 := _t4 + _t5;
 
-  #l28.
+  #l27.
     O2 := O1;
 
-  #l29.
+  #l28.
     O1 := L3;
 
-  #l30.
+  #l29.
     return;
 }
 
@@ -177,7 +177,7 @@ procedure Success6 (
     FIXME _t7;
 
 
-  #l31.
+  #l30.
     O1 := I1;
 
   #rwl6.
@@ -186,25 +186,25 @@ procedure Success6 (
   #rwl7.
     _t7 := 5ii;
 
+  #l33.
+    if !(_t6 > _t7) then goto l32;
+
   #l34.
-    if !(_t6 > _t7) then goto l33;
+    O2 := 5ii;
 
   #l35.
-    O2 := 5ii;
-
-  #l36.
-    goto l32;
-
-  #l33.
-    // empty loc
-
-  #l37.
-    O2 := 5ii;
+    goto l31;
 
   #l32.
     // empty loc
 
-  #l38.
+  #l36.
+    O2 := 5ii;
+
+  #l31.
+    // empty loc
+
+  #l37.
     return;
 }
 
@@ -218,7 +218,7 @@ procedure Success7 (
     FIXME _t9;
 
 
-  #l39.
+  #l38.
     L1 := I1;
 
   #rwl8.
@@ -227,25 +227,25 @@ procedure Success7 (
   #rwl9.
     _t9 := I2;
 
-  #l42.
-    if !(_t8 > _t9) then goto l41;
+  #l41.
+    if !(_t8 > _t9) then goto l40;
 
-  #l43.
+  #l42.
     O := 6ii;
 
-  #l44.
-    goto l40;
-
-  #l41.
-    // empty loc
-
-  #l45.
-    O := 7ii;
+  #l43.
+    goto l39;
 
   #l40.
     // empty loc
 
-  #l46.
+  #l44.
+    O := 7ii;
+
+  #l39.
+    // empty loc
+
+  #l45.
     return;
 }
 
@@ -260,7 +260,7 @@ procedure Success8 (
     FIXME _t11;
 
 
-  #l47.
+  #l46.
     L1 := I1;
 
   #rwl10.
@@ -269,28 +269,28 @@ procedure Success8 (
   #rwl11.
     _t11 := 5ii;
 
-  #l50.
-    if !(_t10 > _t11) then goto l49;
+  #l49.
+    if !(_t10 > _t11) then goto l48;
 
-  #l51.
+  #l50.
     L2 := 6ii;
 
-  #l52.
-    goto l48;
-
-  #l49.
-    // empty loc
-
-  #l53.
-    L2 := I2;
+  #l51.
+    goto l47;
 
   #l48.
     // empty loc
 
-  #l54.
+  #l52.
+    L2 := I2;
+
+  #l47.
+    // empty loc
+
+  #l53.
     O := L2;
 
-  #l55.
+  #l54.
     return;
 }
 
@@ -308,7 +308,7 @@ procedure Success9 (
     FIXME _t15;
 
 
-  #l56.
+  #l55.
     L1 := I1;
 
   #rwl12.
@@ -317,16 +317,16 @@ procedure Success9 (
   #rwl13.
     _t13 := 5ii;
 
-  #l59.
-    if !(_t12 > _t13) then goto l58;
+  #l58.
+    if !(_t12 > _t13) then goto l57;
 
-  #l60.
+  #l59.
     L2 := 6ii;
 
-  #l61.
-    goto l57;
+  #l60.
+    goto l56;
 
-  #l58.
+  #l57.
     // empty loc
 
   #rwl14.
@@ -335,31 +335,31 @@ procedure Success9 (
   #rwl15.
     _t15 := 0ii;
 
-  #l64.
-    if !(_t14 < _t15) then goto l63;
+  #l63.
+    if !(_t14 < _t15) then goto l62;
 
-  #l65.
+  #l64.
     L2 := I3;
 
-  #l66.
-    goto l62;
-
-  #l63.
-    // empty loc
-
-  #l67.
-    L2 := 7ii;
+  #l65.
+    goto l61;
 
   #l62.
     // empty loc
 
-  #l57.
+  #l66.
+    L2 := 7ii;
+
+  #l61.
     // empty loc
 
-  #l68.
+  #l56.
+    // empty loc
+
+  #l67.
     O := L2;
 
-  #l69.
+  #l68.
     return;
 }
 
@@ -378,16 +378,16 @@ procedure Success10 (
     FIXME _t19;
 
 
-  #l70.
+  #l69.
     L2 := 5ii;
 
-  #l71.
+  #l70.
     L1 := I3;
 
-  #l72.
+  #l71.
     O2 := L1;
 
-  #l73.
+  #l72.
     L1 := I2;
 
   #rwl16.
@@ -396,8 +396,8 @@ procedure Success10 (
   #rwl17.
     _t17 := 5ii;
 
-  #l75.
-    if !(_t16 > _t17) then goto l74;
+  #l74.
+    if !(_t16 > _t17) then goto l73;
 
   #rwl18.
     _t18 := I1;
@@ -405,31 +405,31 @@ procedure Success10 (
   #rwl19.
     _t19 := 0ii;
 
-  #l78.
-    if !(_t18 < _t19) then goto l77;
+  #l77.
+    if !(_t18 < _t19) then goto l76;
 
-  #l79.
+  #l78.
     L2 := 8ii;
 
-  #l80.
-    goto l76;
-
-  #l77.
-    // empty loc
-
-  #l81.
-    L2 := 7ii;
+  #l79.
+    goto l75;
 
   #l76.
     // empty loc
 
-  #l74.
+  #l80.
+    L2 := 7ii;
+
+  #l75.
     // empty loc
 
-  #l82.
+  #l73.
+    // empty loc
+
+  #l81.
     O1 := L2;
 
-  #l83.
+  #l82.
     return;
 }package Dependence_Test_Suite_01;
 

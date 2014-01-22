@@ -114,22 +114,22 @@ procedure Integer Num_Repetition (
     Index_Type _tcomp1;
 
 
-  #l1.
+  #l0.
     Result := 0ii;
 
-  #l3.
+  #l2.
     _tcomp0 := L;
 
-  #l4.
+  #l3.
     _tcomp1 := U;
 
-  #l5.
-    if _tcomp0 > _tcomp1 then goto l2;
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.<
+  #l6.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -138,7 +138,7 @@ procedure Integer Num_Repetition (
   >
     // empty loc
 
-  #l9.<
+  #l8.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -149,27 +149,27 @@ procedure Integer Num_Repetition (
            <int>17</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(A[I] == E) then goto l8;
+    if !(A[I] == E) then goto l7;
 
-  #l10.
+  #l9.
     Result := Result + 1ii;
 
-  #l8.
+  #l7.
     // empty loc
+
+  #l10.
+    if I == _tcomp1 then goto l1;
 
   #l11.
-    if I == _tcomp1 then goto l2;
-
-  #l12.
     I := I + 1ii;
 
-  #l13.
-    goto l7;
+  #l12.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l14.
+  #l13.
     return Result;
 }
 
@@ -277,22 +277,22 @@ procedure Boolean Perm (
     Integer _tcomp5;
 
 
-  #l15.
+  #l14.
     Result := true;
 
-  #l17.
+  #l16.
     _tcomp2 := L;
 
-  #l18.
+  #l17.
     _tcomp3 := U;
 
-  #l19.
-    if _tcomp2 > _tcomp3 then goto l16;
+  #l18.
+    if _tcomp2 > _tcomp3 then goto l15;
 
-  #l20.
+  #l19.
     I := _tcomp2;
 
-  #l21.<
+  #l20.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -301,13 +301,13 @@ procedure Boolean Perm (
   >
     // empty loc
 
-  #l23.
+  #l22.
     call _tcomp4 := Num_Repetition (A, A[I], L, U);
 
-  #l24.
+  #l23.
     call _tcomp5 := Num_Repetition (B, A[I], L, U);
 
-  #l25.<
+  #l24.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -318,27 +318,27 @@ procedure Boolean Perm (
            <int>71</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(_tcomp4 != _tcomp5) then goto l22;
+    if !(_tcomp4 != _tcomp5) then goto l21;
 
-  #l26.
+  #l25.
     Result := false;
 
-  #l22.
+  #l21.
     // empty loc
+
+  #l26.
+    if I == _tcomp3 then goto l15;
 
   #l27.
-    if I == _tcomp3 then goto l16;
-
-  #l28.
     I := I + 1ii;
 
-  #l29.
-    goto l21;
+  #l28.
+    goto l20;
 
-  #l16.
+  #l15.
     // empty loc
 
-  #l30.
+  #l29.
     return Result;
 }
 
@@ -427,22 +427,22 @@ procedure Boolean Ordered (
     Index_Type _tcomp7;
 
 
-  #l31.
+  #l30.
     Result := true;
 
-  #l33.
+  #l32.
     _tcomp6 := L;
 
-  #l34.
+  #l33.
     _tcomp7 := U - 1ii;
 
-  #l35.
-    if _tcomp6 > _tcomp7 then goto l32;
+  #l34.
+    if _tcomp6 > _tcomp7 then goto l31;
 
-  #l36.
+  #l35.
     I := _tcomp6;
 
-  #l37.<
+  #l36.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -451,7 +451,7 @@ procedure Boolean Ordered (
   >
     // empty loc
 
-  #l39.<
+  #l38.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -462,27 +462,27 @@ procedure Boolean Ordered (
            <int>24</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(A[I] > A[I + 1ii]) then goto l38;
+    if !(A[I] > A[I + 1ii]) then goto l37;
 
-  #l40.
+  #l39.
     Result := false;
 
-  #l38.
+  #l37.
     // empty loc
+
+  #l40.
+    if I == _tcomp7 then goto l31;
 
   #l41.
-    if I == _tcomp7 then goto l32;
-
-  #l42.
     I := I + 1ii;
 
-  #l43.
-    goto l37;
+  #l42.
+    goto l36;
 
-  #l32.
+  #l31.
     // empty loc
 
-  #l44.
+  #l43.
     return Result;
 }
 
@@ -1144,22 +1144,22 @@ procedure Boolean Partitioned (
     Index_Type _tcomp11;
 
 
-  #l45.
+  #l44.
     Result := true;
 
-  #l47.
+  #l46.
     _tcomp8 := L;
 
-  #l48.
+  #l47.
     _tcomp9 := M;
 
-  #l49.
-    if _tcomp8 > _tcomp9 then goto l46;
+  #l48.
+    if _tcomp8 > _tcomp9 then goto l45;
 
-  #l50.
+  #l49.
     I := _tcomp8;
 
-  #l51.<
+  #l50.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -1168,19 +1168,19 @@ procedure Boolean Partitioned (
   >
     // empty loc
 
-  #l53.
+  #l52.
     _tcomp10 := M + 1ii;
 
-  #l54.
+  #l53.
     _tcomp11 := U;
 
-  #l55.
-    if _tcomp10 > _tcomp11 then goto l52;
+  #l54.
+    if _tcomp10 > _tcomp11 then goto l51;
 
-  #l56.
+  #l55.
     J := _tcomp10;
 
-  #l57.<
+  #l56.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -1189,7 +1189,7 @@ procedure Boolean Partitioned (
   >
     // empty loc
 
-  #l59.<
+  #l58.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -1200,39 +1200,39 @@ procedure Boolean Partitioned (
            <int>22</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(A[I] > A[J]) then goto l58;
+    if !(A[I] > A[J]) then goto l57;
 
-  #l60.
+  #l59.
     Result := false;
 
-  #l58.
+  #l57.
     // empty loc
+
+  #l60.
+    if J == _tcomp11 then goto l51;
 
   #l61.
-    if J == _tcomp11 then goto l52;
-
-  #l62.
     J := J + 1ii;
 
-  #l63.
-    goto l57;
+  #l62.
+    goto l56;
 
-  #l52.
+  #l51.
     // empty loc
+
+  #l63.
+    if I == _tcomp9 then goto l45;
 
   #l64.
-    if I == _tcomp9 then goto l46;
-
-  #l65.
     I := I + 1ii;
 
-  #l66.
-    goto l51;
+  #l65.
+    goto l50;
 
-  #l46.
+  #l45.
     // empty loc
 
-  #l67.
+  #l66.
     return Result;
 }
 
@@ -2261,16 +2261,16 @@ procedure Swap_Elements (
     ;
 
 
-  #l68.
+  #l67.
     Temp := T[I];
 
-  #l69.
+  #l68.
     T[I] := T[J];
 
-  #l70.
+  #l69.
     T[J] := Temp;
 
-  #l71.
+  #l70.
     return;
 }
 
@@ -2317,19 +2317,19 @@ procedure BubbleSort (
     Index_Type _tcomp15;
 
 
-  #l73.
+  #l72.
     _tcomp12 := attribute__uif__first (Array_Type);
 
-  #l74.
+  #l73.
     _tcomp13 := attribute__uif__last (Array_Type);
 
-  #l75.
-    if _tcomp12 > _tcomp13 then goto l72;
+  #l74.
+    if _tcomp12 > _tcomp13 then goto l71;
 
-  #l76.
+  #l75.
     I := _tcomp13;
 
-  #l77.<
+  #l76.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2338,19 +2338,19 @@ procedure BubbleSort (
   >
     // empty loc
 
-  #l79.
+  #l78.
     _tcomp14 := attribute__uif__first `Array_Type + 1ii;
 
-  #l80.
+  #l79.
     _tcomp15 := I;
 
-  #l81.
-    if _tcomp14 > _tcomp15 then goto l78;
+  #l80.
+    if _tcomp14 > _tcomp15 then goto l77;
 
-  #l82.
+  #l81.
     J := _tcomp14;
 
-  #l83.<
+  #l82.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2359,7 +2359,7 @@ procedure BubbleSort (
   >
     // empty loc
 
-  #l85.<
+  #l84.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -2370,48 +2370,48 @@ procedure BubbleSort (
            <int>35</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(Table[J - 1ii] > Table[J]) then goto l84;
+    if !(Table[J - 1ii] > Table[J]) then goto l83;
 
-  #l86.
+  #l85.
     call Swap_Elements (Table, J - 1ii, J);
 
-  #l84.
+  #l83.
     // empty loc
 
-  #l87.
+  #l86.
     assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Array_Type, J - 1ii) => Table[K] <= Table[J]
           default => true} && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [79, 9]";
 
-  #l88.
-    if J == _tcomp15 then goto l78;
+  #l87.
+    if J == _tcomp15 then goto l77;
 
-  #l89.
+  #l88.
     J := J + 1ii;
 
-  #l90.
-    goto l83;
+  #l89.
+    goto l82;
 
-  #l78.
+  #l77.
     // empty loc
 
-  #l91.
+  #l90.
     assert proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [88, 8]";
 
-  #l92.
-    if I == _tcomp12 then goto l72;
+  #l91.
+    if I == _tcomp12 then goto l71;
 
-  #l93.
+  #l92.
     I := I - 1ii;
 
-  #l94.
-    goto l77;
+  #l93.
+    goto l76;
 
-  #l72.
+  #l71.
     // empty loc
 
-  #l95.
+  #l94.
     return;
 }
 
@@ -2485,10 +2485,10 @@ procedure BubbleSortFast (
     ;
 
 
-  #l96.
+  #l95.
     Bound := attribute__uif__last `Index_Type;
 
-  #l97.<
+  #l96.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2497,16 +2497,16 @@ procedure BubbleSortFast (
   >
     // empty loc
 
-  #l99.
-    if Bound == 0ii then goto l98;
+  #l98.
+    if Bound == 0ii then goto l97;
 
-  #l100.
+  #l99.
     J := attribute__uif__first `Index_Type;
 
-  #l101.
+  #l100.
     T := 0ii;
 
-  #l103.<
+  #l102.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2515,10 +2515,10 @@ procedure BubbleSortFast (
   >
     // empty loc
 
-  #l104.
-    if !(J <= Bound - 1ii) then goto l102;
+  #l103.
+    if !(J <= Bound - 1ii) then goto l101;
 
-  #l106.<
+  #l105.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -2529,45 +2529,45 @@ procedure BubbleSortFast (
            <int>34</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(Table[J] > Table[J + 1ii]) then goto l105;
+    if !(Table[J] > Table[J + 1ii]) then goto l104;
 
-  #l107.
+  #l106.
     call Swap_Elements (Table, J, J + 1ii);
 
-  #l108.
+  #l107.
     T := J;
 
-  #l105.
+  #l104.
     // empty loc
 
-  #l109.
+  #l108.
     J := J + 1ii;
 
-  #l110.
+  #l109.
     assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Index_Type, J - 1ii) => Table[K] <= Table[J]
           default => true} && Partitioned (Table, attribute__uif__first `Index_Type, T, J) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [114, 9]";
 
-  #l111.
-    goto l103;
+  #l110.
+    goto l102;
 
-  #l102.
+  #l101.
     // empty loc
 
-  #l112.
+  #l111.
     assert proof__uif__assert Ordered (Table, Bound, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [125, 9]";
 
-  #l113.
+  #l112.
     Bound := T;
 
-  #l114.
-    goto l97;
+  #l113.
+    goto l96;
 
-  #l98.
+  #l97.
     // empty loc
 
-  #l115.
+  #l114.
     return;
 }
 
@@ -2633,19 +2633,19 @@ procedure InsertionSort (
     Index_Type _tcomp17;
 
 
-  #l117.
+  #l116.
     _tcomp16 := attribute__uif__first `Index_Type + 1ii;
 
-  #l118.
+  #l117.
     _tcomp17 := attribute__uif__last `Index_Type;
 
-  #l119.
-    if _tcomp16 > _tcomp17 then goto l116;
+  #l118.
+    if _tcomp16 > _tcomp17 then goto l115;
 
-  #l120.
+  #l119.
     P := _tcomp16;
 
-  #l121.<
+  #l120.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2654,13 +2654,13 @@ procedure InsertionSort (
   >
     // empty loc
 
-  #l122.
+  #l121.
     Temp := Table[P];
 
-  #l123.
+  #l122.
     J := P;
 
-  #l125.<
+  #l124.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2669,49 +2669,49 @@ procedure InsertionSort (
   >
     // empty loc
 
-  #l126.
-    if !(J >= attribute__uif__first `Index_Type + 1ii &&& Table[J - 1ii] > Temp) then goto l124;
+  #l125.
+    if !(J >= attribute__uif__first `Index_Type + 1ii &&& Table[J - 1ii] > Temp) then goto l123;
 
-  #l127.
+  #l126.
     Table[J] := Table[J - 1ii];
 
-  #l128.
+  #l127.
     J := J - 1ii;
 
-  #l129.
+  #l128.
     assert proof__uif__assert Temp == attribute__uif__loop_entry (LOOP_LABEL_10, Table)[P] && attribute__uif__first `Index_Type <= J && J < P && proof__uif__for_all {Index_Type K => 
         switch K
           case (J + 1ii, P) => Table[K] > Temp
           default => true} && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P) "Assertion failed at [149, 9]";
 
-  #l130.
-    goto l125;
+  #l129.
+    goto l124;
 
-  #l124.
+  #l123.
     // empty loc
 
-  #l131.
+  #l130.
     Table[J] := Temp;
 
-  #l132.
+  #l131.
     assert proof__uif__assert attribute__uif__first `Index_Type + 1ii <= P && P <= attribute__uif__last `Index_Type && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P) && proof__uif__for_all {Index_Type K => 
         switch K
           case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry (LOOP_LABEL_9, Table)[K]
           default => true} "Assertion failed at [164, 9]";
 
-  #l133.
-    if P == _tcomp17 then goto l116;
+  #l132.
+    if P == _tcomp17 then goto l115;
 
-  #l134.
+  #l133.
     P := P + 1ii;
 
-  #l135.
-    goto l121;
+  #l134.
+    goto l120;
 
-  #l116.
+  #l115.
     // empty loc
 
-  #l136.
+  #l135.
     return;
 }
 
@@ -2777,10 +2777,10 @@ procedure ShellSort (
     Index_Type _tcomp19;
 
 
-  #l137.
+  #l136.
     Gap := attribute__uif__last `Index_Type;
 
-  #l138.<
+  #l137.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2789,22 +2789,22 @@ procedure ShellSort (
   >
     // empty loc
 
-  #l140.
+  #l139.
     Gap := Gap / 2ii;
 
-  #l142.
+  #l141.
     _tcomp18 := Gap;
 
-  #l143.
+  #l142.
     _tcomp19 := attribute__uif__last `Index_Type;
 
-  #l144.
-    if _tcomp18 > _tcomp19 then goto l141;
+  #l143.
+    if _tcomp18 > _tcomp19 then goto l140;
 
-  #l145.
+  #l144.
     I := _tcomp18;
 
-  #l146.<
+  #l145.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2813,10 +2813,10 @@ procedure ShellSort (
   >
     // empty loc
 
-  #l147.
+  #l146.
     J := I - Gap;
 
-  #l149.<
+  #l148.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -2825,43 +2825,43 @@ procedure ShellSort (
   >
     // empty loc
 
-  #l150.
-    if !(J >= attribute__uif__first `Index_Type &&& Table[J] > Table[J + Gap]) then goto l148;
+  #l149.
+    if !(J >= attribute__uif__first `Index_Type &&& Table[J] > Table[J + Gap]) then goto l147;
 
-  #l151.
+  #l150.
     call Swap_Elements (Table, J, J + Gap);
 
-  #l152.
+  #l151.
     J := J - Gap;
 
-  #l153.
-    goto l149;
+  #l152.
+    goto l148;
 
-  #l148.
+  #l147.
     // empty loc
+
+  #l153.
+    if I == _tcomp19 then goto l140;
 
   #l154.
-    if I == _tcomp19 then goto l141;
-
-  #l155.
     I := I + 1ii;
 
-  #l156.
-    goto l146;
+  #l155.
+    goto l145;
 
-  #l141.
+  #l140.
     // empty loc
+
+  #l156.
+    if Gap == attribute__uif__first `Index_Type then goto l138;
 
   #l157.
-    if Gap == attribute__uif__first `Index_Type then goto l139;
+    goto l137;
 
-  #l158.
-    goto l138;
-
-  #l139.
+  #l138.
     // empty loc
 
-  #l159.
+  #l158.
     return;
 }
 

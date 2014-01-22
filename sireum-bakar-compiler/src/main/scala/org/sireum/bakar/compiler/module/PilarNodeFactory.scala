@@ -46,7 +46,9 @@ object PilarNodeFactory {
     parentUri: ResourceUri, nts: NamedTypeSpec): GlobalVarDecl = {
     assert(nts ? URIS.TYPE_URI)
     assert(nts.name ? URIS.TYPE_URI)
-
+    assert(varName.contains("@@"))
+    assert(varUri.contains("@@"))
+    
     import org.sireum.bakar.symbol.BakarSymbol._
     val nd = URIS.addResourceUri(NameDefinition(varName), varUri)
     val gvd = GlobalVarDecl(nd, ivectorEmpty, Some(nts))
@@ -84,7 +86,9 @@ object PilarNodeFactory {
     (lvd, ret)
   }
 
-  def buildLocationLabel(label: String, uri: ResourceUri): NameDefinition = {
+  def buildLocationLabel(path : ISeq[String]): NameDefinition = {
+    val label = path(path.size - 1)
+    val uri = URIS.uriPrefixLocation + path.mkString("/")
     URIS.addResourceUri(NameDefinition(label), uri)
   }
 

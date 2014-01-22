@@ -3,13 +3,13 @@ package RecordTest01;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@anObject := `Object {
       X = 1ii,
       Y = 2ii
     };
 
-  #l2.
+  #l1.
     @@aNestedObject := `NestedObject {
       O = `Object {
         X = 1ii,
@@ -17,7 +17,7 @@ procedure $$binit {
       }
     };
 
-  #l12.
+  #l11.
     return;
 }
 
@@ -27,16 +27,16 @@ procedure Test01 (
     Integer T;
 
 
-  #l3.
+  #l2.
     T := Q.X;
 
-  #l4.
+  #l3.
     Q.X := Q.Y;
 
-  #l5.
+  #l4.
     Q.Y := T;
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -56,7 +56,7 @@ procedure Test02 (
   #rwl0.
     _t0 := Q.O;
 
-  #l7.
+  #l6.
     _t0.X := I1;
 
   #rwl1.
@@ -65,7 +65,7 @@ procedure Test02 (
   #rwl2.
     _t1 := Q.O;
 
-  #l8.
+  #l7.
     _t1.Y := I2;
 
   #rwl3.
@@ -74,16 +74,16 @@ procedure Test02 (
   #rwl4.
     _t2 := Q.O;
 
-  #l9.
+  #l8.
     O1 := _t2.X;
 
   #rwl5.
     _t3 := Q.O;
 
-  #l10.
+  #l9.
     O2 := _t3.Y;
 
-  #l11.
+  #l10.
     return;
 }package RecordTest01;
 

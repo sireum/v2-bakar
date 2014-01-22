@@ -20,12 +20,12 @@ procedure $$binit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@oArray := `ObjectArray { iter => 
         switch iter
           default => dummyObject};
 
-  #l7.
+  #l6.
     return;
 }
 
@@ -105,7 +105,7 @@ procedure Swap (
     ;
 
 
-  #l2.
+  #l1.
     temp1 := Q[theIndex].X
         @BAKAR_TYPE_URI
 
@@ -122,7 +122,7 @@ procedure Swap (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
 
-  #l3.
+  #l2.
     temp2 := Q[theIndex].Y
         @BAKAR_TYPE_URI
 
@@ -139,7 +139,7 @@ procedure Swap (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
 
-  #l4.
+  #l3.
     Q[theIndex].X
         @BAKAR_TYPE_URI
 
@@ -156,7 +156,7 @@ procedure Swap (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := temp2;
 
-  #l5.
+  #l4.
     Q[theIndex].Y
         @BAKAR_TYPE_URI
 
@@ -173,7 +173,7 @@ procedure Swap (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := temp1;
 
-  #l6.
+  #l5.
     return;
 }
 

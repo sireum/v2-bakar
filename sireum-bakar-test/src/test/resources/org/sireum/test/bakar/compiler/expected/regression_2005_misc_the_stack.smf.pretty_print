@@ -261,22 +261,22 @@ procedure $$binit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@Pointer := 0ii;
 
-  #l2.
+  #l1.
     @@S := `Vector { iter => 
         switch iter
           case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
     };
 
-  #l3.
+  #l2.
     @@AuditInfo := `AuditInfoType {
       PushOps = 0ii,
       PopOps = 0ii
     };
 
-  #l43.
+  #l42.
     return;
 }
 
@@ -315,13 +315,13 @@ procedure Push (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l4.
+  #l3.
     @@Pointer := @@Pointer + 1ii;
 
-  #l5.
+  #l4.
     @@S[@@Pointer] := X;
 
-  #l6.
+  #l5.
     @@AuditInfo.PushOps
         @BAKAR_TYPE_URI
 
@@ -352,7 +352,7 @@ procedure Push (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      + 1ii;
 
-  #l7.
+  #l6.
     return;
 }
 
@@ -391,13 +391,13 @@ procedure Pop (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l8.
+  #l7.
     X := @@S[@@Pointer];
 
-  #l9.
+  #l8.
     @@Pointer := @@Pointer - 1ii;
 
-  #l10.
+  #l9.
     @@AuditInfo.PopOps
         @BAKAR_TYPE_URI
 
@@ -428,7 +428,7 @@ procedure Pop (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      + 1ii;
 
-  #l11.
+  #l10.
     return;
 }
 
@@ -483,22 +483,22 @@ procedure Boolean Value_Present (
     Index_Range _tcomp1;
 
 
-  #l12.
+  #l11.
     Result := false;
 
-  #l14.
+  #l13.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l15.
+  #l14.
     _tcomp1 := attribute__uif__last `Index_Range;
 
-  #l16.
-    if _tcomp0 > _tcomp1 then goto l13;
+  #l15.
+    if _tcomp0 > _tcomp1 then goto l12;
 
-  #l17.
+  #l16.
     I := _tcomp0;
 
-  #l18.<
+  #l17.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -507,7 +507,7 @@ procedure Boolean Value_Present (
   >
     // empty loc
 
-  #l20.<
+  #l19.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -518,30 +518,30 @@ procedure Boolean Value_Present (
            <int>20</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(@@S[I] == X) then goto l19;
+    if !(@@S[I] == X) then goto l18;
 
-  #l21.
+  #l20.
     Result := true;
 
-  #l22.
-    goto l13;
+  #l21.
+    goto l12;
 
-  #l19.
+  #l18.
     // empty loc
+
+  #l22.
+    if I == _tcomp1 then goto l12;
 
   #l23.
-    if I == _tcomp1 then goto l13;
-
-  #l24.
     I := I + 1ii;
 
-  #l25.
-    goto l18;
+  #l24.
+    goto l17;
 
-  #l13.
+  #l12.
     // empty loc
 
-  #l26.
+  #l25.
     return Result;
 }
 
@@ -596,22 +596,22 @@ procedure Index_Range Find_Stack_Pos (
     Index_Range _tcomp3;
 
 
-  #l27.
+  #l26.
     Result_Pos := attribute__uif__first `Index_Range;
 
-  #l29.
+  #l28.
     _tcomp2 := attribute__uif__first `Index_Range;
 
-  #l30.
+  #l29.
     _tcomp3 := attribute__uif__last `Index_Range;
 
-  #l31.
-    if _tcomp2 > _tcomp3 then goto l28;
+  #l30.
+    if _tcomp2 > _tcomp3 then goto l27;
 
-  #l32.
+  #l31.
     I := _tcomp2;
 
-  #l33.<
+  #l32.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -620,7 +620,7 @@ procedure Index_Range Find_Stack_Pos (
   >
     // empty loc
 
-  #l35.<
+  #l34.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -631,30 +631,30 @@ procedure Index_Range Find_Stack_Pos (
            <int>20</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(@@S[I] == X) then goto l34;
+    if !(@@S[I] == X) then goto l33;
 
-  #l36.
+  #l35.
     Result_Pos := I;
 
-  #l37.
-    goto l28;
+  #l36.
+    goto l27;
 
-  #l34.
+  #l33.
     // empty loc
+
+  #l37.
+    if I == _tcomp3 then goto l27;
 
   #l38.
-    if I == _tcomp3 then goto l28;
-
-  #l39.
     I := I + 1ii;
 
-  #l40.
-    goto l33;
+  #l39.
+    goto l32;
 
-  #l28.
+  #l27.
     // empty loc
 
-  #l41.
+  #l40.
     return Result_Pos;
 }
 
@@ -676,7 +676,7 @@ procedure Boolean aPrivateFunction
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l42.
+  #l41.
     return true;
 }
 

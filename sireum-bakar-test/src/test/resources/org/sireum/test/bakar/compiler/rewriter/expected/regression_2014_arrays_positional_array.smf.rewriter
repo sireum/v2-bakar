@@ -13,13 +13,13 @@ procedure $$binit {
   #rwl1.
     _t1 := 0ii;
 
-  #l2.
+  #l1.
     @@Box2 := `Square { iter => 
         switch iter
           case _t0 + _t1 => 77ii
           default => 5ii};
 
-  #l5.
+  #l4.
     return;
 }
 
@@ -36,10 +36,10 @@ procedure dummy (
   #rwl3.
     _t3 := 1ii;
 
-  #l3.
+  #l2.
     @@Box[X] := _t2 - _t3;
 
-  #l4.
+  #l3.
     return;
 }package Positional_Array;
 
@@ -96,7 +96,7 @@ procedure $$sinit {
   #rwl9.
     _t9 := 4ii;
 
-  #l1.
+  #l0.
     @@Box := `Square { iter => 
         switch iter
           case _t0 + _t1 => -(1ii)
@@ -106,7 +106,7 @@ procedure $$sinit {
           case _t8 + _t9 => 2ii
           default => 3ii};
 
-  #l6.
+  #l5.
     return;
 }
 

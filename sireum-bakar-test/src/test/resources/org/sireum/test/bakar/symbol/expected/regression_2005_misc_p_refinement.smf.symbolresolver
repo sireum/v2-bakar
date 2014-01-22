@@ -43,8 +43,8 @@ Procedure Table
   ada://procedure_body/P_Refinement-1:9/Q-6:13 
     ada://procedure/P_Refinement-1:9/Q-6:13 
     ada://procedure_body/P_Refinement-1:9/Q-6:13 
-  ada://procedure_body__package_init/P_Refinement/$$binit 
-    ada://procedure_body__package_init/P_Refinement/$$binit 
+  ada://procedure_body__package_init/P_Refinement-1:9/$$binit 
+    ada://procedure_body__package_init/P_Refinement-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/P_Refinement-1:9/Q-6:13 
@@ -53,8 +53,8 @@ Spark Method Table
   ada://procedure_body/P_Refinement-1:9/Q-6:13 
     SPEC: ada://procedure/P_Refinement-1:9/Q-6:13 
     BODY: ada://procedure_body/P_Refinement-1:9/Q-6:13 
-  ada://procedure_body__package_init/P_Refinement/$$binit 
-    BODY: ada://procedure_body__package_init/P_Refinement/$$binit 
+  ada://procedure_body__package_init/P_Refinement-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/P_Refinement-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/P_Refinement-1:9/Q-6:13 
@@ -74,8 +74,8 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
       ada://parameter/P_Refinement-1:9/Q-6:13/Z-6:30 
-      ada://variable__temp/P_Refinement/Q/_t0 
-      ada://variable__temp/P_Refinement/Q/_t1 
+      ada://variable__temp/P_Refinement-1:9/Q-6:13/_t0 
+      ada://variable__temp/P_Refinement-1:9/Q-6:13/_t1 
 
     Params
       ada://parameter/P_Refinement-1:9/Q-6:13/X-6:15 
@@ -83,7 +83,7 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure_body__package_init/P_Refinement/$$binit 
+  ada://procedure_body__package_init/P_Refinement-1:9/$$binit 
 
     LocalVarTable
 

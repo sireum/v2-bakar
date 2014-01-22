@@ -7,16 +7,16 @@ procedure Test01 (
     Float T;
 
 
-  #l1.
+  #l0.
     T := Q.X;
 
-  #l2.
+  #l1.
     Q.X := Q.Y;
 
-  #l3.
+  #l2.
     Q.Y := T;
 
-  #l4.
+  #l3.
     return (Q);
 }
 
@@ -29,19 +29,19 @@ procedure Test02 (
     Object Q;
 
 
-  #l5.
+  #l4.
     Q.X := I1;
 
-  #l6.
+  #l5.
     Q.Y := I2;
 
-  #l7.
+  #l6.
     O1 := Q.X;
 
-  #l8.
+  #l7.
     O2 := Q.Y;
 
-  #l9.
+  #l8.
     return (O1, O2);
 }package RecordTest02;
 

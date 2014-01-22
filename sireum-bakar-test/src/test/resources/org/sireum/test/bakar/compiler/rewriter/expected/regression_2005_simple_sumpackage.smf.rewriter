@@ -20,7 +20,7 @@ procedure Integer Sum (
     FIXME _t11;
 
 
-  #l1.
+  #l0.
     R := 0ii;
 
   #rwl0.
@@ -29,8 +29,8 @@ procedure Integer Sum (
   #rwl1.
     _t1 := 0ii;
 
-  #l3.
-    if !(_t0 >= _t1) then goto l2;
+  #l2.
+    if !(_t0 >= _t1) then goto l1;
 
   #rwl2.
     _t2 := N;
@@ -38,10 +38,10 @@ procedure Integer Sum (
   #rwl3.
     _t3 := 1ii;
 
-  #l4.
+  #l3.
     T := _t2 - _t3;
 
-  #l6.
+  #l5.
     // empty loc
 
   #rwl4.
@@ -50,8 +50,8 @@ procedure Integer Sum (
   #rwl5.
     _t5 := 0ii;
 
-  #l7.
-    if !(_t4 >= _t5) then goto l5;
+  #l6.
+    if !(_t4 >= _t5) then goto l4;
 
   #rwl6.
     _t6 := R;
@@ -59,7 +59,7 @@ procedure Integer Sum (
   #rwl7.
     _t7 := 1ii;
 
-  #l8.
+  #l7.
     R := _t6 + _t7;
 
   #rwl8.
@@ -68,13 +68,13 @@ procedure Integer Sum (
   #rwl9.
     _t9 := 1ii;
 
-  #l9.
+  #l8.
     T := _t8 - _t9;
 
-  #l10.
-    goto l6;
+  #l9.
+    goto l5;
 
-  #l5.
+  #l4.
     // empty loc
 
   #rwl10.
@@ -83,13 +83,13 @@ procedure Integer Sum (
   #rwl11.
     _t11 := R;
 
-  #l11.
+  #l10.
     assert proof__uif__assert _t10 == _t11 "Assertion failed at [15, 7]";
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l12.
+  #l11.
     return R;
 }
 
@@ -112,7 +112,7 @@ procedure Sum2 (
     FIXME _t23;
 
 
-  #l13.
+  #l12.
     R := 0ii;
 
   #rwl12.
@@ -121,8 +121,8 @@ procedure Sum2 (
   #rwl13.
     _t13 := 0ii;
 
-  #l15.
-    if !(_t12 >= _t13) then goto l14;
+  #l14.
+    if !(_t12 >= _t13) then goto l13;
 
   #rwl14.
     _t14 := N;
@@ -130,10 +130,10 @@ procedure Sum2 (
   #rwl15.
     _t15 := 1ii;
 
-  #l16.
+  #l15.
     T := _t14 - _t15;
 
-  #l18.
+  #l17.
     // empty loc
 
   #rwl16.
@@ -142,8 +142,8 @@ procedure Sum2 (
   #rwl17.
     _t17 := 0ii;
 
-  #l19.
-    if !(_t16 >= _t17) then goto l17;
+  #l18.
+    if !(_t16 >= _t17) then goto l16;
 
   #rwl18.
     _t18 := R;
@@ -151,7 +151,7 @@ procedure Sum2 (
   #rwl19.
     _t19 := 1ii;
 
-  #l20.
+  #l19.
     R := _t18 + _t19;
 
   #rwl20.
@@ -160,13 +160,13 @@ procedure Sum2 (
   #rwl21.
     _t21 := 1ii;
 
-  #l21.
+  #l20.
     T := _t20 - _t21;
 
-  #l22.
-    goto l18;
+  #l21.
+    goto l17;
 
-  #l17.
+  #l16.
     // empty loc
 
   #rwl22.
@@ -175,13 +175,13 @@ procedure Sum2 (
   #rwl23.
     _t23 := R;
 
-  #l23.
+  #l22.
     assert proof__uif__assert _t22 == _t23 "Assertion failed at [32, 7]";
 
-  #l14.
+  #l13.
     // empty loc
 
-  #l24.
+  #l23.
     return;
 }package SumPackage;
 

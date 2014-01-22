@@ -1,4 +1,4 @@
 ada://parameter/SimpleMath1-1:9/Inc-6:13/I-6:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/SimpleMath1-1:9/@@B+7:3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/SimpleMath1/Inc/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/SimpleMath1/Inc/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/SimpleMath1-1:9/Inc-6:13/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/SimpleMath1-1:9/Inc-6:13/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1

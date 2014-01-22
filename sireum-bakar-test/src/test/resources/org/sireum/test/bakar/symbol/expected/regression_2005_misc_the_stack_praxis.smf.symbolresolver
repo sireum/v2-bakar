@@ -9,7 +9,7 @@ Spark Package Table
     BODY: ada://package_body/The_Stack_Praxis-1:9
 
 Const Table
-  ada://constant_declaration_body/The_Stack_Praxis/$CONST 
+  ada://constant_declaration_body/The_Stack_Praxis-1:9/$CONST 
 
 Const Element Table
   ada://integer_number/The_Stack_Praxis-1:9/Stack_Size+5:4 
@@ -53,8 +53,8 @@ Procedure Table
   ada://procedure_body/The_Stack_Praxis-1:9/Push-5:14 
     ada://procedure/The_Stack_Praxis-1:9/Push-5:14 
     ada://procedure_body/The_Stack_Praxis-1:9/Push-5:14 
-  ada://procedure_body__package_init/The_Stack_Praxis/$$binit 
-    ada://procedure_body__package_init/The_Stack_Praxis/$$binit 
+  ada://procedure_body__package_init/The_Stack_Praxis-1:9/$$binit 
+    ada://procedure_body__package_init/The_Stack_Praxis-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/The_Stack_Praxis-1:9/Pop-9:14 
@@ -69,8 +69,8 @@ Spark Method Table
   ada://procedure_body/The_Stack_Praxis-1:9/Push-5:14 
     SPEC: ada://procedure/The_Stack_Praxis-1:9/Push-5:14 
     BODY: ada://procedure_body/The_Stack_Praxis-1:9/Push-5:14 
-  ada://procedure_body__package_init/The_Stack_Praxis/$$binit 
-    BODY: ada://procedure_body__package_init/The_Stack_Praxis/$$binit 
+  ada://procedure_body__package_init/The_Stack_Praxis-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/The_Stack_Praxis-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/The_Stack_Praxis-1:9/Pop-9:14 
@@ -97,8 +97,8 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 
-      ada://variable__temp/The_Stack_Praxis/Pop/_t2 
-      ada://variable__temp/The_Stack_Praxis/Pop/_t3 
+      ada://variable__temp/The_Stack_Praxis-1:9/Pop-9:14/_t2 
+      ada://variable__temp/The_Stack_Praxis-1:9/Pop-9:14/_t3 
 
     Params
       ada://parameter/The_Stack_Praxis-1:9/Pop-9:14/X-9:18 
@@ -109,15 +109,15 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 
-      ada://variable__temp/The_Stack_Praxis/Push/_t0 
-      ada://variable__temp/The_Stack_Praxis/Push/_t1 
+      ada://variable__temp/The_Stack_Praxis-1:9/Push-5:14/_t0 
+      ada://variable__temp/The_Stack_Praxis-1:9/Push-5:14/_t1 
 
     Params
       ada://parameter/The_Stack_Praxis-1:9/Push-5:14/X-5:19 
 
     Loop Locations
 
-  ada://procedure_body__package_init/The_Stack_Praxis/$$binit 
+  ada://procedure_body__package_init/The_Stack_Praxis-1:9/$$binit 
 
     LocalVarTable
 

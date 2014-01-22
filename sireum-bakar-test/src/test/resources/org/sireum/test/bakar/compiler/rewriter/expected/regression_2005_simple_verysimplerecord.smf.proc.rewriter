@@ -12,17 +12,17 @@ global Rec @@RG;
 
 procedure Boolean Dummy {
 
-  #l1.
+  #l0.
     return true;
 }
 
 procedure Add (
         Rec R) {
 
-  #l2.
+  #l1.
     R.A := R.A + 1ii;
 
-  #l3.
+  #l2.
     return (R);
 }
 
@@ -31,13 +31,13 @@ procedure Del {
     Integer T;
 
 
-  #l4.
+  #l3.
     T := @@RG.A;
 
-  #l5.
+  #l4.
     @@RG.A := @@RG.B - @@RG.A - 7ii;
 
-  #l6.
+  #l5.
     return;
 }package SimpleRecord;
 

@@ -38,16 +38,16 @@ procedure $$binit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@Y := 1ii;
 
-  #l2.
+  #l1.
     @@B := 0ii;
 
-  #l3.
+  #l2.
     @@C := 0ii;
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -103,10 +103,10 @@ procedure Q (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l4.
+  #l3.
     Z := X + @@B;
 
-  #l5.
+  #l4.
     return;
 }
 

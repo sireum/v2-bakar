@@ -6,13 +6,13 @@ procedure P (
         Integer b,
         Integer c) {
 
-  #l1.
+  #l0.
     b := a + b;
 
-  #l2.
+  #l1.
     c := a + b;
 
-  #l3.
+  #l2.
     return (b, c);
 }
 
@@ -25,10 +25,10 @@ procedure helper (
     Integer _tbpr1;
 
 
-  #l4.
+  #l3.
     arg0 := 1ii;
 
-  #l5.
+  #l4.
     call _tbpr1, _tbpr3 := P (arg0, x, y);
 
   #_lbpr2.
@@ -37,7 +37,7 @@ procedure helper (
   #_lbpr4.
     y := _tbpr3;
 
-  #l6.
+  #l5.
     return (x, y);
 }
 
@@ -51,10 +51,10 @@ procedure Q (
     Integer _tbpr1;
 
 
-  #l7.
+  #l6.
     L1 := S;
 
-  #l8.
+  #l7.
     call _tbpr1, _tbpr3 := P (2ii, L1, T);
 
   #_lbpr2.
@@ -63,13 +63,13 @@ procedure Q (
   #_lbpr4.
     T := _tbpr3;
 
-  #l9.
+  #l8.
     R := 5ii;
 
-  #l10.
+  #l9.
     T := T + L1;
 
-  #l11.
+  #l10.
     return (T, R);
 }package ProcedureTest01;
 

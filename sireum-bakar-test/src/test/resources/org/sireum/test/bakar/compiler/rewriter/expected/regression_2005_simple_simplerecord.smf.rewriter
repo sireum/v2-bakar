@@ -19,7 +19,7 @@ record NestedRec {
 
 procedure Boolean Dummy {
 
-  #l1.
+  #l0.
     return true;
 }
 
@@ -37,10 +37,10 @@ procedure Add (
   #rwl1.
     _t1 := I;
 
-  #l2.
+  #l1.
     R.A := _t0 + _t1;
 
-  #l3.
+  #l2.
     return;
 }
 
@@ -66,13 +66,13 @@ procedure NAdd (
   #rwl6.
     _t5 := I;
 
-  #l4.
+  #l3.
     _t2.A := _t4 + _t5;
 
   #rwl3.
     NR.X := _t2;
 
-  #l5.
+  #l4.
     return;
 }
 
@@ -94,13 +94,13 @@ procedure AAdd (
   #rwl10.
     _t8 := 1ii;
 
-  #l6.
+  #l5.
     _t6[I] := _t7 + _t8;
 
   #rwl8.
     R.B := _t6;
 
-  #l7.
+  #l6.
     return;
 }package SimpleRecord;
 

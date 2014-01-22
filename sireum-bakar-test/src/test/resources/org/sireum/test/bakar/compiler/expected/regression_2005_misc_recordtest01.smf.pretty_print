@@ -20,13 +20,13 @@ procedure $$binit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@anObject := `Object {
       X = 1ii,
       Y = 2ii
     };
 
-  #l2.
+  #l1.
     @@aNestedObject := `NestedObject {
       O = `Object {
         X = 1ii,
@@ -34,7 +34,7 @@ procedure $$binit
       }
     };
 
-  #l12.
+  #l11.
     return;
 }
 
@@ -86,7 +86,7 @@ procedure Test01 (
     ;
 
 
-  #l3.
+  #l2.
     T := Q.X
         @BAKAR_TYPE_URI
 
@@ -103,7 +103,7 @@ procedure Test01 (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
 
-  #l4.
+  #l3.
     Q.X
         @BAKAR_TYPE_URI
 
@@ -134,7 +134,7 @@ procedure Test01 (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
 
-  #l5.
+  #l4.
     Q.Y
         @BAKAR_TYPE_URI
 
@@ -151,7 +151,7 @@ procedure Test01 (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := T;
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -254,7 +254,7 @@ procedure Test02 (
     ;
 
 
-  #l7.
+  #l6.
     Q.O
         @BAKAR_TYPE_URI
 
@@ -285,7 +285,7 @@ procedure Test02 (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := I1;
 
-  #l8.
+  #l7.
     Q.O
         @BAKAR_TYPE_URI
 
@@ -316,7 +316,7 @@ procedure Test02 (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := I2;
 
-  #l9.
+  #l8.
     O1 := Q.O
         @BAKAR_TYPE_URI
 
@@ -347,7 +347,7 @@ procedure Test02 (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
 
-  #l10.
+  #l9.
     O2 := Q.O
         @BAKAR_TYPE_URI
 
@@ -378,7 +378,7 @@ procedure Test02 (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
 
-  #l11.
+  #l10.
     return;
 }
 

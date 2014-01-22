@@ -17,7 +17,7 @@ procedure Multiply (
     Matrix_Index _tcomp5;
 
 
-  #l1.
+  #l0.
     Z := `Matrix { iter => 
         switch iter
           case (attribute__uif__first `Matrix_Index, attribute__uif__last `Matrix_Index) => { iter => 
@@ -28,91 +28,91 @@ procedure Multiply (
               switch iter
                 default => 0ii}};
 
-  #l3.
+  #l2.
     _tcomp0 := attribute__uif__first `Matrix_Index;
 
-  #l4.
+  #l3.
     _tcomp1 := attribute__uif__last `Matrix_Index;
 
-  #l5.
-    if _tcomp0 > _tcomp1 then goto l2;
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.
+  #l6.
     // empty loc
 
-  #l9.
+  #l8.
     _tcomp2 := attribute__uif__first `Matrix_Index;
 
-  #l10.
+  #l9.
     _tcomp3 := attribute__uif__last `Matrix_Index;
 
+  #l10.
+    if _tcomp2 > _tcomp3 then goto l7;
+
   #l11.
-    if _tcomp2 > _tcomp3 then goto l8;
+    J := _tcomp2;
 
   #l12.
-    J := _tcomp2;
+    // empty loc
+
+  #l14.
+    _tcomp4 := attribute__uif__first `Matrix_Index;
+
+  #l15.
+    _tcomp5 := attribute__uif__last `Matrix_Index;
+
+  #l16.
+    if _tcomp4 > _tcomp5 then goto l13;
+
+  #l17.
+    K := _tcomp4;
+
+  #l18.
+    // empty loc
+
+  #l19.
+    Z[I, J] := Z[I, J] + X[I, K] * Y[K, J];
+
+  #l20.
+    if K == _tcomp5 then goto l13;
+
+  #l21.
+    K := K + 1ii;
+
+  #l22.
+    goto l18;
 
   #l13.
     // empty loc
 
-  #l15.
-    _tcomp4 := attribute__uif__first `Matrix_Index;
-
-  #l16.
-    _tcomp5 := attribute__uif__last `Matrix_Index;
-
-  #l17.
-    if _tcomp4 > _tcomp5 then goto l14;
-
-  #l18.
-    K := _tcomp4;
-
-  #l19.
-    // empty loc
-
-  #l20.
-    Z[I, J] := Z[I, J] + X[I, K] * Y[K, J];
-
-  #l21.
-    if K == _tcomp5 then goto l14;
-
-  #l22.
-    K := K + 1ii;
-
   #l23.
-    goto l19;
-
-  #l14.
-    // empty loc
+    if J == _tcomp3 then goto l7;
 
   #l24.
-    if J == _tcomp3 then goto l8;
-
-  #l25.
     J := J + 1ii;
 
-  #l26.
-    goto l13;
+  #l25.
+    goto l12;
 
-  #l8.
+  #l7.
     // empty loc
+
+  #l26.
+    if I == _tcomp1 then goto l1;
 
   #l27.
-    if I == _tcomp1 then goto l2;
-
-  #l28.
     I := I + 1ii;
 
-  #l29.
-    goto l7;
+  #l28.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l30.
+  #l29.
     return (Z);
 }package MyMatrix;
 

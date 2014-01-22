@@ -8,40 +8,40 @@ procedure Integer Sum (
     Integer T;
 
 
-  #l1.
+  #l0.
     R := 0ii;
 
+  #l2.
+    if !(N >= 0ii) then goto l1;
+
   #l3.
-    if !(N >= 0ii) then goto l2;
-
-  #l4.
     T := N - 1ii;
-
-  #l6.
-    // empty loc
-
-  #l7.
-    if !(T >= 0ii) then goto l5;
-
-  #l8.
-    R := R + 1ii;
-
-  #l9.
-    T := T - 1ii;
-
-  #l10.
-    goto l6;
 
   #l5.
     // empty loc
 
-  #l11.
-    assert proof__uif__assert N == R "Assertion failed at [15, 7]";
+  #l6.
+    if !(T >= 0ii) then goto l4;
 
-  #l2.
+  #l7.
+    R := R + 1ii;
+
+  #l8.
+    T := T - 1ii;
+
+  #l9.
+    goto l5;
+
+  #l4.
     // empty loc
 
-  #l12.
+  #l10.
+    assert proof__uif__assert N == R "Assertion failed at [15, 7]";
+
+  #l1.
+    // empty loc
+
+  #l11.
     return R;
 }
 
@@ -52,40 +52,40 @@ procedure Sum2 (
     Integer T;
 
 
-  #l13.
+  #l12.
     R := 0ii;
 
+  #l14.
+    if !(N >= 0ii) then goto l13;
+
   #l15.
-    if !(N >= 0ii) then goto l14;
-
-  #l16.
     T := N - 1ii;
-
-  #l18.
-    // empty loc
-
-  #l19.
-    if !(T >= 0ii) then goto l17;
-
-  #l20.
-    R := R + 1ii;
-
-  #l21.
-    T := T - 1ii;
-
-  #l22.
-    goto l18;
 
   #l17.
     // empty loc
 
-  #l23.
-    assert proof__uif__assert N == R "Assertion failed at [32, 7]";
+  #l18.
+    if !(T >= 0ii) then goto l16;
 
-  #l14.
+  #l19.
+    R := R + 1ii;
+
+  #l20.
+    T := T - 1ii;
+
+  #l21.
+    goto l17;
+
+  #l16.
     // empty loc
 
-  #l24.
+  #l22.
+    assert proof__uif__assert N == R "Assertion failed at [32, 7]";
+
+  #l13.
+    // empty loc
+
+  #l23.
     return (R);
 }package SumPackage;
 

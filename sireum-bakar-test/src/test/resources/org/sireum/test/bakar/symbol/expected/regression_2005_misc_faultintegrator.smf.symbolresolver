@@ -111,14 +111,14 @@ Procedure Symbol Table
       ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18 
       ada://parameter/FaultIntegrator-1:9/Test-9:13/FI-9:18 
       ada://parameter/FaultIntegrator-1:9/Test-9:13/IntegratedEvent-11:18 
-      ada://variable__temp/FaultIntegrator/Test/_t0 
-      ada://variable__temp/FaultIntegrator/Test/_t1 
-      ada://variable__temp/FaultIntegrator/Test/_t2 
-      ada://variable__temp/FaultIntegrator/Test/_t3 
-      ada://variable__temp/FaultIntegrator/Test/_t4 
-      ada://variable__temp/FaultIntegrator/Test/_t5 
-      ada://variable__temp/FaultIntegrator/Test/_t6 
-      ada://variable__temp/FaultIntegrator/Test/_t7 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t0 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t1 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t2 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t3 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t4 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t5 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t6 
+      ada://variable__temp/FaultIntegrator-1:9/Test-9:13/_t7 
 
     Params
       ada://parameter/FaultIntegrator-1:9/Test-9:13/CurrentEvent-10:18 

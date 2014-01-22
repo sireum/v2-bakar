@@ -10,7 +10,7 @@ ada://variable/RecordTest01-1:9/@@aNestedObject-19:3 -> ada://ordinary_type/Reco
 ada://variable/RecordTest01-1:9/@@anObject-21:3 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
 ada://variable/RecordTest01-1:9/Test01-16:13/T+6:5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/RecordTest01-1:9/Test02+13:13/Q+17:5 -> ada://ordinary_type/RecordTest01-1:9/NestedObject-11:8
-ada://variable__temp/RecordTest01/Test02/_t0 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
-ada://variable__temp/RecordTest01/Test02/_t1 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
-ada://variable__temp/RecordTest01/Test02/_t2 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
-ada://variable__temp/RecordTest01/Test02/_t3 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
+ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t0 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
+ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t1 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
+ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t2 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8
+ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t3 -> ada://ordinary_type/RecordTest01-1:9/Object-6:8

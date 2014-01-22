@@ -1,5 +1,5 @@
 digraph G {
-  "ada://procedure_body__package_init/P_Refinement/$$binit" [ label="P_Refinement.$$binit" ];
+  "ada://procedure_body__package_init/P_Refinement-1:9/$$binit" [ label="P_Refinement.$$binit" ];
   "ada://procedure_body/P_Refinement-1:9/Q-6:13" [ label="P_Refinement.Q" ];
   "ada://procedure/P_Refinement-1:9/Q-6:13" [ label="P_Refinement.Q" ];
 }

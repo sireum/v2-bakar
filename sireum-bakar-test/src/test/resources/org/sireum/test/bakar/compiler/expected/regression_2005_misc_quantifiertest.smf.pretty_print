@@ -20,12 +20,12 @@ procedure $$binit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@V := `Vector { iter => 
         switch iter
           default => 0ii};
 
-  #l4.
+  #l3.
     return;
 }
 
@@ -64,10 +64,10 @@ procedure dummy (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l2.
+  #l1.
     @@V[I] := @@V[I] + 3ii;
 
-  #l3.
+  #l2.
     return;
 }
 

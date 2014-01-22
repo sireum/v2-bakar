@@ -53,10 +53,10 @@ procedure Array_Loop_Entry (
     FIXME _t42;
 
 
-  #l1.
+  #l0.
     // empty loc
 
-  #l4.
+  #l3.
     _tcomp0 := attribute__uif__first `A;
 
   #rwl0.
@@ -71,7 +71,7 @@ procedure Array_Loop_Entry (
   #rwl3.
     _t3 := 2ii;
 
-  #l5.
+  #l4.
     _tcomp1 := _t2 / _t3;
 
   #rwl4.
@@ -80,16 +80,16 @@ procedure Array_Loop_Entry (
   #rwl5.
     _t5 := _tcomp1;
 
-  #l6.
-    if _t4 > _t5 then goto l3;
+  #l5.
+    if _t4 > _t5 then goto l2;
 
-  #l7.
+  #l6.
     Index := _tcomp0;
 
-  #l8.
+  #l7.
     // empty loc
 
-  #l9.
+  #l8.
     Temp := A[Index];
 
   #rwl6.
@@ -104,7 +104,7 @@ procedure Array_Loop_Entry (
   #rwl9.
     _t9 := 1ii;
 
-  #l10.
+  #l9.
     A[Index] := A[_t8 + _t9];
 
   #rwl10.
@@ -119,7 +119,7 @@ procedure Array_Loop_Entry (
   #rwl13.
     _t13 := 1ii;
 
-  #l11.
+  #l10.
     A[_t12 + _t13] := Temp;
 
   #rwl14.
@@ -203,7 +203,7 @@ procedure Array_Loop_Entry (
           case (_t30 + _t31, _t32 - _t33) => _t35 == _t36
           default => true};
 
-  #l12.
+  #l11.
     assert proof__uif__loop_invariant _t37 &&& _t38 "Loop Invariant failed at [13, 10]";
 
   #rwl39.
@@ -212,8 +212,8 @@ procedure Array_Loop_Entry (
   #rwl40.
     _t40 := _tcomp1;
 
-  #l13.
-    if _t39 == _t40 then goto l3;
+  #l12.
+    if _t39 == _t40 then goto l2;
 
   #rwl41.
     _t41 := Index;
@@ -221,25 +221,25 @@ procedure Array_Loop_Entry (
   #rwl42.
     _t42 := 1ii;
 
-  #l14.
+  #l13.
     Index := _t41 + _t42;
 
-  #l15.
-    goto l8;
-
-  #l3.
-    // empty loc
-
-  #l16.
-    goto l2;
-
-  #l17.
-    goto l1;
+  #l14.
+    goto l7;
 
   #l2.
     // empty loc
 
-  #l18.
+  #l15.
+    goto l1;
+
+  #l16.
+    goto l0;
+
+  #l1.
+    // empty loc
+
+  #l17.
     return;
 }
 
@@ -263,13 +263,13 @@ procedure Record_Loop_Entry (
     FIXME _t55;
 
 
-  #l19.
+  #l18.
     Temp := 0ii;
 
-  #l20.
+  #l19.
     // empty loc
 
-  #l22.
+  #l21.
     Z := 3ii;
 
   #rwl43.
@@ -278,10 +278,10 @@ procedure Record_Loop_Entry (
   #rwl44.
     _t44 := 1ii;
 
-  #l23.
+  #l22.
     Temp := _t43 + _t44;
 
-  #l24.
+  #l23.
     A := `Record_Of_Array_Of_Int {
       T = 3ii,
       Z = 5ii,
@@ -293,7 +293,7 @@ procedure Record_Loop_Entry (
             default => 1ii}
     };
 
-  #l25.
+  #l24.
     // empty loc
 
   #rwl45.
@@ -305,7 +305,7 @@ procedure Record_Loop_Entry (
   #rwl47.
     _t47 := A.X;
 
-  #l27.
+  #l26.
     assert proof__uif__loop_invariant _t46 == _t47 "Loop Invariant failed at [41, 12]";
 
   #rwl48.
@@ -320,7 +320,7 @@ procedure Record_Loop_Entry (
   #rwl51.
     _t51 := _t49[Temp];
 
-  #l28.
+  #l27.
     assert proof__uif__loop_invariant _t50 == _t51 "Loop Invariant failed at [42, 12]";
 
   #rwl52.
@@ -335,22 +335,22 @@ procedure Record_Loop_Entry (
   #rwl55.
     _t55 := _t53[Z];
 
-  #l29.
+  #l28.
     assert proof__uif__loop_invariant _t54 == _t55 "Loop Invariant failed at [43, 12]";
 
-  #l30.
-    goto l25;
+  #l29.
+    goto l24;
 
-  #l26.
+  #l25.
+    // empty loc
+
+  #l30.
+    goto l19;
+
+  #l20.
     // empty loc
 
   #l31.
-    goto l20;
-
-  #l21.
-    // empty loc
-
-  #l32.
     return;
 }package Loop_Entry;
 

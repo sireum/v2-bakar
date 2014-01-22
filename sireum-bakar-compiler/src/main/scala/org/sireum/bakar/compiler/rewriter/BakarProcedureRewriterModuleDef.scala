@@ -60,10 +60,10 @@ class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobM
           }
 
         var newTempLocals = ivectorEmpty[LocalVarDecl]
-          def newPath = ilist(currentPackage, procName.name, Names.tempVarPrefix + nextCounter)
+          def newPath = URIS.getPath(procName.uri) :+ Names.tempVarPrefix + nextCounter
           def newLocLabel = {
             val labelName = Names.locationPrefix + nextCounter
-            PNF.buildLocationLabel(labelName, labelName)
+            PNF.buildLocationLabel(URIS.getPath(procName.uri) :+ labelName)
           }
 
           def rewriteCallJumps(l : LocationDecl) : ISeq[LocationDecl] = {

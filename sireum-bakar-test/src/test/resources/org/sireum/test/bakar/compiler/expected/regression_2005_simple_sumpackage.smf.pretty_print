@@ -71,10 +71,10 @@ procedure Integer Sum (
     ;
 
 
-  #l1.
+  #l0.
     R := 0ii;
 
-  #l3.<
+  #l2.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -85,12 +85,12 @@ procedure Integer Sum (
            <int>14</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(N >= 0ii) then goto l2;
+    if !(N >= 0ii) then goto l1;
 
-  #l4.
+  #l3.
     T := N - 1ii;
 
-  #l6.<
+  #l5.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -99,28 +99,28 @@ procedure Integer Sum (
   >
     // empty loc
 
-  #l7.
-    if !(T >= 0ii) then goto l5;
+  #l6.
+    if !(T >= 0ii) then goto l4;
 
-  #l8.
+  #l7.
     R := R + 1ii;
 
-  #l9.
+  #l8.
     T := T - 1ii;
 
-  #l10.
-    goto l6;
+  #l9.
+    goto l5;
 
-  #l5.
+  #l4.
+    // empty loc
+
+  #l10.
+    assert proof__uif__assert N == R "Assertion failed at [15, 7]";
+
+  #l1.
     // empty loc
 
   #l11.
-    assert proof__uif__assert N == R "Assertion failed at [15, 7]";
-
-  #l2.
-    // empty loc
-
-  #l12.
     return R;
 }
 
@@ -189,10 +189,10 @@ procedure Sum2 (
     ;
 
 
-  #l13.
+  #l12.
     R := 0ii;
 
-  #l15.<
+  #l14.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -203,12 +203,12 @@ procedure Sum2 (
            <int>14</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(N >= 0ii) then goto l14;
+    if !(N >= 0ii) then goto l13;
 
-  #l16.
+  #l15.
     T := N - 1ii;
 
-  #l18.<
+  #l17.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -217,28 +217,28 @@ procedure Sum2 (
   >
     // empty loc
 
-  #l19.
-    if !(T >= 0ii) then goto l17;
+  #l18.
+    if !(T >= 0ii) then goto l16;
 
-  #l20.
+  #l19.
     R := R + 1ii;
 
-  #l21.
+  #l20.
     T := T - 1ii;
 
-  #l22.
-    goto l18;
+  #l21.
+    goto l17;
 
-  #l17.
+  #l16.
+    // empty loc
+
+  #l22.
+    assert proof__uif__assert N == R "Assertion failed at [32, 7]";
+
+  #l13.
     // empty loc
 
   #l23.
-    assert proof__uif__assert N == R "Assertion failed at [32, 7]";
-
-  #l14.
-    // empty loc
-
-  #l24.
     return;
 }
 

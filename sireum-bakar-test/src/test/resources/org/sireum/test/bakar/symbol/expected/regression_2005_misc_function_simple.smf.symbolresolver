@@ -47,8 +47,8 @@ Procedure Table
     ada://procedure_body/Function_Simple-1:9/P1+10:13 
   ada://procedure_body/Function_Simple-1:9/P2+18:13 
     ada://procedure_body/Function_Simple-1:9/P2+18:13 
-  ada://procedure_body__package_init/Function_Simple/$$binit 
-    ada://procedure_body__package_init/Function_Simple/$$binit 
+  ada://procedure_body__package_init/Function_Simple-1:9/$$binit 
+    ada://procedure_body__package_init/Function_Simple-1:9/$$binit 
 
 Spark Method Table
   ada://function/Function_Simple-1:9/F1-8:12 
@@ -61,8 +61,8 @@ Spark Method Table
     BODY: ada://procedure_body/Function_Simple-1:9/P1+10:13 
   ada://procedure_body/Function_Simple-1:9/P2+18:13 
     BODY: ada://procedure_body/Function_Simple-1:9/P2+18:13 
-  ada://procedure_body__package_init/Function_Simple/$$binit 
-    BODY: ada://procedure_body__package_init/Function_Simple/$$binit 
+  ada://procedure_body__package_init/Function_Simple-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/Function_Simple-1:9/$$binit 
 
 Procedure Symbol Table
   ada://function/Function_Simple-1:9/F1-8:12 
@@ -82,10 +82,10 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
       ada://parameter/Function_Simple-1:9/F1-8:12/Z-8:30 
-      ada://variable__temp/Function_Simple/F1/_t0 
-      ada://variable__temp/Function_Simple/F1/_t1 
-      ada://variable__temp/Function_Simple/F1/_t2 
-      ada://variable__temp/Function_Simple/F1/_t3 
+      ada://variable__temp/Function_Simple-1:9/F1-8:12/_t0 
+      ada://variable__temp/Function_Simple-1:9/F1-8:12/_t1 
+      ada://variable__temp/Function_Simple-1:9/F1-8:12/_t2 
+      ada://variable__temp/Function_Simple-1:9/F1-8:12/_t3 
 
     Params
       ada://parameter/Function_Simple-1:9/F1-8:12/X-8:15 
@@ -98,7 +98,7 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Function_Simple-1:9/P1+10:13/M+10:16 
       ada://parameter/Function_Simple-1:9/P1+10:13/N+10:31 
-      ada://variable__temp/P1/Function_Simple/_tcomp0 
+      ada://variable__temp/Function_Simple-1:9/P1+10:13/_tcomp0 
 
     Params
       ada://parameter/Function_Simple-1:9/P1+10:13/M+10:16 
@@ -111,9 +111,9 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 
       ada://parameter/Function_Simple-1:9/P2+18:13/N+18:31 
-      ada://variable__temp/Function_Simple/P2/_t4 
-      ada://variable__temp/Function_Simple/P2/_t5 
-      ada://variable__temp/P2/Function_Simple/_tcomp1 
+      ada://variable__temp/Function_Simple-1:9/P2+18:13/_t4 
+      ada://variable__temp/Function_Simple-1:9/P2+18:13/_t5 
+      ada://variable__temp/Function_Simple-1:9/P2+18:13/_tcomp1 
 
     Params
       ada://parameter/Function_Simple-1:9/P2+18:13/M+18:16 
@@ -121,7 +121,7 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure_body__package_init/Function_Simple/$$binit 
+  ada://procedure_body__package_init/Function_Simple-1:9/$$binit 
 
     LocalVarTable
 

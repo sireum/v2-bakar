@@ -9,8 +9,8 @@ Spark Package Table
     BODY: ada://package_body/The_Stack_Demonic-1:9
 
 Const Table
-  ada://constant_declaration/The_Stack_Demonic/$CONST 
-  ada://constant_declaration_body/The_Stack_Demonic/$CONST 
+  ada://constant_declaration/The_Stack_Demonic-1:9/$CONST 
+  ada://constant_declaration_body/The_Stack_Demonic-1:9/$CONST 
 
 Const Element Table
   ada://constant/The_Stack_Demonic-1:9/InitID-46:4 
@@ -74,8 +74,8 @@ Procedure Table
   ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
     ada://procedure/The_Stack_Demonic-1:9/Push-31:14 
     ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
-  ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
-    ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
+  ada://procedure_body__package_init/The_Stack_Demonic-1:9/$$binit 
+    ada://procedure_body__package_init/The_Stack_Demonic-1:9/$$binit 
 
 Spark Method Table
   ada://function_body/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13 
@@ -94,8 +94,8 @@ Spark Method Table
   ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
     SPEC: ada://procedure/The_Stack_Demonic-1:9/Push-31:14 
     BODY: ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14 
-  ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
-    BODY: ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
+  ada://procedure_body__package_init/The_Stack_Demonic-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/The_Stack_Demonic-1:9/$$binit 
 
 Procedure Symbol Table
   ada://function_body/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13 
@@ -104,22 +104,22 @@ Procedure Symbol Table
       ada://loop_parameter/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/I+76:11 
       ada://parameter/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/X+67:29 
       ada://variable/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/Result_Pos+74:6 
-      ada://variable__temp/Find_Stack_Pos/The_Stack_Demonic/_tcomp2 
-      ada://variable__temp/Find_Stack_Pos/The_Stack_Demonic/_tcomp3 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t16 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t17 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t18 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t19 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t20 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t21 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t22 
-      ada://variable__temp/The_Stack_Demonic/Find_Stack_Pos/_t23 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t16 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t17 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t18 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t19 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t20 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t21 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t22 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_t23 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_tcomp2 
+      ada://variable__temp/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/_tcomp3 
 
     Params
       ada://parameter/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/X+67:29 
 
     Loop Locations
-      l33_76.7_81.15 -> LOOP_LABEL_1 
+      ada://location/The_Stack_Demonic-1:9/Find_Stack_Pos+67:13/l32 -> LOOP_LABEL_1 
 
   ada://function_body/The_Stack_Demonic-1:9/Value_Present+46:13 
 
@@ -127,22 +127,22 @@ Procedure Symbol Table
       ada://loop_parameter/The_Stack_Demonic-1:9/Value_Present+46:13/I+53:11 
       ada://parameter/The_Stack_Demonic-1:9/Value_Present+46:13/X+46:28 
       ada://variable/The_Stack_Demonic-1:9/Value_Present+46:13/Result+50:7 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t10 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t11 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t12 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t13 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t14 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t15 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t8 
-      ada://variable__temp/The_Stack_Demonic/Value_Present/_t9 
-      ada://variable__temp/Value_Present/The_Stack_Demonic/_tcomp0 
-      ada://variable__temp/Value_Present/The_Stack_Demonic/_tcomp1 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t10 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t11 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t12 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t13 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t14 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t15 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t8 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_t9 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_tcomp0 
+      ada://variable__temp/The_Stack_Demonic-1:9/Value_Present+46:13/_tcomp1 
 
     Params
       ada://parameter/The_Stack_Demonic-1:9/Value_Present+46:13/X+46:28 
 
     Loop Locations
-      l18_53.7_62.15 -> LOOP_LABEL_0 
+      ada://location/The_Stack_Demonic-1:9/Value_Present+46:13/l17 -> LOOP_LABEL_0 
 
   ada://procedure/The_Stack_Demonic-1:9/Pop-36:14 
 
@@ -168,10 +168,10 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack_Demonic-1:9/Pop-36:14/X-36:18 
-      ada://variable__temp/The_Stack_Demonic/Pop/_t4 
-      ada://variable__temp/The_Stack_Demonic/Pop/_t5 
-      ada://variable__temp/The_Stack_Demonic/Pop/_t6 
-      ada://variable__temp/The_Stack_Demonic/Pop/_t7 
+      ada://variable__temp/The_Stack_Demonic-1:9/Pop-36:14/_t4 
+      ada://variable__temp/The_Stack_Demonic-1:9/Pop-36:14/_t5 
+      ada://variable__temp/The_Stack_Demonic-1:9/Pop-36:14/_t6 
+      ada://variable__temp/The_Stack_Demonic-1:9/Pop-36:14/_t7 
 
     Params
       ada://parameter/The_Stack_Demonic-1:9/Pop-36:14/X-36:18 
@@ -182,17 +182,17 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/The_Stack_Demonic-1:9/Push-31:14/X-31:19 
-      ada://variable__temp/The_Stack_Demonic/Push/_t0 
-      ada://variable__temp/The_Stack_Demonic/Push/_t1 
-      ada://variable__temp/The_Stack_Demonic/Push/_t2 
-      ada://variable__temp/The_Stack_Demonic/Push/_t3 
+      ada://variable__temp/The_Stack_Demonic-1:9/Push-31:14/_t0 
+      ada://variable__temp/The_Stack_Demonic-1:9/Push-31:14/_t1 
+      ada://variable__temp/The_Stack_Demonic-1:9/Push-31:14/_t2 
+      ada://variable__temp/The_Stack_Demonic-1:9/Push-31:14/_t3 
 
     Params
       ada://parameter/The_Stack_Demonic-1:9/Push-31:14/X-31:19 
 
     Loop Locations
 
-  ada://procedure_body__package_init/The_Stack_Demonic/$$binit 
+  ada://procedure_body__package_init/The_Stack_Demonic-1:9/$$binit 
 
     LocalVarTable
 

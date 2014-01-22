@@ -23,8 +23,8 @@ procedure foo (
   #rwl1.
     _t1 := Tue;
 
-  #l3.
-    if !(!(_t0 == _t1)) then goto l2;
+  #l2.
+    if !(!(_t0 == _t1)) then goto l1;
 
   #rwl2.
     _t2 := a;
@@ -32,13 +32,13 @@ procedure foo (
   #rwl3.
     _t3 := 2ii;
 
-  #l4.
+  #l3.
     a := _t2 + _t3;
 
-  #l5.
-    goto l1;
+  #l4.
+    goto l0;
 
-  #l2.
+  #l1.
     // empty loc
 
   #rwl4.
@@ -47,8 +47,8 @@ procedure foo (
   #rwl5.
     _t5 := Wed;
 
-  #l7.
-    if !(_t4 == _t5) then goto l6;
+  #l6.
+    if !(_t4 == _t5) then goto l5;
 
   #rwl6.
     _t6 := a;
@@ -56,13 +56,13 @@ procedure foo (
   #rwl7.
     _t7 := 1ii;
 
-  #l8.
+  #l7.
     a := _t6 - _t7;
 
-  #l9.
-    goto l1;
+  #l8.
+    goto l0;
 
-  #l6.
+  #l5.
     // empty loc
 
   #rwl8.
@@ -71,13 +71,13 @@ procedure foo (
   #rwl9.
     _t9 := 1ii;
 
-  #l10.
+  #l9.
     a := _t8 * _t9;
 
-  #l1.
+  #l0.
     // empty loc
 
-  #l11.
+  #l10.
     return;
 }package Constraints;
 

@@ -7,13 +7,13 @@ procedure Integer Inc (
     Integer R;
 
 
-  #l1.
+  #l0.
     R := X + 1ii;
 
-  #l2.
+  #l1.
     assert proof__uif__assert R > X "Assertion failed at [7, 7]";
 
-  #l3.
+  #l2.
     return R;
 }package IncPackage;
 

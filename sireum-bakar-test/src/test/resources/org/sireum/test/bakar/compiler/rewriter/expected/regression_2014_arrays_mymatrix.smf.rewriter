@@ -39,7 +39,7 @@ procedure Multiply (
     FIXME _t21;
 
 
-  #l1.
+  #l0.
     Z := `Matrix { iter => 
         switch iter
           case (attribute__uif__first `Matrix_Index, attribute__uif__last `Matrix_Index) => { iter => 
@@ -50,10 +50,10 @@ procedure Multiply (
               switch iter
                 default => 0ii}};
 
-  #l3.
+  #l2.
     _tcomp0 := attribute__uif__first `Matrix_Index;
 
-  #l4.
+  #l3.
     _tcomp1 := attribute__uif__last `Matrix_Index;
 
   #rwl0.
@@ -62,19 +62,19 @@ procedure Multiply (
   #rwl1.
     _t1 := _tcomp1;
 
-  #l5.
-    if _t0 > _t1 then goto l2;
+  #l4.
+    if _t0 > _t1 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.
+  #l6.
     // empty loc
 
-  #l9.
+  #l8.
     _tcomp2 := attribute__uif__first `Matrix_Index;
 
-  #l10.
+  #l9.
     _tcomp3 := attribute__uif__last `Matrix_Index;
 
   #rwl2.
@@ -83,19 +83,19 @@ procedure Multiply (
   #rwl3.
     _t3 := _tcomp3;
 
-  #l11.
-    if _t2 > _t3 then goto l8;
+  #l10.
+    if _t2 > _t3 then goto l7;
 
-  #l12.
+  #l11.
     J := _tcomp2;
 
-  #l13.
+  #l12.
     // empty loc
 
-  #l15.
+  #l14.
     _tcomp4 := attribute__uif__first `Matrix_Index;
 
-  #l16.
+  #l15.
     _tcomp5 := attribute__uif__last `Matrix_Index;
 
   #rwl4.
@@ -104,13 +104,13 @@ procedure Multiply (
   #rwl5.
     _t5 := _tcomp5;
 
-  #l17.
-    if _t4 > _t5 then goto l14;
+  #l16.
+    if _t4 > _t5 then goto l13;
 
-  #l18.
+  #l17.
     K := _tcomp4;
 
-  #l19.
+  #l18.
     // empty loc
 
   #rwl6.
@@ -125,7 +125,7 @@ procedure Multiply (
   #rwl9.
     _t9 := _t6 * _t7;
 
-  #l20.
+  #l19.
     Z[I, J] := _t8 + _t9;
 
   #rwl10.
@@ -134,8 +134,8 @@ procedure Multiply (
   #rwl11.
     _t11 := _tcomp5;
 
-  #l21.
-    if _t10 == _t11 then goto l14;
+  #l20.
+    if _t10 == _t11 then goto l13;
 
   #rwl12.
     _t12 := K;
@@ -143,13 +143,13 @@ procedure Multiply (
   #rwl13.
     _t13 := 1ii;
 
-  #l22.
+  #l21.
     K := _t12 + _t13;
 
-  #l23.
-    goto l19;
+  #l22.
+    goto l18;
 
-  #l14.
+  #l13.
     // empty loc
 
   #rwl14.
@@ -158,8 +158,8 @@ procedure Multiply (
   #rwl15.
     _t15 := _tcomp3;
 
-  #l24.
-    if _t14 == _t15 then goto l8;
+  #l23.
+    if _t14 == _t15 then goto l7;
 
   #rwl16.
     _t16 := J;
@@ -167,13 +167,13 @@ procedure Multiply (
   #rwl17.
     _t17 := 1ii;
 
-  #l25.
+  #l24.
     J := _t16 + _t17;
 
-  #l26.
-    goto l13;
+  #l25.
+    goto l12;
 
-  #l8.
+  #l7.
     // empty loc
 
   #rwl18.
@@ -182,8 +182,8 @@ procedure Multiply (
   #rwl19.
     _t19 := _tcomp1;
 
-  #l27.
-    if _t18 == _t19 then goto l2;
+  #l26.
+    if _t18 == _t19 then goto l1;
 
   #rwl20.
     _t20 := I;
@@ -191,16 +191,16 @@ procedure Multiply (
   #rwl21.
     _t21 := 1ii;
 
-  #l28.
+  #l27.
     I := _t20 + _t21;
 
-  #l29.
-    goto l7;
+  #l28.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l30.
+  #l29.
     return;
 }package MyMatrix;
 

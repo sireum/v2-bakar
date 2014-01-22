@@ -49,8 +49,8 @@ Procedure Table
   ada://procedure_body/P_Simple_Call_Two-1:9/R-11:13 
     ada://procedure/P_Simple_Call_Two-1:9/R-11:13 
     ada://procedure_body/P_Simple_Call_Two-1:9/R-11:13 
-  ada://procedure_body__package_init/P_Simple_Call_Two/$$binit 
-    ada://procedure_body__package_init/P_Simple_Call_Two/$$binit 
+  ada://procedure_body__package_init/P_Simple_Call_Two-1:9/$$binit 
+    ada://procedure_body__package_init/P_Simple_Call_Two-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/P_Simple_Call_Two-1:9/Q-7:13 
@@ -65,8 +65,8 @@ Spark Method Table
   ada://procedure_body/P_Simple_Call_Two-1:9/R-11:13 
     SPEC: ada://procedure/P_Simple_Call_Two-1:9/R-11:13 
     BODY: ada://procedure_body/P_Simple_Call_Two-1:9/R-11:13 
-  ada://procedure_body__package_init/P_Simple_Call_Two/$$binit 
-    BODY: ada://procedure_body__package_init/P_Simple_Call_Two/$$binit 
+  ada://procedure_body__package_init/P_Simple_Call_Two-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/P_Simple_Call_Two-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/P_Simple_Call_Two-1:9/Q-7:13 
@@ -98,8 +98,8 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/P_Simple_Call_Two-1:9/Q-7:13/X-7:15 
       ada://parameter/P_Simple_Call_Two-1:9/Q-7:13/Z-7:30 
-      ada://variable__temp/P_Simple_Call_Two/Q/_t6 
-      ada://variable__temp/P_Simple_Call_Two/Q/_t7 
+      ada://variable__temp/P_Simple_Call_Two-1:9/Q-7:13/_t6 
+      ada://variable__temp/P_Simple_Call_Two-1:9/Q-7:13/_t7 
 
     Params
       ada://parameter/P_Simple_Call_Two-1:9/Q-7:13/X-7:15 
@@ -112,12 +112,12 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/P_Simple_Call_Two-1:9/R-11:13/X-11:15 
       ada://parameter/P_Simple_Call_Two-1:9/R-11:13/Z-11:30 
-      ada://variable__temp/P_Simple_Call_Two/R/_t0 
-      ada://variable__temp/P_Simple_Call_Two/R/_t1 
-      ada://variable__temp/P_Simple_Call_Two/R/_t2 
-      ada://variable__temp/P_Simple_Call_Two/R/_t3 
-      ada://variable__temp/P_Simple_Call_Two/R/_t4 
-      ada://variable__temp/P_Simple_Call_Two/R/_t5 
+      ada://variable__temp/P_Simple_Call_Two-1:9/R-11:13/_t0 
+      ada://variable__temp/P_Simple_Call_Two-1:9/R-11:13/_t1 
+      ada://variable__temp/P_Simple_Call_Two-1:9/R-11:13/_t2 
+      ada://variable__temp/P_Simple_Call_Two-1:9/R-11:13/_t3 
+      ada://variable__temp/P_Simple_Call_Two-1:9/R-11:13/_t4 
+      ada://variable__temp/P_Simple_Call_Two-1:9/R-11:13/_t5 
 
     Params
       ada://parameter/P_Simple_Call_Two-1:9/R-11:13/X-11:15 
@@ -125,7 +125,7 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure_body__package_init/P_Simple_Call_Two/$$binit 
+  ada://procedure_body__package_init/P_Simple_Call_Two-1:9/$$binit 
 
     LocalVarTable
 

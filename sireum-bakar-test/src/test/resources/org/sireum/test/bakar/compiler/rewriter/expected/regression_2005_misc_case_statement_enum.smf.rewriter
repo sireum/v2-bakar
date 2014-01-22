@@ -51,16 +51,16 @@ procedure Activity isWorkDay (
   #rwl5.
     _t5 := _t2 <= _t3;
 
-  #l3.
-    if !(_t4 &&& _t5) then goto l2;
+  #l2.
+    if !(_t4 &&& _t5) then goto l1;
 
-  #l4.
+  #l3.
     ret := Work;
 
-  #l5.
-    goto l1;
+  #l4.
+    goto l0;
 
-  #l2.
+  #l1.
     // empty loc
 
   #rwl6.
@@ -81,16 +81,16 @@ procedure Activity isWorkDay (
   #rwl11.
     _t11 := _t8 <= _t9;
 
-  #l7.
-    if !(_t10 &&& _t11) then goto l6;
+  #l6.
+    if !(_t10 &&& _t11) then goto l5;
 
-  #l8.
+  #l7.
     ret := Sleep;
 
-  #l9.
-    goto l1;
+  #l8.
+    goto l0;
 
-  #l6.
+  #l5.
     // empty loc
 
   #rwl12.
@@ -99,16 +99,16 @@ procedure Activity isWorkDay (
   #rwl13.
     _t13 := Thur;
 
-  #l11.
-    if !(_t12 == _t13) then goto l10;
+  #l10.
+    if !(_t12 == _t13) then goto l9;
 
-  #l12.
+  #l11.
     ret := Sleep;
 
-  #l13.
-    goto l1;
+  #l12.
+    goto l0;
 
-  #l10.
+  #l9.
     // empty loc
 
   #rwl14.
@@ -129,16 +129,16 @@ procedure Activity isWorkDay (
   #rwl19.
     _t19 := _t16 == _t17;
 
-  #l15.
-    if !(_t18 ||| _t19) then goto l14;
+  #l14.
+    if !(_t18 ||| _t19) then goto l13;
 
-  #l16.
+  #l15.
     ret := Party;
 
-  #l17.
-    goto l1;
+  #l16.
+    goto l0;
 
-  #l14.
+  #l13.
     // empty loc
 
   #rwl20.
@@ -159,16 +159,16 @@ procedure Activity isWorkDay (
   #rwl25.
     _t25 := _t22 <= _t23;
 
-  #l19.
-    if !(_t24 &&& _t25) then goto l1;
+  #l18.
+    if !(_t24 &&& _t25) then goto l0;
 
-  #l20.
+  #l19.
     ret := Drink;
 
-  #l1.
+  #l0.
     // empty loc
 
-  #l21.
+  #l20.
     return ret;
 }package Case_Statement_Enum;
 

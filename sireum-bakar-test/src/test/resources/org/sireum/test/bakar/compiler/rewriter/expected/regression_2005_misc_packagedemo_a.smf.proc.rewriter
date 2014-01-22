@@ -5,10 +5,10 @@ procedure Q (
         Integer X,
         Integer Z) {
 
-  #l1.
+  #l0.
     Z := X + 2ii;
 
-  #l2.
+  #l1.
     return (Z);
 }package PackageDemo_A;
 

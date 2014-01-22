@@ -49,8 +49,8 @@ Procedure Table
     ada://procedure_body/RecordTest01-1:9/Test01-16:13 
   ada://procedure_body/RecordTest01-1:9/Test02+13:13 
     ada://procedure_body/RecordTest01-1:9/Test02+13:13 
-  ada://procedure_body__package_init/RecordTest01/$$binit 
-    ada://procedure_body__package_init/RecordTest01/$$binit 
+  ada://procedure_body__package_init/RecordTest01-1:9/$$binit 
+    ada://procedure_body__package_init/RecordTest01-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/RecordTest01-1:9/Test01-16:13 
@@ -61,8 +61,8 @@ Spark Method Table
     BODY: ada://procedure_body/RecordTest01-1:9/Test01-16:13 
   ada://procedure_body/RecordTest01-1:9/Test02+13:13 
     BODY: ada://procedure_body/RecordTest01-1:9/Test02+13:13 
-  ada://procedure_body__package_init/RecordTest01/$$binit 
-    BODY: ada://procedure_body__package_init/RecordTest01/$$binit 
+  ada://procedure_body__package_init/RecordTest01-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/RecordTest01-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/RecordTest01-1:9/Test01-16:13 
@@ -94,10 +94,10 @@ Procedure Symbol Table
       ada://parameter/RecordTest01-1:9/Test02+13:13/O1+13:41 
       ada://parameter/RecordTest01-1:9/Test02+13:13/O2+13:45 
       ada://variable/RecordTest01-1:9/Test02+13:13/Q+17:5 
-      ada://variable__temp/RecordTest01/Test02/_t0 
-      ada://variable__temp/RecordTest01/Test02/_t1 
-      ada://variable__temp/RecordTest01/Test02/_t2 
-      ada://variable__temp/RecordTest01/Test02/_t3 
+      ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t0 
+      ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t1 
+      ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t2 
+      ada://variable__temp/RecordTest01-1:9/Test02+13:13/_t3 
 
     Params
       ada://parameter/RecordTest01-1:9/Test02+13:13/I1+13:20 
@@ -107,7 +107,7 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure_body__package_init/RecordTest01/$$binit 
+  ada://procedure_body__package_init/RecordTest01-1:9/$$binit 
 
     LocalVarTable
 

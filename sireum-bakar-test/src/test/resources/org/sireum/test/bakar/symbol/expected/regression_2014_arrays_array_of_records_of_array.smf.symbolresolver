@@ -9,7 +9,7 @@ Spark Package Table
     BODY: ada://package_body/Array_Of_Records_Of_Array-1:9
 
 Const Table
-  ada://constant_declaration/Array_Of_Records_Of_Array/$CONST 
+  ada://constant_declaration/Array_Of_Records_Of_Array-1:9/$CONST 
 
 Const Element Table
   ada://constant/Array_Of_Records_Of_Array-1:9/dummyObject-21:3 
@@ -49,8 +49,8 @@ Procedure Table
   ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
     ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
     ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
-  ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
-    ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+  ada://procedure_body__package_init/Array_Of_Records_Of_Array-1:9/$$binit 
+    ada://procedure_body__package_init/Array_Of_Records_Of_Array-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
@@ -59,8 +59,8 @@ Spark Method Table
   ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
     SPEC: ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
     BODY: ada://procedure_body/Array_Of_Records_Of_Array-1:9/Swap-27:13 
-  ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
-    BODY: ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+  ada://procedure_body__package_init/Array_Of_Records_Of_Array-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/Array_Of_Records_Of_Array-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/Array_Of_Records_Of_Array-1:9/Swap-27:13 
@@ -82,10 +82,10 @@ Procedure Symbol Table
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/theIndex-27:41 
       ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp1+4:6 
       ada://variable/Array_Of_Records_Of_Array-1:9/Swap-27:13/temp2+5:6 
-      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t0 
-      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t1 
-      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t2 
-      ada://variable__temp/Array_Of_Records_Of_Array/Swap/_t3 
+      ada://variable__temp/Array_Of_Records_Of_Array-1:9/Swap-27:13/_t0 
+      ada://variable__temp/Array_Of_Records_Of_Array-1:9/Swap-27:13/_t1 
+      ada://variable__temp/Array_Of_Records_Of_Array-1:9/Swap-27:13/_t2 
+      ada://variable__temp/Array_Of_Records_Of_Array-1:9/Swap-27:13/_t3 
 
     Params
       ada://parameter/Array_Of_Records_Of_Array-1:9/Swap-27:13/Q-27:18 
@@ -93,7 +93,7 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure_body__package_init/Array_Of_Records_Of_Array/$$binit 
+  ada://procedure_body__package_init/Array_Of_Records_Of_Array-1:9/$$binit 
 
     LocalVarTable
 

@@ -12,49 +12,49 @@ procedure P1 (
     Integer L2;
 
 
-  #l1.
+  #l0.
     L2 := 5ii;
 
-  #l2.
+  #l1.
     L1 := I3;
 
-  #l3.
+  #l2.
     O2 := L1;
 
-  #l4.
+  #l3.
     L1 := I2;
 
-  #l5.
+  #l4.
     L1 := I1 + I2;
 
-  #l7.
-    if !(L1 > 5ii) then goto l6;
-
-  #l10.
-    if !(I1 < 0ii) then goto l9;
-
-  #l11.
-    L2 := 8ii;
-
-  #l12.
-    goto l8;
+  #l6.
+    if !(L1 > 5ii) then goto l5;
 
   #l9.
-    // empty loc
+    if !(I1 < 0ii) then goto l8;
 
-  #l13.
-    L2 := 7ii;
+  #l10.
+    L2 := 8ii;
+
+  #l11.
+    goto l7;
 
   #l8.
     // empty loc
 
-  #l6.
+  #l12.
+    L2 := 7ii;
+
+  #l7.
     // empty loc
 
-  #l14.
+  #l5.
+    // empty loc
+
+  #l13.
     O1 := L2;
 
-  #l15.
+  #l14.
     return (O1, O2);
 }package Test_Case_10;
 

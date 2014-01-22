@@ -18,6 +18,8 @@ object URIS {
 
   val DUMMY_URI = "__DUMMY_URI__"
 
+  val uriPrefixLocation = "ada://location/"
+    
   val uriPrefixParameter = "ada://parameter/"
   val uriPrefixVariable = "ada://variable/"
     
@@ -50,6 +52,8 @@ object URIS {
     s
   }
 
+  def getPath(u : ResourceUri) = new URI(u).getPath.drop(1).split("/").toList
+  
   def isTypeUri(u: ResourceUri) =
     u.startsWith("ada://ordinary_type") || u.startsWith("ada://subtype") ||
     u.startsWith("ada://private_type")

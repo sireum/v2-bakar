@@ -3,12 +3,12 @@ package Array_Of_Records_Of_Array;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@oArray := `ObjectArray { iter => 
         switch iter
           default => dummyObject};
 
-  #l7.
+  #l6.
     return;
 }
 
@@ -20,19 +20,19 @@ procedure Swap (
     IntArray temp2;
 
 
-  #l2.
+  #l1.
     temp1 := Q[theIndex].X;
 
-  #l3.
+  #l2.
     temp2 := Q[theIndex].Y;
 
-  #l4.
+  #l3.
     Q[theIndex].X := temp2;
 
-  #l5.
+  #l4.
     Q[theIndex].Y := temp1;
 
-  #l6.
+  #l5.
     return (Q);
 }package Array_Of_Records_Of_Array;
 

@@ -37,8 +37,8 @@ class BakarRewriter {
   def newTempVar(typeName: String, typeUri: String) = {
     val name = tempVarPrefix + tcounter
     tcounter += 1
-    
-    val path = ilist(this.currentPackage, this.currentMethod, name)
+
+    val path = URIS.getPath(currentMethodUri) :+ name
     val (lvd, ret) = PilarNodeFactory.buildLocalTempVar(typeName, typeUri, path)
 
     this.newTempVars :+= lvd
@@ -47,15 +47,10 @@ class BakarRewriter {
   }
 
   def newLabel = {
-    import org.sireum.pilar.symbol.Symbol
-    import java.net.URI
-
-    val s = locPrefix + lcounter
-    val ret = NameDefinition(s)
-    val uri = new URI(s)
-    ret.uri(uri.getScheme, uri.getAuthority, uri.getPath().split("/").toList, s)
+    val label = locPrefix + lcounter
+    val path = URIS.getPath(currentMethodUri) :+ label
     lcounter += 1
-    Some(ret)
+    Some(PilarNodeFactory.buildLocationLabel(path))
   }
 
   var clhs: Option[Exp] = None
@@ -63,8 +58,7 @@ class BakarRewriter {
   var postlocs = ilistEmpty[LocationDecl]
   var newTempVars = ilistEmpty[LocalVarDecl]
 
-  var currentPackage: String = null
-  var currentMethod: String = null
+  var currentMethodUri: ResourceUri = null
 
   def getTypeUri(e: Exp): String = {
     assert(e ? URIS.TYPE_URI)
@@ -145,13 +139,13 @@ class BakarRewriter {
     Visitor.build({
       case p @ PackageDecl(packName, _, elements) =>
         var elems = ivectorEmpty[PackageElement]
-        this.currentPackage = packName.get.name
+        //this.currentPackage = packName.get.name
         elements.foreach {
           case pd @ ProcedureDecl(methName, a, tv, params, rt, va, body: ImplementedBody) => {
 
             var locmap = ilinkedMapEmpty[LocationDecl, (ISeq[LocationDecl], ISeq[LocationDecl])]
 
-            this.currentMethod = methName.name
+            currentMethodUri = methName.uri
 
             for (l <- body.locations) {
               clhs = None
@@ -170,12 +164,12 @@ class BakarRewriter {
               val rl = rewriter(l)
               locmap += (rl -> (prelocs, postlocs))
             }
-            
+
             import org.sireum.bakar.symbol.BakarSymbol._
             val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
             val _body = ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses)
             val parentUri = pd.parentUri.get
-            val modpd = PilarNodeFactory.buildProcedureDecl(methName, parentUri, params, rt, _body) 
+            val modpd = PilarNodeFactory.buildProcedureDecl(methName, parentUri, params, rt, _body)
             copyMap(pd, modpd)
             elems :+= modpd
 

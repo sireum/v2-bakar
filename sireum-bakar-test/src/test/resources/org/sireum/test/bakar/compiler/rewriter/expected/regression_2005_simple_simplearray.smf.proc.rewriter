@@ -11,7 +11,7 @@ global Vector @@B;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@A := `Vector { iter => 
         switch iter
           case attribute__uif__first `Index + 0ii => 0ii
@@ -20,7 +20,7 @@ procedure $$binit {
           case attribute__uif__first `Index + 3ii => 3ii
           default => 9ii};
 
-  #l2.
+  #l1.
     @@B := `Vector { iter => 
         switch iter
           case 0ii => 0ii
@@ -29,13 +29,13 @@ procedure $$binit {
           case 8ii / 2ii => 3ii
           default => 9ii};
 
-  #l18.
+  #l17.
     return;
 }
 
 procedure Boolean Dummy {
 
-  #l3.
+  #l2.
     return true;
 }
 
@@ -48,46 +48,46 @@ procedure Integer Max (
     Index _tcomp1;
 
 
-  #l4.
+  #l3.
     M := V[0ii];
 
-  #l6.
+  #l5.
     _tcomp0 := attribute__uif__first `Index;
 
-  #l7.
+  #l6.
     _tcomp1 := attribute__uif__last `Index;
 
+  #l7.
+    if _tcomp0 > _tcomp1 then goto l4;
+
   #l8.
-    if _tcomp0 > _tcomp1 then goto l5;
+    I := _tcomp0;
 
   #l9.
-    I := _tcomp0;
+    // empty loc
+
+  #l11.
+    if !(V[I] > M) then goto l10;
+
+  #l12.
+    M := V[I];
 
   #l10.
     // empty loc
 
-  #l12.
-    if !(V[I] > M) then goto l11;
-
   #l13.
-    M := V[I];
-
-  #l11.
-    // empty loc
+    if I == _tcomp1 then goto l4;
 
   #l14.
-    if I == _tcomp1 then goto l5;
-
-  #l15.
     I := I + 1ii;
 
-  #l16.
-    goto l10;
+  #l15.
+    goto l9;
 
-  #l5.
+  #l4.
     // empty loc
 
-  #l17.
+  #l16.
     return M;
 }package SimpleArray;
 

@@ -1,5 +1,5 @@
 digraph G {
-  "ada://procedure_body__package_init/QuantifierTest/$$binit" [ label="QuantifierTest.$$binit" ];
+  "ada://procedure_body__package_init/QuantifierTest-1:9/$$binit" [ label="QuantifierTest.$$binit" ];
   "ada://procedure_body/QuantifierTest-1:9/dummy-11:13" [ label="QuantifierTest.dummy" ];
   "ada://procedure/QuantifierTest-1:9/dummy-11:13" [ label="QuantifierTest.dummy" ];
 }

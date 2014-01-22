@@ -229,7 +229,7 @@ procedure Boolean Dummy
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l1.
+  #l0.
     return true;
 }
 
@@ -285,7 +285,7 @@ procedure Add (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l2.
+  #l1.
     R.A
         @BAKAR_TYPE_URI
 
@@ -316,7 +316,7 @@ procedure Add (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      + I;
 
-  #l3.
+  #l2.
     return;
 }
 
@@ -372,7 +372,7 @@ procedure NAdd (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l4.
+  #l3.
     NR.X
         @BAKAR_TYPE_URI
 
@@ -431,7 +431,7 @@ procedure NAdd (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      + I;
 
-  #l5.
+  #l4.
     return;
 }
 
@@ -487,7 +487,7 @@ procedure AAdd (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l6.
+  #l5.
     R.B
         @BAKAR_TYPE_URI
 
@@ -504,7 +504,7 @@ procedure AAdd (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     [I] := I + 1ii;
 
-  #l7.
+  #l6.
     return;
 }
 

@@ -7,16 +7,16 @@ procedure Test01 (
     Float T;
 
 
-  #l1.
+  #l0.
     T := Q.X;
 
-  #l2.
+  #l1.
     Q.X := Q.Y;
 
-  #l3.
+  #l2.
     Q.Y := T;
 
-  #l4.
+  #l3.
     return;
 }
 
@@ -29,19 +29,19 @@ procedure Test02 (
     Object Q;
 
 
-  #l5.
+  #l4.
     Q.X := I1;
 
-  #l6.
+  #l5.
     Q.Y := I2;
 
-  #l7.
+  #l6.
     O1 := Q.X;
 
-  #l8.
+  #l7.
     O2 := Q.Y;
 
-  #l9.
+  #l8.
     return;
 }
 
@@ -61,7 +61,7 @@ procedure Test03 (
   #rwl0.
     _t0 := Q.O;
 
-  #l10.
+  #l9.
     _t0.X := I1;
 
   #rwl1.
@@ -70,7 +70,7 @@ procedure Test03 (
   #rwl2.
     _t1 := Q.O;
 
-  #l11.
+  #l10.
     _t1.Y := I2;
 
   #rwl3.
@@ -79,16 +79,16 @@ procedure Test03 (
   #rwl4.
     _t2 := Q.O;
 
-  #l12.
+  #l11.
     O1 := _t2.X;
 
   #rwl5.
     _t3 := Q.O;
 
-  #l13.
+  #l12.
     O2 := _t3.Y;
 
-  #l14.
+  #l13.
     return;
 }package SimpleRecordTests;
 

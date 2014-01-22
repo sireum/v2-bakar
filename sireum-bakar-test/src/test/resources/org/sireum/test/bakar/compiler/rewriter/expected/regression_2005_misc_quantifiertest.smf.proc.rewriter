@@ -3,22 +3,22 @@ package QuantifierTest;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@V := `Vector { iter => 
         switch iter
           default => 0ii};
 
-  #l4.
+  #l3.
     return;
 }
 
 procedure dummy (
         Index I) {
 
-  #l2.
+  #l1.
     @@V[I] := @@V[I] + 3ii;
 
-  #l3.
+  #l2.
     return;
 }package QuantifierTest;
 

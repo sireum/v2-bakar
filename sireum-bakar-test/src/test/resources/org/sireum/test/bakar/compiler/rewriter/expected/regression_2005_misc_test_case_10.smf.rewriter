@@ -18,16 +18,16 @@ procedure P1 (
     FIXME _t5;
 
 
-  #l1.
+  #l0.
     L2 := 5ii;
 
-  #l2.
+  #l1.
     L1 := I3;
 
-  #l3.
+  #l2.
     O2 := L1;
 
-  #l4.
+  #l3.
     L1 := I2;
 
   #rwl0.
@@ -36,7 +36,7 @@ procedure P1 (
   #rwl1.
     _t1 := I2;
 
-  #l5.
+  #l4.
     L1 := _t0 + _t1;
 
   #rwl2.
@@ -45,8 +45,8 @@ procedure P1 (
   #rwl3.
     _t3 := 5ii;
 
-  #l7.
-    if !(_t2 > _t3) then goto l6;
+  #l6.
+    if !(_t2 > _t3) then goto l5;
 
   #rwl4.
     _t4 := I1;
@@ -54,31 +54,31 @@ procedure P1 (
   #rwl5.
     _t5 := 0ii;
 
-  #l10.
-    if !(_t4 < _t5) then goto l9;
+  #l9.
+    if !(_t4 < _t5) then goto l8;
 
-  #l11.
+  #l10.
     L2 := 8ii;
 
-  #l12.
-    goto l8;
-
-  #l9.
-    // empty loc
-
-  #l13.
-    L2 := 7ii;
+  #l11.
+    goto l7;
 
   #l8.
     // empty loc
 
-  #l6.
+  #l12.
+    L2 := 7ii;
+
+  #l7.
     // empty loc
 
-  #l14.
+  #l5.
+    // empty loc
+
+  #l13.
     O1 := L2;
 
-  #l15.
+  #l14.
     return;
 }package Test_Case_10;
 

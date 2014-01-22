@@ -3,5 +3,5 @@ ada://parameter/P_Complex-1:9/Q-6:13/Z-6:30 -> ada://ordinary_type/Standard-1:1/
 ada://variable/P_Complex-1:9/@@B+7:4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/P_Complex-1:9/@@C-10:4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/P_Complex-1:9/@@Y-5:3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/P_Complex/Q/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/P_Complex/Q/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/P_Complex-1:9/Q-6:13/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/P_Complex-1:9/Q-6:13/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1

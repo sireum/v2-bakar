@@ -41,25 +41,25 @@ Procedure Table
   ada://procedure/Positional_Array-1:9/dummy-19:13 
     ada://procedure/Positional_Array-1:9/dummy-19:13 
     ada://procedure_body/Positional_Array-1:9/dummy-19:13 
-  ada://procedure__package_init/Positional_Array/$$sinit 
-    ada://procedure__package_init/Positional_Array/$$sinit 
+  ada://procedure__package_init/Positional_Array-1:9/$$sinit 
+    ada://procedure__package_init/Positional_Array-1:9/$$sinit 
   ada://procedure_body/Positional_Array-1:9/dummy-19:13 
     ada://procedure/Positional_Array-1:9/dummy-19:13 
     ada://procedure_body/Positional_Array-1:9/dummy-19:13 
-  ada://procedure_body__package_init/Positional_Array/$$binit 
-    ada://procedure_body__package_init/Positional_Array/$$binit 
+  ada://procedure_body__package_init/Positional_Array-1:9/$$binit 
+    ada://procedure_body__package_init/Positional_Array-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/Positional_Array-1:9/dummy-19:13 
     SPEC: ada://procedure/Positional_Array-1:9/dummy-19:13 
     BODY: ada://procedure_body/Positional_Array-1:9/dummy-19:13 
-  ada://procedure__package_init/Positional_Array/$$sinit 
-    BODY: ada://procedure__package_init/Positional_Array/$$sinit 
+  ada://procedure__package_init/Positional_Array-1:9/$$sinit 
+    BODY: ada://procedure__package_init/Positional_Array-1:9/$$sinit 
   ada://procedure_body/Positional_Array-1:9/dummy-19:13 
     SPEC: ada://procedure/Positional_Array-1:9/dummy-19:13 
     BODY: ada://procedure_body/Positional_Array-1:9/dummy-19:13 
-  ada://procedure_body__package_init/Positional_Array/$$binit 
-    BODY: ada://procedure_body__package_init/Positional_Array/$$binit 
+  ada://procedure_body__package_init/Positional_Array-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/Positional_Array-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/Positional_Array-1:9/dummy-19:13 
@@ -72,19 +72,19 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure__package_init/Positional_Array/$$sinit 
+  ada://procedure__package_init/Positional_Array-1:9/$$sinit 
 
     LocalVarTable
-      ada://variable__temp/Positional_Array/$$sinit/_t0 
-      ada://variable__temp/Positional_Array/$$sinit/_t1 
-      ada://variable__temp/Positional_Array/$$sinit/_t2 
-      ada://variable__temp/Positional_Array/$$sinit/_t3 
-      ada://variable__temp/Positional_Array/$$sinit/_t4 
-      ada://variable__temp/Positional_Array/$$sinit/_t5 
-      ada://variable__temp/Positional_Array/$$sinit/_t6 
-      ada://variable__temp/Positional_Array/$$sinit/_t7 
-      ada://variable__temp/Positional_Array/$$sinit/_t8 
-      ada://variable__temp/Positional_Array/$$sinit/_t9 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t0 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t1 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t2 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t3 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t4 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t5 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t6 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t7 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t8 
+      ada://variable__temp/Positional_Array-1:9/$$sinit/_t9 
 
     Params
 
@@ -94,19 +94,19 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19 
-      ada://variable__temp/Positional_Array/dummy/_t2 
-      ada://variable__temp/Positional_Array/dummy/_t3 
+      ada://variable__temp/Positional_Array-1:9/dummy-19:13/_t2 
+      ada://variable__temp/Positional_Array-1:9/dummy-19:13/_t3 
 
     Params
       ada://parameter/Positional_Array-1:9/dummy-19:13/X-19:19 
 
     Loop Locations
 
-  ada://procedure_body__package_init/Positional_Array/$$binit 
+  ada://procedure_body__package_init/Positional_Array-1:9/$$binit 
 
     LocalVarTable
-      ada://variable__temp/Positional_Array/$$binit/_t0 
-      ada://variable__temp/Positional_Array/$$binit/_t1 
+      ada://variable__temp/Positional_Array-1:9/$$binit/_t0 
+      ada://variable__temp/Positional_Array-1:9/$$binit/_t1 
 
     Params
 

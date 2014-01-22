@@ -15,10 +15,10 @@ procedure add (
   #rwl1.
     _t1 := y;
 
-  #l1.
+  #l0.
     x := _t0 + _t1;
 
-  #l2.
+  #l1.
     return;
 }
 
@@ -33,13 +33,13 @@ procedure foo (
     FIXME _t5;
 
 
-  #l3.
+  #l2.
     M := 3ii;
 
-  #l4.
+  #l3.
     call add (A, M);
 
-  #l5.
+  #l4.
     call add (B, 5ii);
 
   #rwl2.
@@ -48,7 +48,7 @@ procedure foo (
   #rwl3.
     _t3 := 2ii;
 
-  #l6.
+  #l5.
     A := _t2 + _t3;
 
   #rwl4.
@@ -57,10 +57,10 @@ procedure foo (
   #rwl5.
     _t5 := 5ii;
 
-  #l7.
+  #l6.
     B := _t4 + _t5;
 
-  #l8.
+  #l7.
     return;
 }package Example;
 

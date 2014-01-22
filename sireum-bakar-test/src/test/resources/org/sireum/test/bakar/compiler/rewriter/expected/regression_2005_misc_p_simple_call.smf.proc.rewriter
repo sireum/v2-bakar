@@ -5,26 +5,26 @@ global Integer @@B;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@Y := 1ii;
 
-  #l2.
+  #l1.
     @@B := 0ii;
 
-  #l3.
+  #l2.
     @@C := 0ii;
 
-  #l17.
+  #l16.
     return;
 }
 
 procedure R (
         Integer X) {
 
-  #l4.
+  #l3.
     X := @@Y + @@B + @@C;
 
-  #l5.
+  #l4.
     return (X);
 }
 
@@ -34,25 +34,25 @@ procedure Integer incX (
     Integer result;
 
 
-  #l8.
-    if !(X == 0ii) then goto l7;
+  #l7.
+    if !(X == 0ii) then goto l6;
 
-  #l9.
+  #l8.
     result := X + 1ii;
 
-  #l10.
-    goto l6;
-
-  #l7.
-    // empty loc
-
-  #l11.
-    result := X - 1ii;
+  #l9.
+    goto l5;
 
   #l6.
     // empty loc
 
-  #l12.
+  #l10.
+    result := X - 1ii;
+
+  #l5.
+    // empty loc
+
+  #l11.
     return result;
 }
 
@@ -64,19 +64,19 @@ procedure Q (
     Integer _tbpr1;
 
 
-  #l13.
+  #l12.
     call _tbpr1 := R (Z);
 
   #_lbpr2.
     Z := _tbpr1;
 
-  #l14.
+  #l13.
     call _tcomp0 := incX (X);
 
-  #l15.
+  #l14.
     Z := Z + _tcomp0;
 
-  #l16.
+  #l15.
     return (Z);
 }package P_Simple_Call;
 

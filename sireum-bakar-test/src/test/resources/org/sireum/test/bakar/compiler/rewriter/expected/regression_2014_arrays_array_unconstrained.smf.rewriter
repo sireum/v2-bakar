@@ -22,10 +22,10 @@ procedure Boolean isSorted (
     FIXME _t11;
 
 
-  #l1.
+  #l0.
     B := true;
 
-  #l3.
+  #l2.
     _tcomp0 := attribute__uif__first `Z;
 
   #rwl0.
@@ -34,7 +34,7 @@ procedure Boolean isSorted (
   #rwl1.
     _t1 := 1ii;
 
-  #l4.
+  #l3.
     _tcomp1 := _t0 - _t1;
 
   #rwl2.
@@ -43,13 +43,13 @@ procedure Boolean isSorted (
   #rwl3.
     _t3 := _tcomp1;
 
-  #l5.
-    if _t2 > _t3 then goto l2;
+  #l4.
+    if _t2 > _t3 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.
+  #l6.
     // empty loc
 
   #rwl4.
@@ -64,11 +64,11 @@ procedure Boolean isSorted (
   #rwl7.
     _t7 := Z[_t4 + _t5];
 
-  #l8.
+  #l7.
     B := _t6 <= _t7;
 
-  #l9.
-    if !(B) then goto l2;
+  #l8.
+    if !(B) then goto l1;
 
   #rwl8.
     _t8 := I;
@@ -76,8 +76,8 @@ procedure Boolean isSorted (
   #rwl9.
     _t9 := _tcomp1;
 
-  #l10.
-    if _t8 == _t9 then goto l2;
+  #l9.
+    if _t8 == _t9 then goto l1;
 
   #rwl10.
     _t10 := I;
@@ -85,16 +85,16 @@ procedure Boolean isSorted (
   #rwl11.
     _t11 := 1ii;
 
-  #l11.
+  #l10.
     I := _t10 + _t11;
 
-  #l12.
-    goto l7;
+  #l11.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l13.
+  #l12.
     return B;
 }
 
@@ -113,7 +113,7 @@ procedure Boolean indexIsValue (
   #rwl13.
     _t13 := V;
 
-  #l14.
+  #l13.
     return _t12 == _t13;
 }package Array_Unconstrained;
 
@@ -139,10 +139,10 @@ procedure Boolean isSorted (
     Boolean _tcomp2;
 
 
-  #l15.
+  #l14.
     call _tcomp2 := Array_Unconstrained::isSorted (CV);
 
-  #l16.
+  #l15.
     return _tcomp2;
 }
 
@@ -154,10 +154,10 @@ procedure Boolean indexIsValue (
     Boolean _tcomp3;
 
 
-  #l17.
+  #l16.
     call _tcomp3 := Array_Unconstrained::indexIsValue (Z, I, V);
 
-  #l18.
+  #l17.
     return _tcomp3;
 }package Array_Unconstrained_T;
 

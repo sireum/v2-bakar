@@ -36,307 +36,307 @@ procedure Stupid (
     Index_Range _tcomp19;
 
 
-  #l3.
+  #l2.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l4.
+  #l3.
     _tcomp1 := attribute__uif__last `Index_Range;
 
-  #l5.
-    if _tcomp0 > _tcomp1 then goto l2;
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.
+  #l6.
     // empty loc
+
+  #l7.
+    @@A[I] := 1ii;
 
   #l8.
-    @@A[I] := 1ii;
+    if I == _tcomp1 then goto l1;
 
   #l9.
-    if I == _tcomp1 then goto l2;
-
-  #l10.
     I := I + 1ii;
 
-  #l11.
-    goto l7;
+  #l10.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
-
-  #l13.
-    _tcomp2 := attribute__uif__first `Index_Range;
-
-  #l14.
-    _tcomp3 := attribute__uif__last `Index_Range;
-
-  #l15.
-    if _tcomp2 > _tcomp3 then goto l12;
-
-  #l16.
-    I0 := _tcomp3;
-
-  #l17.
-    // empty loc
-
-  #l18.
-    @@A[I] := 1ii;
-
-  #l19.
-    if I0 == _tcomp2 then goto l12;
-
-  #l20.
-    I0 := I0 - 1ii;
-
-  #l21.
-    goto l17;
 
   #l12.
+    _tcomp2 := attribute__uif__first `Index_Range;
+
+  #l13.
+    _tcomp3 := attribute__uif__last `Index_Range;
+
+  #l14.
+    if _tcomp2 > _tcomp3 then goto l11;
+
+  #l15.
+    I0 := _tcomp3;
+
+  #l16.
     // empty loc
 
-  #l23.
-    _tcomp4 := 1ii;
-
-  #l24.
-    _tcomp5 := 3ii;
-
-  #l25.
-    if _tcomp4 > _tcomp5 then goto l22;
-
-  #l26.
-    I1 := _tcomp4;
-
-  #l27.
-    // empty loc
-
-  #l28.
+  #l17.
     @@A[I] := 1ii;
 
-  #l29.
-    if I1 == _tcomp5 then goto l22;
+  #l18.
+    if I0 == _tcomp2 then goto l11;
 
-  #l30.
-    I1 := I1 + 1ii;
+  #l19.
+    I0 := I0 - 1ii;
 
-  #l31.
-    goto l27;
+  #l20.
+    goto l16;
+
+  #l11.
+    // empty loc
 
   #l22.
+    _tcomp4 := 1ii;
+
+  #l23.
+    _tcomp5 := 3ii;
+
+  #l24.
+    if _tcomp4 > _tcomp5 then goto l21;
+
+  #l25.
+    I1 := _tcomp4;
+
+  #l26.
     // empty loc
 
-  #l33.
-    _tcomp6 := 1ii;
-
-  #l34.
-    _tcomp7 := Z;
-
-  #l35.
-    if _tcomp6 > _tcomp7 then goto l32;
-
-  #l36.
-    I2 := _tcomp7;
-
-  #l37.
-    // empty loc
-
-  #l38.
+  #l27.
     @@A[I] := 1ii;
 
-  #l39.
-    if I2 == _tcomp6 then goto l32;
+  #l28.
+    if I1 == _tcomp5 then goto l21;
 
-  #l40.
-    I2 := I2 - 1ii;
+  #l29.
+    I1 := I1 + 1ii;
 
-  #l41.
-    goto l37;
+  #l30.
+    goto l26;
+
+  #l21.
+    // empty loc
 
   #l32.
+    _tcomp6 := 1ii;
+
+  #l33.
+    _tcomp7 := Z;
+
+  #l34.
+    if _tcomp6 > _tcomp7 then goto l31;
+
+  #l35.
+    I2 := _tcomp7;
+
+  #l36.
     // empty loc
 
-  #l43.
-    _tcomp8 := attribute__uif__first `Index_Range + 10ii;
+  #l37.
+    @@A[I] := 1ii;
 
-  #l44.
-    _tcomp9 := Z;
+  #l38.
+    if I2 == _tcomp6 then goto l31;
 
-  #l45.
-    if _tcomp8 > _tcomp9 then goto l42;
+  #l39.
+    I2 := I2 - 1ii;
 
-  #l46.
-    I3 := _tcomp8;
+  #l40.
+    goto l36;
 
-  #l47.
+  #l31.
     // empty loc
-
-  #l48.
-    @@A[I] := @@A[I];
-
-  #l49.
-    if I3 == _tcomp9 then goto l42;
-
-  #l50.
-    I3 := I3 + 1ii;
-
-  #l51.
-    goto l47;
 
   #l42.
+    _tcomp8 := attribute__uif__first `Index_Range + 10ii;
+
+  #l43.
+    _tcomp9 := Z;
+
+  #l44.
+    if _tcomp8 > _tcomp9 then goto l41;
+
+  #l45.
+    I3 := _tcomp8;
+
+  #l46.
     // empty loc
 
-  #l53.
-    _tcomp10 := attribute__uif__first `Index_Range + 10ii;
-
-  #l54.
-    _tcomp11 := Z;
-
-  #l55.
-    if _tcomp10 > _tcomp11 then goto l52;
-
-  #l56.
-    I4 := _tcomp11;
-
-  #l57.
-    // empty loc
-
-  #l58.
+  #l47.
     @@A[I] := @@A[I];
 
-  #l59.
-    if I4 == _tcomp10 then goto l52;
+  #l48.
+    if I3 == _tcomp9 then goto l41;
 
-  #l60.
-    I4 := I4 - 1ii;
+  #l49.
+    I3 := I3 + 1ii;
 
-  #l61.
-    goto l57;
+  #l50.
+    goto l46;
+
+  #l41.
+    // empty loc
 
   #l52.
+    _tcomp10 := attribute__uif__first `Index_Range + 10ii;
+
+  #l53.
+    _tcomp11 := Z;
+
+  #l54.
+    if _tcomp10 > _tcomp11 then goto l51;
+
+  #l55.
+    I4 := _tcomp11;
+
+  #l56.
     // empty loc
 
-  #l63.
-    _tcomp12 := attribute__uif__first (@@A);
-
-  #l64.
-    _tcomp13 := attribute__uif__last (@@A);
-
-  #l65.
-    if _tcomp12 > _tcomp13 then goto l62;
-
-  #l66.
-    I5 := _tcomp12;
-
-  #l67.
-    // empty loc
-
-  #l68.
+  #l57.
     @@A[I] := @@A[I];
 
-  #l69.
-    if I5 == _tcomp13 then goto l62;
+  #l58.
+    if I4 == _tcomp10 then goto l51;
 
-  #l70.
-    I5 := I5 + 1ii;
+  #l59.
+    I4 := I4 - 1ii;
 
-  #l71.
-    goto l67;
+  #l60.
+    goto l56;
+
+  #l51.
+    // empty loc
 
   #l62.
+    _tcomp12 := attribute__uif__first (@@A);
+
+  #l63.
+    _tcomp13 := attribute__uif__last (@@A);
+
+  #l64.
+    if _tcomp12 > _tcomp13 then goto l61;
+
+  #l65.
+    I5 := _tcomp12;
+
+  #l66.
     // empty loc
 
-  #l73.
-    _tcomp14 := attribute__uif__first (@@A);
-
-  #l74.
-    _tcomp15 := attribute__uif__last (@@A);
-
-  #l75.
-    if _tcomp14 > _tcomp15 then goto l72;
-
-  #l76.
-    I6 := _tcomp15;
-
-  #l77.
-    // empty loc
-
-  #l78.
+  #l67.
     @@A[I] := @@A[I];
 
-  #l79.
-    if I6 == _tcomp14 then goto l72;
+  #l68.
+    if I5 == _tcomp13 then goto l61;
 
-  #l80.
-    I6 := I6 - 1ii;
+  #l69.
+    I5 := I5 + 1ii;
 
-  #l81.
-    goto l77;
+  #l70.
+    goto l66;
+
+  #l61.
+    // empty loc
 
   #l72.
+    _tcomp14 := attribute__uif__first (@@A);
+
+  #l73.
+    _tcomp15 := attribute__uif__last (@@A);
+
+  #l74.
+    if _tcomp14 > _tcomp15 then goto l71;
+
+  #l75.
+    I6 := _tcomp15;
+
+  #l76.
     // empty loc
 
-  #l83.
-    _tcomp16 := attribute__uif__first (@@A, 1ii);
-
-  #l84.
-    _tcomp17 := attribute__uif__last (@@A, 1ii);
-
-  #l85.
-    if _tcomp16 > _tcomp17 then goto l82;
-
-  #l86.
-    I7 := _tcomp16;
-
-  #l87.
-    // empty loc
-
-  #l88.
+  #l77.
     @@A[I] := @@A[I];
 
-  #l89.
-    if I7 == _tcomp17 then goto l82;
+  #l78.
+    if I6 == _tcomp14 then goto l71;
 
-  #l90.
-    I7 := I7 + 1ii;
+  #l79.
+    I6 := I6 - 1ii;
 
-  #l91.
-    goto l87;
+  #l80.
+    goto l76;
+
+  #l71.
+    // empty loc
 
   #l82.
+    _tcomp16 := attribute__uif__first (@@A, 1ii);
+
+  #l83.
+    _tcomp17 := attribute__uif__last (@@A, 1ii);
+
+  #l84.
+    if _tcomp16 > _tcomp17 then goto l81;
+
+  #l85.
+    I7 := _tcomp16;
+
+  #l86.
     // empty loc
 
-  #l93.
-    _tcomp18 := attribute__uif__first (@@A, 1ii);
-
-  #l94.
-    _tcomp19 := attribute__uif__last (@@A, 1ii);
-
-  #l95.
-    if _tcomp18 > _tcomp19 then goto l92;
-
-  #l96.
-    I8 := _tcomp19;
-
-  #l97.
-    // empty loc
-
-  #l98.
+  #l87.
     @@A[I] := @@A[I];
 
-  #l99.
-    if I8 == _tcomp18 then goto l92;
+  #l88.
+    if I7 == _tcomp17 then goto l81;
 
-  #l100.
-    I8 := I8 - 1ii;
+  #l89.
+    I7 := I7 + 1ii;
 
-  #l101.
-    goto l97;
+  #l90.
+    goto l86;
 
-  #l92.
+  #l81.
     // empty loc
 
-  #l102.
+  #l92.
+    _tcomp18 := attribute__uif__first (@@A, 1ii);
+
+  #l93.
+    _tcomp19 := attribute__uif__last (@@A, 1ii);
+
+  #l94.
+    if _tcomp18 > _tcomp19 then goto l91;
+
+  #l95.
+    I8 := _tcomp19;
+
+  #l96.
+    // empty loc
+
+  #l97.
+    @@A[I] := @@A[I];
+
+  #l98.
+    if I8 == _tcomp18 then goto l91;
+
+  #l99.
+    I8 := I8 - 1ii;
+
+  #l100.
+    goto l96;
+
+  #l91.
+    // empty loc
+
+  #l101.
     return;
 }package for_loops;
 
@@ -355,14 +355,14 @@ global Vector @@A;
 
 procedure $$sinit {
 
-  #l1.
+  #l0.
     @@A := `Vector { iter => 
         switch iter
           case (1ii, 7ii) => 2ii
           case 11ii => 3ii
           default => 1ii};
 
-  #l103.
+  #l102.
     return;
 }
 

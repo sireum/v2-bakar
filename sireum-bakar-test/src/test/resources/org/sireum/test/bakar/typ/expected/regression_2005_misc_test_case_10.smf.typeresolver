@@ -5,9 +5,9 @@ ada://parameter/Test_Case_10-1:9/P1-2:15/O1-2:44 -> ada://ordinary_type/Standard
 ada://parameter/Test_Case_10-1:9/P1-2:15/O2-2:48 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Test_Case_10-1:9/P1-2:15/L1+4:9 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Test_Case_10-1:9/P1-2:15/L2+4:13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Test_Case_10/P1/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Test_Case_10/P1/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Test_Case_10/P1/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Test_Case_10/P1/_t3 -> ada://ordinary_type/universal_integer
-ada://variable__temp/Test_Case_10/P1/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Test_Case_10/P1/_t5 -> ada://ordinary_type/universal_integer
+ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t3 -> ada://ordinary_type/universal_integer
+ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t5 -> ada://ordinary_type/universal_integer

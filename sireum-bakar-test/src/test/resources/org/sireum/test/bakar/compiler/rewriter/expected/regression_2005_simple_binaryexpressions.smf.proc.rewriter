@@ -3,7 +3,7 @@ package BinaryExpressions;
 
 procedure Integer X {
 
-  #l1.
+  #l0.
     return 1ii;
 }
 
@@ -20,31 +20,31 @@ procedure Integer Add (
     Integer r6;
 
 
-  #l2.
+  #l1.
     r0 := 1ii + 2ii;
 
-  #l3.
+  #l2.
     r1 := I + 1ii;
 
-  #l4.
+  #l3.
     r2 := I + J;
 
-  #l5.
+  #l4.
     r3 := I + I;
 
-  #l6.
+  #l5.
     r4 := J + J;
 
-  #l7.
+  #l6.
     r5 := J + I;
 
-  #l8.
+  #l7.
     r6 := J + 1ii;
 
-  #l9.
+  #l8.
     assert proof__uif__assert r2 == r5 "Assertion failed at [16, 5]";
 
-  #l10.
+  #l9.
     return r6;
 }
 
@@ -61,28 +61,28 @@ procedure Integer Sub (
     Integer r6;
 
 
-  #l11.
+  #l10.
     r0 := 1ii - 2ii;
 
-  #l12.
+  #l11.
     r1 := I - 1ii;
 
-  #l13.
+  #l12.
     r2 := I - J;
 
-  #l14.
+  #l13.
     r3 := I - I;
 
-  #l15.
+  #l14.
     r4 := J - J;
 
-  #l16.
+  #l15.
     r5 := J - I;
 
-  #l17.
+  #l16.
     r6 := J - 1ii;
 
-  #l18.
+  #l17.
     return r6;
 }
 
@@ -99,31 +99,31 @@ procedure Integer Mult (
     Integer r6;
 
 
-  #l19.
+  #l18.
     r0 := 1ii * 2ii;
 
-  #l20.
+  #l19.
     r1 := I * 1ii;
 
-  #l21.
+  #l20.
     r2 := I * J;
 
-  #l22.
+  #l21.
     r3 := I * I;
 
-  #l23.
+  #l22.
     r4 := J * J;
 
-  #l24.
+  #l23.
     r5 := J * I;
 
-  #l25.
+  #l24.
     r6 := J * 1ii;
 
-  #l26.
+  #l25.
     assert proof__uif__assert r2 == r5 "Assertion failed at [46, 5]";
 
-  #l27.
+  #l26.
     return r6;
 }
 
@@ -140,28 +140,28 @@ procedure Integer Division (
     Integer r6;
 
 
-  #l28.
+  #l27.
     r0 := 1ii / 2ii;
 
-  #l29.
+  #l28.
     r1 := I / 1ii;
 
-  #l30.
+  #l29.
     r2 := I / I;
 
-  #l31.
+  #l30.
     r3 := I / J;
 
-  #l32.
+  #l31.
     r4 := J / I;
 
-  #l33.
+  #l32.
     r5 := J / J;
 
-  #l34.
+  #l33.
     r6 := J / 1ii;
 
-  #l35.
+  #l34.
     return r6;
 }package BinaryExpressions;
 

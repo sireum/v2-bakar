@@ -1,5 +1,5 @@
 digraph G {
-  "ada://procedure_body__package_init/RecordTest01/$$binit" [ label="RecordTest01.$$binit" ];
+  "ada://procedure_body__package_init/RecordTest01-1:9/$$binit" [ label="RecordTest01.$$binit" ];
   "ada://procedure_body/RecordTest01-1:9/Test01-16:13" [ label="RecordTest01.Test01" ];
   "ada://procedure_body/RecordTest01-1:9/Test02+13:13" [ label="RecordTest01.Test02" ];
   "ada://procedure/RecordTest01-1:9/Test01-16:13" [ label="RecordTest01.Test01" ];

@@ -192,7 +192,7 @@ procedure Boolean Dummy
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l1.
+  #l0.
     return true;
 }
 
@@ -231,10 +231,10 @@ procedure Add (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l2.
+  #l1.
     X[1ii] := X[2ii];
 
-  #l3.
+  #l2.
     return;
 }
 
@@ -269,13 +269,13 @@ procedure Del
     ;
 
 
-  #l4.
+  #l3.
     T := @@V[1ii];
 
-  #l5.
+  #l4.
     @@V[2ii] := T + @@V[3ii];
 
-  #l6.
+  #l5.
     return;
 }
 

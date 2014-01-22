@@ -64,14 +64,14 @@ procedure Init (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l1.
+  #l0.
     FI := `T {
       Limit = Threshold,
       Counter = 0ii,
       Tripped = false
     };
 
-  #l2.
+  #l1.
     return;
 }
 
@@ -144,7 +144,7 @@ procedure Test (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l5.<
+  #l4.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -155,9 +155,9 @@ procedure Test (
            <int>19</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(CurrentEvent) then goto l4;
+    if !(CurrentEvent) then goto l3;
 
-  #l8.<
+  #l7.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -196,9 +196,9 @@ procedure Test (
              <int>20</int>
              <int>30</int>
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-    ) then goto l7;
+    ) then goto l6;
 
-  #l9.
+  #l8.
     FI.Tripped
         @BAKAR_TYPE_URI
 
@@ -215,13 +215,13 @@ procedure Test (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := true;
 
-  #l10.
-    goto l6;
+  #l9.
+    goto l5;
 
-  #l7.
+  #l6.
     // empty loc
 
-  #l11.
+  #l10.
     FI.Counter
         @BAKAR_TYPE_URI
 
@@ -252,16 +252,16 @@ procedure Test (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      + 1ii;
 
-  #l6.
+  #l5.
     // empty loc
 
-  #l12.
-    goto l3;
+  #l11.
+    goto l2;
 
-  #l4.
+  #l3.
     // empty loc
 
-  #l15.<
+  #l14.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -286,9 +286,9 @@ procedure Test (
              <int>26</int>
              <int>19</int>
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
-     == 0ii) then goto l14;
+     == 0ii) then goto l13;
 
-  #l16.
+  #l15.
     FI.Tripped
         @BAKAR_TYPE_URI
 
@@ -305,13 +305,13 @@ procedure Test (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := false;
 
-  #l17.
-    goto l13;
+  #l16.
+    goto l12;
 
-  #l14.
+  #l13.
     // empty loc
 
-  #l18.
+  #l17.
     FI.Counter
         @BAKAR_TYPE_URI
 
@@ -342,13 +342,13 @@ procedure Test (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      - 1ii;
 
-  #l13.
+  #l12.
     // empty loc
 
-  #l3.
+  #l2.
     // empty loc
 
-  #l19.
+  #l18.
     IntegratedEvent := FI.Tripped
         @BAKAR_TYPE_URI
 
@@ -365,7 +365,7 @@ procedure Test (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     ;
 
-  #l20.
+  #l19.
     return;
 }
 

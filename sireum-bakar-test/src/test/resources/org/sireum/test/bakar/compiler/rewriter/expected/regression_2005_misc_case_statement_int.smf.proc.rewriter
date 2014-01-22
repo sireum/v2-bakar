@@ -7,61 +7,61 @@ procedure Activity isWorkDay (
     Activity ret;
 
 
+  #l2.
+    if !(attribute__uif__first `IntType <= d &&& d <= attribute__uif__last `IntType) then goto l1;
+
   #l3.
-    if !(attribute__uif__first `IntType <= d &&& d <= attribute__uif__last `IntType) then goto l2;
+    ret := Work;
 
   #l4.
-    ret := Work;
-
-  #l5.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l7.
-    if !(4ii <= d &&& d <= 5ii ||| attribute__uif__first `SixType <= d &&& d <= attribute__uif__last `SixType ||| d == 7ii) then goto l6;
-
-  #l8.
-    ret := Party;
-
-  #l9.
-    goto l1;
-
-  #l6.
-    // empty loc
-
-  #l11.
-    if !(8ii <= d &&& d <= 9ii) then goto l10;
-
-  #l12.
-    ret := Party;
-
-  #l13.
-    goto l1;
-
-  #l10.
-    // empty loc
-
-  #l15.
-    if !(d == 10ii) then goto l14;
-
-  #l16.
-    ret := Work;
-
-  #l17.
-    goto l1;
-
-  #l14.
-    // empty loc
-
-  #l19.
-    ret := Drink;
+    goto l0;
 
   #l1.
     // empty loc
 
-  #l20.
+  #l6.
+    if !(4ii <= d &&& d <= 5ii ||| attribute__uif__first `SixType <= d &&& d <= attribute__uif__last `SixType ||| d == 7ii) then goto l5;
+
+  #l7.
+    ret := Party;
+
+  #l8.
+    goto l0;
+
+  #l5.
+    // empty loc
+
+  #l10.
+    if !(8ii <= d &&& d <= 9ii) then goto l9;
+
+  #l11.
+    ret := Party;
+
+  #l12.
+    goto l0;
+
+  #l9.
+    // empty loc
+
+  #l14.
+    if !(d == 10ii) then goto l13;
+
+  #l15.
+    ret := Work;
+
+  #l16.
+    goto l0;
+
+  #l13.
+    // empty loc
+
+  #l18.
+    ret := Drink;
+
+  #l0.
+    // empty loc
+
+  #l19.
     return ret;
 }package Case_Statement_Int;
 

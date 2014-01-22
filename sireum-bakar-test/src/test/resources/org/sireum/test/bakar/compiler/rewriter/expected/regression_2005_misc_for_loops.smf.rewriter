@@ -100,10 +100,10 @@ procedure Stupid (
     FIXME _t63;
 
 
-  #l3.
+  #l2.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l4.
+  #l3.
     _tcomp1 := attribute__uif__last `Index_Range;
 
   #rwl0.
@@ -112,16 +112,16 @@ procedure Stupid (
   #rwl1.
     _t1 := _tcomp1;
 
-  #l5.
-    if _t0 > _t1 then goto l2;
+  #l4.
+    if _t0 > _t1 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.
+  #l6.
     // empty loc
 
-  #l8.
+  #l7.
     @@A[I] := 1ii;
 
   #rwl2.
@@ -130,8 +130,8 @@ procedure Stupid (
   #rwl3.
     _t3 := _tcomp1;
 
-  #l9.
-    if _t2 == _t3 then goto l2;
+  #l8.
+    if _t2 == _t3 then goto l1;
 
   #rwl4.
     _t4 := I;
@@ -139,19 +139,19 @@ procedure Stupid (
   #rwl5.
     _t5 := 1ii;
 
-  #l10.
+  #l9.
     I := _t4 + _t5;
 
-  #l11.
-    goto l7;
+  #l10.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l13.
+  #l12.
     _tcomp2 := attribute__uif__first `Index_Range;
 
-  #l14.
+  #l13.
     _tcomp3 := attribute__uif__last `Index_Range;
 
   #rwl6.
@@ -160,16 +160,16 @@ procedure Stupid (
   #rwl7.
     _t7 := _tcomp3;
 
-  #l15.
-    if _t6 > _t7 then goto l12;
+  #l14.
+    if _t6 > _t7 then goto l11;
 
-  #l16.
+  #l15.
     I0 := _tcomp3;
 
-  #l17.
+  #l16.
     // empty loc
 
-  #l18.
+  #l17.
     @@A[I] := 1ii;
 
   #rwl8.
@@ -178,8 +178,8 @@ procedure Stupid (
   #rwl9.
     _t9 := _tcomp2;
 
-  #l19.
-    if _t8 == _t9 then goto l12;
+  #l18.
+    if _t8 == _t9 then goto l11;
 
   #rwl10.
     _t10 := I0;
@@ -187,19 +187,19 @@ procedure Stupid (
   #rwl11.
     _t11 := 1ii;
 
-  #l20.
+  #l19.
     I0 := _t10 - _t11;
 
-  #l21.
-    goto l17;
+  #l20.
+    goto l16;
 
-  #l12.
+  #l11.
     // empty loc
 
-  #l23.
+  #l22.
     _tcomp4 := 1ii;
 
-  #l24.
+  #l23.
     _tcomp5 := 3ii;
 
   #rwl12.
@@ -208,16 +208,16 @@ procedure Stupid (
   #rwl13.
     _t13 := _tcomp5;
 
-  #l25.
-    if _t12 > _t13 then goto l22;
+  #l24.
+    if _t12 > _t13 then goto l21;
 
-  #l26.
+  #l25.
     I1 := _tcomp4;
 
-  #l27.
+  #l26.
     // empty loc
 
-  #l28.
+  #l27.
     @@A[I] := 1ii;
 
   #rwl14.
@@ -226,8 +226,8 @@ procedure Stupid (
   #rwl15.
     _t15 := _tcomp5;
 
-  #l29.
-    if _t14 == _t15 then goto l22;
+  #l28.
+    if _t14 == _t15 then goto l21;
 
   #rwl16.
     _t16 := I1;
@@ -235,19 +235,19 @@ procedure Stupid (
   #rwl17.
     _t17 := 1ii;
 
-  #l30.
+  #l29.
     I1 := _t16 + _t17;
 
-  #l31.
-    goto l27;
+  #l30.
+    goto l26;
 
-  #l22.
+  #l21.
     // empty loc
 
-  #l33.
+  #l32.
     _tcomp6 := 1ii;
 
-  #l34.
+  #l33.
     _tcomp7 := Z;
 
   #rwl18.
@@ -256,16 +256,16 @@ procedure Stupid (
   #rwl19.
     _t19 := _tcomp7;
 
-  #l35.
-    if _t18 > _t19 then goto l32;
+  #l34.
+    if _t18 > _t19 then goto l31;
 
-  #l36.
+  #l35.
     I2 := _tcomp7;
 
-  #l37.
+  #l36.
     // empty loc
 
-  #l38.
+  #l37.
     @@A[I] := 1ii;
 
   #rwl20.
@@ -274,8 +274,8 @@ procedure Stupid (
   #rwl21.
     _t21 := _tcomp6;
 
-  #l39.
-    if _t20 == _t21 then goto l32;
+  #l38.
+    if _t20 == _t21 then goto l31;
 
   #rwl22.
     _t22 := I2;
@@ -283,13 +283,13 @@ procedure Stupid (
   #rwl23.
     _t23 := 1ii;
 
-  #l40.
+  #l39.
     I2 := _t22 - _t23;
 
-  #l41.
-    goto l37;
+  #l40.
+    goto l36;
 
-  #l32.
+  #l31.
     // empty loc
 
   #rwl24.
@@ -298,10 +298,10 @@ procedure Stupid (
   #rwl25.
     _t25 := 10ii;
 
-  #l43.
+  #l42.
     _tcomp8 := _t24 + _t25;
 
-  #l44.
+  #l43.
     _tcomp9 := Z;
 
   #rwl26.
@@ -310,16 +310,16 @@ procedure Stupid (
   #rwl27.
     _t27 := _tcomp9;
 
-  #l45.
-    if _t26 > _t27 then goto l42;
+  #l44.
+    if _t26 > _t27 then goto l41;
 
-  #l46.
+  #l45.
     I3 := _tcomp8;
 
-  #l47.
+  #l46.
     // empty loc
 
-  #l48.
+  #l47.
     @@A[I] := @@A[I];
 
   #rwl28.
@@ -328,8 +328,8 @@ procedure Stupid (
   #rwl29.
     _t29 := _tcomp9;
 
-  #l49.
-    if _t28 == _t29 then goto l42;
+  #l48.
+    if _t28 == _t29 then goto l41;
 
   #rwl30.
     _t30 := I3;
@@ -337,13 +337,13 @@ procedure Stupid (
   #rwl31.
     _t31 := 1ii;
 
-  #l50.
+  #l49.
     I3 := _t30 + _t31;
 
-  #l51.
-    goto l47;
+  #l50.
+    goto l46;
 
-  #l42.
+  #l41.
     // empty loc
 
   #rwl32.
@@ -352,10 +352,10 @@ procedure Stupid (
   #rwl33.
     _t33 := 10ii;
 
-  #l53.
+  #l52.
     _tcomp10 := _t32 + _t33;
 
-  #l54.
+  #l53.
     _tcomp11 := Z;
 
   #rwl34.
@@ -364,16 +364,16 @@ procedure Stupid (
   #rwl35.
     _t35 := _tcomp11;
 
-  #l55.
-    if _t34 > _t35 then goto l52;
+  #l54.
+    if _t34 > _t35 then goto l51;
 
-  #l56.
+  #l55.
     I4 := _tcomp11;
 
-  #l57.
+  #l56.
     // empty loc
 
-  #l58.
+  #l57.
     @@A[I] := @@A[I];
 
   #rwl36.
@@ -382,8 +382,8 @@ procedure Stupid (
   #rwl37.
     _t37 := _tcomp10;
 
-  #l59.
-    if _t36 == _t37 then goto l52;
+  #l58.
+    if _t36 == _t37 then goto l51;
 
   #rwl38.
     _t38 := I4;
@@ -391,19 +391,19 @@ procedure Stupid (
   #rwl39.
     _t39 := 1ii;
 
-  #l60.
+  #l59.
     I4 := _t38 - _t39;
 
-  #l61.
-    goto l57;
+  #l60.
+    goto l56;
 
-  #l52.
+  #l51.
     // empty loc
 
-  #l63.
+  #l62.
     _tcomp12 := attribute__uif__first (@@A);
 
-  #l64.
+  #l63.
     _tcomp13 := attribute__uif__last (@@A);
 
   #rwl40.
@@ -412,16 +412,16 @@ procedure Stupid (
   #rwl41.
     _t41 := _tcomp13;
 
-  #l65.
-    if _t40 > _t41 then goto l62;
+  #l64.
+    if _t40 > _t41 then goto l61;
 
-  #l66.
+  #l65.
     I5 := _tcomp12;
 
-  #l67.
+  #l66.
     // empty loc
 
-  #l68.
+  #l67.
     @@A[I] := @@A[I];
 
   #rwl42.
@@ -430,8 +430,8 @@ procedure Stupid (
   #rwl43.
     _t43 := _tcomp13;
 
-  #l69.
-    if _t42 == _t43 then goto l62;
+  #l68.
+    if _t42 == _t43 then goto l61;
 
   #rwl44.
     _t44 := I5;
@@ -439,19 +439,19 @@ procedure Stupid (
   #rwl45.
     _t45 := 1ii;
 
-  #l70.
+  #l69.
     I5 := _t44 + _t45;
 
-  #l71.
-    goto l67;
+  #l70.
+    goto l66;
 
-  #l62.
+  #l61.
     // empty loc
 
-  #l73.
+  #l72.
     _tcomp14 := attribute__uif__first (@@A);
 
-  #l74.
+  #l73.
     _tcomp15 := attribute__uif__last (@@A);
 
   #rwl46.
@@ -460,16 +460,16 @@ procedure Stupid (
   #rwl47.
     _t47 := _tcomp15;
 
-  #l75.
-    if _t46 > _t47 then goto l72;
+  #l74.
+    if _t46 > _t47 then goto l71;
 
-  #l76.
+  #l75.
     I6 := _tcomp15;
 
-  #l77.
+  #l76.
     // empty loc
 
-  #l78.
+  #l77.
     @@A[I] := @@A[I];
 
   #rwl48.
@@ -478,8 +478,8 @@ procedure Stupid (
   #rwl49.
     _t49 := _tcomp14;
 
-  #l79.
-    if _t48 == _t49 then goto l72;
+  #l78.
+    if _t48 == _t49 then goto l71;
 
   #rwl50.
     _t50 := I6;
@@ -487,19 +487,19 @@ procedure Stupid (
   #rwl51.
     _t51 := 1ii;
 
-  #l80.
+  #l79.
     I6 := _t50 - _t51;
 
-  #l81.
-    goto l77;
+  #l80.
+    goto l76;
 
-  #l72.
+  #l71.
     // empty loc
 
-  #l83.
+  #l82.
     _tcomp16 := attribute__uif__first (@@A, 1ii);
 
-  #l84.
+  #l83.
     _tcomp17 := attribute__uif__last (@@A, 1ii);
 
   #rwl52.
@@ -508,16 +508,16 @@ procedure Stupid (
   #rwl53.
     _t53 := _tcomp17;
 
-  #l85.
-    if _t52 > _t53 then goto l82;
+  #l84.
+    if _t52 > _t53 then goto l81;
 
-  #l86.
+  #l85.
     I7 := _tcomp16;
 
-  #l87.
+  #l86.
     // empty loc
 
-  #l88.
+  #l87.
     @@A[I] := @@A[I];
 
   #rwl54.
@@ -526,8 +526,8 @@ procedure Stupid (
   #rwl55.
     _t55 := _tcomp17;
 
-  #l89.
-    if _t54 == _t55 then goto l82;
+  #l88.
+    if _t54 == _t55 then goto l81;
 
   #rwl56.
     _t56 := I7;
@@ -535,19 +535,19 @@ procedure Stupid (
   #rwl57.
     _t57 := 1ii;
 
-  #l90.
+  #l89.
     I7 := _t56 + _t57;
 
-  #l91.
-    goto l87;
+  #l90.
+    goto l86;
 
-  #l82.
+  #l81.
     // empty loc
 
-  #l93.
+  #l92.
     _tcomp18 := attribute__uif__first (@@A, 1ii);
 
-  #l94.
+  #l93.
     _tcomp19 := attribute__uif__last (@@A, 1ii);
 
   #rwl58.
@@ -556,16 +556,16 @@ procedure Stupid (
   #rwl59.
     _t59 := _tcomp19;
 
-  #l95.
-    if _t58 > _t59 then goto l92;
+  #l94.
+    if _t58 > _t59 then goto l91;
 
-  #l96.
+  #l95.
     I8 := _tcomp19;
 
-  #l97.
+  #l96.
     // empty loc
 
-  #l98.
+  #l97.
     @@A[I] := @@A[I];
 
   #rwl60.
@@ -574,8 +574,8 @@ procedure Stupid (
   #rwl61.
     _t61 := _tcomp18;
 
-  #l99.
-    if _t60 == _t61 then goto l92;
+  #l98.
+    if _t60 == _t61 then goto l91;
 
   #rwl62.
     _t62 := I8;
@@ -583,16 +583,16 @@ procedure Stupid (
   #rwl63.
     _t63 := 1ii;
 
-  #l100.
+  #l99.
     I8 := _t62 - _t63;
 
-  #l101.
-    goto l97;
+  #l100.
+    goto l96;
 
-  #l92.
+  #l91.
     // empty loc
 
-  #l102.
+  #l101.
     return;
 }package for_loops;
 
@@ -611,14 +611,14 @@ global Vector @@A;
 
 procedure $$sinit {
 
-  #l1.
+  #l0.
     @@A := `Vector { iter => 
         switch iter
           case (1ii, 7ii) => 2ii
           case 11ii => 3ii
           default => 1ii};
 
-  #l103.
+  #l102.
     return;
 }
 

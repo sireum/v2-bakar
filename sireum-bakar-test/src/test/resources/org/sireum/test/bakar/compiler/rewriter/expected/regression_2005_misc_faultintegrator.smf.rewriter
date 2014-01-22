@@ -5,14 +5,14 @@ procedure Init (
         T FI,
         Positive Threshold) {
 
-  #l1.
+  #l0.
     FI := `T {
       Limit = Threshold,
       Counter = 0ii,
       Tripped = false
     };
 
-  #l2.
+  #l1.
     return;
 }
 
@@ -31,8 +31,8 @@ procedure Test (
     FIXME _t7;
 
 
-  #l5.
-    if !(CurrentEvent) then goto l4;
+  #l4.
+    if !(CurrentEvent) then goto l3;
 
   #rwl0.
     _t0 := FI.Counter;
@@ -40,16 +40,16 @@ procedure Test (
   #rwl1.
     _t1 := FI.Limit;
 
-  #l8.
-    if !(_t0 == _t1) then goto l7;
+  #l7.
+    if !(_t0 == _t1) then goto l6;
 
-  #l9.
+  #l8.
     FI.Tripped := true;
 
-  #l10.
-    goto l6;
+  #l9.
+    goto l5;
 
-  #l7.
+  #l6.
     // empty loc
 
   #rwl2.
@@ -58,16 +58,16 @@ procedure Test (
   #rwl3.
     _t3 := 1ii;
 
-  #l11.
+  #l10.
     FI.Counter := _t2 + _t3;
 
-  #l6.
+  #l5.
     // empty loc
 
-  #l12.
-    goto l3;
+  #l11.
+    goto l2;
 
-  #l4.
+  #l3.
     // empty loc
 
   #rwl4.
@@ -76,16 +76,16 @@ procedure Test (
   #rwl5.
     _t5 := 0ii;
 
-  #l15.
-    if !(_t4 == _t5) then goto l14;
+  #l14.
+    if !(_t4 == _t5) then goto l13;
 
-  #l16.
+  #l15.
     FI.Tripped := false;
 
-  #l17.
-    goto l13;
+  #l16.
+    goto l12;
 
-  #l14.
+  #l13.
     // empty loc
 
   #rwl6.
@@ -94,19 +94,19 @@ procedure Test (
   #rwl7.
     _t7 := 1ii;
 
-  #l18.
+  #l17.
     FI.Counter := _t6 - _t7;
 
-  #l13.
+  #l12.
     // empty loc
 
-  #l3.
+  #l2.
     // empty loc
 
-  #l19.
+  #l18.
     IntegratedEvent := FI.Tripped;
 
-  #l20.
+  #l19.
     return;
 }package FaultIntegrator;
 

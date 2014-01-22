@@ -1,5 +1,5 @@
 digraph G {
-  "ada://procedure_body__package_init/SimpleMath1/$$binit" [ label="SimpleMath1.$$binit" ];
+  "ada://procedure_body__package_init/SimpleMath1-1:9/$$binit" [ label="SimpleMath1.$$binit" ];
   "ada://procedure_body/SimpleMath1-1:9/Inc-6:13" [ label="SimpleMath1.Inc" ];
   "ada://procedure/SimpleMath1-1:9/Inc-6:13" [ label="SimpleMath1.Inc" ];
 }

@@ -5,14 +5,14 @@ procedure Init (
         T FI,
         Positive Threshold) {
 
-  #l1.
+  #l0.
     FI := `T {
       Limit = Threshold,
       Counter = 0ii,
       Tripped = false
     };
 
-  #l2.
+  #l1.
     return (FI);
 }
 
@@ -21,58 +21,58 @@ procedure Test (
         Boolean CurrentEvent,
         Boolean IntegratedEvent) {
 
-  #l5.
-    if !(CurrentEvent) then goto l4;
-
-  #l8.
-    if !(FI.Counter == FI.Limit) then goto l7;
-
-  #l9.
-    FI.Tripped := true;
-
-  #l10.
-    goto l6;
+  #l4.
+    if !(CurrentEvent) then goto l3;
 
   #l7.
-    // empty loc
+    if !(FI.Counter == FI.Limit) then goto l6;
 
-  #l11.
-    FI.Counter := FI.Counter + 1ii;
+  #l8.
+    FI.Tripped := true;
+
+  #l9.
+    goto l5;
 
   #l6.
     // empty loc
 
-  #l12.
-    goto l3;
+  #l10.
+    FI.Counter := FI.Counter + 1ii;
 
-  #l4.
+  #l5.
     // empty loc
 
-  #l15.
-    if !(FI.Counter == 0ii) then goto l14;
-
-  #l16.
-    FI.Tripped := false;
-
-  #l17.
-    goto l13;
-
-  #l14.
-    // empty loc
-
-  #l18.
-    FI.Counter := FI.Counter - 1ii;
-
-  #l13.
-    // empty loc
+  #l11.
+    goto l2;
 
   #l3.
     // empty loc
 
-  #l19.
+  #l14.
+    if !(FI.Counter == 0ii) then goto l13;
+
+  #l15.
+    FI.Tripped := false;
+
+  #l16.
+    goto l12;
+
+  #l13.
+    // empty loc
+
+  #l17.
+    FI.Counter := FI.Counter - 1ii;
+
+  #l12.
+    // empty loc
+
+  #l2.
+    // empty loc
+
+  #l18.
     IntegratedEvent := FI.Tripped;
 
-  #l20.
+  #l19.
     return (FI, IntegratedEvent);
 }package FaultIntegrator;
 

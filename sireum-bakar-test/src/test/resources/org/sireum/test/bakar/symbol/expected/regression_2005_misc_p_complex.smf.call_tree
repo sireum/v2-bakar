@@ -1,5 +1,5 @@
 digraph G {
-  "ada://procedure_body__package_init/P_Complex/$$binit" [ label="P_Complex.$$binit" ];
+  "ada://procedure_body__package_init/P_Complex-1:9/$$binit" [ label="P_Complex.$$binit" ];
   "ada://procedure_body/P_Complex-1:9/Q-6:13" [ label="P_Complex.Q" ];
   "ada://procedure/P_Complex-1:9/Q-6:13" [ label="P_Complex.Q" ];
 }

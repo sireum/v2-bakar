@@ -9,7 +9,7 @@ Spark Package Table
     BODY: ada://package_body/Array_Two_Dim-1:9
 
 Const Table
-  ada://constant_declaration/Array_Two_Dim/$CONST 
+  ada://constant_declaration/Array_Two_Dim-1:9/$CONST 
 
 Const Element Table
   ada://integer_number/Array_Two_Dim-1:9/constThree-12:3 
@@ -54,16 +54,16 @@ Procedure Table
   ada://procedure/Array_Two_Dim-1:9/dummy2-46:13 
     ada://procedure/Array_Two_Dim-1:9/dummy2-46:13 
     ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13 
-  ada://procedure__package_init/Array_Two_Dim/$$sinit 
-    ada://procedure__package_init/Array_Two_Dim/$$sinit 
+  ada://procedure__package_init/Array_Two_Dim-1:9/$$sinit 
+    ada://procedure__package_init/Array_Two_Dim-1:9/$$sinit 
   ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13 
     ada://procedure/Array_Two_Dim-1:9/dummy-40:13 
     ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13 
   ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13 
     ada://procedure/Array_Two_Dim-1:9/dummy2-46:13 
     ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13 
-  ada://procedure_body__package_init/Array_Two_Dim/$$binit 
-    ada://procedure_body__package_init/Array_Two_Dim/$$binit 
+  ada://procedure_body__package_init/Array_Two_Dim-1:9/$$binit 
+    ada://procedure_body__package_init/Array_Two_Dim-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/Array_Two_Dim-1:9/dummy-40:13 
@@ -72,16 +72,16 @@ Spark Method Table
   ada://procedure/Array_Two_Dim-1:9/dummy2-46:13 
     SPEC: ada://procedure/Array_Two_Dim-1:9/dummy2-46:13 
     BODY: ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13 
-  ada://procedure__package_init/Array_Two_Dim/$$sinit 
-    BODY: ada://procedure__package_init/Array_Two_Dim/$$sinit 
+  ada://procedure__package_init/Array_Two_Dim-1:9/$$sinit 
+    BODY: ada://procedure__package_init/Array_Two_Dim-1:9/$$sinit 
   ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13 
     SPEC: ada://procedure/Array_Two_Dim-1:9/dummy-40:13 
     BODY: ada://procedure_body/Array_Two_Dim-1:9/dummy-40:13 
   ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13 
     SPEC: ada://procedure/Array_Two_Dim-1:9/dummy2-46:13 
     BODY: ada://procedure_body/Array_Two_Dim-1:9/dummy2-46:13 
-  ada://procedure_body__package_init/Array_Two_Dim/$$binit 
-    BODY: ada://procedure_body__package_init/Array_Two_Dim/$$binit 
+  ada://procedure_body__package_init/Array_Two_Dim-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/Array_Two_Dim-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/Array_Two_Dim-1:9/dummy-40:13 
@@ -108,7 +108,7 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure__package_init/Array_Two_Dim/$$sinit 
+  ada://procedure__package_init/Array_Two_Dim-1:9/$$sinit 
 
     LocalVarTable
 
@@ -121,8 +121,8 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19 
       ada://parameter/Array_Two_Dim-1:9/dummy-40:13/Y-40:33 
-      ada://variable__temp/Array_Two_Dim/dummy/_t6 
-      ada://variable__temp/Array_Two_Dim/dummy/_t7 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy-40:13/_t6 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy-40:13/_t7 
 
     Params
       ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19 
@@ -135,10 +135,10 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20 
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40 
-      ada://variable__temp/Array_Two_Dim/dummy2/_t10 
-      ada://variable__temp/Array_Two_Dim/dummy2/_t11 
-      ada://variable__temp/Array_Two_Dim/dummy2/_t8 
-      ada://variable__temp/Array_Two_Dim/dummy2/_t9 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t10 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t11 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t8 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t9 
 
     Params
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20 
@@ -146,15 +146,15 @@ Procedure Symbol Table
 
     Loop Locations
 
-  ada://procedure_body__package_init/Array_Two_Dim/$$binit 
+  ada://procedure_body__package_init/Array_Two_Dim-1:9/$$binit 
 
     LocalVarTable
-      ada://variable__temp/Array_Two_Dim/$$binit/_t0 
-      ada://variable__temp/Array_Two_Dim/$$binit/_t1 
-      ada://variable__temp/Array_Two_Dim/$$binit/_t2 
-      ada://variable__temp/Array_Two_Dim/$$binit/_t3 
-      ada://variable__temp/Array_Two_Dim/$$binit/_t4 
-      ada://variable__temp/Array_Two_Dim/$$binit/_t5 
+      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t0 
+      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t1 
+      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t2 
+      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t3 
+      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t4 
+      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t5 
 
     Params
 

@@ -41,8 +41,8 @@ Procedure Table
   ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
     ada://procedure/SimpleMath1-1:9/Inc-6:13 
     ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
-  ada://procedure_body__package_init/SimpleMath1/$$binit 
-    ada://procedure_body__package_init/SimpleMath1/$$binit 
+  ada://procedure_body__package_init/SimpleMath1-1:9/$$binit 
+    ada://procedure_body__package_init/SimpleMath1-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/SimpleMath1-1:9/Inc-6:13 
@@ -51,8 +51,8 @@ Spark Method Table
   ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
     SPEC: ada://procedure/SimpleMath1-1:9/Inc-6:13 
     BODY: ada://procedure_body/SimpleMath1-1:9/Inc-6:13 
-  ada://procedure_body__package_init/SimpleMath1/$$binit 
-    BODY: ada://procedure_body__package_init/SimpleMath1/$$binit 
+  ada://procedure_body__package_init/SimpleMath1-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/SimpleMath1-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/SimpleMath1-1:9/Inc-6:13 
@@ -69,15 +69,15 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/SimpleMath1-1:9/Inc-6:13/I-6:17 
-      ada://variable__temp/SimpleMath1/Inc/_t0 
-      ada://variable__temp/SimpleMath1/Inc/_t1 
+      ada://variable__temp/SimpleMath1-1:9/Inc-6:13/_t0 
+      ada://variable__temp/SimpleMath1-1:9/Inc-6:13/_t1 
 
     Params
       ada://parameter/SimpleMath1-1:9/Inc-6:13/I-6:17 
 
     Loop Locations
 
-  ada://procedure_body__package_init/SimpleMath1/$$binit 
+  ada://procedure_body__package_init/SimpleMath1-1:9/$$binit 
 
     LocalVarTable
 

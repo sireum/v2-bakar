@@ -9,7 +9,7 @@ Spark Package Table
     BODY: ada://package_body/Constraints-1:9
 
 Const Table
-  ada://constant_declaration/Constraints/$CONST 
+  ada://constant_declaration/Constraints-1:9/$CONST 
 
 Const Element Table
   ada://constant/Constraints-1:9/Int_Low_Const-4:3 
@@ -81,16 +81,16 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Constraints-1:9/foo-11:13/a-11:17 
       ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 
-      ada://variable__temp/Constraints/foo/_t0 
-      ada://variable__temp/Constraints/foo/_t1 
-      ada://variable__temp/Constraints/foo/_t2 
-      ada://variable__temp/Constraints/foo/_t3 
-      ada://variable__temp/Constraints/foo/_t4 
-      ada://variable__temp/Constraints/foo/_t5 
-      ada://variable__temp/Constraints/foo/_t6 
-      ada://variable__temp/Constraints/foo/_t7 
-      ada://variable__temp/Constraints/foo/_t8 
-      ada://variable__temp/Constraints/foo/_t9 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t0 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t1 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t2 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t3 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t4 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t5 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t6 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t7 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t8 
+      ada://variable__temp/Constraints-1:9/foo-11:13/_t9 
 
     Params
       ada://parameter/Constraints-1:9/foo-11:13/a-11:17 

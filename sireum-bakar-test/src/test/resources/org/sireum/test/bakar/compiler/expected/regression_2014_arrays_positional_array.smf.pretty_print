@@ -20,13 +20,13 @@ procedure $$binit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l2.
+  #l1.
     @@Box2 := `Square { iter => 
         switch iter
           case attribute__uif__first `Index + 0ii => 77ii
           default => 5ii};
 
-  #l5.
+  #l4.
     return;
 }
 
@@ -65,10 +65,10 @@ procedure dummy (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.
+  #l2.
     @@Box[X] := @@Box[X] - 1ii;
 
-  #l4.
+  #l3.
     return;
 }
 
@@ -218,7 +218,7 @@ procedure $$sinit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@Box := `Square { iter => 
         switch iter
           case attribute__uif__first `Index + 0ii => -(1ii)
@@ -228,7 +228,7 @@ procedure $$sinit
           case attribute__uif__first `Index + 4ii => 2ii
           default => 3ii};
 
-  #l6.
+  #l5.
     return;
 }
 

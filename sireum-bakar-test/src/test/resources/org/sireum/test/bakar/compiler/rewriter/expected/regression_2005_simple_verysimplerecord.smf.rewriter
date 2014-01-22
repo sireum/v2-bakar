@@ -12,7 +12,7 @@ global Rec @@RG;
 
 procedure Boolean Dummy {
 
-  #l1.
+  #l0.
     return true;
 }
 
@@ -29,10 +29,10 @@ procedure Add (
   #rwl1.
     _t1 := 1ii;
 
-  #l2.
+  #l1.
     R.A := _t0 + _t1;
 
-  #l3.
+  #l2.
     return;
 }
 
@@ -45,7 +45,7 @@ procedure Del {
     FIXME _t5;
 
 
-  #l4.
+  #l3.
     T := @@RG.A;
 
   #rwl2.
@@ -60,10 +60,10 @@ procedure Del {
   #rwl5.
     _t5 := 7ii;
 
-  #l5.
+  #l4.
     @@RG.A := _t4 - _t5;
 
-  #l6.
+  #l5.
     return;
 }package SimpleRecord;
 

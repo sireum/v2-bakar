@@ -86,22 +86,22 @@ Procedure Symbol Table
       ada://variable/BinaryExpressions-1:9/Add+5:12/r4+7:21 
       ada://variable/BinaryExpressions-1:9/Add+5:12/r5+7:25 
       ada://variable/BinaryExpressions-1:9/Add+5:12/r6+7:29 
-      ada://variable__temp/BinaryExpressions/Add/_t0 
-      ada://variable__temp/BinaryExpressions/Add/_t1 
-      ada://variable__temp/BinaryExpressions/Add/_t10 
-      ada://variable__temp/BinaryExpressions/Add/_t11 
-      ada://variable__temp/BinaryExpressions/Add/_t12 
-      ada://variable__temp/BinaryExpressions/Add/_t13 
-      ada://variable__temp/BinaryExpressions/Add/_t14 
-      ada://variable__temp/BinaryExpressions/Add/_t15 
-      ada://variable__temp/BinaryExpressions/Add/_t2 
-      ada://variable__temp/BinaryExpressions/Add/_t3 
-      ada://variable__temp/BinaryExpressions/Add/_t4 
-      ada://variable__temp/BinaryExpressions/Add/_t5 
-      ada://variable__temp/BinaryExpressions/Add/_t6 
-      ada://variable__temp/BinaryExpressions/Add/_t7 
-      ada://variable__temp/BinaryExpressions/Add/_t8 
-      ada://variable__temp/BinaryExpressions/Add/_t9 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t0 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t1 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t10 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t11 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t12 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t13 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t14 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t15 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t2 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t3 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t4 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t5 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t6 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t7 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t8 
+      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t9 
 
     Params
       ada://parameter/BinaryExpressions-1:9/Add+5:12/I+5:16 
@@ -121,20 +121,20 @@ Procedure Symbol Table
       ada://variable/BinaryExpressions-1:9/Division+50:12/r4+52:21 
       ada://variable/BinaryExpressions-1:9/Division+50:12/r5+52:25 
       ada://variable/BinaryExpressions-1:9/Division+50:12/r6+52:29 
-      ada://variable__temp/BinaryExpressions/Division/_t46 
-      ada://variable__temp/BinaryExpressions/Division/_t47 
-      ada://variable__temp/BinaryExpressions/Division/_t48 
-      ada://variable__temp/BinaryExpressions/Division/_t49 
-      ada://variable__temp/BinaryExpressions/Division/_t50 
-      ada://variable__temp/BinaryExpressions/Division/_t51 
-      ada://variable__temp/BinaryExpressions/Division/_t52 
-      ada://variable__temp/BinaryExpressions/Division/_t53 
-      ada://variable__temp/BinaryExpressions/Division/_t54 
-      ada://variable__temp/BinaryExpressions/Division/_t55 
-      ada://variable__temp/BinaryExpressions/Division/_t56 
-      ada://variable__temp/BinaryExpressions/Division/_t57 
-      ada://variable__temp/BinaryExpressions/Division/_t58 
-      ada://variable__temp/BinaryExpressions/Division/_t59 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t46 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t47 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t48 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t49 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t50 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t51 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t52 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t53 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t54 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t55 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t56 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t57 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t58 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t59 
 
     Params
       ada://parameter/BinaryExpressions-1:9/Division+50:12/I+50:21 
@@ -154,22 +154,22 @@ Procedure Symbol Table
       ada://variable/BinaryExpressions-1:9/Mult+35:12/r4+37:21 
       ada://variable/BinaryExpressions-1:9/Mult+35:12/r5+37:25 
       ada://variable/BinaryExpressions-1:9/Mult+35:12/r6+37:29 
-      ada://variable__temp/BinaryExpressions/Mult/_t30 
-      ada://variable__temp/BinaryExpressions/Mult/_t31 
-      ada://variable__temp/BinaryExpressions/Mult/_t32 
-      ada://variable__temp/BinaryExpressions/Mult/_t33 
-      ada://variable__temp/BinaryExpressions/Mult/_t34 
-      ada://variable__temp/BinaryExpressions/Mult/_t35 
-      ada://variable__temp/BinaryExpressions/Mult/_t36 
-      ada://variable__temp/BinaryExpressions/Mult/_t37 
-      ada://variable__temp/BinaryExpressions/Mult/_t38 
-      ada://variable__temp/BinaryExpressions/Mult/_t39 
-      ada://variable__temp/BinaryExpressions/Mult/_t40 
-      ada://variable__temp/BinaryExpressions/Mult/_t41 
-      ada://variable__temp/BinaryExpressions/Mult/_t42 
-      ada://variable__temp/BinaryExpressions/Mult/_t43 
-      ada://variable__temp/BinaryExpressions/Mult/_t44 
-      ada://variable__temp/BinaryExpressions/Mult/_t45 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t30 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t31 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t32 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t33 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t34 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t35 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t36 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t37 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t38 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t39 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t40 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t41 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t42 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t43 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t44 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t45 
 
     Params
       ada://parameter/BinaryExpressions-1:9/Mult+35:12/I+35:17 
@@ -189,20 +189,20 @@ Procedure Symbol Table
       ada://variable/BinaryExpressions-1:9/Sub+20:12/r4+22:21 
       ada://variable/BinaryExpressions-1:9/Sub+20:12/r5+22:25 
       ada://variable/BinaryExpressions-1:9/Sub+20:12/r6+22:29 
-      ada://variable__temp/BinaryExpressions/Sub/_t16 
-      ada://variable__temp/BinaryExpressions/Sub/_t17 
-      ada://variable__temp/BinaryExpressions/Sub/_t18 
-      ada://variable__temp/BinaryExpressions/Sub/_t19 
-      ada://variable__temp/BinaryExpressions/Sub/_t20 
-      ada://variable__temp/BinaryExpressions/Sub/_t21 
-      ada://variable__temp/BinaryExpressions/Sub/_t22 
-      ada://variable__temp/BinaryExpressions/Sub/_t23 
-      ada://variable__temp/BinaryExpressions/Sub/_t24 
-      ada://variable__temp/BinaryExpressions/Sub/_t25 
-      ada://variable__temp/BinaryExpressions/Sub/_t26 
-      ada://variable__temp/BinaryExpressions/Sub/_t27 
-      ada://variable__temp/BinaryExpressions/Sub/_t28 
-      ada://variable__temp/BinaryExpressions/Sub/_t29 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t16 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t17 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t18 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t19 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t20 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t21 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t22 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t23 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t24 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t25 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t26 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t27 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t28 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t29 
 
     Params
       ada://parameter/BinaryExpressions-1:9/Sub+20:12/I+20:16 

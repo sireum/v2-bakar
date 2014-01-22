@@ -7,37 +7,37 @@ procedure Boolean test (
     Boolean ret;
 
 
-  #l1.
+  #l0.
     ret := attribute__uif__first `Natural <= Z &&& Z <= attribute__uif__last `Natural;
 
-  #l3.
-    if !(ret) then goto l2;
+  #l2.
+    if !(ret) then goto l1;
 
-  #l4.
+  #l3.
     ret := 1ii <= Z &&& Z <= 10ii;
 
-  #l2.
+  #l1.
     // empty loc
-
-  #l6.
-    if !(ret) then goto l5;
-
-  #l7.
-    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive);
 
   #l5.
+    if !(ret) then goto l4;
+
+  #l6.
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive);
+
+  #l4.
     // empty loc
-
-  #l9.
-    if !(ret) then goto l8;
-
-  #l10.
-    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive ||| Z == 4ii ||| 5ii <= Z &&& Z <= 7ii ||| Z == 3ii + 5ii);
 
   #l8.
+    if !(ret) then goto l7;
+
+  #l9.
+    ret := !(attribute__uif__first `Positive <= Z &&& Z <= attribute__uif__last `Positive ||| Z == 4ii ||| 5ii <= Z &&& Z <= 7ii ||| Z == 3ii + 5ii);
+
+  #l7.
     // empty loc
 
-  #l11.
+  #l10.
     return ret;
 }package in_range_name_exp;
 

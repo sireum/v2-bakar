@@ -9,34 +9,34 @@ procedure Integer MinFunc (
     Integer Max;
 
 
-  #l3.
-    if !(X >= Y) then goto l2;
+  #l2.
+    if !(X >= Y) then goto l1;
 
-  #l4.
+  #l3.
     Min := Y;
 
-  #l5.
+  #l4.
     Max := X;
 
-  #l6.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l7.
-    Min := X;
-
-  #l8.
-    Max := Y;
+  #l5.
+    goto l0;
 
   #l1.
     // empty loc
 
-  #l9.
+  #l6.
+    Min := X;
+
+  #l7.
+    Max := Y;
+
+  #l0.
+    // empty loc
+
+  #l8.
     assert proof__uif__assert Min <= X &&& Min <= Y &&& X <= Max &&& Y <= Max "Assertion failed at [13, 7]";
 
-  #l10.
+  #l9.
     return Min;
 }package Minpackage;
 

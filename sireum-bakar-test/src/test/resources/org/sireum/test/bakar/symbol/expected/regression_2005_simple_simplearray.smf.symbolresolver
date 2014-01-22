@@ -46,8 +46,8 @@ Procedure Table
     ada://function_body/SimpleArray-1:9/Dummy-3:13 
   ada://function_body/SimpleArray-1:9/Max+11:13 
     ada://function_body/SimpleArray-1:9/Max+11:13 
-  ada://procedure_body__package_init/SimpleArray/$$binit 
-    ada://procedure_body__package_init/SimpleArray/$$binit 
+  ada://procedure_body__package_init/SimpleArray-1:9/$$binit 
+    ada://procedure_body__package_init/SimpleArray-1:9/$$binit 
 
 Spark Method Table
   ada://function/SimpleArray-1:9/Dummy-3:13 
@@ -58,8 +58,8 @@ Spark Method Table
     BODY: ada://function_body/SimpleArray-1:9/Dummy-3:13 
   ada://function_body/SimpleArray-1:9/Max+11:13 
     BODY: ada://function_body/SimpleArray-1:9/Max+11:13 
-  ada://procedure_body__package_init/SimpleArray/$$binit 
-    BODY: ada://procedure_body__package_init/SimpleArray/$$binit 
+  ada://procedure_body__package_init/SimpleArray-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/SimpleArray-1:9/$$binit 
 
 Procedure Symbol Table
   ada://function/SimpleArray-1:9/Dummy-3:13 
@@ -84,38 +84,38 @@ Procedure Symbol Table
       ada://loop_parameter/SimpleArray-1:9/Max+11:13/I+15:11 
       ada://parameter/SimpleArray-1:9/Max+11:13/V+11:18 
       ada://variable/SimpleArray-1:9/Max+11:13/M+12:7 
-      ada://variable__temp/Max/SimpleArray/_tcomp0 
-      ada://variable__temp/Max/SimpleArray/_tcomp1 
-      ada://variable__temp/SimpleArray/Max/_t12 
-      ada://variable__temp/SimpleArray/Max/_t13 
-      ada://variable__temp/SimpleArray/Max/_t14 
-      ada://variable__temp/SimpleArray/Max/_t15 
-      ada://variable__temp/SimpleArray/Max/_t16 
-      ada://variable__temp/SimpleArray/Max/_t17 
-      ada://variable__temp/SimpleArray/Max/_t18 
-      ada://variable__temp/SimpleArray/Max/_t19 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t12 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t13 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t14 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t15 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t16 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t17 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t18 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_t19 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_tcomp0 
+      ada://variable__temp/SimpleArray-1:9/Max+11:13/_tcomp1 
 
     Params
       ada://parameter/SimpleArray-1:9/Max+11:13/V+11:18 
 
     Loop Locations
-      l10_15.7_19.15 -> LOOP_LABEL_0 
+      ada://location/SimpleArray-1:9/Max+11:13/l9 -> LOOP_LABEL_0 
 
-  ada://procedure_body__package_init/SimpleArray/$$binit 
+  ada://procedure_body__package_init/SimpleArray-1:9/$$binit 
 
     LocalVarTable
-      ada://variable__temp/SimpleArray/$$binit/_t0 
-      ada://variable__temp/SimpleArray/$$binit/_t1 
-      ada://variable__temp/SimpleArray/$$binit/_t10 
-      ada://variable__temp/SimpleArray/$$binit/_t11 
-      ada://variable__temp/SimpleArray/$$binit/_t2 
-      ada://variable__temp/SimpleArray/$$binit/_t3 
-      ada://variable__temp/SimpleArray/$$binit/_t4 
-      ada://variable__temp/SimpleArray/$$binit/_t5 
-      ada://variable__temp/SimpleArray/$$binit/_t6 
-      ada://variable__temp/SimpleArray/$$binit/_t7 
-      ada://variable__temp/SimpleArray/$$binit/_t8 
-      ada://variable__temp/SimpleArray/$$binit/_t9 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t0 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t1 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t10 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t11 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t2 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t3 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t4 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t5 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t6 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t7 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t8 
+      ada://variable__temp/SimpleArray-1:9/$$binit/_t9 
 
     Params
 

@@ -64,7 +64,7 @@ procedure foo (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.<
+  #l2.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -75,18 +75,18 @@ procedure foo (
            <int>23</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(!(dayVar == Tue)) then goto l2;
+    if !(!(dayVar == Tue)) then goto l1;
 
-  #l4.
+  #l3.
     a := a + 2ii;
 
-  #l5.
-    goto l1;
+  #l4.
+    goto l0;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l7.<
+  #l6.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -97,24 +97,24 @@ procedure foo (
            <int>30</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(attribute__uif__succ (`Day, dayVar) == Wed) then goto l6;
+    if !(attribute__uif__succ (`Day, dayVar) == Wed) then goto l5;
 
-  #l8.
+  #l7.
     a := a - 1ii;
 
-  #l9.
-    goto l1;
+  #l8.
+    goto l0;
 
-  #l6.
+  #l5.
+    // empty loc
+
+  #l9.
+    a := a * 1ii;
+
+  #l0.
     // empty loc
 
   #l10.
-    a := a * 1ii;
-
-  #l1.
-    // empty loc
-
-  #l11.
     return;
 }
 

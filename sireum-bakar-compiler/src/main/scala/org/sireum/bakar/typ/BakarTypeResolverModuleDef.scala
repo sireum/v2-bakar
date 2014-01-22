@@ -105,6 +105,8 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
   for (m <- this.models) {
     val v = Visitor.build {
       case o @ GlobalVarDecl(name, _, Some(nts)) =>
+        assert(name.name.contains("@@"))
+        assert (name.uri.contains("@@"))
         refUri2typeUri(name.uri) = URIS.getTypeUri(nts)
         false
       case o @ ParamDecl(Some(nts), name, _) =>

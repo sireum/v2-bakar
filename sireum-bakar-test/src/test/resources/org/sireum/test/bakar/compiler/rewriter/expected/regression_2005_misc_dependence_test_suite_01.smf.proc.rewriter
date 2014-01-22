@@ -6,10 +6,10 @@ typealias Integer History_Range;
 procedure Success0 (
         Integer O) {
 
-  #l1.
+  #l0.
     O := 5ii;
 
-  #l2.
+  #l1.
     return (O);
 }
 
@@ -17,10 +17,10 @@ procedure Success1 (
         Integer I,
         Integer O) {
 
-  #l3.
+  #l2.
     O := I;
 
-  #l4.
+  #l3.
     return (O);
 }
 
@@ -31,31 +31,31 @@ procedure Success2 (
     Integer L;
 
 
-  #l5.
+  #l4.
     L := I;
 
-  #l6.
+  #l5.
     O := L;
-
-  #l9.
-    if !(I < attribute__uif__last `History_Range) then goto l8;
-
-  #l10.
-    O := L;
-
-  #l11.
-    goto l7;
 
   #l8.
-    // empty loc
+    if !(I < attribute__uif__last `History_Range) then goto l7;
 
-  #l12.
-    O := I;
+  #l9.
+    O := L;
+
+  #l10.
+    goto l6;
 
   #l7.
     // empty loc
 
-  #l13.
+  #l11.
+    O := I;
+
+  #l6.
+    // empty loc
+
+  #l12.
     return (O);
 }
 
@@ -68,19 +68,19 @@ procedure Success3 (
     Integer L3;
 
 
-  #l14.
+  #l13.
     L1 := I;
 
-  #l15.
+  #l14.
     L2 := L1;
 
-  #l16.
+  #l15.
     L3 := L2;
 
-  #l17.
+  #l16.
     O := L3;
 
-  #l18.
+  #l17.
     return (O);
 }
 
@@ -94,19 +94,19 @@ procedure Success4 (
     Integer L3;
 
 
-  #l19.
+  #l18.
     L1 := I1;
 
-  #l20.
+  #l19.
     L2 := I2;
 
-  #l21.
+  #l20.
     L3 := L1 + L2;
 
-  #l22.
+  #l21.
     O := L3;
 
-  #l23.
+  #l22.
     return (O);
 }
 
@@ -121,25 +121,25 @@ procedure Success5 (
     Integer L3;
 
 
-  #l24.
+  #l23.
     O1 := I2;
 
-  #l25.
+  #l24.
     L1 := I1;
 
-  #l26.
+  #l25.
     L2 := L1;
 
-  #l27.
+  #l26.
     L3 := L1 + L2;
 
-  #l28.
+  #l27.
     O2 := O1;
 
-  #l29.
+  #l28.
     O1 := L3;
 
-  #l30.
+  #l29.
     return (O1, O2);
 }
 
@@ -149,28 +149,28 @@ procedure Success6 (
         Integer O1,
         Integer O2) {
 
-  #l31.
+  #l30.
     O1 := I1;
 
+  #l33.
+    if !(I2 > 5ii) then goto l32;
+
   #l34.
-    if !(I2 > 5ii) then goto l33;
+    O2 := 5ii;
 
   #l35.
-    O2 := 5ii;
-
-  #l36.
-    goto l32;
-
-  #l33.
-    // empty loc
-
-  #l37.
-    O2 := 5ii;
+    goto l31;
 
   #l32.
     // empty loc
 
-  #l38.
+  #l36.
+    O2 := 5ii;
+
+  #l31.
+    // empty loc
+
+  #l37.
     return (O1, O2);
 }
 
@@ -182,28 +182,28 @@ procedure Success7 (
     Integer L1;
 
 
-  #l39.
+  #l38.
     L1 := I1;
 
-  #l42.
-    if !(L1 > I2) then goto l41;
+  #l41.
+    if !(L1 > I2) then goto l40;
 
-  #l43.
+  #l42.
     O := 6ii;
 
-  #l44.
-    goto l40;
-
-  #l41.
-    // empty loc
-
-  #l45.
-    O := 7ii;
+  #l43.
+    goto l39;
 
   #l40.
     // empty loc
 
-  #l46.
+  #l44.
+    O := 7ii;
+
+  #l39.
+    // empty loc
+
+  #l45.
     return (O);
 }
 
@@ -216,31 +216,31 @@ procedure Success8 (
     Integer L2;
 
 
-  #l47.
+  #l46.
     L1 := I1;
 
-  #l50.
-    if !(L1 > 5ii) then goto l49;
+  #l49.
+    if !(L1 > 5ii) then goto l48;
 
-  #l51.
+  #l50.
     L2 := 6ii;
 
-  #l52.
-    goto l48;
-
-  #l49.
-    // empty loc
-
-  #l53.
-    L2 := I2;
+  #l51.
+    goto l47;
 
   #l48.
     // empty loc
 
-  #l54.
+  #l52.
+    L2 := I2;
+
+  #l47.
+    // empty loc
+
+  #l53.
     O := L2;
 
-  #l55.
+  #l54.
     return (O);
 }
 
@@ -254,46 +254,46 @@ procedure Success9 (
     Integer L2;
 
 
-  #l56.
+  #l55.
     L1 := I1;
 
-  #l59.
-    if !(L1 > 5ii) then goto l58;
+  #l58.
+    if !(L1 > 5ii) then goto l57;
 
-  #l60.
+  #l59.
     L2 := 6ii;
 
-  #l61.
-    goto l57;
-
-  #l58.
-    // empty loc
-
-  #l64.
-    if !(I2 < 0ii) then goto l63;
-
-  #l65.
-    L2 := I3;
-
-  #l66.
-    goto l62;
-
-  #l63.
-    // empty loc
-
-  #l67.
-    L2 := 7ii;
-
-  #l62.
-    // empty loc
+  #l60.
+    goto l56;
 
   #l57.
     // empty loc
 
-  #l68.
+  #l63.
+    if !(I2 < 0ii) then goto l62;
+
+  #l64.
+    L2 := I3;
+
+  #l65.
+    goto l61;
+
+  #l62.
+    // empty loc
+
+  #l66.
+    L2 := 7ii;
+
+  #l61.
+    // empty loc
+
+  #l56.
+    // empty loc
+
+  #l67.
     O := L2;
 
-  #l69.
+  #l68.
     return (O);
 }
 
@@ -308,46 +308,46 @@ procedure Success10 (
     Integer L2;
 
 
-  #l70.
+  #l69.
     L2 := 5ii;
 
-  #l71.
+  #l70.
     L1 := I3;
 
-  #l72.
+  #l71.
     O2 := L1;
 
-  #l73.
+  #l72.
     L1 := I2;
 
-  #l75.
-    if !(L1 > 5ii) then goto l74;
-
-  #l78.
-    if !(I1 < 0ii) then goto l77;
-
-  #l79.
-    L2 := 8ii;
-
-  #l80.
-    goto l76;
+  #l74.
+    if !(L1 > 5ii) then goto l73;
 
   #l77.
-    // empty loc
+    if !(I1 < 0ii) then goto l76;
 
-  #l81.
-    L2 := 7ii;
+  #l78.
+    L2 := 8ii;
+
+  #l79.
+    goto l75;
 
   #l76.
     // empty loc
 
-  #l74.
+  #l80.
+    L2 := 7ii;
+
+  #l75.
     // empty loc
 
-  #l82.
+  #l73.
+    // empty loc
+
+  #l81.
     O1 := L2;
 
-  #l83.
+  #l82.
     return (O1, O2);
 }package Dependence_Test_Suite_01;
 

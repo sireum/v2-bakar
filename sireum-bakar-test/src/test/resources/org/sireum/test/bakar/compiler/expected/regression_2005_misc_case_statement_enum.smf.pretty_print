@@ -60,64 +60,64 @@ procedure Activity isWorkDay (
     ;
 
 
-  #l3.
-    if !(Mon <= d &&& d <= Tue) then goto l2;
+  #l2.
+    if !(Mon <= d &&& d <= Tue) then goto l1;
 
-  #l4.
+  #l3.
     ret := Work;
 
-  #l5.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l7.
-    if !(attribute__uif__first `HumpDay <= d &&& d <= attribute__uif__last `HumpDay) then goto l6;
-
-  #l8.
-    ret := Sleep;
-
-  #l9.
-    goto l1;
-
-  #l6.
-    // empty loc
-
-  #l11.
-    if !(d == Thur) then goto l10;
-
-  #l12.
-    ret := Sleep;
-
-  #l13.
-    goto l1;
-
-  #l10.
-    // empty loc
-
-  #l15.
-    if !(d == Fri ||| d == FriPart2) then goto l14;
-
-  #l16.
-    ret := Party;
-
-  #l17.
-    goto l1;
-
-  #l14.
-    // empty loc
-
-  #l19.
-    if !(attribute__uif__first `WeekEnd <= d &&& d <= attribute__uif__last `WeekEnd) then goto l1;
-
-  #l20.
-    ret := Drink;
+  #l4.
+    goto l0;
 
   #l1.
     // empty loc
 
-  #l21.
+  #l6.
+    if !(attribute__uif__first `HumpDay <= d &&& d <= attribute__uif__last `HumpDay) then goto l5;
+
+  #l7.
+    ret := Sleep;
+
+  #l8.
+    goto l0;
+
+  #l5.
+    // empty loc
+
+  #l10.
+    if !(d == Thur) then goto l9;
+
+  #l11.
+    ret := Sleep;
+
+  #l12.
+    goto l0;
+
+  #l9.
+    // empty loc
+
+  #l14.
+    if !(d == Fri ||| d == FriPart2) then goto l13;
+
+  #l15.
+    ret := Party;
+
+  #l16.
+    goto l0;
+
+  #l13.
+    // empty loc
+
+  #l18.
+    if !(attribute__uif__first `WeekEnd <= d &&& d <= attribute__uif__last `WeekEnd) then goto l0;
+
+  #l19.
+    ret := Drink;
+
+  #l0.
+    // empty loc
+
+  #l20.
     return ret;
 }
 

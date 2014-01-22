@@ -81,7 +81,7 @@ procedure P (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.<
+  #l2.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -92,24 +92,24 @@ procedure P (
            <int>13</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(I > J) then goto l2;
+    if !(I > J) then goto l1;
 
-  #l4.
+  #l3.
     Ret := true;
 
-  #l5.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l6.
-    Ret := false;
+  #l4.
+    goto l0;
 
   #l1.
     // empty loc
 
-  #l7.
+  #l5.
+    Ret := false;
+
+  #l0.
+    // empty loc
+
+  #l6.
     return;
 }
 
@@ -175,19 +175,19 @@ procedure Integer Stupid (
     Index_Range _tcomp1;
 
 
-  #l9.
+  #l8.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l10.
+  #l9.
     _tcomp1 := attribute__uif__last `Index_Range;
 
-  #l11.
-    if _tcomp0 > _tcomp1 then goto l8;
+  #l10.
+    if _tcomp0 > _tcomp1 then goto l7;
 
-  #l12.
+  #l11.
     I := _tcomp0;
 
-  #l13.<
+  #l12.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -196,10 +196,10 @@ procedure Integer Stupid (
   >
     // empty loc
 
-  #l14.
+  #l13.
     J := 0ii;
 
-  #l16.<
+  #l15.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -208,16 +208,16 @@ procedure Integer Stupid (
   >
     // empty loc
 
-  #l17.
-    if !(J < Z) then goto l15;
+  #l16.
+    if !(J < Z) then goto l14;
 
-  #l18.
+  #l17.
     J := J + 1ii;
 
-  #l19.
+  #l18.
     call P (I, J, B);
 
-  #l21.<
+  #l20.<
       @util.loc
 
         ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
@@ -228,51 +228,51 @@ procedure Integer Stupid (
            <int>13</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(B) then goto l20;
+    if !(B) then goto l19;
 
-  #l22.
-    goto l15;
+  #l21.
+    goto l14;
 
-  #l20.
+  #l19.
     // empty loc
-
-  #l25.
-    if !(J == 3ii) then goto l24;
-
-  #l26.
-    J := J + 1ii;
-
-  #l27.
-    goto l23;
 
   #l24.
-    // empty loc
+    if !(J == 3ii) then goto l23;
 
-  #l29.
-    J := J;
+  #l25.
+    J := J + 1ii;
+
+  #l26.
+    goto l22;
 
   #l23.
     // empty loc
 
-  #l30.
-    goto l16;
+  #l28.
+    J := J;
 
-  #l15.
+  #l22.
     // empty loc
+
+  #l29.
+    goto l15;
+
+  #l14.
+    // empty loc
+
+  #l30.
+    if I == _tcomp1 then goto l7;
 
   #l31.
-    if I == _tcomp1 then goto l8;
-
-  #l32.
     I := I + 1ii;
 
-  #l33.
-    goto l13;
+  #l32.
+    goto l12;
 
-  #l8.
+  #l7.
     // empty loc
 
-  #l34.
+  #l33.
     return J;
 }
 

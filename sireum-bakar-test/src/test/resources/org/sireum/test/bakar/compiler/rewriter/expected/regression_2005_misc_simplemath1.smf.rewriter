@@ -5,10 +5,10 @@ global Integer @@B;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@B := 0ii;
 
-  #l4.
+  #l3.
     return;
 }
 
@@ -25,10 +25,10 @@ procedure Inc (
   #rwl1.
     _t1 := @@B;
 
-  #l2.
+  #l1.
     I := _t0 + _t1;
 
-  #l3.
+  #l2.
     return;
 }package SimpleMath1;
 

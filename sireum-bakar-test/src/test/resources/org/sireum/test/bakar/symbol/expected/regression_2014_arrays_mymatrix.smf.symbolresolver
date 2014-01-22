@@ -77,34 +77,34 @@ Procedure Symbol Table
       ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22 
       ada://parameter/MyMatrix-1:9/Multiply-7:13/Y-7:25 
       ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
-      ada://variable__temp/Multiply/MyMatrix/_tcomp0 
-      ada://variable__temp/Multiply/MyMatrix/_tcomp1 
-      ada://variable__temp/Multiply/MyMatrix/_tcomp2 
-      ada://variable__temp/Multiply/MyMatrix/_tcomp3 
-      ada://variable__temp/Multiply/MyMatrix/_tcomp4 
-      ada://variable__temp/Multiply/MyMatrix/_tcomp5 
-      ada://variable__temp/MyMatrix/Multiply/_t0 
-      ada://variable__temp/MyMatrix/Multiply/_t1 
-      ada://variable__temp/MyMatrix/Multiply/_t10 
-      ada://variable__temp/MyMatrix/Multiply/_t11 
-      ada://variable__temp/MyMatrix/Multiply/_t12 
-      ada://variable__temp/MyMatrix/Multiply/_t13 
-      ada://variable__temp/MyMatrix/Multiply/_t14 
-      ada://variable__temp/MyMatrix/Multiply/_t15 
-      ada://variable__temp/MyMatrix/Multiply/_t16 
-      ada://variable__temp/MyMatrix/Multiply/_t17 
-      ada://variable__temp/MyMatrix/Multiply/_t18 
-      ada://variable__temp/MyMatrix/Multiply/_t19 
-      ada://variable__temp/MyMatrix/Multiply/_t2 
-      ada://variable__temp/MyMatrix/Multiply/_t20 
-      ada://variable__temp/MyMatrix/Multiply/_t21 
-      ada://variable__temp/MyMatrix/Multiply/_t3 
-      ada://variable__temp/MyMatrix/Multiply/_t4 
-      ada://variable__temp/MyMatrix/Multiply/_t5 
-      ada://variable__temp/MyMatrix/Multiply/_t6 
-      ada://variable__temp/MyMatrix/Multiply/_t7 
-      ada://variable__temp/MyMatrix/Multiply/_t8 
-      ada://variable__temp/MyMatrix/Multiply/_t9 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t0 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t1 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t10 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t11 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t12 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t13 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t14 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t15 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t16 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t17 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t18 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t19 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t2 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t20 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t21 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t3 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t4 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t5 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t6 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t7 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t8 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_t9 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_tcomp0 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_tcomp1 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_tcomp2 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_tcomp3 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_tcomp4 
+      ada://variable__temp/MyMatrix-1:9/Multiply-7:13/_tcomp5 
 
     Params
       ada://parameter/MyMatrix-1:9/Multiply-7:13/X-7:22 
@@ -112,8 +112,8 @@ Procedure Symbol Table
       ada://parameter/MyMatrix-1:9/Multiply-7:13/Z-8:22 
 
     Loop Locations
-      l7_12.5_18.13 -> LOOP_LABEL_0 
-      l13_13.7_17.15 -> LOOP_LABEL_1 
-      l19_14.9_16.17 -> LOOP_LABEL_2 
+      ada://location/MyMatrix-1:9/Multiply-7:13/l6 -> LOOP_LABEL_0 
+      ada://location/MyMatrix-1:9/Multiply-7:13/l12 -> LOOP_LABEL_1 
+      ada://location/MyMatrix-1:9/Multiply-7:13/l18 -> LOOP_LABEL_2 
 
 

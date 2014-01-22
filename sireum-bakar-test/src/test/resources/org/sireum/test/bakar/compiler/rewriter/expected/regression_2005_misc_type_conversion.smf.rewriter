@@ -5,10 +5,10 @@ procedure Convert (
         Float Y,
         Integer X) {
 
-  #l1.
+  #l0.
     X := (Integer) Y;
 
-  #l2.
+  #l1.
     return;
 }package Type_Conversion;
 

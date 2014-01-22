@@ -79,19 +79,19 @@ procedure Stupid (
     Index_Range _tcomp19;
 
 
-  #l3.
+  #l2.
     _tcomp0 := attribute__uif__first `Index_Range;
 
-  #l4.
+  #l3.
     _tcomp1 := attribute__uif__last `Index_Range;
 
-  #l5.
-    if _tcomp0 > _tcomp1 then goto l2;
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.<
+  #l6.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -100,34 +100,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l8.
+  #l7.
     @@A[I] := 1ii;
 
-  #l9.
-    if I == _tcomp1 then goto l2;
+  #l8.
+    if I == _tcomp1 then goto l1;
 
-  #l10.
+  #l9.
     I := I + 1ii;
 
-  #l11.
-    goto l7;
+  #l10.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l13.
+  #l12.
     _tcomp2 := attribute__uif__first `Index_Range;
 
-  #l14.
+  #l13.
     _tcomp3 := attribute__uif__last `Index_Range;
 
-  #l15.
-    if _tcomp2 > _tcomp3 then goto l12;
+  #l14.
+    if _tcomp2 > _tcomp3 then goto l11;
 
-  #l16.
+  #l15.
     I0 := _tcomp3;
 
-  #l17.<
+  #l16.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -136,34 +136,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l18.
+  #l17.
     @@A[I] := 1ii;
 
-  #l19.
-    if I0 == _tcomp2 then goto l12;
+  #l18.
+    if I0 == _tcomp2 then goto l11;
 
-  #l20.
+  #l19.
     I0 := I0 - 1ii;
 
-  #l21.
-    goto l17;
+  #l20.
+    goto l16;
 
-  #l12.
+  #l11.
     // empty loc
 
-  #l23.
+  #l22.
     _tcomp4 := 1ii;
 
-  #l24.
+  #l23.
     _tcomp5 := 3ii;
 
-  #l25.
-    if _tcomp4 > _tcomp5 then goto l22;
+  #l24.
+    if _tcomp4 > _tcomp5 then goto l21;
 
-  #l26.
+  #l25.
     I1 := _tcomp4;
 
-  #l27.<
+  #l26.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -172,34 +172,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l28.
+  #l27.
     @@A[I] := 1ii;
 
-  #l29.
-    if I1 == _tcomp5 then goto l22;
+  #l28.
+    if I1 == _tcomp5 then goto l21;
 
-  #l30.
+  #l29.
     I1 := I1 + 1ii;
 
-  #l31.
-    goto l27;
+  #l30.
+    goto l26;
 
-  #l22.
+  #l21.
     // empty loc
 
-  #l33.
+  #l32.
     _tcomp6 := 1ii;
 
-  #l34.
+  #l33.
     _tcomp7 := Z;
 
-  #l35.
-    if _tcomp6 > _tcomp7 then goto l32;
+  #l34.
+    if _tcomp6 > _tcomp7 then goto l31;
 
-  #l36.
+  #l35.
     I2 := _tcomp7;
 
-  #l37.<
+  #l36.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -208,34 +208,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l38.
+  #l37.
     @@A[I] := 1ii;
 
-  #l39.
-    if I2 == _tcomp6 then goto l32;
+  #l38.
+    if I2 == _tcomp6 then goto l31;
 
-  #l40.
+  #l39.
     I2 := I2 - 1ii;
 
-  #l41.
-    goto l37;
+  #l40.
+    goto l36;
 
-  #l32.
+  #l31.
     // empty loc
 
-  #l43.
+  #l42.
     _tcomp8 := attribute__uif__first `Index_Range + 10ii;
 
-  #l44.
+  #l43.
     _tcomp9 := Z;
 
-  #l45.
-    if _tcomp8 > _tcomp9 then goto l42;
+  #l44.
+    if _tcomp8 > _tcomp9 then goto l41;
 
-  #l46.
+  #l45.
     I3 := _tcomp8;
 
-  #l47.<
+  #l46.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -244,34 +244,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l48.
+  #l47.
     @@A[I] := @@A[I];
 
-  #l49.
-    if I3 == _tcomp9 then goto l42;
+  #l48.
+    if I3 == _tcomp9 then goto l41;
 
-  #l50.
+  #l49.
     I3 := I3 + 1ii;
 
-  #l51.
-    goto l47;
+  #l50.
+    goto l46;
 
-  #l42.
+  #l41.
     // empty loc
 
-  #l53.
+  #l52.
     _tcomp10 := attribute__uif__first `Index_Range + 10ii;
 
-  #l54.
+  #l53.
     _tcomp11 := Z;
 
-  #l55.
-    if _tcomp10 > _tcomp11 then goto l52;
+  #l54.
+    if _tcomp10 > _tcomp11 then goto l51;
 
-  #l56.
+  #l55.
     I4 := _tcomp11;
 
-  #l57.<
+  #l56.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -280,34 +280,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l58.
+  #l57.
     @@A[I] := @@A[I];
 
-  #l59.
-    if I4 == _tcomp10 then goto l52;
+  #l58.
+    if I4 == _tcomp10 then goto l51;
 
-  #l60.
+  #l59.
     I4 := I4 - 1ii;
 
-  #l61.
-    goto l57;
+  #l60.
+    goto l56;
 
-  #l52.
+  #l51.
     // empty loc
 
-  #l63.
+  #l62.
     _tcomp12 := attribute__uif__first (@@A);
 
-  #l64.
+  #l63.
     _tcomp13 := attribute__uif__last (@@A);
 
-  #l65.
-    if _tcomp12 > _tcomp13 then goto l62;
+  #l64.
+    if _tcomp12 > _tcomp13 then goto l61;
 
-  #l66.
+  #l65.
     I5 := _tcomp12;
 
-  #l67.<
+  #l66.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -316,34 +316,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l68.
+  #l67.
     @@A[I] := @@A[I];
 
-  #l69.
-    if I5 == _tcomp13 then goto l62;
+  #l68.
+    if I5 == _tcomp13 then goto l61;
 
-  #l70.
+  #l69.
     I5 := I5 + 1ii;
 
-  #l71.
-    goto l67;
+  #l70.
+    goto l66;
 
-  #l62.
+  #l61.
     // empty loc
 
-  #l73.
+  #l72.
     _tcomp14 := attribute__uif__first (@@A);
 
-  #l74.
+  #l73.
     _tcomp15 := attribute__uif__last (@@A);
 
-  #l75.
-    if _tcomp14 > _tcomp15 then goto l72;
+  #l74.
+    if _tcomp14 > _tcomp15 then goto l71;
 
-  #l76.
+  #l75.
     I6 := _tcomp15;
 
-  #l77.<
+  #l76.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -352,34 +352,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l78.
+  #l77.
     @@A[I] := @@A[I];
 
-  #l79.
-    if I6 == _tcomp14 then goto l72;
+  #l78.
+    if I6 == _tcomp14 then goto l71;
 
-  #l80.
+  #l79.
     I6 := I6 - 1ii;
 
-  #l81.
-    goto l77;
+  #l80.
+    goto l76;
 
-  #l72.
+  #l71.
     // empty loc
 
-  #l83.
+  #l82.
     _tcomp16 := attribute__uif__first (@@A, 1ii);
 
-  #l84.
+  #l83.
     _tcomp17 := attribute__uif__last (@@A, 1ii);
 
-  #l85.
-    if _tcomp16 > _tcomp17 then goto l82;
+  #l84.
+    if _tcomp16 > _tcomp17 then goto l81;
 
-  #l86.
+  #l85.
     I7 := _tcomp16;
 
-  #l87.<
+  #l86.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -388,34 +388,34 @@ procedure Stupid (
   >
     // empty loc
 
-  #l88.
+  #l87.
     @@A[I] := @@A[I];
 
-  #l89.
-    if I7 == _tcomp17 then goto l82;
+  #l88.
+    if I7 == _tcomp17 then goto l81;
 
-  #l90.
+  #l89.
     I7 := I7 + 1ii;
 
-  #l91.
-    goto l87;
+  #l90.
+    goto l86;
 
-  #l82.
+  #l81.
     // empty loc
 
-  #l93.
+  #l92.
     _tcomp18 := attribute__uif__first (@@A, 1ii);
 
-  #l94.
+  #l93.
     _tcomp19 := attribute__uif__last (@@A, 1ii);
 
-  #l95.
-    if _tcomp18 > _tcomp19 then goto l92;
+  #l94.
+    if _tcomp18 > _tcomp19 then goto l91;
 
-  #l96.
+  #l95.
     I8 := _tcomp19;
 
-  #l97.<
+  #l96.<
       @LOOP_LABEL
 
         ("""<org.sireum.pilar.ast.NameDefinition cid="1" size="1">
@@ -424,22 +424,22 @@ procedure Stupid (
   >
     // empty loc
 
-  #l98.
+  #l97.
     @@A[I] := @@A[I];
 
-  #l99.
-    if I8 == _tcomp18 then goto l92;
+  #l98.
+    if I8 == _tcomp18 then goto l91;
 
-  #l100.
+  #l99.
     I8 := I8 - 1ii;
 
-  #l101.
-    goto l97;
+  #l100.
+    goto l96;
 
-  #l92.
+  #l91.
     // empty loc
 
-  #l102.
+  #l101.
     return;
 }
 
@@ -570,14 +570,14 @@ procedure $$sinit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@A := `Vector { iter => 
         switch iter
           case (1ii, 7ii) => 2ii
           case 11ii => 3ii
           default => 1ii};
 
-  #l103.
+  #l102.
     return;
 }
 

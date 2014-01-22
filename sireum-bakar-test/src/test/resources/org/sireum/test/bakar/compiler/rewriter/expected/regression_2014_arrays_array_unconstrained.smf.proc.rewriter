@@ -10,43 +10,43 @@ procedure Boolean isSorted (
     Integer _tcomp1;
 
 
-  #l1.
+  #l0.
     B := true;
 
-  #l3.
+  #l2.
     _tcomp0 := attribute__uif__first `Z;
 
-  #l4.
+  #l3.
     _tcomp1 := attribute__uif__last `Z - 1ii;
 
-  #l5.
-    if _tcomp0 > _tcomp1 then goto l2;
+  #l4.
+    if _tcomp0 > _tcomp1 then goto l1;
 
-  #l6.
+  #l5.
     I := _tcomp0;
 
-  #l7.
+  #l6.
     // empty loc
 
-  #l8.
+  #l7.
     B := Z[I] <= Z[I + 1ii];
 
+  #l8.
+    if !(B) then goto l1;
+
   #l9.
-    if !(B) then goto l2;
+    if I == _tcomp1 then goto l1;
 
   #l10.
-    if I == _tcomp1 then goto l2;
-
-  #l11.
     I := I + 1ii;
 
-  #l12.
-    goto l7;
+  #l11.
+    goto l6;
 
-  #l2.
+  #l1.
     // empty loc
 
-  #l13.
+  #l12.
     return B;
 }
 
@@ -55,7 +55,7 @@ procedure Boolean indexIsValue (
         Integer Index,
         Integer V) {
 
-  #l14.
+  #l13.
     return Z[Index] == V;
 }package Array_Unconstrained;
 
@@ -81,10 +81,10 @@ procedure Boolean isSorted (
     Boolean _tcomp2;
 
 
-  #l15.
+  #l14.
     call _tcomp2 := Array_Unconstrained::isSorted (CV);
 
-  #l16.
+  #l15.
     return _tcomp2;
 }
 
@@ -96,10 +96,10 @@ procedure Boolean indexIsValue (
     Boolean _tcomp3;
 
 
-  #l17.
+  #l16.
     call _tcomp3 := Array_Unconstrained::indexIsValue (Z, I, V);
 
-  #l18.
+  #l17.
     return _tcomp3;
 }package Array_Unconstrained_T;
 

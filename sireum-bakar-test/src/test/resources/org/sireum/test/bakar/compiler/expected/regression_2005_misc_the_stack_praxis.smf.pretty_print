@@ -243,16 +243,16 @@ procedure $$binit
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
  {
 
-  #l1.
+  #l0.
     @@Pointer := 0ii;
 
-  #l2.
+  #l1.
     @@S := `Vector { iter => 
         switch iter
           case (attribute__uif__first `Index_Range, attribute__uif__last `Index_Range) => 0ii
     };
 
-  #l9.
+  #l8.
     return;
 }
 
@@ -291,13 +291,13 @@ procedure Push (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l3.
+  #l2.
     @@Pointer := @@Pointer + 1ii;
 
-  #l4.
+  #l3.
     @@S[@@Pointer] := X;
 
-  #l5.
+  #l4.
     return;
 }
 
@@ -336,13 +336,13 @@ procedure Pop (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l6.
+  #l5.
     X := @@S[@@Pointer];
 
-  #l7.
+  #l6.
     @@Pointer := @@Pointer - 1ii;
 
-  #l8.
+  #l7.
     return;
 }
 

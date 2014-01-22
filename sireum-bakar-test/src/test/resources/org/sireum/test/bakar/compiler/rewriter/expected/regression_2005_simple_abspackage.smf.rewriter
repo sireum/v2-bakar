@@ -19,8 +19,8 @@ procedure Integer AbsFunc (
   #rwl1.
     _t1 := 0ii;
 
-  #l3.
-    if !(_t0 < _t1) then goto l2;
+  #l2.
+    if !(_t0 < _t1) then goto l1;
 
   #rwl2.
     _t2 := x;
@@ -28,19 +28,19 @@ procedure Integer AbsFunc (
   #rwl3.
     _t3 := -(1ii);
 
-  #l4.
+  #l3.
     r := _t2 * _t3;
 
-  #l5.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l6.
-    r := x;
+  #l4.
+    goto l0;
 
   #l1.
+    // empty loc
+
+  #l5.
+    r := x;
+
+  #l0.
     // empty loc
 
   #rwl4.
@@ -49,10 +49,10 @@ procedure Integer AbsFunc (
   #rwl5.
     _t5 := 0ii;
 
-  #l7.
+  #l6.
     assert proof__uif__assert _t4 >= _t5 "Assertion failed at [11, 5]";
 
-  #l8.
+  #l7.
     return r;
 }package AbsPackage;
 

@@ -1,4 +1,4 @@
 ada://parameter/QuantifierTest-1:9/dummy-11:13/I-11:19 -> ada://ordinary_type/QuantifierTest-1:9/Index-6:8
 ada://variable/QuantifierTest-1:9/@@V-9:3 -> ada://ordinary_type/QuantifierTest-1:9/Vector-7:8
-ada://variable__temp/QuantifierTest/dummy/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/QuantifierTest/dummy/_t1 -> ada://ordinary_type/universal_integer
+ada://variable__temp/QuantifierTest-1:9/dummy-11:13/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/QuantifierTest-1:9/dummy-11:13/_t1 -> ada://ordinary_type/universal_integer

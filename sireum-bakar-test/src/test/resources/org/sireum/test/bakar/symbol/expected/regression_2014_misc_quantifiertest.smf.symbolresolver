@@ -43,8 +43,8 @@ Procedure Table
   ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
     ada://procedure/QuantifierTest-1:9/dummy-15:13 
     ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
-  ada://procedure_body__package_init/QuantifierTest/$$binit 
-    ada://procedure_body__package_init/QuantifierTest/$$binit 
+  ada://procedure_body__package_init/QuantifierTest-1:9/$$binit 
+    ada://procedure_body__package_init/QuantifierTest-1:9/$$binit 
 
 Spark Method Table
   ada://procedure/QuantifierTest-1:9/dummy-15:13 
@@ -53,8 +53,8 @@ Spark Method Table
   ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
     SPEC: ada://procedure/QuantifierTest-1:9/dummy-15:13 
     BODY: ada://procedure_body/QuantifierTest-1:9/dummy-15:13 
-  ada://procedure_body__package_init/QuantifierTest/$$binit 
-    BODY: ada://procedure_body__package_init/QuantifierTest/$$binit 
+  ada://procedure_body__package_init/QuantifierTest-1:9/$$binit 
+    BODY: ada://procedure_body__package_init/QuantifierTest-1:9/$$binit 
 
 Procedure Symbol Table
   ada://procedure/QuantifierTest-1:9/dummy-15:13 
@@ -71,31 +71,31 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 
-      ada://variable__temp/QuantifierTest/dummy/_t0 
-      ada://variable__temp/QuantifierTest/dummy/_t1 
-      ada://variable__temp/QuantifierTest/dummy/_t10 
-      ada://variable__temp/QuantifierTest/dummy/_t11 
-      ada://variable__temp/QuantifierTest/dummy/_t12 
-      ada://variable__temp/QuantifierTest/dummy/_t13 
-      ada://variable__temp/QuantifierTest/dummy/_t14 
-      ada://variable__temp/QuantifierTest/dummy/_t15 
-      ada://variable__temp/QuantifierTest/dummy/_t16 
-      ada://variable__temp/QuantifierTest/dummy/_t17 
-      ada://variable__temp/QuantifierTest/dummy/_t2 
-      ada://variable__temp/QuantifierTest/dummy/_t3 
-      ada://variable__temp/QuantifierTest/dummy/_t4 
-      ada://variable__temp/QuantifierTest/dummy/_t5 
-      ada://variable__temp/QuantifierTest/dummy/_t6 
-      ada://variable__temp/QuantifierTest/dummy/_t7 
-      ada://variable__temp/QuantifierTest/dummy/_t8 
-      ada://variable__temp/QuantifierTest/dummy/_t9 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t0 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t1 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t10 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t11 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t12 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t13 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t14 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t15 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t16 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t17 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t2 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t3 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t4 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t5 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t6 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t7 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t8 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_t9 
 
     Params
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 
 
     Loop Locations
 
-  ada://procedure_body__package_init/QuantifierTest/$$binit 
+  ada://procedure_body__package_init/QuantifierTest-1:9/$$binit 
 
     LocalVarTable
 

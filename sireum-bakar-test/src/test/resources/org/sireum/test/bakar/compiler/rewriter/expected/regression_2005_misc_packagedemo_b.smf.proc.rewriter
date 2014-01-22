@@ -5,10 +5,10 @@ procedure Q (
         Integer X,
         Integer Z) {
 
-  #l1.
+  #l0.
     Z := X + 2ii;
 
-  #l2.
+  #l1.
     return (Z);
 }package PackageDemo_A;
 
@@ -27,13 +27,13 @@ procedure T (
     Integer _tbpr1;
 
 
-  #l3.
+  #l2.
     call _tbpr1 := PackageDemo_A::Q (M, Z);
 
   #_lbpr2.
     Z := _tbpr1;
 
-  #l4.
+  #l3.
     return (Z);
 }package PackageDemo_B;
 

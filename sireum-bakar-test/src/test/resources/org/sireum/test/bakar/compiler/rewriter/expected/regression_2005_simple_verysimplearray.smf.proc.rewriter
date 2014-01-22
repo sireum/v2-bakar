@@ -11,17 +11,17 @@ global Vector @@V;
 
 procedure Boolean Dummy {
 
-  #l1.
+  #l0.
     return true;
 }
 
 procedure Add (
         Vector X) {
 
-  #l2.
+  #l1.
     X[1ii] := X[2ii];
 
-  #l3.
+  #l2.
     return (X);
 }
 
@@ -30,13 +30,13 @@ procedure Del {
     Integer T;
 
 
-  #l4.
+  #l3.
     T := @@V[1ii];
 
-  #l5.
+  #l4.
     @@V[2ii] := T + @@V[3ii];
 
-  #l6.
+  #l5.
     return;
 }package VerySimpleArray;
 

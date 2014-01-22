@@ -1,5 +1,5 @@
 digraph G {
-  "ada://procedure_body__package_init/The_Stack_Demonic/$$binit" [ label="The_Stack_Demonic.$$binit" ];
+  "ada://procedure_body__package_init/The_Stack_Demonic-1:9/$$binit" [ label="The_Stack_Demonic.$$binit" ];
   "ada://procedure_body/The_Stack_Demonic-1:9/Push-31:14" [ label="The_Stack_Demonic.Push" ];
   "ada://procedure_body/The_Stack_Demonic-1:9/Pop-36:14" [ label="The_Stack_Demonic.Pop" ];
   "ada://function_body/The_Stack_Demonic-1:9/Value_Present+46:13" [ label="The_Stack_Demonic.Value_Present" ];

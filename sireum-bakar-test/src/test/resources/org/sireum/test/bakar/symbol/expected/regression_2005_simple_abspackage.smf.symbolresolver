@@ -65,12 +65,12 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22 
       ada://variable/AbsPackage-1:9/AbsFunc-2:14/r+4:5 
-      ada://variable__temp/AbsPackage/AbsFunc/_t0 
-      ada://variable__temp/AbsPackage/AbsFunc/_t1 
-      ada://variable__temp/AbsPackage/AbsFunc/_t2 
-      ada://variable__temp/AbsPackage/AbsFunc/_t3 
-      ada://variable__temp/AbsPackage/AbsFunc/_t4 
-      ada://variable__temp/AbsPackage/AbsFunc/_t5 
+      ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t0 
+      ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t1 
+      ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t2 
+      ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t3 
+      ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t4 
+      ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t5 
 
     Params
       ada://parameter/AbsPackage-1:9/AbsFunc-2:14/x-2:22 

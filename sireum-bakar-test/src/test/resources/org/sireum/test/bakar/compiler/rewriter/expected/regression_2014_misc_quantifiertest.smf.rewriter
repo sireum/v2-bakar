@@ -3,12 +3,12 @@ package QuantifierTest;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@V := `Vector { iter => 
         switch iter
           default => 0ii};
 
-  #l6.
+  #l5.
     return;
 }
 
@@ -53,7 +53,7 @@ procedure dummy (
   #rwl5.
     _t5 := _t2 < _t3;
 
-  #l2.
+  #l1.
     assert proof__uif__assert proof__uif__for_some {Index J => 
         switch J
           case (1ii, 2ii) => _t4 && _t5
@@ -65,7 +65,7 @@ procedure dummy (
   #rwl7.
     _t7 := 3ii;
 
-  #l3.
+  #l2.
     @@V[I] := _t6 + _t7;
 
   #rwl8.
@@ -101,10 +101,10 @@ procedure dummy (
           case (attribute__uif__first `Index, attribute__uif__last `Index) => _t14 || _t15
           default => true};
 
-  #l4.
+  #l3.
     assert proof__uif__assert _t16 &&& _t17 "Assertion failed at [12, 5]";
 
-  #l5.
+  #l4.
     return;
 }package QuantifierTest;
 

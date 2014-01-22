@@ -64,10 +64,10 @@ procedure Q (
        </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
  {
 
-  #l1.
+  #l0.
     Z := X + 2ii;
 
-  #l2.
+  #l1.
     return;
 }
 

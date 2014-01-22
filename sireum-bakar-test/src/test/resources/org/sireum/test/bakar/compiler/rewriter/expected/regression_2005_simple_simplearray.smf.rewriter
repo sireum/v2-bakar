@@ -49,7 +49,7 @@ procedure $$binit {
   #rwl7.
     _t7 := 3ii;
 
-  #l1.
+  #l0.
     @@A := `Vector { iter => 
         switch iter
           case _t0 + _t1 => 0ii
@@ -70,7 +70,7 @@ procedure $$binit {
   #rwl11.
     _t11 := 2ii;
 
-  #l2.
+  #l1.
     @@B := `Vector { iter => 
         switch iter
           case 0ii => 0ii
@@ -79,13 +79,13 @@ procedure $$binit {
           case _t10 / _t11 => 3ii
           default => 9ii};
 
-  #l18.
+  #l17.
     return;
 }
 
 procedure Boolean Dummy {
 
-  #l3.
+  #l2.
     return true;
 }
 
@@ -106,13 +106,13 @@ procedure Integer Max (
     FIXME _t19;
 
 
-  #l4.
+  #l3.
     M := V[0ii];
 
-  #l6.
+  #l5.
     _tcomp0 := attribute__uif__first `Index;
 
-  #l7.
+  #l6.
     _tcomp1 := attribute__uif__last `Index;
 
   #rwl12.
@@ -121,13 +121,13 @@ procedure Integer Max (
   #rwl13.
     _t13 := _tcomp1;
 
-  #l8.
-    if _t12 > _t13 then goto l5;
+  #l7.
+    if _t12 > _t13 then goto l4;
 
-  #l9.
+  #l8.
     I := _tcomp0;
 
-  #l10.
+  #l9.
     // empty loc
 
   #rwl14.
@@ -136,13 +136,13 @@ procedure Integer Max (
   #rwl15.
     _t15 := M;
 
-  #l12.
-    if !(_t14 > _t15) then goto l11;
+  #l11.
+    if !(_t14 > _t15) then goto l10;
 
-  #l13.
+  #l12.
     M := V[I];
 
-  #l11.
+  #l10.
     // empty loc
 
   #rwl16.
@@ -151,8 +151,8 @@ procedure Integer Max (
   #rwl17.
     _t17 := _tcomp1;
 
-  #l14.
-    if _t16 == _t17 then goto l5;
+  #l13.
+    if _t16 == _t17 then goto l4;
 
   #rwl18.
     _t18 := I;
@@ -160,16 +160,16 @@ procedure Integer Max (
   #rwl19.
     _t19 := 1ii;
 
-  #l15.
+  #l14.
     I := _t18 + _t19;
 
-  #l16.
-    goto l10;
+  #l15.
+    goto l9;
 
-  #l5.
+  #l4.
     // empty loc
 
-  #l17.
+  #l16.
     return M;
 }package SimpleArray;
 

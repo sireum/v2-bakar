@@ -5,20 +5,20 @@ global Integer @@B;
 
 procedure $$binit {
 
-  #l1.
+  #l0.
     @@B := 0ii;
 
-  #l4.
+  #l3.
     return;
 }
 
 procedure Inc (
         Integer I) {
 
-  #l2.
+  #l1.
     I := I + @@B;
 
-  #l3.
+  #l2.
     return (I);
 }package SimpleMath1;
 

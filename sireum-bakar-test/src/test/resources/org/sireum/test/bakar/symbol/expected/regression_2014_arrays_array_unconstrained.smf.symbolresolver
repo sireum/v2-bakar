@@ -149,8 +149,8 @@ Procedure Symbol Table
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/V-7:44 
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Z-7:25 
-      ada://variable__temp/Array_Unconstrained/indexIsValue/_t12 
-      ada://variable__temp/Array_Unconstrained/indexIsValue/_t13 
+      ada://variable__temp/Array_Unconstrained-1:9/indexIsValue-7:12/_t12 
+      ada://variable__temp/Array_Unconstrained-1:9/indexIsValue-7:12/_t13 
 
     Params
       ada://parameter/Array_Unconstrained-1:9/indexIsValue-7:12/Index-7:37 
@@ -165,26 +165,26 @@ Procedure Symbol Table
       ada://loop_parameter/Array_Unconstrained-1:9/isSorted-6:12/I+5:9 
       ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
       ada://variable/Array_Unconstrained-1:9/isSorted-6:12/B+3:5 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t0 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t1 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t10 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t11 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t2 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t3 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t4 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t5 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t6 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t7 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t8 
-      ada://variable__temp/Array_Unconstrained/isSorted/_t9 
-      ada://variable__temp/isSorted/Array_Unconstrained/_tcomp0 
-      ada://variable__temp/isSorted/Array_Unconstrained/_tcomp1 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t0 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t1 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t10 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t11 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t2 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t3 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t4 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t5 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t6 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t7 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t8 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t9 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_tcomp0 
+      ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_tcomp1 
 
     Params
       ada://parameter/Array_Unconstrained-1:9/isSorted-6:12/Z-6:21 
 
     Loop Locations
-      l7_5.5_8.13 -> LOOP_LABEL_0 
+      ada://location/Array_Unconstrained-1:9/isSorted-6:12/l6 -> LOOP_LABEL_0 
 
   ada://function_body/Array_Unconstrained_T-3:9/indexIsValue-10:12 
 
@@ -192,7 +192,7 @@ Procedure Symbol Table
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41 
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/V-10:52 
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/Z-10:25 
-      ada://variable__temp/indexIsValue/Array_Unconstrained_T/_tcomp3 
+      ada://variable__temp/Array_Unconstrained_T-3:9/indexIsValue-10:12/_tcomp3 
 
     Params
       ada://parameter/Array_Unconstrained_T-3:9/indexIsValue-10:12/I-10:41 
@@ -205,7 +205,7 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 
-      ada://variable__temp/isSorted/Array_Unconstrained_T/_tcomp2 
+      ada://variable__temp/Array_Unconstrained_T-3:9/isSorted-9:12/_tcomp2 
 
     Params
       ada://parameter/Array_Unconstrained_T-3:9/isSorted-9:12/CV-9:21 

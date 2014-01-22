@@ -31,28 +31,28 @@ procedure Integer MinFunc (
   #rwl1.
     _t1 := Y;
 
-  #l3.
-    if !(_t0 >= _t1) then goto l2;
+  #l2.
+    if !(_t0 >= _t1) then goto l1;
 
-  #l4.
+  #l3.
     Min := Y;
 
-  #l5.
+  #l4.
     Max := X;
 
-  #l6.
-    goto l1;
-
-  #l2.
-    // empty loc
-
-  #l7.
-    Min := X;
-
-  #l8.
-    Max := Y;
+  #l5.
+    goto l0;
 
   #l1.
+    // empty loc
+
+  #l6.
+    Min := X;
+
+  #l7.
+    Max := Y;
+
+  #l0.
     // empty loc
 
   #rwl2.
@@ -97,10 +97,10 @@ procedure Integer MinFunc (
   #rwl15.
     _t15 := _t12 <= _t13;
 
-  #l9.
+  #l8.
     assert proof__uif__assert _t14 &&& _t15 "Assertion failed at [13, 7]";
 
-  #l10.
+  #l9.
     return Min;
 }package Minpackage;
 

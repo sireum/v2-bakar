@@ -82,8 +82,8 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/SimpleRecord-1:9/Add+12:14/R+12:18 
-      ada://variable__temp/SimpleRecord/Add/_t0 
-      ada://variable__temp/SimpleRecord/Add/_t1 
+      ada://variable__temp/SimpleRecord-1:9/Add+12:14/_t0 
+      ada://variable__temp/SimpleRecord-1:9/Add+12:14/_t1 
 
     Params
       ada://parameter/SimpleRecord-1:9/Add+12:14/R+12:18 
@@ -94,10 +94,10 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://variable/SimpleRecord-1:9/Del+17:14/T+18:6 
-      ada://variable__temp/SimpleRecord/Del/_t2 
-      ada://variable__temp/SimpleRecord/Del/_t3 
-      ada://variable__temp/SimpleRecord/Del/_t4 
-      ada://variable__temp/SimpleRecord/Del/_t5 
+      ada://variable__temp/SimpleRecord-1:9/Del+17:14/_t2 
+      ada://variable__temp/SimpleRecord-1:9/Del+17:14/_t3 
+      ada://variable__temp/SimpleRecord-1:9/Del+17:14/_t4 
+      ada://variable__temp/SimpleRecord-1:9/Del+17:14/_t5 
 
     Params
 
