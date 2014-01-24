@@ -80,7 +80,12 @@ object URIS {
   def isPackageUri(u: ResourceUri) = u.startsWith("ada://package")
   def isAdaPackageUri(u: ResourceUri) = isAdaPackageSpecUri(u) || isAdaPackageBodyUri(u)
   def isAdaPackageSpecUri(u: ResourceUri) = u.startsWith(uriPrefixPackageSpec)
-  def isAdaPackageBodyUri(u: ResourceUri) = u.startsWith(uriPrefixPackageBody)  
+  def isAdaPackageBodyUri(u: ResourceUri) = u.startsWith(uriPrefixPackageBody)
+  
+  def isParameter(u : ResourceUri) = u.startsWith("ada://parameter")
+  def isVariable(u: ResourceUri) = isGlobalVariable(u) || isLocalVariable(u)
+  def isGlobalVariable(u:ResourceUri) = u.startsWith("ada://variable") && u.contains("@@")
+  def isLocalVariable(u:ResourceUri) = u.startsWith("ada://variable") && !u.contains("@@")
 }
 
 object VariableURIs {

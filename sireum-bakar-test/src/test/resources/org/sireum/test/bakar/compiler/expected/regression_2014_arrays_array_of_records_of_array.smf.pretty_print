@@ -21,7 +21,7 @@ procedure $$binit
  {
 
   #l0.
-    @@oArray := `ObjectArray { iter => 
+    @@oArray := `ObjectArray {Index_Range iter => 
         switch iter
           default => dummyObject};
 
@@ -359,10 +359,10 @@ typealias _ARRAY_ ObjectArray
 
 const $CONST {
   dummyObject = (Object) `Object {
-    X = `IntArray { iter => 
+    X = `IntArray {Index_Range iter => 
         switch iter
           default => 0ii},
-    Y = `IntArray { iter => 
+    Y = `IntArray {Index_Range iter => 
         switch iter
           default => 0ii}
   };

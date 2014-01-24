@@ -21,7 +21,7 @@ procedure $$binit
  {
 
   #l0.
-    @@V := `Vector { iter => 
+    @@V := `Vector {Index iter => 
         switch iter
           default => 0ii};
 

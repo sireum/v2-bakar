@@ -24,17 +24,20 @@ Model(Some(array_of_records.adb),Vector(),Vector(PackageDecl(Some(NameDefinition
                   List()
                   NameExp(NameUser(@@oArray))
                     NameUser(@@oArray)
-                  CallExp(TypeExp(NamedTypeSpec(NameUser(ObjectArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(
+                  CallExp(TypeExp(NamedTypeSpec(NameUser(ObjectArray),Vector())),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index_Range),Vector
                     TypeExp(NamedTypeSpec(NameUser(ObjectArray),Vector()))
                       NamedTypeSpec(NameUser(ObjectArray),Vector())
                         NameUser(ObjectArray)
                         List()
-                    FunExp(Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(),NameExp(NameUser(dummyObject))
-                      Vector(Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(),NameExp(NameUser(dummyObject)))))
-                        Matching(Vector(ParamDecl(None,NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector(),NameExp(NameUser(dummyObject))))
-                          Vector(ParamDecl(None,NameDefinition(iter),Vector()))
-                            ParamDecl(None,NameDefinition(iter),Vector())
-                              None
+                    FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index_Range),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser
+                      Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index_Range),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter))
+                        Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index_Range),Vector())),NameDefinition(iter),Vector())),SwitchExp(NameExp(NameUser(iter)),Vector
+                          Vector(ParamDecl(Some(NamedTypeSpec(NameUser(Index_Range),Vector())),NameDefinition(iter),Vector()))
+                            ParamDecl(Some(NamedTypeSpec(NameUser(Index_Range),Vector())),NameDefinition(iter),Vector())
+                              Some(NamedTypeSpec(NameUser(Index_Range),Vector()))
+                                NamedTypeSpec(NameUser(Index_Range),Vector())
+                                  NameUser(Index_Range)
+                                  List()
                               NameDefinition(iter)
                               List()
                           SwitchExp(NameExp(NameUser(iter)),Vector(),NameExp(NameUser(dummyObject)))

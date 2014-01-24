@@ -4,7 +4,7 @@ package Positional_Array;
 procedure $$binit {
 
   #l1.
-    @@Box2 := `Square { iter => 
+    @@Box2 := `Square {Index iter => 
         switch iter
           case attribute__uif__first `Index + 0ii => 77ii
           default => 5ii};
@@ -35,7 +35,7 @@ global Square @@Box2;
 procedure $$sinit {
 
   #l0.
-    @@Box := `Square { iter => 
+    @@Box := `Square {Index iter => 
         switch iter
           case attribute__uif__first `Index + 0ii => -(1ii)
           case attribute__uif__first `Index + 1ii => -(2ii)

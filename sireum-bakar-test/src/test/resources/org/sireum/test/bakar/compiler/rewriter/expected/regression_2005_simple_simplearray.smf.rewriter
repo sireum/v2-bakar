@@ -50,7 +50,7 @@ procedure $$binit {
     _t7 := 3ii;
 
   #l0.
-    @@A := `Vector { iter => 
+    @@A := `Vector {Index iter => 
         switch iter
           case _t0 + _t1 => 0ii
           case _t2 + _t3 => 1ii
@@ -71,7 +71,7 @@ procedure $$binit {
     _t11 := 2ii;
 
   #l1.
-    @@B := `Vector { iter => 
+    @@B := `Vector {Index iter => 
         switch iter
           case 0ii => 0ii
           case 1ii => 1ii

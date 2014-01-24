@@ -285,10 +285,10 @@ procedure Record_Loop_Entry (
     A := `Record_Of_Array_Of_Int {
       T = 3ii,
       Z = 5ii,
-      U = `Array_Of_Int { iter => 
+      U = `Array_Of_Int {anonymousType$0 iter => 
           switch iter
             default => 1ii},
-      X = `Array_Of_Int { iter => 
+      X = `Array_Of_Int {anonymousType$0 iter => 
           switch iter
             default => 1ii}
     };

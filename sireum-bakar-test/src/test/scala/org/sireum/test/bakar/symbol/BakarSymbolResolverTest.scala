@@ -3,24 +3,40 @@ package org.sireum.test.bakar.symbol
 import java.io.Writer
 import org.junit.runner.RunWith
 import org.sireum.bakar.compiler.module.BakarTranslatorModule
+import org.sireum.bakar.compiler.module.URIS
 import org.sireum.bakar.compiler.rewriter.BakarExpRewriterModule
 import org.sireum.bakar.symbol.BakarSymbolResolverModule
+import org.sireum.bakar.symbol.BakarSymbolResolverModule.ConsumerView.BakarSymbolResolverModuleConsumerView
 import org.sireum.bakar.typ.BakarTypeResolverModule
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
+import org.sireum.pilar.ast.ImplementedBody
+import org.sireum.pilar.ast.LocalVarDecl
+import org.sireum.pilar.ast.Model
+import org.sireum.pilar.ast.NameExp
+import org.sireum.pilar.ast.NameUser
+import org.sireum.pilar.ast.PackageDecl
+import org.sireum.pilar.ast.ParamDecl
+import org.sireum.pilar.ast.ProcedureDecl
+import org.sireum.pilar.symbol.Symbol.pp2r
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.compiler.BakarTranslatorTest
+import org.sireum.util.ISeq
 import org.sireum.util.ImplicitLogging
+import org.sireum.util.Visitor
 import org.scalatest.junit.JUnitRunner
-
+import org.sireum.bakar.compiler.module.PackageURIs
+    
 @RunWith(classOf[JUnitRunner])
 class BakarSymbolResolverTest extends BakarTranslatorTest {
   override def generateExpected = false
   override def pipeline = BakarSymbolResolverTest.pipeline
   override def outputSuffix = BakarSymbolResolverTest.outputSuffix
   override def writeTestString(job: PipelineJob, w: Writer) = BakarSymbolResolverTest.writeTestString(job, w)
+  
+  override def post(c : Configuration) = BakarSymbolResolverTest.validate(c.job.models)
 }
 
 object BakarSymbolResolverTest extends ImplicitLogging {
@@ -57,7 +73,6 @@ object BakarSymbolResolverTest extends ImplicitLogging {
   def outputSuffix = "symbolresolver"
 
   def writeTestString(job: PipelineJob, w: Writer) = {
-    import BakarSymbolResolverModule.ConsumerView._
     val st = job.symbolTable
     
     w.write("Spark Package Table\n")
@@ -145,5 +160,64 @@ object BakarSymbolResolverTest extends ImplicitLogging {
       w.write("\n")        
     }
     w.write("\n")
+  }
+  
+  def validate(models : ISeq[Model]) : Boolean = {
+    var currPackage : PackageDecl = null
+    var currMethod : ProcedureDecl = null
+    
+    val v = Visitor.build({
+      case i:PackageDecl =>
+        currPackage = i
+        true
+        
+      case i:ProcedureDecl =>
+        currMethod = i
+
+        assert(currPackage.elements.exists{
+          case _i : ProcedureDecl => i.name.uri == _i.name.uri
+          case _ => false})
+        
+        val pu = currPackage.name.get.uri
+        val packUri = URIS.getPath(pu)
+        val muri = URIS.getPath(i.name.uri)
+        assert(muri.startsWith(packUri) || PackageURIs.isPackageAnonymous(pu))
+        
+        true
+        
+      case i:ParamDecl =>
+        val mUri = URIS.getPath(currMethod.name.uri)
+        val paramUri = URIS.getPath(i.name.uri)
+        assert (paramUri.startsWith(mUri) || i.name.uri == URIS.DUMMY_URI)
+        false
+        
+      case i:LocalVarDecl =>
+        val mu = currMethod.name.uri
+        val mUri = URIS.getPath(mu)
+        val lUri = URIS.getPath(i.name.uri)
+        assert (lUri.startsWith(mUri) || PackageURIs.isPackageInitProcedure(mu))
+        
+        false
+      
+      case NameExp(nu @ NameUser(x)) =>
+        if(URIS.isParameter(nu.uri)) {
+          assert(currMethod.params.exists(p => p.name.uri == nu.uri) ||
+              URIS.isAdaExpressionFunctionUri(currMethod.name.uri))
+        }
+
+        if(URIS.isLocalVariable(nu.uri)) {
+          val body = currMethod.body.asInstanceOf[ImplementedBody]
+          assert(body.locals.exists(p => p.name.uri == nu.uri))
+        }
+
+        if(URIS.isGlobalVariable(nu.uri)){
+          
+        }          
+        false
+    })
+    
+    for(m <- models) v(m)
+    
+    true
   }
 }

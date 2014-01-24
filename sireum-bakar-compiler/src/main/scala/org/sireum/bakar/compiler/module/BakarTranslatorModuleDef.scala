@@ -2387,26 +2387,22 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           }
       }
 
-      val (iterNE, iterND) = if (typeUri == "null") {
-        val indexType = ctx.typeDeclarations(StandardURIs.integerURI)
-        val iterNE = PNF.buildNameExp("iter", indexType.uri, Some(indexType.uri))
-        val iterND = ctx.addResourceUri(NameDefinition("iter"), indexType.uri)
-        (iterNE, iterND)
-      } else {
+      val indexType = if (typeUri == "null") 
+        ctx.typeDeclarations(StandardURIs.integerURI)
+      else {
         val arrayType = SymbolUtil.getTypeDef(ctx.typeDeclarations(typeUri), ctx.typeDeclarations)
         val indexTypeUri = arrayType match {
           case i: ConstrainedArrayDef => i.discreteSubtypes.head
           case i: UnconstrainedArrayDef => i.indexSubtypes.head
         }
-
-        val iterNE = PNF.buildNameExp("iter", indexTypeUri, Some(indexTypeUri))
-        val iterND = ctx.addResourceUri(NameDefinition("iter"), indexTypeUri)
-        (iterNE, iterND)
+        ctx.typeDeclarations(indexTypeUri)
       }
 
+      val iterNE = PNF.buildNameExp("iter", indexType.uri, Some(indexType.uri))
+        
       val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
 
-      val pd: ParamDecl = ParamDecl(None, iterND, ivectorEmpty)
+      val pd = PNF.buildParamDecl("iter", URIS.DUMMY_URI, PNF.buildNamedTypeSpec(indexType))
       val fe = FunExp(ivector(Matching(ivector(pd), se)))
       ctx.pushResult(fe, sloc)
       false
@@ -2446,11 +2442,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           }
       }
       val iterNE = PNF.buildNameExp("iter", indexType.uri, Some(indexType.uri))
-      val iterND = ctx.addResourceUri(NameDefinition("iter"), indexType.uri)
 
       val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
 
-      val pd = ParamDecl(None, iterND, ivectorEmpty)
+      val pd = PNF.buildParamDecl("iter", URIS.DUMMY_URI, PNF.buildNamedTypeSpec(indexType))
       val fe = FunExp(ivector(Matching(ivector(pd), se)))
 
       ctx.pushResult(fe, sloc)
@@ -2969,7 +2964,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               v(actual)
               val e: Exp = ctx.popResult
 
-              val pd = ParamDecl(None, NameDefinition(name), ivectorEmpty)
+              val ts = PNF.buildNamedTypeSpec(ctx.typeDeclarations(StandardURIs.boolURI))
+              val pd = PNF.buildParamDecl(name, URIS.DUMMY_URI, ts)
               matchings :+= Matching(ivector(pd), e)
             case x => throw new RuntimeException()
           }

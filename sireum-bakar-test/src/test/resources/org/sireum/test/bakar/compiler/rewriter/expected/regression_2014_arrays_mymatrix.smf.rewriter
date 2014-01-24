@@ -40,13 +40,13 @@ procedure Multiply (
 
 
   #l0.
-    Z := `Matrix { iter => 
+    Z := `Matrix {Matrix_Index iter => 
         switch iter
-          case (attribute__uif__first `Matrix_Index, attribute__uif__last `Matrix_Index) => { iter => 
+          case (attribute__uif__first `Matrix_Index, attribute__uif__last `Matrix_Index) => {Integer iter => 
               switch iter
                 case (attribute__uif__first `Matrix_Index, attribute__uif__last `Matrix_Index) => 0ii
                 default => 0ii}
-          default => { iter => 
+          default => {Integer iter => 
               switch iter
                 default => 0ii}};
 

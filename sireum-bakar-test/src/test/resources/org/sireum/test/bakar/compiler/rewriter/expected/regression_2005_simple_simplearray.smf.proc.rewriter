@@ -12,7 +12,7 @@ global Vector @@B;
 procedure $$binit {
 
   #l0.
-    @@A := `Vector { iter => 
+    @@A := `Vector {Index iter => 
         switch iter
           case attribute__uif__first `Index + 0ii => 0ii
           case attribute__uif__first `Index + 1ii => 1ii
@@ -21,7 +21,7 @@ procedure $$binit {
           default => 9ii};
 
   #l1.
-    @@B := `Vector { iter => 
+    @@B := `Vector {Index iter => 
         switch iter
           case 0ii => 0ii
           case 1ii => 1ii

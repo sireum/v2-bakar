@@ -14,7 +14,7 @@ procedure $$binit {
     _t1 := 0ii;
 
   #l1.
-    @@Box2 := `Square { iter => 
+    @@Box2 := `Square {Index iter => 
         switch iter
           case _t0 + _t1 => 77ii
           default => 5ii};
@@ -97,7 +97,7 @@ procedure $$sinit {
     _t9 := 4ii;
 
   #l0.
-    @@Box := `Square { iter => 
+    @@Box := `Square {Index iter => 
         switch iter
           case _t0 + _t1 => -(1ii)
           case _t2 + _t3 => -(2ii)

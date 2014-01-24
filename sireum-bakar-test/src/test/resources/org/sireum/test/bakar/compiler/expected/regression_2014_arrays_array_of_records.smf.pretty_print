@@ -21,7 +21,7 @@ procedure $$binit
  {
 
   #l0.
-    @@oArray := `ObjectArray { iter => 
+    @@oArray := `ObjectArray {Index_Range iter => 
         switch iter
           default => dummyObject};
 

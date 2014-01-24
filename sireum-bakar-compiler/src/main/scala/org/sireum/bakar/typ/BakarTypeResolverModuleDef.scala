@@ -110,7 +110,8 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         refUri2typeUri(name.uri) = URIS.getTypeUri(nts)
         false
       case o @ ParamDecl(Some(nts), name, _) =>
-        refUri2typeUri(name.uri) = URIS.getTypeUri(nts)
+        if(name.uri != URIS.DUMMY_URI)
+          refUri2typeUri(name.uri) = URIS.getTypeUri(nts)
         false
       case o @ LocalVarDecl(Some(nts), name, _) =>
         refUri2typeUri(name.uri) = URIS.getTypeUri(nts)

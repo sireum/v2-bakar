@@ -30,23 +30,23 @@ procedure $$binit {
     _t5 := 1ii;
 
   #l2.
-    @@Box := `Square { iter => 
+    @@Box := `Square {Integer iter => 
         switch iter
-          case (1ii, constThree) => { iter => 
+          case (1ii, constThree) => {Integer iter => 
               switch iter
                 case (attribute__uif__first `Index, attribute__uif__last `Index) => 0ii
                 default => 1ii}
-          case (_t0 + _t1, 5ii) => { iter => 
+          case (_t0 + _t1, 5ii) => {Integer iter => 
               switch iter
                 case (1ii, 3ii) => 1ii
                 default => 2ii}
-          case (attribute__uif__first `subIndexRange, attribute__uif__last `subIndexRange) => { iter => 
+          case (attribute__uif__first `subIndexRange, attribute__uif__last `subIndexRange) => {Integer iter => 
               switch iter
                 default => 3ii}
-          case _t4 + _t5 => { iter => 
+          case _t4 + _t5 => {Integer iter => 
               switch iter
                 default => 5ii}
-          default => { iter => 
+          default => {Integer iter => 
               switch iter
                 default => 3ii}};
 
@@ -139,16 +139,16 @@ global Board @@aBoard;
 procedure $$sinit {
 
   #l0.
-    @@Box2 := `Square { iter => 
+    @@Box2 := `Square {Integer iter => 
         switch iter
-          default => { iter => 
+          default => {Integer iter => 
               switch iter
                 default => 0ii}};
 
   #l1.
-    @@aBoard := `Board { iter => 
+    @@aBoard := `Board {Board_Index iter => 
         switch iter
-          default => `Row { iter => 
+          default => `Row {Board_Index iter => 
               switch iter
                 default => 1ii}};
 
