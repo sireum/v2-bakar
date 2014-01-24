@@ -200,17 +200,17 @@ object BakarSymbolResolverTest extends ImplicitLogging {
         false
       
       case NameExp(nu @ NameUser(x)) =>
-        if(URIS.isParameter(nu.uri)) {
+        if(URIS.isParamUri(nu.uri)) {
           assert(currMethod.params.exists(p => p.name.uri == nu.uri) ||
               URIS.isAdaExpressionFunctionUri(currMethod.name.uri))
         }
 
-        if(URIS.isLocalVariable(nu.uri)) {
+        if(URIS.isLocalVarUri(nu.uri)) {
           val body = currMethod.body.asInstanceOf[ImplementedBody]
           assert(body.locals.exists(p => p.name.uri == nu.uri))
         }
 
-        if(URIS.isGlobalVariable(nu.uri)){
+        if(URIS.isGlobalVarUri(nu.uri)){
           
         }          
         false

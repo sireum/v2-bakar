@@ -85,7 +85,8 @@ object URIS {
   def isParamUri(u: ResourceUri) = u.startsWith("ada://parameter")
   def isVarUri(u: ResourceUri) = isGlobalVarUri(u) || isLocalVarUri(u)
   def isLocalVarUri(u: ResourceUri) =
-    (u.startsWith("ada://variable") || u.startsWith("ada://loop_parameter")) && !isGlobalVarUri(u)
+    (u.startsWith("ada://variable") || isLoopParamUri(u)) && !isGlobalVarUri(u)
+  def isLoopParamUri(u: ResourceUri) = u.startsWith("ada://loop_parameter")
   def isGlobalVarUri(u: ResourceUri) = {
     var i = u.lastIndexOf("/")
     if (i < 0) i = 0 else i += 1
