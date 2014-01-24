@@ -437,18 +437,15 @@ final case class TupleValue(values: ISeq[Value]) extends Value
 class BakarSymbolProviderImpl[S <: State[S]](st: Option[SymbolTable]) extends SymbolProvider[S] {
   val bst = st.get.asInstanceOf[BakarSymbolTable]
 
-  def isVar(e: NameExp): Boolean = {
-    val uri = e.name.uri
-    uri.startsWith("ada://variable") || uri.startsWith("ada://parameter") ||
-      uri.startsWith("ada://loop_parameter") || H.isGlobalVar(uri)
-  }
+  def isVar(e: NameExp): Boolean = 
+    URIS.isParamUri(e.name.uri) || URIS.isVarUri(e.name.uri)
 
   def funUri(e: NameExp): Option[ResourceUri] = None
 
   def procedureUri(e: NameExp): Option[ResourceUri] = {
     val uri = e.name.uri
 
-    if (uri.startsWith("ada://function") || uri.startsWith("ada://procedure"))
+    if (URIS.isMethodUri(uri))
       Some(uri)
     else None
   }

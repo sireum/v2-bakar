@@ -19,26 +19,26 @@ object URIS {
   val DUMMY_URI = "__DUMMY_URI__"
 
   val uriPrefixLocation = "ada://location/"
-    
+
   val uriPrefixParameter = "ada://parameter/"
   val uriPrefixVariable = "ada://variable/"
-    
+
   val uriPrefixExpressionFunction = "ada://expression_function/"
   val uriPrefixFunctionBody = "ada://function_body/"
-  val uriPrefixFunctionSpec = "ada://function/"    
+  val uriPrefixFunctionSpec = "ada://function/"
   val uriPrefixPackageBody = "ada://package_body/"
-  val uriPrefixPackageSpec = "ada://package/"    
+  val uriPrefixPackageSpec = "ada://package/"
   val uriPrefixProcedureBody = "ada://procedure_body/"
   val uriPrefixProcedureSpec = "ada://procedure/"
-    
-  def addTypeUri[E <: PropertyProvider](e: E, uri: String) : E = {
+
+  def addTypeUri[E <: PropertyProvider](e: E, uri: String): E = {
     assert(isTypeUri(uri) || uri == DUMMY_URI)
     e(TYPE_URI) = uri
     e
   }
-  
-  def getTypeUri[E <: PropertyProvider](e: E) : ResourceUri = e(TYPE_URI)
-  
+
+  def getTypeUri[E <: PropertyProvider](e: E): ResourceUri = e(TYPE_URI)
+
   def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) = {
 
     val u = new URI(uri)
@@ -52,40 +52,47 @@ object URIS {
     s
   }
 
-  def getPath(u : ResourceUri) = new URI(u).getPath.drop(1).split("/").toList
-  
+  def getPath(u: ResourceUri) = new URI(u).getPath.drop(1).split("/").toList
+
   def isTypeUri(u: ResourceUri) =
     u.startsWith("ada://ordinary_type") || u.startsWith("ada://subtype") ||
-    u.startsWith("ada://private_type")
+      u.startsWith("ada://private_type")
 
-  def isUIFUri(u:ResourceUri) = u.startsWith(UIF.uifURIprefix)
-    
+  def isUIFUri(u: ResourceUri) = u.startsWith(UIF.uifURIprefix)
+
   def isMethodUri(u: ResourceUri) =
     u.startsWith("ada://procedure") || u.startsWith("ada://function") ||
-    u.startsWith("ada://expression_function")
+      u.startsWith("ada://expression_function")
 
-  def isAdaMethodUri(u:ResourceUri) = isAdaMethodSpecUri(u) || isAdaMethodBodyUri(u)
-  def isAdaMethodSpecUri(u:ResourceUri) = isAdaProcedureSpecUri(u) || isAdaFunctionSpecUri(u)
-  def isAdaMethodBodyUri(u:ResourceUri) = isAdaProcedureBodyUri(u) || isAdaFunctionBodyUri(u)
-    
-  def isAdaProcedureUri(u:ResourceUri) = isAdaProcedureSpecUri(u) || isAdaProcedureBodyUri(u)
-  def isAdaProcedureSpecUri(u:ResourceUri) = u.startsWith(uriPrefixProcedureSpec)     
-  def isAdaProcedureBodyUri(u:ResourceUri) = u.startsWith(uriPrefixProcedureBody) 
-    
-  def isAdaFunctionUri(u:ResourceUri) = isAdaFunctionSpecUri(u) || isAdaFunctionBodyUri(u)
-  def isAdaFunctionSpecUri(u:ResourceUri) = u.startsWith(uriPrefixFunctionSpec)    
-  def isAdaFunctionBodyUri(u:ResourceUri) = u.startsWith(uriPrefixFunctionBody) || isAdaExpressionFunctionUri(u)
-  def isAdaExpressionFunctionUri(u:ResourceUri) = u.startsWith(uriPrefixExpressionFunction)
-  
+  def isAdaMethodUri(u: ResourceUri) = isAdaMethodSpecUri(u) || isAdaMethodBodyUri(u)
+  def isAdaMethodSpecUri(u: ResourceUri) = isAdaProcedureSpecUri(u) || isAdaFunctionSpecUri(u)
+  def isAdaMethodBodyUri(u: ResourceUri) = isAdaProcedureBodyUri(u) || isAdaFunctionBodyUri(u)
+
+  def isAdaProcedureUri(u: ResourceUri) = isAdaProcedureSpecUri(u) || isAdaProcedureBodyUri(u)
+  def isAdaProcedureSpecUri(u: ResourceUri) = u.startsWith(uriPrefixProcedureSpec)
+  def isAdaProcedureBodyUri(u: ResourceUri) = u.startsWith(uriPrefixProcedureBody)
+
+  def isAdaFunctionUri(u: ResourceUri) = isAdaFunctionSpecUri(u) || isAdaFunctionBodyUri(u)
+  def isAdaFunctionSpecUri(u: ResourceUri) = u.startsWith(uriPrefixFunctionSpec)
+  def isAdaFunctionBodyUri(u: ResourceUri) = u.startsWith(uriPrefixFunctionBody) || isAdaExpressionFunctionUri(u)
+  def isAdaExpressionFunctionUri(u: ResourceUri) = u.startsWith(uriPrefixExpressionFunction)
+
   def isPackageUri(u: ResourceUri) = u.startsWith("ada://package")
   def isAdaPackageUri(u: ResourceUri) = isAdaPackageSpecUri(u) || isAdaPackageBodyUri(u)
   def isAdaPackageSpecUri(u: ResourceUri) = u.startsWith(uriPrefixPackageSpec)
   def isAdaPackageBodyUri(u: ResourceUri) = u.startsWith(uriPrefixPackageBody)
-  
-  def isParameter(u : ResourceUri) = u.startsWith("ada://parameter")
-  def isVariable(u: ResourceUri) = isGlobalVariable(u) || isLocalVariable(u)
-  def isGlobalVariable(u:ResourceUri) = u.startsWith("ada://variable") && u.contains("@@")
-  def isLocalVariable(u:ResourceUri) = u.startsWith("ada://variable") && !u.contains("@@")
+
+  def isParamUri(u: ResourceUri) = u.startsWith("ada://parameter")
+  def isVarUri(u: ResourceUri) = isGlobalVarUri(u) || isLocalVarUri(u)
+  def isLocalVarUri(u: ResourceUri) =
+    (u.startsWith("ada://variable") || u.startsWith("ada://loop_parameter")) && !isGlobalVarUri(u)
+  def isGlobalVarUri(u: ResourceUri) = {
+    var i = u.lastIndexOf("/")
+    if (i < 0) i = 0 else i += 1
+    if (i + 1 < u.size)
+      (u.charAt(i) == '@' && u.charAt(i + 1) == '@') && u.startsWith("ada://variable")
+    else false
+  }
 }
 
 object VariableURIs {
@@ -97,15 +104,15 @@ object PackageURIs {
 
   val standardPackageURI = "ada://package__default/standard"
   val anonymousPackageBodyURIprefix = "ada://package_body__anonymous/"
-    
+
   val initBodyProcedureURIprefix = "ada://procedure_body__package_init/"
   val initSpecProcedureURIprefix = "ada://procedure__package_init/"
-    
+
   val constSpecDeclPrefixUri = "ada://constant_declaration/"
   val constBodyDeclPrefixUri = "ada://constant_declaration_body/"
-  
+
   def isPackageAnonymous(u: ResourceUri) = u.startsWith(anonymousPackageBodyURIprefix)
-  
+
   def isPackageInitProcedure(u: ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
   def isPackageBodyInitProcedure(u: ResourceUri) = u.startsWith(initBodyProcedureURIprefix)
   def isPackageSpecInitProcedure(u: ResourceUri) = u.startsWith(initSpecProcedureURIprefix)
@@ -131,7 +138,7 @@ object Attribute {
   val ATTRIBUTE_UIF_PRED = "attribute__uif__pred"
   val ATTRIBUTE_UIF_RESULT = "attribute__uif__result"
   val ATTRIBUTE_UIF_SUCC = "attribute__uif__succ"
-  val ATTRIBUTE_UIF_UPDATE_EXP = "attribute__uif__update_exp"    
+  val ATTRIBUTE_UIF_UPDATE_EXP = "attribute__uif__update_exp"
 }
 
 object BinaryOps {
@@ -142,15 +149,15 @@ object BinaryOps {
 }
 
 object Proof {
-  val PROOF_UIF_ASSERT = "proof__uif__assert"  
+  val PROOF_UIF_ASSERT = "proof__uif__assert"
   val PROOF_UIF_ASSERT_AND_CUT = "proof__uif__assert_and_cut"
-  val PROOF_UIF_ASSUME = "proof__uif__assume"  
+  val PROOF_UIF_ASSUME = "proof__uif__assume"
   val PROOF_UIF_LOOP_INVARIANT = "proof__uif__loop_invariant"
   val PROOF_UIF_LOOP_VARIANT = "proof__uif__loop_variant"
   val PROOF_UIF_FOR_ALL = "proof__uif__for_all"
   val PROOF_UIF_FOR_ALL_REV = "proof__uif__for_all_rev"
   val PROOF_UIF_FOR_SOME = "proof__uif__for_some"
-  val PROOF_UIF_FOR_SOME_REV = "proof__uif__for_some_rev"    
+  val PROOF_UIF_FOR_SOME_REV = "proof__uif__for_some_rev"
 }
 
 object StandardURIs {
@@ -220,7 +227,7 @@ object TranslatorUtil {
   import org.sireum.bakar.xml.NullProcedureDeclaration
   import org.sireum.bakar.xml.OrdinaryTypeDeclaration
   import org.sireum.bakar.xml.PackageBodyDeclaration
-  import org.sireum.bakar.xml.PackageDeclaration  
+  import org.sireum.bakar.xml.PackageDeclaration
   import org.sireum.bakar.xml.PrivateExtensionDeclaration
   import org.sireum.bakar.xml.PrivateTypeDeclaration
   import org.sireum.bakar.xml.ProcedureBodyDeclaration
