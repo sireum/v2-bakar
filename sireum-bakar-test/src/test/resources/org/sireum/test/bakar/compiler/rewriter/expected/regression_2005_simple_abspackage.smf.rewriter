@@ -9,8 +9,6 @@ procedure Integer AbsFunc (
     FIXME _t1;
     FIXME _t2;
     FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
 
 
   #rwl0.
@@ -43,14 +41,8 @@ procedure Integer AbsFunc (
   #l0.
     // empty loc
 
-  #rwl4.
-    _t4 := r;
-
-  #rwl5.
-    _t5 := 0ii;
-
   #l6.
-    assert proof__uif__assert _t4 >= _t5 "Assertion failed at [11, 5]";
+    assert proof__uif__assert r >= 0ii "Assertion failed at [11, 5]";
 
   #l7.
     return r;

@@ -149,19 +149,26 @@ class BakarRewriter {
 
             for (l <- body.locations) {
               clhs = None
+              var rewrite = false
               l match {
                 case ActionLocation(_, _, AssignAction(_, lhs, _, _)) =>
+                  rewrite = true
                   lhs match {
                     case a: AccessExp => clhs = Some(lhs)
                     case i: IndexingExp => clhs = Some(lhs)
                     case _ =>
                   }
+                case ActionLocation(_, _, AssertAction(_, CallExp(NameExp(nu), _), _)) =>
+                  rewrite = !URIS.isUIFUri(nu.uri)
+                case ActionLocation(_, _, AssumeAction(_, CallExp(NameExp(nu), _))) =>
+                  rewrite = !URIS.isUIFUri(nu.uri)
                 case _ =>
+                  rewrite = true
               }
               prelocs = ilistEmpty[LocationDecl]
               postlocs = ilistEmpty[LocationDecl]
 
-              val rl = rewriter(l)
+              val rl = if (rewrite) rewriter(l) else l
               locmap += (rl -> (prelocs, postlocs))
             }
 

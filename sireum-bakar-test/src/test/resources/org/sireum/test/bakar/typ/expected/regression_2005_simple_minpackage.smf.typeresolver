@@ -4,17 +4,3 @@ ada://variable/Minpackage-1:9/MinFunc-2:12/Max+3:12 -> ada://ordinary_type/Stand
 ada://variable/Minpackage-1:9/MinFunc-2:12/Min+3:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t1 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t10 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t11 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t14 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t15 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t6 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t7 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t9 -> ada://ordinary_type/Standard-1:1/Integer-1:1

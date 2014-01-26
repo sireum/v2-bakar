@@ -105,34 +105,9 @@ Procedure Symbol Table
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t15 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t16 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t17 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t18 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t19 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t2 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t20 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t21 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t22 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t23 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t24 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t25 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t26 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t27 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t28 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t29 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t3 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t30 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t31 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t32 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t33 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t34 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t35 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t36 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t37 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t38 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t39 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t4 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t40 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t41 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t42 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t5 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t6 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t7 
@@ -154,19 +129,8 @@ Procedure Symbol Table
       ada://parameter/Loop_Entry-1:9/Record_Loop_Entry-18:14/A-18:33 
       ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Temp+28:6 
       ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Z+35:10 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t43 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t44 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t45 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t46 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t47 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t48 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t49 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t50 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t51 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t52 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t53 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t54 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t55 
+      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t18 
+      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t19 
 
     Params
       ada://parameter/Loop_Entry-1:9/Record_Loop_Entry-18:14/A-18:33 

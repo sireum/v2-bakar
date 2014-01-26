@@ -7,8 +7,6 @@ procedure Integer Inc (
     Integer R;
     FIXME _t0;
     FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
 
 
   #rwl0.
@@ -20,14 +18,8 @@ procedure Integer Inc (
   #l0.
     R := _t0 + _t1;
 
-  #rwl2.
-    _t2 := R;
-
-  #rwl3.
-    _t3 := X;
-
   #l1.
-    assert proof__uif__assert _t2 > _t3 "Assertion failed at [7, 7]";
+    assert proof__uif__assert R > X "Assertion failed at [7, 7]";
 
   #l2.
     return R;

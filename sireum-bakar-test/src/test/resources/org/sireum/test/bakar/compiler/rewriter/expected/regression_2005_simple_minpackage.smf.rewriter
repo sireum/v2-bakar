@@ -9,20 +9,6 @@ procedure Integer MinFunc (
     Integer Max;
     FIXME _t0;
     FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
-    FIXME _t10;
-    FIXME _t11;
-    FIXME _t12;
-    FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
 
 
   #rwl0.
@@ -55,50 +41,8 @@ procedure Integer MinFunc (
   #l0.
     // empty loc
 
-  #rwl2.
-    _t2 := Min;
-
-  #rwl3.
-    _t3 := X;
-
-  #rwl4.
-    _t4 := Min;
-
-  #rwl5.
-    _t5 := Y;
-
-  #rwl6.
-    _t6 := _t2 <= _t3;
-
-  #rwl7.
-    _t7 := _t4 <= _t5;
-
-  #rwl8.
-    _t8 := X;
-
-  #rwl9.
-    _t9 := Max;
-
-  #rwl10.
-    _t10 := _t6 &&& _t7;
-
-  #rwl11.
-    _t11 := _t8 <= _t9;
-
-  #rwl12.
-    _t12 := Y;
-
-  #rwl13.
-    _t13 := Max;
-
-  #rwl14.
-    _t14 := _t10 &&& _t11;
-
-  #rwl15.
-    _t15 := _t12 <= _t13;
-
   #l8.
-    assert proof__uif__assert _t14 &&& _t15 "Assertion failed at [13, 7]";
+    assert proof__uif__assert Min <= X &&& Min <= Y &&& X <= Max &&& Y <= Max "Assertion failed at [13, 7]";
 
   #l9.
     return Min;

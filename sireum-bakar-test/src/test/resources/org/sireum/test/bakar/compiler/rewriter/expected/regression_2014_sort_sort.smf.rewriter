@@ -492,16 +492,6 @@ procedure BubbleSort (
     FIXME _t63;
     FIXME _t64;
     FIXME _t65;
-    FIXME _t66;
-    FIXME _t67;
-    FIXME _t68;
-    FIXME _t69;
-    FIXME _t70;
-    FIXME _t71;
-    FIXME _t72;
-    FIXME _t73;
-    FIXME _t74;
-    FIXME _t75;
 
 
   #l72.
@@ -579,47 +569,29 @@ procedure BubbleSort (
   #l83.
     // empty loc
 
+  #l86.
+    assert proof__uif__assert proof__uif__for_all {Index_Type K => 
+        switch K
+          case (attribute__uif__first `Array_Type, J - 1ii) => Table[K] <= Table[J]
+          default => true} && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [79, 9]";
+
   #rwl58.
     _t58 := J;
 
   #rwl59.
-    _t59 := 1ii;
-
-  #rwl60.
-    _t60 := Table[K];
-
-  #rwl61.
-    _t61 := Table[J];
-
-  #rwl62.
-    _t62 := proof__uif__for_all {Index_Type K => 
-        switch K
-          case (attribute__uif__first `Array_Type, _t58 - _t59) => _t60 <= _t61
-          default => true};
-
-  #rwl63.
-    _t63 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
-
-  #l86.
-    assert proof__uif__assert _t62 && _t63 "Assertion failed at [79, 9]";
-
-  #rwl64.
-    _t64 := J;
-
-  #rwl65.
-    _t65 := _tcomp15;
+    _t59 := _tcomp15;
 
   #l87.
-    if _t64 == _t65 then goto l77;
+    if _t58 == _t59 then goto l77;
 
-  #rwl66.
-    _t66 := J;
+  #rwl60.
+    _t60 := J;
 
-  #rwl67.
-    _t67 := 1ii;
+  #rwl61.
+    _t61 := 1ii;
 
   #l88.
-    J := _t66 + _t67;
+    J := _t60 + _t61;
 
   #l89.
     goto l82;
@@ -627,38 +599,26 @@ procedure BubbleSort (
   #l77.
     // empty loc
 
-  #rwl68.
-    _t68 := Ordered (Table, I, attribute__uif__last `Index_Type);
-
-  #rwl69.
-    _t69 := Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type);
-
-  #rwl70.
-    _t70 := _t68 && _t69;
-
-  #rwl71.
-    _t71 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
-
   #l90.
-    assert proof__uif__assert _t70 && _t71 "Assertion failed at [88, 8]";
+    assert proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [88, 8]";
 
-  #rwl72.
-    _t72 := I;
+  #rwl62.
+    _t62 := I;
 
-  #rwl73.
-    _t73 := _tcomp12;
+  #rwl63.
+    _t63 := _tcomp12;
 
   #l91.
-    if _t72 == _t73 then goto l71;
+    if _t62 == _t63 then goto l71;
 
-  #rwl74.
-    _t74 := I;
+  #rwl64.
+    _t64 := I;
 
-  #rwl75.
-    _t75 := 1ii;
+  #rwl65.
+    _t65 := 1ii;
 
   #l92.
-    I := _t74 - _t75;
+    I := _t64 - _t65;
 
   #l93.
     goto l76;
@@ -676,10 +636,136 @@ procedure BubbleSortFast (
     Base_Index_Type Bound;
     Base_Index_Type T;
     Index_Type J;
+    FIXME _t66;
+    FIXME _t67;
+    FIXME _t68;
+    FIXME _t69;
+    FIXME _t70;
+    FIXME _t71;
+    FIXME _t72;
+    FIXME _t73;
+    FIXME _t74;
+    FIXME _t75;
     FIXME _t76;
     FIXME _t77;
     FIXME _t78;
     FIXME _t79;
+
+
+  #l95.
+    Bound := attribute__uif__last `Index_Type;
+
+  #l96.
+    // empty loc
+
+  #rwl66.
+    _t66 := Bound;
+
+  #rwl67.
+    _t67 := 0ii;
+
+  #l98.
+    if _t66 == _t67 then goto l97;
+
+  #l99.
+    J := attribute__uif__first `Index_Type;
+
+  #l100.
+    T := 0ii;
+
+  #l102.
+    // empty loc
+
+  #rwl68.
+    _t68 := Bound;
+
+  #rwl69.
+    _t69 := 1ii;
+
+  #rwl70.
+    _t70 := J;
+
+  #rwl71.
+    _t71 := _t68 - _t69;
+
+  #l103.
+    if !(_t70 <= _t71) then goto l101;
+
+  #rwl72.
+    _t72 := J;
+
+  #rwl73.
+    _t73 := 1ii;
+
+  #rwl74.
+    _t74 := Table[J];
+
+  #rwl75.
+    _t75 := Table[_t72 + _t73];
+
+  #l105.
+    if !(_t74 > _t75) then goto l104;
+
+  #rwl76.
+    _t76 := J;
+
+  #rwl77.
+    _t77 := 1ii;
+
+  #l106.
+    call Swap_Elements (Table, J, _t76 + _t77);
+
+  #l107.
+    T := J;
+
+  #l104.
+    // empty loc
+
+  #rwl78.
+    _t78 := J;
+
+  #rwl79.
+    _t79 := 1ii;
+
+  #l108.
+    J := _t78 + _t79;
+
+  #l109.
+    assert proof__uif__assert proof__uif__for_all {Index_Type K => 
+        switch K
+          case (attribute__uif__first `Index_Type, J - 1ii) => Table[K] <= Table[J]
+          default => true} && Partitioned (Table, attribute__uif__first `Index_Type, T, J) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [114, 9]";
+
+  #l110.
+    goto l102;
+
+  #l101.
+    // empty loc
+
+  #l111.
+    assert proof__uif__assert Ordered (Table, Bound, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [125, 9]";
+
+  #l112.
+    Bound := T;
+
+  #l113.
+    goto l96;
+
+  #l97.
+    // empty loc
+
+  #l114.
+    return;
+}
+
+procedure InsertionSort (
+        Array_Type Table) {
+  local
+    Index_Type J;
+    Contents_Type Temp;
+    Index_Type P;
+    Index_Type _tcomp16;
+    Index_Type _tcomp17;
     FIXME _t80;
     FIXME _t81;
     FIXME _t82;
@@ -704,74 +790,53 @@ procedure BubbleSortFast (
     FIXME _t101;
 
 
-  #l95.
-    Bound := attribute__uif__last `Index_Type;
-
-  #l96.
-    // empty loc
-
-  #rwl76.
-    _t76 := Bound;
-
-  #rwl77.
-    _t77 := 0ii;
-
-  #l98.
-    if _t76 == _t77 then goto l97;
-
-  #l99.
-    J := attribute__uif__first `Index_Type;
-
-  #l100.
-    T := 0ii;
-
-  #l102.
-    // empty loc
-
-  #rwl78.
-    _t78 := Bound;
-
-  #rwl79.
-    _t79 := 1ii;
-
   #rwl80.
-    _t80 := J;
+    _t80 := attribute__uif__first `Index_Type;
 
   #rwl81.
-    _t81 := _t78 - _t79;
+    _t81 := 1ii;
 
-  #l103.
-    if !(_t80 <= _t81) then goto l101;
+  #l116.
+    _tcomp16 := _t80 + _t81;
+
+  #l117.
+    _tcomp17 := attribute__uif__last `Index_Type;
 
   #rwl82.
-    _t82 := J;
+    _t82 := _tcomp16;
 
   #rwl83.
-    _t83 := 1ii;
+    _t83 := _tcomp17;
+
+  #l118.
+    if _t82 > _t83 then goto l115;
+
+  #l119.
+    P := _tcomp16;
+
+  #l120.
+    // empty loc
+
+  #l121.
+    Temp := Table[P];
+
+  #l122.
+    J := P;
+
+  #l124.
+    // empty loc
 
   #rwl84.
-    _t84 := Table[J];
+    _t84 := attribute__uif__first `Index_Type;
 
   #rwl85.
-    _t85 := Table[_t82 + _t83];
-
-  #l105.
-    if !(_t84 > _t85) then goto l104;
+    _t85 := 1ii;
 
   #rwl86.
     _t86 := J;
 
   #rwl87.
-    _t87 := 1ii;
-
-  #l106.
-    call Swap_Elements (Table, J, _t86 + _t87);
-
-  #l107.
-    T := J;
-
-  #l104.
-    // empty loc
+    _t87 := _t84 + _t85;
 
   #rwl88.
     _t88 := J;
@@ -779,81 +844,96 @@ procedure BubbleSortFast (
   #rwl89.
     _t89 := 1ii;
 
-  #l108.
-    J := _t88 + _t89;
-
   #rwl90.
-    _t90 := J;
+    _t90 := Table[_t88 - _t89];
 
   #rwl91.
-    _t91 := 1ii;
+    _t91 := Temp;
 
   #rwl92.
-    _t92 := Table[K];
+    _t92 := _t86 >= _t87;
 
   #rwl93.
-    _t93 := Table[J];
+    _t93 := _t90 > _t91;
+
+  #l125.
+    if !(_t92 &&& _t93) then goto l123;
 
   #rwl94.
-    _t94 := proof__uif__for_all {Index_Type K => 
-        switch K
-          case (attribute__uif__first `Index_Type, _t90 - _t91) => _t92 <= _t93
-          default => true};
+    _t94 := J;
 
   #rwl95.
-    _t95 := Partitioned (Table, attribute__uif__first `Index_Type, T, J);
+    _t95 := 1ii;
+
+  #l126.
+    Table[J] := Table[_t94 - _t95];
 
   #rwl96.
-    _t96 := _t94 && _t95;
+    _t96 := J;
 
   #rwl97.
-    _t97 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    _t97 := 1ii;
 
-  #l109.
-    assert proof__uif__assert _t96 && _t97 "Assertion failed at [114, 9]";
+  #l127.
+    J := _t96 - _t97;
 
-  #l110.
-    goto l102;
+  #l128.
+    assert proof__uif__assert Temp == attribute__uif__loop_entry (LOOP_LABEL_10, Table)[P] && attribute__uif__first `Index_Type <= J && J < P && proof__uif__for_all {Index_Type K => 
+        switch K
+          case (J + 1ii, P) => Table[K] > Temp
+          default => true} && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P) "Assertion failed at [149, 9]";
 
-  #l101.
+  #l129.
+    goto l124;
+
+  #l123.
     // empty loc
+
+  #l130.
+    Table[J] := Temp;
+
+  #l131.
+    assert proof__uif__assert attribute__uif__first `Index_Type + 1ii <= P && P <= attribute__uif__last `Index_Type && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P) && proof__uif__for_all {Index_Type K => 
+        switch K
+          case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry (LOOP_LABEL_9, Table)[K]
+          default => true} "Assertion failed at [164, 9]";
 
   #rwl98.
-    _t98 := Ordered (Table, Bound, attribute__uif__last `Index_Type);
+    _t98 := P;
 
   #rwl99.
-    _t99 := Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type);
+    _t99 := _tcomp17;
+
+  #l132.
+    if _t98 == _t99 then goto l115;
 
   #rwl100.
-    _t100 := _t98 && _t99;
+    _t100 := P;
 
   #rwl101.
-    _t101 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type);
+    _t101 := 1ii;
 
-  #l111.
-    assert proof__uif__assert _t100 && _t101 "Assertion failed at [125, 9]";
+  #l133.
+    P := _t100 + _t101;
 
-  #l112.
-    Bound := T;
+  #l134.
+    goto l120;
 
-  #l113.
-    goto l96;
-
-  #l97.
+  #l115.
     // empty loc
 
-  #l114.
+  #l135.
     return;
 }
 
-procedure InsertionSort (
+procedure ShellSort (
         Array_Type Table) {
   local
-    Index_Type J;
-    Contents_Type Temp;
-    Index_Type P;
-    Index_Type _tcomp16;
-    Index_Type _tcomp17;
+    Index_Type Gap;
+    Integer J;
+    Index_Type I;
+    Index_Type _tcomp18;
+    Index_Type _tcomp19;
     FIXME _t102;
     FIXME _t103;
     FIXME _t104;
@@ -878,334 +958,6 @@ procedure InsertionSort (
     FIXME _t123;
     FIXME _t124;
     FIXME _t125;
-    FIXME _t126;
-    FIXME _t127;
-    FIXME _t128;
-    FIXME _t129;
-    FIXME _t130;
-    FIXME _t131;
-    FIXME _t132;
-    FIXME _t133;
-    FIXME _t134;
-    FIXME _t135;
-    FIXME _t136;
-    FIXME _t137;
-    FIXME _t138;
-    FIXME _t139;
-    FIXME _t140;
-    FIXME _t141;
-    FIXME _t142;
-    FIXME _t143;
-    FIXME _t144;
-    FIXME _t145;
-    FIXME _t146;
-    FIXME _t147;
-    FIXME _t148;
-    FIXME _t149;
-    FIXME _t150;
-    FIXME _t151;
-    FIXME _t152;
-    FIXME _t153;
-    FIXME _t154;
-    FIXME _t155;
-    FIXME _t156;
-    FIXME _t157;
-    FIXME _t158;
-    FIXME _t159;
-    FIXME _t160;
-    FIXME _t161;
-    FIXME _t162;
-    FIXME _t163;
-
-
-  #rwl102.
-    _t102 := attribute__uif__first `Index_Type;
-
-  #rwl103.
-    _t103 := 1ii;
-
-  #l116.
-    _tcomp16 := _t102 + _t103;
-
-  #l117.
-    _tcomp17 := attribute__uif__last `Index_Type;
-
-  #rwl104.
-    _t104 := _tcomp16;
-
-  #rwl105.
-    _t105 := _tcomp17;
-
-  #l118.
-    if _t104 > _t105 then goto l115;
-
-  #l119.
-    P := _tcomp16;
-
-  #l120.
-    // empty loc
-
-  #l121.
-    Temp := Table[P];
-
-  #l122.
-    J := P;
-
-  #l124.
-    // empty loc
-
-  #rwl106.
-    _t106 := attribute__uif__first `Index_Type;
-
-  #rwl107.
-    _t107 := 1ii;
-
-  #rwl108.
-    _t108 := J;
-
-  #rwl109.
-    _t109 := _t106 + _t107;
-
-  #rwl110.
-    _t110 := J;
-
-  #rwl111.
-    _t111 := 1ii;
-
-  #rwl112.
-    _t112 := Table[_t110 - _t111];
-
-  #rwl113.
-    _t113 := Temp;
-
-  #rwl114.
-    _t114 := _t108 >= _t109;
-
-  #rwl115.
-    _t115 := _t112 > _t113;
-
-  #l125.
-    if !(_t114 &&& _t115) then goto l123;
-
-  #rwl116.
-    _t116 := J;
-
-  #rwl117.
-    _t117 := 1ii;
-
-  #l126.
-    Table[J] := Table[_t116 - _t117];
-
-  #rwl118.
-    _t118 := J;
-
-  #rwl119.
-    _t119 := 1ii;
-
-  #l127.
-    J := _t118 - _t119;
-
-  #rwl120.
-    _t120 := attribute__uif__loop_entry (LOOP_LABEL_10, Table);
-
-  #rwl121.
-    _t121 := Temp;
-
-  #rwl122.
-    _t122 := _t120[P];
-
-  #rwl123.
-    _t123 := attribute__uif__first `Index_Type;
-
-  #rwl124.
-    _t124 := J;
-
-  #rwl125.
-    _t125 := _t121 == _t122;
-
-  #rwl126.
-    _t126 := _t123 <= _t124;
-
-  #rwl127.
-    _t127 := J;
-
-  #rwl128.
-    _t128 := P;
-
-  #rwl129.
-    _t129 := _t125 && _t126;
-
-  #rwl130.
-    _t130 := _t127 < _t128;
-
-  #rwl131.
-    _t131 := J;
-
-  #rwl132.
-    _t132 := 1ii;
-
-  #rwl133.
-    _t133 := Table[K];
-
-  #rwl134.
-    _t134 := Temp;
-
-  #rwl135.
-    _t135 := _t129 && _t130;
-
-  #rwl136.
-    _t136 := proof__uif__for_all {Index_Type K => 
-        switch K
-          case (_t131 + _t132, P) => _t133 > _t134
-          default => true};
-
-  #rwl137.
-    _t137 := _t135 && _t136;
-
-  #rwl138.
-    _t138 := Ordered (Table, attribute__uif__first `Index_Type, P);
-
-  #rwl139.
-    _t139 := _t137 && _t138;
-
-  #rwl140.
-    _t140 := Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P);
-
-  #l128.
-    assert proof__uif__assert _t139 && _t140 "Assertion failed at [149, 9]";
-
-  #l129.
-    goto l124;
-
-  #l123.
-    // empty loc
-
-  #l130.
-    Table[J] := Temp;
-
-  #rwl141.
-    _t141 := attribute__uif__first `Index_Type;
-
-  #rwl142.
-    _t142 := 1ii;
-
-  #rwl143.
-    _t143 := _t141 + _t142;
-
-  #rwl144.
-    _t144 := P;
-
-  #rwl145.
-    _t145 := P;
-
-  #rwl146.
-    _t146 := attribute__uif__last `Index_Type;
-
-  #rwl147.
-    _t147 := _t143 <= _t144;
-
-  #rwl148.
-    _t148 := _t145 <= _t146;
-
-  #rwl149.
-    _t149 := _t147 && _t148;
-
-  #rwl150.
-    _t150 := Ordered (Table, attribute__uif__first `Index_Type, P);
-
-  #rwl151.
-    _t151 := _t149 && _t150;
-
-  #rwl152.
-    _t152 := Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P);
-
-  #rwl153.
-    _t153 := P;
-
-  #rwl154.
-    _t154 := 1ii;
-
-  #rwl155.
-    _t155 := attribute__uif__loop_entry (LOOP_LABEL_9, Table);
-
-  #rwl156.
-    _t156 := Table[K];
-
-  #rwl157.
-    _t157 := _t155[K];
-
-  #rwl158.
-    _t158 := _t151 && _t152;
-
-  #rwl159.
-    _t159 := proof__uif__for_all {Index_Type K => 
-        switch K
-          case (_t153 + _t154, attribute__uif__last `Index_Type) => _t156 == _t157
-          default => true};
-
-  #l131.
-    assert proof__uif__assert _t158 && _t159 "Assertion failed at [164, 9]";
-
-  #rwl160.
-    _t160 := P;
-
-  #rwl161.
-    _t161 := _tcomp17;
-
-  #l132.
-    if _t160 == _t161 then goto l115;
-
-  #rwl162.
-    _t162 := P;
-
-  #rwl163.
-    _t163 := 1ii;
-
-  #l133.
-    P := _t162 + _t163;
-
-  #l134.
-    goto l120;
-
-  #l115.
-    // empty loc
-
-  #l135.
-    return;
-}
-
-procedure ShellSort (
-        Array_Type Table) {
-  local
-    Index_Type Gap;
-    Integer J;
-    Index_Type I;
-    Index_Type _tcomp18;
-    Index_Type _tcomp19;
-    FIXME _t164;
-    FIXME _t165;
-    FIXME _t166;
-    FIXME _t167;
-    FIXME _t168;
-    FIXME _t169;
-    FIXME _t170;
-    FIXME _t171;
-    FIXME _t172;
-    FIXME _t173;
-    FIXME _t174;
-    FIXME _t175;
-    FIXME _t176;
-    FIXME _t177;
-    FIXME _t178;
-    FIXME _t179;
-    FIXME _t180;
-    FIXME _t181;
-    FIXME _t182;
-    FIXME _t183;
-    FIXME _t184;
-    FIXME _t185;
-    FIXME _t186;
-    FIXME _t187;
 
 
   #l136.
@@ -1214,14 +966,14 @@ procedure ShellSort (
   #l137.
     // empty loc
 
-  #rwl164.
-    _t164 := Gap;
+  #rwl102.
+    _t102 := Gap;
 
-  #rwl165.
-    _t165 := 2ii;
+  #rwl103.
+    _t103 := 2ii;
 
   #l139.
-    Gap := _t164 / _t165;
+    Gap := _t102 / _t103;
 
   #l141.
     _tcomp18 := Gap;
@@ -1229,14 +981,14 @@ procedure ShellSort (
   #l142.
     _tcomp19 := attribute__uif__last `Index_Type;
 
-  #rwl166.
-    _t166 := _tcomp18;
+  #rwl104.
+    _t104 := _tcomp18;
 
-  #rwl167.
-    _t167 := _tcomp19;
+  #rwl105.
+    _t105 := _tcomp19;
 
   #l143.
-    if _t166 > _t167 then goto l140;
+    if _t104 > _t105 then goto l140;
 
   #l144.
     I := _tcomp18;
@@ -1244,62 +996,62 @@ procedure ShellSort (
   #l145.
     // empty loc
 
-  #rwl168.
-    _t168 := I;
+  #rwl106.
+    _t106 := I;
 
-  #rwl169.
-    _t169 := Gap;
+  #rwl107.
+    _t107 := Gap;
 
   #l146.
-    J := _t168 - _t169;
+    J := _t106 - _t107;
 
   #l148.
     // empty loc
 
-  #rwl170.
-    _t170 := J;
+  #rwl108.
+    _t108 := J;
 
-  #rwl171.
-    _t171 := attribute__uif__first `Index_Type;
+  #rwl109.
+    _t109 := attribute__uif__first `Index_Type;
 
-  #rwl172.
-    _t172 := J;
+  #rwl110.
+    _t110 := J;
 
-  #rwl173.
-    _t173 := Gap;
+  #rwl111.
+    _t111 := Gap;
 
-  #rwl174.
-    _t174 := Table[J];
+  #rwl112.
+    _t112 := Table[J];
 
-  #rwl175.
-    _t175 := Table[_t172 + _t173];
+  #rwl113.
+    _t113 := Table[_t110 + _t111];
 
-  #rwl176.
-    _t176 := _t170 >= _t171;
+  #rwl114.
+    _t114 := _t108 >= _t109;
 
-  #rwl177.
-    _t177 := _t174 > _t175;
+  #rwl115.
+    _t115 := _t112 > _t113;
 
   #l149.
-    if !(_t176 &&& _t177) then goto l147;
+    if !(_t114 &&& _t115) then goto l147;
 
-  #rwl178.
-    _t178 := J;
+  #rwl116.
+    _t116 := J;
 
-  #rwl179.
-    _t179 := Gap;
+  #rwl117.
+    _t117 := Gap;
 
   #l150.
-    call Swap_Elements (Table, J, _t178 + _t179);
+    call Swap_Elements (Table, J, _t116 + _t117);
 
-  #rwl180.
-    _t180 := J;
+  #rwl118.
+    _t118 := J;
 
-  #rwl181.
-    _t181 := Gap;
+  #rwl119.
+    _t119 := Gap;
 
   #l151.
-    J := _t180 - _t181;
+    J := _t118 - _t119;
 
   #l152.
     goto l148;
@@ -1307,23 +1059,23 @@ procedure ShellSort (
   #l147.
     // empty loc
 
-  #rwl182.
-    _t182 := I;
+  #rwl120.
+    _t120 := I;
 
-  #rwl183.
-    _t183 := _tcomp19;
+  #rwl121.
+    _t121 := _tcomp19;
 
   #l153.
-    if _t182 == _t183 then goto l140;
+    if _t120 == _t121 then goto l140;
 
-  #rwl184.
-    _t184 := I;
+  #rwl122.
+    _t122 := I;
 
-  #rwl185.
-    _t185 := 1ii;
+  #rwl123.
+    _t123 := 1ii;
 
   #l154.
-    I := _t184 + _t185;
+    I := _t122 + _t123;
 
   #l155.
     goto l145;
@@ -1331,14 +1083,14 @@ procedure ShellSort (
   #l140.
     // empty loc
 
-  #rwl186.
-    _t186 := Gap;
+  #rwl124.
+    _t124 := Gap;
 
-  #rwl187.
-    _t187 := attribute__uif__first `Index_Type;
+  #rwl125.
+    _t125 := attribute__uif__first `Index_Type;
 
   #l156.
-    if _t186 == _t187 then goto l138;
+    if _t124 == _t125 then goto l138;
 
   #l157.
     goto l137;

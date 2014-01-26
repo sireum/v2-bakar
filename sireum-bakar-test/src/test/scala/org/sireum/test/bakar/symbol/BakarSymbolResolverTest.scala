@@ -212,7 +212,7 @@ object BakarSymbolResolverTest extends ImplicitLogging {
 
         if(URIS.isGlobalVarUri(nu.uri)){
           
-        }          
+        }
         false
     })
     

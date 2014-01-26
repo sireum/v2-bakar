@@ -32,8 +32,6 @@ procedure Integer Add (
     FIXME _t11;
     FIXME _t12;
     FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
 
 
   #rwl0.
@@ -99,14 +97,8 @@ procedure Integer Add (
   #l7.
     r6 := _t12 + _t13;
 
-  #rwl14.
-    _t14 := r2;
-
-  #rwl15.
-    _t15 := r5;
-
   #l8.
-    assert proof__uif__assert _t14 == _t15 "Assertion failed at [16, 5]";
+    assert proof__uif__assert r2 == r5 "Assertion failed at [16, 5]";
 
   #l9.
     return r6;
@@ -123,6 +115,8 @@ procedure Integer Sub (
     Integer r4;
     Integer r5;
     Integer r6;
+    FIXME _t14;
+    FIXME _t15;
     FIXME _t16;
     FIXME _t17;
     FIXME _t18;
@@ -135,72 +129,70 @@ procedure Integer Sub (
     FIXME _t25;
     FIXME _t26;
     FIXME _t27;
-    FIXME _t28;
-    FIXME _t29;
 
 
-  #rwl16.
-    _t16 := 1ii;
+  #rwl14.
+    _t14 := 1ii;
 
-  #rwl17.
-    _t17 := 2ii;
+  #rwl15.
+    _t15 := 2ii;
 
   #l10.
-    r0 := _t16 - _t17;
+    r0 := _t14 - _t15;
+
+  #rwl16.
+    _t16 := I;
+
+  #rwl17.
+    _t17 := 1ii;
+
+  #l11.
+    r1 := _t16 - _t17;
 
   #rwl18.
     _t18 := I;
 
   #rwl19.
-    _t19 := 1ii;
+    _t19 := J;
 
-  #l11.
-    r1 := _t18 - _t19;
+  #l12.
+    r2 := _t18 - _t19;
 
   #rwl20.
     _t20 := I;
 
   #rwl21.
-    _t21 := J;
-
-  #l12.
-    r2 := _t20 - _t21;
-
-  #rwl22.
-    _t22 := I;
-
-  #rwl23.
-    _t23 := I;
+    _t21 := I;
 
   #l13.
-    r3 := _t22 - _t23;
+    r3 := _t20 - _t21;
+
+  #rwl22.
+    _t22 := J;
+
+  #rwl23.
+    _t23 := J;
+
+  #l14.
+    r4 := _t22 - _t23;
 
   #rwl24.
     _t24 := J;
 
   #rwl25.
-    _t25 := J;
+    _t25 := I;
 
-  #l14.
-    r4 := _t24 - _t25;
+  #l15.
+    r5 := _t24 - _t25;
 
   #rwl26.
     _t26 := J;
 
   #rwl27.
-    _t27 := I;
-
-  #l15.
-    r5 := _t26 - _t27;
-
-  #rwl28.
-    _t28 := J;
-
-  #rwl29.
-    _t29 := 1ii;
+    _t27 := 1ii;
 
   #l16.
-    r6 := _t28 - _t29;
+    r6 := _t26 - _t27;
 
   #l17.
     return r6;
@@ -217,6 +209,8 @@ procedure Integer Mult (
     Integer r4;
     Integer r5;
     Integer r6;
+    FIXME _t28;
+    FIXME _t29;
     FIXME _t30;
     FIXME _t31;
     FIXME _t32;
@@ -229,83 +223,73 @@ procedure Integer Mult (
     FIXME _t39;
     FIXME _t40;
     FIXME _t41;
-    FIXME _t42;
-    FIXME _t43;
-    FIXME _t44;
-    FIXME _t45;
 
 
-  #rwl30.
-    _t30 := 1ii;
+  #rwl28.
+    _t28 := 1ii;
 
-  #rwl31.
-    _t31 := 2ii;
+  #rwl29.
+    _t29 := 2ii;
 
   #l18.
-    r0 := _t30 * _t31;
+    r0 := _t28 * _t29;
+
+  #rwl30.
+    _t30 := I;
+
+  #rwl31.
+    _t31 := 1ii;
+
+  #l19.
+    r1 := _t30 * _t31;
 
   #rwl32.
     _t32 := I;
 
   #rwl33.
-    _t33 := 1ii;
+    _t33 := J;
 
-  #l19.
-    r1 := _t32 * _t33;
+  #l20.
+    r2 := _t32 * _t33;
 
   #rwl34.
     _t34 := I;
 
   #rwl35.
-    _t35 := J;
-
-  #l20.
-    r2 := _t34 * _t35;
-
-  #rwl36.
-    _t36 := I;
-
-  #rwl37.
-    _t37 := I;
+    _t35 := I;
 
   #l21.
-    r3 := _t36 * _t37;
+    r3 := _t34 * _t35;
+
+  #rwl36.
+    _t36 := J;
+
+  #rwl37.
+    _t37 := J;
+
+  #l22.
+    r4 := _t36 * _t37;
 
   #rwl38.
     _t38 := J;
 
   #rwl39.
-    _t39 := J;
+    _t39 := I;
 
-  #l22.
-    r4 := _t38 * _t39;
+  #l23.
+    r5 := _t38 * _t39;
 
   #rwl40.
     _t40 := J;
 
   #rwl41.
-    _t41 := I;
-
-  #l23.
-    r5 := _t40 * _t41;
-
-  #rwl42.
-    _t42 := J;
-
-  #rwl43.
-    _t43 := 1ii;
+    _t41 := 1ii;
 
   #l24.
-    r6 := _t42 * _t43;
-
-  #rwl44.
-    _t44 := r2;
-
-  #rwl45.
-    _t45 := r5;
+    r6 := _t40 * _t41;
 
   #l25.
-    assert proof__uif__assert _t44 == _t45 "Assertion failed at [46, 5]";
+    assert proof__uif__assert r2 == r5 "Assertion failed at [46, 5]";
 
   #l26.
     return r6;
@@ -322,6 +306,10 @@ procedure Integer Division (
     Integer r4;
     Integer r5;
     Integer r6;
+    FIXME _t42;
+    FIXME _t43;
+    FIXME _t44;
+    FIXME _t45;
     FIXME _t46;
     FIXME _t47;
     FIXME _t48;
@@ -332,74 +320,70 @@ procedure Integer Division (
     FIXME _t53;
     FIXME _t54;
     FIXME _t55;
-    FIXME _t56;
-    FIXME _t57;
-    FIXME _t58;
-    FIXME _t59;
 
 
-  #rwl46.
-    _t46 := 1ii;
+  #rwl42.
+    _t42 := 1ii;
 
-  #rwl47.
-    _t47 := 2ii;
+  #rwl43.
+    _t43 := 2ii;
 
   #l27.
-    r0 := _t46 / _t47;
+    r0 := _t42 / _t43;
+
+  #rwl44.
+    _t44 := I;
+
+  #rwl45.
+    _t45 := 1ii;
+
+  #l28.
+    r1 := _t44 / _t45;
+
+  #rwl46.
+    _t46 := I;
+
+  #rwl47.
+    _t47 := I;
+
+  #l29.
+    r2 := _t46 / _t47;
 
   #rwl48.
     _t48 := I;
 
   #rwl49.
-    _t49 := 1ii;
+    _t49 := J;
 
-  #l28.
-    r1 := _t48 / _t49;
+  #l30.
+    r3 := _t48 / _t49;
 
   #rwl50.
-    _t50 := I;
+    _t50 := J;
 
   #rwl51.
     _t51 := I;
 
-  #l29.
-    r2 := _t50 / _t51;
+  #l31.
+    r4 := _t50 / _t51;
 
   #rwl52.
-    _t52 := I;
+    _t52 := J;
 
   #rwl53.
     _t53 := J;
 
-  #l30.
-    r3 := _t52 / _t53;
+  #l32.
+    r5 := _t52 / _t53;
 
   #rwl54.
     _t54 := J;
 
   #rwl55.
-    _t55 := I;
-
-  #l31.
-    r4 := _t54 / _t55;
-
-  #rwl56.
-    _t56 := J;
-
-  #rwl57.
-    _t57 := J;
-
-  #l32.
-    r5 := _t56 / _t57;
-
-  #rwl58.
-    _t58 := J;
-
-  #rwl59.
-    _t59 := 1ii;
+    _t55 := 1ii;
 
   #l33.
-    r6 := _t58 / _t59;
+    r6 := _t54 / _t55;
 
   #l34.
     return r6;

@@ -4,5 +4,3 @@ ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t0 -> ada://ordinary_type/Stan
 ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t1 -> ada://ordinary_type/universal_integer
 ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/AbsPackage-1:9/AbsFunc-2:14/_t5 -> ada://ordinary_type/universal_integer

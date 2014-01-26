@@ -92,8 +92,6 @@ Procedure Symbol Table
       ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t11 
       ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t12 
       ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t13 
-      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t14 
-      ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t15 
       ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t2 
       ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t3 
       ada://variable__temp/BinaryExpressions-1:9/Add+5:12/_t4 
@@ -121,6 +119,10 @@ Procedure Symbol Table
       ada://variable/BinaryExpressions-1:9/Division+50:12/r4+52:21 
       ada://variable/BinaryExpressions-1:9/Division+50:12/r5+52:25 
       ada://variable/BinaryExpressions-1:9/Division+50:12/r6+52:29 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t42 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t43 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t44 
+      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t45 
       ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t46 
       ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t47 
       ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t48 
@@ -131,10 +133,6 @@ Procedure Symbol Table
       ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t53 
       ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t54 
       ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t55 
-      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t56 
-      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t57 
-      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t58 
-      ada://variable__temp/BinaryExpressions-1:9/Division+50:12/_t59 
 
     Params
       ada://parameter/BinaryExpressions-1:9/Division+50:12/I+50:21 
@@ -154,6 +152,8 @@ Procedure Symbol Table
       ada://variable/BinaryExpressions-1:9/Mult+35:12/r4+37:21 
       ada://variable/BinaryExpressions-1:9/Mult+35:12/r5+37:25 
       ada://variable/BinaryExpressions-1:9/Mult+35:12/r6+37:29 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t28 
+      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t29 
       ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t30 
       ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t31 
       ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t32 
@@ -166,10 +166,6 @@ Procedure Symbol Table
       ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t39 
       ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t40 
       ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t41 
-      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t42 
-      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t43 
-      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t44 
-      ada://variable__temp/BinaryExpressions-1:9/Mult+35:12/_t45 
 
     Params
       ada://parameter/BinaryExpressions-1:9/Mult+35:12/I+35:17 
@@ -189,6 +185,8 @@ Procedure Symbol Table
       ada://variable/BinaryExpressions-1:9/Sub+20:12/r4+22:21 
       ada://variable/BinaryExpressions-1:9/Sub+20:12/r5+22:25 
       ada://variable/BinaryExpressions-1:9/Sub+20:12/r6+22:29 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t14 
+      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t15 
       ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t16 
       ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t17 
       ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t18 
@@ -201,8 +199,6 @@ Procedure Symbol Table
       ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t25 
       ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t26 
       ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t27 
-      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t28 
-      ada://variable__temp/BinaryExpressions-1:9/Sub+20:12/_t29 
 
     Params
       ada://parameter/BinaryExpressions-1:9/Sub+20:12/I+20:16 

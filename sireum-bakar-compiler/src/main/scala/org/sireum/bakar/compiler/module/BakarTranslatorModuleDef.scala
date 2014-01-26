@@ -43,10 +43,12 @@ import org.sireum.bakar.xml.ComponentDefinitionEx
 import org.sireum.bakar.xml.ConcatenateOperator
 import org.sireum.bakar.xml.ConstantDeclarationEx
 import org.sireum.bakar.xml.ConstrainedArrayDefinitionEx
+import org.sireum.bakar.xml.DeclarationClass
 import org.sireum.bakar.xml.DeferredConstantDeclarationEx
 import org.sireum.bakar.xml.DefiningEnumerationLiteralEx
 import org.sireum.bakar.xml.DefiningIdentifier
 import org.sireum.bakar.xml.DefiningIdentifierEx
+import org.sireum.bakar.xml.DefiningNameClass
 import org.sireum.bakar.xml.DefiningNameList
 import org.sireum.bakar.xml.DefinitionClass
 import org.sireum.bakar.xml.DerivedTypeDefinitionEx
@@ -413,9 +415,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
 
     def getContextPath = URIS.getPath(contextStack.top.uri)
-    
+
     def processingPackage = contextStack.head.kind == CTX.PACKAGE
 
+    var inProofContext = false
     var _noTempVars = false
     def noTempVars = _noTempVars
     def noTempVars(isProcessing: Boolean) = _noTempVars = isProcessing
@@ -432,6 +435,112 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         var lineEnd = s.getEndline
         var columnEnd = s.getEndcol
       }
+
+    def handleLoop(v: => BVisitor, sloc: SourceLocation,
+      labelnames: Option[DefiningNameList], 
+      statementIdentifier: Option[DefiningNameClass],
+      forLoopParameterSpecification: Base,
+      loopStatements: Option[StatementList], 
+      exp: Option[Base],
+      quantifiedExpType:Option[ResourceUri],
+      checks: String) : NameExp = {
+
+      val (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound) =
+        handleLoopParam(v, forLoopParameterSpecification)
+
+      val endLoc = createEmptyLocation(newLocLabel, ivectorEmpty)
+      pushExitLocation(endLoc)
+
+      // introduce a local variable for iterVar
+      val typeUri = markNE.name.uri
+      val typeSpec = PNF.buildNamedTypeSpec(markNE.name, typeUri)
+      val lvd = PNF.buildLocalVar(iterND, typeSpec)
+      localsPush(lvd)
+
+      // NOTE: in ADA the loop bounds are fixed by the initial values of 
+      //       the low and high ranges assigned to the iter var.  So we
+      //       assign the low/high bound exp to temp vars since their
+      //       interpretation could change during the loop
+      val lowtemp = genTempVar(markURI)
+      createPushAssignmentLocation(lowtemp, lowBound, ivectorEmpty, sloc)
+      val hightemp = genTempVar(markURI)
+      createPushAssignmentLocation(hightemp, highBound, ivectorEmpty, sloc)
+
+      // null range check
+      val be = handleBE(sloc, PilarAstUtil.GT_BINOP, lowtemp, hightemp, StandardURIs.boolURI)
+      val itj = IfThenJump(be, ivectorEmpty, endLoc.name.get)
+      val ij = IfJump(ivectorEmpty, ivector(itj), None)
+      val nullCheck = JumpLocation(Some(newLocLabel), ivectorEmpty, ij)
+      pushLocation(nullCheck)
+
+      // initialize iter var
+      createPushAssignmentLocation(iterNE,
+        if (isRev) hightemp else lowtemp, ivectorEmpty, sloc)
+        
+      val resultVar = 
+        if(quantifiedExpType.isDefined){
+          val tv = genTempVar(StandardURIs.boolURI)
+          val initVal = if(quantifiedExpType.get == Proof.PROOF_UIF_FOR_ALL) 
+            PNF.buildLiteralExp(LiteralType.BOOLEAN, true, "true", StandardURIs.boolURI)
+          else 
+            PNF.buildLiteralExp(LiteralType.BOOLEAN, false, "false", StandardURIs.boolURI)
+            
+          createPushAssignmentLocation(tv, initVal, ivectorEmpty, sloc)
+          tv
+        }
+      else null
+      
+      val loopStart = pushLocation(createEmptyLocation(newLocLabel))
+
+      if (statementIdentifier.isDefined && !isEmpty(statementIdentifier.get.getDefiningName)) {
+        v(statementIdentifier)
+        addLoopLabel(loopStart, popResult.asInstanceOf[NameDefinition])
+      } else
+        addLoopLabel(loopStart)
+      
+      if(loopStatements.isDefined)
+        v(loopStatements.get)
+      else {
+        v(exp.get)
+        val _exp:Exp = popResult
+        createPushAssignmentLocation(resultVar, _exp, ivectorEmpty, sloc)
+        
+        // end of loop check
+        val cond = if(quantifiedExpType.get == Proof.PROOF_UIF_FOR_SOME) resultVar
+        else PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP, resultVar,StandardURIs.boolURI)
+        val itj = IfThenJump(cond, ivectorEmpty, endLoc.name.get)
+        val ij = IfJump(ivectorEmpty, ivector(itj), None)
+        val jl = JumpLocation(Some(newLocLabel), ivectorEmpty, ij)
+        pushLocation(jl)
+      }
+
+      // end of loop check
+      val endbe = handleBE(sloc, PilarAstUtil.EQ_BINOP, iterNE,
+        if (isRev) lowtemp else hightemp, markURI)
+      val enditj = IfThenJump(endbe, ivectorEmpty, endLoc.name.get)
+      val endij = IfJump(ivectorEmpty, ivector(enditj), None)
+      val endCheck = JumpLocation(Some(newLocLabel), ivectorEmpty, endij)
+      pushLocation(endCheck)
+
+      val ONE = PNF.buildLiteralExp(LiteralType.INTEGER, BigInt(1), "1ii", StandardURIs.universalIntURI)
+
+      // increment/decrement iter var
+      val incbe = handleBE(sloc, if (isRev) PilarAstUtil.SUB_BINOP else PilarAstUtil.PLUS_UNOP,
+        iterNE, ONE, StandardURIs.boolURI)
+      createPushAssignmentLocation(iterNE, incbe, ivectorEmpty, sloc)
+
+      // goto start
+      pushLocation(createGotoJumpLocation(loopStart.name.get, ivectorEmpty, sloc))
+
+      // push end location
+      pushLocation(endLoc)
+      val _exitLoc = popExitLocation
+      assert(_exitLoc == endLoc)
+
+      popLoopLabel
+      
+      resultVar
+    }
 
     def handleLoopParam(v: => BVisitor, o: Base): (Boolean, NameExp, NameDefinition, NameExp, ResourceUri, Exp, Exp) = {
       o match {
@@ -1363,7 +1472,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         // type declarations may refer to global vars so we need to introduce
         // the global var name/uri translations first
         val vars = (if (publicVariables.isDefined) publicVariables.get else ivectorEmpty) ++
-            (if (privateVariables.isDefined) privateVariables.get else ivectorEmpty)
+          (if (privateVariables.isDefined) privateVariables.get else ivectorEmpty)
 
         vars.foreach {
           case VariableDeclarationEx(_, names, _, _, _, _, _) =>
@@ -1768,6 +1877,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       pd.name at (ctx.fileUri, sloc2.getLine, sloc2.getCol)
 
       ctx.noTempVars(true)
+      ctx.inProofContext = true
       aspectSpecs.getElements.foreach {
         case AspectSpecificationEx(sloc, mark, aspectDef, checks) =>
           val (_, m, _, _) = ctx.getName(mark.getElement)
@@ -1916,6 +2026,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           }
         case x => throw new RuntimeException("Unexpected: " + x)
       }
+      ctx.inProofContext = false
       ctx.noTempVars(false)
 
       ctx.popContext
@@ -2150,71 +2261,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     case ForLoopStatementEx(sloc, labelnames, statementIdentifier,
       forLoopParameterSpecification, loopStatements, checks) =>
 
-      val (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound) = ctx.handleLoopParam(v, forLoopParameterSpecification.getDeclaration)
-
-      val endLoc = ctx.createEmptyLocation(ctx.newLocLabel, ivectorEmpty)
-      ctx.pushExitLocation(endLoc)
-
-      // introduce a local variable for iterVar
-      val typeUri = markNE.name.uri
-      val typeSpec = PNF.buildNamedTypeSpec(markNE.name, typeUri)
-      val lvd = PNF.buildLocalVar(iterND, typeSpec)
-      ctx.localsPush(lvd)
-
-      // NOTE: in ADA the loop bounds are fixed by the initial values of 
-      //       the low and high ranges assigned to the iter var.  So we
-      //       assign the low/high bound exp to temp vars since their
-      //       interpretation could change during the loop
-      val lowtemp = ctx.genTempVar(markURI)
-      ctx.createPushAssignmentLocation(lowtemp, lowBound, ivectorEmpty, sloc)
-      val hightemp = ctx.genTempVar(markURI)
-      ctx.createPushAssignmentLocation(hightemp, highBound, ivectorEmpty, sloc)
-
-      // null range check
-      val be = ctx.handleBE(sloc, PilarAstUtil.GT_BINOP, lowtemp, hightemp, StandardURIs.boolURI)
-      val itj = IfThenJump(be, ivectorEmpty, endLoc.name.get)
-      val ij = IfJump(ivectorEmpty, ivector(itj), None)
-      val nullCheck = JumpLocation(Some(ctx.newLocLabel), ivectorEmpty, ij)
-      ctx.pushLocation(nullCheck)
-
-      // initialize iter var
-      ctx.createPushAssignmentLocation(iterNE,
-        if (isRev) hightemp else lowtemp, ivectorEmpty, sloc)
-
-      val loopStart = ctx.pushLocation(ctx.createEmptyLocation(ctx.newLocLabel))
-
-      if (!ctx.isEmpty(statementIdentifier.getDefiningName)) {
-        v(statementIdentifier)
-        ctx.addLoopLabel(loopStart, ctx.popResult.asInstanceOf[NameDefinition])
-      } else
-        ctx.addLoopLabel(loopStart)
-
-      v(loopStatements)
-
-      // end of loop check
-      val endbe = ctx.handleBE(sloc, PilarAstUtil.EQ_BINOP, iterNE,
-        if (isRev) lowtemp else hightemp, markURI)
-      val enditj = IfThenJump(endbe, ivectorEmpty, endLoc.name.get)
-      val endij = IfJump(ivectorEmpty, ivector(enditj), None)
-      val endCheck = JumpLocation(Some(ctx.newLocLabel), ivectorEmpty, endij)
-      ctx.pushLocation(endCheck)
-
-      val ONE = PNF.buildLiteralExp(LiteralType.INTEGER, BigInt(1), "1ii", StandardURIs.universalIntURI)
-
-      // increment/decrement iter var
-      val incbe = ctx.handleBE(sloc, if (isRev) PilarAstUtil.SUB_BINOP else PilarAstUtil.PLUS_UNOP,
-        iterNE, ONE, StandardURIs.boolURI)
-      ctx.createPushAssignmentLocation(iterNE, incbe, ivectorEmpty, sloc)
-
-      // goto start
-      ctx.pushLocation(ctx.createGotoJumpLocation(loopStart.name.get, ivectorEmpty, sloc))
-
-      // push end location
-      ctx.pushLocation(endLoc)
-      val _exitLoc = ctx.popExitLocation
-      assert(_exitLoc == endLoc)
-
-      ctx.popLoopLabel
+      ctx.handleLoop(v, sloc, Some(labelnames), Some(statementIdentifier),
+        forLoopParameterSpecification.getDeclaration,
+        Some(loopStatements), None, None, checks)
 
       false
     case IfStatementEx(sloc, labelNames, statementPaths, checks) =>
@@ -2387,7 +2436,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           }
       }
 
-      val indexType = if (typeUri == "null") 
+      val indexType = if (typeUri == "null")
         ctx.typeDeclarations(StandardURIs.integerURI)
       else {
         val arrayType = SymbolUtil.getTypeDef(ctx.typeDeclarations(typeUri), ctx.typeDeclarations)
@@ -2399,7 +2448,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       }
 
       val iterNE = PNF.buildNameExp("iter", indexType.uri, Some(indexType.uri))
-        
+
       val se = SwitchExp(iterNE, cases, if (default.isDefined) default.get else null)
 
       val pd = PNF.buildParamDecl("iter", URIS.DUMMY_URI, PNF.buildNamedTypeSpec(indexType))
@@ -2625,34 +2674,43 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
   def expressionH(ctx: VContext, v: => BVisitor): VisitorFunction = {
 
-    def handleQuantifiedExp(isUniversal: Boolean, iter: Base, pred: Base, typ: String, checks: String) = {
-      val (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound) = ctx.handleLoopParam(v, iter)
+    def handleQuantifiedExp(sloc : SourceLocation, isUniversal: Boolean, iter: Base, pred: Base,
+      typ: String, checks: String) = {
 
-      v(pred)
-      val _pred: Exp = ctx.popResult
+      if (ctx.inProofContext) {
+        val (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound) =
+          ctx.handleLoopParam(v, iter)
 
-      val cond = TupleExp(ivector(lowBound, highBound))
-      val cases = ivector(SwitchCaseExp(cond, ivectorEmpty, _pred))
-      val defaultCase = PNF.buildLiteralExp(LiteralType.BOOLEAN, true, "true", ctx.convertTypeUri(typ))
-      val se = SwitchExp(iterNE, cases, defaultCase)
+        v(pred)
+        val _pred: Exp = ctx.popResult
 
-      val typUri = if (markNE ? URIS.TYPE_URI) {
-        URIS.getTypeUri(markNE)
+        val cond = TupleExp(ivector(lowBound, highBound))
+        val cases = ivector(SwitchCaseExp(cond, ivectorEmpty, _pred))
+        val defaultCase = PNF.buildLiteralExp(LiteralType.BOOLEAN, true, "true", ctx.convertTypeUri(typ))
+        val se = SwitchExp(iterNE, cases, defaultCase)
+
+        val typUri = if (markNE ? URIS.TYPE_URI) {
+          URIS.getTypeUri(markNE)
+        } else {
+          assert(URIS.isTypeUri(markNE.name(URIS.REF_URI)))
+          markNE.name(URIS.REF_URI)
+        }
+
+        val nts = PNF.buildNamedTypeSpec(markNE.name, typUri)
+        val pd = PNF.buildParamDecl(iterND, nts)
+        val m = Matching(ivector(pd), se)
+        val arg = ctx.addTypeUri(FunExp(ivector(m)), typ)
+
+        val uif =
+          if (isUniversal) if (isRev) Proof.PROOF_UIF_FOR_ALL_REV else Proof.PROOF_UIF_FOR_ALL
+          else if (isRev) Proof.PROOF_UIF_FOR_SOME_REV else Proof.PROOF_UIF_FOR_SOME
+        val ce = ctx.createUIFCall(uif, arg, typ)
+        ce
       } else {
-        assert(URIS.isTypeUri(markNE.name(URIS.REF_URI)))
-        markNE.name(URIS.REF_URI)
+        val kind = if(isUniversal) Proof.PROOF_UIF_FOR_ALL else Proof.PROOF_UIF_FOR_SOME
+        ctx.handleLoop(v, sloc, None, None, 
+            iter, None, Some(pred), Some(kind), checks)
       }
-
-      val nts = PNF.buildNamedTypeSpec(markNE.name, typUri)
-      val pd = PNF.buildParamDecl(iterND, nts)
-      val m = Matching(ivector(pd), se)
-      val arg = ctx.addTypeUri(FunExp(ivector(m)), typ)
-
-      val uif =
-        if (isUniversal) if (isRev) Proof.PROOF_UIF_FOR_ALL_REV else Proof.PROOF_UIF_FOR_ALL
-        else if (isRev) Proof.PROOF_UIF_FOR_SOME_REV else Proof.PROOF_UIF_FOR_SOME
-      val ce = ctx.createUIFCall(uif, arg, typ)
-      ce
     }
     {
       case AndThenShortCircuitEx(sloc, lhs, rhs, theType, checks) =>
@@ -2671,11 +2729,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         ctx.pushResult(TupleExp(ivector(_lb, _ub)), sloc)
         false
       case ForAllQuantifiedExpressionEx(sloc, iter, pred, typ, checks) =>
-        val ce = handleQuantifiedExp(true, iter.getDeclaration, pred, typ, checks)
+        val ce = handleQuantifiedExp(sloc, true, iter.getDeclaration, pred, typ, checks)
         ctx.pushResult(ce, sloc)
         false
       case ForSomeQuantifiedExpressionEx(sloc, iter, pred, typ, checks) =>
-        val ce = handleQuantifiedExp(false, iter.getDeclaration, pred, typ, checks)
+        val ce = handleQuantifiedExp(sloc, false, iter.getDeclaration, pred, typ, checks)
         ctx.pushResult(ce, sloc)
         false
       case FunctionCallEx(sloc, prefix, functionCallParameters, isPrefixCall, isPrefixNotation, callExpType, checks) =>
@@ -2918,6 +2976,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
   def contractsH(ctx: VContext, v: => BVisitor): VisitorFunction = {
     case AssertPragmaEx(sloc, pragmaArgumentAssociations, pragmaName, checks) =>
       ctx.noTempVars(true)
+      ctx.inProofContext = true
       for (a <- pragmaArgumentAssociations.getAssociations) {
         v(a)
         val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT, ctx.popResult, StandardURIs.boolURI)
@@ -2925,10 +2984,12 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val aa = PNF.buildAssertAction(uif, m)
         ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }
+      ctx.inProofContext = false
       ctx.noTempVars(false)
       false
     case ImplementationDefinedPragmaEx(sloc, pragmaArgAssociations, pragmaName, checks) =>
       ctx.noTempVars(true)
+      ctx.inProofContext = true
       pragmaName.toLowerCase match {
         case "assume" =>
           assert(pragmaArgAssociations.getAssociations.size == 1)
@@ -2976,6 +3037,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val aa = PNF.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }
+      ctx.inProofContext = false
       ctx.noTempVars(false)
       false
   }
