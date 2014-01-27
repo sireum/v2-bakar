@@ -7,8 +7,8 @@ procedure Integer MinFunc (
   local
     Integer Min;
     Integer Max;
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    Integer _t1;
 
 
   #rwl0.

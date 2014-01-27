@@ -41,10 +41,10 @@ procedure $$binit {
 procedure Push (
         Integer X) {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
+    Pointer_Range _t0;
+    universal_integer _t1;
+    AuditCountType _t2;
+    universal_integer _t3;
 
 
   #rwl0.
@@ -75,10 +75,10 @@ procedure Push (
 procedure Pop (
         Integer X) {
   local
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
+    Pointer_Range _t4;
+    universal_integer _t5;
+    AuditCountType _t6;
+    universal_integer _t7;
 
 
   #l7.
@@ -113,14 +113,14 @@ procedure Boolean Value_Present (
     Index_Range I;
     Index_Range _tcomp0;
     Index_Range _tcomp1;
-    FIXME _t8;
-    FIXME _t9;
-    FIXME _t10;
-    FIXME _t11;
-    FIXME _t12;
-    FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
+    Index_Range _t8;
+    Index_Range _t9;
+    Integer _t10;
+    Integer _t11;
+    Index_Range _t12;
+    Index_Range _t13;
+    Index_Range _t14;
+    universal_integer _t15;
 
 
   #l11.
@@ -200,14 +200,14 @@ procedure Index_Range Find_Stack_Pos (
     Index_Range I;
     Index_Range _tcomp2;
     Index_Range _tcomp3;
-    FIXME _t16;
-    FIXME _t17;
-    FIXME _t18;
-    FIXME _t19;
-    FIXME _t20;
-    FIXME _t21;
-    FIXME _t22;
-    FIXME _t23;
+    Index_Range _t16;
+    Index_Range _t17;
+    Integer _t18;
+    Integer _t19;
+    Index_Range _t20;
+    Index_Range _t21;
+    Index_Range _t22;
+    universal_integer _t23;
 
 
   #l26.

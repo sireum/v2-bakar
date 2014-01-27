@@ -26,29 +26,29 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         proc :+= o
         false
       case o : EnumDecl =>
-        assert(o ? URIS.TYPE_URI)
-        assert(o ? URIS.TYPE_DEF)
-        typeMap(o(URIS.TYPE_URI)) = o(URIS.TYPE_DEF)
+        assert(URIS.hasTypeUri(o))
+        assert(URIS.hasTypeDef(o))
+        typeMap(URIS.getTypeUri(o)) = URIS.getTypeDef(o)
         true        
       case o : RecordDecl =>
-        assert(o ? URIS.TYPE_URI)
-        assert(o ? URIS.TYPE_DEF)
-        typeMap(o(URIS.TYPE_URI)) = o(URIS.TYPE_DEF)
+        assert(URIS.hasTypeUri(o))
+        assert(URIS.hasTypeDef(o))
+        typeMap(URIS.getTypeUri(o)) = URIS.getTypeDef(o)
         true
       case o : AttributeDecl =>
-        assert(o ? URIS.TYPE_URI)
+        assert(URIS.hasTypeUri(o))
         //assert(o ? URIS.TYPE_DEF)
         
         val rf : ResourceUri = o.name.uri
-        val tu : ResourceUri = o(URIS.TYPE_URI)
+        val tu : ResourceUri = URIS.getTypeUri(o)
         
         // FIXME: type erasure
         //typeMap(o(URIS.REF_URI)) = o(URIS.TYPE_URI).asInstanceOf[Type]
         false
       case o : TypeAliasDecl =>
-        assert(o ? URIS.TYPE_DEF)
-        assert(o ? URIS.TYPE_URI)
-        typeMap(o(URIS.TYPE_URI)) = o(URIS.TYPE_DEF)
+        assert(URIS.hasTypeUri(o))
+        assert(URIS.hasTypeDef(o))
+        typeMap(URIS.getTypeUri(o)) = URIS.getTypeDef(o)
         false
     }
     v(m)
@@ -60,28 +60,28 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       o(URIS.TYPE_MAP) = typeMap
       true
     case o : IndexingExp =>
-      assert(o ? URIS.TYPE_URI)
+      assert(URIS.hasTypeUri(o))
 
-      val ouri : ResourceUri = o(URIS.TYPE_URI)
+      val ouri : ResourceUri = URIS.getTypeUri(o)
       assert(typeMap.contains(ouri))
 
-      o(URIS.TYPE_DEF) = typeMap(ouri)
+      URIS.addTypeDef(o, typeMap(ouri))
       true
     case o : AccessExp =>
-      assert(o ? URIS.TYPE_URI)
-      val auri : ResourceUri = o(URIS.TYPE_URI)
+      assert(URIS.hasTypeUri(o))
+      val auri : ResourceUri = URIS.getTypeUri(o)
 
       assert(typeMap.contains(auri))
 
-      o(URIS.TYPE_DEF) = typeMap(auri)
+      URIS.addTypeDef(o, typeMap(auri))
 
       true
     case o : Exp =>
-      if (o ? URIS.TYPE_URI) {
-        val auri : ResourceUri = o(URIS.TYPE_URI)
+      if (URIS.hasTypeUri(o)) {
+        val auri : ResourceUri = URIS.getTypeUri(o)
         if(auri != URIS.DUMMY_URI) {
           assert(typeMap.contains(auri))
-          o(URIS.TYPE_DEF) = typeMap(auri)
+          URIS.addTypeDef(o, typeMap(auri))
         }
       }
       true
@@ -92,15 +92,6 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
 
   // build the refuri to typuri map for the type provider
   val refUri2typeUri = mlinkedMapEmpty[ResourceUri, ResourceUri]
-
-  def addMapping(nuref : PilarAstNode, nutyp : PilarAstNode) {
-    assert(nuref ? URIS.REF_URI)
-    assert(nutyp ? URIS.REF_URI)
-    val refUri : ResourceUri = nuref(URIS.REF_URI)
-    val typUri : ResourceUri = nutyp(URIS.REF_URI)
-    //assert(!refUri2typeUri.contains(refUri))
-    refUri2typeUri(refUri) = typUri
-  }
 
   for (m <- this.models) {
     val v = Visitor.build {
@@ -118,11 +109,10 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
         false      
       case o @ AccessExp(exp, nu) =>
         import org.sireum.pilar.symbol.Symbol
-        assert (nu ? URIS.REF_URI)
-        assert (nu ? URIS.TYPE_URI)
+        assert (URIS.hasTypeUri(nu))
 
-        val refUri : ResourceUri = nu(URIS.REF_URI)
-        val typUri : ResourceUri = nu(URIS.TYPE_URI)
+        val refUri : ResourceUri = nu.uri
+        val typUri : ResourceUri = URIS.getTypeUri(nu)
         
         //assert(!refUri2typeUri.contains(refUri))
         refUri2typeUri(refUri) = typUri
@@ -132,7 +122,7 @@ class BakarTypeResolverModuleDef(val job : PipelineJob, info : PipelineJobModule
       case o @ NameExp(nu) =>
         import org.sireum.pilar.symbol.Symbol
         assert (nu.uri.startsWith("ada://procedure") || nu.uri.startsWith("ada://function") ||
-            o ? URIS.TYPE_URI)
+            URIS.hasTypeUri(o))
         false
     }
     v(m)

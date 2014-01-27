@@ -8,18 +8,18 @@ procedure Boolean isSorted (
     Integer I;
     Integer _tcomp0;
     Integer _tcomp1;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
-    FIXME _t10;
-    FIXME _t11;
+    Integer _t0;
+    universal_integer _t1;
+    Integer _t2;
+    Integer _t3;
+    Integer _t4;
+    universal_integer _t5;
+    Integer _t6;
+    Integer _t7;
+    Integer _t8;
+    Integer _t9;
+    Integer _t10;
+    universal_integer _t11;
 
 
   #l0.
@@ -103,8 +103,8 @@ procedure Boolean indexIsValue (
         Integer Index,
         Integer V) {
   local
-    FIXME _t12;
-    FIXME _t13;
+    Integer _t12;
+    Integer _t13;
 
 
   #rwl12.

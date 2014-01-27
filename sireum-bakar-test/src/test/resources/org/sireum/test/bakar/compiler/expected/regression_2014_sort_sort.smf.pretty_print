@@ -604,10 +604,6 @@ procedure Boolean Partitioned (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="4"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string sid="5">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
@@ -661,10 +657,6 @@ procedure Boolean Partitioned (
                            </ilist>
                            <string sid="7">ada://parameter/Sort-1:9/Partitioned+39:12/L+40:24</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="7"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -726,10 +718,6 @@ procedure Boolean Partitioned (
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                        </entry>
                        <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="7"/>
-                       </entry>
-                       <entry>
                          <string>BAKAR_TYPE_URI</string>
                          <string srefid="4"/>
                        </entry>
@@ -768,10 +756,6 @@ procedure Boolean Partitioned (
                            </ilist>
                            <string sid="9">ada://parameter/Sort-1:9/Partitioned+39:12/M+40:27</string>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="9"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -850,10 +834,6 @@ procedure Boolean Partitioned (
                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                      </entry>
                      <entry>
-                       <string>BAKAR_REF_URI</string>
-                       <string srefid="9"/>
-                     </entry>
-                     <entry>
                        <string>BAKAR_TYPE_URI</string>
                        <string srefid="4"/>
                      </entry>
@@ -892,10 +872,6 @@ procedure Boolean Partitioned (
                          </ilist>
                          <string sid="10">ada://parameter/Sort-1:9/Partitioned+39:12/U+40:30</string>
                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                     </entry>
-                     <entry>
-                       <string>BAKAR_REF_URI</string>
-                       <string srefid="10"/>
                      </entry>
                      <entry>
                        <string>BAKAR_TYPE_URI</string>
@@ -974,10 +950,6 @@ procedure Boolean Partitioned (
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="10"/>
-                   </entry>
-                   <entry>
                      <string>BAKAR_TYPE_URI</string>
                      <string srefid="4"/>
                    </entry>
@@ -1035,10 +1007,6 @@ procedure Boolean Partitioned (
                            </ilist>
                            <string srefid="4"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="4"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -1324,10 +1292,6 @@ procedure Swap_Elements (
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
                    <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="1"/>
-                   </entry>
-                   <entry>
                      <string>BAKAR_TYPE_URI</string>
                      <string sid="6">ada://ordinary_type/Sort-1:9/Array_Type-10:8</string>
                    </entry>
@@ -1408,10 +1372,6 @@ procedure Swap_Elements (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="1"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="6"/>
                            </entry>
@@ -1470,10 +1430,6 @@ procedure Swap_Elements (
                                    </ilist>
                                    <string srefid="2"/>
                                  </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                               </entry>
-                               <entry>
-                                 <string>BAKAR_REF_URI</string>
-                                 <string srefid="2"/>
                                </entry>
                                <entry>
                                  <string>BAKAR_TYPE_URI</string>
@@ -1536,10 +1492,6 @@ procedure Swap_Elements (
                                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                    </entry>
                                    <entry>
-                                     <string>BAKAR_REF_URI</string>
-                                     <string srefid="1"/>
-                                   </entry>
-                                   <entry>
                                      <string>BAKAR_TYPE_URI</string>
                                      <string srefid="6"/>
                                    </entry>
@@ -1596,10 +1548,6 @@ procedure Swap_Elements (
                                        </ilist>
                                        <string srefid="3"/>
                                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                   </entry>
-                                   <entry>
-                                     <string>BAKAR_REF_URI</string>
-                                     <string srefid="3"/>
                                    </entry>
                                    <entry>
                                      <string>BAKAR_TYPE_URI</string>
@@ -1662,10 +1610,6 @@ procedure Swap_Elements (
                                  </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                </entry>
                                <entry>
-                                 <string>BAKAR_REF_URI</string>
-                                 <string srefid="3"/>
-                               </entry>
-                               <entry>
                                  <string>BAKAR_TYPE_URI</string>
                                  <string srefid="11"/>
                                </entry>
@@ -1726,10 +1670,6 @@ procedure Swap_Elements (
                                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                    </entry>
                                    <entry>
-                                     <string>BAKAR_REF_URI</string>
-                                     <string srefid="1"/>
-                                   </entry>
-                                   <entry>
                                      <string>BAKAR_TYPE_URI</string>
                                      <string srefid="6"/>
                                    </entry>
@@ -1786,10 +1726,6 @@ procedure Swap_Elements (
                                        </ilist>
                                        <string srefid="2"/>
                                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                   </entry>
-                                   <entry>
-                                     <string>BAKAR_REF_URI</string>
-                                     <string srefid="2"/>
                                    </entry>
                                    <entry>
                                      <string>BAKAR_TYPE_URI</string>
@@ -1894,10 +1830,6 @@ procedure Swap_Elements (
                        <string sid="14">ada://function/Sort-1:9/Perm-14:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="14"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -1935,10 +1867,6 @@ procedure Swap_Elements (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -1998,10 +1926,6 @@ procedure Swap_Elements (
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                         </entry>
-                         <entry>
-                           <string>BAKAR_REF_URI</string>
-                           <string srefid="1"/>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -2080,10 +2004,6 @@ procedure Swap_Elements (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="11"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string sid="17">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
                            </entry>
@@ -2156,10 +2076,6 @@ procedure Swap_Elements (
                                </ilist>
                                <string srefid="11"/>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="11"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -2933,10 +2849,6 @@ typealias Integer Base_Index_Type
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="5"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string srefid="3"/>
                  </entry>
@@ -3033,10 +2945,6 @@ typealias Base_Index_Type Index_Type
                          </ilist>
                          <string srefid="2"/>
                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                     </entry>
-                     <entry>
-                       <string>BAKAR_REF_URI</string>
-                       <string srefid="2"/>
                      </entry>
                      <entry>
                        <string>BAKAR_TYPE_URI</string>
@@ -3396,10 +3304,6 @@ procedure BubbleSort (
                        <string sid="3">ada://function/Sort-1:9/Ordered-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="3"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -3437,10 +3341,6 @@ procedure BubbleSort (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3500,10 +3400,6 @@ procedure BubbleSort (
                                </ilist>
                                <string sid="9">ada://subtype/Sort-1:9/Index_Type-7:11</string>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -3580,10 +3476,6 @@ procedure BubbleSort (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="10"/>
                            </entry>
@@ -3657,10 +3549,6 @@ procedure BubbleSort (
                        <string sid="13">ada://function/Sort-1:9/Perm-14:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="13"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -3698,10 +3586,6 @@ procedure BubbleSort (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3761,10 +3645,6 @@ procedure BubbleSort (
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                         </entry>
-                         <entry>
-                           <string>BAKAR_REF_URI</string>
-                           <string srefid="1"/>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -3843,10 +3723,6 @@ procedure BubbleSort (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="10"/>
                            </entry>
@@ -3919,10 +3795,6 @@ procedure BubbleSort (
                                </ilist>
                                <string srefid="9"/>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -4062,10 +3934,6 @@ procedure BubbleSortFast (
                        <string sid="3">ada://function/Sort-1:9/Ordered-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="3"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -4103,10 +3971,6 @@ procedure BubbleSortFast (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -4166,10 +4030,6 @@ procedure BubbleSortFast (
                                </ilist>
                                <string sid="9">ada://subtype/Sort-1:9/Index_Type-7:11</string>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -4246,10 +4106,6 @@ procedure BubbleSortFast (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="10"/>
                            </entry>
@@ -4323,10 +4179,6 @@ procedure BubbleSortFast (
                        <string sid="13">ada://function/Sort-1:9/Perm-14:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="13"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -4364,10 +4216,6 @@ procedure BubbleSortFast (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -4427,10 +4275,6 @@ procedure BubbleSortFast (
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                         </entry>
-                         <entry>
-                           <string>BAKAR_REF_URI</string>
-                           <string srefid="1"/>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -4509,10 +4353,6 @@ procedure BubbleSortFast (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="10"/>
                            </entry>
@@ -4585,10 +4425,6 @@ procedure BubbleSortFast (
                                </ilist>
                                <string srefid="9"/>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -4728,10 +4564,6 @@ procedure InsertionSort (
                        <string sid="3">ada://function/Sort-1:9/Ordered-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="3"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -4769,10 +4601,6 @@ procedure InsertionSort (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -4832,10 +4660,6 @@ procedure InsertionSort (
                                </ilist>
                                <string sid="9">ada://subtype/Sort-1:9/Index_Type-7:11</string>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -4912,10 +4736,6 @@ procedure InsertionSort (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="10"/>
                            </entry>
@@ -4989,10 +4809,6 @@ procedure InsertionSort (
                        <string sid="13">ada://function/Sort-1:9/Perm-14:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="13"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -5030,10 +4846,6 @@ procedure InsertionSort (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -5093,10 +4905,6 @@ procedure InsertionSort (
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                         </entry>
-                         <entry>
-                           <string>BAKAR_REF_URI</string>
-                           <string srefid="1"/>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -5175,10 +4983,6 @@ procedure InsertionSort (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="10"/>
                            </entry>
@@ -5251,10 +5055,6 @@ procedure InsertionSort (
                                </ilist>
                                <string srefid="9"/>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="9"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -5394,10 +5194,6 @@ procedure ShellSort (
                        <string sid="3">ada://function/Sort-1:9/Ordered-12:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="3"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -5435,10 +5231,6 @@ procedure ShellSort (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -5498,10 +5290,6 @@ procedure ShellSort (
                                </ilist>
                                <string sid="8">ada://subtype/Sort-1:9/Index_Type-7:11</string>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="8"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>
@@ -5578,10 +5366,6 @@ procedure ShellSort (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="8"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="9"/>
                            </entry>
@@ -5655,10 +5439,6 @@ procedure ShellSort (
                        <string sid="12">ada://function/Sort-1:9/Perm-14:12</string>
                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                    </entry>
-                   <entry>
-                     <string>BAKAR_REF_URI</string>
-                     <string srefid="12"/>
-                   </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
                <properties mtype="mlinkedmap">
@@ -5696,10 +5476,6 @@ procedure ShellSort (
                            </ilist>
                            <string srefid="1"/>
                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                       </entry>
-                       <entry>
-                         <string>BAKAR_REF_URI</string>
-                         <string srefid="1"/>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -5759,10 +5535,6 @@ procedure ShellSort (
                              </ilist>
                              <string srefid="1"/>
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                         </entry>
-                         <entry>
-                           <string>BAKAR_REF_URI</string>
-                           <string srefid="1"/>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -5841,10 +5613,6 @@ procedure ShellSort (
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                            </entry>
                            <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="8"/>
-                           </entry>
-                           <entry>
                              <string>BAKAR_TYPE_URI</string>
                              <string srefid="9"/>
                            </entry>
@@ -5917,10 +5685,6 @@ procedure ShellSort (
                                </ilist>
                                <string srefid="8"/>
                              </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                           </entry>
-                           <entry>
-                             <string>BAKAR_REF_URI</string>
-                             <string srefid="8"/>
                            </entry>
                            <entry>
                              <string>BAKAR_TYPE_URI</string>

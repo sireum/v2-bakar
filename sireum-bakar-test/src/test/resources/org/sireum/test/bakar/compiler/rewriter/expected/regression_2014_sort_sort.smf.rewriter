@@ -11,16 +11,16 @@ procedure Integer Num_Repetition (
     Index_Type I;
     Index_Type _tcomp0;
     Index_Type _tcomp1;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
+    Index_Type _t0;
+    Index_Type _t1;
+    Contents_Type _t2;
+    Contents_Type _t3;
+    Integer _t4;
+    universal_integer _t5;
+    Index_Type _t6;
+    Index_Type _t7;
+    Index_Type _t8;
+    universal_integer _t9;
 
 
   #l0.
@@ -108,14 +108,14 @@ procedure Boolean Perm (
     Index_Type _tcomp3;
     Integer _tcomp4;
     Integer _tcomp5;
-    FIXME _t10;
-    FIXME _t11;
-    FIXME _t12;
-    FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
-    FIXME _t16;
-    FIXME _t17;
+    Index_Type _t10;
+    Index_Type _t11;
+    Integer _t12;
+    Integer _t13;
+    Index_Type _t14;
+    Index_Type _t15;
+    Index_Type _t16;
+    universal_integer _t17;
 
 
   #l14.
@@ -200,18 +200,18 @@ procedure Boolean Ordered (
     Index_Type I;
     Index_Type _tcomp6;
     Index_Type _tcomp7;
-    FIXME _t18;
-    FIXME _t19;
-    FIXME _t20;
-    FIXME _t21;
-    FIXME _t22;
-    FIXME _t23;
-    FIXME _t24;
-    FIXME _t25;
-    FIXME _t26;
-    FIXME _t27;
-    FIXME _t28;
-    FIXME _t29;
+    Index_Type _t18;
+    universal_integer _t19;
+    Index_Type _t20;
+    Index_Type _t21;
+    Integer _t22;
+    universal_integer _t23;
+    Contents_Type _t24;
+    Contents_Type _t25;
+    Index_Type _t26;
+    Index_Type _t27;
+    Index_Type _t28;
+    universal_integer _t29;
 
 
   #l30.
@@ -306,22 +306,22 @@ procedure Boolean Partitioned (
     Index_Type J;
     Index_Type _tcomp10;
     Index_Type _tcomp11;
-    FIXME _t30;
-    FIXME _t31;
-    FIXME _t32;
-    FIXME _t33;
-    FIXME _t34;
-    FIXME _t35;
-    FIXME _t36;
-    FIXME _t37;
-    FIXME _t38;
-    FIXME _t39;
-    FIXME _t40;
-    FIXME _t41;
-    FIXME _t42;
-    FIXME _t43;
-    FIXME _t44;
-    FIXME _t45;
+    Index_Type _t30;
+    Index_Type _t31;
+    Index_Type _t32;
+    universal_integer _t33;
+    Index_Type _t34;
+    Index_Type _t35;
+    Contents_Type _t36;
+    Contents_Type _t37;
+    Index_Type _t38;
+    Index_Type _t39;
+    Index_Type _t40;
+    universal_integer _t41;
+    Index_Type _t42;
+    Index_Type _t43;
+    Index_Type _t44;
+    universal_integer _t45;
 
 
   #l44.
@@ -472,26 +472,26 @@ procedure BubbleSort (
     Index_Type J;
     Index_Type _tcomp14;
     Index_Type _tcomp15;
-    FIXME _t46;
-    FIXME _t47;
-    FIXME _t48;
-    FIXME _t49;
-    FIXME _t50;
-    FIXME _t51;
-    FIXME _t52;
-    FIXME _t53;
-    FIXME _t54;
-    FIXME _t55;
-    FIXME _t56;
-    FIXME _t57;
-    FIXME _t58;
-    FIXME _t59;
-    FIXME _t60;
-    FIXME _t61;
-    FIXME _t62;
-    FIXME _t63;
-    FIXME _t64;
-    FIXME _t65;
+    Index_Type _t46;
+    Index_Type _t47;
+    Integer _t48;
+    universal_integer _t49;
+    Index_Type _t50;
+    Index_Type _t51;
+    Integer _t52;
+    universal_integer _t53;
+    Contents_Type _t54;
+    Contents_Type _t55;
+    Integer _t56;
+    universal_integer _t57;
+    Index_Type _t58;
+    Index_Type _t59;
+    Index_Type _t60;
+    universal_integer _t61;
+    Index_Type _t62;
+    Index_Type _t63;
+    Index_Type _t64;
+    universal_integer _t65;
 
 
   #l72.
@@ -636,20 +636,20 @@ procedure BubbleSortFast (
     Base_Index_Type Bound;
     Base_Index_Type T;
     Index_Type J;
-    FIXME _t66;
-    FIXME _t67;
-    FIXME _t68;
-    FIXME _t69;
-    FIXME _t70;
-    FIXME _t71;
-    FIXME _t72;
-    FIXME _t73;
-    FIXME _t74;
-    FIXME _t75;
-    FIXME _t76;
-    FIXME _t77;
-    FIXME _t78;
-    FIXME _t79;
+    Base_Index_Type _t66;
+    universal_integer _t67;
+    Base_Index_Type _t68;
+    universal_integer _t69;
+    Index_Type _t70;
+    Integer _t71;
+    Index_Type _t72;
+    universal_integer _t73;
+    Contents_Type _t74;
+    Contents_Type _t75;
+    Index_Type _t76;
+    universal_integer _t77;
+    Index_Type _t78;
+    universal_integer _t79;
 
 
   #l95.
@@ -766,28 +766,28 @@ procedure InsertionSort (
     Index_Type P;
     Index_Type _tcomp16;
     Index_Type _tcomp17;
-    FIXME _t80;
-    FIXME _t81;
-    FIXME _t82;
-    FIXME _t83;
-    FIXME _t84;
-    FIXME _t85;
-    FIXME _t86;
-    FIXME _t87;
-    FIXME _t88;
-    FIXME _t89;
-    FIXME _t90;
-    FIXME _t91;
-    FIXME _t92;
-    FIXME _t93;
-    FIXME _t94;
-    FIXME _t95;
-    FIXME _t96;
-    FIXME _t97;
-    FIXME _t98;
-    FIXME _t99;
-    FIXME _t100;
-    FIXME _t101;
+    Integer _t80;
+    universal_integer _t81;
+    Index_Type _t82;
+    Index_Type _t83;
+    Integer _t84;
+    universal_integer _t85;
+    Index_Type _t86;
+    Integer _t87;
+    Index_Type _t88;
+    universal_integer _t89;
+    Contents_Type _t90;
+    Contents_Type _t91;
+    Boolean _t92;
+    Boolean _t93;
+    Index_Type _t94;
+    universal_integer _t95;
+    Index_Type _t96;
+    universal_integer _t97;
+    Index_Type _t98;
+    Index_Type _t99;
+    Index_Type _t100;
+    universal_integer _t101;
 
 
   #rwl80.
@@ -934,30 +934,30 @@ procedure ShellSort (
     Index_Type I;
     Index_Type _tcomp18;
     Index_Type _tcomp19;
-    FIXME _t102;
-    FIXME _t103;
-    FIXME _t104;
-    FIXME _t105;
-    FIXME _t106;
-    FIXME _t107;
-    FIXME _t108;
-    FIXME _t109;
-    FIXME _t110;
-    FIXME _t111;
-    FIXME _t112;
-    FIXME _t113;
-    FIXME _t114;
-    FIXME _t115;
-    FIXME _t116;
-    FIXME _t117;
-    FIXME _t118;
-    FIXME _t119;
-    FIXME _t120;
-    FIXME _t121;
-    FIXME _t122;
-    FIXME _t123;
-    FIXME _t124;
-    FIXME _t125;
+    Index_Type _t102;
+    universal_integer _t103;
+    Index_Type _t104;
+    Index_Type _t105;
+    Integer _t106;
+    Index_Type _t107;
+    Integer _t108;
+    Integer _t109;
+    Integer _t110;
+    Index_Type _t111;
+    Contents_Type _t112;
+    Contents_Type _t113;
+    Boolean _t114;
+    Boolean _t115;
+    Integer _t116;
+    Index_Type _t117;
+    Integer _t118;
+    Index_Type _t119;
+    Index_Type _t120;
+    Index_Type _t121;
+    Index_Type _t122;
+    universal_integer _t123;
+    Index_Type _t124;
+    Integer _t125;
 
 
   #l136.

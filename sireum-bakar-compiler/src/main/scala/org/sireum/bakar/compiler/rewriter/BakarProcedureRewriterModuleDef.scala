@@ -15,6 +15,7 @@ import org.sireum.util.ilistEmpty
 import org.sireum.pipeline.Input
 import org.sireum.pipeline.Output
 import org.sireum.bakar.compiler.module.{ PilarNodeFactory => PNF }
+import org.sireum.bakar.symbol.TypeDecl
 
 object Names {
   val tempVarPrefix = "_tbpr"
@@ -47,7 +48,7 @@ class BakarProcedureRewriterModuleDef(val job: PipelineJob, info: PipelineJobMod
       l match {
         case jl @ JumpLocation(jn, ja,
           cj @ CallJump(a, lhss, ce @ CallExp(ne @ NameExp(nu), TupleExp(args)), jump)) if (lhss.isEmpty) =>
-          val calledProc = this.symbolTable.procedureSymbolTable(nu.uri).procedure
+          val calledProc = symbolTable.procedureSymbolTable(nu.uri).procedure
 
           var prelocs = ivectorEmpty[LocationDecl]
           var postlocs = ivectorEmpty[LocationDecl]
@@ -65,8 +66,8 @@ class BakarProcedureRewriterModuleDef(val job: PipelineJob, info: PipelineJobMod
                 e match {
                   case ie @ IndexingExp(e, indices) =>
                     val modIndices = for (index <- indices) yield {
-                      val iuri: String = e(URIS.TYPE_URI)
-                      val (lvd, tempVar) = PNF.buildLocalTempVar("FIXME", iuri, newPath)
+                      val typ = bakarTypeUri2TypeMap(URIS.getTypeUri(e))
+                      val (lvd, tempVar) = PNF.buildLocalTempVar(typ.id, typ.uri, newPath)
                       newTempLocals +:= lvd
                       prelocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
                         AssignAction(ivectorEmpty, tempVar, ":=", index))
@@ -87,7 +88,7 @@ class BakarProcedureRewriterModuleDef(val job: PipelineJob, info: PipelineJobMod
               modArgs :+= args(i)
             }
           }
-          val typeUri = if (ce ? URIS.TYPE_URI) Some(URIS.getTypeUri(ce))
+          val typeUri = if (URIS.hasTypeUri(ce)) Some(URIS.getTypeUri(ce))
           else None
 
           val modJL = cp(jl, JumpLocation(jn, ja,
@@ -147,6 +148,8 @@ case class BakarProcedureRewriter(
 
   @Input symbolTable: BakarSymbolTable,
 
+  @Input bakarTypeUri2TypeMap: IMap[ResourceUri, TypeDecl],
+  
   @Input @Output models: ISeq[Model])
 
 object Gen {

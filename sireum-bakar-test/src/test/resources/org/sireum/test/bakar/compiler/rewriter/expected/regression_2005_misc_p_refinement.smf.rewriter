@@ -22,8 +22,8 @@ procedure Q (
         Integer X,
         Integer Z) {
   local
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    Integer _t1;
 
 
   #rwl0.

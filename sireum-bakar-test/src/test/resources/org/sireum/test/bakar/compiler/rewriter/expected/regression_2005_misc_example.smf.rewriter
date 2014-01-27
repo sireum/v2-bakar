@@ -5,8 +5,8 @@ procedure add (
         Integer x,
         Integer y) {
   local
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    Integer _t1;
 
 
   #rwl0.
@@ -27,10 +27,10 @@ procedure foo (
         Integer B) {
   local
     Integer M;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
+    Integer _t2;
+    universal_integer _t3;
+    Integer _t4;
+    universal_integer _t5;
 
 
   #l2.

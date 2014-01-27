@@ -10,12 +10,12 @@ procedure P1 (
   local
     Integer L1;
     Integer L2;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
+    Integer _t0;
+    Integer _t1;
+    Integer _t2;
+    universal_integer _t3;
+    Integer _t4;
+    universal_integer _t5;
 
 
   #l0.

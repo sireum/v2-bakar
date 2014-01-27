@@ -62,6 +62,10 @@ object BakarSymbolResolverTest extends ImplicitLogging {
         false,
         BakarTranslatorModule),
       PipelineStage(
+        "type resolver stage",
+        false,
+        BakarTypeResolverModule),        
+      PipelineStage(
         "exp rewriter stage",
         false,
         BakarExpRewriterModule),

@@ -59,10 +59,6 @@ typealias _SIGNED_INTEGER_TYPE_ Pointer_Range
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="5"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string srefid="2"/>
                  </entry>
@@ -139,10 +135,6 @@ typealias Pointer_Range Index_Range
                      </ilist>
                      <string sid="6">ada://integer_number/The_Stack_Demonic-1:9/Stack_Size+6:4</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="6"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -806,10 +798,6 @@ typealias Status BoundaryStatus
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="5"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string srefid="2"/>
                  </entry>
@@ -848,10 +836,6 @@ typealias Status BoundaryStatus
                      </ilist>
                      <string sid="7">ada://enumeration_literal/The_Stack_Demonic-1:9/Status-14:9/Full-14:27</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="7"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -909,10 +893,6 @@ typealias Integer AuditCountType
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="6"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string sid="7">ada://ordinary_type/universal_integer</string>
                  </entry>
@@ -950,10 +930,6 @@ typealias Integer AuditCountType
                      </ilist>
                      <string sid="11">ada://integer_number/The_Stack_Demonic-1:9/AuditCount_UpperLimit-20:4</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="11"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>

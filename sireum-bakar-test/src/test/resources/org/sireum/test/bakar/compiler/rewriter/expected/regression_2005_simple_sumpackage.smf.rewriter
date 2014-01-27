@@ -6,16 +6,16 @@ procedure Integer Sum (
   local
     Integer R;
     Integer T;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
+    Integer _t0;
+    universal_integer _t1;
+    Integer _t2;
+    universal_integer _t3;
+    Integer _t4;
+    universal_integer _t5;
+    Integer _t6;
+    universal_integer _t7;
+    Integer _t8;
+    universal_integer _t9;
 
 
   #l0.
@@ -90,16 +90,16 @@ procedure Sum2 (
         Integer R) {
   local
     Integer T;
-    FIXME _t10;
-    FIXME _t11;
-    FIXME _t12;
-    FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
-    FIXME _t16;
-    FIXME _t17;
-    FIXME _t18;
-    FIXME _t19;
+    Integer _t10;
+    universal_integer _t11;
+    Integer _t12;
+    universal_integer _t13;
+    Integer _t14;
+    universal_integer _t15;
+    Integer _t16;
+    universal_integer _t17;
+    Integer _t18;
+    universal_integer _t19;
 
 
   #l12.

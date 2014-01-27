@@ -82,10 +82,6 @@ procedure Array_Loop_Entry (
                </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
              </entry>
              <entry>
-               <string>BAKAR_REF_URI</string>
-               <string srefid="1"/>
-             </entry>
-             <entry>
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
                  <string>loop_entry.adb</string>
@@ -129,10 +125,6 @@ procedure Array_Loop_Entry (
                  </ilist>
                  <string sid="1">ada://procedure_body/Loop_Entry-1:9/Inner+8:8</string>
                </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-             </entry>
-             <entry>
-               <string>BAKAR_REF_URI</string>
-               <string srefid="1"/>
              </entry>
              <entry>
                <string>util.loc</string>
@@ -273,10 +265,6 @@ procedure Record_Loop_Entry (
                </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
              </entry>
              <entry>
-               <string>BAKAR_REF_URI</string>
-               <string srefid="1"/>
-             </entry>
-             <entry>
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
                  <string>loop_entry.adb</string>
@@ -326,10 +314,6 @@ procedure Record_Loop_Entry (
                  </ilist>
                  <string sid="2">ada://procedure_body/Loop_Entry-1:9/InnerLoop2+39:10</string>
                </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-             </entry>
-             <entry>
-               <string>BAKAR_REF_URI</string>
-               <string srefid="2"/>
              </entry>
              <entry>
                <string>util.loc</string>
@@ -742,10 +726,6 @@ procedure Array_Loop_Entry (
                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                          </entry>
                          <entry>
-                           <string>BAKAR_REF_URI</string>
-                           <string srefid="7"/>
-                         </entry>
-                         <entry>
                            <string>util.loc</string>
                            <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="13" size="5">
                              <string>loop_entry.ads</string>
@@ -772,10 +752,6 @@ procedure Array_Loop_Entry (
                          <entry>
                            <string>pilar.symbol</string>
                            <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 crefid="12"/>
-                         </entry>
-                         <entry>
-                           <string>BAKAR_REF_URI</string>
-                           <string srefid="7"/>
                          </entry>
                          <entry>
                            <string>util.loc</string>
@@ -835,10 +811,6 @@ procedure Array_Loop_Entry (
                                            </ilist>
                                            <string sid="10">ada://parameter/Loop_Entry-1:9/Array_Loop_Entry-14:14/A-14:32</string>
                                          </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                       </entry>
-                                       <entry>
-                                         <string>BAKAR_REF_URI</string>
-                                         <string srefid="10"/>
                                        </entry>
                                        <entry>
                                          <string>BAKAR_TYPE_URI</string>
@@ -925,10 +897,6 @@ procedure Array_Loop_Entry (
                                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                    </entry>
                                    <entry>
-                                     <string>BAKAR_REF_URI</string>
-                                     <string srefid="10"/>
-                                   </entry>
-                                   <entry>
                                      <string>BAKAR_TYPE_URI</string>
                                      <string srefid="11"/>
                                    </entry>
@@ -968,10 +936,6 @@ procedure Array_Loop_Entry (
                                          </ilist>
                                          <string srefid="7"/>
                                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                     </entry>
-                                     <entry>
-                                       <string>BAKAR_REF_URI</string>
-                                       <string srefid="7"/>
                                      </entry>
                                      <entry>
                                        <string>BAKAR_TYPE_URI</string>
@@ -1050,10 +1014,6 @@ procedure Array_Loop_Entry (
                                          </ilist>
                                          <string srefid="10"/>
                                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                     </entry>
-                                     <entry>
-                                       <string>BAKAR_REF_URI</string>
-                                       <string srefid="10"/>
                                      </entry>
                                      <entry>
                                        <string>BAKAR_TYPE_URI</string>
@@ -1138,10 +1098,6 @@ procedure Array_Loop_Entry (
                                                </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                              </entry>
                                              <entry>
-                                               <string>BAKAR_REF_URI</string>
-                                               <string srefid="10"/>
-                                             </entry>
-                                             <entry>
                                                <string>BAKAR_TYPE_URI</string>
                                                <string srefid="14"/>
                                              </entry>
@@ -1195,10 +1151,6 @@ procedure Array_Loop_Entry (
                                              </ilist>
                                              <string srefid="7"/>
                                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                         </entry>
-                                         <entry>
-                                           <string>BAKAR_REF_URI</string>
-                                           <string srefid="7"/>
                                          </entry>
                                          <entry>
                                            <string>BAKAR_TYPE_URI</string>
@@ -1336,10 +1288,6 @@ procedure Array_Loop_Entry (
                                      </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                    </entry>
                                    <entry>
-                                     <string>BAKAR_REF_URI</string>
-                                     <string srefid="10"/>
-                                   </entry>
-                                   <entry>
                                      <string>BAKAR_TYPE_URI</string>
                                      <string srefid="11"/>
                                    </entry>
@@ -1405,10 +1353,6 @@ procedure Array_Loop_Entry (
                                                </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                              </entry>
                                              <entry>
-                                               <string>BAKAR_REF_URI</string>
-                                               <string srefid="10"/>
-                                             </entry>
-                                             <entry>
                                                <string>BAKAR_TYPE_URI</string>
                                                <string srefid="14"/>
                                              </entry>
@@ -1462,10 +1406,6 @@ procedure Array_Loop_Entry (
                                              </ilist>
                                              <string srefid="7"/>
                                            </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                         </entry>
-                                         <entry>
-                                           <string>BAKAR_REF_URI</string>
-                                           <string srefid="7"/>
                                          </entry>
                                          <entry>
                                            <string>BAKAR_TYPE_URI</string>
@@ -1603,10 +1543,6 @@ procedure Array_Loop_Entry (
                                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                                      </entry>
                                      <entry>
-                                       <string>BAKAR_REF_URI</string>
-                                       <string srefid="10"/>
-                                     </entry>
-                                     <entry>
                                        <string>BAKAR_TYPE_URI</string>
                                        <string srefid="11"/>
                                      </entry>
@@ -1663,10 +1599,6 @@ procedure Array_Loop_Entry (
                                          </ilist>
                                          <string srefid="7"/>
                                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                                     </entry>
-                                     <entry>
-                                       <string>BAKAR_REF_URI</string>
-                                       <string srefid="7"/>
                                      </entry>
                                      <entry>
                                        <string>BAKAR_TYPE_URI</string>

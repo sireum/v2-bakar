@@ -231,10 +231,6 @@ typealias Week WeekDay
                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                      </entry>
                      <entry>
-                       <string>BAKAR_REF_URI</string>
-                       <string srefid="2"/>
-                     </entry>
-                     <entry>
                        <string>BAKAR_TYPE_URI</string>
                        <string srefid="2"/>
                      </entry>
@@ -288,10 +284,6 @@ typealias Week WeekDay
                      </ilist>
                      <string sid="8">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Fri-3:38</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="8"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -350,10 +342,6 @@ typealias WeekDay HumpDay
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="5"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string sid="6">ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8</string>
                  </entry>
@@ -392,10 +380,6 @@ typealias WeekDay HumpDay
                      </ilist>
                      <string srefid="5"/>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="5"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -452,10 +436,6 @@ typealias Week WeekEnd
                      </ilist>
                      <string sid="5">ada://enumeration_literal/Case_Statement_Enum-1:9/Week-3:8/Sat-3:53</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="5"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -515,10 +495,6 @@ typealias Week WeekEnd
                          </ilist>
                          <string srefid="2"/>
                        </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                     </entry>
-                     <entry>
-                       <string>BAKAR_REF_URI</string>
-                       <string srefid="2"/>
                      </entry>
                      <entry>
                        <string>BAKAR_TYPE_URI</string>

@@ -5,14 +5,18 @@ package org.sireum.bakar.compiler.rewriter
 
 import org.sireum.util._
 import org.sireum.pipeline._
+import java.lang.String
 import org.sireum.bakar.symbol.BakarSymbolTable
+import org.sireum.bakar.symbol.TypeDecl
 import org.sireum.pilar.ast.Model
+import scala.collection.immutable.Map
 import scala.collection.immutable.Seq
 
 object BakarProcedureRewriterModule extends PipelineModule {
   def title = "Bakar Procedure Rewriter"
   def origin = classOf[BakarProcedureRewriter]
 
+  val globalBakarTypeUri2TypeMapKey = "Global.bakarTypeUri2TypeMap"
   val globalModelsKey = "Global.models"
   val globalSymbolTableKey = "Global.symbolTable"
 
@@ -76,6 +80,33 @@ object BakarProcedureRewriterModule extends PipelineModule {
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
           "Input error for '" + this.title + "': No value found for 'symbolTable'")       
     }
+    var _bakarTypeUri2TypeMap : scala.Option[AnyRef] = None
+    var _bakarTypeUri2TypeMapKey : scala.Option[String] = None
+
+    val keylistbakarTypeUri2TypeMap = List(BakarProcedureRewriterModule.globalBakarTypeUri2TypeMapKey)
+    keylistbakarTypeUri2TypeMap.foreach(key => 
+      if(job ? key) { 
+        if(_bakarTypeUri2TypeMap.isEmpty) {
+          _bakarTypeUri2TypeMap = Some(job(key))
+          _bakarTypeUri2TypeMapKey = Some(key)
+        }
+        if(!(job(key).asInstanceOf[AnyRef] eq _bakarTypeUri2TypeMap.get)) {
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': 'bakarTypeUri2TypeMap' keys '" + _bakarTypeUri2TypeMapKey.get + " and '" + key + "' point to different objects.")
+        }
+      }
+    )
+
+    _bakarTypeUri2TypeMap match{
+      case Some(x) =>
+        if(!x.isInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl]]){
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': Wrong type found for 'bakarTypeUri2TypeMap'.  Expecting 'scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl]' but found '" + x.getClass.toString + "'")
+        }
+      case None =>
+        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+          "Input error for '" + this.title + "': No value found for 'bakarTypeUri2TypeMap'")       
+    }
     var _models : scala.Option[AnyRef] = None
     var _modelsKey : scala.Option[String] = None
 
@@ -136,6 +167,21 @@ object BakarProcedureRewriterModule extends PipelineModule {
     return options
   }
 
+  def getBakarTypeUri2TypeMap (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl] = {
+    if (options.contains(BakarProcedureRewriterModule.globalBakarTypeUri2TypeMapKey)) {
+       return options(BakarProcedureRewriterModule.globalBakarTypeUri2TypeMapKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setBakarTypeUri2TypeMap (options : MMap[Property.Key, Any], bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl]) : MMap[Property.Key, Any] = {
+
+    options(BakarProcedureRewriterModule.globalBakarTypeUri2TypeMapKey) = bakarTypeUri2TypeMap
+
+    return options
+  }
+
   def getModels (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
     if (options.contains(BakarProcedureRewriterModule.globalModelsKey)) {
        return options(BakarProcedureRewriterModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
@@ -154,6 +200,7 @@ object BakarProcedureRewriterModule extends PipelineModule {
   object ConsumerView {
     implicit class BakarProcedureRewriterModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def symbolTable : org.sireum.bakar.symbol.BakarSymbolTable = BakarProcedureRewriterModule.getSymbolTable(job.propertyMap)
+      def bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl] = BakarProcedureRewriterModule.getBakarTypeUri2TypeMap(job.propertyMap)
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarProcedureRewriterModule.getModels(job.propertyMap)
     }
   }
@@ -163,6 +210,9 @@ object BakarProcedureRewriterModule extends PipelineModule {
 
       def symbolTable_=(symbolTable : org.sireum.bakar.symbol.BakarSymbolTable) { BakarProcedureRewriterModule.setSymbolTable(job.propertyMap, symbolTable) }
       def symbolTable : org.sireum.bakar.symbol.BakarSymbolTable = BakarProcedureRewriterModule.getSymbolTable(job.propertyMap)
+
+      def bakarTypeUri2TypeMap_=(bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl]) { BakarProcedureRewriterModule.setBakarTypeUri2TypeMap(job.propertyMap, bakarTypeUri2TypeMap) }
+      def bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl] = BakarProcedureRewriterModule.getBakarTypeUri2TypeMap(job.propertyMap)
 
       def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarProcedureRewriterModule.setModels(job.propertyMap, models) }
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarProcedureRewriterModule.getModels(job.propertyMap)
@@ -174,6 +224,8 @@ trait BakarProcedureRewriterModule {
   def job : PipelineJob
 
   def symbolTable : org.sireum.bakar.symbol.BakarSymbolTable = BakarProcedureRewriterModule.getSymbolTable(job.propertyMap)
+
+  def bakarTypeUri2TypeMap : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.symbol.TypeDecl] = BakarProcedureRewriterModule.getBakarTypeUri2TypeMap(job.propertyMap)
 
 
   def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarProcedureRewriterModule.setModels(job.propertyMap, models) }

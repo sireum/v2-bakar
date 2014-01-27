@@ -21,10 +21,10 @@ procedure $$binit {
 procedure R (
         Integer X) {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
+    Integer _t0;
+    Integer _t1;
+    Integer _t2;
+    Integer _t3;
 
 
   #rwl0.
@@ -50,12 +50,12 @@ procedure Integer incX (
         Integer X) {
   local
     Integer result;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
+    Integer _t4;
+    universal_integer _t5;
+    Integer _t6;
+    universal_integer _t7;
+    Integer _t8;
+    universal_integer _t9;
 
 
   #rwl4.
@@ -103,8 +103,8 @@ procedure Q (
         Integer Z) {
   local
     Integer _tcomp0;
-    FIXME _t10;
-    FIXME _t11;
+    Integer _t10;
+    Integer _t11;
 
 
   #l12.

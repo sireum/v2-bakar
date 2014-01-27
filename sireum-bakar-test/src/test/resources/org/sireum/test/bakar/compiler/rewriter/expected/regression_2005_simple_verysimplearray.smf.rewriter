@@ -28,8 +28,8 @@ procedure Add (
 procedure Del {
   local
     Integer T;
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    MyInt _t1;
 
 
   #l3.

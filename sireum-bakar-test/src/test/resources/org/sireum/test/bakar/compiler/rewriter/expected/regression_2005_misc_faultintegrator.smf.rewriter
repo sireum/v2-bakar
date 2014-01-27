@@ -21,14 +21,14 @@ procedure Test (
         Boolean CurrentEvent,
         Boolean IntegratedEvent) {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
+    Natural _t0;
+    Positive _t1;
+    Natural _t2;
+    universal_integer _t3;
+    Natural _t4;
+    universal_integer _t5;
+    Natural _t6;
+    universal_integer _t7;
 
 
   #l4.

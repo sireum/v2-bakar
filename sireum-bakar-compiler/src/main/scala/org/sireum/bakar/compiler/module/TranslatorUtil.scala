@@ -1,6 +1,7 @@
 package org.sireum.bakar.compiler.module
 
 import org.sireum.util.PropertyProvider
+import org.sireum.bakar.symbol.TypeDecl
 
 object BAKAR_KEYS {
   val LOOP_LABEL_KEY = "LOOP_LABEL"
@@ -12,9 +13,8 @@ object URIS {
   import org.sireum.pilar.ast.Exp
 
   val TYPE_MAP = "BAKAR_TYPE_MAP"
-  val TYPE_DEF = "BAKAR_TYPE_DEF"
-  val TYPE_URI = "BAKAR_TYPE_URI"
-  val REF_URI = "BAKAR_REF_URI"
+  private val TYPE_DEF = "BAKAR_TYPE_DEF"
+  private val TYPE_URI = "BAKAR_TYPE_URI"
 
   val DUMMY_URI = "__DUMMY_URI__"
 
@@ -31,14 +31,21 @@ object URIS {
   val uriPrefixProcedureBody = "ada://procedure_body/"
   val uriPrefixProcedureSpec = "ada://procedure/"
 
+  def addTypeDef[E <: PropertyProvider](e: E, t : TypeDecl): E = {
+    e(TYPE_DEF) = t
+    e
+  }
+  def getTypeDef[E <: PropertyProvider](e: E): TypeDecl = e(TYPE_DEF)
+  def hasTypeDef[E <: PropertyProvider](e: E) = e ? TYPE_DEF
+  
   def addTypeUri[E <: PropertyProvider](e: E, uri: String): E = {
     assert(isTypeUri(uri) || uri == DUMMY_URI)
     e(TYPE_URI) = uri
     e
   }
-
   def getTypeUri[E <: PropertyProvider](e: E): ResourceUri = e(TYPE_URI)
-
+  def hasTypeUri[E <: PropertyProvider](e: E) = e ? TYPE_URI
+  
   def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) = {
 
     val u = new URI(uri)
@@ -195,8 +202,8 @@ object StandardTypeDefs {
     val sparkTypeDec = FullTypeDecl(typName, typURI,
       SignedIntegerTypeDef(None, None))
 
-    pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
-    pilarTypeDec(URIS.TYPE_URI) = typURI
+    URIS.addTypeDef(pilarTypeDec, sparkTypeDec)
+    URIS.addTypeUri(pilarTypeDec, typURI)
     pilarTypeDec
   }
 

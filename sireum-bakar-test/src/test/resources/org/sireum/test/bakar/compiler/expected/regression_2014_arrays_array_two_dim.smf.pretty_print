@@ -231,10 +231,6 @@ typealias Integer Index
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="6"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string srefid="3"/>
                  </entry>

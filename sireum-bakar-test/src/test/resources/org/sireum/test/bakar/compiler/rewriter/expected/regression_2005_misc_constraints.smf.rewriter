@@ -5,16 +5,16 @@ procedure foo (
         Integer a,
         Day dayVar) {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
+    Day _t0;
+    Day _t1;
+    Integer _t2;
+    universal_integer _t3;
+    Day _t4;
+    Day _t5;
+    Integer _t6;
+    universal_integer _t7;
+    Integer _t8;
+    universal_integer _t9;
 
 
   #rwl0.

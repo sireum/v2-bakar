@@ -44,8 +44,8 @@ object PilarNodeFactory {
 
   def buildGlobalVar(varName: String, varUri: ResourceUri,
     parentUri: ResourceUri, nts: NamedTypeSpec): GlobalVarDecl = {
-    assert(nts ? URIS.TYPE_URI)
-    assert(nts.name ? URIS.TYPE_URI)
+    assert(URIS.hasTypeUri(nts))
+    assert(URIS.hasTypeUri(nts.name))
     assert(varName.contains("@@"))
     assert(varUri.contains("@@"))
     
@@ -69,8 +69,8 @@ object PilarNodeFactory {
 
   def buildLocalVar(varND: NameDefinition, ts: TypeSpec): LocalVarDecl = {
     assert(varND ? Symbol.symbolPropKey)
-    assert(ts ? URIS.TYPE_URI)
-    assert(ts.asInstanceOf[NamedTypeSpec].name ? URIS.TYPE_URI)
+    assert(URIS.hasTypeUri(ts))
+    assert(URIS.hasTypeUri(ts.asInstanceOf[NamedTypeSpec].name))
 
     LocalVarDecl(Some(ts), varND, ivectorEmpty)
   }
@@ -121,7 +121,7 @@ object PilarNodeFactory {
   }
 
   def buildNamedTypeSpec(name: NameUser, typeUri: ResourceUri): NamedTypeSpec = {
-    if (!(name ? URIS.TYPE_URI)) {
+    if (!URIS.hasTypeUri(name)) {
       URIS.addTypeUri(name, typeUri)
     } else {
       assert(URIS.isTypeUri(URIS.getTypeUri(name)) && URIS.getTypeUri(name) == typeUri)
@@ -138,8 +138,8 @@ object PilarNodeFactory {
 
   def buildParamDecl(paramND: NameDefinition, ts: TypeSpec): ParamDecl = {
     assert(paramND ? Symbol.symbolPropKey)
-    assert(ts ? URIS.TYPE_URI)
-    assert(ts.asInstanceOf[NamedTypeSpec].name ? URIS.TYPE_URI)
+    assert(URIS.hasTypeUri(ts))
+    assert(URIS.hasTypeUri(ts.asInstanceOf[NamedTypeSpec].name))
 
     ParamDecl(Some(ts), paramND, ivectorEmpty)
   }

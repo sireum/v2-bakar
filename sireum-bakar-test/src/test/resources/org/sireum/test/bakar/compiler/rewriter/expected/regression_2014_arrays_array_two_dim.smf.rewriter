@@ -3,12 +3,12 @@ package Array_Two_Dim;
 
 procedure $$binit {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
+    universal_integer _t0;
+    universal_integer _t1;
+    universal_integer _t2;
+    universal_integer _t3;
+    Integer _t4;
+    universal_integer _t5;
 
 
   #rwl0.
@@ -58,8 +58,8 @@ procedure dummy (
         Index X,
         Index Y) {
   local
-    FIXME _t6;
-    FIXME _t7;
+    Integer _t6;
+    universal_integer _t7;
 
 
   #rwl6.
@@ -79,10 +79,10 @@ procedure dummy2 (
         Board_Index M,
         Board_Index N) {
   local
-    FIXME _t8;
-    FIXME _t9;
-    FIXME _t10;
-    FIXME _t11;
+    Row _t8;
+    Row _t9;
+    Integer _t10;
+    universal_integer _t11;
 
 
   #rwl8.

@@ -47,10 +47,10 @@ procedure Test02 (
         Integer O2) {
   local
     NestedObject Q;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
+    Object _t0;
+    Object _t1;
+    Object _t2;
+    Object _t3;
 
 
   #rwl0.

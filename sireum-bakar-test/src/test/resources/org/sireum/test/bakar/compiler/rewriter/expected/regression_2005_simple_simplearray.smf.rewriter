@@ -11,18 +11,18 @@ global Vector @@B;
 
 procedure $$binit {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
-    FIXME _t10;
-    FIXME _t11;
+    Index _t0;
+    Index _t1;
+    Index _t2;
+    Index _t3;
+    Index _t4;
+    Index _t5;
+    Index _t6;
+    Index _t7;
+    universal_integer _t8;
+    universal_integer _t9;
+    universal_integer _t10;
+    universal_integer _t11;
 
 
   #rwl0.
@@ -96,14 +96,14 @@ procedure Integer Max (
     Index I;
     Index _tcomp0;
     Index _tcomp1;
-    FIXME _t12;
-    FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
-    FIXME _t16;
-    FIXME _t17;
-    FIXME _t18;
-    FIXME _t19;
+    Index _t12;
+    Index _t13;
+    Integer _t14;
+    Integer _t15;
+    Index _t16;
+    Index _t17;
+    Index _t18;
+    universal_integer _t19;
 
 
   #l3.

@@ -29,8 +29,8 @@ procedure Success2 (
         Integer O) {
   local
     Integer L;
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    Integer _t1;
 
 
   #l4.
@@ -100,8 +100,8 @@ procedure Success4 (
     Integer L1;
     Integer L2;
     Integer L3;
-    FIXME _t2;
-    FIXME _t3;
+    Integer _t2;
+    Integer _t3;
 
 
   #l18.
@@ -135,8 +135,8 @@ procedure Success5 (
     Integer L1;
     Integer L2;
     Integer L3;
-    FIXME _t4;
-    FIXME _t5;
+    Integer _t4;
+    Integer _t5;
 
 
   #l23.
@@ -173,8 +173,8 @@ procedure Success6 (
         Integer O1,
         Integer O2) {
   local
-    FIXME _t6;
-    FIXME _t7;
+    Integer _t6;
+    universal_integer _t7;
 
 
   #l30.
@@ -214,8 +214,8 @@ procedure Success7 (
         Integer O) {
   local
     Integer L1;
-    FIXME _t8;
-    FIXME _t9;
+    Integer _t8;
+    Integer _t9;
 
 
   #l38.
@@ -256,8 +256,8 @@ procedure Success8 (
   local
     Integer L1;
     Integer L2;
-    FIXME _t10;
-    FIXME _t11;
+    Integer _t10;
+    universal_integer _t11;
 
 
   #l46.
@@ -302,10 +302,10 @@ procedure Success9 (
   local
     Integer L1;
     Integer L2;
-    FIXME _t12;
-    FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
+    Integer _t12;
+    universal_integer _t13;
+    Integer _t14;
+    universal_integer _t15;
 
 
   #l55.
@@ -372,10 +372,10 @@ procedure Success10 (
   local
     Integer L1;
     Integer L2;
-    FIXME _t16;
-    FIXME _t17;
-    FIXME _t18;
-    FIXME _t19;
+    Integer _t16;
+    universal_integer _t17;
+    Integer _t18;
+    universal_integer _t19;
 
 
   #l69.

@@ -22,12 +22,12 @@ procedure R (
         Integer X,
         Integer Z) {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
+    Integer _t0;
+    Integer _t1;
+    Integer _t2;
+    Integer _t3;
+    Integer _t4;
+    Integer _t5;
 
 
   #rwl0.
@@ -59,8 +59,8 @@ procedure Q (
         Integer X,
         Integer Z) {
   local
-    FIXME _t6;
-    FIXME _t7;
+    Integer _t6;
+    Integer _t7;
 
 
   #l5.

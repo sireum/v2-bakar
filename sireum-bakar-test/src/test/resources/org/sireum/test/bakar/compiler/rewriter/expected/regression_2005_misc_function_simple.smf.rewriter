@@ -22,10 +22,10 @@ procedure Integer F1 (
         Integer X,
         Integer Z) {
   local
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
+    Integer _t0;
+    Integer _t1;
+    Integer _t2;
+    Integer _t3;
 
 
   #rwl0.
@@ -66,8 +66,8 @@ procedure P2 (
         Integer N) {
   local
     Integer _tcomp1;
-    FIXME _t4;
-    FIXME _t5;
+    Integer _t4;
+    Integer _t5;
 
 
   #l7.

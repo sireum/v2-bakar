@@ -10,20 +10,18 @@ import org.sireum.pilar.ast._
 import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.bakar.compiler.module.URIS
 import org.sireum.bakar.compiler.module.PilarNodeFactory
+import org.sireum.bakar.symbol.TypeDecl
 
 class BakarExpRewriterModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends BakarExpRewriterModule {
-  var r = ilistEmpty[Model]
-  for (m <- this.models) {
-    r :+= BakarRewriter.rewriter(m)
-  }
-  this.models = r
+  models = for (m <- this.models) yield BakarRewriter.rewriter(m, bakarTypeUri2TypeMap)
 }
 
 object BakarRewriter {
-  def rewriter(m: Model): Model = new BakarRewriter().rewrite(m)
+  def rewriter(m: Model, typeMap: IMap[ResourceUri, TypeDecl]): Model =
+    new BakarRewriter(typeMap).rewrite(m)
 }
 
-class BakarRewriter {
+class BakarRewriter(typeMap: IMap[ResourceUri, TypeDecl]) {
   type RVistor = Any => Any
   var tcounter = 0;
   var lcounter = 0;
@@ -61,8 +59,8 @@ class BakarRewriter {
   var currentMethodUri: ResourceUri = null
 
   def getTypeUri(e: Exp): String = {
-    assert(e ? URIS.TYPE_URI)
-    e(URIS.TYPE_URI)
+    assert(URIS.hasTypeUri(e))
+    URIS.getTypeUri(e)
   }
 
   def copyMap[T <: PilarAstNode](orig: T, n: T): T = {
@@ -73,24 +71,23 @@ class BakarRewriter {
   val rewriter = Rewriter.build[LocationDecl]({
     case l: LocationDecl => l
     case b @ BinaryExp(o, l, r) =>
-      val btype = getTypeUri(b)
-      val ltype = getTypeUri(l)
-      val rtype = getTypeUri(r)
+      val btype = typeMap(getTypeUri(b))
+      val ltype = typeMap(getTypeUri(l))
+      val rtype = typeMap(getTypeUri(r))
 
-      val le = newTempVar("FIXME", ltype)
+      val le = newTempVar(ltype.id, ltype.uri)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, le, ":=", l))
 
-      val re = newTempVar("FIXME", rtype)
+      val re = newTempVar(rtype.id, rtype.uri)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, re, ":=", r))
 
       val be = copyMap(b, BinaryExp(o, le, re))
-      be(URIS.TYPE_URI) = btype
-      be
+      URIS.addTypeUri(be, btype.uri)
     case e @ AccessExp(NameExp(NameUser(n)), attributeName) => e
     case e @ AccessExp(exp, attributeName) =>
-      val etype = getTypeUri(e)
-      val exptype = getTypeUri(exp)
-      val te = newTempVar("FIXME", exptype)
+      val etype = typeMap(getTypeUri(e))
+      val exptype = typeMap(getTypeUri(exp))
+      val te = newTempVar(exptype.id, exptype.uri)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, te, ":=", exp))
       clhs match {
         case Some(cexp) if cexp eq e =>
@@ -98,13 +95,12 @@ class BakarRewriter {
         case _ =>
       }
       val ae = copyMap(e, AccessExp(te, attributeName))
-      ae(URIS.TYPE_URI) = etype
-      ae
+      URIS.addTypeUri(ae, etype.uri)
     case e @ IndexingExp(NameExp(NameUser(n)), indices) => e
     case e @ IndexingExp(exp, indices) =>
-      val etype = getTypeUri(e)
-      val exptype = getTypeUri(exp)
-      val te = newTempVar("FIXME", exptype)
+      val etype = typeMap(getTypeUri(e))
+      val exptype = typeMap(getTypeUri(exp))
+      val te = newTempVar(exptype.id, exptype.uri)
       prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, te, ":=", exp))
       clhs match {
         case Some(cexp) if cexp eq e =>
@@ -113,24 +109,23 @@ class BakarRewriter {
       }
 
       val ie = copyMap(e, IndexingExp(te, indices))
-      ie(URIS.TYPE_URI) = etype
-      ie
+      URIS.addTypeUri(ie, etype.uri)
 
     // the rest of these are sanity checks
     case te: TupleExp => te // tuple exp don't need a type
     case fe: FunExp => fe
     case se: SwitchExp => se
     case e @ CallExp(NameExp(n), _) =>
-      assert(n.uri.startsWith("ada://procedure") || e ? URIS.TYPE_URI)
+      assert(n.uri.startsWith("ada://procedure") || URIS.hasTypeUri(e))
       e
     case e @ NameExp(n) =>
       assert(n.uri.startsWith("ada://procedure") || n.uri.startsWith("ada://function") ||
-        e ? URIS.TYPE_URI)
+        URIS.hasTypeUri(e))
       e
     case e: Exp =>
-      if (!(e ? URIS.TYPE_URI))
+      if (!URIS.hasTypeUri(e))
         print(e)
-      assert(e ? URIS.TYPE_URI)
+      assert(URIS.hasTypeUri(e))
       e
   }, Rewriter.TraversalMode.BOTTOM_UP, true)
 
@@ -194,7 +189,7 @@ class BakarRewriter {
 case class BakarExpRewriter(
 
   title: String = "Bakar Exp Rewriter",
-
+  @Input bakarTypeUri2TypeMap: IMap[ResourceUri, TypeDecl],
   @Input @Output models: ISeq[Model])
 
 object BakarExpRewriter {

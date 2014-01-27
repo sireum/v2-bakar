@@ -218,10 +218,6 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="3"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string sid="4">ada://subtype/Constraints-1:9/Sub_Int-3:11</string>
                  </entry>
@@ -259,10 +255,6 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
                      </ilist>
                      <string sid="6">ada://integer_number/Constraints-1:9/Int_High_Const-5:3</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="6"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -368,10 +360,6 @@ typealias Day Weekday
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
                  <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="4"/>
-                 </entry>
-                 <entry>
                    <string>BAKAR_TYPE_URI</string>
                    <string srefid="2"/>
                  </entry>
@@ -410,10 +398,6 @@ typealias Day Weekday
                      </ilist>
                      <string sid="5">ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="5"/>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>

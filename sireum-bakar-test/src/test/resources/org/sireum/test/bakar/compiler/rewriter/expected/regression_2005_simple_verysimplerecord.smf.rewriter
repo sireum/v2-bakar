@@ -19,8 +19,8 @@ procedure Boolean Dummy {
 procedure Add (
         Rec R) {
   local
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    universal_integer _t1;
 
 
   #rwl0.
@@ -39,10 +39,10 @@ procedure Add (
 procedure Del {
   local
     Integer T;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
+    Integer _t2;
+    Integer _t3;
+    Integer _t4;
+    universal_integer _t5;
 
 
   #l3.

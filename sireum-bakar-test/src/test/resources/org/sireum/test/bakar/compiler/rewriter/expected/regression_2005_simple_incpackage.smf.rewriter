@@ -5,8 +5,8 @@ procedure Integer Inc (
         Integer X) {
   local
     Integer R;
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    universal_integer _t1;
 
 
   #rwl0.

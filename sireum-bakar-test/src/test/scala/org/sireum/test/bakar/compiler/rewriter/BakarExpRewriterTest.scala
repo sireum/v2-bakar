@@ -13,6 +13,7 @@ import org.sireum.pipeline.PipelineStage
 import org.sireum.test.bakar.compiler.BakarTranslatorTest
 import org.sireum.util.ImplicitLogging
 import org.scalatest.junit.JUnitRunner
+import org.sireum.bakar.typ.BakarTypeResolverModule
 
 @RunWith(classOf[JUnitRunner])
 class BakarExpRewriterTest extends BakarTranslatorTest {
@@ -40,6 +41,10 @@ object BakarExpRewriterTest extends ImplicitLogging {
         "translator stage",
         false,
         BakarTranslatorModule),
+      PipelineStage(
+        "type resolver stage",
+        false,
+        BakarTypeResolverModule),
       PipelineStage(
         "rewriter stage",
         false,

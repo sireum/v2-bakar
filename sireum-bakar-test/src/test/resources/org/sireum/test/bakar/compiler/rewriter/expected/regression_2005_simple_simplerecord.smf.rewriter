@@ -27,8 +27,8 @@ procedure Add (
         SmallInt I,
         Rec R) {
   local
-    FIXME _t0;
-    FIXME _t1;
+    SmallInt _t0;
+    SmallInt _t1;
 
 
   #rwl0.
@@ -48,10 +48,10 @@ procedure NAdd (
         SmallInt I,
         NestedRec NR) {
   local
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
+    Rec _t2;
+    Rec _t3;
+    SmallInt _t4;
+    SmallInt _t5;
 
 
   #rwl2.
@@ -80,9 +80,9 @@ procedure AAdd (
         SmallInt I,
         Rec R) {
   local
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
+    Vector _t6;
+    SmallInt _t7;
+    universal_integer _t8;
 
 
   #rwl7.

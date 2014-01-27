@@ -605,7 +605,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                   val markURI = td.uri
                   val markNE = PNF.buildNameExp(td.id, markURI, Some(markURI))
 
-                  if (!(ne ? URIS.TYPE_URI))
+                  if (!URIS.hasTypeUri(ne))
                     addTypeUri(ne, markURI)
 
                   addTypeUri(iterND, markURI)
@@ -630,7 +630,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
               v(mark)
               val markNE: NameExp = popResult
-              val markURI: String = markNE.name(URIS.REF_URI)
+              val markURI: String = markNE.name.uri
 
               addTypeUri(markNE.name, markURI)
               addTypeUri(iterND, markURI)
@@ -653,7 +653,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                           v(prefix)
                           val ne: NameExp = popResult
 
-                          if (!(ne ? URIS.TYPE_URI))
+                          if (!URIS.hasTypeUri(ne))
                             addTypeUri(ne, markURI)
 
                           var texps: ISeq[Exp] = ivector(ne)
@@ -709,7 +709,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           e match {
             case c: NameExp =>
-              val cURI: String = c.name(URIS.REF_URI)
+              val cURI: String = c.name.uri
               if (cURI.startsWith("ada://enumeration_literal") ||
                 cURI.startsWith("ada://parameter") ||
                 cURI.startsWith("ada://variable")) {
@@ -931,7 +931,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           v(objDecView)
           val odv: NameExp = popResult
           val typeUri = odv.name.uri
-          if (!(odv.name ? URIS.TYPE_URI)) addTypeUri(odv.name, typeUri)
+          if (!URIS.hasTypeUri(odv.name)) addTypeUri(odv.name, typeUri)
           val typeSpec = PNF.buildNamedTypeSpec(odv.name, typeUri)
 
           val varDecls = mlistEmpty[PilarAstNode]
@@ -1011,7 +1011,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val sparkTypeDec = SubTypeDecl(subtypeName, subtypeURI, parentTypeUri, cons)
       typeDeclarations += (subtypeURI -> sparkTypeDec)
 
-      pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+      URIS.addTypeDef(pilarTypeDec, sparkTypeDec)
       addTypeUri(pilarTypeDec, subtypeURI)
     }
 
@@ -1142,7 +1142,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
               v(high)
               val highBound: Exp = popResult
 
-              val i: FullTypeDecl = StandardTypeDefs.StandardInteger(URIS.TYPE_DEF)
+              val i = URIS.getTypeDef(StandardTypeDefs.StandardInteger)
               val anon = introduceAnonymousType(lowBound, highBound, i.id, i.uri)
               auxTypes :+= anon
               indexTypes :+= anon.name.uri
@@ -1186,7 +1186,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                             val ne: NameExp = popResult
                             val tname = ne.name.name
                             val turi =
-                              if (ne ? URIS.TYPE_URI) ne(URIS.TYPE_URI)
+                              if (URIS.hasTypeUri(ne)) URIS.getTypeUri(ne)
                               else {
                                 assert(URIS.isTypeUri(ne.name.uri))
                                 ne.name.uri
@@ -1323,7 +1323,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val sparkTypeDec = FullTypeDecl(tname, turi, td)
           typeDeclarations += (turi -> sparkTypeDec)
 
-          pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+          URIS.addTypeDef(pilarTypeDec, sparkTypeDec)
           addTypeUri(pilarTypeDec, turi)
 
           ret
@@ -1344,7 +1344,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val sparkTypeDec = SubTypeDecl(tname, turi, suri, cons)
           typeDeclarations += (turi -> sparkTypeDec)
 
-          pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+          URIS.addTypeDef(pilarTypeDec, sparkTypeDec)
           addTypeUri(pilarTypeDec, turi)
 
           ret
@@ -1372,7 +1372,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val sparkTypeDec = PrivateTypeDecl(tname, turi, false, isLimited, fullTypeDec.uri)
           typeDeclarations += (turi -> sparkTypeDec)
 
-          pilarTypeDec(URIS.TYPE_DEF) = sparkTypeDec
+          URIS.addTypeDef(pilarTypeDec, sparkTypeDec)
           addTypeUri(pilarTypeDec, turi)
 
           ret
@@ -1839,7 +1839,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           v(e)
           val ne: NameExp = ctx.popResult
           val typeUri = ne.name.uri
-          if (!(ne.name ? URIS.TYPE_URI))
+          if (!URIS.hasTypeUri(ne.name))
             ctx.addTypeUri(ne.name, typeUri)
           val nts = PNF.buildNamedTypeSpec(ne.name, typeUri)
           ne.propertyMap.foreach { case (key, value) => nts.setProperty(key, value) }
@@ -2112,7 +2112,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val (sloc, name, refUri, typeUri) = ctx.getName(o)
 
       val nd = ctx.addResourceUri(NameDefinition(name), refUri)
-      ctx.addProperty(URIS.REF_URI, refUri, nd)
       if (typeUri != "null") ctx.addTypeUri(nd, typeUri)
 
       ctx.pushResult(nd, sloc)
@@ -2124,7 +2123,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         ctx.pushResult(le, sloc)
       } else {
         val nu = ctx.addResourceUri(NameUser(refName), refUri)
-        ctx.addProperty(URIS.REF_URI, refUri, nu)
         ctx.addTypeUri(nu, typeUri)
 
         val ne = ctx.addTypeUri(NameExp(nu), typeUri)
@@ -2138,7 +2136,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       else typeUri
 
       val nu = ctx.addResourceUri(NameUser(name), refUri)
-      ctx.addProperty(URIS.REF_URI, refUri, nu)
 
       val ne = NameExp(nu)
       if (_typeUri != "null") {
@@ -2548,11 +2545,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
       val _typUri = ctx.convertTypeUri(
         if (typeUri != null && typeUri != "null") typeUri
-        else if (p ? URIS.TYPE_URI)
+        else if (URIS.hasTypeUri(p))
           URIS.getTypeUri(p)
         else {
           assert(URIS.isTypeUri(p.name.uri))
-          assert(!(p ? URIS.TYPE_URI))
+          assert(!URIS.hasTypeUri(p))
 
           ctx.addTypeUri(p, p.name.uri)
           p.name.uri
@@ -2689,11 +2686,11 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val defaultCase = PNF.buildLiteralExp(LiteralType.BOOLEAN, true, "true", ctx.convertTypeUri(typ))
         val se = SwitchExp(iterNE, cases, defaultCase)
 
-        val typUri = if (markNE ? URIS.TYPE_URI) {
+        val typUri = if (URIS.hasTypeUri(markNE)) {
           URIS.getTypeUri(markNE)
         } else {
-          assert(URIS.isTypeUri(markNE.name(URIS.REF_URI)))
-          markNE.name(URIS.REF_URI)
+          assert(URIS.isTypeUri(markNE.name.uri))
+          markNE.name.uri
         }
 
         val nts = PNF.buildNamedTypeSpec(markNE.name, typUri)
@@ -2763,7 +2760,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           ctx.popResult.asInstanceOf[Exp] match {
             case ne @ NameExp(nu) =>
               // the name of the method is an identifier and has no type
-              if (!(ne ? URIS.TYPE_URI)) ctx.addTypeUri(ne, callExpType)
+              if (!URIS.hasTypeUri(ne)) ctx.addTypeUri(ne, callExpType)
 
               val ce = PNF.buildCallExp(ne, Some(callExpType), TupleExp(plist.toList))
 
@@ -2928,7 +2925,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val (selsloc, selname, seluri, styp) = ctx.getName(selector)
         val attr = NameUser(selname)
         ctx.addResourceUri(attr, seluri)
-        ctx.addProperty(URIS.REF_URI, seluri, attr)
         if (styp != "null") ctx.addTypeUri(attr, styp)
 
         if (seluri.startsWith("ada://component")) {
@@ -3086,7 +3082,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     StandardTypeDefs.StandardString)
 
   for (s <- standardPackageTypes) {
-    val td: FullTypeDecl = s(URIS.TYPE_DEF)
+    val td = URIS.getTypeDef(s)
     theContext.typeDeclarations += (td.uri -> td)
   }
 

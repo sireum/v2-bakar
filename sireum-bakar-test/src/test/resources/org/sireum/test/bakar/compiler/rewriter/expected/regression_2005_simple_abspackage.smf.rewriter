@@ -5,10 +5,10 @@ procedure Integer AbsFunc (
         Integer x) {
   local
     Integer r;
-    FIXME _t0;
-    FIXME _t1;
-    FIXME _t2;
-    FIXME _t3;
+    Integer _t0;
+    universal_integer _t1;
+    Integer _t2;
+    Integer _t3;
 
 
   #rwl0.

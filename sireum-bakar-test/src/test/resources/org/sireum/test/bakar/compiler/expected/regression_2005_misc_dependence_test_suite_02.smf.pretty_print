@@ -3289,10 +3289,6 @@ procedure Success25 (
                </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
              </entry>
              <entry>
-               <string>BAKAR_REF_URI</string>
-               <string srefid="2"/>
-             </entry>
-             <entry>
                <string>util.loc</string>
                <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="3" size="5">
                  <string sid="3">dependence_test_suite_02.adb</string>

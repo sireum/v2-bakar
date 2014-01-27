@@ -6,8 +6,8 @@ procedure P (
         Integer J,
         Boolean Ret) {
   local
-    FIXME _t0;
-    FIXME _t1;
+    Integer _t0;
+    Integer _t1;
 
 
   #rwl0.
@@ -46,20 +46,20 @@ procedure Integer Stupid (
     Index_Range I;
     Index_Range _tcomp0;
     Index_Range _tcomp1;
-    FIXME _t2;
-    FIXME _t3;
-    FIXME _t4;
-    FIXME _t5;
-    FIXME _t6;
-    FIXME _t7;
-    FIXME _t8;
-    FIXME _t9;
-    FIXME _t10;
-    FIXME _t11;
-    FIXME _t12;
-    FIXME _t13;
-    FIXME _t14;
-    FIXME _t15;
+    Index_Range _t2;
+    Index_Range _t3;
+    Integer _t4;
+    Index_Range _t5;
+    Integer _t6;
+    universal_integer _t7;
+    Integer _t8;
+    universal_integer _t9;
+    Integer _t10;
+    universal_integer _t11;
+    Index_Range _t12;
+    Index_Range _t13;
+    Index_Range _t14;
+    universal_integer _t15;
 
 
   #l8.

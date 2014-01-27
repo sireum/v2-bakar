@@ -490,10 +490,6 @@ package Array_Unconstrained_T
                      <string sid="3">ada://package/Array_Unconstrained-1:9</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
-                 <entry>
-                   <string>BAKAR_REF_URI</string>
-                   <string srefid="3"/>
-                 </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
              <properties mtype="mlinkedmap">
