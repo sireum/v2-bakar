@@ -48,7 +48,7 @@ object PilarNodeFactory {
     assert(URIS.hasTypeUri(nts.name))
     assert(varName.contains("@@"))
     assert(varUri.contains("@@"))
-    
+
     import org.sireum.bakar.symbol.BakarSymbol._
     val nd = URIS.addResourceUri(NameDefinition(varName), varUri)
     val gvd = GlobalVarDecl(nd, ivectorEmpty, Some(nts))
@@ -86,11 +86,17 @@ object PilarNodeFactory {
     (lvd, ret)
   }
 
-  def buildLocationLabel(path : ISeq[String]): NameDefinition = {
+  def buildLocationLabel(path: ISeq[String]): NameDefinition = {
     val label = path(path.size - 1)
     val uri = URIS.uriPrefixLocation + path.mkString("/")
     URIS.addResourceUri(NameDefinition(label), uri)
   }
+
+  def buildModel(sourceUri: FileResourceUri, packages: ISeq[PackageDecl]): Model =
+    buildModel(sourceUri, ivectorEmpty, packages)
+
+  def buildModel(sourceUri: FileResourceUri, annots: ISeq[Annotation], packages: ISeq[PackageDecl]): Model =
+    Model(Some(sourceUri), annots, packages)
 
   def buildNameExp(name: String, uri: ResourceUri): NameExp = buildNameExp(name, uri, None)
 
@@ -102,10 +108,8 @@ object PilarNodeFactory {
   def buildNameExp(nu: NameUser, typeUri: Option[ResourceUri]): NameExp = {
     assert(nu ? Symbol.symbolPropKey)
     val ne = NameExp(nu)
-    if (typeUri.isDefined) {
-      assert(URIS.isTypeUri(typeUri.get))
+    if (typeUri.isDefined) 
       URIS.addTypeUri(ne, typeUri.get)
-    }
     ne
   }
 
@@ -131,6 +135,13 @@ object PilarNodeFactory {
     URIS.addTypeUri(nts, typeUri)
   }
 
+  def buildPackageDecl(name: NameDefinition, elements: ISeq[PackageElement]): PackageDecl = {
+    buildPackageDecl(name, ivectorEmpty, elements)
+  }
+
+  def buildPackageDecl(name: NameDefinition, annots: ISeq[Annotation], elements: ISeq[PackageElement]): PackageDecl = {
+    PackageDecl(Some(name), annots, elements)
+  }
   def buildParamDecl(paramName: String, paramUri: ResourceUri, ts: TypeSpec): ParamDecl = {
     val nd = URIS.addResourceUri(NameDefinition(paramName), paramUri)
     buildParamDecl(nd, ts)

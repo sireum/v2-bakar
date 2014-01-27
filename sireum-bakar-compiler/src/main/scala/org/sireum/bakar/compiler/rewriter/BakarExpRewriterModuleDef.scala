@@ -28,9 +28,6 @@ class BakarRewriter(typeMap: IMap[ResourceUri, TypeDecl]) {
   val tempVarPrefix = "_t"
   val locPrefix = "rwl"
 
-  val SCHEME = "ada"
-  val TEMP_VAR_TYPE = "variable_temp"
-
   val eannot = ilistEmpty[Annotation]
   def newTempVar(typeName: String, typeUri: String) = {
     val name = tempVarPrefix + tcounter
@@ -134,7 +131,6 @@ class BakarRewriter(typeMap: IMap[ResourceUri, TypeDecl]) {
     Visitor.build({
       case p @ PackageDecl(packName, _, elements) =>
         var elems = ivectorEmpty[PackageElement]
-        //this.currentPackage = packName.get.name
         elements.foreach {
           case pd @ ProcedureDecl(methName, a, tv, params, rt, va, body: ImplementedBody) => {
 
@@ -179,7 +175,7 @@ class BakarRewriter(typeMap: IMap[ResourceUri, TypeDecl]) {
           }
           case o => elems :+= o
         }
-        packages :+= PackageDecl(p.name, p.annotations, elems)
+        packages :+= PilarNodeFactory.buildPackageDecl(p.name.get, p.annotations, elems)
         false
     })(m)
     Model(m.sourceURI, m.annotations, packages)

@@ -320,7 +320,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
     val loopLabelStack = mstackEmpty[NameDefinition]
     def peekLoopLabel =
-      addTypeUri(NameExp(URIS.addResourceUri(loopLabelStack.top, URIS.DUMMY_URI)), URIS.DUMMY_URI)
+      PNF.buildNameExp(loopLabelStack.top.name, URIS.DUMMY_URI, Some(URIS.DUMMY_URI))
     def popLoopLabel = loopLabelStack.pop
     def pushLoopLabel(s: NameDefinition) = loopLabelStack.push(s)
 
@@ -742,7 +742,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           popResult
         } else {
           // TODO: 
-          addTypeUri(NameExp(addResourceUri(NameUser("__DEFERRED_CONSTANT__"), URIS.DUMMY_URI)), URIS.DUMMY_URI)
+          PNF.buildNameExp("__DEFERRED_CONSTANT__", URIS.DUMMY_URI, Some(URIS.DUMMY_URI))
         }
         val castExp = CastExp(PNF.buildNamedTypeSpec(typeName, typeUri), ie)
         val constElems = mlistEmpty[ConstElement]
@@ -945,7 +945,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
                 PNF.buildLocalVar(cdefName, cdefUri, typeSpec)
 
               if (!isEmpty(initExpr.getExpression)) {
-                var lhs = addTypeUri(NameExp(addResourceUri(NameUser(cdefName), cdefUri)), typ)
+                var lhs = PNF.buildNameExp(cdefName, cdefUri, Some(typ))
                 v(initExpr.getExpression)
                 val rhs: Exp = popResult
                 createPushAssignmentLocation(lhs, rhs, ivectorEmpty, sloc)
@@ -1004,7 +1004,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val subtypeURI = "ada://ordinary_type__anonymous/" + path.mkString("/")
 
       val pilarTypeDec = TypeAliasDecl(
-        addResourceUri(NameDefinition(subtypeName), subtypeURI), ivectorEmpty,
+        URIS.addResourceUri(NameDefinition(subtypeName), subtypeURI), ivectorEmpty,
         PNF.buildNamedTypeSpec(parentTypeName, parentTypeUri))
 
       val cons = Some(SimpleRangeConstraint(lowBound, highBound))
@@ -1014,9 +1014,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       URIS.addTypeDef(pilarTypeDec, sparkTypeDec)
       addTypeUri(pilarTypeDec, subtypeURI)
     }
-
-    def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) =
-      URIS.addResourceUri(s, uri)
 
     def handleTypeDefinition(o: DefinitionClass, v: => BVisitor): (TypeDef, Option[ISeq[PackageElement]]) = {
       o.getDefinition match {
@@ -1289,31 +1286,31 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           val pilarTypeDec = td match {
             case sit: SignedIntegerTypeDef =>
-              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+              TypeAliasDecl(URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_SIGNED_INTEGER_TYPE_"), ilistEmpty[TypeSpec]))
             case etd: EnumerationTypeDef =>
-              val elems = for ((n, u) <- etd.elems) yield EnumElement(addResourceUri(NameDefinition(n), u), ivectorEmpty)
-              EnumDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty, elems.toList)
+              val elems = for ((n, u) <- etd.elems) yield EnumElement(URIS.addResourceUri(NameDefinition(n), u), ivectorEmpty)
+              EnumDecl(URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty, elems.toList)
             case uad: UnconstrainedArrayDef =>
-              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+              TypeAliasDecl(URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_UNCONSTRAINED_ARRAY_"), ilistEmpty[TypeSpec]))
             case cad: ConstrainedArrayDef =>
-              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+              TypeAliasDecl(URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_ARRAY_"), ilistEmpty[TypeSpec]))
             case dtd: DerivedTypeDef =>
-              TypeAliasDecl(addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+              TypeAliasDecl(URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 NamedTypeSpec(NameUser("_DERIVED_TYPE_"), ilistEmpty[TypeSpec]))
             case rtd: RecordTypeDef =>
               var attrs = ivectorEmpty[AttributeDecl]
               for ((k, v) <- rtd.components) {
                 val attr = AttributeDecl(
-                  addResourceUri(NameDefinition(k), v.refUri), ivectorEmpty,
+                  URIS.addResourceUri(NameDefinition(k), v.refUri), ivectorEmpty,
                   Some(NamedTypeSpec(NameUser(v.typeName), ilistEmpty[TypeSpec])), None)
                 addTypeUri(attr, v.typeUri)
                 attrs :+= attr
               }
               RecordDecl(
-                addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+                URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 ilistEmpty[(NameDefinition, ISeq[Annotation])], ilistEmpty[ExtendClause],
                 attrs)
             case _ => throw new RuntimeException("Unexpected")
@@ -1336,7 +1333,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           val (sname, suri, cons) = handleSubtypeDef(typeDeclView.getDefinition, v)
 
           val pilarTypeDec = TypeAliasDecl(
-            addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+            URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
             PNF.buildNamedTypeSpec(sname, suri))
 
           val ret = ivector(pilarTypeDec)
@@ -1362,7 +1359,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
             case x => throw new RuntimeException("Unexpected: " + x)
           }
           val pilarTypeDec = TypeAliasDecl(
-            addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
+            URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
             NamedTypeSpec(NameUser("_PRIVATE_TYPE_DECLARATION_"), ilistEmpty[TypeSpec]))
 
           val ret = ivector(pilarTypeDec)
@@ -1590,7 +1587,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val uri = (if (isSpec) PackageURIs.constSpecDeclPrefixUri
       else PackageURIs.constBodyDeclPrefixUri) + path.mkString("/")
       val nd = NameDefinition(name)
-      ctx.addResourceUri(nd, uri)
+      URIS.addResourceUri(nd, uri)
       ConstDecl(nd, ivectorEmpty, constants)
     }
 
@@ -1641,7 +1638,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val uri = if (isSpec) PackageURIs.initSpecProcedureURIprefix + path.mkString("/")
         else PackageURIs.initBodyProcedureURIprefix + path.mkString("/")
 
-        val nd = ctx.addResourceUri(NameDefinition(name), uri)
+        val nd = URIS.addResourceUri(NameDefinition(name), uri)
 
         scope.initBlock.get += JumpLocation(Some(ctx.newLocLabel), ivectorEmpty,
           ReturnJump(ivectorEmpty, None))
@@ -1654,7 +1651,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       }
       elements ++= packElems
 
-      val pack = PackageDecl(Some(pname), ivectorEmpty, elements.toList)
+      val pack = PNF.buildPackageDecl(pname, elements.toList)
 
       import org.sireum.bakar.symbol.BakarSymbol._
       aspectSpec.getElements.foreach {
@@ -1709,14 +1706,14 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           elements += p
 
-          val name = ctx.addResourceUri(NameDefinition(pname), puri)
+          val name = URIS.addResourceUri(NameDefinition(pname), puri)
           ctx.popContext
 
-          PackageDecl(Some(name), ivectorEmpty, elements.toList)
+          PNF.buildPackageDecl(name, elements.toList)
         } else
           throw new RuntimeException("Unexpected compilation unit: " + o)
 
-        ctx.models += Model(Some(sourceFile), ivectorEmpty, ivector(pack))
+        ctx.models += PNF.buildModel(sourceFile, ivector(pack))
 
         def vi(names: java.util.List[Base]): ISeq[NameExp] =
           (for (n <- names) yield {
@@ -2111,7 +2108,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     case o: DefiningIdentifier =>
       val (sloc, name, refUri, typeUri) = ctx.getName(o)
 
-      val nd = ctx.addResourceUri(NameDefinition(name), refUri)
+      val nd = URIS.addResourceUri(NameDefinition(name), refUri)
       if (typeUri != "null") ctx.addTypeUri(nd, typeUri)
 
       ctx.pushResult(nd, sloc)
@@ -2122,10 +2119,10 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val le = PNF.buildLiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase, StandardURIs.boolURI)
         ctx.pushResult(le, sloc)
       } else {
-        val nu = ctx.addResourceUri(NameUser(refName), refUri)
+        val nu = URIS.addResourceUri(NameUser(refName), refUri)
         ctx.addTypeUri(nu, typeUri)
 
-        val ne = ctx.addTypeUri(NameExp(nu), typeUri)
+        val ne = PNF.buildNameExp(nu, Some(typeUri))
         ctx.pushResult(ne, sloc)
       }
       false
@@ -2135,7 +2132,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       val _typeUri = if (typeUri == "null" && URIS.isTypeUri(refUri)) refUri
       else typeUri
 
-      val nu = ctx.addResourceUri(NameUser(name), refUri)
+      val nu = URIS.addResourceUri(NameUser(name), refUri)
 
       val ne = NameExp(nu)
       if (_typeUri != "null") {
@@ -2884,7 +2881,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val (sloc, typeName, trefUri, typeUri) = ctx.getName(mark)
         assert(typeUri == "null")
         val nu = NameUser(typeName)
-        ctx.addResourceUri(nu, trefUri)
+        URIS.addResourceUri(nu, trefUri)
         ctx.addTypeUri(nu, trefUri)
         val nts = PNF.buildNamedTypeSpec(nu, trefUri)
 
@@ -2924,7 +2921,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         val (selsloc, selname, seluri, styp) = ctx.getName(selector)
         val attr = NameUser(selname)
-        ctx.addResourceUri(attr, seluri)
+        URIS.addResourceUri(attr, seluri)
         if (styp != "null") ctx.addTypeUri(attr, styp)
 
         if (seluri.startsWith("ada://component")) {
@@ -3112,9 +3109,9 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     }
   }
 
-  val nd = theContext.addResourceUri(NameDefinition("Standard"), PackageURIs.standardPackageURI)
-  val standardPackage = PackageDecl(Some(nd), ivectorEmpty, standardPackageTypes)
-  theContext.models += Model(Some("fake/standard.ads"), ivectorEmpty, ivector(standardPackage))
+  val nd = URIS.addResourceUri(NameDefinition("Standard"), PackageURIs.standardPackageURI)
+  val standardPackage = PNF.buildPackageDecl(nd, standardPackageTypes)
+  theContext.models += PNF.buildModel("fake/standard.ads", ivector(standardPackage))
 
   if (DEBUG) println("Not handling: " + theContext.unhandledSet.toList.sorted)
 
