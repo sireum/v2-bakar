@@ -36,6 +36,7 @@ procedure Integer Stupid (
     Index_Range I;
     Index_Range _tcomp0;
     Index_Range _tcomp1;
+    Boolean _tbpr1;
 
 
   #l8.
@@ -66,7 +67,10 @@ procedure Integer Stupid (
     J := J + 1ii;
 
   #l18.
-    call P (I, J, B);
+    call _tbpr1 := P (I, J, B);
+
+  #_lbpr2.
+    B := _tbpr1;
 
   #l20.
     if !(B) then goto l19;
