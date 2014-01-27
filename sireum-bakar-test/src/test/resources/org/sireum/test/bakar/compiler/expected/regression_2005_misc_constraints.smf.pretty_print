@@ -359,10 +359,6 @@ typealias Day Weekday
                      <string sid="4">ada://enumeration_literal/Constraints-1:9/Day-8:8/Mon-8:16</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
-                 <entry>
-                   <string>BAKAR_TYPE_URI</string>
-                   <string srefid="2"/>
-                 </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
              <properties mtype="mlinkedmap">
@@ -398,10 +394,6 @@ typealias Day Weekday
                      </ilist>
                      <string sid="5">ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_TYPE_URI</string>
-                   <string srefid="2"/>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>

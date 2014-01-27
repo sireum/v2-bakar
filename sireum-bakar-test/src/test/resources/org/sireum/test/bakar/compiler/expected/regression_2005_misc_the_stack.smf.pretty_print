@@ -819,10 +819,6 @@ typealias Status BoundaryStatus
                      <string sid="4">ada://enumeration_literal/The_Stack-1:9/Status-14:9/Empty-14:20</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
                  </entry>
-                 <entry>
-                   <string>BAKAR_TYPE_URI</string>
-                   <string srefid="2"/>
-                 </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
              <properties mtype="mlinkedmap">
@@ -858,10 +854,6 @@ typealias Status BoundaryStatus
                      </ilist>
                      <string sid="5">ada://enumeration_literal/The_Stack-1:9/Status-14:9/Full-14:27</string>
                    </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
-                 </entry>
-                 <entry>
-                   <string>BAKAR_TYPE_URI</string>
-                   <string srefid="2"/>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>

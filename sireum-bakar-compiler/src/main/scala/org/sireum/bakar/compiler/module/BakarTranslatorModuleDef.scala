@@ -2119,10 +2119,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val le = PNF.buildLiteralExp(LiteralType.BOOLEAN, v, refName.toLowerCase, StandardURIs.boolURI)
         ctx.pushResult(le, sloc)
       } else {
-        val nu = URIS.addResourceUri(NameUser(refName), refUri)
-        ctx.addTypeUri(nu, typeUri)
-
-        val ne = PNF.buildNameExp(nu, Some(typeUri))
+        val ne = PNF.buildNameExp(refName, refUri, Some(typeUri))
         ctx.pushResult(ne, sloc)
       }
       false
