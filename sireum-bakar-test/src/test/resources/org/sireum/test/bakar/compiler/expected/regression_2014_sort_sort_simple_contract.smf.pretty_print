@@ -330,7 +330,7 @@ procedure Boolean isSet (
     // empty loc
 
   #l38.
-    Result := I == J ||| A[I] != A[J];
+    Result := I == J || A[I] != A[J];
 
   #l39.
     if !(Result) then goto l32;
@@ -471,7 +471,7 @@ procedure Boolean isPerm (
            <int>54</int>
          </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
   >
-    if !(I == attribute__uif__first `Index_Type ||| A[I - 1ii] != A[I]) then goto l55;
+    if !(I == attribute__uif__first `Index_Type || A[I - 1ii] != A[I]) then goto l55;
 
   #l57.
     call _tcomp10 := Num_Repetitions (A, A[I]);
@@ -811,9 +811,9 @@ procedure SwapElements (
          </__depends>
          <__parentUri sid="4">ada://package_body/Sort_Simple_Contract-1:9</__parentUri>
          <__pre class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
-           <string>&amp;&amp;</string>
+           <string>&amp;&amp;&amp;</string>
            <org.sireum.pilar.ast.BinaryExp cid="2" size="3">
-             <string>&amp;&amp;&amp;</string>
+             <string>&amp;&amp;</string>
              <org.sireum.pilar.ast.BinaryExp cid="3" size="3">
                <string>&lt;=</string>
                <org.sireum.pilar.ast.CallExp cid="4" size="2">
@@ -1023,7 +1023,7 @@ procedure SwapElements (
              </properties>
            </org.sireum.pilar.ast.BinaryExp>
            <org.sireum.pilar.ast.BinaryExp cid="26" size="3">
-             <string>&amp;&amp;&amp;</string>
+             <string>&amp;&amp;</string>
              <org.sireum.pilar.ast.BinaryExp cid="27" size="3">
                <string>&lt;=</string>
                <org.sireum.pilar.ast.CallExp cid="28" size="2">
@@ -2004,7 +2004,7 @@ procedure InsertionSort (
     // empty loc
 
   #l125.
-    if !(J >= attribute__uif__first `A &&& A[J] > Value) then goto l123;
+    if !(J >= attribute__uif__first `A && A[J] > Value) then goto l123;
 
   #l126.
     A[J + 1ii] := A[J];
@@ -2344,7 +2344,7 @@ procedure ShellSort (
     // empty loc
 
   #l176.
-    if !(J > Increment &&& A[J - Increment] > Temp) then goto l174;
+    if !(J > Increment && A[J - Increment] > Temp) then goto l174;
 
   #l177.
     A[J] := A[J - Increment];
@@ -2734,7 +2734,7 @@ procedure BubbleSort (
          </__depends>
          <__parentUri sid="2">ada://package/Sort_Simple_Contract-1:9</__parentUri>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
-           <string>&amp;&amp;&amp;</string>
+           <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
              <org.sireum.pilar.ast.NameExp cid="3" size="1">
                <org.sireum.pilar.ast.NameUser cid="4" size="1">
@@ -3068,7 +3068,7 @@ procedure BubbleSort_using_SwapElements (
          </__depends>
          <__parentUri sid="2">ada://package/Sort_Simple_Contract-1:9</__parentUri>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
-           <string>&amp;&amp;&amp;</string>
+           <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
              <org.sireum.pilar.ast.NameExp cid="3" size="1">
                <org.sireum.pilar.ast.NameUser cid="4" size="1">
@@ -3402,7 +3402,7 @@ procedure InsertionSort (
          </__depends>
          <__parentUri sid="2">ada://package/Sort_Simple_Contract-1:9</__parentUri>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
-           <string>&amp;&amp;&amp;</string>
+           <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
              <org.sireum.pilar.ast.NameExp cid="3" size="1">
                <org.sireum.pilar.ast.NameUser cid="4" size="1">
@@ -3736,7 +3736,7 @@ procedure SelectionSort (
          </__depends>
          <__parentUri sid="2">ada://package/Sort_Simple_Contract-1:9</__parentUri>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
-           <string>&amp;&amp;&amp;</string>
+           <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
              <org.sireum.pilar.ast.NameExp cid="3" size="1">
                <org.sireum.pilar.ast.NameUser cid="4" size="1">
@@ -4070,7 +4070,7 @@ procedure ShellSort (
          </__depends>
          <__parentUri sid="2">ada://package/Sort_Simple_Contract-1:9</__parentUri>
          <__post class="org.sireum.pilar.ast.BinaryExp" cid="1" size="3">
-           <string>&amp;&amp;&amp;</string>
+           <string>&amp;&amp;</string>
            <org.sireum.pilar.ast.CallExp cid="2" size="2">
              <org.sireum.pilar.ast.NameExp cid="3" size="1">
                <org.sireum.pilar.ast.NameUser cid="4" size="1">

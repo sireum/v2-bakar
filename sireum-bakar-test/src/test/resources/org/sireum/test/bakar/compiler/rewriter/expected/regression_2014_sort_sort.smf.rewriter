@@ -573,7 +573,7 @@ procedure BubbleSort (
     assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Array_Type, J - 1ii) => Table[K] <= Table[J]
-          default => true} && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [79, 9]";
+          default => true} &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [79, 9]";
 
   #rwl58.
     _t58 := J;
@@ -600,7 +600,7 @@ procedure BubbleSort (
     // empty loc
 
   #l90.
-    assert proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [88, 8]";
+    assert proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) &&& Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [88, 8]";
 
   #rwl62.
     _t62 := I;
@@ -734,7 +734,7 @@ procedure BubbleSortFast (
     assert proof__uif__assert proof__uif__for_all {Index_Type K => 
         switch K
           case (attribute__uif__first `Index_Type, J - 1ii) => Table[K] <= Table[J]
-          default => true} && Partitioned (Table, attribute__uif__first `Index_Type, T, J) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [114, 9]";
+          default => true} &&& Partitioned (Table, attribute__uif__first `Index_Type, T, J) &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [114, 9]";
 
   #l110.
     goto l102;
@@ -743,7 +743,7 @@ procedure BubbleSortFast (
     // empty loc
 
   #l111.
-    assert proof__uif__assert Ordered (Table, Bound, attribute__uif__last `Index_Type) && Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [125, 9]";
+    assert proof__uif__assert Ordered (Table, Bound, attribute__uif__last `Index_Type) &&& Partitioned (Table, attribute__uif__first `Index_Type, Bound, attribute__uif__last `Index_Type) &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_7, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type) "Assertion failed at [125, 9]";
 
   #l112.
     Bound := T;
@@ -857,7 +857,7 @@ procedure InsertionSort (
     _t93 := _t90 > _t91;
 
   #l125.
-    if !(_t92 &&& _t93) then goto l123;
+    if !(_t92 && _t93) then goto l123;
 
   #rwl94.
     _t94 := J;
@@ -878,10 +878,10 @@ procedure InsertionSort (
     J := _t96 - _t97;
 
   #l128.
-    assert proof__uif__assert Temp == attribute__uif__loop_entry (LOOP_LABEL_10, Table)[P] && attribute__uif__first `Index_Type <= J && J < P && proof__uif__for_all {Index_Type K => 
+    assert proof__uif__assert Temp == attribute__uif__loop_entry (LOOP_LABEL_10, Table)[P] &&& attribute__uif__first `Index_Type <= J &&& J < P &&& proof__uif__for_all {Index_Type K => 
         switch K
           case (J + 1ii, P) => Table[K] > Temp
-          default => true} && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P) "Assertion failed at [149, 9]";
+          default => true} &&& Ordered (Table, attribute__uif__first `Index_Type, P) &&& Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P) "Assertion failed at [149, 9]";
 
   #l129.
     goto l124;
@@ -893,7 +893,7 @@ procedure InsertionSort (
     Table[J] := Temp;
 
   #l131.
-    assert proof__uif__assert attribute__uif__first `Index_Type + 1ii <= P && P <= attribute__uif__last `Index_Type && Ordered (Table, attribute__uif__first `Index_Type, P) && Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P) && proof__uif__for_all {Index_Type K => 
+    assert proof__uif__assert attribute__uif__first `Index_Type + 1ii <= P &&& P <= attribute__uif__last `Index_Type &&& Ordered (Table, attribute__uif__first `Index_Type, P) &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_9, Table), attribute__uif__first `Index_Type, P) &&& proof__uif__for_all {Index_Type K => 
         switch K
           case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry (LOOP_LABEL_9, Table)[K]
           default => true} "Assertion failed at [164, 9]";
@@ -1033,7 +1033,7 @@ procedure ShellSort (
     _t115 := _t112 > _t113;
 
   #l149.
-    if !(_t114 &&& _t115) then goto l147;
+    if !(_t114 && _t115) then goto l147;
 
   #rwl116.
     _t116 := J;

@@ -799,15 +799,15 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       handleChoices(v, choices) map {
         case o: TupleExp =>
           // x in 5 .. 20
-          // ==> (5 <= x &&& x <= 20)
+          // ==> (5 <= x && x <= 20)
           // OR 
           // x in Positive 
-          // ===> (Positive'First <= x &&& x <= Positive'Last)
+          // ===> (Positive'First <= x && x <= Positive'Last)
           assert(o.exps.size == 2)
           val lhs = PNF.buildBinaryExp(PilarAstUtil.LE_BINOP, o.exps(0), e, StandardURIs.boolURI)
           val rhs = PNF.buildBinaryExp(PilarAstUtil.LE_BINOP, e, o.exps(1), StandardURIs.boolURI)
 
-          PNF.buildBinaryExp(PilarAstUtil.LOGICAL_AND_BINOP, lhs, rhs, StandardURIs.boolURI)
+          PNF.buildBinaryExp(PilarAstUtil.COND_AND_BINOP, lhs, rhs, StandardURIs.boolURI)
         case x =>
           // x in 5 + 3
           // ===> (x == 5 + 3)
@@ -816,7 +816,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
           // ===> (x == 9)            
           PNF.buildBinaryExp(PilarAstUtil.EQ_BINOP, e, x, StandardURIs.boolURI)
       } reduce { (a, b) =>
-        PNF.buildBinaryExp(PilarAstUtil.LOGICAL_OR_BINOP, a, b, StandardURIs.boolURI)
+        PNF.buildBinaryExp(PilarAstUtil.COND_OR_BINOP, a, b, StandardURIs.boolURI)
       }
     }
 
@@ -860,8 +860,8 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         return None
       }
       o.asInstanceOf[ExpressionClass].getExpression.asInstanceOf[Any] match {
-        case x: AndOperator => Some(PilarAstUtil.COND_AND_BINOP)
-        case x: OrOperator => Some(PilarAstUtil.COND_OR_BINOP)
+        case x: AndOperator => Some(PilarAstUtil.LOGICAL_AND_BINOP)
+        case x: OrOperator => Some(PilarAstUtil.LOGICAL_OR_BINOP)
 
         case x: EqualOperator => Some(PilarAstUtil.EQ_BINOP)
         case x: GreaterThanOperator => Some(PilarAstUtil.GT_BINOP)
@@ -2706,7 +2706,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
     {
       case AndThenShortCircuitEx(sloc, lhs, rhs, theType, checks) =>
         ctx.pushResult(
-          ctx.handleBE(v, sloc, PilarAstUtil.LOGICAL_AND_BINOP, lhs, rhs, theType), sloc)
+          ctx.handleBE(v, sloc, PilarAstUtil.COND_AND_BINOP, lhs, rhs, theType), sloc)
         false
       case CaseExpressionEx(sloc, caseExp, expPaths, typ, checks) =>
         throw new RuntimeException()
@@ -2872,7 +2872,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         false
       case OrElseShortCircuitEx(sloc, lhs, rhs, theType, checks) =>
         ctx.pushResult(
-          ctx.handleBE(v, sloc, PilarAstUtil.LOGICAL_OR_BINOP, lhs, rhs, theType), sloc)
+          ctx.handleBE(v, sloc, PilarAstUtil.COND_OR_BINOP, lhs, rhs, theType), sloc)
         false
       case QualifiedExpressionEx(sloc, mark, exp, typ, checks) =>
         val (sloc, typeName, trefUri, typeUri) = ctx.getName(mark)

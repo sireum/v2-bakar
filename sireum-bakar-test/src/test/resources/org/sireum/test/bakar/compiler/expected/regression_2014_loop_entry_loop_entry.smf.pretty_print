@@ -153,8 +153,8 @@ procedure Array_Loop_Entry (
   #l11.
     assert proof__uif__loop_invariant proof__uif__for_all {universal_integer J => 
         switch J
-          case (attribute__uif__first `A, Index) => A[J] == attribute__uif__loop_entry (Inner, A)[attribute__uif__last `A - J + 1ii] && A[attribute__uif__last `A - J + 1ii] == attribute__uif__loop_entry (Outer, A)[J]
-          default => true} &&& proof__uif__for_all {universal_integer J => 
+          case (attribute__uif__first `A, Index) => A[J] == attribute__uif__loop_entry (Inner, A)[attribute__uif__last `A - J + 1ii] &&& A[attribute__uif__last `A - J + 1ii] == attribute__uif__loop_entry (Outer, A)[J]
+          default => true} && proof__uif__for_all {universal_integer J => 
         switch J
           case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == attribute__uif__loop_entry (Inner, A)[J]
           default => true} "Loop Invariant failed at [13, 10]";
@@ -875,7 +875,7 @@ procedure Array_Loop_Entry (
                        </org.sireum.pilar.ast.TupleExp>
                        <ivector ttype="ivector"/>
                        <org.sireum.pilar.ast.BinaryExp cid="32" size="3">
-                         <string>&amp;&amp;</string>
+                         <string>&amp;&amp;&amp;</string>
                          <org.sireum.pilar.ast.BinaryExp cid="33" size="3">
                            <string>==</string>
                            <org.sireum.pilar.ast.IndexingExp cid="34" size="2">

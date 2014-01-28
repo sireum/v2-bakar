@@ -119,18 +119,18 @@ Model(Some(minpackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Minpa
                 Some(NameDefinition(l0))
                   NameDefinition(l0)
                 List()
-              ActionLocation(Some(NameDefinition(l8)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&&,BinaryExp(&&&,Binar
+              ActionLocation(Some(NameDefinition(l8)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&,BinaryExp(&&,BinaryE
                 Some(NameDefinition(l8))
                   NameDefinition(l8)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&&,BinaryExp(&&&,BinaryExp(&&&,BinaryExp(<=,NameExp(NameUser(Min)),Name
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&,BinaryExp(&&,BinaryExp(&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp
                   List()
-                  CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&&,BinaryExp(&&&,BinaryExp(&&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),Bina
+                  CallExp(NameExp(NameUser(proof__uif__assert)),BinaryExp(&&,BinaryExp(&&,BinaryExp(&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),BinaryE
                     NameExp(NameUser(proof__uif__assert))
                       NameUser(proof__uif__assert)
-                    BinaryExp(&&&,BinaryExp(&&&,BinaryExp(&&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUs
-                      BinaryExp(&&&,BinaryExp(&&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(Y)))),Binar
-                        BinaryExp(&&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(Y))))
+                    BinaryExp(&&,BinaryExp(&&,BinaryExp(&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(
+                      BinaryExp(&&,BinaryExp(&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(Y)))),BinaryE
+                        BinaryExp(&&,BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X))),BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(Y))))
                           BinaryExp(<=,NameExp(NameUser(Min)),NameExp(NameUser(X)))
                             NameExp(NameUser(Min))
                               NameUser(Min)

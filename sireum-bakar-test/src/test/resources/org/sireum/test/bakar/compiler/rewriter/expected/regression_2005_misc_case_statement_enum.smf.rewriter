@@ -52,7 +52,7 @@ procedure Activity isWorkDay (
     _t5 := _t2 <= _t3;
 
   #l2.
-    if !(_t4 &&& _t5) then goto l1;
+    if !(_t4 && _t5) then goto l1;
 
   #l3.
     ret := Work;
@@ -82,7 +82,7 @@ procedure Activity isWorkDay (
     _t11 := _t8 <= _t9;
 
   #l6.
-    if !(_t10 &&& _t11) then goto l5;
+    if !(_t10 && _t11) then goto l5;
 
   #l7.
     ret := Sleep;
@@ -130,7 +130,7 @@ procedure Activity isWorkDay (
     _t19 := _t16 == _t17;
 
   #l14.
-    if !(_t18 ||| _t19) then goto l13;
+    if !(_t18 || _t19) then goto l13;
 
   #l15.
     ret := Party;
@@ -160,7 +160,7 @@ procedure Activity isWorkDay (
     _t25 := _t22 <= _t23;
 
   #l18.
-    if !(_t24 &&& _t25) then goto l0;
+    if !(_t24 && _t25) then goto l0;
 
   #l19.
     ret := Drink;

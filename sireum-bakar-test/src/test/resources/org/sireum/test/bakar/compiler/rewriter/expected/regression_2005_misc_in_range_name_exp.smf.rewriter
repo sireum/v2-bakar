@@ -68,7 +68,7 @@ procedure Boolean test (
     _t5 := _t2 <= _t3;
 
   #l0.
-    ret := _t4 &&& _t5;
+    ret := _t4 && _t5;
 
   #l2.
     if !(ret) then goto l1;
@@ -92,7 +92,7 @@ procedure Boolean test (
     _t11 := _t8 <= _t9;
 
   #l3.
-    ret := _t10 &&& _t11;
+    ret := _t10 && _t11;
 
   #l1.
     // empty loc
@@ -119,7 +119,7 @@ procedure Boolean test (
     _t17 := _t14 <= _t15;
 
   #l6.
-    ret := !(_t16 &&& _t17);
+    ret := !(_t16 && _t17);
 
   #l4.
     // empty loc
@@ -152,7 +152,7 @@ procedure Boolean test (
     _t25 := 4ii;
 
   #rwl26.
-    _t26 := _t22 &&& _t23;
+    _t26 := _t22 && _t23;
 
   #rwl27.
     _t27 := _t24 == _t25;
@@ -176,10 +176,10 @@ procedure Boolean test (
     _t33 := _t30 <= _t31;
 
   #rwl34.
-    _t34 := _t26 ||| _t27;
+    _t34 := _t26 || _t27;
 
   #rwl35.
-    _t35 := _t32 &&& _t33;
+    _t35 := _t32 && _t33;
 
   #rwl36.
     _t36 := 3ii;
@@ -194,13 +194,13 @@ procedure Boolean test (
     _t39 := _t36 + _t37;
 
   #rwl40.
-    _t40 := _t34 ||| _t35;
+    _t40 := _t34 || _t35;
 
   #rwl41.
     _t41 := _t38 == _t39;
 
   #l9.
-    ret := !(_t40 ||| _t41);
+    ret := !(_t40 || _t41);
 
   #l7.
     // empty loc

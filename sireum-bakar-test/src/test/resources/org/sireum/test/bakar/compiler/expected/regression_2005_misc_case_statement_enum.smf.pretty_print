@@ -61,7 +61,7 @@ procedure Activity isWorkDay (
 
 
   #l2.
-    if !(Mon <= d &&& d <= Tue) then goto l1;
+    if !(Mon <= d && d <= Tue) then goto l1;
 
   #l3.
     ret := Work;
@@ -73,7 +73,7 @@ procedure Activity isWorkDay (
     // empty loc
 
   #l6.
-    if !(attribute__uif__first `HumpDay <= d &&& d <= attribute__uif__last `HumpDay) then goto l5;
+    if !(attribute__uif__first `HumpDay <= d && d <= attribute__uif__last `HumpDay) then goto l5;
 
   #l7.
     ret := Sleep;
@@ -97,7 +97,7 @@ procedure Activity isWorkDay (
     // empty loc
 
   #l14.
-    if !(d == Fri ||| d == FriPart2) then goto l13;
+    if !(d == Fri || d == FriPart2) then goto l13;
 
   #l15.
     ret := Party;
@@ -109,7 +109,7 @@ procedure Activity isWorkDay (
     // empty loc
 
   #l18.
-    if !(attribute__uif__first `WeekEnd <= d &&& d <= attribute__uif__last `WeekEnd) then goto l0;
+    if !(attribute__uif__first `WeekEnd <= d && d <= attribute__uif__last `WeekEnd) then goto l0;
 
   #l19.
     ret := Drink;

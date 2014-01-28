@@ -599,15 +599,15 @@ Model(Some(sort_simple_contract.adb),Vector(),Vector(PackageDecl(Some(NameDefini
                 Some(NameDefinition(l37))
                   NameDefinition(l37)
                 List()
-              ActionLocation(Some(NameDefinition(l38)),Vector(),AssignAction(Vector(),NameExp(NameUser(Result)),:=,BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),N
+              ActionLocation(Some(NameDefinition(l38)),Vector(),AssignAction(Vector(),NameExp(NameUser(Result)),:=,BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),Na
                 Some(NameDefinition(l38))
                   NameDefinition(l38)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(Result)),:=,BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),NameExp(NameUser(J))),BinaryExp(!=,IndexingExp(Name
+                AssignAction(Vector(),NameExp(NameUser(Result)),:=,BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),NameExp(NameUser(J))),BinaryExp(!=,IndexingExp(NameE
                   List()
                   NameExp(NameUser(Result))
                     NameUser(Result)
-                  BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),NameExp(NameUser(J))),BinaryExp(!=,IndexingExp(NameExp(NameUser(A)),List(NameExp(NameUser(I)))),Indexi
+                  BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),NameExp(NameUser(J))),BinaryExp(!=,IndexingExp(NameExp(NameUser(A)),List(NameExp(NameUser(I)))),Indexin
                     BinaryExp(==,NameExp(NameUser(I)),NameExp(NameUser(J)))
                       NameExp(NameUser(I))
                         NameUser(I)
@@ -879,16 +879,16 @@ Model(Some(sort_simple_contract.adb),Vector(),Vector(PackageDecl(Some(NameDefini
                 Some(NameDefinition(l54))
                   NameDefinition(l54)
                 List()
-              JumpLocation(Some(NameDefinition(l56)),Vector(),IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),CallExp(N
+              JumpLocation(Some(NameDefinition(l56)),Vector(),IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),CallExp(Na
                 Some(NameDefinition(l56))
                   NameDefinition(l56)
                 List()
-                IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(
+                IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(N
                   List()
-                  Vector(IfThenJump(UnaryExp(!,BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(Na
-                    IfThenJump(UnaryExp(!,BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(
-                      UnaryExp(!,BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index_Type)
-                        BinaryExp(|||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index_Type),Vector()))
+                  Vector(IfThenJump(UnaryExp(!,BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(Nam
+                    IfThenJump(UnaryExp(!,BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(I
+                      UnaryExp(!,BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index_Type),
+                        BinaryExp(||,BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index_Type),Vector())))
                           BinaryExp(==,NameExp(NameUser(I)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(Index_Type),Vector()))))
                             NameExp(NameUser(I))
                               NameUser(I)
@@ -1916,16 +1916,16 @@ Model(Some(sort_simple_contract.adb),Vector(),Vector(PackageDecl(Some(NameDefini
                 Some(NameDefinition(l124))
                   NameDefinition(l124)
                 List()
-              JumpLocation(Some(NameDefinition(l125)),Vector(),IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(
+              JumpLocation(Some(NameDefinition(l125)),Vector(),IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(N
                 Some(NameDefinition(l125))
                   NameDefinition(l125)
                 List()
-                IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(
+                IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(N
                   List()
-                  Vector(IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(Na
-                    IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(
-                      UnaryExp(!,BinaryExp(&&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(A),Vector()
-                        BinaryExp(&&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(A),Vector())))),Binary
+                  Vector(IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(Nam
+                    IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(A
+                      UnaryExp(!,BinaryExp(&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(A),Vector())
+                        BinaryExp(&&,BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(A),Vector())))),BinaryE
                           BinaryExp(>=,NameExp(NameUser(J)),CallExp(NameExp(NameUser(attribute__uif__first)),TypeExp(NamedTypeSpec(NameUser(A),Vector()))))
                             NameExp(NameUser(J))
                               NameUser(J)
@@ -2623,16 +2623,16 @@ Model(Some(sort_simple_contract.adb),Vector(),Vector(PackageDecl(Some(NameDefini
                 Some(NameDefinition(l175))
                   NameDefinition(l175)
                 List()
-              JumpLocation(Some(NameDefinition(l176)),Vector(),IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(N
+              JumpLocation(Some(NameDefinition(l176)),Vector(),IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(Na
                 Some(NameDefinition(l176))
                   NameDefinition(l176)
                 List()
-                IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(Name
+                IfJump(Vector(),Vector(IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameE
                   List()
-                  Vector(IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A))
-                    IfThenJump(UnaryExp(!,BinaryExp(&&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A)),List(B
-                      UnaryExp(!,BinaryExp(&&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A)),List(BinaryExp(-,
-                        BinaryExp(&&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A)),List(BinaryExp(-,NameExp(Nam
+                  Vector(IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A)),
+                    IfThenJump(UnaryExp(!,BinaryExp(&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A)),List(Bi
+                      UnaryExp(!,BinaryExp(&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A)),List(BinaryExp(-,N
+                        BinaryExp(&&,BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment))),BinaryExp(>,IndexingExp(NameExp(NameUser(A)),List(BinaryExp(-,NameExp(Name
                           BinaryExp(>,NameExp(NameUser(J)),NameExp(NameUser(Increment)))
                             NameExp(NameUser(J))
                               NameUser(J)

@@ -279,7 +279,7 @@ procedure Boolean isSet (
     _t31 := _t28 != _t29;
 
   #l38.
-    Result := _t30 ||| _t31;
+    Result := _t30 || _t31;
 
   #l39.
     if !(Result) then goto l32;
@@ -416,7 +416,7 @@ procedure Boolean isPerm (
     _t49 := _t46 != _t47;
 
   #l56.
-    if !(_t48 ||| _t49) then goto l55;
+    if !(_t48 || _t49) then goto l55;
 
   #l57.
     call _tcomp10 := Num_Repetitions (A, A[I]);
@@ -883,7 +883,7 @@ procedure InsertionSort (
     _t101 := _t98 > _t99;
 
   #l125.
-    if !(_t100 &&& _t101) then goto l123;
+    if !(_t100 && _t101) then goto l123;
 
   #rwl102.
     _t102 := J;
@@ -1227,7 +1227,7 @@ procedure ShellSort (
     _t143 := _t140 > _t141;
 
   #l176.
-    if !(_t142 &&& _t143) then goto l174;
+    if !(_t142 && _t143) then goto l174;
 
   #rwl144.
     _t144 := J;

@@ -143,7 +143,7 @@ procedure Boolean isSet (
     // empty loc
 
   #l38.
-    Result := I == J ||| A[I] != A[J];
+    Result := I == J || A[I] != A[J];
 
   #l39.
     if !(Result) then goto l32;
@@ -210,7 +210,7 @@ procedure Boolean isPerm (
     // empty loc
 
   #l56.
-    if !(I == attribute__uif__first `Index_Type ||| A[I - 1ii] != A[I]) then goto l55;
+    if !(I == attribute__uif__first `Index_Type || A[I - 1ii] != A[I]) then goto l55;
 
   #l57.
     call _tcomp10 := Num_Repetitions (A, A[I]);
@@ -469,7 +469,7 @@ procedure InsertionSort (
     // empty loc
 
   #l125.
-    if !(J >= attribute__uif__first `A &&& A[J] > Value) then goto l123;
+    if !(J >= attribute__uif__first `A && A[J] > Value) then goto l123;
 
   #l126.
     A[J + 1ii] := A[J];
@@ -645,7 +645,7 @@ procedure ShellSort (
     // empty loc
 
   #l176.
-    if !(J > Increment &&& A[J - Increment] > Temp) then goto l174;
+    if !(J > Increment && A[J - Increment] > Temp) then goto l174;
 
   #l177.
     A[J] := A[J - Increment];

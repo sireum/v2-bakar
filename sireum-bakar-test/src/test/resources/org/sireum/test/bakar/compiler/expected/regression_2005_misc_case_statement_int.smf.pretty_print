@@ -61,7 +61,7 @@ procedure Activity isWorkDay (
 
 
   #l2.
-    if !(attribute__uif__first `IntType <= d &&& d <= attribute__uif__last `IntType) then goto l1;
+    if !(attribute__uif__first `IntType <= d && d <= attribute__uif__last `IntType) then goto l1;
 
   #l3.
     ret := Work;
@@ -73,7 +73,7 @@ procedure Activity isWorkDay (
     // empty loc
 
   #l6.
-    if !(4ii <= d &&& d <= 5ii ||| attribute__uif__first `SixType <= d &&& d <= attribute__uif__last `SixType ||| d == 7ii) then goto l5;
+    if !(4ii <= d && d <= 5ii || attribute__uif__first `SixType <= d && d <= attribute__uif__last `SixType || d == 7ii) then goto l5;
 
   #l7.
     ret := Party;
@@ -85,7 +85,7 @@ procedure Activity isWorkDay (
     // empty loc
 
   #l10.
-    if !(8ii <= d &&& d <= 9ii) then goto l9;
+    if !(8ii <= d && d <= 9ii) then goto l9;
 
   #l11.
     ret := Party;

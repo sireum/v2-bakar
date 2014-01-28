@@ -185,16 +185,16 @@ Model(Some(loop_entry.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Loop_
                         LiteralExp(INTEGER,1,1ii)
                   NameExp(NameUser(Temp))
                     NameUser(Temp)
-              ActionLocation(Some(NameDefinition(l11)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(&&&,CallExp(Na
+              ActionLocation(Some(NameDefinition(l11)),Vector(),AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(&&,CallExp(Nam
                 Some(NameDefinition(l11))
                   NameDefinition(l11)
                 List()
-                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(&&&,CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector
+                AssertAction(Vector(),CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(&&,CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(
                   List()
-                  CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(&&&,CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(Vector(Param
+                  CallExp(NameExp(NameUser(proof__uif__loop_invariant)),BinaryExp(&&,CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(Vector(ParamD
                     NameExp(NameUser(proof__uif__loop_invariant))
                       NameUser(proof__uif__loop_invariant)
-                    BinaryExp(&&&,CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(universal_integer),Ve
+                    BinaryExp(&&,CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(universal_integer),Vec
                       CallExp(NameExp(NameUser(proof__uif__for_all)),FunExp(Vector(Matching(Vector(ParamDecl(Some(NamedTypeSpec(NameUser(universal_integer),Vector())),NameD
                         NameExp(NameUser(proof__uif__for_all))
                           NameUser(proof__uif__for_all)
@@ -226,7 +226,7 @@ Model(Some(loop_entry.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(Loop_
                                         NameExp(NameUser(Index))
                                           NameUser(Index)
                                     List()
-                                    BinaryExp(&&,BinaryExp(==,IndexingExp(NameExp(NameUser(A)),List(NameExp(NameUser(J)))),IndexingExp(CallExp(NameExp(NameUser(attribute__uif__loop_entry
+                                    BinaryExp(&&&,BinaryExp(==,IndexingExp(NameExp(NameUser(A)),List(NameExp(NameUser(J)))),IndexingExp(CallExp(NameExp(NameUser(attribute__uif__loop_entr
                                       BinaryExp(==,IndexingExp(NameExp(NameUser(A)),List(NameExp(NameUser(J)))),IndexingExp(CallExp(NameExp(NameUser(attribute__uif__loop_entry)),TupleExp(V
                                         IndexingExp(NameExp(NameUser(A)),List(NameExp(NameUser(J))))
                                           NameExp(NameUser(A))
