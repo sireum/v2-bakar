@@ -202,6 +202,7 @@ class KiasanGUI:
             self._cases_combo.get_model().clear()
             
             # add cases to combo
+            self._cases_combo.append_text("All")
             for case_header in self._report[package_index]._methods[method_index]._cases_headers:
                 self._cases_combo.append_text(method_name + ":" + case_header._name + " " + (case_header._error if case_header._error != None else ""))
             
@@ -212,45 +213,62 @@ class KiasanGUI:
     
     def highlight_methods(self, treeview, path, view_column):
         """ Callback function: highlight lines of clicked method/package """
+        
+        #check if method was clicked (then path contains index of package and method: len=2)
+        #if package was clicked then path contains only package index: len=1    
+        if len(path) == 2:
+            package_index = path[0]
+            method_index = path[1]
+            self.highlight_method(package_index, method_index)
+            
+        elif len(path) == 1:
+            package_index = path[0]            
+            self.highlight_package(package_index)
+    
+    
+    def highlight_package(self, package_index):
         try:
             import gpshelper
         except ImportError:
             warnings.warn('Program is running as python app (not GPS plugin)')
         
-        #check if method was clicked (then path contains index of package and method: len=2)
-        #if package clicked path contains only package index: len=1    
-        if len(path) == 2:
-            package_index = path[0]
-            method_index = path[1]
-            for method_file in self._report[package_index]._methods[method_index]._files:                
+        # remove old highlighting
+        for method in self._report[package_index]._methods:
+            for method_file in method._files:
                 file_name = method_file._path
-                gpshelper.remove_highlight_from_file(file_name) # remove old highlight
-                lines = method_file._covered_lines  
-                gpshelper.highlight(file_name, lines)   # highlight lines
-            
-        elif len(path) == 1:
-            package_index = path[0]
-            
-            # remove old highlighting
-            for method in self._report[package_index]._methods:
-                for method_file in method._files:
-                    file_name = method_file._path
-                    gpshelper.remove_highlight_from_file(file_name)
-                    
-            # highlight
-            for method in self._report[package_index]._methods:
-                for method_file in method._files:
-                    file_name = method_file._path
-                    lines = method_file._covered_lines            
-                    gpshelper.highlight(file_name, lines)            
+                gpshelper.remove_highlight_from_file(file_name)
+                
+        # highlight
+        for method in self._report[package_index]._methods:
+            for method_file in method._files:
+                file_name = method_file._path
+                lines = method_file._covered_lines            
+                gpshelper.highlight(file_name, lines)
     
+    
+    def highlight_method(self, package_index, method_index):
+        try:
+            import gpshelper
+        except ImportError:
+            warnings.warn('Program is running as python app (not GPS plugin)')
+            
+        for method_file in self._report[package_index]._methods[method_index]._files:
+            file_name = method_file._path
+            gpshelper.remove_highlight_from_file(file_name) # remove old highlight
+            lines = method_file._covered_lines  
+            gpshelper.highlight(file_name, lines)   # highlight lines
     
     def cases_combo_changed(self, cases_combo):
         """ Callback function: cases combo changed """          
         selected_case_no = cases_combo.get_active()
         
+        
+        if selected_case_no == 0:
+            self.highlight_method(self._current_package_index, self._current_fun_index)
+            return
         # check if any item is selected (-1: no active item selected)
-        if selected_case_no != -1: 
+        if selected_case_no > -1:            
+            selected_case_no -= 1   # correction because of one extra case: All cases
             case = self._report[self._current_package_index]._methods[self._current_fun_index].get_case(selected_case_no)
             
             # load pre and post state models

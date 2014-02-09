@@ -1,6 +1,4 @@
-import pygtk
-pygtk.require('2.0')
-import gtk
+from gi.repository import Gtk
 import gobject
 import warnings
 
@@ -11,11 +9,11 @@ class KiasanGUI:
         self._report = report
         
         # create pane for split window in two parts: reports and cases
-        self._pane = gtk.VPaned()
+        self._pane = Gtk.VPaned()
         
         # init report window
-        self._report_window = gtk.ScrolledWindow()
-        self._report_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self._report_window = Gtk.ScrolledWindow()
+        self._report_window.set_policy(Gtk.POLICY_AUTOMATIC, Gtk.POLICY_AUTOMATIC)
         #self._report_window.set_size_request(600, 200)
         
         # init report window tree view
@@ -24,7 +22,7 @@ class KiasanGUI:
         self._report_window.add(self._treeview)
         
         # cases pane
-        self._cases_pane = gtk.VPaned()
+        self._cases_pane = Gtk.VPaned()
         
         # cases pane init
         self.init_cases_window()
@@ -41,7 +39,7 @@ class KiasanGUI:
         report_model = self.create_report_treeview_model(self._report)
         
         # initialize tree view based on tree model
-        self._treeview = gtk.TreeView(report_model)
+        self._treeview = Gtk.TreeView(report_model)
         
         self._treeview.set_rules_hint(False)
         
@@ -55,13 +53,13 @@ class KiasanGUI:
         
     def create_report_treeview_model(self, report):
         """ Create TreeStore object - model for treeview with columns """        
-        tree_store = gtk.TreeStore(gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
+        tree_store = Gtk.TreeStore(gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_INT, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_INT, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_STRING, #@UndefinedVariable-is not a problem
                                   gobject.TYPE_STRING) #@UndefinedVariable-is not a problem
-            
+
         for package in report:
             iteration = tree_store.append(None)
             tree_store.set(iteration,
@@ -86,45 +84,45 @@ class KiasanGUI:
     
     def add_columns_to_report_treeview(self):
         """ Add columns to tree view """        
-        column = gtk.TreeViewColumn('Package/Unit', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_PACKAGE)
+        column = Gtk.TreeViewColumn('Package/Unit', Gtk.CellRendererText(), text=TreeViewColumns.COLUMN_PACKAGE)
         column.set_sort_column_id(TreeViewColumns.COLUMN_PACKAGE)
         column.set_resizable(True)
         self._treeview.append_column(column)
         
-        column = gtk.TreeViewColumn('T#', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_TOTAL)
+        column = Gtk.TreeViewColumn('T#', Gtk.CellRendererText(), text=TreeViewColumns.COLUMN_TOTAL)
         column.set_sort_column_id(TreeViewColumns.COLUMN_TOTAL)
         column.set_resizable(True)
         # add tooltip
-        column_header = gtk.Label('T#')
+        column_header = Gtk.Label('T#')
         column_header.show()
         column.set_widget(column_header)
-        tooltips = gtk.Tooltips()
-        tooltips.set_tip(column_header, 'Number of test cases')
+        #tooltips = Gtk.Tooltips()
+        #tooltips.set_tip(column_header, 'Number of test cases')
         # end of add tooltip
         self._treeview.append_column(column)
         
-        column = gtk.TreeViewColumn('E#', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_ERRORS)
+        column = Gtk.TreeViewColumn('E#', Gtk.CellRendererText(), text=TreeViewColumns.COLUMN_ERRORS)
         column.set_sort_column_id(TreeViewColumns.COLUMN_ERRORS)
         column.set_resizable(True)
         # add tooltip
-        column_header = gtk.Label('E#')
+        column_header = Gtk.Label('E#')
         column_header.show()
         column.set_widget(column_header)
-        tooltips.set_tip(column_header, 'Number of error cases')
+        #tooltips.set_tip(column_header, 'Number of error cases')
         # end of add tooltip
         self._treeview.append_column(column)
         
-        column = gtk.TreeViewColumn('Instruction Coverage', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_INSTRUCTION)
+        column = Gtk.TreeViewColumn('Instruction Coverage', Gtk.CellRendererText(), text=TreeViewColumns.COLUMN_INSTRUCTION)
         column.set_sort_column_id(TreeViewColumns.COLUMN_INSTRUCTION)
         column.set_resizable(True)
         self._treeview.append_column(column)
         
-        column = gtk.TreeViewColumn('Branch Coverage', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_BRANCH)
+        column = Gtk.TreeViewColumn('Branch Coverage', Gtk.CellRendererText(), text=TreeViewColumns.COLUMN_BRANCH)
         column.set_sort_column_id(TreeViewColumns.COLUMN_BRANCH)
         column.set_resizable(True)
         self._treeview.append_column(column)
         
-        column = gtk.TreeViewColumn('Time', gtk.CellRendererText(), text=TreeViewColumns.COLUMN_TIME)
+        column = Gtk.TreeViewColumn('Time', Gtk.CellRendererText(), text=TreeViewColumns.COLUMN_TIME)
         column.set_sort_column_id(TreeViewColumns.COLUMN_TIME)
         column.set_resizable(True)
         self._treeview.append_column(column)
@@ -135,49 +133,49 @@ class KiasanGUI:
     def init_cases_window(self):
         """ Initialize cases window: labels, combo and scrolled windows """        
         # initialize top part: labels and combo box
-        self._cases_window_top = gtk.HBox()
+        self._cases_window_top = Gtk.HBox()
         self._cases_pane.add1(self._cases_window_top)
         
-        self._cases_entity_label = gtk.Label("")
+        self._cases_entity_label = Gtk.Label("")
         self._cases_window_top.pack_start(self._cases_entity_label, False, False, 0)
-        self._cases_label = gtk.Label(" Cases: ")
+        self._cases_label = Gtk.Label(" Cases: ")
         self._cases_window_top.pack_start(self._cases_label, False, False, 0)
         
-        self._cases_combo = gtk.combo_box_new_text()
+        self._cases_combo = Gtk.ComboBoxText()
         self._cases_window_top.pack_start(self._cases_combo, True, True, 0)
         self._cases_combo.connect("changed", self.cases_combo_changed)
         
         #initialize bottom part: pre and post state tree views
-        self._cases_window_bottom = gtk.HBox()
+        self._cases_window_bottom = Gtk.HBox()
         self._cases_pane.add2(self._cases_window_bottom)
         
         # pre-state window
-        self._cases_pre_window = gtk.ScrolledWindow()
-        self._cases_pre_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self._cases_pre_window = Gtk.ScrolledWindow()
+        self._cases_pre_window.set_policy(Gtk.POLICY_AUTOMATIC, Gtk.POLICY_AUTOMATIC)
         self._cases_window_bottom.pack_start(self._cases_pre_window)
-        self._cases_pre_treeview = gtk.TreeView(gtk.TreeStore(str))
+        self._cases_pre_treeview = Gtk.TreeView(Gtk.TreeStore(str))
         self._cases_pre_window.add(self._cases_pre_treeview)
-        pre_tvcolumn = gtk.TreeViewColumn('')
+        pre_tvcolumn = Gtk.TreeViewColumn('')
         self._cases_pre_treeview.append_column(pre_tvcolumn)
-        pre_cell = gtk.CellRendererText()
+        pre_cell = Gtk.CellRendererText()
         pre_tvcolumn.pack_start(pre_cell, True)
         pre_tvcolumn.add_attribute(pre_cell, 'text', 0)
         pre_tvcolumn.add_attribute(pre_cell, 'foreground', 1)
         self._cases_pre_treeview.set_headers_visible(False) #hide column header
         
         # separator
-        self._cases_window_bottom_separator = gtk.VSeparator()
+        self._cases_window_bottom_separator = Gtk.VSeparator()
         self._cases_window_bottom.pack_start(self._cases_window_bottom_separator, False, False) 
         
         # post-state window
-        self._cases_post_window = gtk.ScrolledWindow()
-        self._cases_post_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self._cases_post_window = Gtk.ScrolledWindow()
+        self._cases_post_window.set_policy(Gtk.POLICY_AUTOMATIC, Gtk.POLICY_AUTOMATIC)
         self._cases_window_bottom.pack_start(self._cases_post_window)
-        self._cases_post_treeview = gtk.TreeView(gtk.TreeStore(str))
+        self._cases_post_treeview = Gtk.TreeView(Gtk.TreeStore(str))
         self._cases_post_window.add(self._cases_post_treeview)
-        post_tvcolumn = gtk.TreeViewColumn('')
+        post_tvcolumn = Gtk.TreeViewColumn('')
         self._cases_post_treeview.append_column(post_tvcolumn)
-        post_cell = gtk.CellRendererText()
+        post_cell = Gtk.CellRendererText()
         post_tvcolumn.pack_start(post_cell, True)
         post_tvcolumn.add_attribute(post_cell, 'text', 0)
         post_tvcolumn.add_attribute(post_cell, 'foreground', 1)
@@ -202,6 +200,7 @@ class KiasanGUI:
             self._cases_combo.get_model().clear()
             
             # add cases to combo
+            self._cases_combo.append_text("All")
             for case_header in self._report[package_index]._methods[method_index]._cases_headers:
                 self._cases_combo.append_text(method_name + ":" + case_header._name + " " + (case_header._error if case_header._error != None else ""))
             
@@ -212,45 +211,62 @@ class KiasanGUI:
     
     def highlight_methods(self, treeview, path, view_column):
         """ Callback function: highlight lines of clicked method/package """
+        
+        #check if method was clicked (then path contains index of package and method: len=2)
+        #if package was clicked then path contains only package index: len=1    
+        if len(path) == 2:
+            package_index = path[0]
+            method_index = path[1]
+            self.highlight_method(package_index, method_index)
+            
+        elif len(path) == 1:
+            package_index = path[0]            
+            self.highlight_package(package_index)
+    
+    
+    def highlight_package(self, package_index):
         try:
             import gpshelper
         except ImportError:
             warnings.warn('Program is running as python app (not GPS plugin)')
         
-        #check if method was clicked (then path contains index of package and method: len=2)
-        #if package clicked path contains only package index: len=1    
-        if len(path) == 2:
-            package_index = path[0]
-            method_index = path[1]
-            for method_file in self._report[package_index]._methods[method_index]._files:                
+        # remove old highlighting
+        for method in self._report[package_index]._methods:
+            for method_file in method._files:
                 file_name = method_file._path
-                gpshelper.remove_highlight_from_file(file_name) # remove old highlight
-                lines = method_file._covered_lines  
-                gpshelper.highlight(file_name, lines)   # highlight lines
-            
-        elif len(path) == 1:
-            package_index = path[0]
-            
-            # remove old highlighting
-            for method in self._report[package_index]._methods:
-                for method_file in method._files:
-                    file_name = method_file._path
-                    gpshelper.remove_highlight_from_file(file_name)
-                    
-            # highlight
-            for method in self._report[package_index]._methods:
-                for method_file in method._files:
-                    file_name = method_file._path
-                    lines = method_file._covered_lines            
-                    gpshelper.highlight(file_name, lines)            
+                gpshelper.remove_highlight_from_file(file_name)
+                
+        # highlight
+        for method in self._report[package_index]._methods:
+            for method_file in method._files:
+                file_name = method_file._path
+                lines = method_file._covered_lines            
+                gpshelper.highlight(file_name, lines)
     
+    
+    def highlight_method(self, package_index, method_index):
+        try:
+            import gpshelper
+        except ImportError:
+            warnings.warn('Program is running as python app (not GPS plugin)')
+            
+        for method_file in self._report[package_index]._methods[method_index]._files:
+            file_name = method_file._path
+            gpshelper.remove_highlight_from_file(file_name) # remove old highlight
+            lines = method_file._covered_lines  
+            gpshelper.highlight(file_name, lines)   # highlight lines
     
     def cases_combo_changed(self, cases_combo):
         """ Callback function: cases combo changed """          
         selected_case_no = cases_combo.get_active()
         
+        
+        if selected_case_no == 0:
+            self.highlight_method(self._current_package_index, self._current_fun_index)
+            return
         # check if any item is selected (-1: no active item selected)
-        if selected_case_no != -1: 
+        if selected_case_no > -1:            
+            selected_case_no -= 1   # correction because of one extra case: All cases
             case = self._report[self._current_package_index]._methods[self._current_fun_index].get_case(selected_case_no)
             
             # load pre and post state models
@@ -282,8 +298,8 @@ class KiasanGUI:
                   "NEW": "#0000ff"
         }
         
-        pre_tree_store = gtk.TreeStore(str, str)
-        post_tree_store = gtk.TreeStore(str, str)
+        pre_tree_store = Gtk.TreeStore(str, str)
+        post_tree_store = Gtk.TreeStore(str, str)
         pre_parent = pre_tree_store.append(None, [pre_state._name, COLORS["DEFAULT"]])
         post_parent = post_tree_store.append(None, [post_state._name, COLORS["DEFAULT"]])
         
@@ -295,14 +311,19 @@ class KiasanGUI:
         # add call stack frames
         pre_stack_frames = pre_tree_store.append(pre_parent, ["Call Stack Frames", COLORS["DEFAULT"]])
         post_stack_frames = post_tree_store.append(post_parent, ["Call Stack Frames", COLORS["DEFAULT"]])
-                
-        pre_frames_count = 0
+        
+        # process frames existing in pre- and post state
         for pre_frame, post_frame in zip(pre_state._frames, post_state._frames):
-            pre_frames_count += 1
             color = COLORS["DEFAULT"] if pre_frame._line_num == post_frame._line_num else COLORS["CHANGED"]
             pre_stack_frame = pre_tree_store.append(pre_stack_frames, [str(pre_frame._line_num) + ":" + pre_frame._name, COLORS["DEFAULT"]])
             post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, color])            
-            self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_stack_frame, post_stack_frame, pre_frame._variables, post_frame._variables, COLORS)            
+            self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_stack_frame, post_stack_frame, pre_frame._variables, post_frame._variables, COLORS)
+            
+        # process new frames (existing only in post state)
+        for post_frame in post_state._frames[len(pre_state._frames):]:
+            color = COLORS["NEW"]
+            post_stack_frame = post_tree_store.append(post_stack_frames, [str(post_frame._line_num) + ":" + post_frame._name, color])
+            self.add_variables_to_case_state_treeview_model(pre_tree_store, post_tree_store, pre_stack_frame, post_stack_frame, None, post_frame._variables, COLORS)
         
         return pre_tree_store, post_tree_store
                 
