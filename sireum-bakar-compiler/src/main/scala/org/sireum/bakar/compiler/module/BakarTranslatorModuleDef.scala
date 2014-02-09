@@ -1757,7 +1757,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       for (a <- pragmaArgAssociations.getAssociations) {
         v(a)
         val r = ctx.popResult.asInstanceOf[Exp]
-        val aa = AssumeAction(ivectorEmpty, r)
+        val aa = AssumeAction(ivectorEmpty, r, None)
         ctx.createPushLocation(aa, ivectorEmpty, sloc)
       }
       false
