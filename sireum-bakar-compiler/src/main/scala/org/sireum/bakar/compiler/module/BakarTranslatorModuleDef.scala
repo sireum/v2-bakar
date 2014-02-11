@@ -2986,7 +2986,7 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
           v(pragmaArgAssociations.getAssociations.head)
           val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSUME, ctx.popResult, StandardURIs.boolURI)
-          val aa = AssumeAction(ivectorEmpty, uif)
+          val aa = AssumeAction(ivectorEmpty, uif, None)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
         case "assert_and_cut" =>
           assert(pragmaArgAssociations.getAssociations.size == 1)

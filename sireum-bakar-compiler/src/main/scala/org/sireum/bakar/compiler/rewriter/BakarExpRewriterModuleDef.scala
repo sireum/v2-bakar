@@ -151,7 +151,7 @@ class BakarRewriter(typeMap: IMap[ResourceUri, TypeDecl]) {
                   }
                 case ActionLocation(_, _, AssertAction(_, CallExp(NameExp(nu), _), _)) =>
                   rewrite = !URIS.isUIFUri(nu.uri)
-                case ActionLocation(_, _, AssumeAction(_, CallExp(NameExp(nu), _))) =>
+                case ActionLocation(_, _, AssumeAction(_, CallExp(NameExp(nu), _), _)) =>
                   rewrite = !URIS.isUIFUri(nu.uri)
                 case _ =>
                   rewrite = true
