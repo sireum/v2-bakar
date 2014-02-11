@@ -115,7 +115,7 @@ procedure Integer Sum (
     // empty loc
 
   #l10.
-    assert proof__uif__assert N == R "Assertion failed at [15, 7]";
+    assert (proof__uif__assert N == R, "Assertion failed at [15, 7]");
 
   #l1.
     // empty loc
@@ -233,7 +233,7 @@ procedure Sum2 (
     // empty loc
 
   #l22.
-    assert proof__uif__assert N == R "Assertion failed at [32, 7]";
+    assert (proof__uif__assert N == R, "Assertion failed at [32, 7]");
 
   #l13.
     // empty loc

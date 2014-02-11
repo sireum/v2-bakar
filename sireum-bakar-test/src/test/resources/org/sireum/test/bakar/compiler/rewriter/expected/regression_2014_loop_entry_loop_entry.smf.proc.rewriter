@@ -38,13 +38,13 @@ procedure Array_Loop_Entry (
     A[attribute__uif__last `A - Index + 1ii] := Temp;
 
   #l11.
-    assert proof__uif__loop_invariant proof__uif__for_all {universal_integer J => 
+    assert (proof__uif__loop_invariant proof__uif__for_all {universal_integer J => 
         switch J
           case (attribute__uif__first `A, Index) => A[J] == attribute__uif__loop_entry (Inner, A)[attribute__uif__last `A - J + 1ii] &&& A[attribute__uif__last `A - J + 1ii] == attribute__uif__loop_entry (Outer, A)[J]
           default => true} && proof__uif__for_all {universal_integer J => 
         switch J
           case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == attribute__uif__loop_entry (Inner, A)[J]
-          default => true} "Loop Invariant failed at [13, 10]";
+          default => true}, "Loop Invariant failed at [13, 10]");
 
   #l12.
     if Index == _tcomp1 then goto l2;
@@ -106,13 +106,13 @@ procedure Record_Loop_Entry (
     // empty loc
 
   #l26.
-    assert proof__uif__loop_invariant attribute__uif__loop_entry (OuterLoop2, A).X == A.X "Loop Invariant failed at [41, 12]";
+    assert (proof__uif__loop_invariant attribute__uif__loop_entry (OuterLoop2, A).X == A.X, "Loop Invariant failed at [41, 12]");
 
   #l27.
-    assert proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X)[Temp] == A.X[Temp] "Loop Invariant failed at [42, 12]";
+    assert (proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X)[Temp] == A.X[Temp], "Loop Invariant failed at [42, 12]");
 
   #l28.
-    assert proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X[Z]) == A.X[Z] "Loop Invariant failed at [43, 12]";
+    assert (proof__uif__loop_invariant attribute__uif__loop_entry (InnerLoop2, A.X[Z]) == A.X[Z], "Loop Invariant failed at [43, 12]");
 
   #l29.
     goto l24;

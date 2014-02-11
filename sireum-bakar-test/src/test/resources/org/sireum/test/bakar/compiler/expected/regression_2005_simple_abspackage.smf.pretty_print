@@ -89,7 +89,7 @@ procedure Integer AbsFunc (
     // empty loc
 
   #l6.
-    assert proof__uif__assert r >= 0ii "Assertion failed at [11, 5]";
+    assert (proof__uif__assert r >= 0ii, "Assertion failed at [11, 5]");
 
   #l7.
     return r;

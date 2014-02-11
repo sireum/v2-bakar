@@ -64,7 +64,7 @@ procedure Integer Inc (
     R := X + 1ii;
 
   #l1.
-    assert proof__uif__assert R > X "Assertion failed at [7, 7]";
+    assert (proof__uif__assert R > X, "Assertion failed at [7, 7]");
 
   #l2.
     return R;

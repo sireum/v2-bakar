@@ -98,7 +98,7 @@ procedure Integer Add (
     r6 := _t12 + _t13;
 
   #l8.
-    assert proof__uif__assert r2 == r5 "Assertion failed at [16, 5]";
+    assert (proof__uif__assert r2 == r5, "Assertion failed at [16, 5]");
 
   #l9.
     return r6;
@@ -289,7 +289,7 @@ procedure Integer Mult (
     r6 := _t40 * _t41;
 
   #l25.
-    assert proof__uif__assert r2 == r5 "Assertion failed at [46, 5]";
+    assert (proof__uif__assert r2 == r5, "Assertion failed at [46, 5]");
 
   #l26.
     return r6;

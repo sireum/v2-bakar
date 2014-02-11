@@ -34,7 +34,7 @@ procedure Integer MinFunc (
     // empty loc
 
   #l8.
-    assert proof__uif__assert Min <= X && Min <= Y && X <= Max && Y <= Max "Assertion failed at [13, 7]";
+    assert (proof__uif__assert Min <= X && Min <= Y && X <= Max && Y <= Max, "Assertion failed at [13, 7]");
 
   #l9.
     return Min;

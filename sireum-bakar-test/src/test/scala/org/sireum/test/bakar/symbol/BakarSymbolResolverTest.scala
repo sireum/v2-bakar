@@ -228,7 +228,7 @@ object BakarSymbolResolverTest extends ImplicitLogging {
 
         }
         false
-      case AssumeAction(_, CallExp(NameExp(nu), arg)) =>
+      case AssumeAction(_, CallExp(NameExp(nu), arg), _) =>
         inProof = URIS.isUIFUri(nu.uri)
         v(arg)
         inProof = false
