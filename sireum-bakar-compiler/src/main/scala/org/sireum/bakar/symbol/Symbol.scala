@@ -22,7 +22,7 @@ case class IndexConstraint(
 
 trait RangeConstraint extends Constraint
 
-case class RangeAttributeReferenceConstraint extends RangeConstraint
+case class RangeAttributeReferenceConstraint() extends RangeConstraint
 
 case class SimpleRangeConstraint(
   val lower : Exp,
@@ -70,7 +70,7 @@ case class PrivateTypeDecl(
 
 trait TypeDef extends Type
 
-case class AbstractTypeDef extends TypeDef
+case class AbstractTypeDef() extends TypeDef
 
 trait CompositeTypeDef extends TypeDef
 
