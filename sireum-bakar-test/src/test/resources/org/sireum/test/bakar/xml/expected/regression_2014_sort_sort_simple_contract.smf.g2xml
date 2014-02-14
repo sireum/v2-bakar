@@ -6569,8 +6569,8 @@ sort_simple_contract.adb
                   <sloc>
                     <line>85</line>
                     <col>5</col>
-                    <endline>93</endline>
-                    <endcol>16</endcol>
+                    <endline>85</endline>
+                    <endcol>51</endcol>
                   </sloc>
                   <aspectMarkQ>
                     <element class="org.sireum.bakar.xml.Identifier">
@@ -6590,8 +6590,8 @@ sort_simple_contract.adb
                       <sloc>
                         <line>85</line>
                         <col>13</col>
-                        <endline>93</endline>
-                        <endcol>16</endcol>
+                        <endline>85</endline>
+                        <endcol>51</endcol>
                       </sloc>
                       <prefixQ>
                         <expression class="org.sireum.bakar.xml.EqualOperator">
@@ -6668,8 +6668,8 @@ sort_simple_contract.adb
                             <sloc>
                               <line>85</line>
                               <col>21</col>
-                              <endline>93</endline>
-                              <endcol>16</endcol>
+                              <endline>85</endline>
+                              <endcol>51</endcol>
                             </sloc>
                             <formalParameterQ>
                               <element class="org.sireum.bakar.xml.NotAnElement">
@@ -6682,12 +6682,12 @@ sort_simple_contract.adb
                               </element>
                             </formalParameterQ>
                             <actualParameterQ>
-                              <expression class="org.sireum.bakar.xml.UnknownAttribute">
+                              <expression class="org.sireum.bakar.xml.ImplementationDefinedAttribute">
                                 <sloc>
                                   <line>85</line>
                                   <col>21</col>
-                                  <endline>93</endline>
-                                  <endcol>16</endcol>
+                                  <endline>85</endline>
+                                  <endcol>51</endcol>
                                 </sloc>
                                 <prefixQ>
                                   <expression class="org.sireum.bakar.xml.Identifier">
@@ -6852,7 +6852,7 @@ sort_simple_contract.adb
                                           </org.sireum.bakar.xml.ArrayComponentAssociation>
                                         </associations>
                                       </arrayComponentAssociationsQl>
-                                      <type>ada://ordinary_type/Sort_Simple_Contract-1:9/Vector-7:8</type>
+                                      <type>null</type>
                                     </org.sireum.bakar.xml.NamedArrayAggregate>
                                   </expressions>
                                 </attributeDesignatorExpressionsQl>

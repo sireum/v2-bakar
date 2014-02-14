@@ -1695,8 +1695,8 @@ procedure SwapElements (
                    <string srefid="10"/>
                    <int>85</int>
                    <int>21</int>
-                   <int>93</int>
-                   <int>16</int>
+                   <int>85</int>
+                   <int>51</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
@@ -1712,8 +1712,8 @@ procedure SwapElements (
                  <string srefid="10"/>
                  <int>85</int>
                  <int>13</int>
-                 <int>93</int>
-                 <int>16</int>
+                 <int>85</int>
+                 <int>51</int>
                </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
              </entry>
            </properties>

@@ -7670,7 +7670,7 @@ array_utilities.adb
                                     <line>89</line>
                                     <col>15</col>
                                     <endline>89</endline>
-                                    <endcol>79</endcol>
+                                    <endcol>60</endcol>
                                   </sloc>
                                   <formalParameterQ>
                                     <element class="org.sireum.bakar.xml.NotAnElement">
@@ -7688,7 +7688,7 @@ array_utilities.adb
                                         <line>89</line>
                                         <col>15</col>
                                         <endline>89</endline>
-                                        <endcol>79</endcol>
+                                        <endcol>60</endcol>
                                       </sloc>
                                       <prefixQ>
                                         <expression class="org.sireum.bakar.xml.EqualOperator">
@@ -7741,7 +7741,7 @@ array_utilities.adb
                                               <line>89</line>
                                               <col>19</col>
                                               <endline>89</endline>
-                                              <endcol>79</endcol>
+                                              <endcol>60</endcol>
                                             </sloc>
                                             <formalParameterQ>
                                               <element class="org.sireum.bakar.xml.NotAnElement">
@@ -7754,12 +7754,12 @@ array_utilities.adb
                                               </element>
                                             </formalParameterQ>
                                             <actualParameterQ>
-                                              <expression class="org.sireum.bakar.xml.UnknownAttribute">
+                                              <expression class="org.sireum.bakar.xml.ImplementationDefinedAttribute">
                                                 <sloc>
                                                   <line>89</line>
                                                   <col>19</col>
                                                   <endline>89</endline>
-                                                  <endcol>79</endcol>
+                                                  <endcol>60</endcol>
                                                 </sloc>
                                                 <prefixQ>
                                                   <expression class="org.sireum.bakar.xml.ImplementationDefinedAttribute">
@@ -7999,7 +7999,7 @@ array_utilities.adb
                                                           </org.sireum.bakar.xml.ArrayComponentAssociation>
                                                         </associations>
                                                       </arrayComponentAssociationsQl>
-                                                      <type>ada://ordinary_type/Array_Utilities-1:9/Array_Type-8:8</type>
+                                                      <type>null</type>
                                                     </org.sireum.bakar.xml.NamedArrayAggregate>
                                                   </expressions>
                                                 </attributeDesignatorExpressionsQl>

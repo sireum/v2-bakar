@@ -1790,8 +1790,8 @@ procedure Swap_Elements (
                      <string>sort.adb</string>
                      <int>58</int>
                      <int>18</int>
+                     <int>58</int>
                      <int>59</int>
-                     <int>62</int>
                    </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                  </entry>
                </properties>
@@ -1807,8 +1807,8 @@ procedure Swap_Elements (
                    <string>sort.adb</string>
                    <int>58</int>
                    <int>14</int>
+                   <int>58</int>
                    <int>59</int>
-                   <int>62</int>
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>

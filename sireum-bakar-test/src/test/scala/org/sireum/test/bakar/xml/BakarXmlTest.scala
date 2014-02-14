@@ -23,7 +23,7 @@ import org.scalatest.junit.JUnitRunner
 class BakarXmlTest extends BakarTestFileFramework[ProjectFile] {
 
   override def generateExpected = false
-  
+
   //override def includes = super.includes ++= Set("2014_loop_entry")
 
   override def includes = super.includes ++= Set(
@@ -35,9 +35,13 @@ class BakarXmlTest extends BakarTestFileFramework[ProjectFile] {
     "2014_sort",
     "xxxxxx")
 
+  override def excludes = super.excludes ++= Set(
+    "function_simple" // causes gnat2xml v7.3.0w to hang
+  )
+
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR, true))
 
-  override def pre(c: Configuration): Boolean = {
+  override def pre(c : Configuration) : Boolean = {
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     return true;
   }
@@ -57,7 +61,7 @@ class BakarXmlTest extends BakarTestFileFramework[ProjectFile] {
 
   override def outputSuffix = "g2xml"
 
-  override def writeTestString(job: PipelineJob, w: Writer) = {
+  override def writeTestString(job : PipelineJob, w : Writer) = {
     import ParseGnat2XMLModule.ConsumerView._
     val xs = new XStream()
 

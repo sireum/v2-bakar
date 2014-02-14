@@ -48,9 +48,13 @@ class BakarTranslatorTest extends BakarTestFileFramework[ProjectFile] {
       "xxxxxxx")
   }
 
+  override def excludes = super.excludes ++= Set(
+    "function_simple" // causes gnat2xml v7.0.3w to hang
+  )
+
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.REGRESSION_DIR))
 
-  override def pre(c: Configuration): Boolean = {
+  override def pre(c : Configuration) : Boolean = {
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     BakarTranslatorModule.setRegression(c.job.properties, true)
     return true;
@@ -75,31 +79,31 @@ class BakarTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
   override def outputSuffix = "gvisitor"
 
-  def printTree(t: PilarAstNode, w: Writer) {
+  def printTree(t : PilarAstNode, w : Writer) {
     Visitor.visit(Some { vsp =>
       val indent = "  "
-      def printIndent {
-        for (i <- 0 until vsp.stack.size) w.write("  ")
-      }
-      def printlnContent(o: Any) {
-        val s = o.toString
-        w.write(s.substring(0, if (s.length < 150) s.length else 150) + "\n")
-      }
+        def printIndent {
+          for (i <- 0 until vsp.stack.size) w.write("  ")
+        }
+        def printlnContent(o : Any) {
+          val s = o.toString
+          w.write(s.substring(0, if (s.length < 150) s.length else 150) + "\n")
+        }
       {
-        case p: PilarAstNode =>
+        case p : PilarAstNode =>
           printIndent; printlnContent(p); true
         case Nil =>
           printIndent; w.write("List()\n"); false
-        case l: ISeq[_] =>
+        case l : ISeq[_] =>
           printIndent; printlnContent(l); true
         case None =>
           printIndent; w.write("None\n"); false
-        case s: Some[_] => printIndent; printlnContent(s); true
+        case s : Some[_] => printIndent; printlnContent(s); true
       }
     }, None)(t)
   }
 
-  override def writeTestString(job: PipelineJob, w: Writer) = {
+  override def writeTestString(job : PipelineJob, w : Writer) = {
     val results = BakarTranslatorModule.getModels(job.properties)
     results foreach (printTree(_, w))
   }

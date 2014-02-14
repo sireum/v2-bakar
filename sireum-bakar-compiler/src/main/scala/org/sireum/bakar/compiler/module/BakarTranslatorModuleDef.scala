@@ -2046,11 +2046,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         val m = handleMethod(o, sloc, names, paramProfile, None,
           Some(bodyStatements), Some(resultProfile), aspectSpec, None, None)
 
-        // FIXME: gnat2xml Pro 7.2.0rc (20131028) repeats the first param
-        // as the param profile (e.g. X, Y becomes X, X).  Attaching the following
-        // so handle this case specially until it's fixed
-        m("IS_EXPRESSION_FUNCTION") = true
-
         ctx.pushResult(m, sloc)
         false
       case o @ FunctionDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
@@ -2566,18 +2561,36 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
         ctx.pushResult(h(prefix, Attribute.ATTRIBUTE_UIF_IMAGE, typUri), sloc)
         false
       case ImplementationDefinedAttributeEx(sloc, prefix, attId, attExp, typeUri, checks) =>
-        v(attId)
-        val p: NameExp = ctx.popResult
-        val n = p.name.name.toLowerCase match {
-          case "old" => Attribute.ATTRIBUTE_UIF_OLD
-          case "result" => Attribute.ATTRIBUTE_UIF_RESULT
-          case x => throw new RuntimeException("Unexpected: " + x)
-        }
-
         v(prefix)
         val exp: Exp = ctx.popResult
 
-        val ce = ctx.createUIFCall(n, exp, typeUri)
+        val (_, name, _, _) = ctx.getName(attId)
+        val ce = name.toLowerCase match {
+          case "old" => ctx.createUIFCall(Attribute.ATTRIBUTE_UIF_OLD, exp, typeUri)
+          case "result" => ctx.createUIFCall(Attribute.ATTRIBUTE_UIF_RESULT, exp, typeUri)
+          case "update" =>
+            assert(attExp.getExpressions.size == 1)
+            var elements = ivectorEmpty[(Exp, Exp)]
+            for (de <- attExp.getExpressions) {
+              v(de)
+              ctx.popResult.asInstanceOf[Any] match {
+                case fe: FunExp =>
+                  assert(fe.matchings.size == 1)
+
+                  val se = fe.matchings.head.exp.asInstanceOf[SwitchExp]
+                  assert(se.defaultCase == null)
+
+                  elements ++= se.cases.map(f => (f.cond, f.exp))
+                case ne: NewRecordExp =>
+                  elements ++= ne.attributeInits.map(f => (NameExp(f.name), f.exp))
+                case x => throw new RuntimeException("Unexpected: " + x)
+              }
+            }
+            val fe = ctx.addTypeUri(NewFunctionExp(elements), typeUri)
+            val _args = TupleExp(ivector(exp, fe))
+            ctx.createUIFCall(Attribute.ATTRIBUTE_UIF_UPDATE_EXP, _args, typeUri)
+          case x => throw new RuntimeException("Unexpected: " + x)
+        }
         ctx.pushResult(ce, sloc)
         false
       case LastAttributeEx(sloc, prefix, attributeId, attributeExp, typUri, checks) =>
@@ -2623,27 +2636,6 @@ class BakarTranslatorModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
         val (_, name, _, _) = ctx.getName(id)
         val (uif, args) = name.toLowerCase match {
-          case "update" =>
-            assert(designatorExps.getExpressions.size == 1)
-            var elements = ivectorEmpty[(Exp, Exp)]
-            for (de <- designatorExps.getExpressions) {
-              v(de)
-              ctx.popResult.asInstanceOf[Any] match {
-                case fe: FunExp =>
-                  assert(fe.matchings.size == 1)
-
-                  val se = fe.matchings.head.exp.asInstanceOf[SwitchExp]
-                  assert(se.defaultCase == null)
-
-                  elements ++= se.cases.map(f => (f.cond, f.exp))
-                case ne: NewRecordExp =>
-                  elements ++= ne.attributeInits.map(f => (NameExp(f.name), f.exp))
-                case x => throw new RuntimeException("Unexpected: " + x)
-              }
-            }
-            val fe = ctx.addTypeUri(NewFunctionExp(elements), typUri)
-            val _args = TupleExp(ivector(component, fe))
-            (Attribute.ATTRIBUTE_UIF_UPDATE_EXP, _args)
           case "loop_entry" =>
             val _args = if (!designatorExps.getExpressions.isEmpty) {
               assert(designatorExps.getExpressions.size == 1)

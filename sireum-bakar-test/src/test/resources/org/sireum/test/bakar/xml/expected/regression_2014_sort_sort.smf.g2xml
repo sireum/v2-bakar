@@ -4813,8 +4813,8 @@ sort.adb
                                 <sloc>
                                   <line>58</line>
                                   <col>14</col>
-                                  <endline>59</endline>
-                                  <endcol>62</endcol>
+                                  <endline>58</endline>
+                                  <endcol>59</endcol>
                                 </sloc>
                                 <formalParameterQ>
                                   <element class="org.sireum.bakar.xml.NotAnElement">
@@ -4831,8 +4831,8 @@ sort.adb
                                     <sloc>
                                       <line>58</line>
                                       <col>14</col>
-                                      <endline>59</endline>
-                                      <endcol>62</endcol>
+                                      <endline>58</endline>
+                                      <endcol>59</endcol>
                                     </sloc>
                                     <prefixQ>
                                       <expression class="org.sireum.bakar.xml.EqualOperator">
@@ -4884,8 +4884,8 @@ sort.adb
                                           <sloc>
                                             <line>58</line>
                                             <col>18</col>
-                                            <endline>59</endline>
-                                            <endcol>62</endcol>
+                                            <endline>58</endline>
+                                            <endcol>59</endcol>
                                           </sloc>
                                           <formalParameterQ>
                                             <element class="org.sireum.bakar.xml.NotAnElement">
@@ -4898,12 +4898,12 @@ sort.adb
                                             </element>
                                           </formalParameterQ>
                                           <actualParameterQ>
-                                            <expression class="org.sireum.bakar.xml.UnknownAttribute">
+                                            <expression class="org.sireum.bakar.xml.ImplementationDefinedAttribute">
                                               <sloc>
                                                 <line>58</line>
                                                 <col>18</col>
-                                                <endline>59</endline>
-                                                <endcol>62</endcol>
+                                                <endline>58</endline>
+                                                <endcol>59</endcol>
                                               </sloc>
                                               <prefixQ>
                                                 <expression class="org.sireum.bakar.xml.ImplementationDefinedAttribute">
@@ -5143,7 +5143,7 @@ sort.adb
                                                         </org.sireum.bakar.xml.ArrayComponentAssociation>
                                                       </associations>
                                                     </arrayComponentAssociationsQl>
-                                                    <type>ada://ordinary_type/Sort-1:9/Array_Type-10:8</type>
+                                                    <type>null</type>
                                                   </org.sireum.bakar.xml.NamedArrayAggregate>
                                                 </expressions>
                                               </attributeDesignatorExpressionsQl>
@@ -14788,7 +14788,7 @@ sort.adb
                                                           <line>153</line>
                                                           <col>16</col>
                                                           <endline>153</endline>
-                                                          <endcol>78</endcol>
+                                                          <endcol>38</endcol>
                                                         </sloc>
                                                         <formalParameterQ>
                                                           <element class="org.sireum.bakar.xml.NotAnElement">
@@ -14801,12 +14801,12 @@ sort.adb
                                                           </element>
                                                         </formalParameterQ>
                                                         <actualParameterQ>
-                                                          <expression class="org.sireum.bakar.xml.UnknownAttribute">
+                                                          <expression class="org.sireum.bakar.xml.ImplementationDefinedAttribute">
                                                             <sloc>
                                                               <line>153</line>
                                                               <col>16</col>
                                                               <endline>153</endline>
-                                                              <endcol>78</endcol>
+                                                              <endcol>38</endcol>
                                                             </sloc>
                                                             <prefixQ>
                                                               <expression class="org.sireum.bakar.xml.Identifier">
@@ -14883,7 +14883,7 @@ sort.adb
                                                                       </org.sireum.bakar.xml.ArrayComponentAssociation>
                                                                     </associations>
                                                                   </arrayComponentAssociationsQl>
-                                                                  <type>ada://ordinary_type/Sort-1:9/Array_Type-10:8</type>
+                                                                  <type>null</type>
                                                                 </org.sireum.bakar.xml.NamedArrayAggregate>
                                                               </expressions>
                                                             </attributeDesignatorExpressionsQl>

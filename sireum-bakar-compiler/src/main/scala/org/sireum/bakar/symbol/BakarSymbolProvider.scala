@@ -202,15 +202,8 @@ object BakarSymbolTable {
         for (param <- p.params) {
           val paramUri = param.name.uri
           ptables.params += paramUri
-          if (ptables.localVarTable.contains(paramUri)) {
-            // FIXME: gnat2xml Pro 7.2.0rc (20131028) repeats the first param
-            // as the param profile (e.g. X, Y becomes X, X). 
-            assert(p.propertyMap.contains("IS_EXPRESSION_FUNCTION"))
-            assert(ptables.localVarTable(paramUri) == param)
-          } else {
-            assert(!ptables.localVarTable.contains(paramUri))
-            ptables.localVarTable(paramUri) = param
-          }
+          assert(!ptables.localVarTable.contains(paramUri))
+          ptables.localVarTable(paramUri) = param
         }
 
         p.body match {
