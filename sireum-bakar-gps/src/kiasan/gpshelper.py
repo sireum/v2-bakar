@@ -45,7 +45,7 @@ def get_overlays(buf):
 
 
 def get_marked_area():
-    """ Returns highlighted area values as a tuple: (start_line, start_column, end_line, end_column)"""
+    """ Returns marked area in current file as a tuple: (start_line, start_column, end_line, end_column). """
     buffer = GPS.EditorBuffer.get()
     
     selection_start = buffer.selection_start()
@@ -60,7 +60,8 @@ def get_marked_area():
     
     
 def highlight_area(file_name, start_line, start_column, end_line, end_column):
-    buffer = GPS.EditorBuffer.get(GPS.File("Medical_Clinic_Waiting_Room.ads"))
+    """ This function highlight area from (start_line, start_column) to (end_line, end_column) in specified file_name. """
+    buffer = GPS.EditorBuffer.get(GPS.File(file_name))
     overlay = buffer.create_overlay("highlight_overlay")
     overlay.set_property("background", "#ffff00")
     buffer.apply_overlay(overlay, GPS.EditorLocation(buffer, start_line, start_column), GPS.EditorLocation(buffer, end_line, end_column))
