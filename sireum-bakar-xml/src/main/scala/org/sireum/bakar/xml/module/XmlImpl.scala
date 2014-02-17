@@ -109,7 +109,7 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         for (l <- str.split("\n") if l.startsWith("Creating ")) {
           // (1) successfully create xml file for spark program
           createXMLFile = true
-          val f = new File(l.substring("Creating ".length()))
+          val f = new File(l.substring("Creating ".length).trim)
           val fname = f.getName().dropRight(4)
           val key = this.srcFiles.find(p => p.endsWith(fname)) match {
             case Some(uri) => uri
