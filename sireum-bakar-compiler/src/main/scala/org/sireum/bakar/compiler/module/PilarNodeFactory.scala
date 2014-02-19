@@ -7,6 +7,17 @@ import org.sireum.pilar.symbol._
 import org.sireum.bakar.symbol.SparkTypeDecl
 
 object PilarNodeFactory {
+  // these are constants, but defining them as functions instead of val -- if 
+  // val then every use would share the property map
+  def TRUE = buildLiteralExp(LiteralType.BOOLEAN, true, "true", StandardURIs.boolURI)
+  def FALSE = buildLiteralExp(LiteralType.BOOLEAN, false, "false", StandardURIs.boolURI)
+  def ZERO = buildLiteralExp(LiteralType.INTEGER, BigInt(0), "0ii", StandardURIs.universalIntURI)
+  def ONE = buildLiteralExp(LiteralType.INTEGER, BigInt(1), "1ii", StandardURIs.universalIntURI)
+
+  def copyPropertyMap[T <: PilarAstNode](a: T, b: T): T = {
+    b.propertyMap ++= a.propertyMap
+    b
+  }
 
   def buildAssertAction(e: Exp, message: String) = {
     val _m = URIS.addTypeUri(LiteralExp(LiteralType.STRING, message, message), StandardURIs.stringURI)
@@ -47,13 +58,19 @@ object PilarNodeFactory {
     assert(URIS.hasTypeUri(nts))
     assert(URIS.hasTypeUri(nts.name))
     assert(varName.contains("@@"))
-    assert(varUri.contains("@@"))
+    assert(URIS.isGlobalVarUri(varUri))
 
     import org.sireum.bakar.symbol.BakarSymbol._
     val nd = URIS.addResourceUri(NameDefinition(varName), varUri)
     val gvd = GlobalVarDecl(nd, ivectorEmpty, Some(nts))
     gvd.parentUri = parentUri
     gvd
+  }
+
+  def buildIfJumpLocation(e: Exp, locLabel: NameDefinition, gotoLocLabel: NameUser) = {
+    val itj = IfThenJump(e, ivectorEmpty, gotoLocLabel)
+    val ij = IfJump(ivectorEmpty, ivector(itj), None)
+    JumpLocation(Some(locLabel), ivectorEmpty, ij)
   }
 
   def buildLiteralExp(literalType: LiteralType, literal: Any, text: String,
@@ -108,7 +125,7 @@ object PilarNodeFactory {
   def buildNameExp(nu: NameUser, typeUri: Option[ResourceUri]): NameExp = {
     assert(nu ? Symbol.symbolPropKey)
     val ne = NameExp(nu)
-    if (typeUri.isDefined) 
+    if (typeUri.isDefined)
       URIS.addTypeUri(ne, typeUri.get)
     ne
   }

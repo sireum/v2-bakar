@@ -11,6 +11,7 @@ import org.sireum.util.ISet
 import org.sireum.util.ResourceUri
 import org.sireum.util.ivector
 import org.sireum.pilar.ast.GlobalVarDecl
+import org.sireum.pilar.ast.TupleExp
 
 object BakarSymbol {
 
@@ -57,13 +58,18 @@ object BakarSymbol {
       new ProcedureInfo {
         private var _contractCases: ISeq[Exp] = null
         private var _depends: IMap[ResourceUri, ISet[ResourceUri]] = null
-        private var _globalsin: ISet[ResourceUri] = null
-        private var _globalsout: ISet[ResourceUri] = null
-        private var _globalsproof: ISet[ResourceUri] = null
+        private var _dependsRefined: IMap[ResourceUri, ISet[ResourceUri]] = null
+        private var _globalsIn: ISet[ResourceUri] = null
+        private var _globalsOut: ISet[ResourceUri] = null
+        private var _globalsRefinedIn: ISet[ResourceUri] = null
+        private var _globalsRefinedOut: ISet[ResourceUri] = null
+        private var _globalsProof: ISet[ResourceUri] = null
         private var _isGhostFunction: java.lang.Boolean = null
         private var _parentUri: ResourceUri = null
         private var _pre: Exp = null
         private var _post: Exp = null
+        private var _postRefined: Exp = null
+
         private var _testCases: ISeq[TestCase] = null
 
         implicit def wrap[T](t: T) = if (t == null) None else Some(t)
@@ -74,14 +80,23 @@ object BakarSymbol {
         def depends = _depends
         def depends_=(o: IMap[ResourceUri, ISet[ResourceUri]]) = _depends = o
 
-        def globalsIn = _globalsin
-        def globalsIn_=(o: ISet[ResourceUri]) = _globalsin = o
+        def dependsRefined = _dependsRefined
+        def dependsRefined_=(o: IMap[ResourceUri, ISet[ResourceUri]]) = _dependsRefined = o
 
-        def globalsOut = _globalsout
-        def globalsOut_=(o: ISet[ResourceUri]) = _globalsout = o
+        def globalsIn = _globalsIn
+        def globalsIn_=(o: ISet[ResourceUri]) = _globalsIn = o
 
-        def globalsProof = _globalsproof
-        def globalsProof_=(o: ISet[ResourceUri]) = _globalsproof = o
+        def globalsRefinedIn = _globalsRefinedIn
+        def globalsRefinedIn_=(o: ISet[ResourceUri]) = _globalsRefinedIn = o
+
+        def globalsOut = _globalsOut
+        def globalsOut_=(o: ISet[ResourceUri]) = _globalsOut = o
+
+        def globalsRefinedOut = _globalsRefinedOut
+        def globalsRefinedOut_=(o: ISet[ResourceUri]) = _globalsRefinedOut = o
+
+        def globalsProof = _globalsProof
+        def globalsProof_=(o: ISet[ResourceUri]) = _globalsProof = o
 
         def isGhostFunction = wrap(_isGhostFunction)
         def isGhostFunction_=(o: Boolean) = _isGhostFunction = o
@@ -95,6 +110,9 @@ object BakarSymbol {
         def post = _post
         def post_=(o: Exp) = _post = o
 
+        def postRefined = _postRefined
+        def postRefined_=(o: Exp) = _postRefined = o
+
         def testCases = _testCases
         def testCases_=(o: ISeq[TestCase]) = _testCases = o
       })
@@ -106,11 +124,20 @@ object BakarSymbol {
     def depends: Option[IMap[ResourceUri, ISet[ResourceUri]]]
     def depends_=(o: IMap[ResourceUri, ISet[ResourceUri]])
 
+    def dependsRefined: Option[IMap[ResourceUri, ISet[ResourceUri]]]
+    def dependsRefined_=(o: IMap[ResourceUri, ISet[ResourceUri]])
+
     def globalsIn: Option[ISet[ResourceUri]]
     def globalsIn_=(o: ISet[ResourceUri])
 
+    def globalsRefinedIn: Option[ISet[ResourceUri]]
+    def globalsRefinedIn_=(o: ISet[ResourceUri])
+
     def globalsOut: Option[ISet[ResourceUri]]
     def globalsOut_=(o: ISet[ResourceUri])
+
+    def globalsRefinedOut: Option[ISet[ResourceUri]]
+    def globalsRefinedOut_=(o: ISet[ResourceUri])
 
     def globalsProof: Option[ISet[ResourceUri]]
     def globalsProof_=(o: ISet[ResourceUri])
@@ -127,6 +154,9 @@ object BakarSymbol {
     def post: Option[Exp]
     def post_=(o: Exp)
 
+    def postRefined: Option[Exp]
+    def postRefined_=(o: Exp)
+
     def testCases: Option[ISeq[TestCase]]
     def testCases_=(o: ISeq[TestCase])
   }
@@ -140,12 +170,18 @@ object BakarSymbol {
   implicit def pack2packInfo(p: PackageDecl): PackageInfo =
     p.getPropertyOrElseUpdate(INFO_PACKAGE,
       new PackageInfo {
+        private var _initializes: ISeq[Exp] = null
         private var _sparkMode: java.lang.Boolean = null
         private var _useClauses: ISeq[NameExp] = null
         private var _useTypeClauses: ISeq[NameExp] = null
         private var _withClauses: ISeq[NameExp] = null
+        private var _abstractState: ISeq[NameExp] = null
+        private var _refinedState: ISeq[(NameExp, ISeq[NameExp])] = null
 
         implicit def wrap[T](t: T) = if (t == null) None else Some(t)
+
+        def initializes = _initializes
+        def initializes_=(o: ISeq[Exp]) = _initializes = o
 
         def sparkMode = wrap(_sparkMode)
         def sparkMode_=(o: Boolean) = _sparkMode = o
@@ -158,11 +194,26 @@ object BakarSymbol {
 
         def withClauses = _withClauses
         def withClauses_=(o: ISeq[NameExp]) = _withClauses = o
+
+        def abstractState = _abstractState
+        def abstractState_=(o: ISeq[NameExp]) = _abstractState = o
+
+        def refinedState = _refinedState
+        def refinedState_=(o: ISeq[(NameExp, ISeq[NameExp])]) = _refinedState = o
       })
 
   trait PackageInfo {
+    def initializes: Option[ISeq[Exp]]
+    def initializes_=(o: ISeq[Exp])
+
     def sparkMode: Option[Boolean]
     def sparkMode_=(o: Boolean)
+
+    def abstractState: Option[ISeq[NameExp]]
+    def abstractState_=(o: ISeq[NameExp])
+
+    def refinedState: Option[ISeq[(NameExp, ISeq[NameExp])]]
+    def refinedState_=(o: ISeq[(NameExp, ISeq[NameExp])])
 
     def useClauses: Option[ISeq[NameExp]]
     def useClauses_=(o: ISeq[NameExp])
