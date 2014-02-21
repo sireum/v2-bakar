@@ -245,7 +245,7 @@ import org.sireum.pipeline.PipelineJobModuleInfo
 import org.sireum.util.BeginEndLineColumnLocation
 import org.sireum.util.SourceLocation.SourceLocationWithAt
 import org.sireum.util.Exec
-import org.sireum.util.FileLineColumnLocation.pp2flcl
+import org.sireum.util.FileLineColumnLocation.At.pp2flcl
 import org.sireum.util.FileResourceUri
 import org.sireum.util.IMap
 import org.sireum.util.ISeq
@@ -255,7 +255,7 @@ import org.sireum.util.MBuffer
 import org.sireum.util.MList
 import org.sireum.util.PropertyProvider
 import org.sireum.util.ResourceUri
-import org.sireum.util.SourceLocation.pp2sl
+import org.sireum.util.SourceLocation.At.pp2sl
 import org.sireum.util.Visitor
 import org.sireum.util.VisitorFunction
 import org.sireum.util.ilistEmpty
@@ -812,8 +812,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     def addSourceLoc[T <: PilarAstNode](o : T, sloc : SourceLocation) : T = {
       o match {
         case x : PropertyProvider =>
-          import org.sireum.util.SourceLocation._
-          x at (purifyPath(fileUri), sloc.getLine, sloc.getCol, sloc.getEndline, sloc.getEndcol)
+          import org.sireum.util.SourceLocation.At._
+          x at (purifyPath(this.fileUri), sloc.getLine, sloc.getCol, 
+              sloc.getEndline, sloc.getEndcol)
         case _ =>
       }
       o
@@ -1800,7 +1801,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         assert(isOverridingDec.isEmpty || ctx.isEmpty(isOverridingDec.get))
         assert(isNotOverridingDec.isEmpty || ctx.isEmpty(isNotOverridingDec.get))
 
-        import org.sireum.util.FileLineColumnLocation._
+        import org.sireum.util.FileLineColumnLocation.At._
         assert(names.getDefiningNames.length == 1)
         val (sloc2, methodDefName, methodDefUri, methodTypeUri) = ctx.getName(names.getDefiningNames.get(0))
 

@@ -151,7 +151,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   }
 
   def methodH(ctx : Context, v : => BVisitor) : VisitorFunction = {
-      def handleMethodBody(sloc : SourceLocation,
+      def handleMethodBody(sloc : org.sireum.bakar.xml.SourceLocation,
                            names : DefiningNameList,
                            paramProfile : ParameterSpecificationList,
                            bodyDeclItems : ElementList,
