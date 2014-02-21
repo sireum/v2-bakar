@@ -226,12 +226,12 @@ procedure dummy (
              </iset>
            </entry>
          </__depends>
-         <__globalsin class="icol.Set$Set1" ttype="iset">
+         <__globalsIn class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
-         </__globalsin>
-         <__globalsout class="icol.Set$Set1" ttype="iset">
+         </__globalsIn>
+         <__globalsOut class="icol.Set$Set1" ttype="iset">
            <string srefid="1"/>
-         </__globalsout>
+         </__globalsOut>
          <__parentUri sid="3">ada://package/QuantifierTest-1:9</__parentUri>
        </org.sireum.bakar.symbol.BakarSymbol_-_-anonfun_-proc2procInfo_-1_-_-anon_-3>""")
 
