@@ -346,7 +346,9 @@ GPS.parse_xml ("""
     </submenu>
 	<contextual action="run Kiasan V1" >
     	<Title>Sireum Bakar (v1)/Run Kiasan</Title>
-  	</contextual>
+  	</contextual>  	
+    
+    <key action="run Kiasan V1">control-k</key>
   	
   	<preference name = "sireum-kiasan-array-indices-bound"
    				page = "Sireum Bakar (v1)/Kiasan"
