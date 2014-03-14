@@ -1,0 +1,6 @@
+--testcase for the language 
+--query a :
+--	slice forward with {body p_simple_call_three.Q1(in A)};
+
+query d :
+	slice backward with {p_simple_call_three.Q1(out B)};
