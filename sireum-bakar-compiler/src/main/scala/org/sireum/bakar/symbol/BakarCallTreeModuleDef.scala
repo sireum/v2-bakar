@@ -29,6 +29,8 @@ import org.jgrapht.ext.VertexNameProvider
 import java.io.FileWriter
 import org.jgrapht.ext.DOTExporter
 import java.io.StringWriter
+import org.sireum.util.CSet
+import org.jgrapht.alg.StrongConnectivityInspector
 
 case class CallInfo(
   val location: LocationDecl,
@@ -45,6 +47,13 @@ trait CallTree {
   def getCalleeInfo(m: ProcedureDecl) = graph.outgoingEdgesOf(m)
 
   def getCallerInfo(m: ProcedureDecl) = graph.incomingEdgesOf(m)
+  
+  def stronglyConnectedSets : Iterable[CSet[ProcedureDecl]] = {
+    import scala.collection.JavaConversions._
+
+    val sci = new StrongConnectivityInspector[ProcedureDecl, CallInfo](graph)
+    sci.stronglyConnectedSets.map { s => s : CSet[ProcedureDecl] }
+  }
 
   def outputCallTree = {
     val vnp = new VertexNameProvider[ProcedureDecl] {
