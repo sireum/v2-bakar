@@ -39,7 +39,7 @@ def run_kiasan_plugin():
 				warnings.warn("the second condition of below if is UGLY...but I didn't find the better way \
 				to check if entity is subprogram's package because file can have entities from external files")
 				if entity.category() == 'package/namespace' and \
-					entity.name().lower() == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
+					entity.name().lower().replace('.','-') == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
 					package_name = entity.name()
 			# set methods_list to only one method
 			methods_list = [GPS.current_context().entity().name()]	
@@ -51,7 +51,7 @@ def run_kiasan_plugin():
 			for entity in GPS.current_context().file().entities(False):
 				if entity.category() == 'subprogram':
 					methods_list.append(entity.name())	
-		
+		print GPS.current_context().entity().category()
 		SIREUM_PATH = get_sireum_path()	
 		load_sireum_settings(SIREUM_PATH)	
 		source_path = GPS.current_context().directory().replace("\\","/")
