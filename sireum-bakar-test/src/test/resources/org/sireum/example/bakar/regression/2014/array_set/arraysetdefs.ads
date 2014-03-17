@@ -1,10 +1,7 @@
 with ArraySetUnsigned;
 use type ArraySetUnsigned.Word;
 use type ArraySetUnsigned.Long;
---# inherit ArraySetUnsigned;
 package ArraySetDefs is
-   ----------------------------------------------------------------------------
-   -- Item Value TEK definitions
 
    Max_Value_Length : constant ArraySetUnsigned.Word := 100;
    Max_Value_Dwords : constant ArraySetUnsigned.Word := Max_Value_Length / 4;
