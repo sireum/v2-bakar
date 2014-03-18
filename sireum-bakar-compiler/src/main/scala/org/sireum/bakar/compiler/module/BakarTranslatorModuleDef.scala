@@ -1208,10 +1208,11 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       throw new RuntimeException
     }
 
-    def createUIFCall(uif : String, arg : Exp, typUri : String) = {
+    def createUIFCall(uif : String, arg : Exp, typUri : String, sloc : Option[SourceLocation] = None) = {
       assert(typUri != null)
       val _typeUri = if (typUri == "null") None else Some(typUri)
-      PNF.buildCallExp(uif, UIF.uifURIprefix + uif, _typeUri, arg)
+      val ret = PNF.buildCallExp(uif, UIF.uifURIprefix + uif, _typeUri, arg)
+      if(sloc.isDefined) addSourceLoc(ret, sloc.get) else ret
     }
 
     def handleSubtypeDef(o : Base, v : => BVisitor) = {
@@ -2972,7 +2973,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ctx.inProofContext = true
       for (a <- pragmaArgumentAssociations.getAssociations) {
         v(a)
-        val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT, ctx.popResult, StandardURIs.boolURI)
+        val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT, ctx.popResult, StandardURIs.boolURI, Some(sloc))
         val m = s"Assertion failed at ${ctx.toString(sloc)}"
         val aa = PNF.buildAssertAction(uif, m)
         ctx.createPushLocation(aa, ivectorEmpty, sloc)
@@ -2988,14 +2989,14 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           assert(pragmaArgAssociations.getAssociations.size == 1)
 
           v(pragmaArgAssociations.getAssociations.head)
-          val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSUME, ctx.popResult, StandardURIs.boolURI)
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSUME, ctx.popResult, StandardURIs.boolURI, Some(sloc))
           val aa = AssumeAction(ivectorEmpty, uif, None)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
         case "assert_and_cut" =>
           assert(pragmaArgAssociations.getAssociations.size == 1)
 
           v(pragmaArgAssociations.getAssociations.head)
-          val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT_AND_CUT, ctx.popResult, StandardURIs.boolURI)
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_ASSERT_AND_CUT, ctx.popResult, StandardURIs.boolURI, Some(sloc))
           val m = s"Assertion failed at ${ctx.toString(sloc)}"
           val aa = PNF.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
@@ -3003,7 +3004,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           assert(pragmaArgAssociations.getAssociations.size == 1)
 
           v(pragmaArgAssociations.getAssociations.head)
-          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_INVARIANT, ctx.popResult, StandardURIs.boolURI)
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_INVARIANT, ctx.popResult, StandardURIs.boolURI, Some(sloc))
           val m = s"Loop Invariant failed at ${ctx.toString(sloc)}"
           val aa = PNF.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
@@ -3025,7 +3026,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           }
           val ne = ctx.peekLoopLabel
           val te = TupleExp(ivector(ne, FunExp(matchings)))
-          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_VARIANT, te, StandardURIs.boolURI)
+          val uif = ctx.createUIFCall(Proof.PROOF_UIF_LOOP_VARIANT, te, StandardURIs.boolURI, Some(sloc))
           val m = s"Loop Variant failed at ${ctx.toString(sloc)}"
           val aa = PNF.buildAssertAction(uif, m)
           ctx.createPushLocation(aa, ivectorEmpty, sloc)
