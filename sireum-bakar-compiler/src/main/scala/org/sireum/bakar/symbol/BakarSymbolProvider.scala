@@ -22,14 +22,14 @@ import org.sireum.bakar.compiler.module.PackageURIs
 import org.sireum.bakar.compiler.module.BAKAR_KEYS
 
 object BakarSymbolTable {
-  def apply(models: ISeq[Model],
-    stpConstructor: Unit => SymbolTableProducer,
-    parallel: Boolean) =
+  def apply(models : ISeq[Model],
+            stpConstructor : Unit => SymbolTableProducer,
+            parallel : Boolean) =
     buildSymbolTable(models, stpConstructor, parallel)
 
-  def buildSymbolTable(models: ISeq[Model],
-    stpConstructor: Unit => SymbolTableProducer,
-    parallel: Boolean) = {
+  def buildSymbolTable(models : ISeq[Model],
+                       stpConstructor : Unit => SymbolTableProducer,
+                       parallel : Boolean) = {
     val stp = stpConstructor()
     val bst = stp.asInstanceOf[BakarSymbolTable]
     val tables = stp.tables
@@ -37,35 +37,35 @@ object BakarSymbolTable {
     val packagesTable = bst.sparkPackageTable
 
     val v = Visitor.build({
-      case a: AttributeDecl =>
+      case a : AttributeDecl =>
         assert(!tables.attributeTable.contains(a.name.uri))
         tables.attributeTable(a.name.uri) = a
         false
-      case t: ConstDecl =>
+      case t : ConstDecl =>
         assert(!tables.constTable.contains(t.name.uri))
         tables.constTable(t.name.uri) = mlistEmpty += t
         for (k <- t.elements)
           tables.constElementTable(k.name.uri) = k
         false
-      case t: EnumDecl =>
+      case t : EnumDecl =>
         assert(!tables.enumTable.contains(t.name.uri))
         tables.enumTable(t.name.uri) = mlistEmpty += t
         for (k <- t.elements)
           tables.enumElementTable(k.name.uri) = k
         false
-      case a: GlobalVarDecl =>
+      case a : GlobalVarDecl =>
         assert(!tables.globalVarTable.contains(a.name.uri))
         tables.globalVarTable(a.name.uri) = a
         false
-      case r: RecordDecl =>
+      case r : RecordDecl =>
         assert(!tables.recordTable.contains(r.name.uri))
         tables.recordTable(r.name.uri) = r
         true
-      case t: TypeAliasDecl =>
+      case t : TypeAliasDecl =>
         assert(!tables.typeAliasTable.contains(t.name.uri))
         tables.typeAliasTable(t.name.uri) = t
         false
-      case p: PackageDecl =>
+      case p : PackageDecl =>
         val puri = p.name.get.uri
 
         assert(!packagesTable.contains(puri))
@@ -93,7 +93,7 @@ object BakarSymbolTable {
 
         packageAbsTable(puri) = p
         true
-      case p: ProcedureDecl =>
+      case p : ProcedureDecl =>
         val procUri = p.name.uri
 
         assert(!tables.procedureTable.contains(procUri))
@@ -207,7 +207,7 @@ object BakarSymbolTable {
         }
 
         p.body match {
-          case im: ImplementedBody =>
+          case im : ImplementedBody =>
             for (lv <- im.locals) {
               val locUri = lv.name.uri
               assert(!ptables.localVarTable.contains(locUri))
@@ -221,16 +221,16 @@ object BakarSymbolTable {
               assert(!bstd.locationTable.contains(luri))
               bstd.locationTable(luri) = loc
 
-              if(loc ? BAKAR_KEYS.LOOP_LABEL_KEY) {
+              if (loc ? BAKAR_KEYS.LOOP_LABEL_KEY) {
                 bpst.loopLocations(luri) = loc(BAKAR_KEYS.LOOP_LABEL_KEY).asInstanceOf[NameDefinition].name
               }
-              
+
               loc match {
-                case l: ActionLocation =>
+                case l : ActionLocation =>
                   l.action.commandDescriptorInfo(Some(luri), index, 0, 0)
-                case l: JumpLocation =>
+                case l : JumpLocation =>
                   l.jump.commandDescriptorInfo(Some(luri), index, 0, 0)
-                case l: EmptyLocation =>
+                case l : EmptyLocation =>
                 case _ =>
                   assert(false)
               }
@@ -261,13 +261,13 @@ object BakarSymbolTable {
 }
 
 trait SparkPackage {
-  var spec: Option[PackageDecl] = None
-  var body: Option[PackageDecl] = None
+  var spec : Option[PackageDecl] = None
+  var body : Option[PackageDecl] = None
 }
 
 trait SparkMethod {
-  var spec: Option[ProcedureDecl] = None
-  var body: Option[ProcedureDecl] = None
+  var spec : Option[ProcedureDecl] = None
+  var body : Option[ProcedureDecl] = None
 }
 
 class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
@@ -282,8 +282,8 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
   val sparkPackageTable = mmapEmpty[ResourceUri, SparkPackage]
   val sparkMethodTable = mmapEmpty[ResourceUri, SparkMethod]
 
-  def toSymbolTable: BakarSymbolTable = this
-  def procedureSymbolTableProducer(procedureAbsUri: ResourceUri) = {
+  def toSymbolTable : BakarSymbolTable = this
+  def procedureSymbolTableProducer(procedureAbsUri : ResourceUri) = {
     assert(tables.procedureAbsTable.contains(procedureAbsUri))
     pdMap.getOrElseUpdate(procedureAbsUri, new BakarProcedureSymbolTable(procedureAbsUri))
   }
@@ -291,59 +291,71 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
   val tags = marrayEmpty[LocationTag]
   var hasErrors = false
 
-  def reportError(source: Option[FileResourceUri], line: Int,
-    column: Int, message: String): Unit = {
+  def reportError(source : Option[FileResourceUri], line : Int,
+                  column : Int, message : String) : Unit = {
     tags += Tag.toTag(source, line, column, message, ERROR_TAG_TYPE)
     hasErrors = true
   }
 
-  def reportWarning(fileUri: Option[String], line: Int,
-    column: Int, message: String): Unit =
+  def reportWarning(fileUri : Option[String], line : Int,
+                    column : Int, message : String) : Unit =
     tags += Tag.toTag(fileUri, line, column, message, WARNING_TAG_TYPE)
+
+  def reportError(source : Option[FileResourceUri], line : Int,
+                  column : Int, offset : Int, length : Int, message : String) : Unit = {
+    tags += Tag.toTag(source, line, column, offset, length, message,
+      ERROR_TAG_TYPE)
+    hasErrors = true
+  }
+
+  def reportWarning(fileUri : Option[String], line : Int,
+                    column : Int, offset : Int, length : Int, message : String) : Unit =
+    tags += Tag.toTag(fileUri, line, column, offset, length, message,
+      WARNING_TAG_TYPE)
 
   val pdMap = mmapEmpty[ResourceUri, BakarProcedureSymbolTable]
 
   def packages = sparkPackageTable.keys
-  def packages(packageUri: ResourceUri) = sparkPackageTable(packageUri)
+  def packages(packageUri : ResourceUri) = sparkPackageTable(packageUri)
 
-  def package_(packageUri: ResourceUri) = packageAbsTable(packageUri)
+  def package_(packageUri : ResourceUri) = packageAbsTable(packageUri)
 
   def globalVars = tables.globalVarTable.keys
-  def globalVar(globalUri: ResourceUri) = tables.globalVarTable(globalUri)
+  def globalVar(globalUri : ResourceUri) = tables.globalVarTable(globalUri)
 
   def procedures = tables.procedureTable.keys
-  def procedures(procedureUri: ResourceUri) = tables.procedureTable(procedureUri)
+  def procedures(procedureUri : ResourceUri) = tables.procedureTable(procedureUri)
 
   def procedureSymbolTables = pdMap.values
-  def procedureSymbolTable(procedureAbsUri: ResourceUri): BakarProcedureSymbolTable =
+  def procedureSymbolTable(procedureAbsUri : ResourceUri) : BakarProcedureSymbolTable =
     procedureSymbolTableProducer(procedureAbsUri)
-  
+
   /**
    * This is intended only for methods declared as a compilation unit (i.e. not
    * embedded in a package)
    */
-  def getSparkMethodCompilationUnit(methodName: String): Option[SparkMethod] =
+  def getSparkMethodCompilationUnit(methodName : String) : Option[SparkMethod] =
     packages.filter(PackageURIs.isPackageAnonymous(_)).collectFirst(u =>
       getSparkMethod(getPackageBody(u).get.name.get.name, methodName) match {
         case Some(p) => p
       })
-  
-  def getSparkMethod(methodUri: ResourceUri) = sparkMethodTable.get(methodUri)      
 
-  def getSparkMethod(packageName: String, methodName: String): Option[SparkMethod] = {
+  def getSparkMethod(methodUri : ResourceUri) = sparkMethodTable.get(methodUri)
+
+  def getSparkMethod(packageName : String, methodName : String) : Option[SparkMethod] = {
     packageAbsTable.find(_._2.name.get.name.toLowerCase == packageName.toLowerCase) match {
       case Some((packUri, p)) =>
         // found the package, now try to find the method
 
-        def findMethod(i: ISeq[PackageElement]) = {
-          i.find {
-            case i: ProcedureDecl => i.name.name.toLowerCase == methodName.toLowerCase
-            case _ => false
-          } match {
-            case Some(proc) => getSparkMethod(proc.name.uri)
-            case None => None
+        def findMethod(i : ISeq[PackageElement]) = {
+            i.find {
+              case i : ProcedureDecl => i.name.name.toLowerCase == methodName.toLowerCase
+              case _                 => false
+            } match {
+              case Some(proc) => getSparkMethod(proc.name.uri)
+              case None       => None
+            }
           }
-        }
 
         val ret = if (getPackageBody(packUri).isDefined)
           findMethod(getPackageBody(packUri).get.elements)
@@ -353,7 +365,7 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
         else
           getPackageSpec(packUri) match {
             case Some(q) => findMethod(q.elements)
-            case _ => None
+            case _       => None
           }
       case None => None
     }
@@ -361,81 +373,81 @@ class BakarSymbolTable extends SymbolTable with SymbolTableProducer {
 
   def getSparkMethods = sparkMethodTable.values.toSet
 
-  def getMethodSpec(methodUri: ResourceUri) =
+  def getMethodSpec(methodUri : ResourceUri) =
     getSparkMethod(methodUri) match {
       case Some(m) => m.spec
-      case _ => None
+      case _       => None
     }
 
-  def getMethodBody(methodUri: ResourceUri) =
+  def getMethodBody(methodUri : ResourceUri) =
     getSparkMethod(methodUri) match {
       case Some(m) => m.body
-      case _ => None
+      case _       => None
     }
 
-  def getSparkPackage(packageUri: ResourceUri) = sparkPackageTable.get(packageUri)
-  
+  def getSparkPackage(packageUri : ResourceUri) = sparkPackageTable.get(packageUri)
+
   def getSparkPackages = sparkPackageTable.values.toSet
 
-  def getPackageSpec(packageUri: ResourceUri) =
+  def getPackageSpec(packageUri : ResourceUri) =
     getSparkPackage(packageUri) match {
       case Some(p) => p.spec
-      case None => None
+      case None    => None
     }
 
-  def getPackageBody(packageUri: ResourceUri) =
+  def getPackageBody(packageUri : ResourceUri) =
     getSparkPackage(packageUri) match {
       case Some(p) => p.body
-      case None => None
+      case None    => None
     }
 
-  class BakarProcedureSymbolTable(val procedureUri: ResourceUri)
-    extends ProcedureSymbolTable with ProcedureSymbolTableProducer {
+  class BakarProcedureSymbolTable(val procedureUri : ResourceUri)
+      extends ProcedureSymbolTable with ProcedureSymbolTableProducer {
     val tables = ProcedureSymbolTableData()
 
-    val loopLocations = mmapEmpty[ResourceUri, String] 
-      
+    val loopLocations = mmapEmpty[ResourceUri, String]
+
     def symbolTable = bst
     def symbolTableProducer = bst
     def procedure = bst.tables.procedureAbsTable(procedureUri)
-    def typeVars: ISeq[ResourceUri] = tables.typeVarTable.keys.toList
+    def typeVars : ISeq[ResourceUri] = tables.typeVarTable.keys.toList
 
-    def param(paramUri: ResourceUri): ParamDecl = tables.localVarTable(paramUri).asInstanceOf[ParamDecl]
-    def params: ISeq[ResourceUri] = tables.params.toList
-    def isParam(localUri: ResourceUri) = tables.params.contains(localUri)
-    def nonParamLocals: Iterable[ResourceUri] = tables.localVarTable.keys.filterNot(isParam)
+    def param(paramUri : ResourceUri) : ParamDecl = tables.localVarTable(paramUri).asInstanceOf[ParamDecl]
+    def params : ISeq[ResourceUri] = tables.params.toList
+    def isParam(localUri : ResourceUri) = tables.params.contains(localUri)
+    def nonParamLocals : Iterable[ResourceUri] = tables.localVarTable.keys.filterNot(isParam)
 
-    def locals: Iterable[ResourceUri] = tables.localVarTable.keys
-    def local(localUri: ResourceUri): LocalVarDecl = tables.localVarTable(localUri).asInstanceOf[LocalVarDecl]
+    def locals : Iterable[ResourceUri] = tables.localVarTable.keys
+    def local(localUri : ResourceUri) : LocalVarDecl = tables.localVarTable(localUri).asInstanceOf[LocalVarDecl]
 
     def locations =
       tables.bodyTables match {
         case Some(bt) => procedure.body.asInstanceOf[ImplementedBody].locations
-        case _ => ivectorEmpty
+        case _        => ivectorEmpty
       }
-    def location(locationIndex: Int) = locations(locationIndex)
-    def location(locationUri: ResourceUri) = tables.bodyTables.get.locationTable(locationUri)
+    def location(locationIndex : Int) = locations(locationIndex)
+    def location(locationUri : ResourceUri) = tables.bodyTables.get.locationTable(locationUri)
 
-    def typeVar(typeVarUri: ResourceUri): NameDefinition = tables.typeVarTable(typeVarUri)
+    def typeVar(typeVarUri : ResourceUri) : NameDefinition = tables.typeVarTable(typeVarUri)
 
-    def catchClauses(locationIndex: Int): Iterable[CatchClause] =
+    def catchClauses(locationIndex : Int) : Iterable[CatchClause] =
       tables.bodyTables.get.catchTable.getOrElse(locationIndex,
-        Array.empty[CatchClause]: Iterable[CatchClause])
+        Array.empty[CatchClause] : Iterable[CatchClause])
 
   }
 }
 
-final case class TupleValue(values: ISeq[Value]) extends Value
+final case class TupleValue(values : ISeq[Value]) extends Value
 
-class BakarSymbolProviderImpl[S <: State[S]](st: Option[SymbolTable]) extends SymbolProvider[S] {
+class BakarSymbolProviderImpl[S <: State[S]](st : Option[SymbolTable]) extends SymbolProvider[S] {
   val bst = st.get.asInstanceOf[BakarSymbolTable]
 
-  def isVar(e: NameExp): Boolean = 
+  def isVar(e : NameExp) : Boolean =
     URIS.isParamUri(e.name.uri) || URIS.isVarUri(e.name.uri)
 
-  def funUri(e: NameExp): Option[ResourceUri] = None
+  def funUri(e : NameExp) : Option[ResourceUri] = None
 
-  def procedureUri(e: NameExp): Option[ResourceUri] = {
+  def procedureUri(e : NameExp) : Option[ResourceUri] = {
     val uri = e.name.uri
 
     if (URIS.isMethodUri(uri))
@@ -443,32 +455,32 @@ class BakarSymbolProviderImpl[S <: State[S]](st: Option[SymbolTable]) extends Sy
     else None
   }
 
-  def initLocation(procUri: ResourceUri): Option[ResourceUri] = {
+  def initLocation(procUri : ResourceUri) : Option[ResourceUri] = {
     val pst = bst.procedureSymbolTable(procUri)
     val ld = pst.location(0)
     Some(ld.name.get.name)
   }
 
-  def location(s: S, nu: NameUser): S = {
+  def location(s : S, nu : NameUser) : S = {
     val pst = bst.procedureSymbolTable(s.callStack.head.procedure)
     val ld = pst.location(nu.uri)
     s.location(Some(ld.name.get.name), ld.index)
   }
 
-  def nextLocation(s: S): S = {
+  def nextLocation(s : S) : S = {
     val pst = bst.procedureSymbolTable(s.callStack.head.procedure)
     val ld = pst.locations(s.callStack.head.locationIndex + 1)
     s.location(Some(ld.name.get.name), ld.index)
   }
 
-  def initStore(s: S, procUri: ResourceUri, args: Value*): State.Store = {
-    val store: MMap[ResourceUri, Value] = mmapEmpty
+  def initStore(s : S, procUri : ResourceUri, args : Value*) : State.Store = {
+    val store : MMap[ResourceUri, Value] = mmapEmpty
     val params = bst.procedureSymbolTable(procUri).params
 
     // TODO: perhaps only assign to OUT moded params??
     var i = 0;
     args.foreach {
-      case a: TupleValue =>
+      case a : TupleValue =>
         for (arg <- a.values) {
           store(params(i)) = arg
           i += 1
@@ -481,5 +493,5 @@ class BakarSymbolProviderImpl[S <: State[S]](st: Option[SymbolTable]) extends Sy
     store.toMap
   }
 
-  def isFieldAccess(f: NameUser): Boolean = f.uri.startsWith("ada://component")
+  def isFieldAccess(f : NameUser) : Boolean = f.uri.startsWith("ada://component")
 }
