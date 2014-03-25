@@ -260,6 +260,8 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, g
     run_kiasan_command.append('sireum')
     run_kiasan_command.append('bakar')
     run_kiasan_command.append('kiasan')
+    run_kiasan_command.append('--outdir')
+    run_kiasan_command.append('kreport')
     #if os.path.isdir(SIREUM_PATH + "/apps/platform/java"):
     #    run_kiasan_command.append(SIREUM_PATH + "/apps/platform/java/bin/java")
     #else:

@@ -1,8 +1,8 @@
 import pygtk
 pygtk.require('2.0')
 import gtk
-from kiasan_v1.logic import KiasanLogic
-from kiasan_v1.gui import KiasanGUI 
+from kiasan.logic import KiasanLogic
+from kiasan.gui import KiasanGUI 
 
 if __name__=="__main__":
     
@@ -17,7 +17,9 @@ if __name__=="__main__":
         report_file = "/Users/jj/SkyDrive/workspace/abs_sample/.sireum/kiasan/kiasan_sireum_report.json"
 #        dialog.destroy()
         logic = KiasanLogic()
-        report = logic.extract_report_file(report_file)
+        #report = logic.extract_report_file(report_file)
+        kiasan_result_dir = "/Users/jj/SkyDrive/workspace/P/kreport"
+        report = logic.get_report(kiasan_result_dir)
         
         # display report in pygtk
         gui = KiasanGUI(report) #load report into gui
