@@ -4986,6 +4986,7 @@ sort.adb
                                                                 <refName>I</refName>
                                                                 <ref>ada://parameter/Sort-1:9/Swap_Elements+56:13/I+56:50</ref>
                                                                 <type>ada://subtype/Sort-1:9/Index_Type-7:11</type>
+                                                                <checks>do_range_check</checks>
                                                               </org.sireum.bakar.xml.Identifier>
                                                             </elements>
                                                           </arrayComponentChoicesQl>
@@ -5051,6 +5052,7 @@ sort.adb
                                                                 </expressions>
                                                               </indexExpressionsQl>
                                                               <type>ada://ordinary_type/Sort-1:9/Contents_Type-9:8</type>
+                                                              <checks>do_range_check</checks>
                                                             </expression>
                                                           </componentExpressionQ>
                                                         </org.sireum.bakar.xml.ArrayComponentAssociation>
@@ -5073,6 +5075,7 @@ sort.adb
                                                                 <refName>J</refName>
                                                                 <ref>ada://parameter/Sort-1:9/Swap_Elements+56:13/J+56:53</ref>
                                                                 <type>ada://subtype/Sort-1:9/Index_Type-7:11</type>
+                                                                <checks>do_range_check</checks>
                                                               </org.sireum.bakar.xml.Identifier>
                                                             </elements>
                                                           </arrayComponentChoicesQl>
@@ -5138,6 +5141,7 @@ sort.adb
                                                                 </expressions>
                                                               </indexExpressionsQl>
                                                               <type>ada://ordinary_type/Sort-1:9/Contents_Type-9:8</type>
+                                                              <checks>do_range_check</checks>
                                                             </expression>
                                                           </componentExpressionQ>
                                                         </org.sireum.bakar.xml.ArrayComponentAssociation>
@@ -14864,6 +14868,7 @@ sort.adb
                                                                               <refName>J</refName>
                                                                               <ref>ada://variable/Sort-1:9/InsertionSort-32:13/J+139:5</ref>
                                                                               <type>ada://subtype/Sort-1:9/Index_Type-7:11</type>
+                                                                              <checks>do_range_check</checks>
                                                                             </org.sireum.bakar.xml.Identifier>
                                                                           </elements>
                                                                         </arrayComponentChoicesQl>

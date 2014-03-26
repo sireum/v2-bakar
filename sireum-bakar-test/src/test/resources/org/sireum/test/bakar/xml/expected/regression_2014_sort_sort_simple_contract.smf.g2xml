@@ -6745,6 +6745,7 @@ sort_simple_contract.adb
                                                   <refName>I</refName>
                                                   <ref>ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/I+82:45</ref>
                                                   <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                  <checks>do_range_check</checks>
                                                 </org.sireum.bakar.xml.Identifier>
                                               </elements>
                                             </arrayComponentChoicesQl>
@@ -6785,6 +6786,7 @@ sort_simple_contract.adb
                                                   </expressions>
                                                 </indexExpressionsQl>
                                                 <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                <checks>do_range_check</checks>
                                               </expression>
                                             </componentExpressionQ>
                                           </org.sireum.bakar.xml.ArrayComponentAssociation>
@@ -6807,6 +6809,7 @@ sort_simple_contract.adb
                                                   <refName>J</refName>
                                                   <ref>ada://parameter/Sort_Simple_Contract-1:9/SwapElements+82:13/J+82:48</ref>
                                                   <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                  <checks>do_range_check</checks>
                                                 </org.sireum.bakar.xml.Identifier>
                                               </elements>
                                             </arrayComponentChoicesQl>
@@ -6847,6 +6850,7 @@ sort_simple_contract.adb
                                                   </expressions>
                                                 </indexExpressionsQl>
                                                 <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                <checks>do_range_check</checks>
                                               </expression>
                                             </componentExpressionQ>
                                           </org.sireum.bakar.xml.ArrayComponentAssociation>

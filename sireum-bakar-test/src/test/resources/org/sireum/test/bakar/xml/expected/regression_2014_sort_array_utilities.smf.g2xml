@@ -7842,6 +7842,7 @@ array_utilities.adb
                                                                   <refName>I</refName>
                                                                   <ref>ada://parameter/Array_Utilities-1:9/Sort-17:13/Swap_Elements+86:15/I+87:29</ref>
                                                                   <type>ada://subtype/Array_Utilities-1:9/Index_Type-6:11</type>
+                                                                  <checks>do_range_check</checks>
                                                                 </org.sireum.bakar.xml.Identifier>
                                                               </elements>
                                                             </arrayComponentChoicesQl>
@@ -7907,6 +7908,7 @@ array_utilities.adb
                                                                   </expressions>
                                                                 </indexExpressionsQl>
                                                                 <type>ada://ordinary_type/Array_Utilities-1:9/Contents_Type-7:8</type>
+                                                                <checks>do_range_check</checks>
                                                               </expression>
                                                             </componentExpressionQ>
                                                           </org.sireum.bakar.xml.ArrayComponentAssociation>
@@ -7929,6 +7931,7 @@ array_utilities.adb
                                                                   <refName>J</refName>
                                                                   <ref>ada://parameter/Array_Utilities-1:9/Sort-17:13/Swap_Elements+86:15/J+87:32</ref>
                                                                   <type>ada://subtype/Array_Utilities-1:9/Index_Type-6:11</type>
+                                                                  <checks>do_range_check</checks>
                                                                 </org.sireum.bakar.xml.Identifier>
                                                               </elements>
                                                             </arrayComponentChoicesQl>
@@ -7994,6 +7997,7 @@ array_utilities.adb
                                                                   </expressions>
                                                                 </indexExpressionsQl>
                                                                 <type>ada://ordinary_type/Array_Utilities-1:9/Contents_Type-7:8</type>
+                                                                <checks>do_range_check</checks>
                                                               </expression>
                                                             </componentExpressionQ>
                                                           </org.sireum.bakar.xml.ArrayComponentAssociation>

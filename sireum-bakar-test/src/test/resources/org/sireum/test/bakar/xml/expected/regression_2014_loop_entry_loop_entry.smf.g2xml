@@ -4439,6 +4439,7 @@ loop_entry.adb
                                                                       <refName>Z</refName>
                                                                       <ref>ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Z+35:10</ref>
                                                                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                                      <checks>do_range_check</checks>
                                                                     </org.sireum.bakar.xml.Identifier>
                                                                   </expressions>
                                                                 </indexExpressionsQl>
