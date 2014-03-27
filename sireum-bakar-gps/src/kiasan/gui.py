@@ -1,5 +1,5 @@
 from gi.repository import Gtk
-import gobject
+from gi.repository import GObject as gobject
 import warnings
 
 class KiasanGUI:
@@ -13,7 +13,7 @@ class KiasanGUI:
         
         # init report window
         self._report_window = Gtk.ScrolledWindow()
-        self._report_window.set_policy(Gtk.POLICY_AUTOMATIC, Gtk.POLICY_AUTOMATIC)
+        #self._report_window.set_policy(Gtk.POLICY_AUTOMATIC, Gtk.POLICY_AUTOMATIC)
         #self._report_window.set_size_request(600, 200)
         
         # init report window tree view
@@ -25,10 +25,10 @@ class KiasanGUI:
         self._cases_pane = Gtk.VPaned()
         
         # cases pane init
-        self.init_cases_window()
+        #self.init_cases_window()
         
         self._pane.add1(self._report_window)
-        self._pane.add2(self._cases_pane)
+        #self._pane.add2(self._cases_pane)
         
         self._pane.show_all()
         
@@ -63,22 +63,22 @@ class KiasanGUI:
         for package in report:
             iteration = tree_store.append(None)
             tree_store.set(iteration,
-                          TreeViewColumns.COLUMN_PACKAGE, package._name,
-                          TreeViewColumns.COLUMN_TOTAL, package._branches,
-                          TreeViewColumns.COLUMN_ERRORS, package._errors,
-                          TreeViewColumns.COLUMN_INSTRUCTION, package._instr_coverage,
-                          TreeViewColumns.COLUMN_BRANCH, package._branch_coverage,
-                          TreeViewColumns.COLUMN_TIME, package._time)
+                          TreeViewColumns.COLUMN_PACKAGE, package.name,
+                          TreeViewColumns.COLUMN_TOTAL, package.branches,
+                          TreeViewColumns.COLUMN_ERRORS, package.errors,
+                          TreeViewColumns.COLUMN_INSTRUCTION, package.instr_coverage,
+                          TreeViewColumns.COLUMN_BRANCH, package.branch_coverage,
+                          TreeViewColumns.COLUMN_TIME, package.time)
             
             for method in package._methods:
                 iterate_children = tree_store.append(iteration)
                 tree_store.set(iterate_children,
-                               TreeViewColumns.COLUMN_PACKAGE, method._name,
-                               TreeViewColumns.COLUMN_TOTAL, method._branches,
-                               TreeViewColumns.COLUMN_ERRORS, method._errors,
-                               TreeViewColumns.COLUMN_INSTRUCTION, method._instr_coverage,
-                               TreeViewColumns.COLUMN_BRANCH, method._branch_coverage,
-                               TreeViewColumns.COLUMN_TIME, method._time)
+                               TreeViewColumns.COLUMN_PACKAGE, method.name,
+                               TreeViewColumns.COLUMN_TOTAL, method.branches,
+                               TreeViewColumns.COLUMN_ERRORS, method.errors,
+                               TreeViewColumns.COLUMN_INSTRUCTION, method.instr_coverage,
+                               TreeViewColumns.COLUMN_BRANCH, method.branch_coverage,
+                               TreeViewColumns.COLUMN_TIME, method.time)
         return tree_store
         
     

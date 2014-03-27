@@ -21,13 +21,13 @@ if __name__=="__main__":
         
         # display report in pygtk
         gui = KiasanGUI(report) #load report into gui
-        window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-        window.connect("destroy", lambda w: gtk.main_quit())
+        window = Gtk.Window()
+        window.connect("delete-event", Gtk.main_quit)
         window.set_resizable(True)
         window.set_default_size(800,400)        
         window.add(gui._pane)        
         window.show_all()  
-        gtk.main() 
+        Gtk.main() 
 #    else:
 #        dialog.destroy()
     

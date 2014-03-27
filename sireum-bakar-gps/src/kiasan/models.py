@@ -14,8 +14,8 @@ class Entity:
         report_dict = json.loads(json_str)[node_key]
         
         self.name = report_dict["label"]["$"]
-        self.branches = report_dict["numOfTests"]["$"]
-        self.errors = report_dict["numOfErrorTests"]["$"]
+        self.branches = int(report_dict["numOfTests"]["$"])
+        self.errors = int(report_dict["numOfErrorTests"]["$"])
         self.instr_coverage = self.convert_to_percentage(report_dict["numCoveredInstructions"]["$"], report_dict["numInstructions"]["$"])
         self.branch_coverage = self.convert_to_percentage(report_dict["numCoveredBranches"]["$"], report_dict["numBranches"]["$"])
         self.time = self.convert_milis_to_secs(report_dict["time"]["$"])
