@@ -1,0 +1,47 @@
+{
+  "org.sireum.bakar.kiasan.report.UnitNode": {
+    "@cid": "1",
+    "label": {
+      "@type": "some",
+      "@etype": "string",
+      "$": "Swap"
+    },
+    "numInstructions": {
+      "@type": "int",
+      "$": "0"
+    },
+    "numCoveredInstructions": {
+      "@type": "int",
+      "$": "0"
+    },
+    "numBranches": {
+      "@type": "int",
+      "$": "0"
+    },
+    "numCoveredBranches": {
+      "@type": "int",
+      "$": "0"
+    },
+    "sourceUri": {
+      "@type": "some",
+      "@etype": "string",
+      "@sid": "1",
+      "$": "ada://procedure_body/P-1:9/Swap-6:14"
+    },
+    "time": {
+      "@type": "long",
+      "$": "0"
+    },
+    "numOfTests": {
+      "@type": "int",
+      "$": "0"
+    },
+    "numOfErrorTests": {
+      "@type": "int",
+      "$": "0"
+    },
+    "fileCoverage": {
+      "@type": "none"
+    }
+  }
+}
