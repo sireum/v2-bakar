@@ -67,3 +67,5 @@ def highlight_area(file_name, start_line, start_column, end_line, end_column):
     buffer.apply_overlay(overlay, GPS.EditorLocation(buffer, start_line, start_column), GPS.EditorLocation(buffer, end_line, end_column))
 
 
+def open_uri(uri):
+    GPS.HTML.browse(uri)

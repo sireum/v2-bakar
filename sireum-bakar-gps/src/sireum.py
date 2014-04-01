@@ -10,9 +10,9 @@ import kiasan.gui
 import kiasan.logic
 import urllib
 import subprocess
-import gobject
+from gi.repository import GObject as gobject
 import traceback
-
+import time
 
 
 class ProjectNotBuiltException(Exception):
@@ -55,23 +55,28 @@ def run_kiasan_plugin():
             for entity in GPS.current_context().file().entities(False):
                 #if entity.category() == 'subprogram':
                 if entity.is_subprogram():
-                    methods_list.append(entity.name())    
-        
-        SIREUM_PATH = get_sireum_path()    
-        load_sireum_settings(SIREUM_PATH)    
+                    methods_list.append(entity.name())
+                    
+        SIREUM_PATH = get_sireum_path()
+        load_sireum_settings(SIREUM_PATH)
         source_path = GPS.current_context().directory().replace("\\","/")
         output_dir = os.path.dirname(GPS.current_context().project().file().name()).replace("\\","/") + "/.sireum/kiasan"
         kiasan_run_cmd = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, False)
         kiasan_run_cmd_with_report = get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, True)
         
-        # init progress bar
-        win_pb, progressbar = init_progressbar()
-        GPS.MDI.add(win_pb, "Kiasan", "kiasanprogress")    
-        win = GPS.MDI.get('kiasanprogress')
-        win.split(reuse=True)    # reuse=True: bottom from code window, reuse=False: top from code window
+        # attach GUI to GPS
+        gui = kiasan.gui.KiasanGUI()
+        if GPS.MDI.get('kiasan') is not None:
+            GPS.MDI.get('kiasan').hide()    # hide previous Kiasan results
+        GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
+        win = GPS.MDI.get('kiasan')
+        win.split(reuse=False) # reuse=True: bottom from code window, reuse=False: top from code window
         win.float(float=False)    # float=True: popup, float=False: GPS integrated window
-        gobject.threads_init()
-        gobject.idle_add(run_kiasan_alasysis_async, progressbar, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+        
+        #gobject.threads_init()
+        #gobject.idle_add(run_kiasan_alasysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+        
+        GPS.execute_asynchronous_action("Run Kiasan Analysis Asynch", run_kiasan_alasysis_async(gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list))
 
     except ProjectNotBuiltException as e:
         print "ProjectNotBuiltException({0}): {1}".format(e.errno, e.strerror)
@@ -108,65 +113,30 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
         os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
 
 
-def run_kiasan_alasysis_async(progressbar, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):    
+def run_kiasan_alasysis_async(gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):    
     """ Runs Kiasan analysis based on preferences and clicked entity. """
     # get package_name and methods list
     
     try:
-        method_no = 0    # for progress bar
         # run Kiasan tool for each method except last one
-        for method in methods_list[:-1]:            
-            
-            #update progress bar
-            progressbar.set_fraction(float(method_no)/len(methods_list))
-            progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
-            while Gtk.events_pending():
-                Gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation    
-            method_no += 1
+        for method in methods_list[:-1]:  
             run_kiasan(kiasan_run_cmd, method)
                     
-        #update progress bar    
-        progressbar.set_fraction(float(method_no)/len(methods_list))
-        progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
-        while Gtk.events_pending():
-            Gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
-        method_no += 1
-        
-            
         # run kiasan on last method with report
         run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
-        progressbar.set_fraction(float(method_no)/len(methods_list))
-        progressbar.set_text(str(int(float(method_no)/len(methods_list)*100)) + " %")
-        while Gtk.events_pending():
-            Gtk.main_iteration() # http://stackoverflow.com/questions/496814/progress-bar-not-updating-during-operation
         
         # process results
         kiasan_logic = kiasan.logic.KiasanLogic()
         kiasan_results_dir = project_path + "/kreport"
-        report = kiasan_logic.get_report(kiasan_results_dir)
+        report = kiasan_logic.get_report(kiasan_results_dir)         
+        time.sleep(2)
+        gui.load_report_data(report)    # load report to gui
+        for i in range(10):
+            time.sleep(1)
+            print 'checking...'
         
-        # read generated json
-#         kiasan_logic = kiasan_v1.logic.KiasanLogic()
-#         report_file_path = project_path + "/.sireum/kiasan/kiasan_sireum_report.json"
-#         report_file_url = urllib.pathname2url(report_file_path)
-#         report = kiasan_logic.extract_report_file(report_file_url)
-#         
-#         # load data into GUI
-#         gui = kiasan_v1.gui.KiasanGUI(report)
-#             
-#         # attach GUI to GPS
-#         if GPS.MDI.get('kiasan') is not None:
-#             GPS.MDI.get('kiasan').hide()    # hide previous Kiasan results
-#         GPS.MDI.add(gui._pane, "Kiasan", "kiasan")
-#         win = GPS.MDI.get('kiasan')
-#         win.split(reuse=False) # reuse=True: bottom from code window, reuse=False: top from code window
-#         win.float(float=False)    # float=True: popup, float=False: GPS integrated window
-        
-        # hide progressbar
-        GPS.MDI.get('kiasanprogress').hide()
     except Exception:
         traceback.print_exc()
-
 
 
 def run_kiasan(kiasan_run_cmd, method):

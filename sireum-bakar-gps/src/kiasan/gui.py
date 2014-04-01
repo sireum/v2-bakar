@@ -233,6 +233,12 @@ class KiasanGUI:
         """ Callback function: cases combo changed """          
         selected_case_no = cases_combo.get_active()
         
+        try:
+            import gpshelper
+            gpshelper.open_uri("http://www.google.com")
+        except ImportError:
+            warnings.warn('Program is running as python app (not GPS plugin)')
+        
         
         if selected_case_no == 0:
             self.highlight_method(self._current_package_index, self._current_fun_index)
