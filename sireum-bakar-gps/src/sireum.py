@@ -14,6 +14,11 @@ from gi.repository import GObject as gobject
 import traceback
 import time
 
+gui_global = None
+project_path_global = None
+kiasan_run_cmd_global = None
+kiasan_run_cmd_with_report_global = None 
+methods_list_global = None
 
 class ProjectNotBuiltException(Exception):
     def __init__(self, value):
@@ -75,8 +80,13 @@ def run_kiasan_plugin():
         
         #gobject.threads_init()
         #gobject.idle_add(run_kiasan_alasysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
-        
-        GPS.execute_asynchronous_action("Run Kiasan Analysis Asynch", run_kiasan_alasysis_async(gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list))
+        global gui_global, project_path_global, kiasan_run_cmd_global, kiasan_run_cmd_with_report_global, methods_list_global
+        gui_global = gui
+        project_path_global = project_path
+        kiasan_run_cmd_global = kiasan_run_cmd
+        kiasan_run_cmd_with_report_global = kiasan_run_cmd_with_report 
+        methods_list_global = methods_list
+        GPS.execute_asynchronous_action("run Kiasan Async")
 
     except ProjectNotBuiltException as e:
         print "ProjectNotBuiltException({0}): {1}".format(e.errno, e.strerror)
@@ -324,6 +334,9 @@ GPS.parse_xml ("""
     <action name="run Kiasan">
         <filter id="Source editor in Ada" />
         <shell lang="python">if sireum.run_examiner(GPS.current_context().file()): sireum.run_kiasan_plugin()</shell>
+    </action>
+    <action name="run Kiasan Async">
+        <shell lang="python">sireum.run_kiasan_alasysis_async(sireum.gui_global, sireum.project_path_global, sireum.kiasan_run_cmd_global, sireum.kiasan_run_cmd_with_report_global, sireum.methods_list_global)</shell>
     </action>
     <submenu after="Tools">
         <title>Sireum Bakar</title>
