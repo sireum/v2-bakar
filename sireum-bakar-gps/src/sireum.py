@@ -307,10 +307,17 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, g
 def get_spark_source_files(source_path):
     """ Get SPARK source files. """    
     spark_files_list = []
-    for f in os.listdir(source_path):
-        if f.endswith(".adb") or f.endswith(".ads"):
-            spark_files_list.append(f)
-    return spark_files_list
+    try:
+        with open('spark.smf') as spark_idx_file:
+            spark_files = spark_idx_file.readlines()
+            for spark_file in spark_files:
+                spark_files_list.append(spark_file.split('/')[-1])
+            return spark_files_list
+    except (OSError, IOError):        
+        GPS.MDI.dialog("SPARK index file (spark.smf) not found. Run SPARK make on project and try again.")
+        traceback.print_exc()
+        raise
+        
 
 
 def run_examiner(current_file):
