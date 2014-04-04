@@ -5,6 +5,7 @@ from __future__ import division
 import GPS
 import os
 from gi.repository import Gtk
+from gi.repository import Gdk
 import warnings
 import kiasan.gui
 import kiasan.logic
@@ -78,15 +79,16 @@ def run_kiasan_plugin():
         win.split(reuse=False) # reuse=True: bottom from code window, reuse=False: top from code window
         win.float(float=False)    # float=True: popup, float=False: GPS integrated window
         
-        #gobject.threads_init()
-        #gobject.idle_add(run_kiasan_alasysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
-        global gui_global, project_path_global, kiasan_run_cmd_global, kiasan_run_cmd_with_report_global, methods_list_global
-        gui_global = gui
-        project_path_global = project_path
-        kiasan_run_cmd_global = kiasan_run_cmd
-        kiasan_run_cmd_with_report_global = kiasan_run_cmd_with_report 
-        methods_list_global = methods_list
-        GPS.execute_asynchronous_action("run Kiasan Async")
+        gobject.threads_init()
+        Gdk.threads_init()
+        gobject.idle_add(run_kiasan_alasysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+#         global gui_global, project_path_global, kiasan_run_cmd_global, kiasan_run_cmd_with_report_global, methods_list_global
+#         gui_global = gui
+#         project_path_global = project_path
+#         kiasan_run_cmd_global = kiasan_run_cmd
+#         kiasan_run_cmd_with_report_global = kiasan_run_cmd_with_report 
+#         methods_list_global = methods_list
+#         GPS.execute_asynchronous_action("run Kiasan Async")
 
     except ProjectNotBuiltException as e:
         print "ProjectNotBuiltException({0}): {1}".format(e.errno, e.strerror)
@@ -140,11 +142,17 @@ def run_kiasan_alasysis_async(gui, project_path, kiasan_run_cmd, kiasan_run_cmd_
         kiasan_results_dir = project_path + "/kreport"
         report = kiasan_logic.get_report(kiasan_results_dir)         
         time.sleep(2)
-        gui.load_report_data(report)    # load report to gui
+        Gdk.threads_enter()
+        gobject.idle_add(gui.load_report_data, report)
+        Gdk.threads_leave()
+        #gui.load_report_data(report)    # load report to gui
         for i in range(10):
             time.sleep(1)
-            print 'checking...'
-        
+            Gdk.threads_enter()
+            gobject.idle_add(gui.load_report_data, report)
+            Gdk.threads_leave()
+            #gui.load_report_data(report)    # load report to gui
+            #print 'checking...'
     except Exception:
         traceback.print_exc()
 
