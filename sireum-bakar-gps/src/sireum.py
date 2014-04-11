@@ -14,6 +14,7 @@ import subprocess
 from gi.repository import GObject as gobject
 import traceback
 import time
+import threading
 
 gui_global = None
 project_path_global = None
@@ -78,10 +79,13 @@ def run_kiasan_plugin():
         win = GPS.MDI.get('kiasan')
         win.split(reuse=False) # reuse=True: bottom from code window, reuse=False: top from code window
         win.float(float=False)    # float=True: popup, float=False: GPS integrated window
-        
-        gobject.threads_init()
-        Gdk.threads_init()
-        gobject.idle_add(run_kiasan_alasysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+        gobject.timeout_add(1000, run_kiasan_analysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+        #gobject.threads_init()
+        #Gdk.threads_init()
+        #gobject.idle_add(run_kiasan_analysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+        #t = threading.Thread(target=run_kiasan_analysis_async, args = (gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list))
+        #t.start()
+        print 'started'
 #         global gui_global, project_path_global, kiasan_run_cmd_global, kiasan_run_cmd_with_report_global, methods_list_global
 #         gui_global = gui
 #         project_path_global = project_path
@@ -109,7 +113,6 @@ def get_spark_sources_path():
     """ Get sources path. """
     return os.path.dirname(GPS.current_context().project().file().name()).replace("\\", "/")
 
-        
     
 def prepare_directories_for_reports(project_path, remove_previous_reports):
     """
@@ -120,43 +123,41 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
         REMOVE_DIR_CMD = "rd /s /q" if os.name=="nt" else "rm -rf"
         os.system(REMOVE_DIR_CMD + " " + "\"" + project_path + "/.sireum/kiasan" + "\"")
     if not os.path.isdir(project_path + "/.sireum"):
-        os.system("mkdir \"" + project_path + "/.sireum\"")    
+        os.system("mkdir \"" + project_path + "/.sireum\"")
     if not os.path.isdir(project_path + "/.sireum/kiasan"):
         os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
 
 
-def run_kiasan_alasysis_async(gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):    
+def run_kiasan_analysis_async(gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):    
     """ Runs Kiasan analysis based on preferences and clicked entity. """
     # get package_name and methods list
-    
+    print 'in async'
     try:
+        print 'in try-catch async'
         # run Kiasan tool for each method except last one
-        for method in methods_list[:-1]:  
-            run_kiasan(kiasan_run_cmd, method)
+        #for method in methods_list[:-1]:  
+        #    run_kiasan(kiasan_run_cmd, method)
                     
         # run kiasan on last method with report
-        run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
+        #run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
         
         # process results
         kiasan_logic = kiasan.logic.KiasanLogic()
         kiasan_results_dir = project_path + "/kreport"
-        report = kiasan_logic.get_report(kiasan_results_dir)         
-        time.sleep(2)
-        Gdk.threads_enter()
-        gobject.idle_add(gui.load_report_data, report)
-        Gdk.threads_leave()
-        #gui.load_report_data(report)    # load report to gui
-        for i in range(10):
-            time.sleep(1)
-            Gdk.threads_enter()
-            gobject.idle_add(gui.load_report_data, report)
-            Gdk.threads_leave()
-            #gui.load_report_data(report)    # load report to gui
-            #print 'checking...'
+        report = kiasan_logic.get_report(kiasan_results_dir)
+        gui.load_report_data(report)    # load report to gui
+        return True
     except Exception:
         traceback.print_exc()
 
-
+def get_check_sum(file_path):
+    f = open(file_path)
+    content = "".join(f.readlines())
+    f.close()
+    return hashlib.sha1(content).digest()
+    
+    
+    
 def run_kiasan(kiasan_run_cmd, method):
     """ Single Kiasan run. """
     print " ".join(kiasan_run_cmd + [method])
@@ -319,7 +320,7 @@ def get_spark_source_files(source_path):
         with open('spark.smf') as spark_idx_file:
             spark_files = spark_idx_file.readlines()
             for spark_file in spark_files:
-                spark_files_list.append(spark_file.split('/')[-1])
+                spark_files_list.append(spark_file.split('/')[-1].replace("\n",""))
             return spark_files_list
     except (OSError, IOError):        
         GPS.MDI.dialog("SPARK index file (spark.smf) not found. Run SPARK make on project and try again.")
@@ -351,7 +352,7 @@ GPS.parse_xml ("""
         <shell lang="python">if sireum.run_examiner(GPS.current_context().file()): sireum.run_kiasan_plugin()</shell>
     </action>
     <action name="run Kiasan Async">
-        <shell lang="python">sireum.run_kiasan_alasysis_async(sireum.gui_global, sireum.project_path_global, sireum.kiasan_run_cmd_global, sireum.kiasan_run_cmd_with_report_global, sireum.methods_list_global)</shell>
+        <shell lang="python">sireum.run_kiasan_analysis_async(sireum.gui_global, sireum.project_path_global, sireum.kiasan_run_cmd_global, sireum.kiasan_run_cmd_with_report_global, sireum.methods_list_global)</shell>
     </action>
     <submenu after="Tools">
         <title>Sireum Bakar</title>
