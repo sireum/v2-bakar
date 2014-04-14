@@ -146,7 +146,7 @@ def get_file_content(file_path):
 def run_kiasan(kiasan_run_cmd, method):
     """ Single Kiasan run. """
     print " ".join(kiasan_run_cmd + [method])
-    #subprocess.call(kiasan_run_cmd + [method])
+    subprocess.Popen(kiasan_run_cmd + [method])
         
 
 def get_sireum_path():
