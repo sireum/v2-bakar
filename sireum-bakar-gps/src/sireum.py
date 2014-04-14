@@ -13,14 +13,8 @@ import urllib
 import subprocess
 from gi.repository import GObject as gobject
 import traceback
-import time
-import threading
 
-gui_global = None
-project_path_global = None
-kiasan_run_cmd_global = None
-kiasan_run_cmd_with_report_global = None 
-methods_list_global = None
+report_file_content = ""
 
 class ProjectNotBuiltException(Exception):
     def __init__(self, value):
@@ -35,7 +29,7 @@ def run_kiasan_plugin():
     try:
         project_path = get_spark_sources_path()    #normalized project path
         remove_previous_reports = GPS.Preference("sireum-kiasan-delete-previous-kiasan-reports-before-re-running").get()
-        prepare_directories_for_reports(project_path, remove_previous_reports)    
+        #prepare_directories_for_reports(project_path, remove_previous_reports)    
         
         # raise exception when project is not build, because then we cannot fetch package name or subprograms
         if GPS.current_context().file().entities(False) == []:
@@ -47,13 +41,11 @@ def run_kiasan_plugin():
             for entity in GPS.current_context().file().entities(False):
                 warnings.warn("the second condition of below if is UGLY...but I didn't find the better way \
                 to check if entity is subprogram's package because file can have entities from external files")
-                #if entity.category() == 'package/namespace' and \
                 if entity.is_container and \
                     entity.name().lower() == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
                     package_name = entity.name()
             # set methods_list to only one method
-            methods_list = [GPS.current_context().entity().name()]    
-        #elif GPS.current_context().entity().category() == "package/namespace":
+            methods_list = [GPS.current_context().entity().name()]
         elif GPS.current_context().entity().is_container():
             # get package name
             package_name = GPS.current_context().entity().name()    
@@ -79,20 +71,9 @@ def run_kiasan_plugin():
         win = GPS.MDI.get('kiasan')
         win.split(reuse=False) # reuse=True: bottom from code window, reuse=False: top from code window
         win.float(float=False)    # float=True: popup, float=False: GPS integrated window
-        gobject.timeout_add(1000, run_kiasan_analysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
-        #gobject.threads_init()
-        #Gdk.threads_init()
-        #gobject.idle_add(run_kiasan_analysis_async, gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
-        #t = threading.Thread(target=run_kiasan_analysis_async, args = (gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list))
-        #t.start()
+        run_kiasan_async(kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
+        gobject.timeout_add(1000, update_kiasan_report, gui, project_path)
         print 'started'
-#         global gui_global, project_path_global, kiasan_run_cmd_global, kiasan_run_cmd_with_report_global, methods_list_global
-#         gui_global = gui
-#         project_path_global = project_path
-#         kiasan_run_cmd_global = kiasan_run_cmd
-#         kiasan_run_cmd_with_report_global = kiasan_run_cmd_with_report 
-#         methods_list_global = methods_list
-#         GPS.execute_asynchronous_action("run Kiasan Async")
 
     except ProjectNotBuiltException as e:
         print "ProjectNotBuiltException({0}): {1}".format(e.errno, e.strerror)
@@ -117,76 +98,56 @@ def get_spark_sources_path():
 def prepare_directories_for_reports(project_path, remove_previous_reports):
     """
     If option 'Delete previous Kiasan reports before re-runing' is enabled then delete entire directory, and create new empty.
-    Check if directory sireum and sireum/kiasan exists - if not create them.
     """    
     if remove_previous_reports:
         REMOVE_DIR_CMD = "rd /s /q" if os.name=="nt" else "rm -rf"
-        os.system(REMOVE_DIR_CMD + " " + "\"" + project_path + "/.sireum/kiasan" + "\"")
-    if not os.path.isdir(project_path + "/.sireum"):
-        os.system("mkdir \"" + project_path + "/.sireum\"")
-    if not os.path.isdir(project_path + "/.sireum/kiasan"):
-        os.system("mkdir \"" + project_path + "/.sireum/kiasan\"")
+        os.system(REMOVE_DIR_CMD + " " + "\"" + project_path + "/kreport" + "\"")
+    if not os.path.isdir(project_path + "/kreport"):
+        os.system("mkdir \"" + project_path + "/kreport\"")
 
 
-def run_kiasan_analysis_async(gui, project_path, kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):    
+def run_kiasan_async(kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):    
     """ Runs Kiasan analysis based on preferences and clicked entity. """
     # get package_name and methods list
-    print 'in async'
-    try:
-        print 'in try-catch async'
-        # run Kiasan tool for each method except last one
-        #for method in methods_list[:-1]:  
-        #    run_kiasan(kiasan_run_cmd, method)
-                    
-        # run kiasan on last method with report
-        #run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
+    print 'in async'    
+    # run Kiasan tool for each method except last one
+    for method in methods_list[:-1]:  
+        run_kiasan(kiasan_run_cmd, method)
+                
+    # run kiasan on last method with report
+    run_kiasan(kiasan_run_cmd_with_report, methods_list[-1])
         
-        # process results
+
+def update_kiasan_report(gui, project_path):
+    """ This method check if kiasan report changed. If so, it updates GUI. """
+    print "checking..."
+    kiasan_results_dir = project_path + "/kreport"
+    kiasan_control_file = kiasan_results_dir + "/kreport"
+    global report_file_content
+    new_file_content = get_file_content(kiasan_control_file)
+    if report_file_content != new_file_content:    
         kiasan_logic = kiasan.logic.KiasanLogic()
-        kiasan_results_dir = project_path + "/kreport"
         report = kiasan_logic.get_report(kiasan_results_dir)
         gui.load_report_data(report)    # load report to gui
-        return True
-    except Exception:
-        traceback.print_exc()
-
-def get_check_sum(file_path):
-    f = open(file_path)
-    content = "".join(f.readlines())
-    f.close()
-    return hashlib.sha1(content).digest()
+        report_file_content = new_file_content
+        if report_file_content.replace("\n", "") == "done":
+            print report_file_content
+            return False
+    return True
     
+
+def get_file_content(file_path):
+    """ This method returns sha1 of file_path or 'done' if that's the content of file. """
+    with open(file_path) as f:
+        content = "".join(f.readlines())
+    return content
     
     
 def run_kiasan(kiasan_run_cmd, method):
     """ Single Kiasan run. """
     print " ".join(kiasan_run_cmd + [method])
-    subprocess.call(kiasan_run_cmd + [method])    
+    #subprocess.call(kiasan_run_cmd + [method])
         
-
-def init_progressbar():
-    main_box = Gtk.VBox()
-
-    progressbar = Gtk.ProgressBar()
-
-    progressbar_box = Gtk.HBox(homogeneous=False, spacing=20)
-    main_box.pack_start(progressbar_box, False, False, 20)
-    progressbar_box.pack_start(progressbar, True, True, 0)
-
-    info_box = Gtk.VBox()
-    main_box.pack_start(info_box, False, False, 10)
-    
-    info_label = Gtk.Label(u"Kiasan is running...")
-    info_box.pack_start(info_label, True, True, 0)
-    
-    #cancel_box = gtk.HBox()
-    #info_box.pack_start(cancel_box)
-    #cancel_button = gtk.Button("Cancel")
-    #cancel_button.connect("clicked", cancel_counting, info_label)
-    #cancel_box.pack_start(cancel_button, False, False, 20)
-
-    return main_box, progressbar
-
 
 def get_sireum_path():
     """ This method is fetching sireum path from SIREUM_HOME environmental variable or from the PATH (if SIREUM_HOME not set) """
