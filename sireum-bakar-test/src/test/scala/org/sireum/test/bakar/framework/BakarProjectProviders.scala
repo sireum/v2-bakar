@@ -17,12 +17,19 @@ trait ProjectProvider[P <: Project] {
 }
 
 object Projects {
+  def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri) : ISeq[P] =
+    getProjects(pp, dirUri, new File(new URI(dirUri)).getParentFile(), true)
+
   def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
-    recursive: Boolean = true): ISeq[P] =
+    recursive: Boolean): ISeq[P] =
     getProjects(pp, dirUri, new File(new URI(dirUri)).getParentFile(), recursive)
 
   def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
-      pathToExclude: FileResourceUri, recursive: Boolean = true): ISeq[P] =
+      pathToExclude: FileResourceUri): ISeq[P] =
+   getProjects(pp, dirUri, new File(new URI(pathToExclude)), true)
+
+  def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
+      pathToExclude: FileResourceUri, recursive: Boolean): ISeq[P] =
    getProjects(pp, dirUri, new File(new URI(pathToExclude)), recursive)
 
   def getProjects[P <: Project](pp: ProjectProvider[P], dirUri: FileResourceUri,
