@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/scala"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/> 	
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-jago"/>
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-bakar-xml"/>  
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-lib"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-option"/>
   <classpathentry combineaccessrules="false" kind="src" path="/sireum-pipeline"/>	
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-util"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>	
 	<classpathentry kind="output" path="bin"/>
 </classpath>
