@@ -10,5 +10,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-pipeline"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-option"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sireum-util"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sireum-konkrit"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sireum-kiasan-alpha"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
