@@ -3278,7 +3278,7 @@ procedure Success25 (
            <properties mtype="mlinkedmap">
              <entry>
                <string>pilar.symbol</string>
-               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="2" size="4">
+               <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="2" size="4">
                  <string>ada</string>
                  <string>procedure_body</string>
                  <ilist ttype="ilist">
@@ -3286,7 +3286,7 @@ procedure Success25 (
                    <string>MyLoop+443:7</string>
                  </ilist>
                  <string sid="2">ada://procedure_body/Dependence_Test_Suite_02-1:9/MyLoop+443:7</string>
-               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+               </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
              </entry>
              <entry>
                <string>util.loc</string>

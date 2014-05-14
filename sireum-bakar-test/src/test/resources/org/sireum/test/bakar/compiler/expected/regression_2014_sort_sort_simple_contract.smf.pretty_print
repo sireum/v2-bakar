@@ -823,14 +823,14 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="7" size="4">
                            <string>ada</string>
                            <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="5"/>
                            </ilist>
                            <string sid="6">ada://function__uif/attribute__uif__first</string>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -841,7 +841,7 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="10" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -850,7 +850,7 @@ procedure SwapElements (
                              <string>A+82:26</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -888,7 +888,7 @@ procedure SwapElements (
                    <properties mtype="mlinkedmap">
                      <entry>
                        <string>pilar.symbol</string>
-                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="14" size="4">
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="14" size="4">
                          <string>ada</string>
                          <string>parameter</string>
                          <ilist ttype="ilist">
@@ -897,7 +897,7 @@ procedure SwapElements (
                            <string>I+82:45</string>
                          </ilist>
                          <string srefid="2"/>
-                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                      </entry>
                      <entry>
                        <string>BAKAR_TYPE_URI</string>
@@ -939,14 +939,14 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="20" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="20" size="4">
                            <string>ada</string>
                            <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="13"/>
                            </ilist>
                            <string sid="14">ada://function__uif/attribute__uif__last</string>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -957,7 +957,7 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="23" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="23" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -966,7 +966,7 @@ procedure SwapElements (
                              <string>A+82:26</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -1033,14 +1033,14 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="31" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="31" size="4">
                            <string>ada</string>
                            <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="5"/>
                            </ilist>
                            <string srefid="6"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -1051,7 +1051,7 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="34" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="34" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -1060,7 +1060,7 @@ procedure SwapElements (
                              <string>A+82:26</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -1098,7 +1098,7 @@ procedure SwapElements (
                    <properties mtype="mlinkedmap">
                      <entry>
                        <string>pilar.symbol</string>
-                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="38" size="4">
+                       <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="38" size="4">
                          <string>ada</string>
                          <string>parameter</string>
                          <ilist ttype="ilist">
@@ -1107,7 +1107,7 @@ procedure SwapElements (
                            <string>J+82:48</string>
                          </ilist>
                          <string srefid="3"/>
-                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                       </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                      </entry>
                      <entry>
                        <string>BAKAR_TYPE_URI</string>
@@ -1149,14 +1149,14 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="44" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="44" size="4">
                            <string>ada</string>
                            <string>function__uif</string>
                            <ilist ttype="ilist">
                              <string srefid="13"/>
                            </ilist>
                            <string srefid="14"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                      </properties>
                    </org.sireum.pilar.ast.NameUser>
@@ -1167,7 +1167,7 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="47" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="47" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -1176,7 +1176,7 @@ procedure SwapElements (
                              <string>A+82:26</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -1258,14 +1258,14 @@ procedure SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="55" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="55" size="4">
                        <string>ada</string>
                        <string>function__uif</string>
                        <ilist ttype="ilist">
                          <string srefid="15"/>
                        </ilist>
                        <string sid="16">ada://function__uif/attribute__uif__old</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -1276,7 +1276,7 @@ procedure SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="58" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="58" size="4">
                        <string>ada</string>
                        <string>parameter</string>
                        <ilist ttype="ilist">
@@ -1285,7 +1285,7 @@ procedure SwapElements (
                          <string>A+82:26</string>
                        </ilist>
                        <string srefid="1"/>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                    <entry>
                      <string>BAKAR_TYPE_URI</string>
@@ -1334,14 +1334,14 @@ procedure SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="64" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="64" size="4">
                        <string>ada</string>
                        <string>function__uif</string>
                        <ilist ttype="ilist">
                          <string srefid="17"/>
                        </ilist>
                        <string sid="18">ada://function__uif/attribute__uif__update_exp</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -1354,7 +1354,7 @@ procedure SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="68" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="68" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -1363,7 +1363,7 @@ procedure SwapElements (
                              <string>A+82:26</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -1397,7 +1397,7 @@ procedure SwapElements (
                            <properties mtype="mlinkedmap">
                              <entry>
                                <string>pilar.symbol</string>
-                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="73" size="4">
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="73" size="4">
                                  <string>ada</string>
                                  <string>parameter</string>
                                  <ilist ttype="ilist">
@@ -1406,7 +1406,7 @@ procedure SwapElements (
                                    <string>I+82:45</string>
                                  </ilist>
                                  <string srefid="2"/>
-                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                              </entry>
                              <entry>
                                <string>BAKAR_TYPE_URI</string>
@@ -1438,7 +1438,7 @@ procedure SwapElements (
                              <properties mtype="mlinkedmap">
                                <entry>
                                  <string>pilar.symbol</string>
-                                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="78" size="4">
+                                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="78" size="4">
                                    <string>ada</string>
                                    <string>parameter</string>
                                    <ilist ttype="ilist">
@@ -1447,7 +1447,7 @@ procedure SwapElements (
                                      <string>A+82:26</string>
                                    </ilist>
                                    <string srefid="1"/>
-                                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                                </entry>
                                <entry>
                                  <string>BAKAR_TYPE_URI</string>
@@ -1479,7 +1479,7 @@ procedure SwapElements (
                                <properties mtype="mlinkedmap">
                                  <entry>
                                    <string>pilar.symbol</string>
-                                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="82" size="4">
+                                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="82" size="4">
                                      <string>ada</string>
                                      <string>parameter</string>
                                      <ilist ttype="ilist">
@@ -1488,7 +1488,7 @@ procedure SwapElements (
                                        <string>J+82:48</string>
                                      </ilist>
                                      <string srefid="3"/>
-                                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                                  </entry>
                                  <entry>
                                    <string>BAKAR_TYPE_URI</string>
@@ -1539,7 +1539,7 @@ procedure SwapElements (
                            <properties mtype="mlinkedmap">
                              <entry>
                                <string>pilar.symbol</string>
-                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="87" size="4">
+                               <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="87" size="4">
                                  <string>ada</string>
                                  <string>parameter</string>
                                  <ilist ttype="ilist">
@@ -1548,7 +1548,7 @@ procedure SwapElements (
                                    <string>J+82:48</string>
                                  </ilist>
                                  <string srefid="3"/>
-                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                               </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                              </entry>
                              <entry>
                                <string>BAKAR_TYPE_URI</string>
@@ -1580,7 +1580,7 @@ procedure SwapElements (
                              <properties mtype="mlinkedmap">
                                <entry>
                                  <string>pilar.symbol</string>
-                                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="92" size="4">
+                                 <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="92" size="4">
                                    <string>ada</string>
                                    <string>parameter</string>
                                    <ilist ttype="ilist">
@@ -1589,7 +1589,7 @@ procedure SwapElements (
                                      <string>A+82:26</string>
                                    </ilist>
                                    <string srefid="1"/>
-                                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                 </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                                </entry>
                                <entry>
                                  <string>BAKAR_TYPE_URI</string>
@@ -1621,7 +1621,7 @@ procedure SwapElements (
                                <properties mtype="mlinkedmap">
                                  <entry>
                                    <string>pilar.symbol</string>
-                                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="96" size="4">
+                                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="96" size="4">
                                      <string>ada</string>
                                      <string>parameter</string>
                                      <ilist ttype="ilist">
@@ -1630,7 +1630,7 @@ procedure SwapElements (
                                        <string>I+82:45</string>
                                      </ilist>
                                      <string srefid="2"/>
-                                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                                  </entry>
                                  <entry>
                                    <string>BAKAR_TYPE_URI</string>
@@ -2443,7 +2443,7 @@ typealias Integer Index_Type
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="7" size="4">
                      <string>ada</string>
                      <string>integer_number</string>
                      <ilist ttype="ilist">
@@ -2451,7 +2451,7 @@ typealias Integer Index_Type
                        <string sid="6">Max_Elements-4:3</string>
                      </ilist>
                      <string sid="7">ada://integer_number/Sort_Simple_Contract-1:9/Max_Elements-4:3</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -2537,14 +2537,14 @@ procedure Boolean isSorted (
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="4" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="4" size="4">
                      <string>ada</string>
                      <string>function__uif</string>
                      <ilist ttype="ilist">
                        <string srefid="2"/>
                      </ilist>
                      <string sid="3">ada://function__uif/attribute__uif__result</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
@@ -2555,7 +2555,7 @@ procedure Boolean isSorted (
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="7" size="4">
                      <string>ada</string>
                      <string>function</string>
                      <ilist ttype="ilist">
@@ -2563,7 +2563,7 @@ procedure Boolean isSorted (
                        <string>isSorted-9:12</string>
                      </ilist>
                      <string sid="5">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
@@ -2742,7 +2742,7 @@ procedure BubbleSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="5" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -2750,7 +2750,7 @@ procedure BubbleSort (
                          <string>isSorted-9:12</string>
                        </ilist>
                        <string sid="4">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -2779,7 +2779,7 @@ procedure BubbleSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="10" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -2788,7 +2788,7 @@ procedure BubbleSort (
                              <string>A-15:24</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -2839,7 +2839,7 @@ procedure BubbleSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="16" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="16" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -2847,7 +2847,7 @@ procedure BubbleSort (
                          <string>isPerm-12:12</string>
                        </ilist>
                        <string sid="9">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -2876,7 +2876,7 @@ procedure BubbleSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="21" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="21" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -2885,7 +2885,7 @@ procedure BubbleSort (
                              <string>A-15:24</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -2917,14 +2917,14 @@ procedure BubbleSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="26" size="4">
                              <string>ada</string>
                              <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="10"/>
                              </ilist>
                              <string sid="11">ada://function__uif/attribute__uif__old</string>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NameUser>
@@ -2935,7 +2935,7 @@ procedure BubbleSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="29" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="29" size="4">
                              <string>ada</string>
                              <string>parameter</string>
                              <ilist ttype="ilist">
@@ -2944,7 +2944,7 @@ procedure BubbleSort (
                                <string>A-15:24</string>
                              </ilist>
                              <string srefid="1"/>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -3076,7 +3076,7 @@ procedure BubbleSort_using_SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="5" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -3084,7 +3084,7 @@ procedure BubbleSort_using_SwapElements (
                          <string>isSorted-9:12</string>
                        </ilist>
                        <string sid="4">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -3113,7 +3113,7 @@ procedure BubbleSort_using_SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="10" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -3122,7 +3122,7 @@ procedure BubbleSort_using_SwapElements (
                              <string>A-20:43</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3173,7 +3173,7 @@ procedure BubbleSort_using_SwapElements (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="16" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="16" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -3181,7 +3181,7 @@ procedure BubbleSort_using_SwapElements (
                          <string>isPerm-12:12</string>
                        </ilist>
                        <string sid="9">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -3210,7 +3210,7 @@ procedure BubbleSort_using_SwapElements (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="21" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="21" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -3219,7 +3219,7 @@ procedure BubbleSort_using_SwapElements (
                              <string>A-20:43</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3251,14 +3251,14 @@ procedure BubbleSort_using_SwapElements (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="26" size="4">
                              <string>ada</string>
                              <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="10"/>
                              </ilist>
                              <string sid="11">ada://function__uif/attribute__uif__old</string>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NameUser>
@@ -3269,7 +3269,7 @@ procedure BubbleSort_using_SwapElements (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="29" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="29" size="4">
                              <string>ada</string>
                              <string>parameter</string>
                              <ilist ttype="ilist">
@@ -3278,7 +3278,7 @@ procedure BubbleSort_using_SwapElements (
                                <string>A-20:43</string>
                              </ilist>
                              <string srefid="1"/>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -3410,7 +3410,7 @@ procedure InsertionSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="5" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -3418,7 +3418,7 @@ procedure InsertionSort (
                          <string>isSorted-9:12</string>
                        </ilist>
                        <string sid="4">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -3447,7 +3447,7 @@ procedure InsertionSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="10" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -3456,7 +3456,7 @@ procedure InsertionSort (
                              <string>A-25:27</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3507,7 +3507,7 @@ procedure InsertionSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="16" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="16" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -3515,7 +3515,7 @@ procedure InsertionSort (
                          <string>isPerm-12:12</string>
                        </ilist>
                        <string sid="9">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -3544,7 +3544,7 @@ procedure InsertionSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="21" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="21" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -3553,7 +3553,7 @@ procedure InsertionSort (
                              <string>A-25:27</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3585,14 +3585,14 @@ procedure InsertionSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="26" size="4">
                              <string>ada</string>
                              <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="10"/>
                              </ilist>
                              <string sid="11">ada://function__uif/attribute__uif__old</string>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NameUser>
@@ -3603,7 +3603,7 @@ procedure InsertionSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="29" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="29" size="4">
                              <string>ada</string>
                              <string>parameter</string>
                              <ilist ttype="ilist">
@@ -3612,7 +3612,7 @@ procedure InsertionSort (
                                <string>A-25:27</string>
                              </ilist>
                              <string srefid="1"/>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -3744,7 +3744,7 @@ procedure SelectionSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="5" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -3752,7 +3752,7 @@ procedure SelectionSort (
                          <string>isSorted-9:12</string>
                        </ilist>
                        <string sid="4">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -3781,7 +3781,7 @@ procedure SelectionSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="10" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -3790,7 +3790,7 @@ procedure SelectionSort (
                              <string>A-30:27</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3841,7 +3841,7 @@ procedure SelectionSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="16" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="16" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -3849,7 +3849,7 @@ procedure SelectionSort (
                          <string>isPerm-12:12</string>
                        </ilist>
                        <string sid="9">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -3878,7 +3878,7 @@ procedure SelectionSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="21" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="21" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -3887,7 +3887,7 @@ procedure SelectionSort (
                              <string>A-30:27</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -3919,14 +3919,14 @@ procedure SelectionSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="26" size="4">
                              <string>ada</string>
                              <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="10"/>
                              </ilist>
                              <string sid="11">ada://function__uif/attribute__uif__old</string>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NameUser>
@@ -3937,7 +3937,7 @@ procedure SelectionSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="29" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="29" size="4">
                              <string>ada</string>
                              <string>parameter</string>
                              <ilist ttype="ilist">
@@ -3946,7 +3946,7 @@ procedure SelectionSort (
                                <string>A-30:27</string>
                              </ilist>
                              <string srefid="1"/>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>
@@ -4078,7 +4078,7 @@ procedure ShellSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="5" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -4086,7 +4086,7 @@ procedure ShellSort (
                          <string>isSorted-9:12</string>
                        </ilist>
                        <string sid="4">ada://function/Sort_Simple_Contract-1:9/isSorted-9:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -4115,7 +4115,7 @@ procedure ShellSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="10" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="10" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -4124,7 +4124,7 @@ procedure ShellSort (
                              <string>A-35:23</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -4175,7 +4175,7 @@ procedure ShellSort (
                  <properties mtype="mlinkedmap">
                    <entry>
                      <string>pilar.symbol</string>
-                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="16" size="4">
+                     <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="16" size="4">
                        <string>ada</string>
                        <string>function</string>
                        <ilist ttype="ilist">
@@ -4183,7 +4183,7 @@ procedure ShellSort (
                          <string>isPerm-12:12</string>
                        </ilist>
                        <string sid="8">ada://function/Sort_Simple_Contract-1:9/isPerm-12:12</string>
-                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                     </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                    </entry>
                  </properties>
                </org.sireum.pilar.ast.NameUser>
@@ -4212,7 +4212,7 @@ procedure ShellSort (
                      <properties mtype="mlinkedmap">
                        <entry>
                          <string>pilar.symbol</string>
-                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="21" size="4">
+                         <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="21" size="4">
                            <string>ada</string>
                            <string>parameter</string>
                            <ilist ttype="ilist">
@@ -4221,7 +4221,7 @@ procedure ShellSort (
                              <string>A-35:23</string>
                            </ilist>
                            <string srefid="1"/>
-                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                         </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                        </entry>
                        <entry>
                          <string>BAKAR_TYPE_URI</string>
@@ -4253,14 +4253,14 @@ procedure ShellSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="26" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="26" size="4">
                              <string>ada</string>
                              <string>function__uif</string>
                              <ilist ttype="ilist">
                                <string srefid="9"/>
                              </ilist>
                              <string sid="10">ada://function__uif/attribute__uif__old</string>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                        </properties>
                      </org.sireum.pilar.ast.NameUser>
@@ -4271,7 +4271,7 @@ procedure ShellSort (
                        <properties mtype="mlinkedmap">
                          <entry>
                            <string>pilar.symbol</string>
-                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="29" size="4">
+                           <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="29" size="4">
                              <string>ada</string>
                              <string>parameter</string>
                              <ilist ttype="ilist">
@@ -4280,7 +4280,7 @@ procedure ShellSort (
                                <string>A-35:23</string>
                              </ilist>
                              <string srefid="1"/>
-                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                           </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                          </entry>
                          <entry>
                            <string>BAKAR_TYPE_URI</string>

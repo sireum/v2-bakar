@@ -207,7 +207,7 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="5" size="4">
                      <string>ada</string>
                      <string>constant</string>
                      <ilist ttype="ilist">
@@ -215,7 +215,7 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
                        <string sid="2">Int_Low_Const-4:3</string>
                      </ilist>
                      <string sid="3">ada://constant/Constraints-1:9/Int_Low_Const-4:3</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -246,7 +246,7 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="9" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="9" size="4">
                      <string>ada</string>
                      <string>integer_number</string>
                      <ilist ttype="ilist">
@@ -254,7 +254,7 @@ typealias _SIGNED_INTEGER_TYPE_ Int_Range
                        <string sid="5">Int_High_Const-5:3</string>
                      </ilist>
                      <string sid="6">ada://integer_number/Constraints-1:9/Int_High_Const-5:3</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
@@ -348,7 +348,7 @@ typealias Day Weekday
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="5" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="5" size="4">
                      <string>ada</string>
                      <string sid="3">enumeration_literal</string>
                      <ilist ttype="ilist">
@@ -357,7 +357,7 @@ typealias Day Weekday
                        <string>Mon-8:16</string>
                      </ilist>
                      <string sid="4">ada://enumeration_literal/Constraints-1:9/Day-8:8/Mon-8:16</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>
@@ -384,7 +384,7 @@ typealias Day Weekday
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="9" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="9" size="4">
                      <string>ada</string>
                      <string srefid="3"/>
                      <ilist ttype="ilist">
@@ -393,7 +393,7 @@ typealias Day Weekday
                        <string>Fri-8:37</string>
                      </ilist>
                      <string sid="5">ada://enumeration_literal/Constraints-1:9/Day-8:8/Fri-8:37</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>

@@ -481,14 +481,14 @@ package Array_Unconstrained_T
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="3" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="3" size="4">
                      <string>ada</string>
                      <string>package</string>
                      <ilist ttype="ilist">
                        <string sid="2">Array_Unconstrained-1:9</string>
                      </ilist>
                      <string sid="3">ada://package/Array_Unconstrained-1:9</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                </properties>
              </org.sireum.pilar.ast.NameUser>

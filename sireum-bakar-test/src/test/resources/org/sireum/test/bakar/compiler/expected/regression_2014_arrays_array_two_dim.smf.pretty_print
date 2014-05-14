@@ -220,7 +220,7 @@ typealias Integer Index
                <properties mtype="mlinkedmap">
                  <entry>
                    <string>pilar.symbol</string>
-                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3 cid="7" size="4">
+                   <org.sireum.pilar.symbol.Symbol__-ResourceProperty cid="7" size="4">
                      <string>ada</string>
                      <string>integer_number</string>
                      <ilist ttype="ilist">
@@ -228,7 +228,7 @@ typealias Integer Index
                        <string>highInt-14:3</string>
                      </ilist>
                      <string sid="6">ada://integer_number/Array_Two_Dim-1:9/highInt-14:3</string>
-                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty__-3>
+                   </org.sireum.pilar.symbol.Symbol__-ResourceProperty>
                  </entry>
                  <entry>
                    <string>BAKAR_TYPE_URI</string>
