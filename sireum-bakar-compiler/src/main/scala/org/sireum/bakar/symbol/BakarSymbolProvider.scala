@@ -230,9 +230,14 @@ object BakarSymbolTable {
                   l.action.commandDescriptorInfo(Some(luri), index, 0, 0)
                 case l : JumpLocation =>
                   l.jump.commandDescriptorInfo(Some(luri), index, 0, 0)
+                case l : ComplexLocation =>
+                  assert (l.transformations.size == 1)
+                  var i = 0
+                  for(t <- l.transformations; a <- t.actions) {
+                    a.commandDescriptorInfo(Some(luri), index, 0, i)
+                    i += 1
+                  } 
                 case l : EmptyLocation =>
-                case _ =>
-                  assert(false)
               }
 
               loc.index(index)
