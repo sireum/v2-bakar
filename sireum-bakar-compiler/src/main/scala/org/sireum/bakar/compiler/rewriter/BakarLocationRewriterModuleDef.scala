@@ -24,6 +24,7 @@ import org.sireum.pilar.ast.JumpLocation
 import org.sireum.pilar.ast.LiteralType
 import org.sireum.pilar.ast.AssertAction
 import org.sireum.pilar.ast.LiteralExp
+import org.sireum.pilar.ast.IfJump
 
 class BakarLocationRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarLocationRewriterModule {
   var locs : ISeq[LocationDecl] = null
@@ -31,6 +32,10 @@ class BakarLocationRewriterModuleDef(val job : PipelineJob, info : PipelineJobMo
     case b : ImplementedBody =>
       locs = b.locations
       b
+    case i@ IfJump(a, it, None) =>
+      
+      IfJump(a, it, Some(null))
+      throw new RuntimeException("fix me")
     case a : ActionLocation =>
       val nextLabel = locs(a.index + 1).name.get
       val label = NameUser(nextLabel.name)
