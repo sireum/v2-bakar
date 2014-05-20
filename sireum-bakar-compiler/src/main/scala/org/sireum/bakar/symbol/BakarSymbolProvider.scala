@@ -247,6 +247,7 @@ object BakarSymbolTable {
             assert(
               im.locations.last match {
                 case x @ JumpLocation(_, _, ReturnJump(_, _)) => true
+                case x @ ComplexLocation(_, _, Vector(Transformation(_, _, _, Some(ReturnJump(_, _))))) => true
                 case x =>
                   Console.err.println("Invalid end location in %s: %s".format(p.name.name, x))
                   println(NodePrettyPrinter.print(p))

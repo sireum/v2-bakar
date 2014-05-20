@@ -20,40 +20,52 @@ import org.sireum.pilar.ast.ImplementedBody
 import org.sireum.pilar.ast.NameUser
 import org.sireum.pilar.ast.GotoJump
 import java.net.URI
+import org.sireum.pilar.ast.JumpLocation
+import org.sireum.pilar.ast.LiteralType
+import org.sireum.pilar.ast.AssertAction
+import org.sireum.pilar.ast.LiteralExp
 
-class BakarLocationRewriterModuleDef (val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarLocationRewriterModule {
+class BakarLocationRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarLocationRewriterModule {
   var locs : ISeq[LocationDecl] = null
   val r = Rewriter.build[Model]({
-    case b: ImplementedBody =>
-      locs = b.locations 
+    case b : ImplementedBody =>
+      locs = b.locations
       b
-    case a: ActionLocation =>
-      val next = a.index + 1
-      val nextLabel = locs(next).name.get
+    case a : ActionLocation =>
+      val nextLabel = locs(a.index + 1).name.get
       val label = NameUser(nextLabel.name)
       val u = new URI(nextLabel.uri)
       label.uri(u.getScheme, u.getHost, u.getPath.split("/").toList, nextLabel.uri)
-      
+
       val t = Transformation(ivectorEmpty,
-          None,
-          ivector(a.action),
-          Some(GotoJump(ivectorEmpty, label)))
-          
+        None,
+        ivector(a.action),
+        Some(GotoJump(ivectorEmpty, label)))
+
       ComplexLocation(a.name,
-          a.annotations,
-          ivector(t))
+        a.annotations,
+        ivector(t))
+    case j : JumpLocation =>
+      val a = AssertAction(ivectorEmpty, LiteralExp(LiteralType.BOOLEAN, true, "true"), None)
+
+      val t = Transformation(ivectorEmpty,
+        None,
+        ivector(a),
+        Some(j.jump))
+
+      ComplexLocation(j.name, j.annotations, ivector(t))
   }, Rewriter.TraversalMode.TOP_DOWN, true)
-  
-  models = for(m <- models) yield { r(m) }
+
+  models = for (m <- models) yield { r(m) }
 }
 
 case class BakarLocationRewriter(
 
-  title: String = "Bakar Exp Rewriter",
-  @Input @Output models: ISeq[Model])
+  title : String = "Bakar Exp Rewriter",
+  @Input @Output models : ISeq[Model])
 
 object BakarLocationRewriter {
-  def main(args: Array[String]) {
+  def main(args : Array[String]) {
     val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
     val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"
     val cname = BakarLocationRewriter.getClass.getName.dropRight(1)
