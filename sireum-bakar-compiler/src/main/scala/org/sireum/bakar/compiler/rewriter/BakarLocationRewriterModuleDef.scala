@@ -25,18 +25,31 @@ import org.sireum.pilar.ast.LiteralType
 import org.sireum.pilar.ast.AssertAction
 import org.sireum.pilar.ast.LiteralExp
 import org.sireum.pilar.ast.IfJump
+import org.sireum.pilar.ast.IfThenJump
+import org.sireum.pilar.ast.UnaryExp
+import org.sireum.pilar.ast.EmptyLocation
+import org.sireum.bakar.compiler.module.PilarNodeFactory.{ copyPropertyMap => cp }
+import org.sireum.pilar.ast.ReturnJump
 
 class BakarLocationRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarLocationRewriterModule {
   var locs : ISeq[LocationDecl] = null
+  var currLoc : Int = 0
   val r = Rewriter.build[Model]({
     case b : ImplementedBody =>
       locs = b.locations
       b
-    case i@ IfJump(a, it, None) =>
-      
-      IfJump(a, it, Some(null))
-      throw new RuntimeException("fix me")
+    case i@ IfJump(a1, Vector(itj @ IfThenJump(c, a2, trueLabel)), None) =>
+      val nextLoc = locs(currLoc + 1).name.get
+      val falseLabel = cp(nextLoc, NameUser(nextLoc.name))
+      val (_exp, _trueLabel, _falseLabel) = c match {
+        case i @ UnaryExp(op1, (UnaryExp(op2, exp))) => (exp, trueLabel, falseLabel)
+        case i @ UnaryExp(op, exp) => (exp, falseLabel, trueLabel)
+      }
+
+      cp(i, IfJump(a1, ivector(cp(itj, IfThenJump(_exp, a2, _trueLabel))), 
+          Some(GotoJump(ilistEmpty, _falseLabel))))
     case a : ActionLocation =>
+      currLoc = a.index
       val nextLabel = locs(a.index + 1).name.get
       val label = NameUser(nextLabel.name)
       val u = new URI(nextLabel.uri)
@@ -47,21 +60,31 @@ class BakarLocationRewriterModuleDef(val job : PipelineJob, info : PipelineJobMo
         ivector(a.action),
         Some(GotoJump(ivectorEmpty, label)))
 
-      ComplexLocation(a.name,
-        a.annotations,
-        ivector(t))
-    case j : JumpLocation =>
-      val a = AssertAction(ivectorEmpty, LiteralExp(LiteralType.BOOLEAN, true, "true"), None)
-
-      val t = Transformation(ivectorEmpty,
-        None,
-        ivector(a),
-        Some(j.jump))
-
-      ComplexLocation(j.name, j.annotations, ivector(t))
+      cp(a, ComplexLocation(a.name, a.annotations, ivector(t)))
+    case j @ JumpLocation(name, annots, ij: IfJump) =>
+      currLoc = j.index
+      val t = Transformation(ivectorEmpty, None, ivectorEmpty, Some(ij))
+      cp(j, ComplexLocation(name, annots, ivector(t)))
+    case j @ JumpLocation(name, annots, gj: GotoJump) =>
+      currLoc = j.index
+      val t = Transformation(ivectorEmpty, None, ivectorEmpty, Some(gj))
+      cp(j, ComplexLocation(name, annots, ivector(t)))      
+    case j @ JumpLocation(name, annots, rj: ReturnJump) =>
+      currLoc = j.index
+      val t = Transformation(ivectorEmpty, None, ivectorEmpty, Some(rj))
+      cp(j, ComplexLocation(j.name, j.annotations, ivector(t)))
+    case e: EmptyLocation =>
+      currLoc = e.index
+      val nextLoc = locs(currLoc + 1).name.get
+      val gotoLabel = cp(nextLoc, NameUser(nextLoc.name))
+      val t = Transformation(ivectorEmpty, None, ivectorEmpty, 
+          Some(GotoJump(ivectorEmpty, gotoLabel)))
+      cp(e, ComplexLocation(e.name, e.annotations, ivector(t)))
   }, Rewriter.TraversalMode.TOP_DOWN, true)
 
-  models = for (m <- models) yield { r(m) }
+  models = for (m <- models) yield { 
+    r(m)
+  }
 }
 
 case class BakarLocationRewriter(

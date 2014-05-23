@@ -14,7 +14,7 @@ object PilarNodeFactory {
   def ZERO = buildLiteralExp(LiteralType.INTEGER, BigInt(0), "0ii", StandardURIs.universalIntURI)
   def ONE = buildLiteralExp(LiteralType.INTEGER, BigInt(1), "1ii", StandardURIs.universalIntURI)
 
-  def copyPropertyMap[T <: PilarAstNode](a: T, b: T): T = {
+  def copyPropertyMap[T1 <: PilarAstNode, T2 <: PilarAstNode](a: T1, b: T2): T2 = {
     b.propertyMap ++= a.propertyMap
     b
   }
