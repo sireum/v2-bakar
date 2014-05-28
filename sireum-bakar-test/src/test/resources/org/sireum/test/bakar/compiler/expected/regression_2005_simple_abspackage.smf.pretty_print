@@ -74,7 +74,7 @@ procedure Integer AbsFunc (
     if !(x < 0ii) then goto l1;
 
   #l3.
-    r := x * -(1ii);
+    r := x * -1ii;
 
   #l4.
     goto l0;

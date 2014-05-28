@@ -2749,7 +2749,12 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             ctx.pushResult(be, sloc)
           } else if (ctx.isUnaryOp(prefix)) {
             assert(plist.length == 1)
-            val ue = ctx.handleUnaryExp(sloc, ctx.getUnaryOp(prefix).get, plist(0), callExpType)
+            val ue = (ctx.getUnaryOp(prefix).get, plist(0)) match {
+              case ("-", l @ LiteralExp(typ, b : BigInt, text)) => 
+                val bi = b * -1
+                cp(l, PNF.buildLiteralExp(LiteralType.INTEGER, bi, bi.toString + "ii", ctx.convertTypeUri(callExpType)))
+              case _ => ctx.handleUnaryExp(sloc, ctx.getUnaryOp(prefix).get, plist(0), callExpType)
+            }
             ctx.pushResult(ue, sloc)
           } else throw new RuntimeException("Unexpected infix expression")
         } else {

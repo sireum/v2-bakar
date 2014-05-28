@@ -99,8 +99,8 @@ procedure $$sinit {
   #l0.
     @@Box := `Square {Index iter => 
         switch iter
-          case _t0 + _t1 => -(1ii)
-          case _t2 + _t3 => -(2ii)
+          case _t0 + _t1 => -1ii
+          case _t2 + _t3 => -2ii
           case _t4 + _t5 => 7ii
           case _t6 + _t7 => 3ii
           case _t8 + _t9 => 2ii

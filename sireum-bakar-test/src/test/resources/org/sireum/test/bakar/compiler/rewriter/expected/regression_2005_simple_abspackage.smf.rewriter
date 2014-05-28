@@ -8,7 +8,7 @@ procedure Integer AbsFunc (
     Integer _t0;
     universal_integer _t1;
     Integer _t2;
-    Integer _t3;
+    universal_integer _t3;
 
 
   #rwl0.
@@ -24,7 +24,7 @@ procedure Integer AbsFunc (
     _t2 := x;
 
   #rwl3.
-    _t3 := -(1ii);
+    _t3 := -1ii;
 
   #l3.
     r := _t2 * _t3;

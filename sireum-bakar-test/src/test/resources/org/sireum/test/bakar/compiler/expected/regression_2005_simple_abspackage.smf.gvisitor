@@ -49,19 +49,18 @@ Model(Some(abspackage.adb),Vector(),Vector(PackageDecl(Some(NameDefinition(AbsPa
                       List()
                       NameUser(l1)
                   None
-              ActionLocation(Some(NameDefinition(l3)),Vector(),AssignAction(Vector(),NameExp(NameUser(r)),:=,BinaryExp(*,NameExp(NameUser(x)),UnaryExp(-,LiteralExp(
+              ActionLocation(Some(NameDefinition(l3)),Vector(),AssignAction(Vector(),NameExp(NameUser(r)),:=,BinaryExp(*,NameExp(NameUser(x)),LiteralExp(INTEGER,-1,
                 Some(NameDefinition(l3))
                   NameDefinition(l3)
                 List()
-                AssignAction(Vector(),NameExp(NameUser(r)),:=,BinaryExp(*,NameExp(NameUser(x)),UnaryExp(-,LiteralExp(INTEGER,1,1ii))))
+                AssignAction(Vector(),NameExp(NameUser(r)),:=,BinaryExp(*,NameExp(NameUser(x)),LiteralExp(INTEGER,-1,-1ii)))
                   List()
                   NameExp(NameUser(r))
                     NameUser(r)
-                  BinaryExp(*,NameExp(NameUser(x)),UnaryExp(-,LiteralExp(INTEGER,1,1ii)))
+                  BinaryExp(*,NameExp(NameUser(x)),LiteralExp(INTEGER,-1,-1ii))
                     NameExp(NameUser(x))
                       NameUser(x)
-                    UnaryExp(-,LiteralExp(INTEGER,1,1ii))
-                      LiteralExp(INTEGER,1,1ii)
+                    LiteralExp(INTEGER,-1,-1ii)
               JumpLocation(Some(NameDefinition(l4)),Vector(),GotoJump(Vector(),NameUser(l0)))
                 Some(NameDefinition(l4))
                   NameDefinition(l4)

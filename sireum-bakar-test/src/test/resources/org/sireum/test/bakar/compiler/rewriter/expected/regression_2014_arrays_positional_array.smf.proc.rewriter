@@ -37,8 +37,8 @@ procedure $$sinit {
   #l0.
     @@Box := `Square {Index iter => 
         switch iter
-          case attribute__uif__first `Index + 0ii => -(1ii)
-          case attribute__uif__first `Index + 1ii => -(2ii)
+          case attribute__uif__first `Index + 0ii => -1ii
+          case attribute__uif__first `Index + 1ii => -2ii
           case attribute__uif__first `Index + 2ii => 7ii
           case attribute__uif__first `Index + 3ii => 3ii
           case attribute__uif__first `Index + 4ii => 2ii

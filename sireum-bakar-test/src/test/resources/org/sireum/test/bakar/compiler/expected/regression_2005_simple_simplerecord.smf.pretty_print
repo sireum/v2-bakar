@@ -20,40 +20,21 @@ typealias Integer SmallInt
          <string sid="1">ada://subtype/SimpleRecord-1:9/SmallInt+3:12</string>
          <string sid="2">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <some etype="org.sireum.bakar.symbol.SimpleRangeConstraint" cid="2" size="2">
-           <org.sireum.pilar.ast.UnaryExp cid="3" size="2">
-             <string>-</string>
-             <org.sireum.pilar.ast.LiteralExp cid="4" size="3">
-               <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
-               <scala.math.BigInt>
-                 <bigInteger>10</bigInteger>
-               </scala.math.BigInt>
-               <string>10ii</string>
-               <properties mtype="mlinkedmap">
-                 <entry>
-                   <string>BAKAR_TYPE_URI</string>
-                   <string sid="3">ada://ordinary_type/universal_integer</string>
-                 </entry>
-                 <entry>
-                   <string>util.loc</string>
-                   <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="5" size="5">
-                     <string sid="4">simplerecord.adb</string>
-                     <int>3</int>
-                     <int>39</int>
-                     <int>3</int>
-                     <int>40</int>
-                   </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
-                 </entry>
-               </properties>
-             </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.LiteralExp cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>-10</bigInteger>
+             </scala.math.BigInt>
+             <string>-10ii</string>
              <properties mtype="mlinkedmap">
                <entry>
                  <string>BAKAR_TYPE_URI</string>
-                 <string srefid="2"/>
+                 <string sid="3">ada://ordinary_type/universal_integer</string>
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
-                   <string srefid="4"/>
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="4" size="5">
+                   <string sid="4">simplerecord.adb</string>
                    <int>3</int>
                    <int>38</int>
                    <int>3</int>
@@ -61,8 +42,8 @@ typealias Integer SmallInt
                  </org.sireum.util.SourceLocation__-SourceLocationWithAtImpl>
                </entry>
              </properties>
-           </org.sireum.pilar.ast.UnaryExp>
-           <org.sireum.pilar.ast.LiteralExp cid="7" size="3">
+           </org.sireum.pilar.ast.LiteralExp>
+           <org.sireum.pilar.ast.LiteralExp cid="5" size="3">
              <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
              <scala.math.BigInt>
                <bigInteger>10</bigInteger>
@@ -75,7 +56,7 @@ typealias Integer SmallInt
                </entry>
                <entry>
                  <string>util.loc</string>
-                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="8" size="5">
+                 <org.sireum.util.SourceLocation__-SourceLocationWithAtImpl cid="6" size="5">
                    <string srefid="4"/>
                    <int>3</int>
                    <int>45</int>
