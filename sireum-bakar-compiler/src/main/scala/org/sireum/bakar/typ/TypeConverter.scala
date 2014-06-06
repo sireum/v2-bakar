@@ -260,8 +260,10 @@ object TypeConverter {
             components += (fieldName -> fieldType)
           }
           RecordType(components)
-        case _ =>
-          throw new RuntimeException("Not handling")
+        case x =>
+          //throw new RuntimeException("Not handling " + x)
+          Console.err.println("Need to handle " + x)
+          IntegerType
       }
     }
     
@@ -270,7 +272,7 @@ object TypeConverter {
     m.foreach{ p =>
       p match {
         case (uri, t) =>
-          val newType = buildType(m, t)
+          val newType = buildType(m, SymbolUtil.getTypeDef(t, m))
           typeMap += (uri -> newType)
       }
     }
