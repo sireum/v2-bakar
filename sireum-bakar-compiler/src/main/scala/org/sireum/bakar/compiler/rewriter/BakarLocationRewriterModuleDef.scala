@@ -74,6 +74,9 @@ class BakarLocationRewriterModuleDef(val job : PipelineJob, info : PipelineJobMo
       currLoc = j.index
       val t = Transformation(ivectorEmpty, None, ivectorEmpty, Some(rj))
       cp(j, ComplexLocation(j.name, j.annotations, ivector(t)))
+    case j @ JumpLocation(name, annots, c : CallJump) =>
+      currLoc = j.index
+      j
     case e: EmptyLocation =>
       currLoc = e.index
       val gotoLabel = getLabel(currLoc + 1)
