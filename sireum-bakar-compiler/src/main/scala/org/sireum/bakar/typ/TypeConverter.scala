@@ -151,13 +151,12 @@ object TypeConverter {
 
 //    KiasanEvaluatorTestUtil  
   
-    def buildType(m: IMap[ResourceUri, Type], t: Type): org.sireum.kiasan.alpha.types.Type = {
+    def buildType(m: IMap[ResourceUri, TypeDecl], t: TypeDecl): org.sireum.kiasan.alpha.types.Type = {
       import org.sireum.kiasan.alpha.types._
-      t match {
-        case e : SignedIntegerTypeDef =>
-          IntegerType
-        case e : EnumerationTypeDef =>
-          IntegerType
+      
+      SymbolUtil.getTypeDef(t, m) match {
+        case e : SignedIntegerTypeDef => IntegerType
+        case e : EnumerationTypeDef => IntegerType
         case e : ArrayTypeDef =>
           val componentTypeUri = e.componentSubtype
           val indexTypeUri = 
@@ -173,83 +172,6 @@ object TypeConverter {
 
           val componentType = buildType(m, componentTyp)
           ArrayType(SireumNumber(BigInt(0)), SireumNumber(BigInt(100)), componentType)
-
-//          val state = null
-//          val ee = newExpEvaluator(state)
-          
-          
-//          if (state == null) 
-//            (ee.evalExp(null.asInstanceOf[S], exp), expS, exp)
-//          else
-//            (ee.evalExp(state, exp), expS, exp)          
-          
-//          def evalExps[S <: State[S]](s: S, e: Exp) = {
-//              if (s == null)  
-//                ee.evalExp(null.asInstanceOf[S], e)
-//              else
-//                ee.evalExp(s, e)
-//          }
-//          
-//          indexTyp match {
-//              case o @ FullTypeDecl(id, uri, typeDef) => 
-//                typeDef match {
-//                  case sitd @ SignedIntegerTypeDef(le, he) =>
-//                    ee.evalExp(state, le)
-//                }
-//              case SubTypeDecl(id, uri, puri, constraint) =>
-//                  constraint match {
-//                    case Some(SimpleRangeConstraint(le, he)) => 
-//                      
-//                    case None => 
-//                      
-//                    case x    => throw new RuntimeException("Not expecting " + x)  
-//                  }
-//            }
-
-          
-//      case o @ FullTypeDecl(id, uri, typeDef) =>
-//        typeDef match {
-//          case sitd @ SignedIntegerTypeDef(le, he) =>
-//            val (s1, low) = le match {
-//              case Some(lexpr) => evalExp(s, lexpr)
-//              case None        => kee.freshKiasanValue(s, IntegerExtension.Type)
-//            }
-//            val (s2, high) = he match {
-//              case Some(hexpr) => evalExp(s1, hexpr)
-//              case None        => kee.freshKiasanValue(s1, IntegerExtension.Type)
-//            }
-//            val s3 = addPathCondition(s2, BinaryExp("<=", ValueExp(low), ValueExp(high)))
-//
-//            val s4 = s3.setAttribute(ruri, Attribute.FIRST, low)
-//            val s5 = s4.setAttribute(ruri, Attribute.LAST, high)
-//
-//            (s5, low, high)
-//        }
-//      case SubTypeDecl(id, uri, puri, constraint) =>
-//        val (s1, parentLowVal, parentHighVal) = getBounds(s, puri, c)
-//
-//        val (s2, lv, hv) = constraint match {
-//          case Some(SimpleRangeConstraint(le, he)) =>
-//            val (_s2, _lv) = evalExp(s1, le)
-//            val (_s3, _hv) = evalExp(_s2, he)
-//
-//            // plv <= lv <= hv <= phv
-//            val _s4 = addPathCondition(_s3, BinaryExp("<=", ValueExp(parentLowVal), ValueExp(_lv)))
-//            val _s5 = addPathCondition(_s4, BinaryExp("<=", ValueExp(_lv), ValueExp(_hv)))
-//            val _s6 = addPathCondition(_s5, BinaryExp("<=", ValueExp(_hv), ValueExp(parentHighVal)))
-//
-//            (_s6, _lv, _hv)
-//          case None => (s1, parentLowVal, parentHighVal)
-//          case x    => throw new RuntimeException("Not expecting " + x)
-//        }
-//
-//        val s3 = s2.setAttribute(ruri, Attribute.FIRST, lv)
-//        val s4 = s3.setAttribute(ruri, Attribute.LAST, hv)
-//
-//        (s4, lv, hv)
-//      case o => throw new RuntimeException(s"Not handling type dec $o")
-            
-          
         case e: RecordDef =>
           assert(e.isInstanceOf[RecordTypeDef])
           var components: IMap[String, Type] = imapEmpty
@@ -267,12 +189,12 @@ object TypeConverter {
       }
     }
     
-  def converter(m: IMap[ResourceUri, Type]): IMap[ResourceUri, org.sireum.kiasan.alpha.types.Type] = {
+  def converter(m: IMap[ResourceUri, TypeDecl]): IMap[ResourceUri, org.sireum.kiasan.alpha.types.Type] = {
     var typeMap: IMap[ResourceUri, org.sireum.kiasan.alpha.types.Type] = imapEmpty
     m.foreach{ p =>
       p match {
         case (uri, t) =>
-          val newType = buildType(m, SymbolUtil.getTypeDef(t, m))
+          val newType = buildType(m, t)
           typeMap += (uri -> newType)
       }
     }
