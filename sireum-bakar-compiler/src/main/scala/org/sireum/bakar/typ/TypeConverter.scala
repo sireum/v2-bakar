@@ -166,20 +166,12 @@ object TypeConverter {
               e.asInstanceOf[UnconstrainedArrayDef].indexSubtypes(0)
             else
               throw new RuntimeException("Not handling")
-          
-          val componentTyp = m(componentTypeUri)
-          val indexTyp = m(indexTypeUri)
-
-          val componentType = buildType(m, componentTyp)
-          ArrayType(SireumNumber(BigInt(0)), SireumNumber(BigInt(100)), componentType)
+          ArrayType(SireumNumber(BigInt(0)), SireumNumber(BigInt(100)), componentTypeUri)          
         case e: RecordDef =>
           assert(e.isInstanceOf[RecordTypeDef])
-          var components: IMap[String, Type] = imapEmpty
+          var components = imapEmpty[ResourceUri, ResourceUri]
           for(f <- e.asInstanceOf[RecordTypeDef].components) {
-            val fieldName = f._1 
-            val fieldTyp = m(f._2.typeUri)
-            val fieldType = buildType(m, fieldTyp)
-            components += (fieldName -> fieldType)
+            components += (f._2.refUri -> f._2.typeUri)
           }
           RecordType(components)
         case x =>
