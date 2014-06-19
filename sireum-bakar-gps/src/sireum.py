@@ -72,8 +72,7 @@ def run_kiasan_plugin():
         win.split(reuse=False) # reuse=True: bottom from code window, reuse=False: top from code window
         win.float(float=False)    # float=True: popup, float=False: GPS integrated window
         run_kiasan_async(kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list)
-        gobject.timeout_add(1000, update_kiasan_report, gui, project_path)
-        print 'started'
+        gobject.timeout_add(1000, update_kiasan_report, gui, project_path)        
 
     except ProjectNotBuiltException as e:
         print "ProjectNotBuiltException({0}): {1}".format(e.errno, e.strerror)
@@ -108,8 +107,6 @@ def prepare_directories_for_reports(project_path, remove_previous_reports):
 
 def run_kiasan_async(kiasan_run_cmd, kiasan_run_cmd_with_report, methods_list):    
     """ Runs Kiasan analysis based on preferences and clicked entity. """
-    # get package_name and methods list
-    print 'in async'    
     # run Kiasan tool for each method except last one
     for method in methods_list[:-1]:  
         run_kiasan(kiasan_run_cmd, method)
@@ -144,9 +141,14 @@ def get_file_content(file_path):
     
     
 def run_kiasan(kiasan_run_cmd, method):
-    """ Single Kiasan run. """
-    print " ".join(kiasan_run_cmd + [method])
-    subprocess.Popen(kiasan_run_cmd + [method])
+    """ Single Kiasan run. """    
+    os.putenv('SCALA_OPTIONS', '-J-mx2048m')
+    p = subprocess.Popen(["/Users/jj/sireumint/sireum", "la", "server", "-q"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    p.stdin.write("bakarkiasan:hi\r\n")
+    print p.stdout.readline()
+    p.stdin.write("x\r\n") # this line will not be printed into the file
+    #print " ".join(kiasan_run_cmd + [method])
+    #subprocess.Popen(kiasan_run_cmd + [method])
         
 
 def get_sireum_path():
