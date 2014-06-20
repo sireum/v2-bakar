@@ -63,6 +63,7 @@ trait BakarTestFramework[P <: Project] extends TestFramework {
 trait ProjectFile extends Project {
   val expectedDir: Option[FileResourceUri] = None
   val resultDir: Option[FileResourceUri] = None
+  val fileName: Option[String] = None
 }
 
 trait BakarTestFileFramework[P <: ProjectFile] extends BakarTestFramework[P] {
@@ -82,17 +83,16 @@ trait BakarTestFileFramework[P <: ProjectFile] extends BakarTestFramework[P] {
     job: PipelineJob)
 
   override def execute(p: P) = {
-    test(p.testName) {
-
-      val testNamelc = p.testName.toLowerCase
-
+    val tname = p.testName + (if(p.fileName.isDefined) s"-${p.fileName.get}" else "")
+    test(tname) {
+      val fname = if(p.fileName.isDefined) p.fileName.get else p.testName.toLowerCase
       val edir = new File(new URI(if(p.expectedDir.isDefined) p.expectedDir.get else EXPECTED_DIR))
-      val efile = new File(edir, testNamelc + "." + outputSuffix)
+      val efile = new File(edir, fname + "." + outputSuffix)
       if (!edir.exists && !edir.mkdirs)
         throw new RuntimeException("Could not create " + edir)
 
       val rdir = new File(new URI(if(p.resultDir.isDefined) p.resultDir.get else RESULTS_DIR))
-      val rfile = new File(rdir, testNamelc + "." + outputSuffix)
+      val rfile = new File(rdir, fname + "." + outputSuffix)
       if (!rdir.exists) {
         if (!rdir.mkdirs)
           throw new RuntimeException("Could not create " + rdir)
