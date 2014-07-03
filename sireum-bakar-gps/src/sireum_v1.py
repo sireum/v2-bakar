@@ -179,12 +179,6 @@ def init_progressbar():
 	
 	info_label = gtk.Label("Kiasan is running...")
 	info_box.pack_start(info_label)
-	
-	#cancel_box = gtk.HBox()
-	#info_box.pack_start(cancel_box)
-	#cancel_button = gtk.Button("Cancel")
-	#cancel_button.connect("clicked", cancel_counting, info_label)
-	#cancel_box.pack_start(cancel_button, False, False, 20)
 
 	return main_box, progressbar
 
@@ -257,8 +251,10 @@ def get_run_kiasan_command(SIREUM_PATH, package_name, source_path, output_dir, g
 	run_kiasan_command.append("--outdir")
 	run_kiasan_command.append(output_dir)
 	run_kiasan_command.append("--array-bound")
+	#run_kiasan_command.append("60")
 	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-array-indices-bound").get()))
 	run_kiasan_command.append("--loop-bound")
+	#run_kiasan_command.append("60")
 	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-loop-bound").get()))
 	run_kiasan_command.append("--invoke-bound")
 	run_kiasan_command.append(str(GPS.Preference("sireum-kiasan-call-chain-bound").get()))

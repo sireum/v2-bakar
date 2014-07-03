@@ -136,7 +136,7 @@ class Method(Entity):
                     for value in variable_dict["values"]:
                         variable_value[i] = value["theValue"]
                         i += 1
-                    variable_value["size"] = i
+                    variable_value["size"] = i - variable_dict["minIndex"]
                 elif variable_dict["@class"] == "org.sireum.graph.object.model.RecordNode":
                     base_elements = self.get_base_types(variable_dict["optBaseElementMap"])
                     ref_elements = self.get_ref_types(variable_dict["optRefElementMap"])

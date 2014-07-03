@@ -16,7 +16,7 @@ def highlight(file_name, coverage):
     """This function highlight lines in the file 
     
     file_name -- path to file (in which lines should be highlighted)
-    coverage -- array with lines for highlighting
+    coverage -- array with lines for highlighting, e.g. [1,2,5,6] will highlight lines 1, 2, 5 and 6
     """
     gps_file = GPS.File(file_name)
     buf = GPS.EditorBuffer.get(gps_file)
@@ -42,3 +42,30 @@ def get_overlays(buf):
     overlays['Case'] = case_overlay
     
     return overlays
+
+
+def get_marked_area():
+    """ Returns marked area in current file as a tuple: (start_line, start_column, end_line, end_column). """
+    buffer = GPS.EditorBuffer.get()
+    
+    selection_start = buffer.selection_start()
+    start_line = selection_start.line()
+    start_column = selection_start.column()
+    
+    selection_end = buffer.selection_end()
+    end_line = selection_end.line()
+    end_column = selection_end.column()
+    
+    return start_line, start_column, end_line, end_column
+    
+    
+def highlight_area(file_name, start_line, start_column, end_line, end_column):
+    """ This function highlight area from (start_line, start_column) to (end_line, end_column) in specified file_name. """
+    buffer = GPS.EditorBuffer.get(GPS.File(file_name))
+    overlay = buffer.create_overlay("highlight_overlay")
+    overlay.set_property("background", "#ffff00")
+    buffer.apply_overlay(overlay, GPS.EditorLocation(buffer, start_line, start_column), GPS.EditorLocation(buffer, end_line, end_column))
+
+
+def open_uri(uri):
+    GPS.HTML.browse(uri)
