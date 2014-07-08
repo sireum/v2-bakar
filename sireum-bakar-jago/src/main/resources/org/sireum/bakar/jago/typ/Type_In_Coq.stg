@@ -1,20 +1,20 @@
 
-bakarJagoTypes(typeDeclarations) ::= <<
+basicAstTypes(typeDeclarations) ::= <<
 $importedLibs()$
 
 $numberTypes()$
 
 $typeDeclarations; separator="\n\n"$
 >>
-// (* End SPARK_Syntax. *)
-// (* Extraction SPARK_Syntax. *)
-// (* Recursive Extraction program. *)
+
+astTypes(typeDeclarations) ::= <<
+$typeDeclarations; separator="\n\n"$
+>>
 
 importedLibs() ::= <<
 Require Export ZArith. 
 Require Export Coq.Lists.List.
 Require Export Coq.Bool.Bool.
-Require Export Coq.Strings.String.
 >>
 
 numberTypes() ::= <<
@@ -30,18 +30,14 @@ Definition typedeclnum := astnum.
 
 Definition aspectnum := nat.
 
-Definition typeuri := string.
-
-Record type_table: Type := mktype_table{
-    tt_exptype_table: list (astnum * typenum);
-    tt_typename_table: list (typenum * (typeuri * option typedeclnum))
-}.
+Definition index := Z.
 >>
 
 basicTypes() ::= <<
 Inductive type: Type := 
     | Boolean: type
-    | Integer: type.
+    | Integer: type
+    | Aggregate (t: typenum).
 >>
 
 modes() ::= <<
@@ -51,10 +47,31 @@ Inductive mode: Type :=
     | In_Out: mode.
 >>
 
-typeDeclaration(typeName, constructors, annotation) ::= <<
+inductiveType(typeName, constructors, annotation) ::= <<
 $if(annotation)$(* $annotation$ *)$endif$
 Inductive $typeName$: Type := 
 	$constructors; separator="\n"$.
+>>
+
+withType(typeName, constructors, annotation) ::= <<
+$if(annotation)$(* $annotation$ *)$endif$
+with $typeName$: Type := 
+	$constructors; separator="\n"$
+>>
+
+withOneConstructorType(typeName, constructorName, elements, annotation) ::= <<
+$if(annotation)$(* $annotation$ *)$endif$
+with $typeName$: Type := 
+  $constructorName$
+	$elements; separator="\n"$
+>>
+
+mutuallyInductiveType(typeName, constructors, withs, annotation) ::= <<
+$if(annotation)$(* $annotation$ *)$endif$
+Inductive $typeName$: Type := 
+	$constructors; separator="\n"$
+	
+$withs; separator="\n"$.
 >>
 
 fieldDeclaration(fieldName, fieldType) ::= <<
@@ -83,4 +100,8 @@ option ($theType$)
 
 listType(elemType) ::= <<
 list $elemType$
+>>
+
+product(x, y) ::= <<
+($x$ * $y$)
 >>

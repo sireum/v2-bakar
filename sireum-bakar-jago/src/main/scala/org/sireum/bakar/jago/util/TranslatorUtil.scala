@@ -116,5 +116,16 @@ object TranslatorUtil {
       case _ => ""
     }
   }
-
+  
+    def isNameExp(e: ExpressionClass) = {
+    e match {
+      case IdentifierEx(sloc, refName, ref, theType, checks) =>
+        true
+      case IndexedComponentEx(sloc, prefixQ, indexExpressionsQl, theType, checks) =>
+        true
+      case SelectedComponentEx(sloc, prefixQ, selectorQ, theType, checks) =>
+        true
+      case _ => false
+    }
+  }
 }

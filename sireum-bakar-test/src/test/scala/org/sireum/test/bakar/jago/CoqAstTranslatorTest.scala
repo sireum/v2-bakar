@@ -18,14 +18,17 @@ import org.sireum.util.FileUtil
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class BakarProgramTest_OCaml extends BakarTestFileFramework[ProjectFile] {
+class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
     
-  this.register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
+  this.register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago1", true))
 
   override def pre(c : Configuration) : Boolean = {
-    BakarProgramTranslatorModule.setJagoProgramTarget(c.job.properties, ProgramTarget.Ocaml)
+    import BakarProgramTranslatorModule.ProducerView._
+    c.job.jagoProgramTarget = ProgramTarget.Coq
+
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
+    
     return true;
   }
 
@@ -50,12 +53,13 @@ class BakarProgramTest_OCaml extends BakarTestFileFramework[ProjectFile] {
     )
 
   override def generateExpected = false
-  override def outputSuffix = "ocaml"
+  override def outputSuffix = "jago"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
-    val results = BakarProgramTranslatorModule.getJagoProgramResults(job.properties)
+    import BakarProgramTranslatorModule.ConsumerView._
+    val results = job.jagoProgramResults 
     results.foreach{f => 
-      w.write(f)
+      w.write(f) 
       //println(f)
     }
   }

@@ -14,11 +14,11 @@ import org.sireum.util.FileResourceUri
 import org.sireum.util.ilistEmpty
 
 @RunWith(classOf[JUnitRunner])
-class BakarTypeTest_Jago extends BakarTestFileFramework[ProjectFile] {
+class CoqTypeTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
   this.execute(new ProjectFile {
-    val projectName = "typ"
-    val testName = "typ"
+    val projectName = "language"
+    val testName = "language"
     val files = ilistEmpty[FileResourceUri]
   })
 

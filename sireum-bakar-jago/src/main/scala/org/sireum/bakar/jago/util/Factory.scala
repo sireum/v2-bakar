@@ -3,7 +3,7 @@ package org.sireum.bakar.jago.util
 import org.stringtemplate.v4.STGroupFile
 import org.sireum.util._
 import org.sireum.option.ProgramTarget
-import org.sireum.bakar.xml.SourceLocation
+import org.sireum.bakar.xml._
 
 class Factory(stg: STGroupFile) {
   /**********************************************************
@@ -153,65 +153,24 @@ class Factory(stg: STGroupFile) {
     unitExpTypeMap += (exp_astnum -> typenum)
   }
   
-  def buildBinaryExpr(astnum: Int, theType: String, op: String, loperand: String, roperand: String) = {
-    buildExpTypeTable(astnum, theType)
-    val result = stg.getInstanceOf("binaryExpr") 
-    result.add("astnum", astnum)
-    result.add("op", op)
-    result.add("loperand", loperand)
-    result.add("roperand", roperand)
-    result.render()
-  }
-  
-  def buildUnaryExpr(astnum: Int, theType: String, op: String, operand: String) = {
-    buildExpTypeTable(astnum, theType)
-    val result = stg.getInstanceOf("unaryExpr")
-    result.add("astnum", astnum)
-    result.add("op", op)
-    result.add("operand", operand)
-    result.render()
-  }
-  
-  /**
-   * the identifier can be either variable or package/procedure name. 
-   * theType will be null if it's package/procedure name
-   */
-  def buildId(theType: Option[String], id: String, id_uri: String) = {
-    if(theType.isDefined){
-      // [1] Variable Name Mapping
-      val id_num = getIdNum(id_uri)
-      buildAnnotatedIdNum(id, id_num)
-    }else{
-      // [2] Package/Procedure Name Mapping
-      val pkg_proc_num = 
-        if(id_uri.contains("package_body"))
-          getPkgNum(id_uri)
-        else // if(id_uri.contains("procedure_body"))
-          getProcNum(id_uri)
-      buildAnnotatedIdNum(id, pkg_proc_num) 
+  def buildChecks(checks: String) = {
+    val cks = mlistEmpty[Any]
+    if(checks != null) {
+      val ls = checks.split(',')
+      for(e <- ls){
+        e match {
+          case "do_division_check" => 
+            cks += "Do_Division_Check"
+          case "do_overflow_check" =>
+            cks += "Do_Overflow_Check"
+          case "do_index_check" =>
+            cks += "Do_Index_Check"
+          case "do_range_check" =>
+            cks += "Do_Index_Check"
+        }
+      }
     }
-  }
-  
-  def buildAnnotatedIdNum(id_str: String, id_nat: Int) = {
-    // the id number annotated with its id string, for example: (*x*) 1
-    val result = stg.getInstanceOf("varId")
-    result.add("annotation", id_str)
-    result.add("id", id_nat)
-    result.render()       
-  }
-  
-  /**
-   * In Coq, the variables on both sides of assignment, for example x = y, have different representation forms
-   * Its Coq representation is: Sassign x (Evar y), 
-   * where the left-hand is an identifier, while its right-hand is an expression with prefix "Evar"
-   */
-  def buildIdExpr(astnum: Int, theType: String, id: String, id_uri: String) = {
-    buildExpTypeTable(astnum, theType)
-    val idnum_with_anno = buildId(Some(theType), id, id_uri) // for example: (* x *) 1
-    val result = stg.getInstanceOf("identifierExpr")
-    result.add("astnum", astnum)
-    result.add("id", idnum_with_anno)
-    result.render()    
+    buildList(cks)
   }
   
   def buildLiteral(theType: String, theLiteral: String) = {
@@ -229,35 +188,184 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  def buildLiteralExpr(astnum: Int, theType: String, theLiteral: String) = {
+  def buildLiteralExpr(astnum: Int, theType: String, theLiteral: String, checks: String) = {
     buildExpTypeTable(astnum, theType)
     val result = stg.getInstanceOf("literalExpr")
     result.add("astnum", astnum)
     val o = buildLiteral(theType, theLiteral)
     result.add("litval", o)
+    val cks = buildChecks(checks)
+    result.add("checks", cks)
+    result.render()
+  }  
+  
+  def buildBinaryExpr(astnum: Int, theType: String, op: String, loperand: String, roperand: String, checks: String) = {
+    buildExpTypeTable(astnum, theType)
+    val result = stg.getInstanceOf("binaryExpr") 
+    result.add("astnum", astnum)
+    result.add("op", op)
+    result.add("loperand", loperand)
+    result.add("roperand", roperand)
+    val cks = buildChecks(checks)
+    result.add("checks", cks)
     result.render()
   }
   
-  def buildProcedureCall(procName: String, args: String*) = {
+  def buildUnaryExpr(astnum: Int, theType: String, op: String, operand: String, checks: String) = {
+    buildExpTypeTable(astnum, theType)
+    val result = stg.getInstanceOf("unaryExpr")
+    result.add("astnum", astnum)
+    result.add("op", op)
+    result.add("operand", operand)
+    val cks = buildChecks(checks)
+    result.add("checks", cks)
+    result.render()
+  }  
+  
+  def buildNameExp(astnum: Int, theType: String, x: Any, checks: String) = {
+    buildExpTypeTable(astnum, theType)
+    val result = stg.getInstanceOf("nameExpr")
+    result.add("astnum", astnum)
+    result.add("x", x)
+    val cks = buildChecks(checks)
+    result.add("checks", cks)
+    result.render()
+  }
+  
+  
+  /**
+   * the identifier can be either 
+   * - variable, parameter, record field, or 
+   * - newly defined type name, e.g. declared array/record type, or
+   * - package/procedure name
+   */
+  def buildId(id: String, id_uri: String) = {
+    val id_num = 
+      if (id_uri.contains("variable") || id_uri.contains("parameter") || id_uri.contains("component"))
+        getIdNum(id_uri)
+      else if(id_uri.contains("ordinary_type"))
+        getTypeNum(id_uri)
+      else if(id_uri.contains("package_body"))
+        getPkgNum(id_uri)
+      else if(id_uri.contains("procedure_body"))
+        getProcNum(id_uri)
+      else
+        // TODO: to deal with other kind of identifier
+        getIdNum(id_uri)
+        
+     buildAnnotatedIdNum(id, id_num)   
+  }
+  
+  def buildAnnotatedIdNum(id_str: String, id_nat: Int) = {
+    // the id number annotated with its id string, for example: (*x*) 1
+    val result = stg.getInstanceOf("varId")
+    result.add("annotation", id_str)
+    result.add("id", id_nat)
+    result.render()       
+  }
+  
+  /**
+   * In Coq, the variables on both sides of assignment, for example x = y, have different representation forms
+   * Its Coq representation is: Sassign x (Evar y), 
+   * where the left-hand is an identifier, while its right-hand is an expression with prefix "Evar"
+   */
+  def buildIdExpr(astnum: Int, theType: String, id: String, id_uri: String, checks: String) = {
+    buildExpTypeTable(astnum, theType)
+    // each identifier, which is represented with natural number, is annotated with its string name,
+    // e.g. (* x *) 1; 
+    val idnum_with_anno = buildId(id, id_uri) 
+    val result = stg.getInstanceOf("identifierExpr")
+    result.add("astnum", astnum)
+    result.add("id", idnum_with_anno)
+    val cks = buildChecks(checks)
+    result.add("checks", cks)
+    // result.render()    
+  }
+   
+  def buildIndexedComponent(astnum: Int, x_astnum: Int, x: String, e: String, checks: String) = {
+    val result = stg.getInstanceOf("indexedComponent")
+    val cks = buildChecks(checks)
+    result.add("astnum", astnum)
+    result.add("x_astnum", x_astnum)
+    result.add("x", x)
+    result.add("e", e)
+    result.add("checks", cks)
+    result.render()    
+  }
+  
+  def buildSelectedComponent(astnum: Int, x_astnum: Int, x: String, f: String, checks: String) = {
+    val result = stg.getInstanceOf("selectedComponent")
+    val cks = buildChecks(checks)
+    result.add("astnum", astnum)
+    result.add("x_astnum", x_astnum)
+    result.add("x", x)
+    result.add("f", f)
+    result.add("checks", cks)
+    result.render()
+  }
+  
+  def buildNullStmt = {
+    val result = stg.getInstanceOf("nullStmt")
+  }
+  
+  def buildAssignStmt(astnum: Int, lhs: Any, rhs: Any) = {
+    val result = stg.getInstanceOf("assignStmt")
+    result.add("astnum", astnum)
+    result.add("lhs", lhs)
+    result.add("rhs", rhs)
+    result.render()
+  }
+  
+  def buildIfStmt(astnum: Int, cond: Any, trueBranch: Any, falseBranch: Any) = {
+    val result = stg.getInstanceOf("ifStmt")
+    result.add("astnum", astnum)
+    result.add("cond", cond)
+    result.add("trueBranch", trueBranch)
+    if(falseBranch != null)
+      result.add("falseBranch", falseBranch)
+    result.render()
+  }
+
+  def buildWhileStmt(astnum: Int, cond: Any, loopBody: Any) = {
+    val result = stg.getInstanceOf("whileStmt")
+    result.add("astnum", astnum)
+    result.add("cond", cond)
+    result.add("loopBody", loopBody)
+    result.render()
+  }
+  
+  def buildProcedureCall(astnum: Int, p_astnum: Int, p: Any, args: MList[Any]) = {
     val result = stg.getInstanceOf("procedureCall")
-    result.add("procName", procName)
-    args.foreach(arg => result.add("args", arg))
+    val arguments = buildList(args)
+    
+    result.add("astnum", astnum)
+    result.add("p_astnum", p_astnum)
+    result.add("p", p)
+    result.add("args", arguments)
     result.render()
   }
   
-  def buildSeqStmt(seq_astnum: Int, stmt1: String, stmt2: String): String = {
+  def buildSeqStmt(astnum: Int, stmt1: String, stmt2: String): String = {
     // use "S_Sequence" to make the statements in sequence
     if(stmt2 == null){
       stmt1
     }else{
       val result = stg.getInstanceOf("seqStmt")
-      result.add("astnum", seq_astnum)
+      result.add("astnum", astnum)
       result.add("stmt1", stmt1)
       result.add("stmt2", stmt2)
       result.render()      
     }
+  }  
+  
+  def buildReturnStmt(astnum: Int, returnExp: Option[String]) = {
+    val result = stg.getInstanceOf("returnStmt")
+    result.add("astnum", astnum)
+    if(returnExp.isDefined)
+      result.add("returnExp", returnExp.get)
+    result.render()    
   }
-
+  
   def buildAssertStmt(astnum: Int, assertExp: String) = {
     val result = stg.getInstanceOf("assertStmt")
     result.add("astnum", astnum)
@@ -270,56 +378,57 @@ class Factory(stg: STGroupFile) {
     result.add("astnum", astnum)
     result.add("invariantExp", invariantExp)
     result.render()
-  }
+  }  
   
-  def buildWhileStmt(astnum: Int, cond: String, loopBody: String) = {
-    val result = stg.getInstanceOf("whileStmt")
+  def buildArrayTypeDecl(astnum: Int, arrayTypeName: Any, componentType: Any, low: Any, upper: Any) = {
+    val result = stg.getInstanceOf("arrayTypeDecl")
     result.add("astnum", astnum)
-    result.add("cond", cond)
-    result.add("loopBody", loopBody)
+    result.add("tid", arrayTypeName)
+    result.add("theType", componentType)
+    result.add("low", low)
+    result.add("upper", upper)
     result.render()
   }
   
-  def buildIfStmt(astnum: Int, cond: String, ifBody: String) = {
-    val result = stg.getInstanceOf("ifStmt")
+  def buildRecordTypeDecl(astnum: Int, recordTypeName: Any, fields: MList[Any]) = {
+    val result = stg.getInstanceOf("recordTypeDecl")
+    val fs = buildList(fields)
     result.add("astnum", astnum)
-    result.add("cond", cond)
-    result.add("ifBody", ifBody)
+    result.add("tid", recordTypeName)
+    result.add("fields", fs)
     result.render()
   }
   
-  def buildAssignStmt(astnum: Int, lhs: String, rhs: String) = {
-    val result = stg.getInstanceOf("assignStmt")
+  def buildObjectDecl(astnum: Int, id: Any, theType: Any, optionalInit: Option[Any]) = {
+    val result = stg.getInstanceOf("objectDeclaration")
     result.add("astnum", astnum)
-    result.add("lhs", lhs)
-    result.add("rhs", rhs)
+    //buildListAttributes(result, "ids", ids: _*)
+    result.add("id", id)
+    result.add("theType", theType)
+    if(optionalInit.isDefined)
+      result.add("init", optionalInit.get)
     result.render()
-  }
-  
-  def buildReturnStmt(astnum: Int, returnExp: Option[String]) = {
-    val result = stg.getInstanceOf("returnStmt")
-    result.add("astnum", astnum)
-    if(returnExp.isDefined)
-      result.add("returnExp", returnExp.get)
-    result.render()    
-  }
+  }  
   
   def buildListAttributes(st: org.stringtemplate.v4.ST, 
       attributeName: String, attributeValues: String*) {
     attributeValues.foreach(v => st.add(attributeName, v))
   }  
   
-  // paramSpecification(astnum, ids, theType, mode, initExp)
-  def buildParamSpecification(astnum: Int, ids: MList[String], theType: String, mode: String, initExp: Option[String]) = {
+  def buildList(elements: MList[Any]) = {
+    val result = stg.getInstanceOf("list")
+    for(element <- elements)
+      result.add("elements", element)
+    result.render()
+  }  
+  
+  def buildParamSpecification(astnum: Int, x: Any, theType: Any, mode: Any) = {
     val result = stg.getInstanceOf("paramSpecification")
     result.add("astnum", astnum)
     //buildListAttributes(result, "ids", ids: _*)
-    result.add("id", ids(0))
-    val typeNum = getTypeNum(theType)
-    result.add("theType", typeNum)
+    result.add("id", x)
+    result.add("theType", theType)
     result.add("mode", mode)
-    if(initExp.isDefined)
-      result.add("initExp", initExp.get)
     result.render()
   }
   
@@ -331,21 +440,9 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  def buildObjectDecl(astnum: Int, ids: MList[String], theType: String, optionalInit: Option[String]) = {
-    val result = stg.getInstanceOf("objectDeclaration")
-    result.add("astnum", astnum)
-    //buildListAttributes(result, "ids", ids: _*)
-    result.add("id", ids(0));
-    val theTypeNum = getTypeNum(theType)
-    result.add("theType", theTypeNum)
-    if(optionalInit.isDefined)
-      result.add("init", optionalInit.get)
-    result.render()
-  }
-  
-  def buildProcedureBody(astnum: Int, procName: String, aspectSpecs: MList[String], params: MList[String], 
+  def buildProcedureBodyDeclaration(astnum: Int, procName: String, aspectSpecs: MList[String], params: MList[String], 
       identDecls: MList[String], procBody: String) = {
-    val result = stg.getInstanceOf("procedureBody")
+    val result = stg.getInstanceOf("procedureBodyDeclaration")
     result.add("astnum", astnum)
     result.add("procName", procName)
     result.add("procBody", procBody) 
@@ -355,9 +452,9 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  def buildFunctionBody(astnum: Int, funcName: String, returnT: String, aspectSpecs: MList[String], params: MList[String], 
+  def buildFunctionBodyDeclaration(astnum: Int, funcName: String, returnT: String, aspectSpecs: MList[String], params: MList[String], 
       identDecls: MList[String], funcBody: String) = {
-    val result = stg.getInstanceOf("functionBody")
+    val result = stg.getInstanceOf("functionBodyDeclaration")
     result.add("astnum", astnum)
     result.add("funcName", funcName)
     result.add("returnT", returnT)
@@ -431,8 +528,15 @@ class Factory(stg: STGroupFile) {
    * [2] The Following Is For Bakar Jago Type Translator *
    *******************************************************/ 
 
-  def buildBakarJagoTypes(typeDeclarations: String*) = {
-    val result = stg.getInstanceOf("bakarJagoTypes")
+  def buildBasicAstTypes(typeDeclarations: String*) = {
+    val result = stg.getInstanceOf("basicAstTypes")
+    for(typeDecl <- typeDeclarations)
+      result.add("typeDeclarations", typeDecl)
+    result.render()
+  }
+  
+  def buildAstTypes(typeDeclarations: String*) = {
+    val result = stg.getInstanceOf("astTypes")
     for(typeDecl <- typeDeclarations)
       result.add("typeDeclarations", typeDecl)
     result.render()
@@ -458,8 +562,8 @@ class Factory(stg: STGroupFile) {
    *     type package_body =
    *       | Packagebody of pkgbody_aspect_specs option * subprogram list
    */  
-  def buildTypeDeclaration(typeName : String, annotation : Option[String], constructors : String*) = {
-    val result = stg.getInstanceOf("typeDeclaration")
+  def buildInductiveType(typeName : String, annotation : Option[String], constructors : String*) = {
+    val result = stg.getInstanceOf("inductiveType")
     result.add("typeName", typeName)
     val stgFileName = stg.getName()
     stgFileName match{
@@ -490,7 +594,67 @@ class Factory(stg: STGroupFile) {
     result.render()    
   }
   
-  def buildFieldDecl(fieldName : String, fieldType : String) = {
+  def buildWithType(typeName : String, annotation : Option[String], constructors : String*) = {
+    val result = stg.getInstanceOf("withType")
+    result.add("typeName", typeName)
+    val stgFileName = stg.getName()
+    stgFileName match{
+      case "Type_In_Coq" =>
+        for(e <- constructors)
+          result.add("constructors", e) 
+      case "Type_In_Ocaml" =>
+        // do some optimization in Ocaml type
+        if(constructors.length > 1){
+          for(e <- constructors){
+            result.add("constructors", e)
+          }
+         }else{
+           val constr =
+             if(constructors.head.contains("*")){
+               constructors.head
+             }else{
+               val t = constructors.head.split(" of ")
+               t.apply(1) // drop the constructor head
+             }
+           result.add("constructors", constr) 
+         }
+      case _ =>
+        assert(false)
+    }
+    if (annotation.isDefined)
+      result.add("annotation", annotation.get)
+    result.render()    
+  }  
+  
+  def buildWithOneConstructorType(typeName : String, annotation : Option[String], 
+      constructorName: String, elements : String*) = {
+    val result = stg.getInstanceOf("withOneConstructorType")
+    result.add("typeName", typeName)
+    result.add("constructorName", constructorName)
+    for(e <- elements)
+      result.add("elements", e) 
+
+    if (annotation.isDefined)
+      result.add("annotation", annotation.get)
+    result.render()    
+  } 
+  
+  def buildMutuallyInductiveType(typeName : String, annotation : Option[String], constructors : MList[String], withs: MList[String]) = {
+    val result = stg.getInstanceOf("mutuallyInductiveType")
+    result.add("typeName", typeName)
+    
+    for(e <- constructors) 
+      result.add("constructors", e) 
+    
+    for(w <- withs)
+      result.add("withs", w)
+      
+    if (annotation.isDefined)
+      result.add("annotation", annotation.get)
+    result.render()
+  }
+  
+  def buildFieldDecl(fieldName : Any, fieldType : Any) = {
     val result = stg.getInstanceOf("fieldDeclaration")
     result.add("fieldName", fieldName)
     result.add("fieldType", fieldType)
@@ -505,7 +669,7 @@ class Factory(stg: STGroupFile) {
     if (annotation.isDefined)
       result.add("annotation", annotation.get)
     result.render()
-  }  
+  }
   
   /**
    * Type definitions are different in Coq and OCaml, take id as example
@@ -539,9 +703,14 @@ class Factory(stg: STGroupFile) {
     val result = stg.getInstanceOf("listType")
     result.add("elemType", elemType)
     result.render()
+  }
+  
+  def buildProduct(x : String, y: String) = {
+    val result = stg.getInstanceOf("product")
+    result.add("x", x)
+    result.add("y", y)
+    result.render()
   }  
-  
-  
 }
 
 

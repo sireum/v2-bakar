@@ -4,95 +4,125 @@ optionVal(value) ::= <<
 $if(value)$Some($value$)$else$None$endif$ 
 >>
 
-binaryExpr(astnum, op, loperand, roperand) ::= <<
-E_Binary_Operation $astnum$ $op$ ($loperand$) ($roperand$)
+list(elements) ::= <<
+($if(elements)$$elements; separator=" :: "$ :: $endif$nil)
 >>
 
-unaryExpr(astnum, op, operand) ::= <<
-E_Unary_Operation $astnum$ $op$ ($operand$)
+literal(theType, theLiteral) ::= <<
+($theType$ $theLiteral$)
+>>
+
+literalExpr(astnum, litval, checks) ::= <<
+(E_Literal_XX $astnum$ $litval$ (*$checks$*))
+>>
+
+binaryExpr(astnum, op, loperand, roperand, checks) ::= <<
+(E_Binary_Operation_XX $astnum$ $op$ $loperand$ $roperand$ (*checks*))
+>>
+
+unaryExpr(astnum, op, operand, checks) ::= <<
+(E_Unary_Operation_XX $astnum$ $op$ $operand$ (*checks*))
+>>
+
+nameExpr(astnum, x, checks) ::= <<
+(E_Name_XX $astnum$ $x$ (*checks*))
 >>
 
 varId(id, annotation) ::= <<
-$if(annotation)$(*$annotation$*) $endif$$id$
+($if(annotation)$(*$annotation$*) $endif$$id$)
 >>
 
-identifierExpr(astnum, id) ::= <<
-E_Identifier $astnum$ $id$
+identifierExpr(astnum, id, checks) ::= <<
+(E_Identifier_XX $astnum$ $id$ (*checks*))
 >>
 
-// Inductive constant: Type := 
-//     | Integer_Literal: nat -> constant
-// the type is "Integer_Literal", the value is of type nat
-literal(theType, theLiteral) ::= <<
-$theType$ $theLiteral$
+// x[e]
+indexedComponent(astnum, x_astnum, x, e, checks) ::= <<
+(E_Indexed_Component_XX $astnum$ $x_astnum$ $x$ $e$ (*checks*))
 >>
 
-literalExpr(astnum, litval) ::= <<
-E_Literal $astnum$ ($litval$)
+// x.f
+selectedComponent(astnum, x_astnum, x, f, checks) ::= <<
+(E_Selected_Component_XX $astnum$ $x_astnum$ $x$ $f$ (*checks*))
 >>
 
-procedureCall(procName, args) ::= <<
-$procName$($args; separator=", "$)
->>
-
-seqStmt(astnum, stmt1, stmt2) ::= <<
-S_Sequence $astnum$ (
-  $stmt1$ ) ( 
-  $stmt2$ )
->>
-
-assertStmt(astnum, assertExp) ::= <<
-S_Assert $astnum$ ($assertExp$)
->>	
-
-loopInvariantStmt(astnum, invariantExp) ::= <<
-S_Loop_Invariant $astnum$ ($invariantExp$)
->>
-
-whileStmt(astnum, cond, loopBody) ::= <<
-S_While_Loop $astnum$ ($cond$) (
-    $loopBody$
-  )
->>
-
-ifStmt(astnum, cond, ifBody) ::= <<
-S_If $astnum$ ($cond$) (
-    $ifBody$
-  )
+nullStmt() ::= <<
+S_Null_XX
 >>
 
 assignStmt(astnum, lhs, rhs) ::= <<
-S_Assignment $astnum$ ($lhs$) ($rhs$)
+(S_Assignment_XX $astnum$ $lhs$ $rhs$)
+>>
+
+ifStmt(astnum, cond, trueBranch, falseBranch) ::= <<
+(S_If_XX $astnum$ $cond$
+  $trueBranch$
+  $if(falseBranch)$$falseBranch$$else$$nullStmt()$$endif$
+)
+>>
+
+whileStmt(astnum, cond, loopBody) ::= <<
+(S_While_Loop_XX $astnum$ $cond$
+  $loopBody$
+)
+>>
+
+procedureCall(astnum, p_astnum, p, args) ::= <<
+(S_Procedure_Call_XX $astnum$ $p_astnum$ $p$ 
+  $args$
+)
+>>
+
+seqStmt(astnum, stmt1, stmt2) ::= <<
+(S_Sequence_XX $astnum$
+  $stmt1$ 
+  $stmt2$
+)
 >>
 
 returnStmt(astnum, returnExp) ::= <<
-S_Return $astnum$ $if(returnExp)$(Some ($returnExp$))$else$None$endif$
+(S_Return_XX $astnum$ $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
 >>
 
-//paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
-//mkparam_specification $astnum$ ($ids; separator=" :: "$ :: nil) ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$(Some ($initExp$))$else$None$endif$
-//>>
-paramSpecification(astnum, id, theType, mode, initExp) ::= <<
-mkparameter_specification $astnum$ $id$ ($theType$) $if(mode)$($mode$)$else$In$endif$ $if(initExp)$(Some ($initExp$))$else$None$endif$
+assertStmt(astnum, assertExp) ::= <<
+(S_Assert_XX $astnum$ $assertExp$)
+>>	
+
+loopInvariantStmt(astnum, invariantExp) ::= <<
+(S_Loop_Invariant_XX $astnum$ $invariantExp$)
+>>
+
+fieldDeclaration(fieldName, fieldType) ::= <<
+($fieldName$, $fieldType$)
+>>
+
+arrayTypeDecl(astnum, tid, theType, low, upper) ::= <<
+(Array_Type_Declaration_XX $astnum$ $tid$ $theType$ $low$ $upper$)
+>>
+
+recordTypeDecl(astnum, tid, fields) ::= <<
+(Record_Type_Declaration_XX $astnum$ $tid$ $fields$)
+>>
+
+objectDeclaration(astnum, id, theType, init) ::= <<
+(mkobject_declaration_xx $astnum$ $id$ $theType$ $if(init)$(Some ($init$))$else$None$endif$)
+>>
+
+paramSpecification(astnum, id, theType, mode) ::= <<
+(mkparameter_specification_xx $astnum$ $id$ ($theType$) $if(mode)$$mode$$else$In$endif$)
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
-mkaspect_specification $astnum$
+(mkaspect_specification_xx $astnum$
   (* Aspect Mark *)
-  ($aspectMark$) 
+  $aspectMark$
   (* Aspect Definition *)
-  ($aspectDef$)
+  $aspectDef$
+)
 >>
 
-//objectDeclaration(astnum, ids, theType, init) ::= <<
-//mkobject_declaration $astnum$ ($ids; separator=" :: "$ :: nil) $theType$ $if(init)$(Some ($init$))$else$None$endif$
-//>>
-objectDeclaration(astnum, id, theType, init) ::= <<
-mkobject_declaration $astnum$ $id$ $theType$ $if(init)$(Some ($init$))$else$None$endif$
->>
-
-procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
-mkprocedure_body $astnum$
+procedureBodyDeclaration(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
+(mkprocedure_declaration_xx $astnum$
   (* Procedure Body - Name *)
   $procName$
   (* Procedure Body - Specification *)
@@ -107,14 +137,15 @@ mkprocedure_body $astnum$
   (* Procedure Body - Statements *) (
     $procBody$
   )
+)
 >>
 
-functionBody(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-mkfunction_body $astnum$
+functionBodyDeclaration(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+(mkfunction_declaration_xx $astnum$
   (* Function Body - Name *)
   $funcName$
   (* Function Body - Return Type *) 
-  ($returnT$) 
+  $returnT$ 
   (* Function Body - Specification *)
   ($if(aspectSpecs)$
   $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
@@ -127,28 +158,31 @@ mkfunction_body $astnum$
   (* Function Body - Statements *) (
     $funcBody$
   )
+)
 >>
 
 // <Procedure procedure_body> or <Function function_body>
 // <annotation> can be either "Procedure" or "Function"
 subProgram(astnum, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
-$kind$ $astnum$ (
+($kind$ $astnum$ (
   $prog$
+  )
 )
 >>
 
 packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
-PackageBody $astnum$
+(PackageBody $astnum$
   (* Package Body - Name *)
-  ($pkgBodyName$)
+  $pkgBodyName$
   (* Package Body - Specification *)
   ($if(pkgBodyAspectSpecs)$
   $pkgBodyAspectSpecs; separator = " ::\n"$ :: nil$else$None$endif$)    
   (* Package Body - Declared Items *) (
     $pkgBodyDeclItems; separator=" ::\n\n"$ :: nil
   )
+)
 >>
 
 unitDeclaration(astnum, kind, packageUnit) ::= <<
@@ -159,7 +193,7 @@ $kind$ $astnum$ (
 
 compilationUnit(astnum, unitDecl, unitExpTypeTable, unitTypeNameTable) ::= <<
 (* Compilation Unit *)
-Library_Unit $astnum$
+Library_Unit_XX $astnum$
   (* Compilation Unit - Unit Declaration *) (
     $unitDecl$
   )
