@@ -1,4 +1,4 @@
-function Prime (N : Integer) return Integer
+procedure Prime (N : Integer; R: out Integer)
 is 
    Result: Integer;
    I: Integer;
@@ -17,5 +17,5 @@ begin
 	 Result := 1;
       end if;
     end loop;	    
-   return Result;
+   R := Result;
 end Prime;

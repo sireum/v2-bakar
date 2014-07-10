@@ -1,68 +1,41 @@
 (* Compilation Unit *)
-Library_Unit 1
-  (* Compilation Unit - Unit Declaration *) (
-    Library_Subprogram 2 (
-      (* Function Body Declaration *)
-      Function 3 (
-        mkfunction_body 4
-          (* Function Body - Name *)
-          (*Gcd*) 1
-          (* Function Body - Return Type *) 
-          (Integer) 
-          (* Function Body - Specification *)
-          (nil)
-          (* Function Body - Parameters *)
-          (
-          mkparameter_specification 5 (*M*) 1 (1) (In) None :: 
-          mkparameter_specification 6 (*N*) 2 (1) (In) None :: nil)
-          (* Function Body - Local Defined Variables *)
-          (
-          mkobject_declaration 7 (*C*) 3 1 None :: 
-          mkobject_declaration 8 (*T*) 5 1 None :: 
-          mkobject_declaration 9 (*R*) 6 1 None :: nil)
-          (* Function Body - Statements *) (
-            S_Sequence 10 (
-              S_Assignment 11 ((*C*) 3) (E_Identifier 12 (*M*) 1) ) ( 
-              S_Sequence 13 (
-                S_Assignment 14 ((*D*) 4) (E_Identifier 15 (*N*) 2) ) ( 
-                S_Sequence 16 (
-                  S_While_Loop 17 (E_Binary_Operation 18 Not_Equal (E_Identifier 19 (*D*) 4) (E_Literal 20 (Integer_Literal 0))) (
-                      S_Sequence 21 (
-                        S_Assignment 22 ((*T*) 5) (E_Binary_Operation 23 Divide (E_Identifier 24 (*C*) 3) (E_Identifier 25 (*D*) 4)) ) ( 
-                        S_Sequence 26 (
-                          S_Assignment 27 ((*R*) 6) (E_Binary_Operation 28 Minus (E_Identifier 29 (*C*) 3) (E_Binary_Operation 30 Multiply (E_Identifier 31 (*T*) 5) (E_Identifier 32 (*D*) 4))) ) ( 
-                          S_Sequence 33 (
-                            S_Assignment 34 ((*C*) 3) (E_Identifier 35 (*D*) 4) ) ( 
-                            S_Assignment 36 ((*D*) 4) (E_Identifier 37 (*R*) 6) ) ) )
-                    ) ) ( 
-                  S_Return 38 (Some (E_Identifier 39 (*C*) 3)) ) ) )
-          )
+Library_Unit_XX 1
+  (* Compilation Unit - Unit Declaration *)
+  (Library_Subprogram_XX 2
+    (* Procedure Body Declaration *)
+    (Global_Procedure_XX 3
+      (mkprocedure_declaration_xx 4
+        (* Procedure Name *)
+        ((*Gcd*) 1)
+        (* Formal Parameters *)
+        (
+        (mkparameter_specification_xx 5 ((*M*) 1) Integer In) :: 
+        (mkparameter_specification_xx 6 ((*N*) 2) Integer In) :: 
+        (mkparameter_specification_xx 7 ((*Y*) 3) Integer Out) :: nil) 
+        (* Procedure Contract *)
+        (nil)  
+        (* Object Declarations *)
+        (
+        (D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*C*) 4) Integer None)) :: 
+        (D_Object_Declaration_XX 10 (mkobject_declaration_xx 11 ((*D*) 5) Integer None)) :: 
+        (D_Object_Declaration_XX 12 (mkobject_declaration_xx 13 ((*T*) 6) Integer None)) :: 
+        (D_Object_Declaration_XX 14 (mkobject_declaration_xx 15 ((*R*) 7) Integer None)) :: nil)
+        (* Procedure Body *)
+          (S_Sequence_XX 16
+          (S_Assignment_XX 17 (E_Identifier_XX 18 ((*C*) 4) (**(nil)**)) (E_Name_XX 19 (E_Identifier_XX 20 ((*M*) 1) (**(nil)**)) (**(nil)**))) 
+          (S_Sequence_XX 21
+          (S_Assignment_XX 22 (E_Identifier_XX 23 ((*D*) 5) (**(nil)**)) (E_Name_XX 24 (E_Identifier_XX 25 ((*N*) 2) (**(nil)**)) (**(nil)**))) 
+          (S_Sequence_XX 26
+          (S_While_Loop_XX 27 (E_Binary_Operation_XX 28 Not_Equal (E_Name_XX 29 (E_Identifier_XX 30 ((*D*) 5) (**(nil)**)) (**(nil)**)) (E_Literal_XX 31 (Integer_Literal 0) (**(nil)**)) (**(nil)**))
+            (S_Sequence_XX 32
+            (S_Assignment_XX 33 (E_Identifier_XX 34 ((*T*) 6) (**(nil)**)) (E_Binary_Operation_XX 35 Divide (E_Name_XX 36 (E_Identifier_XX 37 ((*C*) 4) (**(nil)**)) (**(nil)**)) (E_Name_XX 38 (E_Identifier_XX 39 ((*D*) 5) (**(nil)**)) (**(nil)**)) (**(Do_Division_Check :: Do_Overflow_Check :: nil)**))) 
+            (S_Sequence_XX 40
+            (S_Assignment_XX 41 (E_Identifier_XX 42 ((*R*) 7) (**(nil)**)) (E_Binary_Operation_XX 43 Minus (E_Name_XX 44 (E_Identifier_XX 45 ((*C*) 4) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 46 Multiply (E_Name_XX 47 (E_Identifier_XX 48 ((*T*) 6) (**(nil)**)) (**(nil)**)) (E_Name_XX 49 (E_Identifier_XX 50 ((*D*) 5) (**(nil)**)) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)) (**(Do_Overflow_Check :: nil)**))) 
+            (S_Sequence_XX 51
+            (S_Assignment_XX 52 (E_Identifier_XX 53 ((*C*) 4) (**(nil)**)) (E_Name_XX 54 (E_Identifier_XX 55 ((*D*) 5) (**(nil)**)) (**(nil)**))) 
+            (S_Assignment_XX 56 (E_Identifier_XX 57 ((*D*) 5) (**(nil)**)) (E_Name_XX 58 (E_Identifier_XX 59 ((*R*) 7) (**(nil)**)) (**(nil)**))))))
+          ) 
+          (S_Assignment_XX 60 (E_Identifier_XX 61 ((*Y*) 3) (**(nil)**)) (E_Name_XX 62 (E_Identifier_XX 63 ((*C*) 4) (**(nil)**)) (**(nil)**))))))
       )
-    )
-  )
-  (* Compilation Unit - Type Table *) (
-    mktype_table (
-      (* Expression Type Table: Expression AstNum --> TypeNum *)
-      (12, 1) ::
-      (15, 1) ::
-      (18, 3) ::
-      (19, 1) ::
-      (20, 2) ::
-      (23, 1) ::
-      (24, 1) ::
-      (25, 1) ::
-      (28, 1) ::
-      (29, 1) ::
-      (30, 1) ::
-      (31, 1) ::
-      (32, 1) ::
-      (35, 1) ::
-      (37, 1) ::
-      (39, 1) :: nil
-    ) (
-      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
-      (1, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
-      (2, ("universal_integer"%string, None)) ::
-      (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) :: nil
     )
   )

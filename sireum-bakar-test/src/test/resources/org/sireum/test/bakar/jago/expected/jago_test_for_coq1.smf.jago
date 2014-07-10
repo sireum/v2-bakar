@@ -1,75 +1,42 @@
 (* Compilation Unit *)
-Library_Unit 1
-  (* Compilation Unit - Unit Declaration *) (
-    Library_Subprogram 2 (
-      (* Procedure Body Declaration *)
-      Procedure 3 (
-        mkprocedure_body 4
-          (* Procedure Body - Name *)
-          (*Test_for_Coq1*) 1
-          (* Procedure Body - Specification *)
-          (nil)
-          (* Procedure Body - Parameters *)
-          (nil) 
-          (* Procedure Body - Variable Declarations *)
-          (
-          mkobject_declaration 5 (*N*) 1 2 (Some (E_Literal 6 (Integer_Literal 25))) :: 
-          mkobject_declaration 7 (*Result*) 2 3 None :: 
-          mkobject_declaration 8 (*I*) 3 2 None :: 
-          mkobject_declaration 9 (*X*) 4 2 None :: nil)
-          (* Procedure Body - Statements *) (
-            S_Sequence 10 (
-              S_Assignment 11 ((*Result*) 2) (E_Literal 12 (Boolean_Literal true)) ) ( 
-              S_Sequence 13 (
-                S_If 14 (E_Binary_Operation 15 Less_Than_Or_Equal (E_Identifier 16 (*N*) 1) (E_Literal 17 (Integer_Literal 1))) (
-                    S_Assignment 18 ((*Result*) 2) (E_Literal 19 (Boolean_Literal false))
-                  ) ) ( 
-                S_Sequence 20 (
-                  S_Assignment 21 ((*I*) 3) (E_Literal 22 (Integer_Literal 0)) ) ( 
-                  S_While_Loop 23 (E_Binary_Operation 24 Less_Than_Or_Equal (E_Binary_Operation 25 Multiply (E_Identifier 26 (*I*) 3) (E_Identifier 27 (*I*) 3)) (E_Identifier 28 (*N*) 1)) (
-                      S_Sequence 29 (
-                        S_Assignment 30 ((*X*) 4) (E_Binary_Operation 31 Divide (E_Identifier 32 (*N*) 1) (E_Identifier 33 (*I*) 3)) ) ( 
-                        S_Sequence 34 (
-                          S_If 35 (E_Binary_Operation 36 Equal (E_Identifier 37 (*N*) 1) (E_Binary_Operation 38 Multiply (E_Identifier 39 (*X*) 4) (E_Identifier 40 (*I*) 3))) (
-                              S_Assignment 41 ((*Result*) 2) (E_Literal 42 (Boolean_Literal false))
-                            ) ) ( 
-                          S_Assignment 43 ((*I*) 3) (E_Binary_Operation 44 Plus (E_Identifier 45 (*I*) 3) (E_Literal 46 (Integer_Literal 1))) ) )
-                    ) ) ) )
-          )
+Library_Unit_XX 1
+  (* Compilation Unit - Unit Declaration *)
+  (Library_Subprogram_XX 2
+    (* Procedure Body Declaration *)
+    (Global_Procedure_XX 3
+      (mkprocedure_declaration_xx 4
+        (* Procedure Name *)
+        ((*Test_for_Coq1*) 1)
+        (* Formal Parameters *)
+        (nil) 
+        (* Procedure Contract *)
+        (nil)  
+        (* Object Declarations *)
+        (
+        (D_Object_Declaration_XX 5 (mkobject_declaration_xx 6 ((*N*) 1) Integer (Some ((E_Literal_XX 7 (Integer_Literal 25) (**(nil)**)))))) :: 
+        (D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*Result*) 2) Boolean None)) :: 
+        (D_Object_Declaration_XX 10 (mkobject_declaration_xx 11 ((*I*) 3) Integer None)) :: 
+        (D_Object_Declaration_XX 12 (mkobject_declaration_xx 13 ((*X*) 4) Integer None)) :: nil)
+        (* Procedure Body *)
+          (S_Sequence_XX 14
+          (S_Assignment_XX 15 (E_Identifier_XX 16 ((*Result*) 2) (**(nil)**)) (E_Literal_XX 17 (Boolean_Literal true) (**(nil)**))) 
+          (S_Sequence_XX 18
+          (S_If_XX 19 (E_Binary_Operation_XX 20 Less_Than_Or_Equal (E_Name_XX 21 (E_Identifier_XX 22 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Literal_XX 23 (Integer_Literal 1) (**(nil)**)) (**(nil)**))
+            (S_Assignment_XX 24 (E_Identifier_XX 25 ((*Result*) 2) (**(nil)**)) (E_Literal_XX 26 (Boolean_Literal false) (**(nil)**)))
+            S_Null_XX
+          ) 
+          (S_Sequence_XX 27
+          (S_Assignment_XX 28 (E_Identifier_XX 29 ((*I*) 3) (**(nil)**)) (E_Literal_XX 30 (Integer_Literal 0) (**(nil)**))) 
+          (S_While_Loop_XX 31 (E_Binary_Operation_XX 32 Less_Than_Or_Equal (E_Binary_Operation_XX 33 Multiply (E_Name_XX 34 (E_Identifier_XX 35 ((*I*) 3) (**(nil)**)) (**(nil)**)) (E_Name_XX 36 (E_Identifier_XX 37 ((*I*) 3) (**(nil)**)) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)) (E_Name_XX 38 (E_Identifier_XX 39 ((*N*) 1) (**(nil)**)) (**(nil)**)) (**(nil)**))
+            (S_Sequence_XX 40
+            (S_Assignment_XX 41 (E_Identifier_XX 42 ((*X*) 4) (**(nil)**)) (E_Binary_Operation_XX 43 Divide (E_Name_XX 44 (E_Identifier_XX 45 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Name_XX 46 (E_Identifier_XX 47 ((*I*) 3) (**(nil)**)) (**(nil)**)) (**(Do_Division_Check :: Do_Overflow_Check :: nil)**))) 
+            (S_Sequence_XX 48
+            (S_If_XX 49 (E_Binary_Operation_XX 50 Equal (E_Name_XX 51 (E_Identifier_XX 52 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 53 Multiply (E_Name_XX 54 (E_Identifier_XX 55 ((*X*) 4) (**(nil)**)) (**(nil)**)) (E_Name_XX 56 (E_Identifier_XX 57 ((*I*) 3) (**(nil)**)) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)) (**(nil)**))
+              (S_Assignment_XX 58 (E_Identifier_XX 59 ((*Result*) 2) (**(nil)**)) (E_Literal_XX 60 (Boolean_Literal false) (**(nil)**)))
+              S_Null_XX
+            ) 
+            (S_Assignment_XX 61 (E_Identifier_XX 62 ((*I*) 3) (**(nil)**)) (E_Binary_Operation_XX 63 Plus (E_Name_XX 64 (E_Identifier_XX 65 ((*I*) 3) (**(nil)**)) (**(nil)**)) (E_Literal_XX 66 (Integer_Literal 1) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)))))
+          ))))
       )
-    )
-  )
-  (* Compilation Unit - Type Table *) (
-    mktype_table (
-      (* Expression Type Table: Expression AstNum --> TypeNum *)
-      (6, 1) ::
-      (12, 3) ::
-      (15, 3) ::
-      (16, 2) ::
-      (17, 1) ::
-      (19, 3) ::
-      (22, 1) ::
-      (24, 3) ::
-      (25, 2) ::
-      (26, 2) ::
-      (27, 2) ::
-      (28, 2) ::
-      (31, 2) ::
-      (32, 2) ::
-      (33, 2) ::
-      (36, 3) ::
-      (37, 2) ::
-      (38, 2) ::
-      (39, 2) ::
-      (40, 2) ::
-      (42, 3) ::
-      (44, 2) ::
-      (45, 2) ::
-      (46, 1) :: nil
-    ) (
-      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
-      (1, ("universal_integer"%string, None)) ::
-      (2, ("ada://ordinary_type/Standard-1:1/Integer-1:1"%string, None)) ::
-      (3, ("ada://ordinary_type/Standard-1:1/Boolean-1:1"%string, None)) :: nil
     )
   )

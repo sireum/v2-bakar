@@ -1,6 +1,7 @@
-    procedure Test_Case_10 (I1, I2, I3 : in Integer; O1, O2 : out Integer)
+    procedure Test_Case_10 (I1: in Integer; I2: in Integer; I3 : in Integer; O1: out Integer; O2 : out Integer)
     is
-        L1, L2 : Integer;
+       L1 : Integer;
+       L2 : Integer;
     begin
         L2 := 5;
         L1 := I3;

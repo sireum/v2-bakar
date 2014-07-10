@@ -1,4 +1,4 @@
-function Odd (X : in Integer) return Integer
+procedure Odd (X : in Integer; R: out Integer)
 is 
    Result: Integer;
    T: Integer;
@@ -10,5 +10,5 @@ begin
    if X = T * 2 then
       Result := 0;
    end if;
-   return Result;
+   R := Result;
 end Odd;

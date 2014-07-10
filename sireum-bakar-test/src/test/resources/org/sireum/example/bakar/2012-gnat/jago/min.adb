@@ -1,4 +1,4 @@
-function Min (X : Integer; Y : Integer) return Integer
+procedure Min (X : Integer; Y : Integer; R: out Integer)
 is 
    Result : Integer;
 begin
@@ -7,5 +7,5 @@ begin
    if X > Y then
       Result := Y;
    end if;
-   return Result;
+   R := Result;
 end Min;

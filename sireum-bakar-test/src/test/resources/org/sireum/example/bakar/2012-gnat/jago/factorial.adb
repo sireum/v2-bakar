@@ -1,4 +1,4 @@
-function Factorial (N : Integer) return Integer
+procedure Factorial (N : Integer; M : out Integer)
 is 
    Result: Integer := 1;
    T: Integer;
@@ -9,5 +9,5 @@ begin
       Result := Result * T;
       T := T - 1;
    end loop;
-   return Result;
+   M := Result;
 end Factorial;

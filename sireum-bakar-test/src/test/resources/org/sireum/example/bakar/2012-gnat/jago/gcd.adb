@@ -1,6 +1,7 @@
-function Gcd (M : Integer; N : Integer) return Integer
+procedure Gcd (M : Integer; N : Integer; Y: out Integer)
 is 
-   C, D : Integer;
+   C : Integer; 
+   D : Integer;
    T: Integer;
    R: Integer;
 begin
@@ -13,5 +14,5 @@ begin
       C := D;
       D := R;
    end loop;
-   return C;
+   Y := C;
 end Gcd;

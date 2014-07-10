@@ -1,4 +1,4 @@
-function Max (X : Integer; Y : Integer) return Integer
+procedure Max (X : Integer; Y : Integer; R: out Integer)
 is 
    Result : Integer;
 begin
@@ -7,5 +7,5 @@ begin
    if X > Y then
       Result := X;
    end if;
-   return Result;
+   R := Result;
 end Max;
