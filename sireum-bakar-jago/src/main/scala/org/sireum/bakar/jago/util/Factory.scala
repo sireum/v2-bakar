@@ -232,6 +232,17 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
+  // it's used as a type for a declared variable
+  def buildRefType(refName: String, ref: String) = {
+    refName.toLowerCase() match {
+      case "integer" => "Integer"
+      case "boolean" => "Boolean"
+      case _ => 
+        val x = buildId(refName, ref)
+        "(Aggregate " + x + ")"
+    }    
+  }
+
   
   /**
    * the identifier can be either 
@@ -439,7 +450,40 @@ class Factory(stg: STGroupFile) {
     result.add("aspectDef", aspectDef)
     result.render()
   }
+
+  def buildObjectDeclarationWrapper(astnum: Int, objectDecl: Any) = {
+    val result = stg.getInstanceOf("objectDeclarationWrapper")
+    result.add("astnum", astnum)
+    result.add("objectDecl", objectDecl)
+    result.render()
+  }
+
+  def buildProcedureDeclarationWrapper(astnum: Int, procedureDecl: Any) = {
+    val result = stg.getInstanceOf("procedureDeclarationWrapper")
+    result.add("astnum", astnum)
+    result.add("procedureDecl", procedureDecl)
+    result.render()    
+  }
   
+  def buildTypeDeclarationWrapper(astnum: Int, typeDecl: Any) = {
+    val result = stg.getInstanceOf("typeDeclarationWrapper")
+    result.add("astnum", astnum)
+    result.add("typeDecl", typeDecl)
+    result.render()
+  }
+  
+  def buildDeclaration(astnum: Int, decl: String) = {
+    if (decl.contains("mkobject_declaration")) {
+      buildObjectDeclarationWrapper(astnum, decl)
+    } else if (decl.contains("mkprocedure_declaration")) {
+      buildProcedureDeclarationWrapper(astnum, decl)
+    } else if (decl.contains("Type_Declaration")) {
+      buildTypeDeclarationWrapper(astnum, decl)
+    } else {
+      "Undefined Declarations !"
+    }
+  }
+
   def buildProcedureBodyDeclaration(astnum: Int, procName: String, aspectSpecs: MList[String], params: MList[String], 
       identDecls: MList[String], procBody: String) = {
     val result = stg.getInstanceOf("procedureBodyDeclaration")
@@ -499,21 +543,21 @@ class Factory(stg: STGroupFile) {
     val result = stg.getInstanceOf("compilationUnit")
     result.add("astnum", astnum)
     result.add("unitDecl", unitDecl)
-    // [1]
-    val sortedSeq1 = unitExpTypeMap.toSeq.sortBy(_._1)
-    for(e <- sortedSeq1){
-      result.add("unitExpTypeTable", buildMappingItem(e._1.toString, e._2.toString))
-    }
-    // [2]
-    // reverse the map, and then sort the mapping according to the natural number
-    val reversedTypeMapping = unitTypeMap.map(_.swap)
-    val sortedSeq2 = reversedTypeMapping.toSeq.sortBy(_._1) 
-    for(e <- sortedSeq2){
-      // TODO: the type declaration AST number is now set None
-      val typedecl_num = "None"
-      val typeInfor = buildMappingItem(buildString(e._2).replaceAll(" ", "_"), typedecl_num)
-      result.add("unitTypeNameTable", buildMappingItem(e._1.toString, typeInfor)) 
-    }
+//    // [1]
+//    val sortedSeq1 = unitExpTypeMap.toSeq.sortBy(_._1)
+//    for(e <- sortedSeq1){
+//      result.add("unitExpTypeTable", buildMappingItem(e._1.toString, e._2.toString))
+//    }
+//    // [2]
+//    // reverse the map, and then sort the mapping according to the natural number
+//    val reversedTypeMapping = unitTypeMap.map(_.swap)
+//    val sortedSeq2 = reversedTypeMapping.toSeq.sortBy(_._1) 
+//    for(e <- sortedSeq2){
+//      // TODO: the type declaration AST number is now set None
+//      val typedecl_num = "None"
+//      val typeInfor = buildMappingItem(buildString(e._2).replaceAll(" ", "_"), typedecl_num)
+//      result.add("unitTypeNameTable", buildMappingItem(e._1.toString, typeInfor)) 
+//    }
     result.render()
   }
   

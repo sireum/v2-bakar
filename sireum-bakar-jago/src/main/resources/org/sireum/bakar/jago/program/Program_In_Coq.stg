@@ -13,19 +13,19 @@ literal(theType, theLiteral) ::= <<
 >>
 
 literalExpr(astnum, litval, checks) ::= <<
-(E_Literal_XX $astnum$ $litval$ (*$checks$*))
+(E_Literal_XX $astnum$ $litval$ (**$checks$**))
 >>
 
 binaryExpr(astnum, op, loperand, roperand, checks) ::= <<
-(E_Binary_Operation_XX $astnum$ $op$ $loperand$ $roperand$ (*checks*))
+(E_Binary_Operation_XX $astnum$ $op$ $loperand$ $roperand$ (**$checks$**))
 >>
 
 unaryExpr(astnum, op, operand, checks) ::= <<
-(E_Unary_Operation_XX $astnum$ $op$ $operand$ (*checks*))
+(E_Unary_Operation_XX $astnum$ $op$ $operand$ (**$checks$**))
 >>
 
 nameExpr(astnum, x, checks) ::= <<
-(E_Name_XX $astnum$ $x$ (*checks*))
+(E_Name_XX $astnum$ $x$ (**$checks$**))
 >>
 
 varId(id, annotation) ::= <<
@@ -33,17 +33,17 @@ varId(id, annotation) ::= <<
 >>
 
 identifierExpr(astnum, id, checks) ::= <<
-(E_Identifier_XX $astnum$ $id$ (*checks*))
+(E_Identifier_XX $astnum$ $id$ (**$checks$**))
 >>
 
 // x[e]
 indexedComponent(astnum, x_astnum, x, e, checks) ::= <<
-(E_Indexed_Component_XX $astnum$ $x_astnum$ $x$ $e$ (*checks*))
+(E_Indexed_Component_XX $astnum$ $x_astnum$ $x$ $e$ (**$checks$**))
 >>
 
 // x.f
 selectedComponent(astnum, x_astnum, x, f, checks) ::= <<
-(E_Selected_Component_XX $astnum$ $x_astnum$ $x$ $f$ (*checks*))
+(E_Selected_Component_XX $astnum$ $x_astnum$ $x$ $f$ (**$checks$**))
 >>
 
 nullStmt() ::= <<
@@ -75,9 +75,8 @@ procedureCall(astnum, p_astnum, p, args) ::= <<
 
 seqStmt(astnum, stmt1, stmt2) ::= <<
 (S_Sequence_XX $astnum$
-  $stmt1$ 
-  $stmt2$
-)
+$stmt1$ 
+$stmt2$)
 >>
 
 returnStmt(astnum, returnExp) ::= <<
@@ -97,7 +96,7 @@ fieldDeclaration(fieldName, fieldType) ::= <<
 >>
 
 arrayTypeDecl(astnum, tid, theType, low, upper) ::= <<
-(Array_Type_Declaration_XX $astnum$ $tid$ $theType$ $low$ $upper$)
+(Array_Type_Declaration_XX $astnum$ $tid$ ((*componentType*) $theType$) ((*lowerBound*) $low$) ((*upperBound*) $upper$))
 >>
 
 recordTypeDecl(astnum, tid, fields) ::= <<
@@ -108,8 +107,8 @@ objectDeclaration(astnum, id, theType, init) ::= <<
 (mkobject_declaration_xx $astnum$ $id$ $theType$ $if(init)$(Some ($init$))$else$None$endif$)
 >>
 
-paramSpecification(astnum, id, theType, mode) ::= <<
-(mkparameter_specification_xx $astnum$ $id$ ($theType$) $if(mode)$$mode$$else$In$endif$)
+paramSpecification(astnum, id, mode, theType) ::= <<
+(mkparameter_specification_xx $astnum$ $id$ $if(mode)$$mode$$else$In$endif$ $theType$)
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -121,43 +120,53 @@ aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 )
 >>
 
+objectDeclarationWrapper(astnum, objectDecl) ::= <<
+(D_Object_Declaration_XX $astnum$ $objectDecl$)
+>>
+
+procedureDeclarationWrapper(astnum, procedureDecl) ::= <<
+(D_Procedure_Declaration_XX $astnum$ $procedureDecl$)
+>>
+
+typeDeclarationWrapper(astnum, typeDecl) ::= <<
+(D_Type_Declaration_XX $astnum$ $typeDecl$)
+>>
+
 procedureBodyDeclaration(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
 (mkprocedure_declaration_xx $astnum$
-  (* Procedure Body - Name *)
+  (* Procedure Name *)
   $procName$
-  (* Procedure Body - Specification *)
+  (* Procedure Contract *)
   ($if(aspectSpecs)$
   $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
-  (* Procedure Body - Parameters *)
+  (* Formal Parameters *)
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil) 
-  (* Procedure Body - Variable Declarations *)
+  (* Object Declarations *)
   ($if(identDecls)$
   $identDecls; separator=" :: \n"$ :: $endif$nil)
-  (* Procedure Body - Statements *) (
+  (* Procedure Body *)
     $procBody$
-  )
 )
 >>
 
 functionBodyDeclaration(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
 (mkfunction_declaration_xx $astnum$
-  (* Function Body - Name *)
+  (* Function Name *)
   $funcName$
-  (* Function Body - Return Type *) 
+  (* Return Type *) 
   $returnT$ 
-  (* Function Body - Specification *)
+  (* Function Contract *)
   ($if(aspectSpecs)$
   $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
-  (* Function Body - Parameters *)
+  (* Formal Parameters *)
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil)
-  (* Function Body - Local Defined Variables *)
+  (* Object Declarations *)
   ($if(identDecls)$
   $identDecls; separator=" :: \n"$ :: $endif$nil)
-  (* Function Body - Statements *) (
+  (* Function Body *)
     $funcBody$
-  )
 )
 >>
 
@@ -165,15 +174,14 @@ functionBodyDeclaration(astnum, funcName, aspectSpecs, returnT, params, identDec
 // <annotation> can be either "Procedure" or "Function"
 subProgram(astnum, kind, prog, annotation) ::= <<
 (* $annotation$ Body Declaration *)
-($kind$ $astnum$ (
+($kind$ $astnum$
   $prog$
-  )
 )
 >>
 
 packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
-(PackageBody $astnum$
+(PackageBody_XX $astnum$
   (* Package Body - Name *)
   $pkgBodyName$
   (* Package Body - Specification *)
@@ -186,26 +194,16 @@ packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 >>
 
 unitDeclaration(astnum, kind, packageUnit) ::= <<
-$kind$ $astnum$ (
+($kind$ $astnum$
   $packageUnit$
 )
 >>
 
-compilationUnit(astnum, unitDecl, unitExpTypeTable, unitTypeNameTable) ::= <<
+compilationUnit(astnum, unitDecl) ::= <<
 (* Compilation Unit *)
 Library_Unit_XX $astnum$
-  (* Compilation Unit - Unit Declaration *) (
-    $unitDecl$
-  )
-  (* Compilation Unit - Type Table *) (
-    mktype_table (
-      (* Expression Type Table: Expression AstNum --> TypeNum *)
-      $unitExpTypeTable; separator=" ::\n"$ :: nil
-    ) (
-      (* Type Name Table: TypeNum --> (Type URI * Option(Type Declaration AST Num)) *)
-      $unitTypeNameTable; separator=" ::\n"$ :: nil
-    )
-  )
+  (* Compilation Unit - Unit Declaration *)
+  $unitDecl$
 >>
 
 // in Coq, it is something like "hello"%string

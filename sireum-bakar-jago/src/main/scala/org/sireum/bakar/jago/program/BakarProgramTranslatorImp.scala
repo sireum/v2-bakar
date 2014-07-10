@@ -112,9 +112,21 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
       val cu_astnum = factory.next_astnum
       val unit_astnum = factory.next_astnum
+      val subprogram_astnum = factory.next_astnum  
+      
       v(unitDeclaration)
-      val bodyDecl = ctx.popResult.asInstanceOf[String]
-      val unitDecl = factory.buildUnitDeclaration(unit_astnum, "Library_Subprogram", bodyDecl)
+      val subprogramBodyDecl = ctx.popResult.asInstanceOf[String]
+      
+      val subprogramBodyDeclWrapper = 
+        if(subprogramBodyDecl.contains("procedure")){
+          val annotation = Some("Procedure")
+          factory.buildSubProgram(subprogram_astnum, "Global_Procedure_XX", subprogramBodyDecl, annotation)  
+        }else{
+          val annotation = Some("Function")
+          factory.buildSubProgram(subprogram_astnum, "Global_Function_XX", subprogramBodyDecl, annotation) 
+        }
+      
+      val unitDecl = factory.buildUnitDeclaration(unit_astnum, "Library_Subprogram_XX", subprogramBodyDeclWrapper)
       val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
       ctx.addToResults(cu)
 
@@ -195,10 +207,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         }
         
         // [4] declared local objects, e.g. variables, array/record types, or nested procedures
-        val defingIds = mlistEmpty[String]
+        val definedIds = mlistEmpty[String]
         for (declItem <- bodyDeclItems.getElements()) {
+          val decl_astnum = factory.next_astnum
           v(declItem)
-          defingIds += ctx.popResult.asInstanceOf[String]
+          val definedId = ctx.popResult.asInstanceOf[String]
+          definedIds += factory.buildDeclaration(decl_astnum, definedId)
         }
         
         // [5] method body
@@ -209,7 +223,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val specs = mlistEmpty[String]
         
         // [7] return
-        MethodClass(mname, returnType, specs, params, defingIds, mbody)
+        MethodClass(mname, returnType, specs, params, definedIds, mbody)
       }
 
     {
@@ -225,35 +239,25 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       case o @ ProcedureBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, aspectSpec, bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
 
-        val subprogram_astnum = factory.next_astnum
         val procbody_astnum = factory.next_astnum
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.mname, m.aspectSpecs, m.params, m.localIdents, m.mbody)
-        val annotation = Some("Procedure")
-
-        val result = factory.buildSubProgram(subprogram_astnum, "Global_Procedure_XX", procedureBody, annotation)
-        ctx.pushResult(result)
-
+        ctx.pushResult(procedureBody)
         false
       case o @ FunctionBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
         names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
         bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
 
         // TODO: should use: factory.buildAstMappingTable(sloc, ReturnType)          
-        val subprogram_astnum = factory.next_astnum
         val fnbody_astnum = factory.next_astnum
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val functionBody = factory.buildFunctionBodyDeclaration(
             fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localIdents, m.mbody)
-        val annotation = Some("Function")
-
-        val result = factory.buildSubProgram(subprogram_astnum, "Global_Function_XX", functionBody, annotation)
-        ctx.pushResult(result)
-
+        ctx.pushResult(functionBody)
         false
     }
   }
@@ -521,7 +525,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         ctx.pushResult(result) 
       } else if(ref.contains("ordinary_type")) {
         // it's used as a type for a declared variable
-        val result = factory.buildId(refName, ref)
+        val result = factory.buildRefType(refName, ref)
         ctx.pushResult(result)
       } else if(ref.contains("procedure_body")) {
         // it's used as a procedure call

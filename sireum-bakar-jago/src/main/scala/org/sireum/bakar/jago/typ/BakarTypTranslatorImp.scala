@@ -296,6 +296,12 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         case _ => 
       }
     }
+    // put the mode before the type to match SPARK syntax for parameter, e.g. procedure p(x: Out Integer);
+//    val flds = mlistEmpty[String]
+//    flds += fields(0)
+//    flds += fields(1)
+//    flds += fields(3)
+//    flds += fields(2)
     
     val typeName = TypeNameSpace.ParameterSpecification
     val paramDecl = buildRecordType(typeName, None, fields : _*)
@@ -469,10 +475,10 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
                       TypeNameSpace.AstNum, TypeNameSpace.Name, TypeNameSpace.Expression)
                 case "IfStatement" =>
                   buildTypeConstructor(TypeNameSpace.Statement, "S_If_XX", 
-                      TypeNameSpace.AstNum, TypeNameSpace.Expression, TypeNameSpace.Statement)
+                      TypeNameSpace.AstNum, TypeNameSpace.Expression, TypeNameSpace.Statement, TypeNameSpace.Statement)
                 case "WhileLoopStatement" =>
                   buildTypeConstructor(TypeNameSpace.Statement, "S_While_Loop_XX", 
-                      TypeNameSpace.AstNum, TypeNameSpace.Expression, TypeNameSpace.Statement, TypeNameSpace.Statement)
+                      TypeNameSpace.AstNum, TypeNameSpace.Expression, TypeNameSpace.Statement)
                 case "ProcedureCallStatement" =>
                   buildTypeConstructor(TypeNameSpace.Statement, "S_Procedure_Call_XX", 
                       TypeNameSpace.AstNum, TypeNameSpace.AstNum, TypeNameSpace.ProcNum, buildListType(TypeNameSpace.Expression))
