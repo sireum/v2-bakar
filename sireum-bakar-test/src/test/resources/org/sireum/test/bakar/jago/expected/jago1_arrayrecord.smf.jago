@@ -7,12 +7,12 @@ Library_Unit_XX 1
       (mkprocedure_declaration_xx 4
         (* Procedure Name *)
         ((*Test*) 1)
-        (* Procedure Contract *)
-        (nil)
         (* Formal Parameters *)
         (
-        (mkparameter_specification_xx 5 ((*N*) 1) In Integer) :: 
-        (mkparameter_specification_xx 6 ((*M*) 2) Out Integer) :: nil) 
+        (mkparameter_specification_xx 5 ((*N*) 1) Integer In) :: 
+        (mkparameter_specification_xx 6 ((*M*) 2) Integer Out) :: nil) 
+        (* Procedure Contract *)
+        (nil)  
         (* Object Declarations *)
         (
         (D_Type_Declaration_XX 7 (Record_Type_Declaration_XX 8 ((*RecordT*) 1) ((((*X*) 3), Integer) :: nil))) :: 
@@ -20,12 +20,12 @@ Library_Unit_XX 1
         (D_Procedure_Declaration_XX 12 (mkprocedure_declaration_xx 13
           (* Procedure Name *)
           ((*Increase*) 2)
-          (* Procedure Contract *)
-          (nil)
           (* Formal Parameters *)
           (
-          (mkparameter_specification_xx 14 ((*X*) 4) In Integer) :: 
-          (mkparameter_specification_xx 15 ((*Y*) 5) Out Integer) :: nil) 
+          (mkparameter_specification_xx 14 ((*X*) 4) Integer In) :: 
+          (mkparameter_specification_xx 15 ((*Y*) 5) Integer Out) :: nil) 
+          (* Procedure Contract *)
+          (nil)  
           (* Object Declarations *)
           (nil)
           (* Procedure Body *)

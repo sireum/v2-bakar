@@ -108,7 +108,7 @@ objectDeclaration(astnum, id, theType, init) ::= <<
 >>
 
 paramSpecification(astnum, id, mode, theType) ::= <<
-(mkparameter_specification_xx $astnum$ $id$ $if(mode)$$mode$$else$In$endif$ $theType$)
+(mkparameter_specification_xx $astnum$ $id$ $theType$ $if(mode)$$mode$$else$In$endif$)
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -132,16 +132,16 @@ typeDeclarationWrapper(astnum, typeDecl) ::= <<
 (D_Type_Declaration_XX $astnum$ $typeDecl$)
 >>
 
-procedureBodyDeclaration(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
+procedureBodyDeclaration(astnum, procName, params, aspectSpecs, identDecls, procBody) ::= <<
 (mkprocedure_declaration_xx $astnum$
   (* Procedure Name *)
   $procName$
-  (* Procedure Contract *)
-  ($if(aspectSpecs)$
-  $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
   (* Formal Parameters *)
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil) 
+  (* Procedure Contract *)
+  ($if(aspectSpecs)$
+  $aspectSpecs; separator=" :: \n"$ :: $endif$nil)  
   (* Object Declarations *)
   ($if(identDecls)$
   $identDecls; separator=" :: \n"$ :: $endif$nil)
