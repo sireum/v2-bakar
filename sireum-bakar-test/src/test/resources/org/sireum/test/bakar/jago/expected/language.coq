@@ -83,14 +83,14 @@ Inductive type_declaration_xx: Type :=
 Record object_declaration_xx: Type := mkobject_declaration_xx{
 	declaration_astnum_xx: astnum;
 	object_name_xx: idnum;
-	object_nominal_subtype_xx: typenum;
+	object_nominal_subtype_xx: type;
 	initialization_expression_xx: option (expression_xx)
 }.
 
 Record parameter_specification_xx: Type := mkparameter_specification_xx{
 	parameter_astnum_xx: astnum;
 	parameter_name_xx: idnum;
-	parameter_subtype_mark_xx: typenum;
+	parameter_subtype_mark_xx: type;
 	parameter_mode_xx: mode
 }.
 

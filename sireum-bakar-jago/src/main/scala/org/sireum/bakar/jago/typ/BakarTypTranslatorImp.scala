@@ -262,7 +262,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         case "namesQl" =>
           fields += buildFieldDecl("object_name_xx", TypeNameSpace.IdNum)
         case "objectDeclarationViewQ" =>
-          fields += buildFieldDecl("object_nominal_subtype_xx", TypeNameSpace.TypeNum)
+          fields += buildFieldDecl("object_nominal_subtype_xx", TypeNameSpace.Type)
         case "initializationExpressionQ" => 
           fields += buildFieldDecl("initialization_expression_xx", buildOptionType(TypeNameSpace.Expression))
         case _ => 
@@ -288,7 +288,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         case "namesQl" =>
           fields += buildFieldDecl("parameter_name_xx", TypeNameSpace.IdNum)
         case "objectDeclarationViewQ" =>
-          fields += buildFieldDecl("parameter_subtype_mark_xx", TypeNameSpace.TypeNum)
+          fields += buildFieldDecl("parameter_subtype_mark_xx", TypeNameSpace.Type)
 //      case "initializationExpressionQ" => 
 //        fields += buildFieldDecl("parameter_default_expression_xx", buildOptionType(TypeNameSpace.Expression))
         case "mode" => 
