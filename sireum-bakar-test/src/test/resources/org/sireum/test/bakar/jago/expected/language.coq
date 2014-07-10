@@ -63,8 +63,8 @@ with name_xx: Type :=
 Inductive statement_xx: Type := 
 	| S_Null_XX: statement_xx
 	| S_Assignment_XX: astnum -> name_xx -> expression_xx -> statement_xx
-	| S_If_XX: astnum -> expression_xx -> statement_xx -> statement_xx
-	| S_While_Loop_XX: astnum -> expression_xx -> statement_xx -> statement_xx -> statement_xx
+	| S_If_XX: astnum -> expression_xx -> statement_xx -> statement_xx -> statement_xx
+	| S_While_Loop_XX: astnum -> expression_xx -> statement_xx -> statement_xx
 	| S_Sequence_XX: astnum -> statement_xx -> statement_xx -> statement_xx
 	| S_Procedure_Call_XX: astnum -> astnum -> procnum -> list expression_xx -> statement_xx.
 
