@@ -1,3 +1,7 @@
+(*******************************************
+   Put This Part in language_basics.v
+ *******************************************)
+
 Require Export ZArith. 
 Require Export Coq.Lists.List.
 Require Export Coq.Bool.Bool.
@@ -48,6 +52,10 @@ Inductive binary_operator: Type :=
 Inductive literal: Type := 
 	| Integer_Literal: Z -> literal
 	| Boolean_Literal: bool -> literal.
+
+(*******************************************
+   Put This Part in language_template.v
+ *******************************************)
 
 Inductive expression_xx: Type := 
 	| E_Literal_XX: astnum -> literal (*checks*) -> expression_xx

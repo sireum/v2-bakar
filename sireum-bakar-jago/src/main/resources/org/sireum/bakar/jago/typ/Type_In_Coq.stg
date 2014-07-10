@@ -1,5 +1,9 @@
 
 basicAstTypes(typeDeclarations) ::= <<
+(*******************************************
+   Put This Part in language_basics.v
+ *******************************************)
+
 $importedLibs()$
 
 $numberTypes()$
@@ -8,6 +12,10 @@ $typeDeclarations; separator="\n\n"$
 >>
 
 astTypes(typeDeclarations) ::= <<
+(*******************************************
+   Put This Part in language_template.v
+ *******************************************)
+
 $typeDeclarations; separator="\n\n"$
 >>
 
