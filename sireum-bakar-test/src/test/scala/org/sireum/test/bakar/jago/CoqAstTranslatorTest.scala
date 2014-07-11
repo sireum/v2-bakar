@@ -14,13 +14,26 @@ import org.sireum.test.bakar.framework.BakarSmfProjectProvider
 import org.sireum.test.bakar.framework.BakarTestFileFramework
 import org.sireum.test.bakar.framework.ProjectFile
 import org.sireum.test.bakar.framework.Projects
-import org.sireum.util.FileUtil
+import org.sireum.util._
 import org.scalatest.junit.JUnitRunner
+import scala.util.matching.Regex
+import org.sireum.util.Exec.StringResult
 
 @RunWith(classOf[JUnitRunner])
 class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
+  
+  def isGpl = {
+    new Exec().run(1000, ilist("gnat2xml", "--version"), None, None) match {
+      case StringResult(s, i) => (i != 0) || s.contains("GPL 2014")
+      case _ => true
+    }
+  }
+  
+  override def includes = 
+    if(isGpl) msetEmpty[Regex] += ("max", "min") 
+    else super.includes
     
-  this.register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
+  register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
   override def pre(c : Configuration) : Boolean = {
     import BakarProgramTranslatorModule.ProducerView._
