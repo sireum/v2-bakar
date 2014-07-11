@@ -21,18 +21,20 @@ import org.sireum.util.Exec.StringResult
 
 @RunWith(classOf[JUnitRunner])
 class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
-  
+
   def isGpl = {
-    new Exec().run(1000, ilist("gnat2xml", "--version"), None, None) match {
-      case StringResult(s, i) => (i != 0) || s.contains("GPL 2014")
-      case _ => true
-    }
+    try
+      new Exec().run(1000, ilist("gnat2xmfl", "--version"), None, None) match {
+        case StringResult(s, i) => (i != 0) || s.contains("GPL 2014")
+        case _                  => true
+      }
+    catch { case _ : Throwable => true }
   }
-  
-  override def includes = 
-    if(isGpl) msetEmpty[Regex] += ("max", "min") 
+
+  override def includes =
+    if (isGpl) msetEmpty[Regex] += ("max", "min")
     else super.includes
-    
+
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
   override def pre(c : Configuration) : Boolean = {
@@ -41,7 +43,7 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
-    
+
     return true;
   }
 
@@ -70,9 +72,9 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
     import BakarProgramTranslatorModule.ConsumerView._
-    val results = job.jagoProgramResults 
-    results.foreach{f => 
-      w.write(f) 
+    val results = job.jagoProgramResults
+    results.foreach { f =>
+      w.write(f)
       //println(f)
     }
   }
