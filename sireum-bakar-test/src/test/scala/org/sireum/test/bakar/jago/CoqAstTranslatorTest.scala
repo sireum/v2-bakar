@@ -24,7 +24,7 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
   def isGpl = {
     try
-      new Exec().run(1000, ilist("gnat2xmfl", "--version"), None, None) match {
+      new Exec().run(1000, ilist("gnat2xml", "--version"), None, None) match {
         case StringResult(s, i) => (i != 0) || s.contains("GPL 2014")
         case _                  => true
       }
