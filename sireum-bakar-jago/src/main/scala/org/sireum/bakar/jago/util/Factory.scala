@@ -472,6 +472,14 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
+  def buildSeqDeclaration(astnum: Int, d1: Any, d2: Any) = {
+    val result = stg.getInstanceOf("seqDeclaration")
+    result.add("astnum", astnum)
+    result.add("d1", d1)
+    result.add("d2", d2)
+    result.render()
+  }
+  
   def buildDeclaration(astnum: Int, decl: String) = {
     if (decl.contains("mkobject_declaration")) {
       buildObjectDeclarationWrapper(astnum, decl)
@@ -485,27 +493,27 @@ class Factory(stg: STGroupFile) {
   }
 
   def buildProcedureBodyDeclaration(astnum: Int, procName: String, aspectSpecs: MList[String], params: MList[String], 
-      identDecls: MList[String], procBody: String) = {
+      identDecls: String, procBody: String) = {
     val result = stg.getInstanceOf("procedureBodyDeclaration")
     result.add("astnum", astnum)
     result.add("procName", procName)
     result.add("procBody", procBody) 
+    result.add("identDecls", identDecls)    
     buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
     buildListAttributes(result, "params", params: _*)
-    buildListAttributes(result, "identDecls", identDecls: _*)
     result.render()
   }
   
   def buildFunctionBodyDeclaration(astnum: Int, funcName: String, returnT: String, aspectSpecs: MList[String], params: MList[String], 
-      identDecls: MList[String], funcBody: String) = {
+      identDecls: String, funcBody: String) = {
     val result = stg.getInstanceOf("functionBodyDeclaration")
     result.add("astnum", astnum)
     result.add("funcName", funcName)
     result.add("returnT", returnT)
     result.add("funcBody", funcBody) 
+    result.add("identDecls", identDecls) 
     buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
     buildListAttributes(result, "params", params: _*)
-    buildListAttributes(result, "identDecls", identDecls: _*)
     result.render()
   }
   

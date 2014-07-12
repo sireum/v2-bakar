@@ -14,30 +14,31 @@ Library_Unit_XX 1
         (* Procedure Contract *)
         (nil)  
         (* Object Declarations *)
-        (
-        (D_Object_Declaration_XX 7 (mkobject_declaration_xx 8 ((*Result*) 3) Integer None)) :: 
-        (D_Object_Declaration_XX 9 (mkobject_declaration_xx 10 ((*I*) 4) Integer None)) :: 
-        (D_Object_Declaration_XX 11 (mkobject_declaration_xx 12 ((*T*) 5) Integer None)) :: nil)
+        ((D_Seq_Declaration_XX 7 
+      (D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*Result*) 3) Integer None)) 
+      (D_Seq_Declaration_XX 10 
+      (D_Object_Declaration_XX 11 (mkobject_declaration_xx 12 ((*I*) 4) Integer None)) 
+      (D_Object_Declaration_XX 13 (mkobject_declaration_xx 14 ((*T*) 5) Integer None)))))
         (* Procedure Body *)
-          (S_Sequence_XX 13
-          (S_Assignment_XX 14 (E_Identifier_XX 15 ((*Result*) 3) (**(nil)**)) (E_Literal_XX 16 (Integer_Literal 0) (**(nil)**))) 
-          (S_Sequence_XX 17
-          (S_If_XX 18 (E_Binary_Operation_XX 19 Or (E_Binary_Operation_XX 20 Equal (E_Name_XX 21 (E_Identifier_XX 22 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Literal_XX 23 (Integer_Literal 1) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 24 Equal (E_Name_XX 25 (E_Identifier_XX 26 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Literal_XX 27 (Integer_Literal 2) (**(nil)**)) (**(nil)**)) (**(nil)**))
-            (S_Assignment_XX 28 (E_Identifier_XX 29 ((*Result*) 3) (**(nil)**)) (E_Literal_XX 30 (Integer_Literal 1) (**(nil)**)))
+          (S_Sequence_XX 15
+          (S_Assignment_XX 16 (E_Identifier_XX 17 ((*Result*) 3) (**(nil)**)) (E_Literal_XX 18 (Integer_Literal 0) (**(nil)**))) 
+          (S_Sequence_XX 19
+          (S_If_XX 20 (E_Binary_Operation_XX 21 Or (E_Binary_Operation_XX 22 Equal (E_Name_XX 23 (E_Identifier_XX 24 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Literal_XX 25 (Integer_Literal 1) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 26 Equal (E_Name_XX 27 (E_Identifier_XX 28 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Literal_XX 29 (Integer_Literal 2) (**(nil)**)) (**(nil)**)) (**(nil)**))
+            (S_Assignment_XX 30 (E_Identifier_XX 31 ((*Result*) 3) (**(nil)**)) (E_Literal_XX 32 (Integer_Literal 1) (**(nil)**)))
             S_Null_XX
           ) 
-          (S_Sequence_XX 31
-          (S_Assignment_XX 32 (E_Identifier_XX 33 ((*I*) 4) (**(nil)**)) (E_Literal_XX 34 (Integer_Literal 2) (**(nil)**))) 
-          (S_Sequence_XX 35
-          (S_While_Loop_XX 36 (E_Binary_Operation_XX 37 And (E_Binary_Operation_XX 38 Less_Than (E_Name_XX 39 (E_Identifier_XX 40 ((*I*) 4) (**(nil)**)) (**(nil)**)) (E_Name_XX 41 (E_Identifier_XX 42 ((*N*) 1) (**(nil)**)) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 43 Equal (E_Name_XX 44 (E_Identifier_XX 45 ((*Result*) 3) (**(nil)**)) (**(nil)**)) (E_Literal_XX 46 (Integer_Literal 0) (**(nil)**)) (**(nil)**)) (**(nil)**))
-            (S_Sequence_XX 47
-            (S_Assignment_XX 48 (E_Identifier_XX 49 ((*T*) 5) (**(nil)**)) (E_Binary_Operation_XX 50 Divide (E_Name_XX 51 (E_Identifier_XX 52 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Name_XX 53 (E_Identifier_XX 54 ((*I*) 4) (**(nil)**)) (**(nil)**)) (**(Do_Division_Check :: Do_Overflow_Check :: nil)**))) 
-            (S_If_XX 55 (E_Binary_Operation_XX 56 Equal (E_Name_XX 57 (E_Identifier_XX 58 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 59 Multiply (E_Name_XX 60 (E_Identifier_XX 61 ((*T*) 5) (**(nil)**)) (**(nil)**)) (E_Name_XX 62 (E_Identifier_XX 63 ((*I*) 4) (**(nil)**)) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)) (**(nil)**))
-              (S_Assignment_XX 64 (E_Identifier_XX 65 ((*Result*) 3) (**(nil)**)) (E_Literal_XX 66 (Integer_Literal 1) (**(nil)**)))
+          (S_Sequence_XX 33
+          (S_Assignment_XX 34 (E_Identifier_XX 35 ((*I*) 4) (**(nil)**)) (E_Literal_XX 36 (Integer_Literal 2) (**(nil)**))) 
+          (S_Sequence_XX 37
+          (S_While_Loop_XX 38 (E_Binary_Operation_XX 39 And (E_Binary_Operation_XX 40 Less_Than (E_Name_XX 41 (E_Identifier_XX 42 ((*I*) 4) (**(nil)**)) (**(nil)**)) (E_Name_XX 43 (E_Identifier_XX 44 ((*N*) 1) (**(nil)**)) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 45 Equal (E_Name_XX 46 (E_Identifier_XX 47 ((*Result*) 3) (**(nil)**)) (**(nil)**)) (E_Literal_XX 48 (Integer_Literal 0) (**(nil)**)) (**(nil)**)) (**(nil)**))
+            (S_Sequence_XX 49
+            (S_Assignment_XX 50 (E_Identifier_XX 51 ((*T*) 5) (**(nil)**)) (E_Binary_Operation_XX 52 Divide (E_Name_XX 53 (E_Identifier_XX 54 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Name_XX 55 (E_Identifier_XX 56 ((*I*) 4) (**(nil)**)) (**(nil)**)) (**(Do_Division_Check :: Do_Overflow_Check :: nil)**))) 
+            (S_If_XX 57 (E_Binary_Operation_XX 58 Equal (E_Name_XX 59 (E_Identifier_XX 60 ((*N*) 1) (**(nil)**)) (**(nil)**)) (E_Binary_Operation_XX 61 Multiply (E_Name_XX 62 (E_Identifier_XX 63 ((*T*) 5) (**(nil)**)) (**(nil)**)) (E_Name_XX 64 (E_Identifier_XX 65 ((*I*) 4) (**(nil)**)) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)) (**(nil)**))
+              (S_Assignment_XX 66 (E_Identifier_XX 67 ((*Result*) 3) (**(nil)**)) (E_Literal_XX 68 (Integer_Literal 1) (**(nil)**)))
               S_Null_XX
             ))
           ) 
-          (S_Assignment_XX 67 (E_Identifier_XX 68 ((*R*) 2) (**(nil)**)) (E_Name_XX 69 (E_Identifier_XX 70 ((*Result*) 3) (**(nil)**)) (**(nil)**)))))))
+          (S_Assignment_XX 69 (E_Identifier_XX 70 ((*R*) 2) (**(nil)**)) (E_Name_XX 71 (E_Identifier_XX 72 ((*Result*) 3) (**(nil)**)) (**(nil)**)))))))
       )
     )
   )

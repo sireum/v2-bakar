@@ -73,8 +73,8 @@ Inductive statement_xx: Type :=
 	| S_Assignment_XX: astnum -> name_xx -> expression_xx -> statement_xx
 	| S_If_XX: astnum -> expression_xx -> statement_xx -> statement_xx -> statement_xx
 	| S_While_Loop_XX: astnum -> expression_xx -> statement_xx -> statement_xx
-	| S_Sequence_XX: astnum -> statement_xx -> statement_xx -> statement_xx
-	| S_Procedure_Call_XX: astnum -> astnum -> procnum -> list expression_xx -> statement_xx.
+	| S_Procedure_Call_XX: astnum -> astnum -> procnum -> list expression_xx -> statement_xx
+	| S_Sequence_XX: astnum -> statement_xx -> statement_xx -> statement_xx.
 
 Inductive type_declaration_xx: Type := 
 	| Array_Type_Declaration_XX: astnum -> typenum -> type -> Z -> Z -> type_declaration_xx
@@ -101,9 +101,11 @@ Record aspect_specification_xx: Type := mkaspect_specification_xx{
 }.
 
 Inductive declaration_xx: Type := 
+	| D_Null_Declaration_XX: declaration_xx
 	| D_Type_Declaration_XX: astnum -> type_declaration_xx -> declaration_xx
 	| D_Object_Declaration_XX: astnum -> object_declaration_xx -> declaration_xx
 	| D_Procedure_Declaration_XX: astnum -> procedure_declaration_xx -> declaration_xx
+	| D_Seq_Declaration_XX: astnum -> declaration_xx -> declaration_xx -> declaration_xx
 
 with procedure_declaration_xx: Type := 
   mkprocedure_declaration_xx
@@ -111,7 +113,7 @@ with procedure_declaration_xx: Type :=
 	(procedure_name_xx: procnum)
 	(procedure_parameter_profile_xx: list parameter_specification_xx)
 	(procedure_contracts_xx: list aspect_specification_xx)
-	(procedure_declarative_part_xx: list declaration_xx)
+	(procedure_declarative_part_xx: declaration_xx)
 	(procedure_statements_xx: statement_xx).
 
 Inductive subprogram_xx: Type := 

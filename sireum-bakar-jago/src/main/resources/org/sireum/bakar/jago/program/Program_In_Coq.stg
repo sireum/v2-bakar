@@ -132,6 +132,12 @@ typeDeclarationWrapper(astnum, typeDecl) ::= <<
 (D_Type_Declaration_XX $astnum$ $typeDecl$)
 >>
 
+seqDeclaration(astnum, d1, d2) ::= <<
+(D_Seq_Declaration_XX $astnum$ 
+$d1$ 
+$d2$)
+>>
+
 procedureBodyDeclaration(astnum, procName, params, aspectSpecs, identDecls, procBody) ::= <<
 (mkprocedure_declaration_xx $astnum$
   (* Procedure Name *)
@@ -143,8 +149,7 @@ procedureBodyDeclaration(astnum, procName, params, aspectSpecs, identDecls, proc
   ($if(aspectSpecs)$
   $aspectSpecs; separator=" :: \n"$ :: $endif$nil)  
   (* Object Declarations *)
-  ($if(identDecls)$
-  $identDecls; separator=" :: \n"$ :: $endif$nil)
+  ($identDecls; separator=" :: \n"$)
   (* Procedure Body *)
     $procBody$
 )
@@ -163,8 +168,7 @@ functionBodyDeclaration(astnum, funcName, aspectSpecs, returnT, params, identDec
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil)
   (* Object Declarations *)
-  ($if(identDecls)$
-  $identDecls; separator=" :: \n"$ :: $endif$nil)
+  ($identDecls; separator=" :: \n"$)
   (* Function Body *)
     $funcBody$
 )

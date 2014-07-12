@@ -23,7 +23,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       returnType : Option[String],
       aspectSpecs : MList[String],
       params : MList[String],
-      localIdents : MList[String],
+      localVars : String,
       mbody : String)  
   
   trait Context {
@@ -170,6 +170,22 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   }
 
   def subprogramDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
+    def handSeqDeclarations(declIds: MList[String], seqDeclAstNums: MList[Int]): String = {
+      if(declIds.isEmpty)
+        return "D_Null_Declaration_XX"
+        
+      if (declIds.length == 1)
+        return declIds.head
+      
+      val astnum = seqDeclAstNums.head
+      val d1 = declIds.head
+      val d2 = handSeqDeclarations(declIds.tail, seqDeclAstNums.tail)
+      val seqDecls = factory.buildSeqDeclaration(astnum, d1, d2)
+      
+      seqDecls
+    }
+    
+    
       def handleSubprogramBody(sloc : org.sireum.bakar.xml.SourceLocation,
                            names : DefiningNameList,
                            paramProfile : ParameterSpecificationList,
@@ -207,13 +223,20 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         }
         
         // [4] declared local objects, e.g. variables, array/record types, or nested procedures
-        val definedIds = mlistEmpty[String]
-        for (declItem <- bodyDeclItems.getElements()) {
+        val it = bodyDeclItems.getElements().iterator()
+        val declIds = mlistEmpty[String]
+        val seqDeclAstNums = mlistEmpty[Int]
+        while (it.hasNext()){
+          val declItem = it.next()
+          if(it.hasNext()) {
+            seqDeclAstNums += factory.next_astnum
+          }
           val decl_astnum = factory.next_astnum
           v(declItem)
-          val definedId = ctx.popResult.asInstanceOf[String]
-          definedIds += factory.buildDeclaration(decl_astnum, definedId)
+          val declItemAST = ctx.popResult.asInstanceOf[String]
+          declIds += factory.buildDeclaration(decl_astnum, declItemAST)
         }
+        val localVars = handSeqDeclarations(declIds, seqDeclAstNums)
         
         // [5] method body
         v(bodyStatements)
@@ -223,7 +246,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val specs = mlistEmpty[String]
         
         // [7] return
-        MethodClass(mname, returnType, specs, params, definedIds, mbody)
+        MethodClass(mname, returnType, specs, params, localVars, mbody)
       }
 
     {
@@ -243,7 +266,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.mname, m.aspectSpecs, m.params, m.localIdents, m.mbody)
+        val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.mname, m.aspectSpecs, m.params, m.localVars, m.mbody)
         ctx.pushResult(procedureBody)
         false
       case o @ FunctionBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
@@ -256,7 +279,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val functionBody = factory.buildFunctionBodyDeclaration(
-            fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localIdents, m.mbody)
+            fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localVars, m.mbody)
         ctx.pushResult(functionBody)
         false
     }

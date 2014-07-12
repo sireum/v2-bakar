@@ -15,8 +15,7 @@ Library_Unit_XX 1
         (* Procedure Contract *)
         (nil)  
         (* Object Declarations *)
-        (
-        (D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*Result*) 4) Integer None)) :: nil)
+        ((D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*Result*) 4) Integer None)))
         (* Procedure Body *)
           (S_Sequence_XX 10
           (S_Assignment_XX 11 (E_Identifier_XX 12 ((*Result*) 4) (**(nil)**)) (E_Name_XX 13 (E_Identifier_XX 14 ((*Y*) 2) (**(nil)**)) (**(nil)**))) 

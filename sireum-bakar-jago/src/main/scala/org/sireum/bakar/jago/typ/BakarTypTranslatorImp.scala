@@ -219,6 +219,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
       for (a <- f.getDeclaredAnnotations) {
         if (a.annotationType == classOf[XmlElements]) {
           val constructors = mlistEmpty[String]
+          constructors += buildTypeConstructor(TypeNameSpace.Declaration, "D_Null_Declaration_XX")
           val xelems = a.asInstanceOf[XmlElements]
           for (elem <- xelems.value()) {
             for (m <- elem.getClass.getDeclaredMethods if m.getName == "type") {
@@ -236,6 +237,8 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
               }
             }
           }
+          // add sequence of declarations, which is used for easy proof
+          constructors += buildTypeConstructor(TypeNameSpace.Declaration, "D_Seq_Declaration_XX", TypeNameSpace.AstNum, TypeNameSpace.Declaration, TypeNameSpace.Declaration)
           
           trans_procedurebody_declaration
           val procedureBodyDecl = ctx.popResult.toString()
@@ -372,7 +375,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         case "aspectSpecificationsQl" => 
           buildFieldDecl("procedure_contracts_xx", buildListType(TypeNameSpace.AspectSpecification))
         case "bodyDeclarativeItemsQl" => 
-          buildFieldDecl("procedure_declarative_part_xx", buildListType(TypeNameSpace.Declaration))
+          buildFieldDecl("procedure_declarative_part_xx", TypeNameSpace.Declaration)
         case "bodyStatementsQl" => 
           buildFieldDecl("procedure_statements_xx", TypeNameSpace.Statement)
         case _ => ""
@@ -482,9 +485,9 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
                 case "ProcedureCallStatement" =>
                   buildTypeConstructor(TypeNameSpace.Statement, "S_Procedure_Call_XX", 
                       TypeNameSpace.AstNum, TypeNameSpace.AstNum, TypeNameSpace.ProcNum, buildListType(TypeNameSpace.Expression))
-                case "BlockStatement" =>
-                  buildTypeConstructor(TypeNameSpace.Statement, "S_Sequence_XX", 
-                      TypeNameSpace.AstNum, TypeNameSpace.Statement, TypeNameSpace.Statement)
+             // case "BlockStatement" =>
+             //   buildTypeConstructor(TypeNameSpace.Statement, "S_Sequence_XX", 
+             //       TypeNameSpace.AstNum, TypeNameSpace.Statement, TypeNameSpace.Statement)
              // case "AssertPragma" =>
              //   buildTypeConstructor(TypeNameSpace.Statement, "S_Assert", TypeNameSpace.AstNum, TypeNameSpace.Expression)
              // case "ImplementationDefinedPragma" =>
@@ -505,6 +508,8 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
                 typeConstructors += tc
             }
           }
+          typeConstructors += buildTypeConstructor(TypeNameSpace.Statement, "S_Sequence_XX", 
+              TypeNameSpace.AstNum, TypeNameSpace.Statement, TypeNameSpace.Statement)
           val annotation = None
           val stmtDecl = buildInductiveType(TypeNameSpace.Statement, annotation, typeConstructors : _*)
           ctx.addNewTypeDecl(stmtDecl)

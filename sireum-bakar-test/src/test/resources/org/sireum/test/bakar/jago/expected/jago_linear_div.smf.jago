@@ -16,7 +16,7 @@ Library_Unit_XX 1
         (* Procedure Contract *)
         (nil)  
         (* Object Declarations *)
-        (nil)
+        (D_Null_Declaration_XX)
         (* Procedure Body *)
           (S_Sequence_XX 9
           (S_Assignment_XX 10 (E_Identifier_XX 11 ((*Quotient*) 3) (**(nil)**)) (E_Literal_XX 12 (Integer_Literal 0) (**(nil)**))) 
