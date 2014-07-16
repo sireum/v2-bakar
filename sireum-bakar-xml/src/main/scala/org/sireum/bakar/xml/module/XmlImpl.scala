@@ -33,10 +33,10 @@ object Util {
   val gnat2xml_key = "GNAT2XML"
   val ext = OsArchUtil.detect match {
     case OsArch.Win32 | OsArch.Win64 => ".exe"
-    case _ => ""
+    case _                           => ""
   }
 
-  def base(s: String): String = {
+  def base(s : String) : String = {
     val sireumHome = System.getenv("SIREUM_HOME")
     if (sireumHome != null) {
       var gnatPath = "/apps/gnat/2014/bin/" + s
@@ -55,7 +55,7 @@ object Util {
   val gnat2xml = base("gnat2xml" + ext)
 }
 
-class Gnat2XMLWrapperModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {
+class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {
   val waittime = 200000
 
   val dirs = msetEmpty[String]
@@ -74,7 +74,7 @@ class Gnat2XMLWrapperModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
   //  "-m" + baseDestDir.getAbsolutePath) ++ sfiles // ++ ivector("-cargs", "-gnataa-gnatd.V")
 
   val g2xargs = ivector(Util.gnat2xml, "-v") ++ sfiles
-  
+
   // fix to resolve an issue when eclipse is run under a sireum distro on mac.
   // DYLD_FALLBACK_LIBRARY_PATH is set which causes gnat2xml to fail so we'll
   // remove it from the env vars before running
@@ -83,21 +83,26 @@ class Gnat2XMLWrapperModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
 
   val gnat2xmlResult = e.run(waittime, g2xargs, None)
 
-  def buildLocationTag(message: String) = {
+  def buildLocationTag(message : String) = {
     val tagType = MarkerType(
       "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
       MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type])
 
-    implicit def isDigits(str: String) = str.forall(c => c.isDigit)
+      implicit def isDigits(str : String) = str.forall(c => c.isDigit)
 
     var rettags = ivectorEmpty[Tag]
     for (m <- message.split("\n").drop(3)) {
       m.split(":").toList match {
         case fname :: line :: col :: error :: Nil if line && col =>
-          rettags :+= Tag.toTag(Some(fname.toLowerCase), line.toInt, col.toInt, error, tagType)
-        case fname :: error :: Nil =>
-          rettags :+= new LocationTag(tagType, Some(error),
-            new FileLocation { var fileUri = fname.toLowerCase })
+          rettags :+= Tag.toTag(Some(absfiles(fname)), line.toInt, col.toInt, error, tagType)
+        case "gnat2xml" :: error :: Nil =>
+          if (error.trim.startsWith("cannot compile")) {
+            val _fname = error.substring(error.indexOf("\"") + 1).dropRight(1)
+            rettags :+= new LocationTag(tagType, Some(error.trim),
+              new FileLocation { var fileUri = absfiles(_fname) })
+          } else {
+            throw new RuntimeException("Unexpected error: " + m)
+          }
         case x => InfoTag(tagType, Some(x.toString))
       }
     }
@@ -112,8 +117,8 @@ class Gnat2XMLWrapperModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
       else {
         val lnr = new LineNumberReader(new StringReader(str))
         var line = lnr.readLine
-        var currFileName: String = null
-        var sb: StringBuilder = null
+        var currFileName : String = null
+        var sb : StringBuilder = null
         while (line != null) {
           if (line.charAt(0) == '[') {
             if (sb != null)
@@ -149,7 +154,7 @@ class Gnat2XMLWrapperModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo
   gnat2xmlResults = results
 }
 
-class ParseGnat2XMLModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends ParseGnat2XMLModule {
+class ParseGnat2XMLModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends ParseGnat2XMLModule {
   import javax.xml.bind._
   import org.sireum.bakar.xml._
 
@@ -157,7 +162,7 @@ class ParseGnat2XMLModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
   val u = JAXBContext.newInstance("org.sireum.bakar.xml").createUnmarshaller();
 
   for ((orig, xml) <- this.gnat2xmlResults) {
-    val in = new ByteArrayInputStream(xml.getBytes("UTF-8"));    
+    val in = new ByteArrayInputStream(xml.getBytes("UTF-8"));
     val o = u.unmarshal(in).asInstanceOf[JAXBElement[CompilationUnit]]
     results += (orig -> o.getValue())
   }
