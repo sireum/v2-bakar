@@ -96,21 +96,24 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   def packageDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ CompilationUnitEx(sloc, contextClauseElements, unitDeclaration, pragmasAfter,
         unitKind, unitClass, unitOrigin, unitFullName, defName, sourceFile, checks) =>
-      if (!contextClauseElements.getContextClauses().isEmpty)
-        Console.err.println("Need to handle context clauses")
+//    if (!contextClauseElements.getContextClauses().isEmpty)
+//      Console.err.println("Need to handle context clauses")
       
       // Compilation unit can be either (1) Package Body/Declaration or (2) Procedure/Function Body
       val unitDeclAstNum = factory.next_astnum  
       v(unitDeclaration)
       val result = ctx.popResult.asInstanceOf[String]
       val unitDecl = 
-        if(result.startsWith("(mkprocedure_body")) {
+        if(result != null &&
+            result.startsWith("(mkprocedure_body")) {
           factory.buildProcedureBodyDeclarationWrapper(unitDeclAstNum, result)
         }else {
           result
         }
       // store the result
-      ctx.addToResults(unitDecl)
+      if(unitDecl != null){
+        ctx.addToResults(unitDecl)
+      }
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
@@ -121,37 +124,24 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o @ PackageBodyDeclarationEx(sloc, names, aspectSpec,
       bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
 
-      assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
-      assert(names.getDefiningNames().length == 1)
+//    assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
+//    assert(names.getDefiningNames().length == 1)
       val pkgbody_astnum = factory.next_astnum
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
       val pkgBodyName = ctx.popResult.asInstanceOf[String]
 
-      val pkgElems = mlistEmpty[String]
-      TranslatorUtil.getTypeDeclarations(bodyDecItems)
-
-      if (!aspectSpec.getElements().isEmpty())
-        Console.err.println("Need to handle package body aspect clauses")
-      if (!bodyStatements.getStatements.isEmpty)
-        Console.err.println("Need to handle package body statements")
-
-      for (m <- TranslatorUtil.getMethodDeclarations(bodyDecItems)) {
-        v(m)
-        pkgElems += ctx.popResult.asInstanceOf[String]
-      }
-      val pkgBodyAspectSpecs = mlistEmpty[String]
-      val pkgBodyDecl = factory.buildPackageBody(pkgbody_astnum, pkgBodyName, pkgBodyAspectSpecs, pkgElems : _*)
-      //
-      //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "PackageBodyDecl", pkgBodyDecl)
-      //val packageUnit = factory.buildUnitDeclaration(unit_astnum, "UnitDecl", pkgBodyDecl)
+      declarativePartH(ctx, v, bodyDecItems)
+      val pkgBodyDecl = ctx.popResult
       ctx.pushResult(pkgBodyDecl)
 
       false
   }
-
-  def subprogramDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
+  
+  def declarativePartH(ctx : Context, v : => BVisitor, ld: org.sireum.bakar.xml.ElementList) = {
+    // declared items, e.g. variables, array/record types, or procedures
+   
     def handSeqDeclarations(declIds: MList[String], seqDeclAstNums: MList[Int]): String = {
       if(declIds.isEmpty)
         return "D_Null_Declaration_XX"
@@ -165,9 +155,26 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val seqDecls = factory.buildSeqDeclaration(astnum, d1, d2)
       
       seqDecls
+    }    
+    
+    val it = ld.getElements().iterator()
+    val declIds = mlistEmpty[String]
+    val seqDeclAstNums = mlistEmpty[Int]
+    while (it.hasNext()){
+      val declItem = it.next()
+      if(it.hasNext()) {
+        seqDeclAstNums += factory.next_astnum
+      }
+      val decl_astnum = factory.next_astnum
+      v(declItem)
+      val declItemAST = ctx.popResult.asInstanceOf[String]
+      declIds += factory.buildDeclaration(decl_astnum, declItemAST)
     }
-    
-    
+    val declItems = handSeqDeclarations(declIds, seqDeclAstNums)
+    ctx.pushResult(declItems)
+  }
+
+  def subprogramDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       def handleSubprogramBody(sloc : org.sireum.bakar.xml.SourceLocation,
                            names : DefiningNameList,
                            paramProfile : ParameterSpecificationList,
@@ -179,12 +186,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
                            isOverridingDec : Base,
                            isNotOverridingDec : Base) = {
 
-        assert(exceptionHandlerList.getExceptionHandlers().isEmpty())
-        assert(ctx.isEmpty(isOverridingDec))
-        assert(ctx.isEmpty(isNotOverridingDec))
+//      assert(exceptionHandlerList.getExceptionHandlers().isEmpty())
+//      assert(ctx.isEmpty(isOverridingDec))
+//      assert(ctx.isEmpty(isNotOverridingDec))
         
         // [1] subprogram name
-        assert(names.getDefiningNames().length == 1)
+        // assert(names.getDefiningNames().length == 1)
         v(names.getDefiningNames().get(0))
         val mname = ctx.popResult.asInstanceOf[String]
         
@@ -205,20 +212,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         }
         
         // [4] declared local objects, e.g. variables, array/record types, or nested procedures
-        val it = bodyDeclItems.getElements().iterator()
-        val declIds = mlistEmpty[String]
-        val seqDeclAstNums = mlistEmpty[Int]
-        while (it.hasNext()){
-          val declItem = it.next()
-          if(it.hasNext()) {
-            seqDeclAstNums += factory.next_astnum
-          }
-          val decl_astnum = factory.next_astnum
-          v(declItem)
-          val declItemAST = ctx.popResult.asInstanceOf[String]
-          declIds += factory.buildDeclaration(decl_astnum, declItemAST)
-        }
-        val localVars = handSeqDeclarations(declIds, seqDeclAstNums)
+        declarativePartH(ctx, v, bodyDeclItems)
+        val declItems = ctx.popResult.asInstanceOf[String]
         
         // [5] method body
         v(bodyStatements)
@@ -228,7 +223,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val specs = mlistEmpty[String]
         
         // [7] return
-        MethodClass(mname, returnType, specs, params, localVars, mbody)
+        MethodClass(mname, returnType, specs, params, declItems, mbody)
       }
 
     {
@@ -534,7 +529,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         // it's used as a type for a declared variable
         val result = factory.buildRefType(refName, ref)
         ctx.pushResult(result)
-      } else if(ref.contains("procedure_body")) {
+      } else if(ref.contains("procedure")) {
         // it's used as a procedure call
         val result = factory.buildId(refName, ref)
         ctx.pushResult(result)

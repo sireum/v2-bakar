@@ -481,11 +481,12 @@ class Factory(stg: STGroupFile) {
   }
   
   def buildDeclaration(astnum: Int, decl: String) = {
-    if (decl.contains("mkobject_declaration")) {
+    if (decl.startsWith("(mkobject_declaration")) {
       buildObjectDeclarationWrapper(astnum, decl)
-    } else if (decl.contains("mkprocedure_body")) {
+    } else if (decl.startsWith("(mkprocedure_body")) {
       buildProcedureBodyDeclarationWrapper(astnum, decl)
-    } else if (decl.contains("Type_Declaration")) {
+    } else if (decl.startsWith("(Array_Type_Declaration") || 
+        decl.startsWith("(Record_Type_Declaration")) {
       buildTypeDeclarationWrapper(astnum, decl)
     } else {
       "Undefined Declarations !"
