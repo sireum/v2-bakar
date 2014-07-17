@@ -104,23 +104,14 @@ Inductive declaration_xx: Type :=
 	| D_Null_Declaration_XX: declaration_xx
 	| D_Type_Declaration_XX: astnum -> type_declaration_xx -> declaration_xx
 	| D_Object_Declaration_XX: astnum -> object_declaration_xx -> declaration_xx
-	| D_Procedure_Declaration_XX: astnum -> procedure_declaration_xx -> declaration_xx
+	| D_Procedure_Body_XX: astnum -> procedure_body_xx -> declaration_xx
 	| D_Seq_Declaration_XX: astnum -> declaration_xx -> declaration_xx -> declaration_xx
 
-with procedure_declaration_xx: Type := 
-  mkprocedure_declaration_xx
+with procedure_body_xx: Type := 
+  mkprocedure_body_xx
 	(procedure_astnum_xx: astnum)
 	(procedure_name_xx: procnum)
 	(procedure_parameter_profile_xx: list parameter_specification_xx)
-	(procedure_contracts_xx: list aspect_specification_xx)
+	(procedure_aspect_xx: list aspect_specification_xx)
 	(procedure_declarative_part_xx: declaration_xx)
 	(procedure_statements_xx: statement_xx).
-
-Inductive subprogram_xx: Type := 
-	| Global_Procedure_XX: astnum -> procedure_declaration_xx -> subprogram_xx.
-
-Inductive library_unit_declaration_xx: Type := 
-	| Library_Subprogram_XX: astnum -> subprogram_xx -> library_unit_declaration_xx.
-
-Inductive compilation_unit_xx: Type := 
-	| Library_Unit_XX: astnum -> library_unit_declaration_xx -> compilation_unit_xx.
