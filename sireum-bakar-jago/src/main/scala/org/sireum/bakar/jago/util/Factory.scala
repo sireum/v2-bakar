@@ -458,10 +458,10 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
 
-  def buildProcedureDeclarationWrapper(astnum: Int, procedureDecl: Any) = {
-    val result = stg.getInstanceOf("procedureDeclarationWrapper")
+  def buildProcedureBodyDeclarationWrapper(astnum: Int, procedureBodyDecl: Any) = {
+    val result = stg.getInstanceOf("procedureBodyDeclWrapper")
     result.add("astnum", astnum)
-    result.add("procedureDecl", procedureDecl)
+    result.add("procedureBodyDecl", procedureBodyDecl)
     result.render()    
   }
   
@@ -483,8 +483,8 @@ class Factory(stg: STGroupFile) {
   def buildDeclaration(astnum: Int, decl: String) = {
     if (decl.contains("mkobject_declaration")) {
       buildObjectDeclarationWrapper(astnum, decl)
-    } else if (decl.contains("mkprocedure_declaration")) {
-      buildProcedureDeclarationWrapper(astnum, decl)
+    } else if (decl.contains("mkprocedure_body")) {
+      buildProcedureBodyDeclarationWrapper(astnum, decl)
     } else if (decl.contains("Type_Declaration")) {
       buildTypeDeclarationWrapper(astnum, decl)
     } else {

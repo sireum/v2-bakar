@@ -94,41 +94,23 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   }
 
   def packageDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
-    case o @ CompilationUnitEx(
-      sloc,
-      contextClauseElements,
-      unitDeclaration,
-      pragmasAfter,
-      unitKind,
-      unitClass,
-      unitOrigin,
-      unitFullName,
-      defName,
-      sourceFile,
-      checks) =>
+    case o @ CompilationUnitEx(sloc, contextClauseElements, unitDeclaration, pragmasAfter,
+        unitKind, unitClass, unitOrigin, unitFullName, defName, sourceFile, checks) =>
       if (!contextClauseElements.getContextClauses().isEmpty)
         Console.err.println("Need to handle context clauses")
-      // Compilation unit can be either (1)Package Body/Declaration or (2)Procedure/Function Body
-      // Notice: the position of the following command will affect the increasing order of ast number labeled for each ast
-      val cu_astnum = factory.next_astnum
-      val unit_astnum = factory.next_astnum
-      val subprogram_astnum = factory.next_astnum  
       
+      // Compilation unit can be either (1) Package Body/Declaration or (2) Procedure/Function Body
+      val unitDeclAstNum = factory.next_astnum  
       v(unitDeclaration)
-      val subprogramBodyDecl = ctx.popResult.asInstanceOf[String]
-      
-      val subprogramBodyDeclWrapper = 
-        if(subprogramBodyDecl.contains("procedure")){
-          val annotation = Some("Procedure")
-          factory.buildSubProgram(subprogram_astnum, "Global_Procedure_XX", subprogramBodyDecl, annotation)  
-        }else{
-          val annotation = Some("Function")
-          factory.buildSubProgram(subprogram_astnum, "Global_Function_XX", subprogramBodyDecl, annotation) 
+      val result = ctx.popResult.asInstanceOf[String]
+      val unitDecl = 
+        if(result.startsWith("(mkprocedure_body")) {
+          factory.buildProcedureBodyDeclarationWrapper(unitDeclAstNum, result)
+        }else {
+          result
         }
-      
-      val unitDecl = factory.buildUnitDeclaration(unit_astnum, "Library_Subprogram_XX", subprogramBodyDeclWrapper)
-      val cu = factory.buildCompilationUnit(cu_astnum, unitDecl)
-      ctx.addToResults(cu)
+      // store the result
+      ctx.addToResults(unitDecl)
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
@@ -251,17 +233,18 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 
     {
       case o @ ProcedureDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
-        name, paramProfile, hasAbstract, aspectSpec, checks) =>
-        println(o.getClass().getSimpleName())
+          name, paramProfile, hasAbstract, aspectSpec, checks) =>
+        println("Cannot Handle Procedure Declaration: " + o.getClass().getSimpleName())
         true
       case o @ FunctionDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
-        names, paramProfile, isNotNullReturn, resultProfile, hasAbstract, aspectSpec, checks) =>
-        println(o.getClass().getSimpleName())
+          names, paramProfile, isNotNullReturn, resultProfile, hasAbstract, aspectSpec, checks) =>
+        println("Cannot Handle Procedure Declaration: " +  o.getClass().getSimpleName())
         true
 
       case o @ ProcedureBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
-        names, paramProfile, aspectSpec, bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
+          names, paramProfile, aspectSpec, bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
 
+        val astnum = factory.next_astnum
         val procbody_astnum = factory.next_astnum
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
@@ -270,17 +253,18 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         ctx.pushResult(procedureBody)
         false
       case o @ FunctionBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
-        names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
-        bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
+          names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
+          bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
 
-        // TODO: should use: factory.buildAstMappingTable(sloc, ReturnType)          
+        val astnum = factory.next_astnum
         val fnbody_astnum = factory.next_astnum
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val functionBody = factory.buildFunctionBodyDeclaration(
             fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localVars, m.mbody)
-        ctx.pushResult(functionBody)
+        val functionBodyDecl = factory.buildProcedureBodyDeclarationWrapper(astnum, functionBody)
+        ctx.pushResult(functionBodyDecl)
         false
     }
   }

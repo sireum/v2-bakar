@@ -89,9 +89,9 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     trans_parameter_specification
     trans_procedure_aspectspecs
     trans_declaration
-    trans_subprogram_declaration
-    trans_package_declaration
-    trans_compilatoin_unit
+//  trans_subprogram_declaration
+//  trans_package_declaration
+//  trans_compilatoin_unit
   }
   
   def trans_compilatoin_unit {
@@ -228,7 +228,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
                 case "ComponentDeclaration" =>
                   constructors += buildTypeConstructor(TypeNameSpace.Declaration, "D_Object_Declaration_XX", TypeNameSpace.AstNum, TypeNameSpace.ObjectDeclaration)
                 case "ProcedureBodyDeclaration" =>
-                  constructors += buildTypeConstructor(TypeNameSpace.Declaration, "D_Procedure_Declaration_XX", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBodyDeclaration)
+                  constructors += buildTypeConstructor(TypeNameSpace.Declaration, "D_Procedure_Body_XX", TypeNameSpace.AstNum, TypeNameSpace.ProcedureBodyDeclaration)
                 case "OrdinaryTypeDeclaration" =>
                   constructors += buildTypeConstructor(TypeNameSpace.Declaration, "D_Type_Declaration_XX", TypeNameSpace.AstNum, TypeNameSpace.TypeDeclaration)
 //              case "FunctionBodyDeclaration" =>
@@ -373,7 +373,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
         case "parameterProfileQl" =>
           buildFieldDecl("procedure_parameter_profile_xx", buildListType(TypeNameSpace.ParameterSpecification))
         case "aspectSpecificationsQl" => 
-          buildFieldDecl("procedure_contracts_xx", buildListType(TypeNameSpace.AspectSpecification))
+          buildFieldDecl("procedure_aspect_xx", buildListType(TypeNameSpace.AspectSpecification))
         case "bodyDeclarativeItemsQl" => 
           buildFieldDecl("procedure_declarative_part_xx", TypeNameSpace.Declaration)
         case "bodyStatementsQl" => 
@@ -385,7 +385,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
     }
     // create the Coq type for procedure body declaration
     val typeName = TypeNameSpace.ProcedureBodyDeclaration
-    val procBodyDecl = buildWithOneConstructorType(typeName, None, "mkprocedure_declaration_xx", fields : _*)
+    val procBodyDecl = buildWithOneConstructorType(typeName, None, "mkprocedure_body_xx", fields : _*)
     ctx.pushResult(procBodyDecl)
   }
 

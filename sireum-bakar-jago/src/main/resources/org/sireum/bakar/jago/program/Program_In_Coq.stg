@@ -124,8 +124,10 @@ objectDeclarationWrapper(astnum, objectDecl) ::= <<
 (D_Object_Declaration_XX $astnum$ $objectDecl$)
 >>
 
-procedureDeclarationWrapper(astnum, procedureDecl) ::= <<
-(D_Procedure_Declaration_XX $astnum$ $procedureDecl$)
+procedureBodyDeclWrapper(astnum, procedureBodyDecl) ::= <<
+(D_Procedure_Body_XX $astnum$ 
+  $procedureBodyDecl$
+)
 >>
 
 typeDeclarationWrapper(astnum, typeDecl) ::= <<
@@ -133,19 +135,19 @@ typeDeclarationWrapper(astnum, typeDecl) ::= <<
 >>
 
 seqDeclaration(astnum, d1, d2) ::= <<
-(D_Seq_Declaration_XX $astnum$ 
+(D_Seq_Declaration_XX $astnum$
 $d1$ 
 $d2$)
 >>
 
 procedureBodyDeclaration(astnum, procName, params, aspectSpecs, identDecls, procBody) ::= <<
-(mkprocedure_declaration_xx $astnum$
+(mkprocedure_body_xx $astnum$
   (* Procedure Name *)
   $procName$
   (* Formal Parameters *)
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil) 
-  (* Procedure Contract *)
+  (* Procedure Aspects *)
   ($if(aspectSpecs)$
   $aspectSpecs; separator=" :: \n"$ :: $endif$nil)  
   (* Object Declarations *)
@@ -156,12 +158,12 @@ procedureBodyDeclaration(astnum, procName, params, aspectSpecs, identDecls, proc
 >>
 
 functionBodyDeclaration(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
-(mkfunction_declaration_xx $astnum$
+(mkfunction_body_xx $astnum$
   (* Function Name *)
   $funcName$
   (* Return Type *) 
   $returnT$ 
-  (* Function Contract *)
+  (* Function Aspects *)
   ($if(aspectSpecs)$
   $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
   (* Formal Parameters *)
