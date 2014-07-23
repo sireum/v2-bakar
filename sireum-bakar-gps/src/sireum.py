@@ -36,7 +36,7 @@ def run_kiasan_plugin():
     if GPS.current_context().entity().is_subprogram():
       # get package name
       for entity in GPS.current_context().file().entities(False):
-        warnings.warn("the second condition of below if is UGLY...but I didn't find the better way to check if entity is subprogram's package because file can have entities from external files")
+        warnings.warn("I didn't find the better way to check if entity is subprogram's package because file can have entities from external files")
         if entity.is_container and entity.name().lower() == GPS.current_context().file().name()[GPS.current_context().file().name().rfind('/')+1:-4].lower():
           package_name = entity.name()
           # set methods_list to only one method
@@ -51,16 +51,14 @@ def run_kiasan_plugin():
           subprograms_list.append(entity.name())
                     
     SIREUM_PATH = get_sireum_path()
-    load_sireum_settings(SIREUM_PATH)        
+    load_sireum_settings(SIREUM_PATH)
         
     if server_process is None:
-      run_kiasan_server(SIREUM_PATH)
-      time.sleep(2) #wait 2 secs to let server run the browser
+      run_kiasan_server(SIREUM_PATH)      
         
     if server_id != GPS.Preference("sireum-kiasan-server-id").get():
       server_process.stdin.write("x\r\n")
       run_kiasan_server(SIREUM_PATH)
-      time.sleep(2) #wait 2 secs to let server run the browser
       server_id = GPS.Preference("sireum-kiasan-server-id").get()
         
     send_units_for_analysis(package_name, subprograms_list)
@@ -90,9 +88,7 @@ def run_kiasan_server(SIREUM_PATH):
   run_server_cmd = [SIREUM_PATH + "/sireum", "launch", "bkserver", "--id", server_id, "--host", host, "--port", port, "--remote", remote, "--remoteport", remoteport]    
   server_process = subprocess.Popen(run_server_cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
   print " ".join(run_server_cmd)
-  #p.stdin.write("bakarkiasan:hi\r\n")
-  #print p.stdout.readline()
-  #p.stdin.write("x\r\n")
+  time.sleep(10) #wait 5 secs to let server run the browser  
     
 
 def send_units_for_analysis(package_name, subprograms_list):
@@ -111,6 +107,8 @@ def send_units_for_analysis(package_name, subprograms_list):
     json_str = AnalysisProcessRequestMessage(server_id, host, port, unit_name, files, depth_bound, array_indices_bound, loop_bound, call_chain_bound, timeout)
     print json_str
     server_process.stdin.write("bakarkiasan:" + json_str + "\r\n")
+    #print p.stdout.readline()
+    #print p.stdout.readline()
 
 
 def AnalysisProcessRequestMessage(server_id, host, port, unitName, files, depthBound, arrayIndicesBound, loopBound, callChainBound, timeout):
