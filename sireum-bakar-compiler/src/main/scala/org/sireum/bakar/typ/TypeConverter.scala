@@ -169,9 +169,9 @@ object TypeConverter {
           ArrayType(SireumNumber(BigInt(0)), SireumNumber(BigInt(100)), componentTypeUri)          
         case e: RecordDef =>
           assert(e.isInstanceOf[RecordTypeDef])
-          var components = imapEmpty[ResourceUri, ResourceUri]
+          var components = imapEmpty[ResourceUri, (ResourceUri, String)]
           for(f <- e.asInstanceOf[RecordTypeDef].components) {
-            components += (f._2.refUri -> f._2.typeUri)
+            components += (f._2.refUri -> (f._2.typeUri, f._1))
           }
           RecordType(components)
         case x =>
