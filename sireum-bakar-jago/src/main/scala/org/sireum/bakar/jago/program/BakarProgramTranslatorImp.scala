@@ -24,11 +24,60 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       aspectSpecs : MList[String],
       params : MList[String],
       localVars : String,
-      mbody : String)  
+      mbody : String)
+  
+  class SymbolTable {
+//  Record symboltable := mkSymbolTable{
+//    vars: list (idnum * (mode * type));
+//    procs: list (procnum * (level * proc_decl));
+//    types: list (typenum * type_decl);
+//    exps: list (astnum * type)
+//  }.
+    
+    // natural number is used to represent identifier, in order to make 
+    // it readable, we annotate each natural number with its identifier 
+    // string, that's why we use string as key for the following maps
+    val var_type_map = mmapEmpty[String, (String, String)]
+    val proc_decl_map = mmapEmpty[String, (Integer, String)]
+    val type_decl_map = mmapEmpty[String, String]
+    
+    val exp_type_map = mmapEmpty[Integer, String]
+    
+    def insertVarType(x: String, mode: String, theType: String) = {
+      var_type_map += (x -> (mode, theType))
+    }
+    
+    def getVarType(x: String) = var_type_map.get(x)
+    
+    def insertProcedureDecl(procedureId: String, procedureDecl: String, level: Integer = 0) {
+      proc_decl_map += (procedureId -> (level, procedureDecl))
+    }
+    
+    def getProcedureDecl(procedureId: String) = {
+       proc_decl_map.get(procedureId) match {
+         case Some ((n, p)) => (Some (p))
+         case None          => None
+       }
+    }
+    
+    def insertTypeDecl(typeId: String, typeDecl: String) = {
+      type_decl_map += (typeId -> typeDecl)
+    }
+    
+    def getTypeDecl(typeId: String) = type_decl_map.get(typeId)
+    
+    def insertExpType(expAstNum: Integer, theType: String) {
+      exp_type_map += (expAstNum -> theType)
+    }
+    
+    def getExpType(expAstNum: Integer) = exp_type_map.get(expAstNum)
+    
+  }
   
   trait Context {
     val results = mlistEmpty[String]
     var result : Any = null
+    val symboltable = new SymbolTable
 
     def pushResult(o : Any) {
       result = o;
@@ -244,8 +293,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.mname, m.aspectSpecs, m.params, m.localVars, m.mbody)
+        val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.mname, m.params, m.localVars, m.mbody)
         ctx.pushResult(procedureBody)
+        
+        // add to symbol table
+        ctx.symboltable.insertProcedureDecl(m.mname, procedureBody)
+        
         false
       case o @ FunctionBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
@@ -257,9 +310,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val functionBody = factory.buildFunctionBodyDeclaration(
-            fnbody_astnum, m.mname, m.returnType.get, m.aspectSpecs, m.params, m.localVars, m.mbody)
+            fnbody_astnum, m.mname, m.returnType.get, m.params, m.localVars, m.mbody)
         val functionBodyDecl = factory.buildProcedureBodyDeclarationWrapper(astnum, functionBody)
         ctx.pushResult(functionBodyDecl)
+        
+        // add to symbol table
+        ctx.symboltable.insertProcedureDecl(m.mname, functionBodyDecl)
+        
         false
     }
   }
@@ -289,6 +346,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       
       val result = factory.buildObjectDecl(astnum, x, theType, optionalInitExp)
       ctx.pushResult(result)
+      
+      // add to symbol table
+      // ctx.symboltable.insertExpType(expAstNum, theType)
+      
       false
     case o @ OrdinaryTypeDeclarationEx(sloc, namesQl, discriminantPartQ, typeDeclarationViewQ, aspectSpecificationsQl, checks) => 
       val astnum = factory.next_astnum
@@ -298,22 +359,90 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       v(typeDef)
       val result = 
       typeDef match {
+        case SignedIntegerTypeDefinitionEx(sloc, integerConstraintQ, checks) =>
+          // e.g. type T is range 0 .. 10;
+          val r = ctx.popResult.asInstanceOf[MList[Any]]
+          val low = r(0)
+          val upper = r(1)
+          factory.buildIntegerTypeDecl(astnum, typeName, low, upper)
+        case DerivedTypeDefinitionEx(sloc, hasAbstractQ, hasLimitedQ, parentSubtypeIndicationQ, checks) =>
+          // e.g. type T1 is new Integer range 1 .. 10;
+          val r = ctx.popResult.asInstanceOf[MList[Any]]
+          val parentTypeName = r(0)
+          val low = r(1)
+          val upper = r(2)
+          factory.buildDerivedTypeDecl(astnum, typeName, parentTypeName, low, upper)
         case RecordTypeDefinitionEx(sloc, hasAbstractQ, hasLimitedQ, recordDefinitionQ, checks) =>
           val fields = ctx.popResult.asInstanceOf[MList[Any]]
           factory.buildRecordTypeDecl(astnum, typeName, fields)
         case ConstrainedArrayDefinitionEx(sloc, discreteSubtypeDefinitionsQl, arrayComponentDefinitionQ, checks) =>
           val elements = ctx.popResult.asInstanceOf[MList[Any]]
           val componentType = elements(0)
-          val low = elements(1)
-          val upper = elements(2)
-          factory.buildArrayTypeDecl(astnum, typeName, componentType, low, upper)
+          val indexSubtypeMark = elements(1)
+          factory.buildArrayTypeDecl(astnum, typeName, componentType, indexSubtypeMark)
+        case _ =>
+          System.out.println("TODO: to deal with other OrdinaryTypeDeclaration !")
+          "TODO: to deal with other OrdinaryTypeDeclaration !"
       }
       ctx.pushResult(result)
+      
+      // add to symbol table: type name -> type declaration
+      ctx.symboltable.insertTypeDecl(typeName.asInstanceOf[String], result)
+      
+      false
+    case o @ SubtypeDeclarationEx(sloc, namesQl, typeDeclarationViewQ, aspectSpecificationsQl, checks) =>
+      val astnum = factory.next_astnum
+      v(namesQl.getDefiningNames().get(0))
+      val typeName = ctx.popResult
+      val typeDef = typeDeclarationViewQ.getDefinition()
+      v(typeDef)
+      val result = 
+      typeDef match {
+        case SubtypeIndicationEx(sloc, hasAliasedQ, hasNullExclusionQ, subtypeMarkQ, subtypeConstraintQ, checks) =>
+          // e.g. subtype T3 is Integer range 1 .. 10;
+          val r = ctx.popResult.asInstanceOf[MList[Any]]
+          val parentTypeName = r(0)
+          val low = r(1)
+          val upper = r(2)
+          factory.buildSubtypeDecl(astnum, typeName, parentTypeName, low, upper)
+        case _ =>
+          System.out.println("TODO: to deal with other SubtypeDeclaration !")
+          "TODO: to deal with other SubtypeDeclaration !"
+      }
+      ctx.pushResult(result)
+      
+      // add to symbol table: subtype name -> subtype declaration
+      ctx.symboltable.insertTypeDecl(typeName.asInstanceOf[String], result)
+      
       false
   }
   
   // array definition and record definition, which are used to declare array / record type
   def definitionH(ctx : Context, v : => BVisitor) : VisitorFunction = {
+    case o @ SignedIntegerTypeDefinitionEx(sloc, integerConstraintQ, checks) =>
+      // e.g. type T is range 0 .. 10;
+      val result = mlistEmpty[String]
+      val range = integerConstraintQ.getRangeConstraint().asInstanceOf[SimpleExpressionRange]
+      val low = range.getLowerBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+      val upper = range.getUpperBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+      result += low
+      result += upper
+      ctx.pushResult(result)
+      false
+    case o @ DerivedTypeDefinitionEx(sloc, hasAbstractQ, hasLimitedQ, parentSubtypeIndicationQ, checks) =>
+      // e.g. type T1 is new Integer range 1 .. 10;
+      val result = mlistEmpty[String]
+      val subtypeIndication = parentSubtypeIndicationQ.getElement().asInstanceOf[SubtypeIndication]
+      v(subtypeIndication.getSubtypeMarkQ().getExpression())
+      val parent_subtype_mark = ctx.popResult
+      val range = subtypeIndication.getSubtypeConstraintQ().getConstraint().asInstanceOf[SimpleExpressionRange]
+      val low = range.getLowerBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+      val upper = range.getUpperBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+      result += parent_subtype_mark.asInstanceOf[String]
+      result += low
+      result += upper
+      ctx.pushResult(result)
+      false
     case o @ RecordTypeDefinitionEx(sloc, hasAbstractQ, hasLimitedQ, recordDefinitionQ, checks) =>
       val astnum = factory.next_astnum
       val fields = mlistEmpty[String]
@@ -335,18 +464,39 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o @ ConstrainedArrayDefinitionEx(sloc, discreteSubtypeDefinitionsQl, arrayComponentDefinitionQ, checks) =>
       val result = mlistEmpty[String]
       // TODO: to extend to nested array or multi-dimensional array
-      val range = discreteSubtypeDefinitionsQl.getDefinitions().get(0).asInstanceOf[DiscreteSimpleExpressionRangeAsSubtypeDefinition]
-      // TODO: now its lower and upper bound are all literals
-      val low = range.getLowerBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
-      val upper = range.getUpperBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+      // index type mark, e.g. type T is range 0 .. 10; type ArrayT is array(T) of Integer;
+      val index_subtype_indication = discreteSubtypeDefinitionsQl.getDefinitions().get(0).asInstanceOf[DiscreteSubtypeIndicationAsSubtypeDefinition]
+      // the following is for array of the form: type ArrayT is array (0 .. 10) of Integer;
+      // val range = discreteSubtypeDefinitionsQl.getDefinitions().get(0).asInstanceOf[DiscreteSimpleExpressionRangeAsSubtypeDefinition]
       
-      val componentType = arrayComponentDefinitionQ.getElement()
-      v(componentType)
-      val theType = ctx.popResult.asInstanceOf[String]
-      result += theType.toString()
-      result += low
-      result += upper
+      v(index_subtype_indication.getSubtypeMarkQ().getExpression())
+      val index_subtype_mark = ctx.popResult.asInstanceOf[String]
+            
+      val componentTypeDef = arrayComponentDefinitionQ.getElement()
+      v(componentTypeDef)
+      val componentType = ctx.popResult.asInstanceOf[String]
+      result += index_subtype_mark
+      result += componentType
       ctx.pushResult(result)
+      false
+    case SubtypeIndicationEx(sloc, hasAliasedQ, hasNullExclusionQ, subtypeMarkQ, subtypeConstraintQ, checks) =>
+      // subtype_indication is used to define subtype, e.g. subtype T3 is Integer range 1 .. 10, but it also
+      // used to represent standard type or other user defined types, e.g. Integer, Boolean, where subtypeConstraintQ
+      // is null, to declare variables;
+      v(subtypeMarkQ.getExpression())
+      val parent_subtype_mark = ctx.popResult.asInstanceOf[String]
+      subtypeConstraintQ.getConstraint() match {
+        case o @ SimpleExpressionRangeEx(sloc, lowerBoundQ, upperBoundQ, checks) =>
+          val result = mlistEmpty[String]
+          val low = lowerBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+          val upper = upperBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+          result += parent_subtype_mark
+          result += low
+          result += upper
+          ctx.pushResult(result)
+        case o @ NotAnElementEx(sloc) =>
+          ctx.pushResult(parent_subtype_mark)
+      }
       false
   }
   
@@ -520,14 +670,25 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o @ IdentifierEx(sloc, refName, ref, theType, checks) =>
       // Identifier object is used to reference to either
       // - variable, parameter, record field, or 
-      // - type name, or
+      // - type name, or subtype / derived type name
       // - package/procedure name
       if (ref.contains("variable") || ref.contains("parameter") || ref.contains("component")) {
         val result = factory.buildIdExpr(factory.next_astnum, theType, refName, ref, checks)
         ctx.pushResult(result) 
-      } else if(ref.contains("ordinary_type")) {
-        // it's used as a type for a declared variable
-        val result = factory.buildRefType(refName, ref)
+      } else if(ref.contains("ordinary_type") || ref.contains("subtype")) {
+        // it's used as a type for a declared variable, or used as a parent type for 
+        // declaring subtype and derived type; it can be standard integer, boolean type
+        // or declared array / record / subtype;
+        val result = 
+        refName.toLowerCase() match {
+          case "integer" => "Integer"
+          case "boolean" => "Boolean"
+          case _         => 
+            val refTypeName = factory.buildId(refName, ref)
+            val refTypeDecl = ctx.symboltable.getTypeDecl(refTypeName)
+            assert(refTypeDecl.isDefined)
+            factory.buildRefTypeMark(refTypeName, refTypeDecl.get)
+        }
         ctx.pushResult(result)
       } else if(ref.contains("procedure")) {
         // it's used as a procedure call

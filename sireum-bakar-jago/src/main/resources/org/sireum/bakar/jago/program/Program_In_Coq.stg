@@ -4,6 +4,10 @@ optionVal(value) ::= <<
 $if(value)$Some($value$)$else$None$endif$ 
 >>
 
+refType(typeMark, typeId) ::= <<
+($typeMark$ $typeId$)
+>>
+
 list(elements) ::= <<
 ($if(elements)$$elements; separator=" :: "$ :: $endif$nil)
 >>
@@ -91,12 +95,28 @@ loopInvariantStmt(astnum, invariantExp) ::= <<
 (S_Loop_Invariant_XX $astnum$ $invariantExp$)
 >>
 
+range(l, u) ::= <<
+(Range_XX $l$ $u$)
+>>
+
+subtypeDecl(astnum, tid, parentSubtypeMark, range) ::= <<
+(Subtype_Declaration_XX $astnum$ $tid$ $parentSubtypeMark$ $range$)
+>>
+
+derivedtypeDecl(astnum, tid, parentSubtypeMark, range) ::= <<
+(Derived_Type_Declaration_XX $astnum$ $tid$ $parentSubtypeMark$ $range$)
+>>
+
+integertypeDecl(astnum, tid, range) ::= <<
+(Integer_Type_Declaration_XX $astnum$ $tid$ $range$)
+>>
+
 fieldDeclaration(fieldName, fieldType) ::= <<
 ($fieldName$, $fieldType$)
 >>
 
-arrayTypeDecl(astnum, tid, theType, low, upper) ::= <<
-(Array_Type_Declaration_XX $astnum$ $tid$ ((*componentType*) $theType$) ((*lowerBound*) $low$) ((*upperBound*) $upper$))
+arrayTypeDecl(astnum, tid, indexSubtypeMark, componentType) ::= <<
+(Array_Type_Declaration_XX $astnum$ $tid$ ((*index subtype mark*) $indexSubtypeMark$) ((*component type*) $componentType$))
 >>
 
 recordTypeDecl(astnum, tid, fields) ::= <<
@@ -140,16 +160,13 @@ $d1$
 $d2$)
 >>
 
-procedureBodyDeclaration(astnum, procName, params, aspectSpecs, identDecls, procBody) ::= <<
+procedureBodyDeclaration(astnum, procName, params, identDecls, procBody) ::= <<
 (mkprocedure_body_xx $astnum$
   (* Procedure Name *)
   $procName$
   (* Formal Parameters *)
   ($if(params)$
-  $params; separator=" :: \n"$ :: $endif$nil) 
-  (* Procedure Aspects *)
-  ($if(aspectSpecs)$
-  $aspectSpecs; separator=" :: \n"$ :: $endif$nil)  
+  $params; separator=" :: \n"$ :: $endif$nil)
   (* Object Declarations *)
   ($identDecls; separator=" :: \n"$)
   (* Procedure Body *)
@@ -157,15 +174,12 @@ procedureBodyDeclaration(astnum, procName, params, aspectSpecs, identDecls, proc
 )
 >>
 
-functionBodyDeclaration(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+functionBodyDeclaration(astnum, funcName, returnT, params, identDecls, funcBody) ::= <<
 (mkfunction_body_xx $astnum$
   (* Function Name *)
   $funcName$
   (* Return Type *) 
-  $returnT$ 
-  (* Function Aspects *)
-  ($if(aspectSpecs)$
-  $aspectSpecs; separator=" :: \n"$ :: $endif$nil)
+  $returnT$
   (* Formal Parameters *)
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil)

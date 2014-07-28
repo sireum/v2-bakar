@@ -173,6 +173,13 @@ class Factory(stg: STGroupFile) {
     buildList(cks)
   }
   
+  def buildRefType(typeMark: Any, typeId: Any) = {
+    val result = stg.getInstanceOf("refType")
+    result.add("typeMark", typeMark)
+    result.add("typeId", typeId)
+    result.render()
+  }
+  
   def buildLiteral(theType: String, theLiteral: String) = {
     val mTrans = Map[String, String]("integer" -> "Integer_Literal", "boolean" -> "Boolean_Literal")
     var o: Option[String] = None
@@ -232,15 +239,22 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  // it's used as a type for a declared variable
-  def buildRefType(refName: String, ref: String) = {
-    refName.toLowerCase() match {
-      case "integer" => "Integer"
-      case "boolean" => "Boolean"
-      case _ => 
-        val x = buildId(refName, ref)
-        "(Aggregate " + x + ")"
-    }    
+  // it's used as a type for a declared variable, or used as a parent type for 
+  // declaring subtype and derived type; it can be standard integer, boolean type
+  // or declared array / record / subtype;
+  def buildRefTypeMark(refTypeName: String, refTypeDecl: String) = {
+    if (refTypeDecl.contains("Subtype_Declaration"))
+      buildRefType("Subtype", refTypeName)
+    else if (refTypeDecl.contains("Derived_Type_Declaration"))
+      buildRefType("Derived_Type", refTypeName)
+    else if (refTypeDecl.contains("Integer_Type_Declaration"))
+      buildRefType("Integer_Type", refTypeName)
+    else if (refTypeDecl.contains("Array_Type_Declaration"))
+      buildRefType("Array_Type", refTypeName)
+    else if (refTypeDecl.contains("Record_Type_Declaration"))
+      buildRefType("Record_Type", refTypeName)
+    else 
+      "Undefined RefType !"
   }
 
   
@@ -254,7 +268,7 @@ class Factory(stg: STGroupFile) {
     val id_num = 
       if (id_uri.contains("variable") || id_uri.contains("parameter") || id_uri.contains("component"))
         getIdNum(id_uri)
-      else if(id_uri.contains("ordinary_type"))
+      else if(id_uri.contains("ordinary_type") || id_uri.contains("subtype"))
         getTypeNum(id_uri)
       else if(id_uri.contains("package_body"))
         getPkgNum(id_uri)
@@ -390,14 +404,49 @@ class Factory(stg: STGroupFile) {
     result.add("invariantExp", invariantExp)
     result.render()
   }  
+
+  def buildRange(low: Any, upper: Any) = {
+    val result = stg.getInstanceOf("range")
+    result.add("l", low)
+    result.add("u", upper)
+    result.render()
+  }
   
-  def buildArrayTypeDecl(astnum: Int, arrayTypeName: Any, componentType: Any, low: Any, upper: Any) = {
+  def buildSubtypeDecl(astnum: Int, subtypeName: Any, parentTypeName: Any, low: Any, upper: Any) = {
+    val result = stg.getInstanceOf("subtypeDecl")
+    val range = buildRange(low, upper)
+    result.add("astnum", astnum)
+    result.add("tid", subtypeName)
+    result.add("parentSubtypeMark", parentTypeName)
+    result.add("range", range)
+    result.render()
+  }
+
+  def buildDerivedTypeDecl(astnum: Int, derivedTypeName: Any, parentTypeName: Any, low: Any, upper: Any) = {
+    val result = stg.getInstanceOf("derivedtypeDecl")
+    val range = buildRange(low, upper)
+    result.add("astnum", astnum)
+    result.add("tid", derivedTypeName)
+    result.add("parentSubtypeMark", parentTypeName)
+    result.add("range", range)
+    result.render()
+  }
+  
+  def buildIntegerTypeDecl(astnum: Int, integerTypeName: Any, low: Any, upper: Any) = {
+    val result = stg.getInstanceOf("integertypeDecl")
+    val range = buildRange(low, upper)
+    result.add("astnum", astnum)
+    result.add("tid", integerTypeName)
+    result.add("range", range)
+    result.render()
+  }
+  
+  def buildArrayTypeDecl(astnum: Int, arrayTypeName: Any, componentType: Any, indexSubtypeMark: Any) = {
     val result = stg.getInstanceOf("arrayTypeDecl")
     result.add("astnum", astnum)
     result.add("tid", arrayTypeName)
-    result.add("theType", componentType)
-    result.add("low", low)
-    result.add("upper", upper)
+    result.add("indexSubtypeMark", indexSubtypeMark)
+    result.add("componentType", componentType)
     result.render()
   }
   
@@ -485,7 +534,8 @@ class Factory(stg: STGroupFile) {
       buildObjectDeclarationWrapper(astnum, decl)
     } else if (decl.startsWith("(mkprocedure_body")) {
       buildProcedureBodyDeclarationWrapper(astnum, decl)
-    } else if (decl.startsWith("(Array_Type_Declaration") || 
+    } else if (decl.startsWith("(Subtype_Declaration") || decl.startsWith("(Derived_Type_Declaration") ||
+        decl.startsWith("(Integer_Type_Declaration") || decl.startsWith("(Array_Type_Declaration") || 
         decl.startsWith("(Record_Type_Declaration")) {
       buildTypeDeclarationWrapper(astnum, decl)
     } else {
@@ -493,27 +543,26 @@ class Factory(stg: STGroupFile) {
     }
   }
 
-  def buildProcedureBodyDeclaration(astnum: Int, procName: String, aspectSpecs: MList[String], params: MList[String], 
-      identDecls: String, procBody: String) = {
+  def buildProcedureBodyDeclaration(astnum: Int, procName: String, params: MList[String], identDecls: String, procBody: String) = {
     val result = stg.getInstanceOf("procedureBodyDeclaration")
     result.add("astnum", astnum)
     result.add("procName", procName)
     result.add("procBody", procBody) 
     result.add("identDecls", identDecls)    
-    buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
+//  buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
     buildListAttributes(result, "params", params: _*)
     result.render()
   }
   
-  def buildFunctionBodyDeclaration(astnum: Int, funcName: String, returnT: String, aspectSpecs: MList[String], params: MList[String], 
-      identDecls: String, funcBody: String) = {
+  def buildFunctionBodyDeclaration(astnum: Int, funcName: String, returnT: String, 
+      params: MList[String], identDecls: String, funcBody: String) = {
     val result = stg.getInstanceOf("functionBodyDeclaration")
     result.add("astnum", astnum)
     result.add("funcName", funcName)
     result.add("returnT", returnT)
     result.add("funcBody", funcBody) 
     result.add("identDecls", identDecls) 
-    buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
+//  buildListAttributes(result, "aspectSpecs", aspectSpecs: _*)
     buildListAttributes(result, "params", params: _*)
     result.render()
   }
