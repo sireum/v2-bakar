@@ -440,7 +440,7 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
             for (m <- elem.getClass.getDeclaredMethods if m.getName == "type") {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
               val tc = mtype.getSimpleName() match {
-                case "DiscreteSubtypeIndicationAsSubtypeDefinition" =>
+                case "SubtypeIndication" =>
                   buildTypeConstructor(TypeNameSpace.TypeDeclaration, "Subtype_Declaration_XX", 
                       TypeNameSpace.AstNum, TypeNameSpace.TypeNum, TypeNameSpace.Type, TypeNameSpace.Range)
                 case "DerivedTypeDefinition" =>
