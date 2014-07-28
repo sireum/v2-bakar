@@ -14,10 +14,6 @@ Definition procnum := nat.
 
 Definition typenum := nat.
 
-Definition typedeclnum := astnum.
-
-Definition aspectnum := nat.
-
 Definition index := Z.
 
 Inductive mode: Type := 
@@ -26,9 +22,13 @@ Inductive mode: Type :=
     | In_Out: mode.
 
 Inductive type: Type := 
-    | Boolean: type
-    | Integer: type
-    | Aggregate (t: typenum).
+    | Boolean
+    | Integer
+    | Subtype (t: typenum)
+    | Derived_Type (t: typenum)
+    | Integer_Type (t: typenum)
+    | Array_Type (t: typenum)  (* t: declared array type name *)
+    | Record_Type (t: typenum) (* t: declared record type name *).
 
 Inductive unary_operator: Type := 
 	| Unary_Plus: unary_operator
@@ -76,9 +76,15 @@ Inductive statement_xx: Type :=
 	| S_Procedure_Call_XX: astnum -> astnum -> procnum -> list expression_xx -> statement_xx
 	| S_Sequence_XX: astnum -> statement_xx -> statement_xx -> statement_xx.
 
+Inductive range_xx: Type := 
+	| Range_XX: Z -> Z -> range_xx.
+
 Inductive type_declaration_xx: Type := 
-	| Array_Type_Declaration_XX: astnum -> typenum -> type -> Z -> Z -> type_declaration_xx
-	| Record_Type_Declaration_XX: astnum -> typenum -> list (idnum * type) -> type_declaration_xx.
+	| Derived_Type_Declaration_XX: astnum -> typenum -> type -> range_xx -> type_declaration_xx
+	| Integer_Type_Declaration_XX: astnum -> typenum -> range_xx -> type_declaration_xx
+	| Array_Type_Declaration_XX: astnum -> typenum -> type -> type -> type_declaration_xx
+	| Record_Type_Declaration_XX: astnum -> typenum -> list (idnum * type) -> type_declaration_xx
+	| Subtype_Declaration_XX: astnum -> typenum -> type -> range_xx -> type_declaration_xx.
 
 Record object_declaration_xx: Type := mkobject_declaration_xx{
 	declaration_astnum_xx: astnum;
@@ -94,12 +100,6 @@ Record parameter_specification_xx: Type := mkparameter_specification_xx{
 	parameter_mode_xx: mode
 }.
 
-Record aspect_specification_xx: Type := mkaspect_specification_xx{
-	aspect_astnum_xx: astnum;
-	aspect_mark_xx: aspectnum;
-	aspect_definition_xx: expression_xx
-}.
-
 Inductive declaration_xx: Type := 
 	| D_Null_Declaration_XX: declaration_xx
 	| D_Type_Declaration_XX: astnum -> type_declaration_xx -> declaration_xx
@@ -112,6 +112,5 @@ with procedure_body_xx: Type :=
 	(procedure_astnum_xx: astnum)
 	(procedure_name_xx: procnum)
 	(procedure_parameter_profile_xx: list parameter_specification_xx)
-	(procedure_aspect_xx: list aspect_specification_xx)
 	(procedure_declarative_part_xx: declaration_xx)
 	(procedure_statements_xx: statement_xx).

@@ -163,10 +163,10 @@ class Factory(stg: STGroupFile) {
             cks += "Do_Division_Check"
           case "do_overflow_check" =>
             cks += "Do_Overflow_Check"
-          case "do_index_check" =>
-            cks += "Do_Index_Check"
           case "do_range_check" =>
-            cks += "Do_Index_Check"
+            cks += "Do_Range_Check"
+          case _ =>
+            cks += "Undefined_Check"
         }
       }
     }

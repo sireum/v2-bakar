@@ -34,18 +34,18 @@ Definition procnum := nat.
 
 Definition typenum := nat.
 
-Definition typedeclnum := astnum.
-
-Definition aspectnum := nat.
-
 Definition index := Z.
 >>
 
 basicTypes() ::= <<
 Inductive type: Type := 
-    | Boolean: type
-    | Integer: type
-    | Aggregate (t: typenum).
+    | Boolean
+    | Integer
+    | Subtype (t: typenum)
+    | Derived_Type (t: typenum)
+    | Integer_Type (t: typenum)
+    | Array_Type (t: typenum)  (* t: declared array type name *)
+    | Record_Type (t: typenum) (* t: declared record type name *).
 >>
 
 modes() ::= <<

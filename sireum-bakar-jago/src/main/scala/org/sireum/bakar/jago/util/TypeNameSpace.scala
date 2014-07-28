@@ -46,6 +46,7 @@ object TypeNameSpace {
   val Expression = "expression_xx"
   val Statement = "statement_xx"
   
+  val Range = "range_xx"
   val TypeDeclaration = "type_declaration_xx"
   val ObjectDeclaration = "object_declaration_xx"
   val ProcedureBodyDeclaration = "procedure_body_xx"

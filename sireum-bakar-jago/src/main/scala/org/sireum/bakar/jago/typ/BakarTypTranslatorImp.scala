@@ -81,13 +81,14 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
   def trans_type {
     trans_expression
     trans_statement
+    trans_range
     // array/record type declarations
     trans_definition 
     // variable declarations
     trans_object_declaration
     // parameter / aspect specification
     trans_parameter_specification
-    trans_procedure_aspectspecs
+//  trans_procedure_aspectspecs
     trans_declaration
 //  trans_subprogram_declaration
 //  trans_package_declaration
@@ -372,8 +373,8 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
           buildFieldDecl("procedure_name_xx", TypeNameSpace.ProcNum)
         case "parameterProfileQl" =>
           buildFieldDecl("procedure_parameter_profile_xx", buildListType(TypeNameSpace.ParameterSpecification))
-        case "aspectSpecificationsQl" => 
-          buildFieldDecl("procedure_aspect_xx", buildListType(TypeNameSpace.AspectSpecification))
+//      case "aspectSpecificationsQl" => 
+//        buildFieldDecl("procedure_aspect_xx", buildListType(TypeNameSpace.AspectSpecification))
         case "bodyDeclarativeItemsQl" => 
           buildFieldDecl("procedure_declarative_part_xx", TypeNameSpace.Declaration)
         case "bodyStatementsQl" => 
@@ -439,9 +440,18 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
             for (m <- elem.getClass.getDeclaredMethods if m.getName == "type") {
               val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
               val tc = mtype.getSimpleName() match {
+                case "DiscreteSubtypeIndicationAsSubtypeDefinition" =>
+                  buildTypeConstructor(TypeNameSpace.TypeDeclaration, "Subtype_Declaration_XX", 
+                      TypeNameSpace.AstNum, TypeNameSpace.TypeNum, TypeNameSpace.Type, TypeNameSpace.Range)
+                case "DerivedTypeDefinition" =>
+                  buildTypeConstructor(TypeNameSpace.TypeDeclaration, "Derived_Type_Declaration_XX", 
+                      TypeNameSpace.AstNum, TypeNameSpace.TypeNum, TypeNameSpace.Type, TypeNameSpace.Range)
+                case "SignedIntegerTypeDefinition" =>
+                  buildTypeConstructor(TypeNameSpace.TypeDeclaration, "Integer_Type_Declaration_XX", 
+                      TypeNameSpace.AstNum, TypeNameSpace.TypeNum, TypeNameSpace.Range)
                 case "ConstrainedArrayDefinition" =>
                   buildTypeConstructor(TypeNameSpace.TypeDeclaration, "Array_Type_Declaration_XX", 
-                      TypeNameSpace.AstNum, TypeNameSpace.TypeNum, TypeNameSpace.Type, "Z", "Z")
+                      TypeNameSpace.AstNum, TypeNameSpace.TypeNum, TypeNameSpace.Type, TypeNameSpace.Type)
                 case "RecordTypeDefinition" =>
                   buildTypeConstructor(TypeNameSpace.TypeDeclaration, "Record_Type_Declaration_XX", 
                       TypeNameSpace.AstNum, TypeNameSpace.TypeNum, buildListType(buildProduct(TypeNameSpace.IdNum, TypeNameSpace.Type)))
@@ -596,6 +606,34 @@ class BakarTypTranslatorModuleDef (val job : PipelineJob, info : PipelineJobModu
       }
     }
   }  
+  
+  def trans_range {
+    val exp = classOf[ExpressionClass]
+    for (f <- exp.getDeclaredFields) {
+      for (a <- f.getDeclaredAnnotations) {
+        if (a.annotationType == classOf[XmlElements]) {
+          val typeConstructors = mlistEmpty[String]
+          val xelems = a.asInstanceOf[XmlElements]
+          for (elem <- xelems.value) {
+            for (m <- elem.getClass.getDeclaredMethods if (m.getName == "type")) {
+              val mtype = m.invoke(elem).asInstanceOf[java.lang.Class[_]]
+              val tc = mtype.getSimpleName() match {
+                case "DiscreteSimpleExpressionRange" =>
+                  buildTypeConstructor(TypeNameSpace.Range, "Range_XX", "Z", "Z")
+                case _ =>
+                  ""
+              }
+              if (tc != "")
+                typeConstructors += tc
+            }
+          }
+          val annotation = None
+          val range = buildInductiveType(TypeNameSpace.Range, annotation, typeConstructors : _*)
+          ctx.addNewTypeDecl(range)
+        }
+      }
+    }
+  }
   
   
   def trans_basics {
