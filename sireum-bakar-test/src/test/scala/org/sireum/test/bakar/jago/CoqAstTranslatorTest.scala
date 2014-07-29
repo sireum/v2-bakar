@@ -22,22 +22,27 @@ import org.sireum.util.Exec.StringResult
 @RunWith(classOf[JUnitRunner])
 class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
-  def isGpl = {
-    try
+  // ingore all the tests if we're not using a wavefront released after may 2014
+  override def ignores = {
+    val isNewWaveFront = try {
+      val reg = """(?s).*(\d\d\d\d)(\d\d)(\d\d).*""".r
       new Exec().run(1000, ilist("gnat2xml", "--version"), None, None) match {
-        case StringResult(s, i) => (i != 0) || s.contains("GPL 2014")
-        case _                  => true
+        case StringResult(s, i) =>
+          if (i == 0) {
+            val reg(y, m, d) = s
+            y.toInt >= 2014 && m.toInt >= 6
+          } else false
+        case _ => false
       }
-    catch { case _ : Throwable => true }
-  }
+    } catch { case e: Throwable => false }
 
-  override def includes =
-    if (isGpl) msetEmpty[Regex] += ("max", "min")
-    else super.includes
+    if (!isNewWaveFront) msetEmpty[Regex] + ".*"
+    else msetEmpty[Regex]
+  }
 
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
-  override def pre(c : Configuration) : Boolean = {
+  override def pre(c: Configuration): Boolean = {
     import BakarProgramTranslatorModule.ProducerView._
     c.job.jagoProgramTarget = ProgramTarget.Coq
 
@@ -54,23 +59,20 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
       PipelineStage(
         "gnat2xml stage",
         false,
-        Gnat2XMLWrapperModule
-      ),
+        Gnat2XMLWrapperModule),
       PipelineStage(
         "scalaxb stage",
         false,
-        ParseGnat2XMLModule
-      ),
+        ParseGnat2XMLModule),
       PipelineStage(
         "translator stage",
         false,
-        BakarProgramTranslatorModule)
-    )
+        BakarProgramTranslatorModule))
 
   override def generateExpected = false
   override def outputSuffix = "jago"
 
-  override def writeTestString(job : PipelineJob, w : Writer) = {
+  override def writeTestString(job: PipelineJob, w: Writer) = {
     import BakarProgramTranslatorModule.ConsumerView._
     val results = job.jagoProgramResults
     results.foreach { f =>
