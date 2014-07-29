@@ -3,7 +3,8 @@ is
    type RecordT is record
       X: Integer;
    end record;
-   type ArrayT is array (0 .. 5) of Integer;
+   subtype I is Integer range 0 .. 5;
+   type ArrayT is array (I) of Integer;
    
    procedure Increase(X: Integer; Y: out Integer) is
    begin

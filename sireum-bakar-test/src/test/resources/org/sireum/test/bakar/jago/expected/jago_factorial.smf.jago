@@ -5,9 +5,7 @@
     (* Formal Parameters *)
     (
     (mkparameter_specification_xx 4 ((*N*) 1) Integer In) :: 
-    (mkparameter_specification_xx 5 ((*M*) 2) Integer Out) :: nil) 
-    (* Procedure Aspects *)
-    (nil)  
+    (mkparameter_specification_xx 5 ((*M*) 2) Integer Out) :: nil)
     (* Object Declarations *)
     ((D_Seq_Declaration_XX 6
   (D_Object_Declaration_XX 7 (mkobject_declaration_xx 8 ((*Result*) 3) Integer (Some ((E_Literal_XX 9 (Integer_Literal 1) (**(nil)**)))))) 

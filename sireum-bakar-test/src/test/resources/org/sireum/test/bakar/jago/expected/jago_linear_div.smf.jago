@@ -7,9 +7,7 @@
     (mkparameter_specification_xx 4 ((*Dividend*) 1) Integer In) :: 
     (mkparameter_specification_xx 5 ((*Divisor*) 2) Integer In) :: 
     (mkparameter_specification_xx 6 ((*Quotient*) 3) Integer Out) :: 
-    (mkparameter_specification_xx 7 ((*Remainder*) 4) Integer Out) :: nil) 
-    (* Procedure Aspects *)
-    (nil)  
+    (mkparameter_specification_xx 7 ((*Remainder*) 4) Integer Out) :: nil)
     (* Object Declarations *)
     (D_Null_Declaration_XX)
     (* Procedure Body *)

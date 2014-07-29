@@ -6,9 +6,7 @@
     (
     (mkparameter_specification_xx 4 ((*M*) 1) Integer In) :: 
     (mkparameter_specification_xx 5 ((*N*) 2) Integer In) :: 
-    (mkparameter_specification_xx 6 ((*Y*) 3) Integer Out) :: nil) 
-    (* Procedure Aspects *)
-    (nil)  
+    (mkparameter_specification_xx 6 ((*Y*) 3) Integer Out) :: nil)
     (* Object Declarations *)
     ((D_Seq_Declaration_XX 7
   (D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*C*) 4) Integer None)) 

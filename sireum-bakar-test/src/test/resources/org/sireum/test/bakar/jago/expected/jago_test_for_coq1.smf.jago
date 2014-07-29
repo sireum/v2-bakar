@@ -3,9 +3,7 @@
     (* Procedure Name *)
     ((*Test_for_Coq1*) 1)
     (* Formal Parameters *)
-    (nil) 
-    (* Procedure Aspects *)
-    (nil)  
+    (nil)
     (* Object Declarations *)
     ((D_Seq_Declaration_XX 4
   (D_Object_Declaration_XX 5 (mkobject_declaration_xx 6 ((*N*) 1) Integer (Some ((E_Literal_XX 7 (Integer_Literal 25) (**(nil)**)))))) 
