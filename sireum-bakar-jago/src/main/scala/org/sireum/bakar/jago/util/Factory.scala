@@ -619,6 +619,15 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
+  def buildSourceLocation(line: Any, col: Any, endline: Any, endcol: Any) = {
+    val result = stg.getInstanceOf("sourceLocation")
+    result.add("line", line)
+    result.add("col", col)
+    result.add("endline", endline)
+    result.add("endcol", endcol)
+    result.render()
+  }
+  
   def buildProduct(x: Any, y: Any) = {
     val result = stg.getInstanceOf("compilationUnit")
     result.add("x", x)

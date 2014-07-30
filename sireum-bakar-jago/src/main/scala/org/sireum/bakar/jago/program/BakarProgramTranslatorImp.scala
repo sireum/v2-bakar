@@ -8,6 +8,7 @@ import org.sireum.bakar.jago.util.Factory
 import org.sireum.bakar.jago.util.TranslatorUtil
 import org.stringtemplate.v4.STGroupFile
 import org.sireum.bakar.jago.util.TypeNameSpace
+import org.sireum.bakar.xml.SourceLocation
 
 class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarProgramTranslatorModule {
 
@@ -25,7 +26,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       params : MList[String],
       localVars : String,
       subprogramBody : String)
-  
+        
   class SymbolTable {
 //  Record symboltable := mkSymbolTable{
 //    vars: list (idnum * (mode * type));
@@ -51,11 +52,14 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         "universal integer" -> "Integer",
         "ada://ordinary_type/Standard-1:1/Boolean-1:1" -> "Boolean")
         
+    // map back from ast node to source location
+    val sloc_map = mmapEmpty[Int, SourceLocation]
         
     def getVarTypeMap = var_type_map
     def getProcDeclMap = proc_decl_map
     def getTypeDeclMap = type_decl_map
     def getExpTypeMap = exp_type_map
+    def getSlocMap = sloc_map
     
     def insertVarType(x: String, mode: String, theType: String) = {
       var_type_map += (x -> (mode, theType))
@@ -105,6 +109,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     }
     
     def getRefName(refName: String) = ref_name_map.get(refName)
+    
+    def insertSloc(astnum: Int, sloc: SourceLocation) = {
+      sloc_map += (astnum -> sloc)
+    }
+    
+    def getSloc(astnum: Int) = sloc_map.get(astnum)
     
   }
   
@@ -678,6 +688,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       // litval could look like 3_500
       val literal = litVal.replaceAll("_", "") 
       val result = factory.buildLiteralExpr(astnum, theType, literal, checks)
@@ -687,6 +698,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       val result = factory.buildLiteralExpr(astnum, theType, refName, checks)
       ctx.pushResult(result)
       false
@@ -699,6 +711,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val astnum = factory.next_astnum
         // add to symbol table: expression ast number -> type id number
         ctx.symboltable.insertExpType(astnum, theType)
+        ctx.symboltable.insertSloc(astnum, sloc)
         val result = factory.buildIdExpr(astnum, theType, refName, ref, checks)
         ctx.pushResult(result) 
       } else if(ref.contains("ordinary_type") || ref.contains("subtype")) {
@@ -735,6 +748,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val x_astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       v(prefixQ)
       val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
       // TODO: to extendit to nested array, now only consider one dimensional array
@@ -751,6 +765,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val x_astnum = factory.next_astnum 
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       // TODO: to extend it to nested record
       v(prefixQ)
       val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
@@ -763,6 +778,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       // import scala.collection.JavaConversions.asScalaBuffer
       // to do implicit conversion between Java collection and scala collection
       // scala.collection.mutable.Buffer <=> java.util.List
@@ -795,18 +811,21 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       v(o)
       factory.buildNameExp(astnum, theType, ctx.popResult, null)
     case o @ IndexedComponentEx(sloc, prefixQ, indexExpressionsQl, theType, checks) =>
       val astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       v(o)
       factory.buildNameExp(astnum, theType, ctx.popResult, null)
     case o @ SelectedComponentEx(sloc, prefixQ, selectorQ, theType, checks) =>
       val astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
       v(o)
       factory.buildNameExp(astnum, theType, ctx.popResult, null)
     case o =>
@@ -877,6 +896,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     val procs = st.getProcDeclMap
     val types = st.getTypeDeclMap
     val exps = st.getExpTypeMap
+    val slocs = st.getSlocMap
     
     for(x <- vars) {
       val var_element = stg.getInstanceOf("product")
@@ -901,6 +921,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       exp_type_element.add("x", x._1).add("y", x._2)
       result.add("exps", exp_type_element)
     }
+    
+    for(x <- slocs) {
+      val sloc_element = stg.getInstanceOf("product")
+      val sloc = factory.buildSourceLocation(x._2.getLine, x._2.getCol, x._2.getEndline, x._2.getEndcol)
+      sloc_element.add("x", x._1).add("y", sloc)
+      result.add("slocs", sloc_element)
+    }    
     
     result.render()
   }

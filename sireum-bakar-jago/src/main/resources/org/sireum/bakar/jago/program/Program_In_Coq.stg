@@ -9,7 +9,7 @@ refType(typeMark, typeId) ::= <<
 >>
 
 list(elements) ::= <<
-($if(elements)$$elements; separator=" :: "$ :: $endif$nil)
+($elements; separator=" :: "$$if(elements)$ :: $endif$nil)
 >>
 
 literal(theType, theLiteral) ::= <<
@@ -231,13 +231,33 @@ stringFormat(value) ::= <<
 "$value$"%string
 >>
 
-symbolTable(vars, procs, types, exps) ::= <<
+symbolTable(vars, procs, types, exps, slocs) ::= <<
 (mkSymbolTable_xx
+  (*///////////////////////////////////*)
+  (* = = = (1) variable type map = = = *)
+  (*///////////////////////////////////*)
   ($vars; separator = " :: "$$if(vars)$ :: $endif$nil)
+  (*////////////////////////////////////////////*)
+  (* = = = (2) subprogram declaration map = = = *)
+  (*////////////////////////////////////////////*)
   ($procs; separator = " :: "$$if(procs)$ :: $endif$nil)
+  (*//////////////////////////////////////*)
+  (* = = = (3) type declaration map = = = *)
+  (*//////////////////////////////////////*)
   ($types; separator = " :: "$$if(types)$ :: $endif$nil)
+  (*/////////////////////////////////////*)
+  (* = = = (4) expression type map = = = *)
+  (*/////////////////////////////////////*)
   ($exps; separator = " :: "$$if(exps)$ :: $endif$nil)
+  (*/////////////////////////////////////////////////*)
+  (* = = = (5) ast node to source location map = = = *)
+  (*/////////////////////////////////////////////////*)
+  ($slocs; separator = " :: "$$if(slocs)$ :: $endif$nil)
 )
+>>
+
+sourceLocation(line, col, endline, endcol) ::= <<
+(sloc (*Line*)$line$ (*Col*)$col$ (*EndLine*)$endline$ (*EndCol*)$endcol$)
 >>
 
 product(x, y) ::= <<
