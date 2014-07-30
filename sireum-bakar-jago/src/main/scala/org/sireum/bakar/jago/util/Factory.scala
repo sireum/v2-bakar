@@ -619,12 +619,20 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  def buildMappingItem(key: String, value: String) = {
-    val result = stg.getInstanceOf("mappingPair")
-    result.add("key", key)
-    result.add("value", value)
+  def buildProduct(x: Any, y: Any) = {
+    val result = stg.getInstanceOf("compilationUnit")
+    result.add("x", x)
+    result.add("y", y)
     result.render()
   }
+  
+  def buildDefinition(x: Any, v: Any) = {
+    val result = stg.getInstanceOf("definition")
+    result.add("x", x)
+    result.add("v", v)
+    result.render()
+  }
+  
   
   /*******************************************************
    * [2] The Following Is For Bakar Jago Type Translator *

@@ -18,13 +18,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // - Bakar2CoqTranslatorImp implements our specific translation from SPARK XML AST tree to Coq, and it's called in Bakar2CoqTranslatorModuleCore
   type BVisitor = Any => Boolean
 
-  final case class MethodClass(
-      mname : String,
+  final case class SubprogramClass(
+      subprogramName : String,
       returnType : Option[String],
       aspectSpecs : MList[String],
       params : MList[String],
       localVars : String,
-      mbody : String)
+      subprogramBody : String)
   
   class SymbolTable {
 //  Record symboltable := mkSymbolTable{
@@ -40,8 +40,22 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     val var_type_map = mmapEmpty[String, (String, String)]
     val proc_decl_map = mmapEmpty[String, (Integer, String)]
     val type_decl_map = mmapEmpty[String, String]
-    
-    val exp_type_map = mmapEmpty[Integer, String]
+    val exp_type_map = mmapEmpty[Int, String]
+
+    // it's a help map from the unique reference name (either declared type or variable name)
+    // to its Coq type, e.g. R: RecordT: ada://variable/Test+1:11/R+14:4 -> (Record_Type (1 (*R*)))
+    // it will be used to build exp_type_map, as xml ast includes type reference name to denote
+    // the type of the ast node, we can use ref_name_map to map the type reference name to Coq type;
+    val ref_name_map = scala.collection.mutable.Map(
+        "ada://ordinary_type/Standard-1:1/Integer-1:1" -> "Integer", 
+        "universal integer" -> "Integer",
+        "ada://ordinary_type/Standard-1:1/Boolean-1:1" -> "Boolean")
+        
+        
+    def getVarTypeMap = var_type_map
+    def getProcDeclMap = proc_decl_map
+    def getTypeDeclMap = type_decl_map
+    def getExpTypeMap = exp_type_map
     
     def insertVarType(x: String, mode: String, theType: String) = {
       var_type_map += (x -> (mode, theType))
@@ -66,11 +80,31 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     
     def getTypeDecl(typeId: String) = type_decl_map.get(typeId)
     
-    def insertExpType(expAstNum: Integer, theType: String) {
-      exp_type_map += (expAstNum -> theType)
+    def insertExpType(expAstNum: Int, typeRefName: String) {
+      val typeIdNum = this.getRefName(typeRefName)
+      assert(typeIdNum.isDefined)
+      exp_type_map += (expAstNum -> typeIdNum.get)
     }
     
-    def getExpType(expAstNum: Integer) = exp_type_map.get(expAstNum)
+    def getExpType(expAstNum: Int) = exp_type_map.get(expAstNum)
+    
+    /** Coq type refName can be: 
+     * Inductive type: Type :=
+     *   | Boolean
+     *   | Integer 
+     *   | Subtype (t: typenum) 
+     *   | Derived_Type (t: typenum) 
+     *   | Integer_Type (t: typenum) 
+     *   | Array_Type (t: typenum) 
+     *   | Record_Type (t: typenum).
+     */
+    def insertRefName(ref: String, refName: String) = {
+      // e.g. R: RecordT;
+      // ada://variable/Test+1:11/R+14:4 -> (Record_Type (1 (*R*)))
+      ref_name_map += (ref -> refName)
+    }
+    
+    def getRefName(refName: String) = ref_name_map.get(refName)
     
   }
   
@@ -179,8 +213,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
-      val pkgBodyName = ctx.popResult.asInstanceOf[String]
-
+      val pkgBodyName = ctx.popResult
+      
       declarativePartH(ctx, v, bodyDecItems)
       val pkgBodyDecl = ctx.popResult
       ctx.pushResult(pkgBodyDecl)
@@ -242,7 +276,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         // [1] subprogram name
         // assert(names.getDefiningNames().length == 1)
         v(names.getDefiningNames().get(0))
-        val mname = ctx.popResult.asInstanceOf[String]
+        val subprogramName = ctx.popResult.asInstanceOf[String]
         
         // [2] return type only for function
         val returnType : Option[String] = 
@@ -264,15 +298,15 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         declarativePartH(ctx, v, bodyDeclItems)
         val declItems = ctx.popResult.asInstanceOf[String]
         
-        // [5] method body
+        // [5] subprogram body
         v(bodyStatements)
-        val mbody = ctx.popResult.asInstanceOf[String]
+        val subprogramBody = ctx.popResult.asInstanceOf[String]
 
-        // [6] method aspect specification, for example, Pre and Post  
+        // [6] subprogram aspect specification, for example, Pre and Post  
         val specs = mlistEmpty[String]
         
         // [7] return
-        MethodClass(mname, returnType, specs, params, declItems, mbody)
+        SubprogramClass(subprogramName, returnType, specs, params, declItems, subprogramBody)
       }
 
     {
@@ -293,12 +327,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.mname, m.params, m.localVars, m.mbody)
-        ctx.pushResult(procedureBody)
-        
+        val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.subprogramName, m.params, m.localVars, m.subprogramBody)
         // add to symbol table
-        ctx.symboltable.insertProcedureDecl(m.mname, procedureBody)
+        ctx.symboltable.insertProcedureDecl(m.subprogramName, procedureBody)
         
+        ctx.pushResult(procedureBody)
         false
       case o @ FunctionBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           names, paramProfile, isNotNullReturn, resultProfile, aspectSpec,
@@ -310,13 +343,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           bodyStatements, Some(resultProfile), aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
         val functionBody = factory.buildFunctionBodyDeclaration(
-            fnbody_astnum, m.mname, m.returnType.get, m.params, m.localVars, m.mbody)
+            fnbody_astnum, m.subprogramName, m.returnType.get, m.params, m.localVars, m.subprogramBody)
         val functionBodyDecl = factory.buildProcedureBodyDeclarationWrapper(astnum, functionBody)
-        ctx.pushResult(functionBodyDecl)
-        
         // add to symbol table
-        ctx.symboltable.insertProcedureDecl(m.mname, functionBodyDecl)
+        ctx.symboltable.insertProcedureDecl(m.subprogramName, functionBodyDecl)
         
+        ctx.pushResult(functionBodyDecl)
         false
     }
   }
@@ -354,7 +386,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o @ OrdinaryTypeDeclarationEx(sloc, namesQl, discriminantPartQ, typeDeclarationViewQ, aspectSpecificationsQl, checks) => 
       val astnum = factory.next_astnum
       v(namesQl.getDefiningNames().get(0))
-      val typeName = ctx.popResult
+      val typeName = ctx.popResult.asInstanceOf[String]
+      val typeRef = namesQl.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDef()
       val typeDef = typeDeclarationViewQ.getDefinition()
       v(typeDef)
       val result = 
@@ -384,16 +417,22 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           System.out.println("TODO: to deal with other OrdinaryTypeDeclaration !")
           "TODO: to deal with other OrdinaryTypeDeclaration !"
       }
+      // add to symbol table: type name -> type declaration, type reference -> type reference name
+      // e.g. type T is range 0 .. 10;
+      // type name: T is represented by a natural number: (1 (*T*))
+      // type reference: ada://ordinary_type/Binary_Search+1:11/T+3:9
+      // type reference name: Integer_Type (1 (*T*))
+      ctx.symboltable.insertTypeDecl(typeName, result)
+      val typeRefName = factory.buildRefTypeMark(typeName, result)
+      ctx.symboltable.insertRefName(typeRef, typeRefName)
+      
       ctx.pushResult(result)
-      
-      // add to symbol table: type name -> type declaration
-      ctx.symboltable.insertTypeDecl(typeName.asInstanceOf[String], result)
-      
       false
     case o @ SubtypeDeclarationEx(sloc, namesQl, typeDeclarationViewQ, aspectSpecificationsQl, checks) =>
       val astnum = factory.next_astnum
       v(namesQl.getDefiningNames().get(0))
-      val typeName = ctx.popResult
+      val typeName = ctx.popResult.asInstanceOf[String]
+      val typeRef = namesQl.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDef()
       val typeDef = typeDeclarationViewQ.getDefinition()
       v(typeDef)
       val result = 
@@ -409,11 +448,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           System.out.println("TODO: to deal with other SubtypeDeclaration !")
           "TODO: to deal with other SubtypeDeclaration !"
       }
+      // add to symbol table: subtype name -> subtype declaration, type reference -> type reference name
+      ctx.symboltable.insertTypeDecl(typeName, result)
+      val typeRefName = factory.buildRefTypeMark(typeName, result)
+      ctx.symboltable.insertRefName(typeRef, typeRefName)
+      
       ctx.pushResult(result)
-      
-      // add to symbol table: subtype name -> subtype declaration
-      ctx.symboltable.insertTypeDecl(typeName.asInstanceOf[String], result)
-      
       false
   }
   
@@ -535,29 +575,6 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val result = factory.buildId(defName, theDef)
       ctx.pushResult(result)
       false
-//    case varDecl @ VariableDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl, checks) =>
-//      //val theType = util_GetTypeFromObjDeclViewQ(objDeclViewQ)
-//      v(objDeclViewQ.getDefinition())
-//      val theType = ctx.popResult.asInstanceOf[String]
-//      val astnum = factory.next_astnum
-//      val declItems = mlistEmpty[String]
-//      for (defName <- namesQl.getDefiningNames()) {
-//        v(defName)
-//        declItems += ctx.popResult.asInstanceOf[String]
-//      }
-//
-//      val optionalInitExp =
-//        if (ctx.isEmpty(initExpQ.getExpression())) {
-//          None
-//        } else {
-//          // if the initial expression is a binary or unary expression, 
-//          // it's represented as a function call in XML AST;
-//          val initExp = nameExprH(v)(initExpQ.getExpression())
-//          Some(initExp)
-//        }
-//
-//      ctx.pushResult(factory.buildObjectDecl(astnum, declItems, theType, optionalInitExp))
-//      false
   }
 
   def statementH(ctx : Context, v : => BVisitor) : VisitorFunction = {
@@ -658,13 +675,19 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   
   def expressionH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ IntegerLiteralEx(sloc, litVal, theType, checks) =>
+      val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
       // litval could look like 3_500
       val literal = litVal.replaceAll("_", "") 
-      val result = factory.buildLiteralExpr(factory.next_astnum, theType, literal, checks)
+      val result = factory.buildLiteralExpr(astnum, theType, literal, checks)
       ctx.pushResult(result)
       false
     case o @ EnumerationLiteralEx(sloc, refName, ref, theType, checks) =>
-      val result = factory.buildLiteralExpr(factory.next_astnum, theType, refName, checks)
+      val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
+      val result = factory.buildLiteralExpr(astnum, theType, refName, checks)
       ctx.pushResult(result)
       false
     case o @ IdentifierEx(sloc, refName, ref, theType, checks) =>
@@ -673,7 +696,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // - type name, or subtype / derived type name
       // - package/procedure name
       if (ref.contains("variable") || ref.contains("parameter") || ref.contains("component")) {
-        val result = factory.buildIdExpr(factory.next_astnum, theType, refName, ref, checks)
+        val astnum = factory.next_astnum
+        // add to symbol table: expression ast number -> type id number
+        ctx.symboltable.insertExpType(astnum, theType)
+        val result = factory.buildIdExpr(astnum, theType, refName, ref, checks)
         ctx.pushResult(result) 
       } else if(ref.contains("ordinary_type") || ref.contains("subtype")) {
         // it's used as a type for a declared variable, or used as a parent type for 
@@ -707,6 +733,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // indexExpressionsQl: ExpessionList
       val astnum = factory.next_astnum
       val x_astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
       v(prefixQ)
       val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
       // TODO: to extendit to nested array, now only consider one dimensional array
@@ -721,6 +749,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // selectorQ: ExpressionClass
       val astnum = factory.next_astnum
       val x_astnum = factory.next_astnum 
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
       // TODO: to extend it to nested record
       v(prefixQ)
       val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
@@ -731,6 +761,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType, checks) =>
       val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
       // import scala.collection.JavaConversions.asScalaBuffer
       // to do implicit conversion between Java collection and scala collection
       // scala.collection.mutable.Buffer <=> java.util.List
@@ -749,7 +781,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val uexp = factory.buildUnaryExpr(astnum, theType, ctx.getUnaryOp(prefixQ).get, operand, checks)
         ctx.pushResult(uexp)
       } else {
-        println("expressionH: need to handle Function Call Expression !")
+        println("expressionH: need to handle other Function Call Expression !")
       }
       false
 //  case o =>
@@ -761,14 +793,20 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   def nameExprH(v : => BVisitor) : Any --> String = {
     case o @ IdentifierEx(sloc, refName, ref, theType, checks) =>
       val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
       v(o)
       factory.buildNameExp(astnum, theType, ctx.popResult, null)
     case o @ IndexedComponentEx(sloc, prefixQ, indexExpressionsQl, theType, checks) =>
       val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
       v(o)
       factory.buildNameExp(astnum, theType, ctx.popResult, null)
     case o @ SelectedComponentEx(sloc, prefixQ, selectorQ, theType, checks) =>
       val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
       v(o)
       factory.buildNameExp(astnum, theType, ctx.popResult, null)
     case o =>
@@ -831,6 +869,44 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         new STGroupFile(getClass.getResource(TypeNameSpace.ProgramTransTemplate_Coq), "UTF-8", '$', '$')
     }
   }
+  
+  def buildSymbolTable(st: SymbolTable, stg: STGroupFile): String = {
+    val result = stg.getInstanceOf("symbolTable")
+    
+    val vars = st.getVarTypeMap
+    val procs = st.getProcDeclMap
+    val types = st.getTypeDeclMap
+    val exps = st.getExpTypeMap
+    
+    for(x <- vars) {
+      val var_element = stg.getInstanceOf("product")
+      var_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("vars", var_element)
+    }
+    
+    for(x <- procs) {
+      val proc_element = stg.getInstanceOf("product")
+      proc_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("procs", proc_element)
+    }
+    
+    for(x <- types) {
+      val type_element = stg.getInstanceOf("product")
+      type_element.add("x", x._1).add("y", x._2)
+      result.add("types", type_element)
+    }
+    
+    for(x <- exps) {
+      val exp_type_element = stg.getInstanceOf("product")
+      exp_type_element.add("x", x._1).add("y", x._2)
+      result.add("exps", exp_type_element)
+    }
+    
+    result.render()
+  }
+  
+  val COQ_AST_ID = "Coq_AST_Tree_XX"
+  val SYMBOL_TABLE_ID = "Symbol_Table_XX"  
 
   val t = this.jagoProgramTarget
   assert(t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
@@ -846,8 +922,16 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       visit(value)
     }
   }
+  
+  val coq_ast_tree = factory.buildDefinition(COQ_AST_ID, ctx.getResults.head)
+  val symbol_table = factory.buildDefinition(SYMBOL_TABLE_ID, buildSymbolTable(ctx.symboltable, stg))
+  
+  val ret = mlistEmpty[String]
+  ret += coq_ast_tree
+  ret += symbol_table
+  
   // store the program translation results as PipelineJob's properties
   // so the result can be used by the following pipeline modules  
-  this.jagoProgramResults = ctx.getResults.toList
+  this.jagoProgramResults = ret.toList
 }
 

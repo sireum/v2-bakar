@@ -162,30 +162,30 @@ $d2$)
 
 procedureBodyDeclaration(astnum, procName, params, identDecls, procBody) ::= <<
 (mkprocedure_body_xx $astnum$
-  (* Procedure Name *)
+  (* = = = Procedure Name = = = *)
   $procName$
-  (* Formal Parameters *)
+  (* = = = Formal Parameters = = = *)
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil)
-  (* Object Declarations *)
+  (* = = = Object Declarations = = = *)
   ($identDecls; separator=" :: \n"$)
-  (* Procedure Body *)
+  (* = = = Procedure Body = = = *)
     $procBody$
 )
 >>
 
 functionBodyDeclaration(astnum, funcName, returnT, params, identDecls, funcBody) ::= <<
 (mkfunction_body_xx $astnum$
-  (* Function Name *)
+  (* = = = Function Name = = = *)
   $funcName$
-  (* Return Type *) 
+  (* = = = Return Type = = = *) 
   $returnT$
-  (* Formal Parameters *)
+  (* = = = Formal Parameters = = = *)
   ($if(params)$
   $params; separator=" :: \n"$ :: $endif$nil)
-  (* Object Declarations *)
+  (* = = = Object Declarations = = = *)
   ($identDecls; separator=" :: \n"$)
-  (* Function Body *)
+  (* = = = Function Body = = = *)
     $funcBody$
 )
 >>
@@ -202,12 +202,12 @@ subProgram(astnum, kind, prog, annotation) ::= <<
 packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
 (PackageBody_XX $astnum$
-  (* Package Body - Name *)
+  (* = = = Package Body - Name = = = *)
   $pkgBodyName$
-  (* Package Body - Specification *)
+  (* = = = Package Body - Specification = = = *)
   ($if(pkgBodyAspectSpecs)$
   $pkgBodyAspectSpecs; separator = " ::\n"$ :: nil$else$None$endif$)    
-  (* Package Body - Declared Items *) (
+  (* = = = Package Body - Declared Items = = = *) (
     $pkgBodyDeclItems; separator=" ::\n\n"$ :: nil
   )
 )
@@ -222,7 +222,7 @@ unitDeclaration(astnum, kind, packageUnit) ::= <<
 compilationUnit(astnum, unitDecl) ::= <<
 (* Compilation Unit *)
 Library_Unit_XX $astnum$
-  (* Compilation Unit - Unit Declaration *)
+  (* = = = Compilation Unit - Unit Declaration = = = *)
   $unitDecl$
 >>
 
@@ -231,7 +231,20 @@ stringFormat(value) ::= <<
 "$value$"%string
 >>
 
-mappingPair(key, value) ::= <<
-($key$, $value$)
+symbolTable(vars, procs, types, exps) ::= <<
+(mkSymbolTable_xx
+  ($vars; separator = " :: "$$if(vars)$ :: $endif$nil)
+  ($procs; separator = " :: "$$if(procs)$ :: $endif$nil)
+  ($types; separator = " :: "$$if(types)$ :: $endif$nil)
+  ($exps; separator = " :: "$$if(exps)$ :: $endif$nil)
+)
 >>
 
+product(x, y) ::= <<
+($x$, $y$)
+>>
+
+definition(x, v) ::= <<
+Definition $x$ := 
+$v$.
+>>
