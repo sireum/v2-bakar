@@ -77,6 +77,8 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
     val results = job.jagoProgramResults
     results.foreach { f =>
       w.write(f)
+      w.write("\n")
+      w.write("\n")
       //println(f)
     }
   }

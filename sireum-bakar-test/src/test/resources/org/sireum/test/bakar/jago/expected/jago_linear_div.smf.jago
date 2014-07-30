@@ -1,16 +1,17 @@
+Definition Coq_AST_Tree_XX := 
 (D_Procedure_Body_XX 1 
   (mkprocedure_body_xx 3
-    (* Procedure Name *)
+    (* = = = Procedure Name = = = *)
     ((*Linear_Div*) 1)
-    (* Formal Parameters *)
+    (* = = = Formal Parameters = = = *)
     (
     (mkparameter_specification_xx 4 ((*Dividend*) 1) Integer In) :: 
     (mkparameter_specification_xx 5 ((*Divisor*) 2) Integer In) :: 
     (mkparameter_specification_xx 6 ((*Quotient*) 3) Integer Out) :: 
     (mkparameter_specification_xx 7 ((*Remainder*) 4) Integer Out) :: nil)
-    (* Object Declarations *)
+    (* = = = Object Declarations = = = *)
     (D_Null_Declaration_XX)
-    (* Procedure Body *)
+    (* = = = Procedure Body = = = *)
       (S_Sequence_XX 8
       (S_Assignment_XX 9 (E_Identifier_XX 10 ((*Quotient*) 3) (**(nil)**)) (E_Literal_XX 11 (Integer_Literal 0) (**(nil)**))) 
       (S_Sequence_XX 12
@@ -23,4 +24,36 @@
         (S_Assignment_XX 37 (E_Identifier_XX 38 ((*Remainder*) 4) (**(nil)**)) (E_Binary_Operation_XX 39 Minus (E_Name_XX 40 (E_Identifier_XX 41 ((*Remainder*) 4) (**(nil)**)) (**(nil)**)) (E_Name_XX 42 (E_Identifier_XX 43 ((*Divisor*) 2) (**(nil)**)) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)))))
       )))
   )
-)
+).
+
+Definition Symbol_Table_XX := 
+(mkSymbolTable_xx
+  (nil)
+  ((((*Linear_Div*) 1), (0, (mkprocedure_body_xx 3
+  (* = = = Procedure Name = = = *)
+  ((*Linear_Div*) 1)
+  (* = = = Formal Parameters = = = *)
+  (
+  (mkparameter_specification_xx 4 ((*Dividend*) 1) Integer In) :: 
+  (mkparameter_specification_xx 5 ((*Divisor*) 2) Integer In) :: 
+  (mkparameter_specification_xx 6 ((*Quotient*) 3) Integer Out) :: 
+  (mkparameter_specification_xx 7 ((*Remainder*) 4) Integer Out) :: nil)
+  (* = = = Object Declarations = = = *)
+  (D_Null_Declaration_XX)
+  (* = = = Procedure Body = = = *)
+    (S_Sequence_XX 8
+    (S_Assignment_XX 9 (E_Identifier_XX 10 ((*Quotient*) 3) (**(nil)**)) (E_Literal_XX 11 (Integer_Literal 0) (**(nil)**))) 
+    (S_Sequence_XX 12
+    (S_Assignment_XX 13 (E_Identifier_XX 14 ((*Remainder*) 4) (**(nil)**)) (E_Name_XX 15 (E_Identifier_XX 16 ((*Dividend*) 1) (**(nil)**)) (**(nil)**))) 
+    (S_While_Loop_XX 17 (E_Binary_Operation_XX 18 Greater_Than_Or_Equal (E_Name_XX 19 (E_Identifier_XX 20 ((*Remainder*) 4) (**(nil)**)) (**(nil)**)) (E_Name_XX 21 (E_Identifier_XX 22 ((*Divisor*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**))
+      (S_Sequence_XX 23
+      (S_Assignment_XX 24 (E_Identifier_XX 25 ((*Quotient*) 3) (**(nil)**)) (E_Binary_Operation_XX 26 Plus (E_Name_XX 27 (E_Identifier_XX 28 ((*Quotient*) 3) (**(nil)**)) (**(nil)**)) (E_Literal_XX 29 (Integer_Literal 1) (**(nil)**)) (**(Do_Overflow_Check :: nil)**))) 
+      (S_Sequence_XX 30
+      (S_Assignment_XX 31 (E_Identifier_XX 32 ((*Quotient*) 3) (**(nil)**)) (E_Binary_Operation_XX 33 Plus (E_Name_XX 34 (E_Identifier_XX 35 ((*Quotient*) 3) (**(nil)**)) (**(nil)**)) (E_Literal_XX 36 (Integer_Literal 1) (**(nil)**)) (**(Do_Overflow_Check :: nil)**))) 
+      (S_Assignment_XX 37 (E_Identifier_XX 38 ((*Remainder*) 4) (**(nil)**)) (E_Binary_Operation_XX 39 Minus (E_Name_XX 40 (E_Identifier_XX 41 ((*Remainder*) 4) (**(nil)**)) (**(nil)**)) (E_Name_XX 42 (E_Identifier_XX 43 ((*Divisor*) 2) (**(nil)**)) (**(nil)**)) (**(Do_Overflow_Check :: nil)**)))))
+    )))
+))) :: nil)
+  (nil)
+  ((32, Integer) :: (41, Integer) :: (35, Integer) :: (26, Integer) :: (11, Integer) :: (29, Integer) :: (38, Integer) :: (20, Integer) :: (14, Integer) :: (40, Integer) :: (22, Integer) :: (16, Integer) :: (43, Integer) :: (25, Integer) :: (34, Integer) :: (10, Integer) :: (19, Integer) :: (28, Integer) :: (27, Integer) :: (18, Boolean) :: (36, Integer) :: (21, Integer) :: (39, Integer) :: (15, Integer) :: (42, Integer) :: (33, Integer) :: nil)
+).
+
