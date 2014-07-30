@@ -37,7 +37,13 @@ Definition Coq_AST_Tree_XX :=
 
 Definition Symbol_Table_XX := 
 (mkSymbolTable_xx
+  (*///////////////////////////////////*)
+  (* = = = (1) variable type map = = = *)
+  (*///////////////////////////////////*)
   (nil)
+  (*////////////////////////////////////////////*)
+  (* = = = (2) subprogram declaration map = = = *)
+  (*////////////////////////////////////////////*)
   ((((*Gcd*) 1), (0, (mkprocedure_body_xx 3
   (* = = = Procedure Name = = = *)
   ((*Gcd*) 1)
@@ -71,7 +77,17 @@ Definition Symbol_Table_XX :=
     ) 
     (S_Assignment_XX 62 (E_Identifier_XX 63 ((*Y*) 3) (**(nil)**)) (E_Name_XX 64 (E_Identifier_XX 65 ((*C*) 4) (**(nil)**)) (**(nil)**))))))
 ))) :: nil)
+  (*//////////////////////////////////////*)
+  (* = = = (3) type declaration map = = = *)
+  (*//////////////////////////////////////*)
   (nil)
+  (*/////////////////////////////////////*)
+  (* = = = (4) expression type map = = = *)
+  (*/////////////////////////////////////*)
   ((59, Integer) :: (32, Integer) :: (41, Integer) :: (50, Integer) :: (44, Integer) :: (26, Integer) :: (56, Integer) :: (38, Integer) :: (47, Integer) :: (20, Integer) :: (65, Integer) :: (46, Integer) :: (64, Integer) :: (55, Integer) :: (40, Integer) :: (49, Integer) :: (31, Integer) :: (22, Integer) :: (52, Integer) :: (25, Integer) :: (61, Integer) :: (37, Integer) :: (60, Integer) :: (63, Integer) :: (45, Integer) :: (36, Integer) :: (27, Integer) :: (57, Integer) :: (21, Integer) :: (48, Integer) :: (30, Boolean) :: (39, Integer) :: (33, Integer) :: (51, Integer) :: nil)
+  (*/////////////////////////////////////////////////*)
+  (* = = = (5) ast node to source location map = = = *)
+  (*/////////////////////////////////////////////////*)
+  ((59, (sloc (*Line*)15 (*Col*)7 (*EndLine*)15 (*EndCol*)7)) :: (32, (sloc (*Line*)10 (*Col*)10 (*EndLine*)10 (*EndCol*)10)) :: (41, (sloc (*Line*)12 (*Col*)16 (*EndLine*)12 (*EndCol*)16)) :: (50, (sloc (*Line*)13 (*Col*)16 (*EndLine*)13 (*EndCol*)16)) :: (44, (sloc (*Line*)13 (*Col*)7 (*EndLine*)13 (*EndCol*)7)) :: (26, (sloc (*Line*)9 (*Col*)9 (*EndLine*)9 (*EndCol*)9)) :: (56, (sloc (*Line*)14 (*Col*)12 (*EndLine*)14 (*EndCol*)12)) :: (38, (sloc (*Line*)12 (*Col*)12 (*EndLine*)12 (*EndCol*)12)) :: (47, (sloc (*Line*)13 (*Col*)12 (*EndLine*)13 (*EndCol*)12)) :: (20, (sloc (*Line*)8 (*Col*)4 (*EndLine*)8 (*EndCol*)4)) :: (65, (sloc (*Line*)17 (*Col*)9 (*EndLine*)17 (*EndCol*)9)) :: (46, (sloc (*Line*)13 (*Col*)12 (*EndLine*)13 (*EndCol*)12)) :: (64, (sloc (*Line*)17 (*Col*)9 (*EndLine*)17 (*EndCol*)9)) :: (55, (sloc (*Line*)14 (*Col*)7 (*EndLine*)14 (*EndCol*)7)) :: (40, (sloc (*Line*)12 (*Col*)16 (*EndLine*)12 (*EndCol*)16)) :: (49, (sloc (*Line*)13 (*Col*)16 (*EndLine*)13 (*EndCol*)16)) :: (31, (sloc (*Line*)10 (*Col*)10 (*EndLine*)10 (*EndCol*)10)) :: (22, (sloc (*Line*)8 (*Col*)9 (*EndLine*)8 (*EndCol*)9)) :: (52, (sloc (*Line*)13 (*Col*)20 (*EndLine*)13 (*EndCol*)20)) :: (25, (sloc (*Line*)9 (*Col*)4 (*EndLine*)9 (*EndCol*)4)) :: (61, (sloc (*Line*)15 (*Col*)12 (*EndLine*)15 (*EndCol*)12)) :: (37, (sloc (*Line*)12 (*Col*)12 (*EndLine*)12 (*EndCol*)16)) :: (60, (sloc (*Line*)15 (*Col*)12 (*EndLine*)15 (*EndCol*)12)) :: (63, (sloc (*Line*)17 (*Col*)4 (*EndLine*)17 (*EndCol*)4)) :: (45, (sloc (*Line*)13 (*Col*)12 (*EndLine*)13 (*EndCol*)20)) :: (36, (sloc (*Line*)12 (*Col*)7 (*EndLine*)12 (*EndCol*)7)) :: (27, (sloc (*Line*)9 (*Col*)9 (*EndLine*)9 (*EndCol*)9)) :: (57, (sloc (*Line*)14 (*Col*)12 (*EndLine*)14 (*EndCol*)12)) :: (21, (sloc (*Line*)8 (*Col*)9 (*EndLine*)8 (*EndCol*)9)) :: (48, (sloc (*Line*)13 (*Col*)16 (*EndLine*)13 (*EndCol*)20)) :: (30, (sloc (*Line*)10 (*Col*)10 (*EndLine*)10 (*EndCol*)15)) :: (39, (sloc (*Line*)12 (*Col*)12 (*EndLine*)12 (*EndCol*)12)) :: (33, (sloc (*Line*)10 (*Col*)15 (*EndLine*)10 (*EndCol*)15)) :: (51, (sloc (*Line*)13 (*Col*)20 (*EndLine*)13 (*EndCol*)20)) :: nil)
 ).
 

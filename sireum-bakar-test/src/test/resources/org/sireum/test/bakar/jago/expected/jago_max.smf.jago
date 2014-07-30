@@ -24,7 +24,13 @@ Definition Coq_AST_Tree_XX :=
 
 Definition Symbol_Table_XX := 
 (mkSymbolTable_xx
+  (*///////////////////////////////////*)
+  (* = = = (1) variable type map = = = *)
+  (*///////////////////////////////////*)
   (nil)
+  (*////////////////////////////////////////////*)
+  (* = = = (2) subprogram declaration map = = = *)
+  (*////////////////////////////////////////////*)
   ((((*Max*) 1), (0, (mkprocedure_body_xx 3
   (* = = = Procedure Name = = = *)
   ((*Max*) 1)
@@ -45,7 +51,17 @@ Definition Symbol_Table_XX :=
     ) 
     (S_Assignment_XX 25 (E_Identifier_XX 26 ((*R*) 3) (**(nil)**)) (E_Name_XX 27 (E_Identifier_XX 28 ((*Result*) 4) (**(nil)**)) (**(nil)**)))))
 ))) :: nil)
+  (*//////////////////////////////////////*)
+  (* = = = (3) type declaration map = = = *)
+  (*//////////////////////////////////////*)
   (nil)
+  (*/////////////////////////////////////*)
+  (* = = = (4) expression type map = = = *)
+  (*/////////////////////////////////////*)
   ((23, Integer) :: (17, Integer) :: (26, Integer) :: (11, Integer) :: (20, Integer) :: (13, Integer) :: (22, Integer) :: (16, Boolean) :: (28, Integer) :: (19, Integer) :: (18, Integer) :: (27, Integer) :: (12, Integer) :: (24, Integer) :: nil)
+  (*/////////////////////////////////////////////////*)
+  (* = = = (5) ast node to source location map = = = *)
+  (*/////////////////////////////////////////////////*)
+  ((23, (sloc (*Line*)8 (*Col*)17 (*EndLine*)8 (*EndCol*)17)) :: (17, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)7)) :: (26, (sloc (*Line*)10 (*Col*)4 (*EndLine*)10 (*EndCol*)4)) :: (11, (sloc (*Line*)6 (*Col*)4 (*EndLine*)6 (*EndCol*)9)) :: (20, (sloc (*Line*)7 (*Col*)11 (*EndLine*)7 (*EndCol*)11)) :: (13, (sloc (*Line*)6 (*Col*)14 (*EndLine*)6 (*EndCol*)14)) :: (22, (sloc (*Line*)8 (*Col*)7 (*EndLine*)8 (*EndCol*)12)) :: (16, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)11)) :: (28, (sloc (*Line*)10 (*Col*)9 (*EndLine*)10 (*EndCol*)14)) :: (19, (sloc (*Line*)7 (*Col*)11 (*EndLine*)7 (*EndCol*)11)) :: (18, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)7)) :: (27, (sloc (*Line*)10 (*Col*)9 (*EndLine*)10 (*EndCol*)14)) :: (12, (sloc (*Line*)6 (*Col*)14 (*EndLine*)6 (*EndCol*)14)) :: (24, (sloc (*Line*)8 (*Col*)17 (*EndLine*)8 (*EndCol*)17)) :: nil)
 ).
 
