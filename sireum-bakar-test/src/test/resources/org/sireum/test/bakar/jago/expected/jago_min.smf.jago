@@ -1,24 +1,24 @@
 Definition Coq_AST_Tree_XX := 
-(D_Procedure_Body_XX 1 
-  (mkprocedure_body_xx 3
+(D_Procedure_Body_XX 2 
+  (mkprocedure_body_xx 4
     (* = = = Procedure Name = = = *)
     ((*Min*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_xx 4 ((*X*) 1) Integer In) :: 
-    (mkparameter_specification_xx 5 ((*Y*) 2) Integer In) :: 
-    (mkparameter_specification_xx 6 ((*R*) 3) Integer Out) :: nil)
+    (mkparameter_specification_xx 5 ((*X*) 1) Integer In) :: 
+    (mkparameter_specification_xx 6 ((*Y*) 2) Integer In) :: 
+    (mkparameter_specification_xx 7 ((*R*) 3) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Object_Declaration_XX 7 (mkobject_declaration_xx 8 ((*Result*) 4) Integer None)))
+    ((D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*Result*) 4) Integer None)))
     (* = = = Procedure Body = = = *)
-      (S_Sequence_XX 9
-      (S_Assignment_XX 10 (E_Identifier_XX 11 ((*Result*) 4) (**(nil)**)) (E_Name_XX 12 (E_Identifier_XX 13 ((*X*) 1) (**(nil)**)) (**(nil)**))) 
-      (S_Sequence_XX 14
-      (S_If_XX 15 (E_Binary_Operation_XX 16 Greater_Than (E_Name_XX 17 (E_Identifier_XX 18 ((*X*) 1) (**(nil)**)) (**(nil)**)) (E_Name_XX 19 (E_Identifier_XX 20 ((*Y*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**))
-        (S_Assignment_XX 21 (E_Identifier_XX 22 ((*Result*) 4) (**(nil)**)) (E_Name_XX 23 (E_Identifier_XX 24 ((*Y*) 2) (**(nil)**)) (**(nil)**)))
+      (S_Sequence_XX 10
+      (S_Assignment_XX 11 (E_Identifier_XX 12 ((*Result*) 4) (**(nil)**)) (E_Name_XX 13 (E_Identifier_XX 14 ((*X*) 1) (**(nil)**)) (**(nil)**))) 
+      (S_Sequence_XX 15
+      (S_If_XX 16 (E_Binary_Operation_XX 17 Greater_Than (E_Name_XX 18 (E_Identifier_XX 19 ((*X*) 1) (**(nil)**)) (**(nil)**)) (E_Name_XX 20 (E_Identifier_XX 21 ((*Y*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**))
+        (S_Assignment_XX 22 (E_Identifier_XX 23 ((*Result*) 4) (**(nil)**)) (E_Name_XX 24 (E_Identifier_XX 25 ((*Y*) 2) (**(nil)**)) (**(nil)**)))
         S_Null_XX
       ) 
-      (S_Assignment_XX 25 (E_Identifier_XX 26 ((*R*) 3) (**(nil)**)) (E_Name_XX 27 (E_Identifier_XX 28 ((*Result*) 4) (**(nil)**)) (**(nil)**)))))
+      (S_Assignment_XX 26 (E_Identifier_XX 27 ((*R*) 3) (**(nil)**)) (E_Name_XX 28 (E_Identifier_XX 29 ((*Result*) 4) (**(nil)**)) (**(nil)**)))))
   )
 ).
 
@@ -31,25 +31,25 @@ Definition Symbol_Table_XX :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Min*) 1), (0, (mkprocedure_body_xx 3
+  ((((*Min*) 1), (0, (mkprocedure_body_xx 4
   (* = = = Procedure Name = = = *)
   ((*Min*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_xx 4 ((*X*) 1) Integer In) :: 
-  (mkparameter_specification_xx 5 ((*Y*) 2) Integer In) :: 
-  (mkparameter_specification_xx 6 ((*R*) 3) Integer Out) :: nil)
+  (mkparameter_specification_xx 5 ((*X*) 1) Integer In) :: 
+  (mkparameter_specification_xx 6 ((*Y*) 2) Integer In) :: 
+  (mkparameter_specification_xx 7 ((*R*) 3) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration_XX 7 (mkobject_declaration_xx 8 ((*Result*) 4) Integer None)))
+  ((D_Object_Declaration_XX 8 (mkobject_declaration_xx 9 ((*Result*) 4) Integer None)))
   (* = = = Procedure Body = = = *)
-    (S_Sequence_XX 9
-    (S_Assignment_XX 10 (E_Identifier_XX 11 ((*Result*) 4) (**(nil)**)) (E_Name_XX 12 (E_Identifier_XX 13 ((*X*) 1) (**(nil)**)) (**(nil)**))) 
-    (S_Sequence_XX 14
-    (S_If_XX 15 (E_Binary_Operation_XX 16 Greater_Than (E_Name_XX 17 (E_Identifier_XX 18 ((*X*) 1) (**(nil)**)) (**(nil)**)) (E_Name_XX 19 (E_Identifier_XX 20 ((*Y*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**))
-      (S_Assignment_XX 21 (E_Identifier_XX 22 ((*Result*) 4) (**(nil)**)) (E_Name_XX 23 (E_Identifier_XX 24 ((*Y*) 2) (**(nil)**)) (**(nil)**)))
+    (S_Sequence_XX 10
+    (S_Assignment_XX 11 (E_Identifier_XX 12 ((*Result*) 4) (**(nil)**)) (E_Name_XX 13 (E_Identifier_XX 14 ((*X*) 1) (**(nil)**)) (**(nil)**))) 
+    (S_Sequence_XX 15
+    (S_If_XX 16 (E_Binary_Operation_XX 17 Greater_Than (E_Name_XX 18 (E_Identifier_XX 19 ((*X*) 1) (**(nil)**)) (**(nil)**)) (E_Name_XX 20 (E_Identifier_XX 21 ((*Y*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**))
+      (S_Assignment_XX 22 (E_Identifier_XX 23 ((*Result*) 4) (**(nil)**)) (E_Name_XX 24 (E_Identifier_XX 25 ((*Y*) 2) (**(nil)**)) (**(nil)**)))
       S_Null_XX
     ) 
-    (S_Assignment_XX 25 (E_Identifier_XX 26 ((*R*) 3) (**(nil)**)) (E_Name_XX 27 (E_Identifier_XX 28 ((*Result*) 4) (**(nil)**)) (**(nil)**)))))
+    (S_Assignment_XX 26 (E_Identifier_XX 27 ((*R*) 3) (**(nil)**)) (E_Name_XX 28 (E_Identifier_XX 29 ((*Result*) 4) (**(nil)**)) (**(nil)**)))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
@@ -58,10 +58,10 @@ Definition Symbol_Table_XX :=
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
-  ((23, Integer) :: (17, Integer) :: (26, Integer) :: (11, Integer) :: (20, Integer) :: (13, Integer) :: (22, Integer) :: (16, Boolean) :: (28, Integer) :: (19, Integer) :: (18, Integer) :: (27, Integer) :: (12, Integer) :: (24, Integer) :: nil)
+  ((23, Integer) :: (17, Boolean) :: (29, Integer) :: (20, Integer) :: (14, Integer) :: (13, Integer) :: (25, Integer) :: (19, Integer) :: (28, Integer) :: (18, Integer) :: (27, Integer) :: (12, Integer) :: (21, Integer) :: (24, Integer) :: nil)
   (*/////////////////////////////////////////////////*)
   (* = = = (5) ast node to source location map = = = *)
   (*/////////////////////////////////////////////////*)
-  ((23, (sloc (*Line*)8 (*Col*)17 (*EndLine*)8 (*EndCol*)17)) :: (17, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)7)) :: (26, (sloc (*Line*)10 (*Col*)4 (*EndLine*)10 (*EndCol*)4)) :: (11, (sloc (*Line*)6 (*Col*)4 (*EndLine*)6 (*EndCol*)9)) :: (20, (sloc (*Line*)7 (*Col*)11 (*EndLine*)7 (*EndCol*)11)) :: (13, (sloc (*Line*)6 (*Col*)14 (*EndLine*)6 (*EndCol*)14)) :: (22, (sloc (*Line*)8 (*Col*)7 (*EndLine*)8 (*EndCol*)12)) :: (16, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)11)) :: (28, (sloc (*Line*)10 (*Col*)9 (*EndLine*)10 (*EndCol*)14)) :: (19, (sloc (*Line*)7 (*Col*)11 (*EndLine*)7 (*EndCol*)11)) :: (18, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)7)) :: (27, (sloc (*Line*)10 (*Col*)9 (*EndLine*)10 (*EndCol*)14)) :: (12, (sloc (*Line*)6 (*Col*)14 (*EndLine*)6 (*EndCol*)14)) :: (24, (sloc (*Line*)8 (*Col*)17 (*EndLine*)8 (*EndCol*)17)) :: nil)
+  ((23, (sloc (*Line*)8 (*Col*)7 (*EndLine*)8 (*EndCol*)12)) :: (17, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)11)) :: (29, (sloc (*Line*)10 (*Col*)9 (*EndLine*)10 (*EndCol*)14)) :: (20, (sloc (*Line*)7 (*Col*)11 (*EndLine*)7 (*EndCol*)11)) :: (14, (sloc (*Line*)6 (*Col*)14 (*EndLine*)6 (*EndCol*)14)) :: (13, (sloc (*Line*)6 (*Col*)14 (*EndLine*)6 (*EndCol*)14)) :: (25, (sloc (*Line*)8 (*Col*)17 (*EndLine*)8 (*EndCol*)17)) :: (19, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)7)) :: (28, (sloc (*Line*)10 (*Col*)9 (*EndLine*)10 (*EndCol*)14)) :: (18, (sloc (*Line*)7 (*Col*)7 (*EndLine*)7 (*EndCol*)7)) :: (27, (sloc (*Line*)10 (*Col*)4 (*EndLine*)10 (*EndCol*)4)) :: (12, (sloc (*Line*)6 (*Col*)4 (*EndLine*)6 (*EndCol*)9)) :: (21, (sloc (*Line*)7 (*Col*)11 (*EndLine*)7 (*EndCol*)11)) :: (24, (sloc (*Line*)8 (*Col*)17 (*EndLine*)8 (*EndCol*)17)) :: nil)
 ).
 

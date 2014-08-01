@@ -1,4 +1,4 @@
-procedure Binary_Search (I : Integer) is
+procedure Binary_Search_Test (I : Integer) is
    
    type T is range 0 .. 10;
    subtype U is T range 1 .. 10;
@@ -67,4 +67,4 @@ begin
    A(0) := 0;
    A(1) := 10;
    Search(A, I, R);
-end Binary_Search;
+end Binary_Search_Test;
