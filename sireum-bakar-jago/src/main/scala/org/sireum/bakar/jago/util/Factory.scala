@@ -539,7 +539,7 @@ class Factory(stg: STGroupFile) {
         decl.startsWith("(Record_Type_Declaration")) {
       buildTypeDeclarationWrapper(astnum, decl)
     } else {
-      "Undefined Declarations !"
+      "D_Null_Declaration_XX (* Undefined Declarations ! *)"
     }
   }
 

@@ -211,53 +211,45 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
       visiblePartDecItems, privatePartDecItems, checks) =>
-      // println("packageH: " + o.getClass().getSimpleName())
+      val visibleDecItems = visiblePartDecItems.getDeclarativeItems()
+      declarativePartH(ctx, v, visibleDecItems)
+      val visibleDecl = ctx.popResult
+      ctx.pushResult(visibleDecl)
+      
+      val privateDecItems = visiblePartDecItems.getDeclarativeItems()
+      declarativePartH(ctx, v, privateDecItems)
+      val privateDecl = ctx.popResult
+      ctx.pushResult(privateDecl)      
 
       false
     case o @ PackageBodyDeclarationEx(sloc, names, aspectSpec,
       bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
-
 //    assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
 //    assert(names.getDefiningNames().length == 1)
+      
       val pkgbody_astnum = factory.next_astnum
-      // val pname = names.getDefiningNames.get(0).asInstanceOf[DefiningIdentifier].getDefName()
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
       val pkgBodyName = ctx.popResult
       
-      declarativePartH(ctx, v, bodyDecItems)
+      declarativePartH(ctx, v, bodyDecItems.getElements)
       val pkgBodyDecl = ctx.popResult
       ctx.pushResult(pkgBodyDecl)
 
       false
   }
   
-  def declarativePartH(ctx : Context, v : => BVisitor, ld: org.sireum.bakar.xml.ElementList) = {
+  def declarativePartH(ctx : Context, v : => BVisitor, decItems: java.util.List[org.sireum.bakar.xml.Base]) = {
     // declared items, e.g. variables, array/record types, or procedures
-   
-    def handSeqDeclarations(declIds: MList[String], seqDeclAstNums: MList[Int]): String = {
-      if(declIds.isEmpty)
-        return "D_Null_Declaration_XX"
-        
-      if (declIds.length == 1)
-        return declIds.head
-      
-      val astnum = seqDeclAstNums.head
-      val d1 = declIds.head
-      val d2 = handSeqDeclarations(declIds.tail, seqDeclAstNums.tail)
-      val seqDecls = factory.buildSeqDeclaration(astnum, d1, d2)
-      
-      seqDecls
-    }    
-    
-    val it = ld.getElements().iterator()
+    val it = decItems.iterator()
     val declIds = mlistEmpty[String]
     val seqDeclAstNums = mlistEmpty[Int]
+    // in ".ads" file, we just ignore procedure/function declarations;
     while (it.hasNext()){
       val declItem = it.next()
-      if(it.hasNext()) {
+      if(it.hasNext())
         seqDeclAstNums += factory.next_astnum
-      }
+
       val decl_astnum = factory.next_astnum
       v(declItem)
       val declItemAST = ctx.popResult.asInstanceOf[String]
@@ -266,6 +258,21 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     val declItems = handSeqDeclarations(declIds, seqDeclAstNums)
     ctx.pushResult(declItems)
   }
+  
+  def handSeqDeclarations(declIds: MList[String], seqDeclAstNums: MList[Int]): String = {
+    if(declIds.isEmpty)
+      return "D_Null_Declaration_XX"
+        
+    if (declIds.length == 1)
+      return declIds.head
+      
+    val astnum = seqDeclAstNums.head
+    val d1 = declIds.head
+    val d2 = handSeqDeclarations(declIds.tail, seqDeclAstNums.tail)
+    val seqDecls = factory.buildSeqDeclaration(astnum, d1, d2)
+    seqDecls
+    
+  }  
 
   def subprogramDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
       def handleSubprogramBody(sloc : org.sireum.bakar.xml.SourceLocation,
@@ -305,7 +312,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         }
         
         // [4] declared local objects, e.g. variables, array/record types, or nested procedures
-        declarativePartH(ctx, v, bodyDeclItems)
+        declarativePartH(ctx, v, bodyDeclItems.getElements)
         val declItems = ctx.popResult.asInstanceOf[String]
         
         // [5] subprogram body
@@ -322,12 +329,15 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     {
       case o @ ProcedureDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           name, paramProfile, hasAbstract, aspectSpec, checks) =>
-        println("Cannot Handle Procedure Declaration: " + o.getClass().getSimpleName())
-        true
+        val procedureDecl = "Does Not Support Procedure Declaration: " + o.getClass().getSimpleName()
+        ctx.pushResult(procedureDecl)
+        false
+        
       case o @ FunctionDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           names, paramProfile, isNotNullReturn, resultProfile, hasAbstract, aspectSpec, checks) =>
-        println("Cannot Handle Procedure Declaration: " +  o.getClass().getSimpleName())
-        true
+        val functionDecl = "Does Not Support Function Declaration: " +  o.getClass().getSimpleName()
+        ctx.pushResult(functionDecl)
+        false
 
       case o @ ProcedureBodyDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           names, paramProfile, aspectSpec, bodyDecItems, bodyStatements, bodyExceptionHandlers, checks) =>
@@ -941,16 +951,30 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   val stg = getProgramTranslatorSTG(t)
   val factory = new Factory(stg)
 
-  //println(this.parseGnat2XMLresults)
 
-  // for multiple source files, do translation one by one
-  this.parseGnat2XMLresults.foreach {
-    case (key, value) => {
+  // for multiple source files, do translation one by one  
+  
+  // now only allow one .ads file and one .adb file, otherwise there will be
+  // name conflicts, as the spark subset we have formalized in Coq is still
+  // quite small, and in order to be accepted by Coq type check, we put together
+  // declared items in .ads and .adb together connected with constructor: D_Seq_Declaration;
+  // and .ads file should be analyzed first, otherwise the identifiers used 
+  // in .adb may not be found;
+  val seqDeclAstNums = mlistEmpty[Int]
+  seqDeclAstNums += factory.next_astnum
+  this.parseGnat2XMLresults.foreach{
+    case (key, value) if (key.endsWith(".ads")) =>
       visit(value)
-    }
+    case _ =>
+  }
+
+  this.parseGnat2XMLresults.foreach{
+    case (key, value) if (key.endsWith(".adb")) =>
+      visit(value)
+    case _ =>
   }
   
-  val coq_ast_tree = factory.buildDefinition(COQ_AST_ID, ctx.getResults.head)
+  val coq_ast_tree = factory.buildDefinition(COQ_AST_ID, this.handSeqDeclarations(ctx.results, seqDeclAstNums))
   val symbol_table = factory.buildDefinition(SYMBOL_TABLE_ID, buildSymbolTable(ctx.symboltable, stg))
   
   val ret = mlistEmpty[String]
