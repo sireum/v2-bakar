@@ -40,6 +40,7 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
     else msetEmpty[Regex]
   }
 
+//  register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago_adacore_tests", true))
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
   override def pre(c: Configuration): Boolean = {
