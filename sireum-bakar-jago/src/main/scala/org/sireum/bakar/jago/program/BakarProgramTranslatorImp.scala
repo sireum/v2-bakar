@@ -149,9 +149,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       }
       val x = o.asInstanceOf[ExpressionClass].getExpression().asInstanceOf[Any]
       x match {
-        case UnaryMinusOperatorEx(_) => Some("Onegint")
-        case UnaryPlusOperatorEx(_)  => Some("Oposint")
-        case NotOperatorEx(_)        => Some("Onot")
+        case UnaryMinusOperatorEx(_) => Some("Unary_Minus")
+        case UnaryPlusOperatorEx(_)  => Some("Unary_Plus")
+        case NotOperatorEx(_)        => Some("Not")
         case _                       => None
       }
     }
@@ -376,6 +376,30 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // variable declaration, type declaration, procedure declaration and package declaration,
   // the last two declarations are translated separately;
   def otherDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
+    case o @ ConstantDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl, checks) =>
+      val astnum = factory.next_astnum
+      
+      v(objDeclViewQ.getDefinition())
+      val theType = ctx.popResult
+      
+      assert(namesQl.getDefiningNames().length == 1)
+      v(namesQl.getDefiningNames().get(0))
+      val x = ctx.popResult
+
+      val optionalInitExp =
+        if (ctx.isEmpty(initExpQ.getExpression())) {
+          None
+        } else {
+          // if the initial expression is a binary or unary expression, 
+          // it's represented as a function call in XML AST;
+          val initExp = nameExprH(v)(initExpQ.getExpression())
+          Some(initExp)
+        }
+      
+      val result = factory.buildObjectDecl(astnum, x, theType, optionalInitExp)
+      ctx.pushResult(result) 
+      
+      false
     case o @ VariableDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl, checks) =>
       val astnum = factory.next_astnum
       
@@ -483,8 +507,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // e.g. type T is range 0 .. 10;
       val result = mlistEmpty[String]
       val range = integerConstraintQ.getRangeConstraint().asInstanceOf[SimpleExpressionRange]
-      val low = range.getLowerBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
-      val upper = range.getUpperBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+      // literal can be in the form of, e.g. "1_000_000";
+      val low = range.getLowerBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
+      val upper = range.getUpperBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
       result += low
       result += upper
       ctx.pushResult(result)
@@ -496,8 +521,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       v(subtypeIndication.getSubtypeMarkQ().getExpression())
       val parent_subtype_mark = ctx.popResult
       val range = subtypeIndication.getSubtypeConstraintQ().getConstraint().asInstanceOf[SimpleExpressionRange]
-      val low = range.getLowerBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
-      val upper = range.getUpperBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+      val low = range.getLowerBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
+      val upper = range.getUpperBoundQ().getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
       result += parent_subtype_mark.asInstanceOf[String]
       result += low
       result += upper
@@ -548,8 +573,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       subtypeConstraintQ.getConstraint() match {
         case o @ SimpleExpressionRangeEx(sloc, lowerBoundQ, upperBoundQ, checks) =>
           val result = mlistEmpty[String]
-          val low = lowerBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal()
-          val upper = upperBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal()
+          val low = lowerBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
+          val upper = upperBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
           result += parent_subtype_mark
           result += low
           result += upper
@@ -575,6 +600,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val paramType = ctx.popResult    
       
       // (2) parameter name
+      // the assert means that Swap (A : in out Arr; I J : Index) should be not allowed now,
+      // and only Swap (A : in out Arr; I : Index; J : Index) is accepted
       assert(namesQl.getDefiningNames().length == 1)
       v(namesQl.getDefiningNames().get(0))
       val paramName = ctx.popResult
@@ -663,7 +690,21 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       }
       val result = factory.buildProcedureCall(astnum, p_astnum, p, args)
       ctx.pushResult(result)
-      false      
+      false
+    case o @ ReturnStatementEx(sloc, labelNamesQl, returnExpressionQ, checks) =>
+      // TODO: now just ignore it as our formalized SPARK subset does not support it now, 
+      //       in fact there should be checks for return expressions;
+      val result = "S_Null_XX"
+      ctx.pushResult(result)
+      false
+    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName, checks) =>
+      // TOOD: just ignore ImplementationDefinedPragma, e.g. pragma Loop_Variant (Decreases => J - I);
+      // in order to accept more SPARK tests and reduce manual modifications to those SPARK test cases,
+      // as pragma is quite common in practical SPARK programs,
+      val result = "S_Null_XX"
+      ctx.pushResult(result)
+      false
+      
 //    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName, checks) =>
 //      // ImplementationDefinedPragma: defines the user supplied loop invariant, which is an element of StatementList
 //      pragmaName match {
@@ -714,10 +755,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       false
     case o @ IdentifierEx(sloc, refName, ref, theType, checks) =>
       // Identifier object is used to reference to either
-      // - variable, parameter, record field, or 
+      // - constant, variable, parameter, record field, or 
       // - type name, or subtype / derived type name
       // - package/procedure name
-      if (ref.contains("variable") || ref.contains("parameter") || ref.contains("component")) {
+      if (ref.contains("constant") || ref.contains("variable") || 
+          ref.contains("parameter") || ref.contains("component")) {
         val astnum = factory.next_astnum
         // add to symbol table: expression ast number -> type id number
         ctx.symboltable.insertExpType(astnum, theType)

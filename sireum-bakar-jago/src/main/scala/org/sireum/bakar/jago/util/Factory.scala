@@ -266,14 +266,27 @@ class Factory(stg: STGroupFile) {
    */
   def buildId(id: String, id_uri: String) = {
     val id_num = 
-      if (id_uri.contains("variable") || id_uri.contains("parameter") || id_uri.contains("component"))
+      if (id_uri.contains("constant") || id_uri.contains("variable") || 
+          id_uri.contains("parameter") || id_uri.contains("component"))
+        // constant example, T : constant Boolean := false;
         getIdNum(id_uri)
       else if(id_uri.contains("ordinary_type") || id_uri.contains("subtype"))
         getTypeNum(id_uri)
+      else if(id_uri.contains("procedure_body") || id_uri.contains("function_body"))
+        // for a newly declared procedure, its id_uri is in the form like 
+        // "ada://procedure_body/Array_Record_Package-1:9/Increase-10:14"
+        getProcNum(id_uri)
+      else if(id_uri.contains("procedure/") || id_uri.contains("function/"))
+        // for a procedure call, its id_uri is in the form like 
+        // "ada://procedure/Array_Record_Package-1:9/Increase-10:14"
+        if(id_uri.contains("procedure/"))
+          getProcNum(id_uri.replace("procedure", "procedure_body"))
+        else
+          getProcNum(id_uri.replace("function", "function_body"))
       else if(id_uri.contains("package_body"))
         getPkgNum(id_uri)
-      else if(id_uri.contains("procedure_body"))
-        getProcNum(id_uri)
+      else if(id_uri.contains("package/"))
+        getPkgNum(id_uri.replace("package", "package_body"))
       else
         // TODO: to deal with other kind of identifier
         getIdNum(id_uri)
