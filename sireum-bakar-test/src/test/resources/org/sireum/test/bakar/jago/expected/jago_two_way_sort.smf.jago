@@ -11,7 +11,7 @@ D_Null_Declaration_XX (* Undefined Declarations ! *)
 (D_Procedure_Body_XX 22 
   (mkprocedure_body_xx 24
     (* = = = Procedure Name = = = *)
-    ((*Swap*) 1)
+    ((*Swap*) 2)
     (* = = = Formal Parameters = = = *)
     (
     (mkparameter_specification_xx 25 ((*A*) 1) (Array_Type ((*Arr*) 2)) In_Out) :: 
@@ -28,7 +28,7 @@ D_Null_Declaration_XX (* Undefined Declarations ! *)
 (D_Procedure_Body_XX 57 
   (mkprocedure_body_xx 59
     (* = = = Procedure Name = = = *)
-    ((*Two_Way_Sort_P*) 2)
+    ((*Two_Way_Sort_P*) 1)
     (* = = = Formal Parameters = = = *)
     (
     (mkparameter_specification_xx 60 ((*A*) 5) (Array_Type ((*Arr*) 2)) In_Out) :: nil)
@@ -60,7 +60,7 @@ D_Null_Declaration_XX (* Undefined Declarations ! *)
           (S_If_XX 113 (E_Name_XX 114 (E_Indexed_Component_XX 115 116 ((*A*) 5) (E_Name_XX 118 (E_Identifier_XX 119 ((*J*) 7) (**(nil)**)) (**(nil)**)) (**(nil)**)) (**(nil)**))
             (S_Assignment_XX 120 (E_Identifier_XX 121 ((*J*) 7) (**(nil)**)) (E_Binary_Operation_XX 122 Minus (E_Name_XX 123 (E_Identifier_XX 124 ((*J*) 7) (**(nil)**)) (**(nil)**)) (E_Literal_XX 125 (Integer_Literal 1) (**(nil)**)) (**(Do_Range_Check :: nil)**)))
             (S_Sequence_XX 126
-            (S_Procedure_Call_XX 127 128 ((*Swap*) 1) 
+            (S_Procedure_Call_XX 127 128 ((*Swap*) 2) 
               ((E_Name_XX 129 (E_Identifier_XX 130 ((*A*) 5) (**(nil)**)) (**(nil)**)) :: (E_Name_XX 131 (E_Identifier_XX 132 ((*I*) 6) (**(nil)**)) (**(nil)**)) :: (E_Name_XX 133 (E_Identifier_XX 134 ((*J*) 7) (**(nil)**)) (**(nil)**)) :: nil)
             ) 
             (S_Sequence_XX 135
@@ -81,23 +81,9 @@ Definition Symbol_Table_XX :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Swap*) 1), (0, (mkprocedure_body_xx 24
+  ((((*Two_Way_Sort_P*) 1), (0, (mkprocedure_body_xx 59
   (* = = = Procedure Name = = = *)
-  ((*Swap*) 1)
-  (* = = = Formal Parameters = = = *)
-  (
-  (mkparameter_specification_xx 25 ((*A*) 1) (Array_Type ((*Arr*) 2)) In_Out) :: 
-  (mkparameter_specification_xx 26 ((*I*) 2) (Subtype ((*Index*) 1)) In) :: 
-  (mkparameter_specification_xx 27 ((*J*) 3) (Subtype ((*Index*) 1)) In) :: nil)
-  (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration_XX 28 (mkobject_declaration_xx 29 ((*T*) 4) Boolean (Some ((E_Name_XX 30 (E_Indexed_Component_XX 31 32 ((*A*) 1) (E_Name_XX 34 (E_Identifier_XX 35 ((*I*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**)) (**(nil)**)))))))
-  (* = = = Procedure Body = = = *)
-    (S_Sequence_XX 36
-    (S_Assignment_XX 37 (E_Indexed_Component_XX 38 39 ((*A*) 1) (E_Name_XX 41 (E_Identifier_XX 42 ((*I*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**)) (E_Name_XX 43 (E_Indexed_Component_XX 44 45 ((*A*) 1) (E_Name_XX 47 (E_Identifier_XX 48 ((*J*) 3) (**(nil)**)) (**(nil)**)) (**(nil)**)) (**(nil)**))) 
-    (S_Assignment_XX 49 (E_Indexed_Component_XX 50 51 ((*A*) 1) (E_Name_XX 53 (E_Identifier_XX 54 ((*J*) 3) (**(nil)**)) (**(nil)**)) (**(nil)**)) (E_Name_XX 55 (E_Identifier_XX 56 ((*T*) 4) (**(nil)**)) (**(nil)**))))
-))) :: (((*Two_Way_Sort_P*) 2), (0, (mkprocedure_body_xx 59
-  (* = = = Procedure Name = = = *)
-  ((*Two_Way_Sort_P*) 2)
+  ((*Two_Way_Sort_P*) 1)
   (* = = = Formal Parameters = = = *)
   (
   (mkparameter_specification_xx 60 ((*A*) 5) (Array_Type ((*Arr*) 2)) In_Out) :: nil)
@@ -129,7 +115,7 @@ Definition Symbol_Table_XX :=
         (S_If_XX 113 (E_Name_XX 114 (E_Indexed_Component_XX 115 116 ((*A*) 5) (E_Name_XX 118 (E_Identifier_XX 119 ((*J*) 7) (**(nil)**)) (**(nil)**)) (**(nil)**)) (**(nil)**))
           (S_Assignment_XX 120 (E_Identifier_XX 121 ((*J*) 7) (**(nil)**)) (E_Binary_Operation_XX 122 Minus (E_Name_XX 123 (E_Identifier_XX 124 ((*J*) 7) (**(nil)**)) (**(nil)**)) (E_Literal_XX 125 (Integer_Literal 1) (**(nil)**)) (**(Do_Range_Check :: nil)**)))
           (S_Sequence_XX 126
-          (S_Procedure_Call_XX 127 128 ((*Swap*) 1) 
+          (S_Procedure_Call_XX 127 128 ((*Swap*) 2) 
             ((E_Name_XX 129 (E_Identifier_XX 130 ((*A*) 5) (**(nil)**)) (**(nil)**)) :: (E_Name_XX 131 (E_Identifier_XX 132 ((*I*) 6) (**(nil)**)) (**(nil)**)) :: (E_Name_XX 133 (E_Identifier_XX 134 ((*J*) 7) (**(nil)**)) (**(nil)**)) :: nil)
           ) 
           (S_Sequence_XX 135
@@ -138,6 +124,20 @@ Definition Symbol_Table_XX :=
         )
       )))
     ))))
+))) :: (((*Swap*) 2), (0, (mkprocedure_body_xx 24
+  (* = = = Procedure Name = = = *)
+  ((*Swap*) 2)
+  (* = = = Formal Parameters = = = *)
+  (
+  (mkparameter_specification_xx 25 ((*A*) 1) (Array_Type ((*Arr*) 2)) In_Out) :: 
+  (mkparameter_specification_xx 26 ((*I*) 2) (Subtype ((*Index*) 1)) In) :: 
+  (mkparameter_specification_xx 27 ((*J*) 3) (Subtype ((*Index*) 1)) In) :: nil)
+  (* = = = Object Declarations = = = *)
+  ((D_Object_Declaration_XX 28 (mkobject_declaration_xx 29 ((*T*) 4) Boolean (Some ((E_Name_XX 30 (E_Indexed_Component_XX 31 32 ((*A*) 1) (E_Name_XX 34 (E_Identifier_XX 35 ((*I*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**)) (**(nil)**)))))))
+  (* = = = Procedure Body = = = *)
+    (S_Sequence_XX 36
+    (S_Assignment_XX 37 (E_Indexed_Component_XX 38 39 ((*A*) 1) (E_Name_XX 41 (E_Identifier_XX 42 ((*I*) 2) (**(nil)**)) (**(nil)**)) (**(nil)**)) (E_Name_XX 43 (E_Indexed_Component_XX 44 45 ((*A*) 1) (E_Name_XX 47 (E_Identifier_XX 48 ((*J*) 3) (**(nil)**)) (**(nil)**)) (**(nil)**)) (**(nil)**))) 
+    (S_Assignment_XX 49 (E_Indexed_Component_XX 50 51 ((*A*) 1) (E_Name_XX 53 (E_Identifier_XX 54 ((*J*) 3) (**(nil)**)) (**(nil)**)) (**(nil)**)) (E_Name_XX 55 (E_Identifier_XX 56 ((*T*) 4) (**(nil)**)) (**(nil)**))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)

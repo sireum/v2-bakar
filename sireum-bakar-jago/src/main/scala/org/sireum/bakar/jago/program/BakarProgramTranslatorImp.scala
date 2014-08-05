@@ -328,13 +328,19 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 
     {
       case o @ ProcedureDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
-          name, paramProfile, hasAbstract, aspectSpec, checks) =>
+          names, paramProfile, hasAbstract, aspectSpec, checks) =>
+        val pn = names.getDefiningNames.get(0)
+        v(pn)
+        val procedureName = ctx.popResult
         val procedureDecl = "Does Not Support Procedure Declaration: " + o.getClass().getSimpleName()
         ctx.pushResult(procedureDecl)
         false
         
       case o @ FunctionDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           names, paramProfile, isNotNullReturn, resultProfile, hasAbstract, aspectSpec, checks) =>
+        val fn = names.getDefiningNames.get(0)
+        v(fn)
+        val functionName = ctx.popResult
         val functionDecl = "Does Not Support Function Declaration: " +  o.getClass().getSimpleName()
         ctx.pushResult(functionDecl)
         false
