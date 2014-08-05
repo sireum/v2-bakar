@@ -64,7 +64,7 @@ object Gnat2XMLWrapperModuleDef {
     s // hopefully it's in the path
   }
 
-  val gnat2xml = base("gnat2xml" + ext)
+  def gnat2xml = base("gnat2xml" + ext)
 }
 
 class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {

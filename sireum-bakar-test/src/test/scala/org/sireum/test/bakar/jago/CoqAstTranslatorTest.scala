@@ -21,22 +21,22 @@ import org.sireum.util.Exec.StringResult
 import java.io.File
 
 object CoqAstTranlsatorTest {
+
+  import org.sireum.bakar.xml.module.Util._
   def set() {
-    import org.sireum.bakar.xml.module.Util._
     val sireumHome = System.getenv("SIREUM_HOME")
     if (sireumHome != null) {
-      var gnatPath = "/apps/gnat-internal/2014/bin/gnat2xml" + ext
+      var gnatPath = "../sireum-internal/apps/gnat-internal/2014/bin/gnat2xml" + ext
       val f = new File(sireumHome, gnatPath)
-      if (f.canExecute()) 
+      if (f.canExecute())
         scala.util.Properties.setProp(gnat2xml_key, f.getAbsolutePath)
     }
   }
+  def clear() = scala.util.Properties.clearProp(gnat2xml_key)
 }
 
 @RunWith(classOf[JUnitRunner])
 class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
-
-  CoqAstTranlsatorTest.set // use wavefront version available in sireum-internal
 
   //  register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago_adacore_tests", true))
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
@@ -48,7 +48,16 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
 
+    // use wavefront version available in sireum-internal
+    CoqAstTranlsatorTest.set 
+
     return true;
+  }
+
+  override def post(c : Configuration) : Boolean = {
+    // ensure other gnat based tests don't use the wavefront
+    CoqAstTranlsatorTest.clear
+    true
   }
 
   override def pipeline =
