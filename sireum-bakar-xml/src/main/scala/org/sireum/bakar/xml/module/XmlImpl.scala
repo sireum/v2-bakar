@@ -30,28 +30,40 @@ import org.sireum.util.mmapEmpty
 import org.sireum.util.msetEmpty
 
 object Util {
-  val gnat2xml_key = "GNAT2XML"
+  val gnat2xml_key = "GNAT2XML_LOC"
   val ext = OsArchUtil.detect match {
     case OsArch.Win32 | OsArch.Win64 => ".exe"
     case _                           => ""
   }
+}
 
+object Gnat2XMLWrapperModuleDef {
+  import Util._
+  
   def base(s : String) : String = {
-    val sireumHome = System.getenv("SIREUM_HOME")
-    if (sireumHome != null) {
+    if (scala.util.Properties.envOrNone(gnat2xml_key).isDefined) { // in env
+      val f = new File(scala.util.Properties.envOrElse(gnat2xml_key, ""))
+      if (f.canExecute)
+        return f.getAbsolutePath
+    }
+
+    if (scala.util.Properties.propIsSet(gnat2xml_key)) { // in properties
+      val f = new File(scala.util.Properties.propOrNull(gnat2xml_key))
+      if (f.canExecute)
+        return f.getAbsolutePath
+    }
+
+    val sireumHome = System.getenv("SIREUM_HOME") 
+    if (sireumHome != null) { // in sireum dist
       var gnatPath = "/apps/gnat/2014/bin/" + s
       val f = new File(sireumHome, gnatPath)
       if (f.canExecute())
         return f.getAbsolutePath()
     }
 
-    val f = new File(scala.util.Properties.envOrElse(gnat2xml_key, ""), s)
-
-    if (!(f.canExecute())) s
-    else f.getAbsolutePath()
+    s // hopefully it's in the path
   }
 
-  //val gnatmake = base("gnatmake" + ext)
   val gnat2xml = base("gnat2xml" + ext)
 }
 
@@ -73,7 +85,7 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   //val g2xargs = ivector(Util.gnat2xml, "-I" + dirs.mkString(","), "-v",
   //  "-m" + baseDestDir.getAbsolutePath) ++ sfiles // ++ ivector("-cargs", "-gnataa-gnatd.V")
 
-  val g2xargs = ivector(Util.gnat2xml, "-v") ++ sfiles
+  val g2xargs = ivector(Gnat2XMLWrapperModuleDef.gnat2xml, "-v") ++ sfiles
 
   // fix to resolve an issue when eclipse is run under a sireum distro on mac.
   // DYLD_FALLBACK_LIBRARY_PATH is set which causes gnat2xml to fail so we'll
