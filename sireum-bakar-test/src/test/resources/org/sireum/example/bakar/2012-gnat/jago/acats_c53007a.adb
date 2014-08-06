@@ -42,10 +42,10 @@ PROCEDURE ACATS_C53007A IS
 --     VBT : BOOLEAN := IDENT_BOOL(TRUE);
 --     VBF : BOOLEAN := IDENT_BOOL(FALSE);
      
-     VI1 : INTEGER;
-     VI9 : INTEGER;
-     VBT : BOOLEAN;
-     VBF : BOOLEAN;
+     VI1 : INTEGER := 1;
+     VI9 : INTEGER := 9;
+     VBT : BOOLEAN := TRUE;
+     VBF : BOOLEAN := FALSE;
 
      FLOW_COUNT : INTEGER := 0;
 
