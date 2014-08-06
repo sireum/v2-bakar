@@ -332,7 +332,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val pn = names.getDefiningNames.get(0)
         v(pn)
         val procedureName = ctx.popResult
-        val procedureDecl = "Does Not Support Procedure Declaration: " + o.getClass().getSimpleName()
+        // o.getClass().getSimpleName()
+        val procedureDecl = "Ignore Procedure Declaration !"
         ctx.pushResult(procedureDecl)
         false
         
@@ -341,7 +342,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val fn = names.getDefiningNames.get(0)
         v(fn)
         val functionName = ctx.popResult
-        val functionDecl = "Does Not Support Function Declaration: " +  o.getClass().getSimpleName()
+        val functionDecl = "Ignore Function Declaration !"
         ctx.pushResult(functionDecl)
         false
 
@@ -375,6 +376,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         ctx.symboltable.insertProcedureDecl(m.subprogramName, functionBodyDecl)
         
         ctx.pushResult(functionBodyDecl)
+        false
+      case o @ ExpressionFunctionDeclarationEx(sloc, namesQl, paramProfileQl, resultProfileQ, resultExprQ, aspectSpecQl, checks) =>
+        val efn = namesQl.getDefiningNames.get(0)
+        v(efn)
+        val expFunctionName = ctx.popResult
+        val expFunctionDecl = "Ignore Expression Function Declaration !"
+        ctx.pushResult(expFunctionDecl)
         false
     }
   }
@@ -504,6 +512,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       ctx.symboltable.insertRefName(typeRef, typeRefName)
       
       ctx.pushResult(result)
+      false
+    case o @ UsePackageClauseEx(sloc, clauseNamesQl, checks) =>
+      // e.g. USE Package_Name;
+      val usePkgClause = "Ignore Use_Package_Clause !"
+      ctx.pushResult(usePkgClause)
       false
   }
   
@@ -651,6 +664,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val seq = buildSeq(statements)
       ctx.pushResult(seq)
       false
+    case o @ NullStatementEx(sloc, labelNamesQl, checks) =>
+      val result = factory.buildNullStmt
+      ctx.pushResult(result)
+      false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression, checks) =>
       val astnum = factory.next_astnum
       v(assignmentVariableName.getExpression())
@@ -659,22 +676,35 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       ctx.pushResult(factory.buildAssignStmt(astnum, lhs, rhs))
       false
     case o @ IfStatementEx(sloc, labelNames, statementPaths, checks) =>
-      val astnum = factory.next_astnum
-      var cond: Any = null
-      var trueBranch: Any = null
-      var falseBranch: Any = null
-      statementPaths.getPaths().foreach {
-        case IfPathEx(sloc, condExp, statements, checks) =>
-          cond = nameExprH(v)(condExp.getExpression())
-          v(statements)
-          trueBranch = ctx.popResult
-        case ElsePathEx(sloc, sequenceOfStatementsQl, checks) =>
-          v(sequenceOfStatementsQl)
-          falseBranch = ctx.popResult
-        case x =>
-          println("statementH: IfStatement need to be handled for " + x.getClass().getSimpleName())
+      def transform2IfThenElseStmt(statementPaths: List[org.sireum.bakar.xml.Base]): String = {
+        if(statementPaths.isEmpty)
+          return null
+          
+        var cond: Any = null
+        var trueBranch: Any = null
+        var falseBranch: Any = null
+        statementPaths.head match {
+          case IfPathEx(sloc, condExp, statements, checks) =>
+            val astnum = factory.next_astnum
+            cond = nameExprH(v)(condExp.getExpression())
+            v(statements)
+            trueBranch = ctx.popResult
+            falseBranch = transform2IfThenElseStmt(statementPaths.tail)
+            factory.buildIfStmt(astnum, cond, trueBranch, falseBranch)
+          case ElsifPathEx(sloc, condExp, statements, checks) =>
+            val astnum = factory.next_astnum
+            cond = nameExprH(v)(condExp.getExpression())
+            v(statements)
+            trueBranch = ctx.popResult
+            falseBranch = transform2IfThenElseStmt(statementPaths.tail)
+            factory.buildIfStmt(astnum, cond, trueBranch, falseBranch)
+          case ElsePathEx(sloc, statements, checks) =>
+            v(statements)
+            ctx.popResult.asInstanceOf[String]
+        }
       }
-      val result = factory.buildIfStmt(astnum, cond, trueBranch, falseBranch)
+      
+      val result = transform2IfThenElseStmt(statementPaths.getPaths().toList)
       ctx.pushResult(result)
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier, whileCondition, loopStatements, checks) =>
@@ -690,25 +720,33 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val args = mlistEmpty[Any]
       v(calledName.getExpression())
       val p = ctx.popResult
-      for (arg <- callStatementParameters.getAssociations()) {
-        val e = arg.asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
-        args += nameExprH(v)(e)
+      // 
+      // for a procedure call, if we cannot find its declaration body in package body, 
+      // e.g. library procedure or procedure declaration with no procedure body;
+      if (ctx.symboltable.getProcDeclMap.get(p.asInstanceOf[String]).isDefined){
+        for (arg <- callStatementParameters.getAssociations()) {
+          val e = arg.asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
+          args += nameExprH(v)(e)
+        }
+        val result = factory.buildProcedureCall(astnum, p_astnum, p, args)
+        ctx.pushResult(result)
+      }else{
+        val result = factory.buildNullStmt
+        ctx.pushResult(s"$result (* call a procedure with no procedure body ! *)")
       }
-      val result = factory.buildProcedureCall(astnum, p_astnum, p, args)
-      ctx.pushResult(result)
       false
     case o @ ReturnStatementEx(sloc, labelNamesQl, returnExpressionQ, checks) =>
       // TODO: now just ignore it as our formalized SPARK subset does not support it now, 
       //       in fact there should be checks for return expressions;
-      val result = "S_Null_XX"
-      ctx.pushResult(result)
+      val result = factory.buildNullStmt
+      ctx.pushResult(s"$result (* Ignore Return Statement ! *)")
       false
     case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName, checks) =>
       // TOOD: just ignore ImplementationDefinedPragma, e.g. pragma Loop_Variant (Decreases => J - I);
       // in order to accept more SPARK tests and reduce manual modifications to those SPARK test cases,
       // as pragma is quite common in practical SPARK programs,
-      val result = "S_Null_XX"
-      ctx.pushResult(result)
+      val result = factory.buildNullStmt
+      ctx.pushResult(s"$result (* Ignore Pragma ! *)")
       false
       
 //    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName, checks) =>

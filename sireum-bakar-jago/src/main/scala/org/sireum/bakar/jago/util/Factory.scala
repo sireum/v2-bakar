@@ -344,6 +344,7 @@ class Factory(stg: STGroupFile) {
   
   def buildNullStmt = {
     val result = stg.getInstanceOf("nullStmt")
+    result.render()
   }
   
   def buildAssignStmt(astnum: Int, lhs: Any, rhs: Any) = {
