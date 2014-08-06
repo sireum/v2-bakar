@@ -95,7 +95,7 @@ Definition Coq_AST_Tree_XX :=
     (* = = = Procedure Body = = = *)
       (S_Sequence_XX 176
       (S_Procedure_Call_XX 177 178 ((*increase*) 2) 
-        ((E_Literal_XX 179 (Integer_Literal 10) (**(nil)**)) :: (E_Name_XX 180 (E_Identifier_XX 181 ((*X4*) 18) (**(nil)**)) (**(nil)**)) :: nil)
+        ((E_Literal_XX 179 (Integer_Literal 10) (**(nil)**)) :: (E_Name_XX 180 (E_Identifier_XX 181 ((*X4*) 18) (**(Do_Range_Check :: nil)**)) (**(nil)**)) :: nil)
       ) 
       (S_Sequence_XX 182
       (S_Assignment_XX 183 (E_Identifier_XX 184 ((*X1*) 15) (**(nil)**)) (E_Binary_Operation_XX 185 Plus (E_Name_XX 186 (E_Identifier_XX 187 ((*X1*) 15) (**(nil)**)) (**(nil)**)) (E_Literal_XX 188 (Integer_Literal 1) (**(nil)**)) (**(Do_Range_Check :: nil)**))) 
@@ -217,7 +217,7 @@ Definition Symbol_Table_XX :=
   (* = = = Procedure Body = = = *)
     (S_Sequence_XX 176
     (S_Procedure_Call_XX 177 178 ((*increase*) 2) 
-      ((E_Literal_XX 179 (Integer_Literal 10) (**(nil)**)) :: (E_Name_XX 180 (E_Identifier_XX 181 ((*X4*) 18) (**(nil)**)) (**(nil)**)) :: nil)
+      ((E_Literal_XX 179 (Integer_Literal 10) (**(nil)**)) :: (E_Name_XX 180 (E_Identifier_XX 181 ((*X4*) 18) (**(Do_Range_Check :: nil)**)) (**(nil)**)) :: nil)
     ) 
     (S_Sequence_XX 182
     (S_Assignment_XX 183 (E_Identifier_XX 184 ((*X1*) 15) (**(nil)**)) (E_Binary_Operation_XX 185 Plus (E_Name_XX 186 (E_Identifier_XX 187 ((*X1*) 15) (**(nil)**)) (**(nil)**)) (E_Literal_XX 188 (Integer_Literal 1) (**(nil)**)) (**(Do_Range_Check :: nil)**))) 
