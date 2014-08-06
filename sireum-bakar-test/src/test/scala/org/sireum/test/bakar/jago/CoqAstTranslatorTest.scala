@@ -20,27 +20,24 @@ import scala.util.matching.Regex
 import org.sireum.util.Exec.StringResult
 import java.io.File
 
-object CoqAstTranlsatorTest {
-
+@RunWith(classOf[JUnitRunner])
+class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
   import org.sireum.bakar.xml.module.Gnat2XMLWrapperModuleDef._
+  
   def set() : Option[FileResourceUri] = {
     val sireumHome = System.getenv("SIREUM_HOME")
     if (sireumHome != null) {
       var gnatPath = "/apps/gnat-internal/2014/bin/gnat2xml" + ext
       val f = new File(sireumHome, gnatPath)
-      if (f.canExecute())
-        return Some(f.getAbsolutePath)
+      if (f.canExecute()) 
+        return Some(new File(sireumHome, "/apps/gnat-internal/2014/bin/").getAbsolutePath)
     }
     None
   }
-}
-
-@RunWith(classOf[JUnitRunner])
-class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
-
+  
   // ignore all tests if not using wavefront version
   override def ignores = {
-    if(CoqAstTranlsatorTest.set.isDefined) super.includes
+    if(set.isDefined) super.includes
     else msetEmpty + ".*"
   }
   
@@ -54,7 +51,7 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
     
-    Gnat2XMLWrapperModule.setGnatBin(c.job.properties, CoqAstTranlsatorTest.set)
+    Gnat2XMLWrapperModule.setGnatBin(c.job.properties, set)
 
     return true;
   }
