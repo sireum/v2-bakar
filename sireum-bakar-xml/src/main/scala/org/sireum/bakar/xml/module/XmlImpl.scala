@@ -29,31 +29,23 @@ import org.sireum.util.ivectorEmpty
 import org.sireum.util.mmapEmpty
 import org.sireum.util.msetEmpty
 
-object Util {
-  val gnat2xml_key = "GNAT2XML_LOC"
+object Gnat2XMLWrapperModuleDef {
+
   val ext = OsArchUtil.detect match {
     case OsArch.Win32 | OsArch.Win64 => ".exe"
     case _                           => ""
   }
-}
 
-object Gnat2XMLWrapperModuleDef {
-  import Util._
-  
-  def base(s : String) : String = {
-    if (scala.util.Properties.envOrNone(gnat2xml_key).isDefined) { // in env
-      val f = new File(scala.util.Properties.envOrElse(gnat2xml_key, ""))
+  def gnat2xml(bin : Option[FileResourceUri]) : String = {
+    val s = "gnat2xml" + ext
+
+    if (bin.isDefined && new File(bin.get).isDirectory) {
+      val f = new File(bin.get, s)
       if (f.canExecute)
         return f.getAbsolutePath
     }
 
-    if (scala.util.Properties.propIsSet(gnat2xml_key)) { // in properties
-      val f = new File(scala.util.Properties.propOrNull(gnat2xml_key))
-      if (f.canExecute)
-        return f.getAbsolutePath
-    }
-
-    val sireumHome = System.getenv("SIREUM_HOME") 
+    val sireumHome = System.getenv("SIREUM_HOME")
     if (sireumHome != null) { // in sireum dist
       var gnatPath = "/apps/gnat/2014/bin/" + s
       val f = new File(sireumHome, gnatPath)
@@ -63,8 +55,6 @@ object Gnat2XMLWrapperModuleDef {
 
     s // hopefully it's in the path
   }
-
-  def gnat2xml = base("gnat2xml" + ext)
 }
 
 class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {
@@ -79,13 +69,7 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     fl.getAbsolutePath
   }
 
-  //val gnargs = ivector(Util.gnatmake, "-gnat2012", "-gnatct", "-gnatd.V") ++ sfiles
-  //val result1 = new Exec().run(waittime, gnargs, None, Some(tempDir))
-
-  //val g2xargs = ivector(Util.gnat2xml, "-I" + dirs.mkString(","), "-v",
-  //  "-m" + baseDestDir.getAbsolutePath) ++ sfiles // ++ ivector("-cargs", "-gnataa-gnatd.V")
-
-  val g2xargs = ivector(Gnat2XMLWrapperModuleDef.gnat2xml, "-v") ++ sfiles
+  val g2xargs = ivector(Gnat2XMLWrapperModuleDef.gnat2xml(gnatBin), "-v") ++ sfiles
 
   // fix to resolve an issue when eclipse is run under a sireum distro on mac.
   // DYLD_FALLBACK_LIBRARY_PATH is set which causes gnat2xml to fail so we'll

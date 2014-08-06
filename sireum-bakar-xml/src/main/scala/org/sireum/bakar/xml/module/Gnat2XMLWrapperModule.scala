@@ -14,6 +14,7 @@ object Gnat2XMLWrapperModule extends PipelineModule {
   def title = "Gnat2XML Wrapper Module"
   def origin = classOf[Gnat2XMLWrapper]
 
+  val globalGnatBinKey = "Global.gnatBin"
   val globalDestDirKey = "Global.destDir"
   val globalSrcFilesKey = "Global.srcFiles"
   val gnat2xmlResultsKey = "Gnat2XMLWrapper.gnat2xmlResults"
@@ -34,9 +35,14 @@ object Gnat2XMLWrapperModule extends PipelineModule {
   }
 
   override def initialize(job : PipelineJob) {
-    if (!(job ? Gnat2XMLWrapperModule.globalDestDirKey)) {
+    if(!(job ? Gnat2XMLWrapperModule.globalDestDirKey)) {
       val destDir = Class.forName("org.sireum.bakar.xml.module.Gnat2XMLWrapper").getDeclaredMethod("$lessinit$greater$default$3").invoke(null).asInstanceOf[scala.Option[java.lang.String]]
       setDestDir(job.propertyMap, destDir)
+    }
+
+    if(!(job ? Gnat2XMLWrapperModule.globalGnatBinKey)) {
+      val gnatBin = Class.forName("org.sireum.bakar.xml.module.Gnat2XMLWrapper").getDeclaredMethod("$lessinit$greater$default$4").invoke(null).asInstanceOf[scala.Option[java.lang.String]]
+      setGnatBin(job.propertyMap, gnatBin)
     }
   }
 
@@ -44,153 +50,199 @@ object Gnat2XMLWrapperModule extends PipelineModule {
     val tags = marrayEmpty[Tag]
     val deps = ilist[PipelineModule]()
     deps.foreach(d =>
-      if (stage.modules.contains(d)) {
+      if(stage.modules.contains(d)){
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
+            "'" + this.title + "' depends on '" + d.title + "' yet both were found in stage '" + stage.title + "'"
         )
       }
     )
     return tags
   }
 
-  def inputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def inputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    var _srcFiles : scala.Option[AnyRef] = None
-    var _srcFilesKey : scala.Option[String] = None
-
-    val keylistsrcFiles = List(Gnat2XMLWrapperModule.globalSrcFilesKey)
-    keylistsrcFiles.foreach(key =>
-      if (job ? key) {
-        if (_srcFiles.isEmpty) {
-          _srcFiles = Some(job(key))
-          _srcFilesKey = Some(key)
-        }
-        if (!(job(key).asInstanceOf[AnyRef] eq _srcFiles.get)) {
-          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-            "Input error for '" + this.title + "': 'srcFiles' keys '" + _srcFilesKey.get + " and '" + key + "' point to different objects.")
-        }
-      }
-    )
-
-    _srcFiles match {
-      case Some(x) =>
-        if (!x.isInstanceOf[scala.collection.Seq[java.lang.String]]) {
-          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-            "Input error for '" + this.title + "': Wrong type found for 'srcFiles'.  Expecting 'scala.collection.Seq[java.lang.String]' but found '" + x.getClass.toString + "'")
-        }
-      case None =>
-        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'srcFiles'")
-    }
     var _destDir : scala.Option[AnyRef] = None
     var _destDirKey : scala.Option[String] = None
 
     val keylistdestDir = List(Gnat2XMLWrapperModule.globalDestDirKey)
-    keylistdestDir.foreach(key =>
-      if (job ? key) {
-        if (_destDir.isEmpty) {
+    keylistdestDir.foreach(key => 
+      if(job ? key) { 
+        if(_destDir.isEmpty) {
           _destDir = Some(job(key))
           _destDirKey = Some(key)
         }
-        if (!(job(key).asInstanceOf[AnyRef] eq _destDir.get)) {
+        if(!(job(key).asInstanceOf[AnyRef] eq _destDir.get)) {
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': 'destDir' keys '" + _destDirKey.get + " and '" + key + "' point to different objects.")
         }
       }
     )
 
-    _destDir match {
+    _destDir match{
       case Some(x) =>
-        if (!x.isInstanceOf[scala.Option[java.lang.String]]) {
+        if(!x.isInstanceOf[scala.Option[java.lang.String]]){
           tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
             "Input error for '" + this.title + "': Wrong type found for 'destDir'.  Expecting 'scala.Option[java.lang.String]' but found '" + x.getClass.toString + "'")
         }
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'destDir'")
+          "Input error for '" + this.title + "': No value found for 'destDir'")       
+    }
+    var _srcFiles : scala.Option[AnyRef] = None
+    var _srcFilesKey : scala.Option[String] = None
+
+    val keylistsrcFiles = List(Gnat2XMLWrapperModule.globalSrcFilesKey)
+    keylistsrcFiles.foreach(key => 
+      if(job ? key) { 
+        if(_srcFiles.isEmpty) {
+          _srcFiles = Some(job(key))
+          _srcFilesKey = Some(key)
+        }
+        if(!(job(key).asInstanceOf[AnyRef] eq _srcFiles.get)) {
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': 'srcFiles' keys '" + _srcFilesKey.get + " and '" + key + "' point to different objects.")
+        }
+      }
+    )
+
+    _srcFiles match{
+      case Some(x) =>
+        if(!x.isInstanceOf[scala.collection.Seq[java.lang.String]]){
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': Wrong type found for 'srcFiles'.  Expecting 'scala.collection.Seq[java.lang.String]' but found '" + x.getClass.toString + "'")
+        }
+      case None =>
+        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+          "Input error for '" + this.title + "': No value found for 'srcFiles'")       
+    }
+    var _gnatBin : scala.Option[AnyRef] = None
+    var _gnatBinKey : scala.Option[String] = None
+
+    val keylistgnatBin = List(Gnat2XMLWrapperModule.globalGnatBinKey)
+    keylistgnatBin.foreach(key => 
+      if(job ? key) { 
+        if(_gnatBin.isEmpty) {
+          _gnatBin = Some(job(key))
+          _gnatBinKey = Some(key)
+        }
+        if(!(job(key).asInstanceOf[AnyRef] eq _gnatBin.get)) {
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': 'gnatBin' keys '" + _gnatBinKey.get + " and '" + key + "' point to different objects.")
+        }
+      }
+    )
+
+    _gnatBin match{
+      case Some(x) =>
+        if(!x.isInstanceOf[scala.Option[java.lang.String]]){
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': Wrong type found for 'gnatBin'.  Expecting 'scala.Option[java.lang.String]' but found '" + x.getClass.toString + "'")
+        }
+      case None =>
+        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+          "Input error for '" + this.title + "': No value found for 'gnatBin'")       
     }
     return tags
   }
 
-  def outputDefined(job : PipelineJob) : MBuffer[Tag] = {
+  def outputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    if (!(job ? Gnat2XMLWrapperModule.gnat2xmlResultsKey)) {
+    if(!(job ? Gnat2XMLWrapperModule.gnat2xmlResultsKey)) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': No entry found for 'gnat2xmlResults'. Expecting (Gnat2XMLWrapperModule.gnat2xmlResultsKey)")
+        "Output error for '" + this.title + "': No entry found for 'gnat2xmlResults'. Expecting (Gnat2XMLWrapperModule.gnat2xmlResultsKey)") 
     }
 
-    if (job ? Gnat2XMLWrapperModule.gnat2xmlResultsKey && !job(Gnat2XMLWrapperModule.gnat2xmlResultsKey).isInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': Wrong type found for Gnat2XMLWrapperModule.gnat2xmlResultsKey.  Expecting 'scala.collection.immutable.Map[java.lang.String, java.lang.String]' but found '" +
-          job(Gnat2XMLWrapperModule.gnat2xmlResultsKey).getClass.toString + "'")
-    }
+    if(job ? Gnat2XMLWrapperModule.gnat2xmlResultsKey && !job(Gnat2XMLWrapperModule.gnat2xmlResultsKey).isInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for Gnat2XMLWrapperModule.gnat2xmlResultsKey.  Expecting 'scala.collection.immutable.Map[java.lang.String, java.lang.String]' but found '" + 
+        job(Gnat2XMLWrapperModule.gnat2xmlResultsKey).getClass.toString + "'")
+    } 
     return tags
   }
 
-  def getSrcFiles(options : scala.collection.Map[Property.Key, Any]) : scala.collection.Seq[java.lang.String] = {
-    if (options.contains(Gnat2XMLWrapperModule.globalSrcFilesKey)) {
-      return options(Gnat2XMLWrapperModule.globalSrcFilesKey).asInstanceOf[scala.collection.Seq[java.lang.String]]
-    }
-
-    throw new Exception("Pipeline checker should guarantee we never reach here")
-  }
-
-  def setSrcFiles(options : MMap[Property.Key, Any], srcFiles : scala.collection.Seq[java.lang.String]) : MMap[Property.Key, Any] = {
-
-    options(Gnat2XMLWrapperModule.globalSrcFilesKey) = srcFiles
-
-    return options
-  }
-
-  def getDestDir(options : scala.collection.Map[Property.Key, Any]) : scala.Option[java.lang.String] = {
-    if (options.contains(Gnat2XMLWrapperModule.globalDestDirKey)) {
-      return options(Gnat2XMLWrapperModule.globalDestDirKey).asInstanceOf[scala.Option[java.lang.String]]
-    }
-
-    throw new Exception("Pipeline checker should guarantee we never reach here")
-  }
-
-  def setDestDir(options : MMap[Property.Key, Any], destDir : scala.Option[java.lang.String]) : MMap[Property.Key, Any] = {
-
-    options(Gnat2XMLWrapperModule.globalDestDirKey) = destDir
-
-    return options
-  }
-
-  def getGnat2xmlResults(options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, java.lang.String] = {
+  def getGnat2xmlResults (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Map[java.lang.String, java.lang.String] = {
     if (options.contains(Gnat2XMLWrapperModule.gnat2xmlResultsKey)) {
-      return options(Gnat2XMLWrapperModule.gnat2xmlResultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]
+       return options(Gnat2XMLWrapperModule.gnat2xmlResultsKey).asInstanceOf[scala.collection.immutable.Map[java.lang.String, java.lang.String]]
     }
 
     throw new Exception("Pipeline checker should guarantee we never reach here")
   }
 
-  def setGnat2xmlResults(options : MMap[Property.Key, Any], gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String]) : MMap[Property.Key, Any] = {
+  def setGnat2xmlResults (options : MMap[Property.Key, Any], gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String]) : MMap[Property.Key, Any] = {
 
     options(gnat2xmlResultsKey) = gnat2xmlResults
 
     return options
   }
 
+  def getDestDir (options : scala.collection.Map[Property.Key, Any]) : scala.Option[java.lang.String] = {
+    if (options.contains(Gnat2XMLWrapperModule.globalDestDirKey)) {
+       return options(Gnat2XMLWrapperModule.globalDestDirKey).asInstanceOf[scala.Option[java.lang.String]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setDestDir (options : MMap[Property.Key, Any], destDir : scala.Option[java.lang.String]) : MMap[Property.Key, Any] = {
+
+    options(Gnat2XMLWrapperModule.globalDestDirKey) = destDir
+
+    return options
+  }
+
+  def getSrcFiles (options : scala.collection.Map[Property.Key, Any]) : scala.collection.Seq[java.lang.String] = {
+    if (options.contains(Gnat2XMLWrapperModule.globalSrcFilesKey)) {
+       return options(Gnat2XMLWrapperModule.globalSrcFilesKey).asInstanceOf[scala.collection.Seq[java.lang.String]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setSrcFiles (options : MMap[Property.Key, Any], srcFiles : scala.collection.Seq[java.lang.String]) : MMap[Property.Key, Any] = {
+
+    options(Gnat2XMLWrapperModule.globalSrcFilesKey) = srcFiles
+
+    return options
+  }
+
+  def getGnatBin (options : scala.collection.Map[Property.Key, Any]) : scala.Option[java.lang.String] = {
+    if (options.contains(Gnat2XMLWrapperModule.globalGnatBinKey)) {
+       return options(Gnat2XMLWrapperModule.globalGnatBinKey).asInstanceOf[scala.Option[java.lang.String]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setGnatBin (options : MMap[Property.Key, Any], gnatBin : scala.Option[java.lang.String]) : MMap[Property.Key, Any] = {
+
+    options(Gnat2XMLWrapperModule.globalGnatBinKey) = gnatBin
+
+    return options
+  }
+
   object ConsumerView {
-    implicit class Gnat2XMLWrapperModuleConsumerView(val job : PropertyProvider) extends AnyVal {
-      def srcFiles : scala.collection.Seq[java.lang.String] = Gnat2XMLWrapperModule.getSrcFiles(job.propertyMap)
-      def destDir : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getDestDir(job.propertyMap)
+    implicit class Gnat2XMLWrapperModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String] = Gnat2XMLWrapperModule.getGnat2xmlResults(job.propertyMap)
+      def destDir : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getDestDir(job.propertyMap)
+      def srcFiles : scala.collection.Seq[java.lang.String] = Gnat2XMLWrapperModule.getSrcFiles(job.propertyMap)
+      def gnatBin : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getGnatBin(job.propertyMap)
     }
   }
 
   object ProducerView {
-    implicit class Gnat2XMLWrapperModuleProducerView(val job : PropertyProvider) extends AnyVal {
+    implicit class Gnat2XMLWrapperModuleProducerView (val job : PropertyProvider) extends AnyVal {
 
-      def srcFiles_=(srcFiles : scala.collection.Seq[java.lang.String]) { Gnat2XMLWrapperModule.setSrcFiles(job.propertyMap, srcFiles) }
-      def srcFiles : scala.collection.Seq[java.lang.String] = Gnat2XMLWrapperModule.getSrcFiles(job.propertyMap)
+      def gnat2xmlResults_=(gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String]) { Gnat2XMLWrapperModule.setGnat2xmlResults(job.propertyMap, gnat2xmlResults) }
+      def gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String] = Gnat2XMLWrapperModule.getGnat2xmlResults(job.propertyMap)
 
       def destDir_=(destDir : scala.Option[java.lang.String]) { Gnat2XMLWrapperModule.setDestDir(job.propertyMap, destDir) }
       def destDir : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getDestDir(job.propertyMap)
 
-      def gnat2xmlResults_=(gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String]) { Gnat2XMLWrapperModule.setGnat2xmlResults(job.propertyMap, gnat2xmlResults) }
-      def gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String] = Gnat2XMLWrapperModule.getGnat2xmlResults(job.propertyMap)
+      def srcFiles_=(srcFiles : scala.collection.Seq[java.lang.String]) { Gnat2XMLWrapperModule.setSrcFiles(job.propertyMap, srcFiles) }
+      def srcFiles : scala.collection.Seq[java.lang.String] = Gnat2XMLWrapperModule.getSrcFiles(job.propertyMap)
+
+      def gnatBin_=(gnatBin : scala.Option[java.lang.String]) { Gnat2XMLWrapperModule.setGnatBin(job.propertyMap, gnatBin) }
+      def gnatBin : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getGnatBin(job.propertyMap)
     }
   }
 }
@@ -198,10 +250,13 @@ object Gnat2XMLWrapperModule extends PipelineModule {
 trait Gnat2XMLWrapperModule {
   def job : PipelineJob
 
-  def srcFiles : scala.collection.Seq[java.lang.String] = Gnat2XMLWrapperModule.getSrcFiles(job.propertyMap)
-
-  def destDir : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getDestDir(job.propertyMap)
 
   def gnat2xmlResults_=(gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String]) { Gnat2XMLWrapperModule.setGnat2xmlResults(job.propertyMap, gnat2xmlResults) }
   def gnat2xmlResults : scala.collection.immutable.Map[java.lang.String, java.lang.String] = Gnat2XMLWrapperModule.getGnat2xmlResults(job.propertyMap)
+
+  def destDir : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getDestDir(job.propertyMap)
+
+  def srcFiles : scala.collection.Seq[java.lang.String] = Gnat2XMLWrapperModule.getSrcFiles(job.propertyMap)
+
+  def gnatBin : scala.Option[java.lang.String] = Gnat2XMLWrapperModule.getGnatBin(job.propertyMap)
 }

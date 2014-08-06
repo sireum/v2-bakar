@@ -17,6 +17,8 @@ case class Gnat2XMLWrapper(
 
   @Input destDir : scala.Option[FileResourceUri] = None,
 
+  @Input gnatBin : scala.Option[FileResourceUri] = None,
+  
   @Produce gnat2xmlResults : IMap[FileResourceUri, FileResourceUri])
 
 case class ParseGnat2XML(
