@@ -532,6 +532,14 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       
       ctx.pushResult(result)
       false
+    case o @ PrivateTypeDeclarationEx(sloc, namesQl, discriminantPartQ, typeDeclarationViewQ, aspectSpecificationsQl, checks) =>
+      // e.g. type Stack_Type is private;
+      val ptn = namesQl.getDefiningNames.get(0)
+      v(ptn)
+      val ptName = ctx.popResult
+      val ptd = "Ignore Private_Type_Declaration !"
+      ctx.pushResult(ptd)
+      false
     case o @ UsePackageClauseEx(sloc, clauseNamesQl, checks) =>
       // e.g. USE Package_Name;
       val usePkgClause = "Ignore Use_Package_Clause !"
@@ -950,7 +958,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       factory.buildNameExp(astnum, theType, ctx.popResult, null)
     case o =>
       v(o)
-      ctx.popResult.asInstanceOf[String]
+      val result = ctx.popResult
+      if (result.isInstanceOf[org.stringtemplate.v4.ST])
+        result.asInstanceOf[org.stringtemplate.v4.ST].render()
+      else
+        result.asInstanceOf[String]
   }
 
   def associationListH(ctx : Context, v : => BVisitor) : VisitorFunction = {

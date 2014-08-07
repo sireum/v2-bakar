@@ -270,7 +270,7 @@ class Factory(stg: STGroupFile) {
           id_uri.contains("parameter") || id_uri.contains("component"))
         // constant example, T : constant Boolean := false;
         getIdNum(id_uri)
-      else if(id_uri.contains("ordinary_type") || id_uri.contains("subtype"))
+      else if(id_uri.contains("ordinary_type") || id_uri.contains("subtype") || id_uri.contains("private_type"))
         getTypeNum(id_uri)
       else if(id_uri.contains("procedure_body") || id_uri.contains("function_body"))
         // for a newly declared procedure, its id_uri is in the form like 
