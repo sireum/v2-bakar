@@ -193,33 +193,18 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 //      Console.err.println("Need to handle context clauses")
       
       // Compilation unit can be either (1) Package Body/Declaration or (2) Procedure/Function Body
-      val unitDeclAstNum = factory.next_astnum  
       v(unitDeclaration)
       val result = ctx.popResult.asInstanceOf[String]
-      val unitDecl = 
-        if(result != null &&
-            result.startsWith("(mkprocedure_body")) {
-          factory.buildProcedureBodyDeclarationWrapper(unitDeclAstNum, result)
-        }else {
-          result
-        }
-      // store the result
-      if(unitDecl != null){
-        ctx.addToResults(unitDecl)
-      }
+      ctx.addToResults(result)
 
       false
     case o @ PackageDeclarationEx(sloc, names, aspectSpec,
       visiblePartDecItems, privatePartDecItems, checks) =>
-      val visibleDecItems = visiblePartDecItems.getDeclarativeItems()
-      declarativePartH(ctx, v, visibleDecItems)
-      val visibleDecl = ctx.popResult
-      ctx.pushResult(visibleDecl)
-      
-      val privateDecItems = visiblePartDecItems.getDeclarativeItems()
-      declarativePartH(ctx, v, privateDecItems)
-      val privateDecl = ctx.popResult
-      ctx.pushResult(privateDecl)      
+      val visibleDecItems = visiblePartDecItems.getDeclarativeItems()      
+      val privateDecItems = privatePartDecItems.getDeclarativeItems()
+      declarativePartH(ctx, v, visibleDecItems.toList ++ privateDecItems.toList)
+      val result = ctx.popResult
+      ctx.pushResult(result)
 
       false
     case o @ PackageBodyDeclarationEx(sloc, names, aspectSpec,
@@ -227,51 +212,60 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 //    assert(bodyExceptionHandlers.getExceptionHandlers().isEmpty())
 //    assert(names.getDefiningNames().length == 1)
       
-      val pkgbody_astnum = factory.next_astnum
       val pkgname = names.getDefiningNames.get(0)
       v(pkgname)
       val pkgBodyName = ctx.popResult
       
-      declarativePartH(ctx, v, bodyDecItems.getElements)
+      declarativePartH(ctx, v, bodyDecItems.getElements.toList)
       val pkgBodyDecl = ctx.popResult
       ctx.pushResult(pkgBodyDecl)
 
       false
   }
   
-  def declarativePartH(ctx : Context, v : => BVisitor, decItems: java.util.List[org.sireum.bakar.xml.Base]) = {
+  def declarativePartH(ctx : Context, v : => BVisitor, decItems: List[org.sireum.bakar.xml.Base]) = {
     // declared items, e.g. variables, array/record types, or procedures
-    val it = decItems.iterator()
-    val declIds = mlistEmpty[String]
-    val seqDeclAstNums = mlistEmpty[Int]
+    val it = decItems.iterator
+    val declItems = mlistEmpty[String]
     // in ".ads" file, we just ignore procedure/function declarations;
-    while (it.hasNext()){
+    while (it.hasNext){
       val declItem = it.next()
-      if(it.hasNext())
-        seqDeclAstNums += factory.next_astnum
-
-      val decl_astnum = factory.next_astnum
+      if(it.hasNext)
+        declItems += factory.next_astnum.toString() // sequence declaration number
+      // for object declarations, multiple objects of the same type can be declared in in line,
+      // e.g. X, Y, Z: Integer;
       v(declItem)
-      val declItemAST = ctx.popResult.asInstanceOf[String]
-      declIds += factory.buildDeclaration(decl_astnum, declItemAST)
+      val r = ctx.popResult
+      val x = 
+        if(r.isInstanceOf[String])
+          r.asInstanceOf[String]
+        else 
+          handSeqDeclarations(r.asInstanceOf[MList[String]])
+      
+      if(x.contains("D_Type_Declaration") || x.contains("D_Object_Declaration") || 
+          x.contains("D_Procedure_Body") || x.contains("D_Seq_Declaration"))
+        declItems +=  x
+      else
+        declItems += "D_Null_Declaration_XX (* Undefined Declarations ! *)"
+
     }
-    val declItems = handSeqDeclarations(declIds, seqDeclAstNums)
-    ctx.pushResult(declItems)
+    val result = handSeqDeclarations(declItems)
+    ctx.pushResult(result)
   }
   
-  def handSeqDeclarations(declIds: MList[String], seqDeclAstNums: MList[Int]): String = {
+  def handSeqDeclarations(declIds: MList[String]): String = {
     if(declIds.isEmpty)
       return "D_Null_Declaration_XX"
         
     if (declIds.length == 1)
       return declIds.head
       
-    val astnum = seqDeclAstNums.head
-    val d1 = declIds.head
-    val d2 = handSeqDeclarations(declIds.tail, seqDeclAstNums.tail)
+    // declIds is in the form of: Seq_Decl ast number :: Decl :: Seq_Decl ast number :: Decl :: Decl 
+    val astnum = declIds.head.toInt
+    val d1 = declIds.tail.head
+    val d2 = handSeqDeclarations(declIds.tail.tail)
     val seqDecls = factory.buildSeqDeclaration(astnum, d1, d2)
     seqDecls
-    
   }  
 
   def subprogramDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
@@ -312,7 +306,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         }
         
         // [4] declared local objects, e.g. variables, array/record types, or nested procedures
-        declarativePartH(ctx, v, bodyDeclItems.getElements)
+        declarativePartH(ctx, v, bodyDeclItems.getElements.toList)
         val declItems = ctx.popResult.asInstanceOf[String]
         
         // [5] subprogram body
@@ -354,9 +348,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val m = handleSubprogramBody(sloc, names, paramProfile, bodyDecItems,
           bodyStatements, None, aspectSpec, bodyExceptionHandlers,
           isOverridingDec.getIsOverriding(), isNotOverridingDec.getIsNotOverriding())
-        val procedureBody = factory.buildProcedureBodyDeclaration(procbody_astnum, m.subprogramName, m.params, m.localVars, m.subprogramBody)
+        val procedureBodyDecl = factory.buildProcedureBodyDeclaration(procbody_astnum, m.subprogramName, m.params, m.localVars, m.subprogramBody)
+        val procedureBody = factory.buildProcedureBodyDeclarationWrapper(astnum, procedureBodyDecl)
         // add to symbol table
-        ctx.symboltable.insertProcedureDecl(m.subprogramName, procedureBody)
+        ctx.symboltable.insertProcedureDecl(m.subprogramName, procedureBodyDecl)
         
         ctx.pushResult(procedureBody)
         false
@@ -372,6 +367,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val functionBody = factory.buildFunctionBodyDeclaration(
             fnbody_astnum, m.subprogramName, m.returnType.get, m.params, m.localVars, m.subprogramBody)
         val functionBodyDecl = factory.buildProcedureBodyDeclarationWrapper(astnum, functionBody)
+        // val functionBody = factory.buildProcedureBodyDeclarationWrapper(astnum, functionBodyDecl)
+        
         // add to symbol table
         ctx.symboltable.insertProcedureDecl(m.subprogramName, functionBodyDecl)
         
@@ -391,63 +388,78 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // the last two declarations are translated separately;
   def otherDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ ConstantDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl, checks) =>
-      val astnum = factory.next_astnum
-      
       v(objDeclViewQ.getDefinition())
       val theType = ctx.popResult
       
-      assert(namesQl.getDefiningNames().length == 1)
-      v(namesQl.getDefiningNames().get(0))
-      val x = ctx.popResult
-
       val optionalInitExp =
         if (ctx.isEmpty(initExpQ.getExpression())) {
           None
         } else {
-          // if the initial expression is a binary or unary expression, 
-          // it's represented as a function call in XML AST;
+          // in XML AST, binary/unary expression is represented as a function call;
           val initExp = nameExprH(v)(initExpQ.getExpression())
           Some(initExp)
         }
       
-      val result = factory.buildObjectDecl(astnum, x, theType, optionalInitExp)
-      ctx.pushResult(result) 
+      val it = namesQl.getDefiningNames().iterator()
+      var consts = mlistEmpty[String]
+      // var consts = mlistEmpty[String]
+      while(it.hasNext){
+        val x = it.next()
+        if(it.hasNext)
+          consts += factory.next_astnum.toString()
+        val astnum1 = factory.next_astnum
+        val astnum2 = factory.next_astnum
+        v(x)
+        val constName = ctx.popResult
+        val constDecl = factory.buildObjectDecl(astnum2, constName, theType, optionalInitExp)
+        val const = factory.buildObjectDeclarationWrapper(astnum1, constDecl)
+        consts += const
+        
+      }
+      ctx.pushResult(consts) 
       
       false
     case o @ VariableDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl, checks) =>
-      val astnum = factory.next_astnum
-      
       v(objDeclViewQ.getDefinition())
       val theType = ctx.popResult
-      
-      assert(namesQl.getDefiningNames().length == 1)
-      v(namesQl.getDefiningNames().get(0))
-      val x = ctx.popResult
 
       val optionalInitExp =
         if (ctx.isEmpty(initExpQ.getExpression())) {
           None
         } else {
-          // if the initial expression is a binary or unary expression, 
-          // it's represented as a function call in XML AST;
           val initExp = nameExprH(v)(initExpQ.getExpression())
           Some(initExp)
         }
       
-      val result = factory.buildObjectDecl(astnum, x, theType, optionalInitExp)
-      ctx.pushResult(result)
+      val it = namesQl.getDefiningNames().iterator()
+      var vars = mlistEmpty[String]
+      while(it.hasNext){
+        val x = it.next()
+        if(it.hasNext)
+          vars += factory.next_astnum.toString()
+        val astnum1 = factory.next_astnum
+        val astnum2 = factory.next_astnum
+        v(x)
+        val varName = ctx.popResult
+        val varDecl = factory.buildObjectDecl(astnum2, varName, theType, optionalInitExp)
+        val objDecl = factory.buildObjectDeclarationWrapper(astnum1, varDecl)
+        vars += objDecl
+      }
+      ctx.pushResult(vars)
       
       // add to symbol table
       // ctx.symboltable.insertExpType(expAstNum, theType)
       
       false
     case o @ OrdinaryTypeDeclarationEx(sloc, namesQl, discriminantPartQ, typeDeclarationViewQ, aspectSpecificationsQl, checks) => 
-      val astnum = factory.next_astnum
+      val astnum1 = factory.next_astnum
+      val astnum2 = factory.next_astnum
       v(namesQl.getDefiningNames().get(0))
       val typeName = ctx.popResult.asInstanceOf[String]
       val typeRef = namesQl.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDef()
       val typeDef = typeDeclarationViewQ.getDefinition()
       v(typeDef)
+      var typeDecl = ""
       val result = 
       typeDef match {
         case SignedIntegerTypeDefinitionEx(sloc, integerConstraintQ, checks) =>
@@ -455,22 +467,26 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           val r = ctx.popResult.asInstanceOf[MList[Any]]
           val low = r(0)
           val upper = r(1)
-          factory.buildIntegerTypeDecl(astnum, typeName, low, upper)
+          typeDecl = factory.buildIntegerTypeDecl(astnum2, typeName, low, upper)
+          factory.buildTypeDeclarationWrapper(astnum1, typeDecl)
         case DerivedTypeDefinitionEx(sloc, hasAbstractQ, hasLimitedQ, parentSubtypeIndicationQ, checks) =>
           // e.g. type T1 is new Integer range 1 .. 10;
           val r = ctx.popResult.asInstanceOf[MList[Any]]
           val parentTypeName = r(0)
           val low = r(1)
           val upper = r(2)
-          factory.buildDerivedTypeDecl(astnum, typeName, parentTypeName, low, upper)
+          typeDecl = factory.buildDerivedTypeDecl(astnum2, typeName, parentTypeName, low, upper)
+          factory.buildTypeDeclarationWrapper(astnum1, typeDecl)
         case RecordTypeDefinitionEx(sloc, hasAbstractQ, hasLimitedQ, recordDefinitionQ, checks) =>
           val fields = ctx.popResult.asInstanceOf[MList[Any]]
-          factory.buildRecordTypeDecl(astnum, typeName, fields)
+          typeDecl = factory.buildRecordTypeDecl(astnum2, typeName, fields)
+          factory.buildTypeDeclarationWrapper(astnum1, typeDecl)
         case ConstrainedArrayDefinitionEx(sloc, discreteSubtypeDefinitionsQl, arrayComponentDefinitionQ, checks) =>
           val elements = ctx.popResult.asInstanceOf[MList[Any]]
           val componentType = elements(0)
           val indexSubtypeMark = elements(1)
-          factory.buildArrayTypeDecl(astnum, typeName, componentType, indexSubtypeMark)
+          typeDecl = factory.buildArrayTypeDecl(astnum2, typeName, componentType, indexSubtypeMark)
+          factory.buildTypeDeclarationWrapper(astnum1, typeDecl)
         case _ =>
           System.out.println("TODO: to deal with other OrdinaryTypeDeclaration !")
           "TODO: to deal with other OrdinaryTypeDeclaration !"
@@ -480,19 +496,21 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // type name: T is represented by a natural number: (1 (*T*))
       // type reference: ada://ordinary_type/Binary_Search+1:11/T+3:9
       // type reference name: Integer_Type (1 (*T*))
-      ctx.symboltable.insertTypeDecl(typeName, result)
-      val typeRefName = factory.buildRefTypeMark(typeName, result)
+      ctx.symboltable.insertTypeDecl(typeName, typeDecl)
+      val typeRefName = factory.buildRefTypeMark(typeName, typeDecl)
       ctx.symboltable.insertRefName(typeRef, typeRefName)
       
       ctx.pushResult(result)
       false
     case o @ SubtypeDeclarationEx(sloc, namesQl, typeDeclarationViewQ, aspectSpecificationsQl, checks) =>
-      val astnum = factory.next_astnum
+      val astnum1 = factory.next_astnum
+      val astnum2 = factory.next_astnum
       v(namesQl.getDefiningNames().get(0))
       val typeName = ctx.popResult.asInstanceOf[String]
       val typeRef = namesQl.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDef()
       val typeDef = typeDeclarationViewQ.getDefinition()
       v(typeDef)
+      var typeDecl = ""
       val result = 
       typeDef match {
         case SubtypeIndicationEx(sloc, hasAliasedQ, hasNullExclusionQ, subtypeMarkQ, subtypeConstraintQ, checks) =>
@@ -501,14 +519,15 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           val parentTypeName = r(0)
           val low = r(1)
           val upper = r(2)
-          factory.buildSubtypeDecl(astnum, typeName, parentTypeName, low, upper)
+          typeDecl = factory.buildSubtypeDecl(astnum2, typeName, parentTypeName, low, upper)
+          factory.buildTypeDeclarationWrapper(astnum1, typeDecl)
         case _ =>
           System.out.println("TODO: to deal with other SubtypeDeclaration !")
           "TODO: to deal with other SubtypeDeclaration !"
       }
       // add to symbol table: subtype name -> subtype declaration, type reference -> type reference name
-      ctx.symboltable.insertTypeDecl(typeName, result)
-      val typeRefName = factory.buildRefTypeMark(typeName, result)
+      ctx.symboltable.insertTypeDecl(typeName, typeDecl)
+      val typeRefName = factory.buildRefTypeMark(typeName, typeDecl)
       ctx.symboltable.insertRefName(typeRef, typeRefName)
       
       ctx.pushResult(result)
@@ -612,23 +631,28 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       assert(ctx.isEmpty(hasNullExclusionQ.getHasNullExclusion()))
       assert(ctx.isEmpty(initializationExpressionQ.getExpression()))
 
-      val astnum = factory.next_astnum
-      
       // (1) parameter type
       v(objectDeclarationViewQ.getDefinition())
-      val paramType = ctx.popResult    
+      val paramType = ctx.popResult   
       
-      // (2) parameter name
-      // the assert means that Swap (A : in out Arr; I J : Index) should be not allowed now,
-      // and only Swap (A : in out Arr; I : Index; J : Index) is accepted
-      assert(namesQl.getDefiningNames().length == 1)
-      v(namesQl.getDefiningNames().get(0))
-      val paramName = ctx.popResult
+      // (2) parameter mode
+      val paramMode = factory.buildMode(mode)      
       
-      // (3) parameter mode
-      val paramMode = factory.buildMode(mode)
+      // (3) parameter name
+      // example of multiple parameters of the same type: Swap (A : in out Arr; I J : Index)
+      var params = new StringBuilder
+      val it = namesQl.getDefiningNames().iterator()
+      while(it.hasNext){
+        val astnum = factory.next_astnum
+        v(it.next)
+        val paramName = ctx.popResult
+        val param = factory.buildParamSpecification(astnum, paramName, paramType, paramMode)
+        params.append(param)
+        if(it.hasNext)
+          params.append(" :: ")
+      }
       
-      val result = factory.buildParamSpecification(astnum, paramName, paramType, paramMode)
+      val result = params.toString()
       ctx.pushResult(result) 
       false
   }
@@ -1046,21 +1070,32 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // declared items in .ads and .adb together connected with constructor: D_Seq_Declaration;
   // and .ads file should be analyzed first, otherwise the identifiers used 
   // in .adb may not be found;
-  val seqDeclAstNums = mlistEmpty[Int]
-  seqDeclAstNums += factory.next_astnum
+  val xmlResults = mlistEmpty[CompilationUnit]
   this.parseGnat2XMLresults.foreach{
     case (key, value) if (key.endsWith(".ads")) =>
-      visit(value)
+      xmlResults += value
+    case _ =>
+  }
+  this.parseGnat2XMLresults.foreach{
+    case (key, value) if (key.endsWith(".adb")) =>
+      xmlResults += value
     case _ =>
   }
 
-  this.parseGnat2XMLresults.foreach{
-    case (key, value) if (key.endsWith(".adb")) =>
-      visit(value)
-    case _ =>
+  // cus: Compilation Units
+  val cus = mlistEmpty[String]
+  val it = xmlResults.iterator
+  var i = 0
+  while(it.hasNext){
+    val value = it.next()
+    if(it.hasNext)
+      cus += factory.next_astnum.toString()
+    visit(value)
+    cus += ctx.results(i)
+    i += 1
   }
   
-  val coq_ast_tree = factory.buildDefinition(COQ_AST_ID, this.handSeqDeclarations(ctx.results, seqDeclAstNums))
+  val coq_ast_tree = factory.buildDefinition(COQ_AST_ID, this.handSeqDeclarations(cus))
   val symbol_table = factory.buildDefinition(SYMBOL_TABLE_ID, buildSymbolTable(ctx.symboltable, stg))
   
   val ret = mlistEmpty[String]
