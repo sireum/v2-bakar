@@ -54,7 +54,7 @@ def run_kiasan_plugin():
     load_sireum_settings(SIREUM_PATH)
         
     if server_process is None:
-      run_kiasan_server(SIREUM_PATH)      
+      run_kiasan_server(SIREUM_PATH)
         
     if server_id != GPS.Preference("sireum-kiasan-server-id").get():
       server_process.stdin.write("x\r\n")
@@ -88,7 +88,7 @@ def run_kiasan_server(SIREUM_PATH):
   run_server_cmd = [SIREUM_PATH + "/sireum", "launch", "bkserver", "--id", server_id, "--host", host, "--port", port, "--remote", remote, "--remoteport", remoteport]    
   server_process = subprocess.Popen(run_server_cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
   print " ".join(run_server_cmd)
-  time.sleep(10) #wait 5 secs to let server run the browser  
+  time.sleep(10) # wait 10 secs to let server run the browser  
     
 
 def send_units_for_analysis(package_name, subprograms_list):
