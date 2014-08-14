@@ -24,6 +24,48 @@ class ProjectNotBuiltException(Exception):
   def __str__(self):
     return repr(self.value)
        
+       
+def run_analysis(self, button):
+  global current_index, commands_store, commands_combo
+  current_index += 1
+  commands_store.prepend([self.ind, commands_combo.get_child().get_text()])
+
+# for kiasan gui
+current_index = 0
+commands_store = Gtk.ListStore(int,str)
+commands_combo = Gtk.ComboBox.new_with_model_and_entry(commands_store)
+commands_combo.set_entry_text_column(1)
+
+gui = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+  
+options = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+gui.pack_start(options, True, True, 0)
+ 
+history = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+gui.pack_start(history, True, True, 0)
+  
+history.pack_start(commands_combo, True, True, 0)
+  
+button = Gtk.Button("Run Analysis")
+button.connect("clicked", run_analysis)
+history.pack_start(button, True, True, 0)
+  
+def run_kiasan_with_options():
+  if GPS.MDI.get('kiasan') is not None:
+      GPS.MDI.get('kiasan').hide()  # hide previous Kiasan results
+  GPS.MDI.add(gui, "Kiasan", "kiasan")
+  win = GPS.MDI.get('kiasan')
+  win.float(float=True)
+
+
+
+def restart_bakar_server():
+  if server_process != None:
+    server_process.stdin.write("x\r\n")
+  SIREUM_PATH = get_sireum_path()
+  run_kiasan_server(SIREUM_PATH)
+  
+
 
 def run_kiasan_plugin():
   """This method runs Kiasan plugin and load generated reports data into integrated GPS window."""
@@ -55,11 +97,12 @@ def run_kiasan_plugin():
         
     if server_process is None:
       run_kiasan_server(SIREUM_PATH)
-        
-    if server_id != GPS.Preference("sireum-kiasan-server-id").get():
-      server_process.stdin.write("x\r\n")
-      run_kiasan_server(SIREUM_PATH)
-      server_id = GPS.Preference("sireum-kiasan-server-id").get()
+    
+    # run without id (see method run_kiasan_server()) 
+    #if server_id != GPS.Preference("sireum-kiasan-server-id").get():
+    #  server_process.stdin.write("x\r\n")
+    #  run_kiasan_server(SIREUM_PATH)
+    #  server_id = GPS.Preference("sireum-kiasan-server-id").get()
         
     send_units_for_analysis(package_name, subprograms_list)
   
@@ -72,7 +115,8 @@ def run_kiasan_plugin():
     print "AttributeError:" + e.message
     GPS.MDI.dialog("This file does not belongs to opened project.")
   except IOError:
-    GPS.MDI.dialog("Error: Kiasan report not generated.")
+    GPS.MDI.dialog("Kiasan Server Error")
+    server_process = None
     traceback.print_exc()
   except Exception:
     traceback.print_exc()        
@@ -83,9 +127,10 @@ def run_kiasan_server(SIREUM_PATH):
   os.putenv('SCALA_OPTIONS', '-J-mx2048m')
   host = GPS.Preference("sireum-kiasan-server-address").get()
   port = str(GPS.Preference("sireum-kiasan-server-port").get())
-  remote = GPS.Preference("sireum-kiasan-remote-server-address").get()
+  remote = GPS.Preference("sireum-kiasan-remote-server-address").get() if GPS.Preference("sireum-kiasan-remote-server-address").get() != "" else "''"
   remoteport = str(GPS.Preference("sireum-kiasan-remote-server-port").get())
-  run_server_cmd = [SIREUM_PATH + "/sireum", "launch", "bkserver", "--id", server_id, "--host", host, "--port", port, "--remote", remote, "--remoteport", remoteport]    
+  # id temporary removed: "--id", server_id, "--remote", remote, "--remoteport", remoteport
+  run_server_cmd = [SIREUM_PATH + "/sireum", "launch", "bkserver", "--host", host, "--port", port, "--gps"]    
   server_process = subprocess.Popen(run_server_cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
   print " ".join(run_server_cmd)
   time.sleep(10) # wait 10 secs to let server run the browser  
@@ -95,7 +140,8 @@ def send_units_for_analysis(package_name, subprograms_list):
   global server_process, server_id
   host = GPS.Preference("sireum-kiasan-server-address").get()
   port = GPS.Preference("sireum-kiasan-server-port").get()
-  files = get_spark_source_files()
+  files = get_project_files() # get_spark_source_files()
+  print get_project_files()
   depth_bound = GPS.Preference("sireum-kiasan-depth-bound").get()
   array_indices_bound = GPS.Preference("sireum-kiasan-array-indices-bound").get()
   loop_bound = GPS.Preference("sireum-kiasan-loop-bound").get()
@@ -113,10 +159,11 @@ def send_units_for_analysis(package_name, subprograms_list):
 
 def AnalysisProcessRequestMessage(server_id, host, port, unitName, files, depthBound, arrayIndicesBound, loopBound, callChainBound, timeout):
   o = {}
-  o['id'] = server_id
+  o['id'] = "" #server_id
   o['host'] = host
   o['port'] = port
   o['unitName'] = unitName
+  o['pathUri'] = ""
   o['files'] = files
   o['depthBound'] = depthBound
   o['arrayIndicesBound'] = arrayIndicesBound
@@ -130,7 +177,7 @@ def AnalysisProcessRequestMessage(server_id, host, port, unitName, files, depthB
 def get_spark_source_files():
   """ Get SPARK source files based on spark.smf. """
   try:
-    import urlparse, urllib
+    import urlparse
     with open('spark.smf') as spark_idx_file:
       files = []
       paths = spark_idx_file.readlines()
@@ -142,6 +189,17 @@ def get_spark_source_files():
     GPS.MDI.dialog("SPARK meta file (spark.smf) not found. Run SPARK make on project and try again.")
     traceback.print_exc()
     raise
+
+
+def get_project_files():
+  import urlparse
+  gps_files = GPS.Project.root().sources(True)
+  files = []
+  for gps_file in gps_files:
+    uri = urlparse.urljoin('file:', urllib.pathname2url(gps_file.name().strip()))
+    files.append(uri)
+  return files
+  
         
 
 def get_sireum_path():
@@ -202,6 +260,9 @@ GPS.parse_xml ("""
         <filter id="Source editor in Ada" />
         <shell lang="python">sireum.run_kiasan_with_options()</shell>
     </action> 
+    <action name="restart Bakar Server">
+      <shell lang="python">sireum.restart_bakar_server()</shell>
+    </action>
     <submenu after="Tools">
         <title>Sireum Bakar</title>
         <menu action="run Kiasan">
@@ -218,6 +279,11 @@ GPS.parse_xml ("""
         <Title>Sireum Bakar/Run Kiasan...</Title>
     </contextual>
     <key action="run Kiasan">control-k</key>
+    <button action="restart Bakar Server">
+      <title>Restart Bakar Server</title>
+      <pixmap>restart.png</pixmap>
+    </button>
+        
       
       <preference name = "sireum-kiasan-depth-bound"
                    page = "Sireum Bakar/Kiasan"
