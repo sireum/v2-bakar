@@ -25,38 +25,70 @@ class ProjectNotBuiltException(Exception):
     return repr(self.value)
        
        
-def run_analysis(self, button):
+# for kiasan gui
+def run_analysis(button):
   global current_index, commands_store, commands_combo
   current_index += 1
-  commands_store.prepend([self.ind, commands_combo.get_child().get_text()])
-
-# for kiasan gui
-current_index = 0
-commands_store = Gtk.ListStore(int,str)
-commands_combo = Gtk.ComboBox.new_with_model_and_entry(commands_store)
-commands_combo.set_entry_text_column(1)
+  commands_store.prepend([current_index, commands_combo.get_child().get_text()])
+  GPS.MDI.get('kiasan').hide()
+  print 'should be hidden'
+  
+def cancel_analysis(button):
+  GPS.MDI.get('kiasan').hide()
+  print 'should be hidden'
+  
+def update_commands_combo(entry):
+  global depth_bound_entry, commands_combo
+  commands_combo.get_child().set_text("Depth bound = " + depth_bound_entry.get_text())
+  
+def update_options(combo):
+  global commands_combo, depth_bound_entry
+  depth_bound = commands_combo.get_child().get_text().split(" = ")[1]
+  depth_bound_entry.set_text(str(depth_bound))
 
 gui = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
   
 options = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
-gui.pack_start(options, True, True, 0)
- 
-history = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
-gui.pack_start(history, True, True, 0)
-  
-history.pack_start(commands_combo, True, True, 0)
-  
+gui.pack_start(options, False, False, 0)
+
+depth_bound_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+options.pack_start(depth_bound_box, False, False, 0)
+
+depth_bound_label = Gtk.Label("Depth bound")
+depth_bound_box.pack_start(depth_bound_label, False, False, 0)
+
+depth_bound_entry = Gtk.Entry()
+depth_bound_entry.connect("changed", update_commands_combo)
+depth_bound_box.pack_start(depth_bound_entry, False, False, 0)
+
+current_index = 0
+commands_store = Gtk.ListStore(int,str)
+commands_combo = Gtk.ComboBox.new_with_model_and_entry(commands_store)
+commands_combo.set_entry_text_column(1)
+commands_combo.connect("changed", update_options)  
+gui.pack_start(commands_combo, False, False, 0)
+
+buttons_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+gui.pack_start(buttons_box, False, False, 0)
+
 button = Gtk.Button("Run Analysis")
 button.connect("clicked", run_analysis)
-history.pack_start(button, True, True, 0)
-  
-def run_kiasan_with_options():
-  if GPS.MDI.get('kiasan') is not None:
-      GPS.MDI.get('kiasan').hide()  # hide previous Kiasan results
-  GPS.MDI.add(gui, "Kiasan", "kiasan")
-  win = GPS.MDI.get('kiasan')
-  win.float(float=True)
+buttons_box.pack_start(button, False, False, 0)
 
+button_cancel = Gtk.Button("Cancel")
+button_cancel.connect("clicked", cancel_analysis)
+buttons_box.pack_start(button_cancel, False, False, 0)
+
+
+def run_kiasan_with_options():
+  global depth_bound_entry
+  if GPS.MDI.get('kiasan') is None:
+    GPS.MDI.add(gui, "Kiasan", "kiasan")
+    win = GPS.MDI.get('kiasan')
+    win.float(float=True)
+    depth_bound_entry.set_text(str(GPS.Preference("sireum-kiasan-depth-bound").get()))
+    commands_combo.get_child().set_text("Depth bound = " + depth_bound_entry.get_text())
+  GPS.MDI.get('kiasan').show()  
 
 
 def restart_bakar_server():
@@ -64,7 +96,6 @@ def restart_bakar_server():
     server_process.stdin.write("x\r\n")
   SIREUM_PATH = get_sireum_path()
   run_kiasan_server(SIREUM_PATH)
-  
 
 
 def run_kiasan_plugin():
