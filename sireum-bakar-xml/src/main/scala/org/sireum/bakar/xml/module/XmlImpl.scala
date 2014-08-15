@@ -67,6 +67,7 @@ class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
   val sfiles = this.srcFiles.map { f =>
     val fl = new File(new URI(f))
     if (!fl.exists) {
+      // gnat2xml does not emit an error exit code when given invalid filenames
       proceed = false
       info.tags += InfoTag(MarkerType(
         "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
