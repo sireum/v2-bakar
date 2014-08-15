@@ -60,93 +60,101 @@ object Gnat2XMLWrapperModuleDef {
 class Gnat2XMLWrapperModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends Gnat2XMLWrapperModule {
   val waittime = 200000
 
-  val dirs = msetEmpty[String]
+  var results = ilinkedMapEmpty[FileResourceUri, FileResourceUri]
+
   val absfiles = mmapEmpty[String, String]
+  var proceed = true
   val sfiles = this.srcFiles.map { f =>
     val fl = new File(new URI(f))
-    dirs += fl.getParentFile.getAbsolutePath
+    if (!fl.exists) {
+      proceed = false
+      info.tags += InfoTag(MarkerType(
+        "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
+        MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]),
+        Some("Could not locate " + fl.getAbsolutePath))
+    }
     absfiles += (fl.getName -> fl.toURI.toASCIIString)
     fl.getAbsolutePath
   }
 
-  val g2xargs = ivector(Gnat2XMLWrapperModuleDef.gnat2xml(gnatBin), "-v") ++ sfiles
+  if (proceed) {
+    val g2xargs = ivector(Gnat2XMLWrapperModuleDef.gnat2xml(gnatBin), "-v") ++ sfiles
 
-  // fix to resolve an issue when eclipse is run under a sireum distro on mac.
-  // DYLD_FALLBACK_LIBRARY_PATH is set which causes gnat2xml to fail so we'll
-  // remove it from the env vars before running
-  val e = new Exec()
-  e.env -= "DYLD_FALLBACK_LIBRARY_PATH"
+    // fix to resolve an issue when eclipse is run under a sireum distro on mac.
+    // DYLD_FALLBACK_LIBRARY_PATH is set which causes gnat2xml to fail so we'll
+    // remove it from the env vars before running
+    val e = new Exec()
+    e.env -= "DYLD_FALLBACK_LIBRARY_PATH"
 
-  val gnat2xmlResult = e.run(waittime, g2xargs, None)
+    val gnat2xmlResult = e.run(waittime, g2xargs, None)
 
-  def buildLocationTag(message : String) = {
-    val tagType = MarkerType(
-      "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
-      MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type])
+      def buildLocationTag(message : String) = {
+        val tagType = MarkerType(
+          "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
+          MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type])
 
-      implicit def isDigits(str : String) = str.forall(c => c.isDigit)
+          implicit def isDigits(str : String) = str.forall(c => c.isDigit)
 
-    var rettags = ivectorEmpty[Tag]
-    for (m <- message.split("\n").drop(3)) {
-      m.split(":").toList match {
-        case fname :: line :: col :: error :: Nil if line && col =>
-          rettags :+= Tag.toTag(Some(absfiles(fname)), line.toInt, col.toInt, error, tagType)
-        case "gnat2xml" :: error :: Nil =>
-          if (error.trim.startsWith("cannot compile")) {
-            val _fname = error.substring(error.indexOf("\"") + 1).dropRight(1)
-            rettags :+= new LocationTag(tagType, Some(error.trim),
-              new FileLocation { var fileUri = absfiles(_fname) })
-          } else {
-            throw new RuntimeException("Unexpected error: " + m)
+        var rettags = ivectorEmpty[Tag]
+        for (m <- message.split("\n").drop(3)) {
+          m.split(":").toList match {
+            case fname :: line :: col :: error :: Nil if line && col =>
+              rettags :+= Tag.toTag(Some(absfiles(fname)), line.toInt, col.toInt, error, tagType)
+            case "gnat2xml" :: error :: Nil =>
+              if (error.trim.startsWith("cannot compile")) {
+                val _fname = error.substring(error.indexOf("\"") + 1).dropRight(1)
+                rettags :+= new LocationTag(tagType, Some(error.trim),
+                  new FileLocation { var fileUri = absfiles(_fname) })
+              } else {
+                throw new RuntimeException("Unexpected error: " + m)
+              }
+            case x => InfoTag(tagType, Some(x.toString))
           }
-        case x => InfoTag(tagType, Some(x.toString))
-      }
-    }
-    rettags
-  }
-
-  var results = ilinkedMapEmpty[FileResourceUri, FileResourceUri]
-  gnat2xmlResult match {
-    case Exec.StringResult(str, exitval) =>
-      if (exitval != 0)
-        info.tags ++= buildLocationTag(str)
-      else {
-        val lnr = new LineNumberReader(new StringReader(str))
-        var line = lnr.readLine
-        var currFileName : String = null
-        var sb : StringBuilder = null
-        while (line != null) {
-          if (line.charAt(0) == '[') {
-            if (sb != null)
-              results += (currFileName -> sb.toString)
-            sb = new StringBuilder
-            currFileName = absfiles(line.drop(line.indexOf(']') + 2))
-          } else if (sb != null)
-            sb.append(line)
-          line = lnr.readLine
         }
-        assert(currFileName != null && sb != null)
-        results += (currFileName -> sb.toString)
+        rettags
       }
-    case Exec.Timeout =>
-    case Exec.ExceptionRaised(exception) =>
-      /**
-       * For the error of Gnat2XML not being in the PATH:
-       * Mac: java.io.IOException: Cannot run program "gnat2xml"
-       * Windows: java.io.IOException: Cannot run program "gnat2xml.exe"
-       * Linux:
-       */
-      val error_pattern = "java.io.IOException: Cannot run program \"gnat2xml"
-      val emsg =
-        if (exception.toString.contains(error_pattern))
-          Some("\"gnat2xml\" cannot be found in the path !")
-        else
-          None
-      info.tags += InfoTag(MarkerType(
-        "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
-        MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]), emsg)
-  }
 
+    gnat2xmlResult match {
+      case Exec.StringResult(str, exitval) =>
+        if (exitval != 0)
+          info.tags ++= buildLocationTag(str)
+        else {
+          val lnr = new LineNumberReader(new StringReader(str))
+          var line = lnr.readLine
+          var currFileName : String = null
+          var sb : StringBuilder = null
+          while (line != null) {
+            if (line.charAt(0) == '[') {
+              if (sb != null)
+                results += (currFileName -> sb.toString)
+              sb = new StringBuilder
+              currFileName = absfiles(line.drop(line.indexOf(']') + 2))
+            } else if (sb != null)
+              sb.append(line)
+            line = lnr.readLine
+          }
+          assert(currFileName != null && sb != null)
+          results += (currFileName -> sb.toString)
+        }
+      case Exec.Timeout =>
+      case Exec.ExceptionRaised(exception) =>
+        /**
+         * For the error of Gnat2XML not being in the PATH:
+         * Mac: java.io.IOException: Cannot run program "gnat2xml"
+         * Windows: java.io.IOException: Cannot run program "gnat2xml.exe"
+         * Linux:
+         */
+        val error_pattern = "java.io.IOException: Cannot run program \"gnat2xml"
+        val emsg =
+          if (exception.toString.contains(error_pattern))
+            Some("\"gnat2xml\" cannot be found in the path !")
+          else
+            None
+        info.tags += InfoTag(MarkerType(
+          "ERROR", None, "gnat2xml error", MarkerTagSeverity.Error,
+          MarkerTagPriority.High, ilistEmpty[MarkerTagKind.Type]), emsg)
+    }
+  }
   gnat2xmlResults = results
 }
 

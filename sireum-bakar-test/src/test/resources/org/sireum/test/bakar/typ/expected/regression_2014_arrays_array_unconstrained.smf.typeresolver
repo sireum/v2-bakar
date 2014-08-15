@@ -11,13 +11,13 @@ ada://variable/Array_Unconstrained-1:9/isSorted-6:12/B+3:5 -> ada://ordinary_typ
 ada://variable__temp/Array_Unconstrained-1:9/indexIsValue-7:12/_t12 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/indexIsValue-7:12/_t13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t0 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t1 -> ada://ordinary_type/universal_integer
+ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t1 -> ada://ordinary_type/Universal_Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t11 -> ada://ordinary_type/universal_integer
+ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t11 -> ada://ordinary_type/Universal_Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t5 -> ada://ordinary_type/universal_integer
+ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t5 -> ada://ordinary_type/Universal_Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Array_Unconstrained-1:9/isSorted-6:12/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1

@@ -30,7 +30,7 @@ Type Alias Table
   ada://ordinary_type/Standard-1:1/Float-1:1 
   ada://ordinary_type/Standard-1:1/Integer-1:1 
   ada://ordinary_type/Standard-1:1/String-1:1 
-  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/Universal_Integer-1:1 
   ada://ordinary_type/universal_real 
   ada://private_type/MyMatrix-1:9/Matrix-5:8 
   ada://private_type/MyMatrix-1:9/Matrix_Index-4:8 

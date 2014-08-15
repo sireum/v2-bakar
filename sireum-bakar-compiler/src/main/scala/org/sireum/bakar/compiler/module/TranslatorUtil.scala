@@ -169,7 +169,7 @@ object Proof {
 }
 
 object StandardURIs {
-  val universalIntURI = "ada://ordinary_type/universal_integer"
+  val universalIntURI = "ada://ordinary_type/Universal_Integer-1:1"
   val universalRealURI = "ada://ordinary_type/universal_real"
 
   val boolURI = "ada://ordinary_type/Standard-1:1/Boolean-1:1"

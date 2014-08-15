@@ -14,4 +14,4 @@ ada://variable__temp/Positional_Array-1:9/$$sinit/_t7 -> ada://subtype/Positiona
 ada://variable__temp/Positional_Array-1:9/$$sinit/_t8 -> ada://subtype/Positional_Array-1:9/Index-11:11
 ada://variable__temp/Positional_Array-1:9/$$sinit/_t9 -> ada://subtype/Positional_Array-1:9/Index-11:11
 ada://variable__temp/Positional_Array-1:9/dummy-19:13/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Positional_Array-1:9/dummy-19:13/_t3 -> ada://ordinary_type/universal_integer
+ada://variable__temp/Positional_Array-1:9/dummy-19:13/_t3 -> ada://ordinary_type/Universal_Integer-1:1

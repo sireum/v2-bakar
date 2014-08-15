@@ -36,7 +36,7 @@ Type Alias Table
   ada://ordinary_type/Standard-1:1/Float-1:1 
   ada://ordinary_type/Standard-1:1/Integer-1:1 
   ada://ordinary_type/Standard-1:1/String-1:1 
-  ada://ordinary_type/universal_integer 
+  ada://ordinary_type/Universal_Integer-1:1 
   ada://ordinary_type/universal_real 
   ada://subtype/Standard-1:1/Natural-1:1 
   ada://subtype/Standard-1:1/Positive-1:1 

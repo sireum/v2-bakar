@@ -14,8 +14,8 @@ ada://variable__temp/P_Simple_Call-1:9/R-11:13/_t1 -> ada://ordinary_type/Standa
 ada://variable__temp/P_Simple_Call-1:9/R-11:13/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/P_Simple_Call-1:9/R-11:13/_t3 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t5 -> ada://ordinary_type/universal_integer
+ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t5 -> ada://ordinary_type/Universal_Integer-1:1
 ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t7 -> ada://ordinary_type/universal_integer
+ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t7 -> ada://ordinary_type/Universal_Integer-1:1
 ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t9 -> ada://ordinary_type/universal_integer
+ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t9 -> ada://ordinary_type/Universal_Integer-1:1

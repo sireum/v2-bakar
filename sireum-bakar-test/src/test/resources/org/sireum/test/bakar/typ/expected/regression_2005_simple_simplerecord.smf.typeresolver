@@ -9,7 +9,7 @@ ada://parameter/SimpleRecord-1:9/NAdd+23:14/I+23:19 -> ada://subtype/SimpleRecor
 ada://parameter/SimpleRecord-1:9/NAdd+23:14/NR+23:33 -> ada://ordinary_type/SimpleRecord-1:9/NestedRec+12:9
 ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t6 -> ada://ordinary_type/SimpleRecord-1:9/Vector+5:9
 ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t7 -> ada://subtype/SimpleRecord-1:9/SmallInt+3:12
-ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t8 -> ada://ordinary_type/universal_integer
+ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t8 -> ada://ordinary_type/Universal_Integer-1:1
 ada://variable__temp/SimpleRecord-1:9/Add+18:14/_t0 -> ada://subtype/SimpleRecord-1:9/SmallInt+3:12
 ada://variable__temp/SimpleRecord-1:9/Add+18:14/_t1 -> ada://subtype/SimpleRecord-1:9/SmallInt+3:12
 ada://variable__temp/SimpleRecord-1:9/NAdd+23:14/_t2 -> ada://ordinary_type/SimpleRecord-1:9/Rec+7:9
