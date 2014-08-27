@@ -928,6 +928,28 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         println("expressionH: need to handle other Function Call Expression !")
       }
       false
+    case o @ OrElseShortCircuitEx(sloc, leftExpressionQ, rightExpressionQ, theType, checks) =>
+      // TODO: now represent it as "Or" expression
+      val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
+      val loperand = nameExprH(v)(leftExpressionQ)
+      val roperand = nameExprH(v)(rightExpressionQ)
+      val bexp = factory.buildBinaryExpr(astnum, theType, "Or", loperand, roperand, checks)
+      ctx.pushResult(bexp)
+      false
+    case o @ AndThenShortCircuitEx(sloc, leftExpressionQ, rightExpressionQ, theType, checks) =>
+      // TODO: now represent it as "And" expression
+      val astnum = factory.next_astnum
+      // add to symbol table: expression ast number -> type id number
+      ctx.symboltable.insertExpType(astnum, theType)
+      ctx.symboltable.insertSloc(astnum, sloc)
+      val loperand = nameExprH(v)(leftExpressionQ)
+      val roperand = nameExprH(v)(rightExpressionQ)
+      val bexp = factory.buildBinaryExpr(astnum, theType, "And", loperand, roperand, checks)
+      ctx.pushResult(bexp)
+      false
 //  case o =>
 //    println("expressionH: need to handle: " + o.getClass.getSimpleName)
 //    true
