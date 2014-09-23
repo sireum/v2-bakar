@@ -104,7 +104,11 @@ object URIS {
 }
 
 object VariableURIs {
+  import org.sireum.util.ResourceUri
+  
   val tempVarPrefix = "ada://variable__temp/"
+  
+  def isTempVariable(u : ResourceUri) = u.startsWith(tempVarPrefix)
 }
 
 object PackageURIs {
