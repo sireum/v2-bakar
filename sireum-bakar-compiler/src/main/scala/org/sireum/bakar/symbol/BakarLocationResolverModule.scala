@@ -9,6 +9,7 @@ import java.lang.Integer
 import java.lang.String
 import org.sireum.bakar.symbol.BakarSymbolTable
 import org.sireum.pilar.ast.Model
+import org.sireum.pilar.ast.ProcedureDecl
 import scala.collection.immutable.Seq
 
 object BakarLocationResolverModule extends PipelineModule {
@@ -54,33 +55,6 @@ object BakarLocationResolverModule extends PipelineModule {
 
   def inputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
-    var _models : scala.Option[AnyRef] = None
-    var _modelsKey : scala.Option[String] = None
-
-    val keylistmodels = List(BakarLocationResolverModule.globalModelsKey)
-    keylistmodels.foreach(key => 
-      if(job ? key) { 
-        if(_models.isEmpty) {
-          _models = Some(job(key))
-          _modelsKey = Some(key)
-        }
-        if(!(job(key).asInstanceOf[AnyRef] eq _models.get)) {
-          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-            "Input error for '" + this.title + "': 'models' keys '" + _modelsKey.get + " and '" + key + "' point to different objects.")
-        }
-      }
-    )
-
-    _models match{
-      case Some(x) =>
-        if(!x.isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]){
-          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-            "Input error for '" + this.title + "': Wrong type found for 'models'.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" + x.getClass.toString + "'")
-        }
-      case None =>
-        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-          "Input error for '" + this.title + "': No value found for 'models'")       
-    }
     var _fileUri : scala.Option[AnyRef] = None
     var _fileUriKey : scala.Option[String] = None
 
@@ -107,6 +81,33 @@ object BakarLocationResolverModule extends PipelineModule {
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
           "Input error for '" + this.title + "': No value found for 'fileUri'")       
+    }
+    var _models : scala.Option[AnyRef] = None
+    var _modelsKey : scala.Option[String] = None
+
+    val keylistmodels = List(BakarLocationResolverModule.globalModelsKey)
+    keylistmodels.foreach(key => 
+      if(job ? key) { 
+        if(_models.isEmpty) {
+          _models = Some(job(key))
+          _modelsKey = Some(key)
+        }
+        if(!(job(key).asInstanceOf[AnyRef] eq _models.get)) {
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': 'models' keys '" + _modelsKey.get + " and '" + key + "' point to different objects.")
+        }
+      }
+    )
+
+    _models match{
+      case Some(x) =>
+        if(!x.isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]){
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': Wrong type found for 'models'.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]' but found '" + x.getClass.toString + "'")
+        }
+      case None =>
+        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+          "Input error for '" + this.title + "': No value found for 'models'")       
     }
     var _symbolTable : scala.Option[AnyRef] = None
     var _symbolTableKey : scala.Option[String] = None
@@ -167,6 +168,17 @@ object BakarLocationResolverModule extends PipelineModule {
 
   def outputDefined (job : PipelineJob) : MBuffer[Tag] = {
     val tags = marrayEmpty[Tag]
+    if(!(job ? BakarLocationResolverModule.globalUnitsKey)) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+        "Output error for '" + this.title + "': No entry found for 'units'. Expecting (BakarLocationResolverModule.globalUnitsKey)") 
+    }
+
+    if(job ? BakarLocationResolverModule.globalUnitsKey && !job(BakarLocationResolverModule.globalUnitsKey).isInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl]]) {
+      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
+        "Output error for '" + this.title + "': Wrong type found for BakarLocationResolverModule.globalUnitsKey.  Expecting 'scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl]' but found '" + 
+        job(BakarLocationResolverModule.globalUnitsKey).getClass.toString + "'")
+    } 
+
     if(!(job ? BakarLocationResolverModule.globalSymbolTableKey)) {
       tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
         "Output error for '" + this.title + "': No entry found for 'symbolTable'. Expecting (BakarLocationResolverModule.globalSymbolTableKey)") 
@@ -177,33 +189,7 @@ object BakarLocationResolverModule extends PipelineModule {
         "Output error for '" + this.title + "': Wrong type found for BakarLocationResolverModule.globalSymbolTableKey.  Expecting 'org.sireum.bakar.symbol.BakarSymbolTable' but found '" + 
         job(BakarLocationResolverModule.globalSymbolTableKey).getClass.toString + "'")
     } 
-
-    if(!(job ? BakarLocationResolverModule.globalUnitsKey)) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
-        "Output error for '" + this.title + "': No entry found for 'units'. Expecting (BakarLocationResolverModule.globalUnitsKey)") 
-    }
-
-    if(job ? BakarLocationResolverModule.globalUnitsKey && !job(BakarLocationResolverModule.globalUnitsKey).isInstanceOf[scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]]]) {
-      tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker, 
-        "Output error for '" + this.title + "': Wrong type found for BakarLocationResolverModule.globalUnitsKey.  Expecting 'scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]]' but found '" + 
-        job(BakarLocationResolverModule.globalUnitsKey).getClass.toString + "'")
-    } 
     return tags
-  }
-
-  def getModels (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
-    if (options.contains(BakarLocationResolverModule.globalModelsKey)) {
-       return options(BakarLocationResolverModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
-    }
-
-    throw new Exception("Pipeline checker should guarantee we never reach here")
-  }
-
-  def setModels (options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
-
-    options(BakarLocationResolverModule.globalModelsKey) = models
-
-    return options
   }
 
   def getFileUri (options : scala.collection.Map[Property.Key, Any]) : java.lang.String = {
@@ -221,6 +207,36 @@ object BakarLocationResolverModule extends PipelineModule {
     return options
   }
 
+  def getUnits (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl] = {
+    if (options.contains(BakarLocationResolverModule.globalUnitsKey)) {
+       return options(BakarLocationResolverModule.globalUnitsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setUnits (options : MMap[Property.Key, Any], units : scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl]) : MMap[Property.Key, Any] = {
+
+    options(BakarLocationResolverModule.globalUnitsKey) = units
+
+    return options
+  }
+
+  def getModels (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = {
+    if (options.contains(BakarLocationResolverModule.globalModelsKey)) {
+       return options(BakarLocationResolverModule.globalModelsKey).asInstanceOf[scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setModels (options : MMap[Property.Key, Any], models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) : MMap[Property.Key, Any] = {
+
+    options(BakarLocationResolverModule.globalModelsKey) = models
+
+    return options
+  }
+
   def getSymbolTable (options : scala.collection.Map[Property.Key, Any]) : org.sireum.bakar.symbol.BakarSymbolTable = {
     if (options.contains(BakarLocationResolverModule.globalSymbolTableKey)) {
        return options(BakarLocationResolverModule.globalSymbolTableKey).asInstanceOf[org.sireum.bakar.symbol.BakarSymbolTable]
@@ -232,21 +248,6 @@ object BakarLocationResolverModule extends PipelineModule {
   def setSymbolTable (options : MMap[Property.Key, Any], symbolTable : org.sireum.bakar.symbol.BakarSymbolTable) : MMap[Property.Key, Any] = {
 
     options(BakarLocationResolverModule.globalSymbolTableKey) = symbolTable
-
-    return options
-  }
-
-  def getUnits (options : scala.collection.Map[Property.Key, Any]) : scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]] = {
-    if (options.contains(BakarLocationResolverModule.globalUnitsKey)) {
-       return options(BakarLocationResolverModule.globalUnitsKey).asInstanceOf[scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]]]
-    }
-
-    throw new Exception("Pipeline checker should guarantee we never reach here")
-  }
-
-  def setUnits (options : MMap[Property.Key, Any], units : scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]]) : MMap[Property.Key, Any] = {
-
-    options(BakarLocationResolverModule.globalUnitsKey) = units
 
     return options
   }
@@ -268,10 +269,10 @@ object BakarLocationResolverModule extends PipelineModule {
 
   object ConsumerView {
     implicit class BakarLocationResolverModuleConsumerView (val job : PropertyProvider) extends AnyVal {
-      def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarLocationResolverModule.getModels(job.propertyMap)
       def fileUri : java.lang.String = BakarLocationResolverModule.getFileUri(job.propertyMap)
+      def units : scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl] = BakarLocationResolverModule.getUnits(job.propertyMap)
+      def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarLocationResolverModule.getModels(job.propertyMap)
       def symbolTable : org.sireum.bakar.symbol.BakarSymbolTable = BakarLocationResolverModule.getSymbolTable(job.propertyMap)
-      def units : scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]] = BakarLocationResolverModule.getUnits(job.propertyMap)
       def line : java.lang.Integer = BakarLocationResolverModule.getLine(job.propertyMap)
     }
   }
@@ -279,17 +280,17 @@ object BakarLocationResolverModule extends PipelineModule {
   object ProducerView {
     implicit class BakarLocationResolverModuleProducerView (val job : PropertyProvider) extends AnyVal {
 
-      def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarLocationResolverModule.setModels(job.propertyMap, models) }
-      def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarLocationResolverModule.getModels(job.propertyMap)
-
       def fileUri_=(fileUri : java.lang.String) { BakarLocationResolverModule.setFileUri(job.propertyMap, fileUri) }
       def fileUri : java.lang.String = BakarLocationResolverModule.getFileUri(job.propertyMap)
 
+      def units_=(units : scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl]) { BakarLocationResolverModule.setUnits(job.propertyMap, units) }
+      def units : scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl] = BakarLocationResolverModule.getUnits(job.propertyMap)
+
+      def models_=(models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model]) { BakarLocationResolverModule.setModels(job.propertyMap, models) }
+      def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarLocationResolverModule.getModels(job.propertyMap)
+
       def symbolTable_=(symbolTable : org.sireum.bakar.symbol.BakarSymbolTable) { BakarLocationResolverModule.setSymbolTable(job.propertyMap, symbolTable) }
       def symbolTable : org.sireum.bakar.symbol.BakarSymbolTable = BakarLocationResolverModule.getSymbolTable(job.propertyMap)
-
-      def units_=(units : scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]]) { BakarLocationResolverModule.setUnits(job.propertyMap, units) }
-      def units : scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]] = BakarLocationResolverModule.getUnits(job.propertyMap)
 
       def line_=(line : java.lang.Integer) { BakarLocationResolverModule.setLine(job.propertyMap, line) }
       def line : java.lang.Integer = BakarLocationResolverModule.getLine(job.propertyMap)
@@ -300,17 +301,17 @@ object BakarLocationResolverModule extends PipelineModule {
 trait BakarLocationResolverModule {
   def job : PipelineJob
 
-  def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarLocationResolverModule.getModels(job.propertyMap)
-
   def fileUri : java.lang.String = BakarLocationResolverModule.getFileUri(job.propertyMap)
+
+
+  def units_=(units : scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl]) { BakarLocationResolverModule.setUnits(job.propertyMap, units) }
+  def units : scala.collection.immutable.Seq[org.sireum.pilar.ast.ProcedureDecl] = BakarLocationResolverModule.getUnits(job.propertyMap)
+
+  def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarLocationResolverModule.getModels(job.propertyMap)
 
 
   def symbolTable_=(symbolTable : org.sireum.bakar.symbol.BakarSymbolTable) { BakarLocationResolverModule.setSymbolTable(job.propertyMap, symbolTable) }
   def symbolTable : org.sireum.bakar.symbol.BakarSymbolTable = BakarLocationResolverModule.getSymbolTable(job.propertyMap)
-
-
-  def units_=(units : scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]]) { BakarLocationResolverModule.setUnits(job.propertyMap, units) }
-  def units : scala.collection.immutable.Seq[scala.collection.immutable.Seq[java.lang.String]] = BakarLocationResolverModule.getUnits(job.propertyMap)
 
   def line : java.lang.Integer = BakarLocationResolverModule.getLine(job.propertyMap)
 }

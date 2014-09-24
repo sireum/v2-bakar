@@ -13,30 +13,33 @@ import org.sireum.bakar.compiler.module.PackageURIs
 
 class BakarLocationResolverModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarLocationResolverModule {
   def getLocation(o : PilarAstNode) : SourceLocationWithAt[_] = o.getProperty(Location.locPropKey)
-  var ret = mlistEmpty[ISeq[String]]
+  var ret = mlistEmpty[ProcedureDecl]
 
   for (p <- symbolTable.packages if (p != PackageURIs.standardPackageURI)) {
     val pack = symbolTable.package_(p)
+    val groupName = pack.name.get.name
     val l = getLocation(pack.name.get)
     if (l.fileUri == fileUri) {
       if (l.lineBegin <= line && l.lineEnd >= line) {
         pack.elements.foreach {
-          case i : ProcedureDecl => ret += ilist(pack.name.get.name, i.name.name)
+          case i : ProcedureDecl =>
+            i.setProperty("GROUP_NAME", groupName)
+            ret += i
           case _                 =>
         }
       } else {
-        var nearest = (ilist(""), Integer.MAX_VALUE)
+        var nearest : (ProcedureDecl, Int) = (null, Integer.MAX_VALUE)
         pack.elements.foreach {
           case i : ProcedureDecl =>
             val pl = getLocation(i)
-            
+            i.setProperty("GROUP_NAME", groupName)
             if (pl.lineBegin <= line && pl.lineEnd >= line) {
-              ret += ilist(pack.name.get.name, i.name.name)
+              ret += i
             } else {
               // compute distance
               val d = Math.min(Math.abs(pl.lineBegin - line), Math.abs(pl.lineEnd - line))
               if (d < nearest._2)
-                nearest = (ilist(pack.name.get.name, i.name.name), d)
+                nearest = (i, d)
             }
           case _ =>
         }
@@ -53,7 +56,7 @@ case class BakarLocationResolver(
   @Input fileUri : FileResourceUri,
   @Input line : Integer,
   @Input @Output symbolTable : BakarSymbolTable,
-  @Output units : ISeq[ISeq[String]])
+  @Output units : ISeq[ProcedureDecl])
 
 object BakarLocationResolver {
   def main(args : Array[String]) {
