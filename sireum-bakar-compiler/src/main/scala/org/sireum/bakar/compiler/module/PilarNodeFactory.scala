@@ -183,7 +183,7 @@ object PilarNodeFactory {
   def buildProcedureDecl(name: NameDefinition, parentUri: ResourceUri,
     params: ISeq[ParamDecl], retType: Option[TypeSpec], body: Body): ProcedureDecl = {
     import org.sireum.bakar.symbol.BakarSymbol._
-    assert(name ? Symbol.symbolPropKey)
+    assert(name.hasResourceInfo)
     val pd = ProcedureDecl(name, ivectorEmpty, ivectorEmpty, params, retType, false, body)
     pd.parentUri = parentUri
     pd
@@ -195,7 +195,7 @@ object PilarNodeFactory {
   }
 
   def buildTypeExp(typeName: NameUser, typeUri: ResourceUri): TypeExp = {
-    assert(typeName ? Symbol.symbolPropKey)
+    assert(typeName.hasResourceInfo)
     URIS.addTypeUri(typeName, typeUri)
     val ts = buildNamedTypeSpec(typeName, typeUri)
     URIS.addTypeUri(TypeExp(ts), typeUri)
