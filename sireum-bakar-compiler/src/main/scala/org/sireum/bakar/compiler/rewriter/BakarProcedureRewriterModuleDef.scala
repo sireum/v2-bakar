@@ -15,6 +15,7 @@ import org.sireum.util.ilistEmpty
 import org.sireum.pipeline.Input
 import org.sireum.pipeline.Output
 import org.sireum.bakar.compiler.module.{ PilarNodeFactory => PNF }
+import org.sireum.bakar.compiler.module.PilarNodeFactory.{copyPropertyMap => cp}
 import org.sireum.bakar.symbol.TypeDecl
 
 object Names {
@@ -23,11 +24,6 @@ object Names {
 }
 
 class BakarProcedureRewriterModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends BakarProcedureRewriterModule {
-  def cp[T <: PilarAstNode](a: T, b: T): T = {
-    b.propertyMap ++= a.propertyMap
-    b
-  }
-
   var currentPackage: String = null
 
   def rewriteCallJumps(procNameUri: ResourceUri, locs: ISeq[LocationDecl]) = {
