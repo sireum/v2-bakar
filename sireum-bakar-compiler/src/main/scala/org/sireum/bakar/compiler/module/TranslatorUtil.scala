@@ -2,6 +2,7 @@ package org.sireum.bakar.compiler.module
 
 import org.sireum.util.PropertyProvider
 import org.sireum.bakar.symbol.TypeDecl
+import org.sireum.pilar.ast._
 
 object BAKAR_KEYS {
   val LOOP_LABEL_KEY = "LOOP_LABEL"
@@ -31,22 +32,22 @@ object URIS {
   val uriPrefixProcedureBody = "ada://procedure_body/"
   val uriPrefixProcedureSpec = "ada://procedure/"
 
-  def addTypeDef[E <: PropertyProvider](e: E, t : TypeDecl): E = {
+  def addTypeDef[E <: PropertyProvider](e : E, t : TypeDecl) : E = {
     e(TYPE_DEF) = t
     e
   }
-  def getTypeDef[E <: PropertyProvider](e: E): TypeDecl = e(TYPE_DEF)
-  def hasTypeDef[E <: PropertyProvider](e: E) = e ? TYPE_DEF
-  
-  def addTypeUri[E <: PropertyProvider](e: E, uri: String): E = {
+  def getTypeDef[E <: PropertyProvider](e : E) : TypeDecl = e(TYPE_DEF)
+  def hasTypeDef[E <: PropertyProvider](e : E) = e ? TYPE_DEF
+
+  def addTypeUri[E <: PropertyProvider](e : E, uri : String) : E = {
     assert(isTypeUri(uri) || uri == DUMMY_URI)
     e(TYPE_URI) = uri
     e
   }
-  def getTypeUri[E <: PropertyProvider](e: E): ResourceUri = e(TYPE_URI)
-  def hasTypeUri[E <: PropertyProvider](e: E) = e ? TYPE_URI
-  
-  def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s: T, uri: String) = {
+  def getTypeUri[E <: PropertyProvider](e : E) : ResourceUri = e(TYPE_URI)
+  def hasTypeUri[E <: PropertyProvider](e : E) = e ? TYPE_URI
+
+  def addResourceUri[T <: org.sireum.pilar.symbol.Symbol](s : T, uri : String) = {
 
     val u = new URI(uri)
     val paths =
@@ -59,42 +60,42 @@ object URIS {
     s
   }
 
-  def getPath(u: ResourceUri) = new URI(u).getPath.drop(1).split("/").toList
+  def getPath(u : ResourceUri) = new URI(u).getPath.drop(1).split("/").toList
 
-  def isTypeUri(u: ResourceUri) =
+  def isTypeUri(u : ResourceUri) =
     u.startsWith("ada://ordinary_type") || u.startsWith("ada://subtype") ||
       u.startsWith("ada://private_type")
 
-  def isUIFUri(u: ResourceUri) = u.startsWith(UIF.uifURIprefix)
+  def isUIFUri(u : ResourceUri) = u.startsWith(UIF.uifURIprefix)
 
-  def isMethodUri(u: ResourceUri) =
+  def isMethodUri(u : ResourceUri) =
     u.startsWith("ada://procedure") || u.startsWith("ada://function") ||
       u.startsWith("ada://expression_function")
 
-  def isAdaMethodUri(u: ResourceUri) = isAdaMethodSpecUri(u) || isAdaMethodBodyUri(u)
-  def isAdaMethodSpecUri(u: ResourceUri) = isAdaProcedureSpecUri(u) || isAdaFunctionSpecUri(u)
-  def isAdaMethodBodyUri(u: ResourceUri) = isAdaProcedureBodyUri(u) || isAdaFunctionBodyUri(u)
+  def isAdaMethodUri(u : ResourceUri) = isAdaMethodSpecUri(u) || isAdaMethodBodyUri(u)
+  def isAdaMethodSpecUri(u : ResourceUri) = isAdaProcedureSpecUri(u) || isAdaFunctionSpecUri(u)
+  def isAdaMethodBodyUri(u : ResourceUri) = isAdaProcedureBodyUri(u) || isAdaFunctionBodyUri(u)
 
-  def isAdaProcedureUri(u: ResourceUri) = isAdaProcedureSpecUri(u) || isAdaProcedureBodyUri(u)
-  def isAdaProcedureSpecUri(u: ResourceUri) = u.startsWith(uriPrefixProcedureSpec)
-  def isAdaProcedureBodyUri(u: ResourceUri) = u.startsWith(uriPrefixProcedureBody)
+  def isAdaProcedureUri(u : ResourceUri) = isAdaProcedureSpecUri(u) || isAdaProcedureBodyUri(u)
+  def isAdaProcedureSpecUri(u : ResourceUri) = u.startsWith(uriPrefixProcedureSpec)
+  def isAdaProcedureBodyUri(u : ResourceUri) = u.startsWith(uriPrefixProcedureBody)
 
-  def isAdaFunctionUri(u: ResourceUri) = isAdaFunctionSpecUri(u) || isAdaFunctionBodyUri(u)
-  def isAdaFunctionSpecUri(u: ResourceUri) = u.startsWith(uriPrefixFunctionSpec)
-  def isAdaFunctionBodyUri(u: ResourceUri) = u.startsWith(uriPrefixFunctionBody) || isAdaExpressionFunctionUri(u)
-  def isAdaExpressionFunctionUri(u: ResourceUri) = u.startsWith(uriPrefixExpressionFunction)
+  def isAdaFunctionUri(u : ResourceUri) = isAdaFunctionSpecUri(u) || isAdaFunctionBodyUri(u)
+  def isAdaFunctionSpecUri(u : ResourceUri) = u.startsWith(uriPrefixFunctionSpec)
+  def isAdaFunctionBodyUri(u : ResourceUri) = u.startsWith(uriPrefixFunctionBody) || isAdaExpressionFunctionUri(u)
+  def isAdaExpressionFunctionUri(u : ResourceUri) = u.startsWith(uriPrefixExpressionFunction)
 
-  def isPackageUri(u: ResourceUri) = u.startsWith("ada://package")
-  def isAdaPackageUri(u: ResourceUri) = isAdaPackageSpecUri(u) || isAdaPackageBodyUri(u)
-  def isAdaPackageSpecUri(u: ResourceUri) = u.startsWith(uriPrefixPackageSpec)
-  def isAdaPackageBodyUri(u: ResourceUri) = u.startsWith(uriPrefixPackageBody)
+  def isPackageUri(u : ResourceUri) = u.startsWith("ada://package")
+  def isAdaPackageUri(u : ResourceUri) = isAdaPackageSpecUri(u) || isAdaPackageBodyUri(u)
+  def isAdaPackageSpecUri(u : ResourceUri) = u.startsWith(uriPrefixPackageSpec)
+  def isAdaPackageBodyUri(u : ResourceUri) = u.startsWith(uriPrefixPackageBody)
 
-  def isParamUri(u: ResourceUri) = u.startsWith("ada://parameter")
-  def isVarUri(u: ResourceUri) = isGlobalVarUri(u) || isLocalVarUri(u)
-  def isLocalVarUri(u: ResourceUri) =
+  def isParamUri(u : ResourceUri) = u.startsWith("ada://parameter")
+  def isVarUri(u : ResourceUri) = isGlobalVarUri(u) || isLocalVarUri(u)
+  def isLocalVarUri(u : ResourceUri) =
     (u.startsWith("ada://variable") || isLoopParamUri(u)) && !isGlobalVarUri(u)
-  def isLoopParamUri(u: ResourceUri) = u.startsWith("ada://loop_parameter")
-  def isGlobalVarUri(u: ResourceUri) = {
+  def isLoopParamUri(u : ResourceUri) = u.startsWith("ada://loop_parameter")
+  def isGlobalVarUri(u : ResourceUri) = {
     var i = u.lastIndexOf("/")
     if (i < 0) i = 0 else i += 1
     if (i + 1 < u.size)
@@ -105,9 +106,9 @@ object URIS {
 
 object VariableURIs {
   import org.sireum.util.ResourceUri
-  
+
   val tempVarPrefix = "ada://variable__temp/"
-  
+
   def isTempVariable(u : ResourceUri) = u.startsWith(tempVarPrefix)
 }
 
@@ -123,11 +124,11 @@ object PackageURIs {
   val constSpecDeclPrefixUri = "ada://constant_declaration/"
   val constBodyDeclPrefixUri = "ada://constant_declaration_body/"
 
-  def isPackageAnonymous(u: ResourceUri) = u.startsWith(anonymousPackageBodyURIprefix)
+  def isPackageAnonymous(u : ResourceUri) = u.startsWith(anonymousPackageBodyURIprefix)
 
-  def isPackageInitProcedure(u: ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
-  def isPackageBodyInitProcedure(u: ResourceUri) = u.startsWith(initBodyProcedureURIprefix)
-  def isPackageSpecInitProcedure(u: ResourceUri) = u.startsWith(initSpecProcedureURIprefix)
+  def isPackageInitProcedure(u : ResourceUri) = isPackageBodyInitProcedure(u) || isPackageSpecInitProcedure(u)
+  def isPackageBodyInitProcedure(u : ResourceUri) = u.startsWith(initBodyProcedureURIprefix)
+  def isPackageSpecInitProcedure(u : ResourceUri) = u.startsWith(initSpecProcedureURIprefix)
 }
 
 object UIF {
@@ -198,31 +199,46 @@ object StandardTypeDefs {
   import org.sireum.pilar.ast.TypeAliasDecl
   import org.sireum.pilar.ast.TypeSpec
 
-  private def createType(typName: String, baseType: String, typURI: String): TypeAliasDecl = {
+  private def createType(typName : String, baseType : String, typURI : String,
+                         low : Option[Exp], high : Option[Exp]) : TypeAliasDecl = {
     val pilarTypeDec = TypeAliasDecl(
       URIS.addResourceUri(NameDefinition(typName), typURI), ivectorEmpty,
       NamedTypeSpec(NameUser(baseType), ilistEmpty[TypeSpec]))
 
     val sparkTypeDec = FullTypeDecl(typName, typURI,
-      SignedIntegerTypeDef(None, None))
+      SignedIntegerTypeDef(low, high))
 
     URIS.addTypeDef(pilarTypeDec, sparkTypeDec)
     URIS.addTypeUri(pilarTypeDec, typURI)
     pilarTypeDec
   }
 
-  val UniversalInteger = createType("universal_integer", "universal_integer", StandardURIs.universalIntURI)
-  val UniversalReal = createType("universal_real", "universal_real", StandardURIs.universalRealURI)
+  val UniversalInteger = createType("universal_integer", "universal_integer", StandardURIs.universalIntURI, 
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(Long.MaxValue), Long.MaxValue.toString() + "ii")),
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(Long.MaxValue), Long.MaxValue.toString() + "ii")))
 
-  val StandardBoolean = createType("Boolean", "Boolean", StandardURIs.boolURI)
-  val StandardInteger = createType("Integer", "Integer", StandardURIs.integerURI)
-  val StandardNatural = createType("Natural", "Integer", StandardURIs.naturalURI)
-  val StandardPositive = createType("Positive", "Integer", StandardURIs.positiveURI)
+  val UniversalReal = createType("universal_real", "universal_real", StandardURIs.universalRealURI, None, None)
 
-  val StandardFloat = createType("Float", "Float", StandardURIs.floatURI)
+  val StandardBoolean = createType("Boolean", "Boolean", StandardURIs.boolURI,
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(0), "0ii")),
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii")))
 
-  val StandardCharacter = createType("Character", "Character", StandardURIs.charURI)
-  val StandardString = createType("String", "String", StandardURIs.stringURI)
+  val StandardInteger = createType("Integer", "Integer", StandardURIs.integerURI,
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MIN_VALUE), Integer.MIN_VALUE.toString() + "ii")),
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MAX_VALUE), Integer.MAX_VALUE.toString() + "ii")))
+
+  val StandardNatural = createType("Natural", "Integer", StandardURIs.naturalURI,
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(0), "0ii")),
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MAX_VALUE), Integer.MAX_VALUE.toString() + "ii")))
+
+  val StandardPositive = createType("Positive", "Integer", StandardURIs.positiveURI,
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii")),
+    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MAX_VALUE), Integer.MAX_VALUE.toString() + "ii")))
+
+  val StandardFloat = createType("Float", "Float", StandardURIs.floatURI, None, None)
+
+  val StandardCharacter = createType("Character", "Character", StandardURIs.charURI, None, None)
+  val StandardString = createType("String", "String", StandardURIs.stringURI, None, None)
 }
 
 object TranslatorUtil {
@@ -255,56 +271,56 @@ object TranslatorUtil {
   import org.sireum.pilar.ast.TypeAliasDecl
   import org.sireum.pilar.ast.TypeSpec
 
-  def getTypeDeclarations(e: java.util.List[Base]) = {
+  def getTypeDeclarations(e : java.util.List[Base]) = {
     e.filter {
-      case x: OrdinaryTypeDeclaration => true
-      case x: IncompleteTypeDeclaration => true
-      case x: PrivateTypeDeclaration => true
-      case x: SubtypeDeclaration => true
+      case x : OrdinaryTypeDeclaration     => true
+      case x : IncompleteTypeDeclaration   => true
+      case x : PrivateTypeDeclaration      => true
+      case x : SubtypeDeclaration          => true
 
       //case x : TaggedIncompleteTypeDeclaration => true
       //case x : FormalIncompleteTypeDeclaration => true
       //case x : FormalTypeDeclaration           => true
 
       // the following type declarations are not permitted in SPARK 2014
-      case x: TaskTypeDeclaration => false
-      case x: ProtectedTypeDeclaration => false
-      case x: PrivateExtensionDeclaration => false
-      case _ => false
+      case x : TaskTypeDeclaration         => false
+      case x : ProtectedTypeDeclaration    => false
+      case x : PrivateExtensionDeclaration => false
+      case _                               => false
     }
   }
 
-  def getConstantDeclarations(e: java.util.List[Base]) = {
+  def getConstantDeclarations(e : java.util.List[Base]) = {
     e.filter {
-      case x: RealNumberDeclaration => true
-      case x: IntegerNumberDeclaration => true
-      case x: DeferredConstantDeclaration => true
-      case x: ConstantDeclaration => true
-      case _ => false
+      case x : RealNumberDeclaration       => true
+      case x : IntegerNumberDeclaration    => true
+      case x : DeferredConstantDeclaration => true
+      case x : ConstantDeclaration         => true
+      case _                               => false
     }
   }
 
-  def getVariableDeclarations(el: java.util.List[Base]) =
+  def getVariableDeclarations(el : java.util.List[Base]) =
     for (e <- el if e.isInstanceOf[VariableDeclaration]) yield e.asInstanceOf[VariableDeclaration]
 
-  def getMethodDeclarations(e: java.util.List[Base]) = e.filter(isMethodDeclaration)
+  def getMethodDeclarations(e : java.util.List[Base]) = e.filter(isMethodDeclaration)
 
-  def isPackageDeclaration(o: Base) =
+  def isPackageDeclaration(o : Base) =
     o match {
-      case i: PackageBodyDeclaration => true
-      case i: PackageDeclaration => true
-      case _ => false
+      case i : PackageBodyDeclaration => true
+      case i : PackageDeclaration     => true
+      case _                          => false
     }
 
-  def isMethodDeclaration(o: Base) =
+  def isMethodDeclaration(o : Base) =
     o match {
-      case i: ExpressionFunctionDeclaration => true
-      case i: FunctionBodyDeclaration => true
-      case i: FunctionDeclaration => true
-      case i: GenericProcedureDeclaration => true
-      case i: NullProcedureDeclaration => true
-      case i: ProcedureBodyDeclaration => true
-      case i: ProcedureDeclaration => true
-      case _ => false
+      case i : ExpressionFunctionDeclaration => true
+      case i : FunctionBodyDeclaration       => true
+      case i : FunctionDeclaration           => true
+      case i : GenericProcedureDeclaration   => true
+      case i : NullProcedureDeclaration      => true
+      case i : ProcedureBodyDeclaration      => true
+      case i : ProcedureDeclaration          => true
+      case _                                 => false
     }
 }
