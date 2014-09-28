@@ -20,15 +20,16 @@ object TagUtil {
   def genUnexpectedErrorTag(msg : String) : Tag = {
     InfoTag(MarkerType("ERROR", None, "Unexpected error",
       MarkerTagSeverity.Error, MarkerTagPriority.High,
-      ilistEmpty[MarkerTagKind.Type]), Some(msg))    
+      ilistEmpty[MarkerTagKind.Type]), Some(msg))
   }
-  
+
   def genUnexpectedErrorTag(e : Throwable) : Tag = {
     import scala.collection.JavaConversions._
 
     val message = if (e.isInstanceOf[UnexpectedError]) {
       val re = e.asInstanceOf[UnexpectedError]
-      re.getMessage + "\n\n" + e.getStackTrace.toList.mkString("\n")
+      "Unhandled case - please contact belt@ksu.edu with the example: " +
+        re.getMessage + "\n\n" + e.getStackTrace.toList.mkString("\n")
     } else
       e.getMessage + "\n\n" + e.getStackTrace.toList.mkString("\n")
 
