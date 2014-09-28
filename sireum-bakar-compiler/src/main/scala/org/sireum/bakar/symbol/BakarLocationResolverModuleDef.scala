@@ -14,39 +14,48 @@ import org.sireum.bakar.util.TagUtil
 
 class BakarLocationResolverModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarLocationResolverModule {
   try {
-      def getLocation(o : PilarAstNode) : SourceLocationWithAt[_] = o.getProperty(Location.locPropKey)
+      def getLocation(o : PilarAstNode) : Option[SourceLocationWithAt[_]] =
+        if (o ? Location.locPropKey) Some(o.getProperty(Location.locPropKey))
+        else None
+
     var ret = mlistEmpty[ProcedureDecl]
 
     for (p <- symbolTable.packages if (p != PackageURIs.standardPackageURI)) {
       val pack = symbolTable.package_(p)
       val groupName = pack.name.get.name
-      val l = getLocation(pack.name.get)
-      if (l.fileUri == fileUri) {
-        if (l.lineBegin <= line && l.lineEnd >= line) {
-          pack.elements.foreach {
-            case i : ProcedureDecl =>
-              i.setProperty("GROUP_NAME", groupName)
-              ret += i
-            case _ =>
-          }
-        } else {
-          var nearest : (ProcedureDecl, Int) = (null, Integer.MAX_VALUE)
-          pack.elements.foreach {
-            case i : ProcedureDecl =>
-              val pl = getLocation(i)
-              i.setProperty("GROUP_NAME", groupName)
-              if (pl.lineBegin <= line && pl.lineEnd >= line) {
-                ret += i
-              } else {
-                // compute distance
-                val d = Math.min(Math.abs(pl.lineBegin - line), Math.abs(pl.lineEnd - line))
-                if (d < nearest._2)
-                  nearest = (i, d)
+      getLocation(pack.name.get) match {
+        case Some(l) =>
+          if (l.fileUri == fileUri) {
+            if (l.lineBegin <= line && l.lineEnd >= line) {
+              pack.elements.foreach {
+                case i : ProcedureDecl =>
+                  i.setProperty("GROUP_NAME", groupName)
+                  ret += i
+                case _ =>
               }
-            case _ =>
+            } else {
+              var nearest : (ProcedureDecl, Int) = (null, Integer.MAX_VALUE)
+              pack.elements.foreach {
+                case i : ProcedureDecl =>
+                  i.setProperty("GROUP_NAME", groupName)
+                  getLocation(i) match {
+                    case Some(pl) =>
+                      if (pl.lineBegin <= line && pl.lineEnd >= line) {
+                        ret += i
+                      } else {
+                        // compute distance
+                        val d = Math.min(Math.abs(pl.lineBegin - line), Math.abs(pl.lineEnd - line))
+                        if (d < nearest._2)
+                          nearest = (i, d)
+                      }
+                    case _ =>
+                  }
+                case _ =>
+              }
+              if (ret.isEmpty) ret += nearest._1
+            }
           }
-          if (ret.isEmpty) ret += nearest._1
-        }
+        case _ =>
       }
     }
     units = ret.toList
