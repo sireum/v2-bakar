@@ -32,8 +32,9 @@ object TagUtil {
         (if (e.isInstanceOf[UnexpectedError]) {
           val re = e.asInstanceOf[UnexpectedError]
           // do anything special here
-        } else "") + 
-        e.getMessage + "\n\n" + e.getStackTrace.toList.mkString("\n")
+        } else "") +
+        e.toString + "\n\n" + e.getStackTrace.toList.mkString("\n")
+
     genUnexpectedErrorTag(message)
   }
 }

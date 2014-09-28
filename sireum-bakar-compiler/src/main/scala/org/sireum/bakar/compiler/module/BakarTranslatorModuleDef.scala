@@ -2014,6 +2014,15 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                   d += (out -> inputs)
                 }
                 if (ml == "depends") pd.depends = d else pd.dependsRefined = d
+              case "spark_mode" =>
+                val mode = if (!ctx.isEmpty(aspectDef.getElement)) {
+                  v(aspectDef.getElement)
+                  ctx.popResult.asInstanceOf[NameExp].name.name.toLowerCase match {
+                    case "on"  => true
+                    case "off" => false
+                  }
+                } else true
+                pd.sparkMode = mode
               case "test_case" =>
                 v(aspectDef.getElement)
                 val x : NewRecordExp = ctx.popResult

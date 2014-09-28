@@ -69,7 +69,7 @@ object BakarSymbol {
         private var _pre: Exp = null
         private var _post: Exp = null
         private var _postRefined: Exp = null
-
+        private var _sparkMode: java.lang.Boolean = null
         private var _testCases: ISeq[TestCase] = null
 
         implicit def wrap[T](t: T) = if (t == null) None else Some(t)
@@ -113,6 +113,9 @@ object BakarSymbol {
         def postRefined = _postRefined
         def postRefined_=(o: Exp) = _postRefined = o
 
+        def sparkMode = wrap(_sparkMode)
+        def sparkMode_=(o: Boolean) = _sparkMode = o
+        
         def testCases = _testCases
         def testCases_=(o: ISeq[TestCase]) = _testCases = o
       })
@@ -157,6 +160,9 @@ object BakarSymbol {
     def postRefined: Option[Exp]
     def postRefined_=(o: Exp)
 
+    def sparkMode: Option[Boolean]
+    def sparkMode_=(o: Boolean)
+    
     def testCases: Option[ISeq[TestCase]]
     def testCases_=(o: ISeq[TestCase])
   }
