@@ -4,17 +4,19 @@ import org.sireum.util.ISeq
 import org.sireum.pipeline.Output
 import org.sireum.pipeline.Input
 import org.sireum.pilar.ast._
-//import org.sireum.pipeline.gen.ModuleGenerator
 import org.sireum.option.PipelineMode
 import org.sireum.pipeline.PipelineJobModuleInfo
 import org.sireum.pipeline.PipelineJob
 import org.sireum.util._
+import org.sireum.bakar.util.TagUtil
 
 class BakarPropertyMapRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarPropertyMapRewriterModule {
-  var r = ilistEmpty[Model]
-  for (m <- this.models) 
-    r :+= PPRewriter.rewrite(m)
-  this.models = r
+  try {
+    models = for (m <- this.models) yield PPRewriter.rewrite(m)
+  } catch {
+    case e : Throwable =>
+      info.tags += TagUtil.genUnexpectedErrorTag(e)
+  }
 }
 
 object PPRewriter {
@@ -45,7 +47,7 @@ class PPRewriter {
 
   val rewriter = Rewriter.build[Model]({
     case o : Annotable[_] => copyAnnot(o)
-    case x => x
+    case x                => x
   })
 
   def rewrite(m : Model) : Model = rewriter(m)
@@ -59,7 +61,7 @@ case class BakarPropertyMapRewriter(
 object BakarPropertyMapRewriter {
   def main(args : Array[String]) {
     val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
-    val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"    
+    val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"
     val cnames = Array(BakarPropertyMapRewriter.getClass.getName.dropRight(1))
 
     val args = List(sireum, "tools", "pipeline", "-d", destdir, cnames(0))

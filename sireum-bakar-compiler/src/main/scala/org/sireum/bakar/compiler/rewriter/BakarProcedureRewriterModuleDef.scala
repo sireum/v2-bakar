@@ -15,86 +15,87 @@ import org.sireum.util.ilistEmpty
 import org.sireum.pipeline.Input
 import org.sireum.pipeline.Output
 import org.sireum.bakar.compiler.module.{ PilarNodeFactory => PNF }
-import org.sireum.bakar.compiler.module.PilarNodeFactory.{copyPropertyMap => cp}
+import org.sireum.bakar.compiler.module.PilarNodeFactory.{ copyPropertyMap => cp }
 import org.sireum.bakar.symbol.TypeDecl
+import org.sireum.bakar.util.UnexpectedError
 
 object Names {
   val tempVarPrefix = "_tbpr"
   val locationPrefix = "_lbpr"
 }
 
-class BakarProcedureRewriterModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends BakarProcedureRewriterModule {
-  var currentPackage: String = null
+class BakarProcedureRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarProcedureRewriterModule {
+  var currentPackage : String = null
 
-  def rewriteCallJumps(procNameUri: ResourceUri, locs: ISeq[LocationDecl]) = {
+  def rewriteCallJumps(procNameUri : ResourceUri, locs : ISeq[LocationDecl]) = {
     var tempCounter = 0
-    def nextCounter = {
-      tempCounter += 1
-      tempCounter
-    }
+      def nextCounter = {
+        tempCounter += 1
+        tempCounter
+      }
 
     var newTempLocals = ivectorEmpty[LocalVarDecl]
-    def newPath = URIS.getPath(procNameUri) :+ Names.tempVarPrefix + nextCounter
-    def newLocLabel = {
-      val labelName = Names.locationPrefix + nextCounter
-      PNF.buildLocationLabel(URIS.getPath(procNameUri) :+ labelName)
-    }
-
-    def rewriteCallJumps(l: LocationDecl): ISeq[LocationDecl] = {
-      l match {
-        case jl @ JumpLocation(jn, ja,
-          cj @ CallJump(a, lhss, ce @ CallExp(ne @ NameExp(nu), TupleExp(args)), jump)) if (lhss.isEmpty) =>
-          val calledProc = symbolTable.procedureSymbolTable(nu.uri).procedure
-
-          var prelocs = ivectorEmpty[LocationDecl]
-          var postlocs = ivectorEmpty[LocationDecl]
-          var _lhss = ivectorEmpty[NameExp]
-          var modArgs = ivectorEmpty[Exp]
-          for (i <- 0 to calledProc.params.size - 1) {
-            if (calledProc.params(i).mode != Mode.IN) {
-              val ptypeSpec = calledProc.params(i).typeSpec.get.asInstanceOf[NamedTypeSpec]
-              val lhsTypeName: String = ptypeSpec.name.name
-              val lhsTypeUri: ResourceUri = URIS.getTypeUri(ptypeSpec)
-              val (lhsLvd, lhsTempVar) = PNF.buildLocalTempVar(lhsTypeName, lhsTypeUri, newPath)
-              newTempLocals +:= lhsLvd
-              _lhss :+= lhsTempVar
-              def rewriteComplexExp(e: Exp): Exp = {
-                e match {
-                  case ie @ IndexingExp(e, indices) =>
-                    val modIndices = for (index <- indices) yield {
-                      val typ = bakarTypeUri2TypeMap(URIS.getTypeUri(e))
-                      val (lvd, tempVar) = PNF.buildLocalTempVar(typ.id, typ.uri, newPath)
-                      newTempLocals +:= lvd
-                      prelocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
-                        AssignAction(ivectorEmpty, tempVar, ":=", index))
-                      tempVar
-                    }
-                    cp(ie, IndexingExp(rewriteComplexExp(e), modIndices))
-                  case a @ AccessExp(e, an) => cp(a, AccessExp(rewriteComplexExp(e), an))
-                  case _ => e
-                }
-              }
-              val modArg = cp(args(i), rewriteComplexExp(args(i)))
-
-              postlocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
-                AssignAction(ivectorEmpty, modArg, ":=", lhsTempVar))
-
-              modArgs :+= modArg
-            } else {
-              modArgs :+= args(i)
-            }
-          }
-          val typeUri = if (URIS.hasTypeUri(ce)) Some(URIS.getTypeUri(ce))
-          else None
-
-          val modJL = cp(jl, JumpLocation(jn, ja,
-            cp(cj, CallJump(a, _lhss,
-              cp(ce, PNF.buildCallExp(ne, typeUri, TupleExp(modArgs))), jump))))
-
-          (prelocs :+ modJL) ++ postlocs
-        case _ => ivector(l)
+      def newPath = URIS.getPath(procNameUri) :+ Names.tempVarPrefix + nextCounter
+      def newLocLabel = {
+        val labelName = Names.locationPrefix + nextCounter
+        PNF.buildLocationLabel(URIS.getPath(procNameUri) :+ labelName)
       }
-    }
+
+      def rewriteCallJumps(l : LocationDecl) : ISeq[LocationDecl] = {
+        l match {
+          case jl @ JumpLocation(jn, ja,
+            cj @ CallJump(a, lhss, ce @ CallExp(ne @ NameExp(nu), TupleExp(args)), jump)) if (lhss.isEmpty) =>
+            val calledProc = symbolTable.procedureSymbolTable(nu.uri).procedure
+
+            var prelocs = ivectorEmpty[LocationDecl]
+            var postlocs = ivectorEmpty[LocationDecl]
+            var _lhss = ivectorEmpty[NameExp]
+            var modArgs = ivectorEmpty[Exp]
+            for (i <- 0 to calledProc.params.size - 1) {
+              if (calledProc.params(i).mode != Mode.IN) {
+                val ptypeSpec = calledProc.params(i).typeSpec.get.asInstanceOf[NamedTypeSpec]
+                val lhsTypeName : String = ptypeSpec.name.name
+                val lhsTypeUri : ResourceUri = URIS.getTypeUri(ptypeSpec)
+                val (lhsLvd, lhsTempVar) = PNF.buildLocalTempVar(lhsTypeName, lhsTypeUri, newPath)
+                newTempLocals +:= lhsLvd
+                _lhss :+= lhsTempVar
+                  def rewriteComplexExp(e : Exp) : Exp = {
+                    e match {
+                      case ie @ IndexingExp(e, indices) =>
+                        val modIndices = for (index <- indices) yield {
+                          val typ = bakarTypeUri2TypeMap(URIS.getTypeUri(e))
+                          val (lvd, tempVar) = PNF.buildLocalTempVar(typ.id, typ.uri, newPath)
+                          newTempLocals +:= lvd
+                          prelocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
+                            AssignAction(ivectorEmpty, tempVar, ":=", index))
+                          tempVar
+                        }
+                        cp(ie, IndexingExp(rewriteComplexExp(e), modIndices))
+                      case a @ AccessExp(e, an) => cp(a, AccessExp(rewriteComplexExp(e), an))
+                      case _                    => e
+                    }
+                  }
+                val modArg = cp(args(i), rewriteComplexExp(args(i)))
+
+                postlocs :+= ActionLocation(Some(newLocLabel), ivectorEmpty,
+                  AssignAction(ivectorEmpty, modArg, ":=", lhsTempVar))
+
+                modArgs :+= modArg
+              } else {
+                modArgs :+= args(i)
+              }
+            }
+            val typeUri = if (URIS.hasTypeUri(ce)) Some(URIS.getTypeUri(ce))
+            else None
+
+            val modJL = cp(jl, JumpLocation(jn, ja,
+              cp(cj, CallJump(a, _lhss,
+                cp(ce, PNF.buildCallExp(ne, typeUri, TupleExp(modArgs))), jump))))
+
+            (prelocs :+ modJL) ++ postlocs
+          case _ => ivector(l)
+        }
+      }
 
     val modLocs = locs.flatMap(rewriteCallJumps(_))
     val modLocals = newTempLocals
@@ -115,7 +116,7 @@ class BakarProcedureRewriterModuleDef(val job: PipelineJob, info: PipelineJobMod
         val lastLoc = locations(locations.size - 1) match {
           case jl @ JumpLocation(label, annots, ReturnJump(retAnnots, None)) =>
             cp(jl, JumpLocation(label, annots, ReturnJump(retAnnots, Some(te))))
-          case jl => throw new RuntimeException("Unexpected final location: " + jl)
+          case jl => throw new UnexpectedError("Unexpected final location: " + jl)
         }
 
         val newlocs = locations.take(locations.size - 1) :+ lastLoc
@@ -136,20 +137,25 @@ class BakarProcedureRewriterModuleDef(val job: PipelineJob, info: PipelineJobMod
       cp(pd, PNF.buildProcedureDecl(procName, parentUri, p, r, body))
   }, Rewriter.TraversalMode.TOP_DOWN, true)
 
-  this.models = this.models.map(m => rewriter(m).asInstanceOf[Model])
+  try {
+    models = models.map(m => rewriter(m).asInstanceOf[Model])
+  } catch {
+    case e : Throwable =>
+      info.tags += org.sireum.bakar.util.TagUtil.genUnexpectedErrorTag(e)
+  }
 }
 
 case class BakarProcedureRewriter(
-  title: String = "Bakar Procedure Rewriter",
+  title : String = "Bakar Procedure Rewriter",
 
-  @Input symbolTable: BakarSymbolTable,
+  @Input symbolTable : BakarSymbolTable,
 
-  @Input bakarTypeUri2TypeMap: IMap[ResourceUri, TypeDecl],
-  
-  @Input @Output models: ISeq[Model])
+  @Input bakarTypeUri2TypeMap : IMap[ResourceUri, TypeDecl],
+
+  @Input @Output models : ISeq[Model])
 
 object Gen {
-  def main(args: Array[String]) {
+  def main(args : Array[String]) {
     val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
     val destdir = "./src/main/scala/org/sireum/bakar/compiler/rewriter"
     val cname = BakarProcedureRewriter.getClass.getName.dropRight(1)

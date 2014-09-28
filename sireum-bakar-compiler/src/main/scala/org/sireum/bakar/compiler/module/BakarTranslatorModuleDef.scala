@@ -1,7 +1,6 @@
 package org.sireum.bakar.compiler.module
 
 import scala.collection.JavaConversions.asScalaBuffer
-
 import org.sireum.bakar.compiler.module.{ PilarNodeFactory => PNF }
 import org.sireum.bakar.compiler.module.PilarNodeFactory.{ copyPropertyMap => cp }
 import org.sireum.bakar.symbol.BakarSymbol.TestCase
@@ -268,6 +267,8 @@ import org.sireum.util.mlistEmpty
 import org.sireum.util.mmapEmpty
 import org.sireum.util.msetEmpty
 import org.sireum.util.mstackEmpty
+import org.sireum.bakar.util.TagUtil
+import org.sireum.bakar.util.UnexpectedError
 
 class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarTranslatorModule {
 
@@ -613,7 +614,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                   val highBound = createUIFCall(Attribute.ATTRIBUTE_UIF_LAST, te, markURI)
 
                   return (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound)
-                case x => throw new RuntimeException("Unexpected: " + x)
+                case x => throw new UnexpectedError("Unexpected: " + x)
               }
             case DiscreteSubtypeIndicationAsSubtypeDefinitionEx(rsloc, mark, constraint, checks) =>
 
@@ -658,7 +659,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                           val hb = createUIFCall(Attribute.ATTRIBUTE_UIF_LAST, te, markURI)
 
                           (lb, hb)
-                        case x => throw new RuntimeException("Unexpected: " + x)
+                        case x => throw new UnexpectedError("Unexpected: " + x)
                       }
                   }
                 } else {
@@ -672,7 +673,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               return (isRev, iterNE, iterND, markNE, markURI, lowBound, highBound)
           }
       }
-      throw new RuntimeException("Shouldn't get here")
+      throw new UnexpectedError("Shouldn't get here")
     }
 
     def handleChoices(v : => BVisitor, choices : ElementList) = {
@@ -718,7 +719,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 exps += TupleExp(ivector(f, l))
               }
             case c : Exp => exps += c
-            case c       => throw new RuntimeException("Unexpected: " + c)
+            case c       => throw new UnexpectedError("Unexpected: " + c)
           }
       }
       exps
@@ -756,7 +757,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
               val (sloc3, refName, refUri, typUri) = getName(mark)
               make(names, refName, refUri, initExp)
-            case _ => throw new RuntimeException("Unexpected: " + objDec.getDefinition)
+            case _ => throw new UnexpectedError("Unexpected: " + objDec.getDefinition)
           }
         case DeferredConstantDeclarationEx(sloc, names, hasAliased, objDec, aspect, checks) =>
           assert(isEmpty(hasAliased.getHasAliased))
@@ -769,13 +770,13 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
               val (sloc3, refName, refUri, typUri) = getName(mark)
               make(names, refName, refUri)
-            case _ => throw new RuntimeException("Unexpected: " + objDec.getDefinition)
+            case _ => throw new UnexpectedError("Unexpected: " + objDec.getDefinition)
           }
         case IntegerNumberDeclarationEx(sloc1, names, initExp, checks) =>
           make(names, "Integer", StandardURIs.integerURI, initExp)
         case RealNumberDeclarationEx(sloc1, names, initExp, checks) =>
           make(names, "Float", StandardURIs.floatURI, initExp)
-        case x => throw new RuntimeException("Unexpected: " + o)
+        case x => throw new UnexpectedError("Unexpected: " + o)
       }
     }
 
@@ -813,8 +814,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       o match {
         case x : PropertyProvider =>
           import org.sireum.util.SourceLocation.At._
-          x at (purifyPath(this.fileUri), sloc.getLine, sloc.getCol, 
-              sloc.getEndline, sloc.getEndcol)
+          x at (purifyPath(this.fileUri), sloc.getLine, sloc.getCol,
+            sloc.getEndline, sloc.getEndcol)
         case _ =>
       }
       o
@@ -942,7 +943,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               }
 
               varDecls += addSourceLoc(vd, sloc)
-            case _ => throw new RuntimeException("Unexpected")
+            case _ => throw new UnexpectedError("Unexpected")
           }
 
           varDecls
@@ -1015,7 +1016,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 case DefiningEnumerationLiteralEx(sloc3, defName, defUri, typ, checks) =>
                   elems :+= (defName, defUri)
               }
-            case _ => throw new RuntimeException("Unexpected")
+            case _ => throw new UnexpectedError("Unexpected")
           }
           return (EnumerationTypeDef(elems), None)
 
@@ -1030,7 +1031,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               val highBound : Exp = popResult
 
               return (SignedIntegerTypeDef(Some(lowBound), Some(highBound)), None)
-            case _ => throw new RuntimeException("Unexpected")
+            case _ => throw new UnexpectedError("Unexpected")
           }
         case ModularTypeDefinitionEx(sloc, modStaticExpr, checks) =>
 
@@ -1062,7 +1063,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                   var (_, tname, turi, _) = getName(smark.getExpression)
                   compTypeName = Some(tname)
                   componentSubtype = Some(turi)
-                case _ => throw new RuntimeException("Unexpected")
+                case _ => throw new UnexpectedError("Unexpected")
               }
           }
 
@@ -1095,7 +1096,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                     compTypeName = Some(tname)
                     compTypeUri = Some(turi)
                   }
-                case _ => throw new RuntimeException("Unexpected")
+                case _ => throw new UnexpectedError("Unexpected")
               }
           }
 
@@ -1133,7 +1134,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               val anon = introduceAnonymousType(lowBound, highBound, i.id, i.uri)
               auxTypes :+= anon
               indexTypes :+= anon.name.uri
-            case x => throw new RuntimeException("Unexpected: " + x)
+            case x => throw new UnexpectedError("Unexpected: " + x)
           }
 
           return (ConstrainedArrayDef(dim, compTypeUri.get, indexTypes),
@@ -1190,7 +1191,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                       components(cname) = ComponentDef(curi, typeName.get, typeUri.get,
                         handleLoc(csloc))
                     }
-                  case _ => throw new RuntimeException("Unexpected")
+                  case _ => throw new UnexpectedError("Unexpected")
                 }
               }
           }
@@ -1202,17 +1203,17 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           val (sname, suri, cons) = handleSubtypeDef(parentSubtypeId.getElement, v)
 
           return (DerivedTypeDef(suri, cons), None)
-        case x => throw new RuntimeException("Unexpected: " + x)
+        case x => throw new UnexpectedError("Unexpected: " + x)
       }
       println(o.getDefinition)
-      throw new RuntimeException
+      throw new UnexpectedError()
     }
 
     def createUIFCall(uif : String, arg : Exp, typUri : String, sloc : Option[SourceLocation] = None) = {
       assert(typUri != null)
       val _typeUri = if (typUri == "null") None else Some(typUri)
       val ret = PNF.buildCallExp(uif, UIF.uifURIprefix + uif, _typeUri, arg)
-      if(sloc.isDefined) addSourceLoc(ret, sloc.get) else ret
+      if (sloc.isDefined) addSourceLoc(ret, sloc.get) else ret
     }
 
     def handleSubtypeDef(o : Base, v : => BVisitor) = {
@@ -1304,7 +1305,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
                 ilistEmpty[(NameDefinition, ISeq[Annotation])], ilistEmpty[ExtendClause],
                 attrs)
-            case _ => throw new RuntimeException("Unexpected")
+            case _ => throw new UnexpectedError("Unexpected")
           }
           val ret = if (auxTypes.isDefined) auxTypes.get :+ pilarTypeDec else ivector(pilarTypeDec)
 
@@ -1347,7 +1348,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             case PrivateTypeDefinitionEx(sloc2, hasA, hasLimited, checks2) =>
               assert(isEmpty(hasA.getHasAbstract))
               !isEmpty(hasLimited.getHasLimited)
-            case x => throw new RuntimeException("Unexpected: " + x)
+            case x => throw new UnexpectedError("Unexpected: " + x)
           }
           val pilarTypeDec = TypeAliasDecl(
             URIS.addResourceUri(NameDefinition(tname), turi), ivectorEmpty,
@@ -1364,7 +1365,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           addTypeUri(pilarTypeDec, turi)
 
           ret
-        case _ => throw new RuntimeException("Unexpected: " + o)
+        case _ => throw new UnexpectedError("Unexpected: " + o)
       }
 
       typeCache(o) = typeDecls
@@ -1387,7 +1388,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             case i : FunctionDeclaration           => constructPushScope(v, i)
             case i : ProcedureBodyDeclaration      => constructPushScope(v, i, i.getBodyDeclarativeItemsQl)
             case i : ProcedureDeclaration          => constructPushScope(v, i)
-            case x                                 => throw new RuntimeException()
+            case x                                 => throw new UnexpectedError
           }
       }
     }
@@ -1549,7 +1550,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           (sloc, rewriteName(defUri, defName), rewriteUri(defUri), typ)
         case IdentifierEx(sloc, refName, refUri, typ, checks) =>
           (sloc, rewriteName(refUri, refName), rewriteUri(refUri), typ)
-        case _ => throw new RuntimeException("Unexpected: " + o)
+        case _ => throw new UnexpectedError("Unexpected: " + o)
       }
     }
 
@@ -1686,7 +1687,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                     else TupleExp(ivector(NameExp(a.name), a.exp)))
                 }
                 pack.initializes = inits
-              case x => throw new RuntimeException("Unexpected: " + x)
+              case x => throw new UnexpectedError("Unexpected: " + x)
             }
         }
 
@@ -1726,7 +1727,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
           PNF.buildPackageDecl(name, elements.toList)
         } else
-          throw new RuntimeException("Unexpected compilation unit: " + o)
+          throw new UnexpectedError("Unexpected compilation unit: " + o)
 
         ctx.models += PNF.buildModel(sourceFile, ivector(pack))
 
@@ -1760,7 +1761,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             useClauses ++= vi(names.getNames)
           case UseTypeClauseEx(sloc2, names, checks2) =>
             useTypeClauses ++= vi(names.getNames)
-          case x => throw new RuntimeException("Unknown: " + x)
+          case x => throw new UnexpectedError("Unknown: " + x)
         }
         if (!withClauses.isEmpty) pack.withClauses = withClauses
         if (!useClauses.isEmpty) pack.useClauses = useClauses
@@ -1835,9 +1836,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                 pd.mode = mode
 
                 params += ctx.addSourceLoc(pd, sloc)
-              case _ => throw new RuntimeException("Unexpected")
+              case _ => throw new UnexpectedError("Unexpected")
             }
-          case _ => throw new RuntimeException("Unexpected")
+          case _ => throw new UnexpectedError("Unexpected")
         }
 
         ctx.pushLocationList
@@ -1957,9 +1958,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                     }
                   case i : NameExp =>
                     if (i.name.uri == "null")
-                      throw new RuntimeException("null URI for Global " + i.name.name)
+                      throw new UnexpectedError("null URI for Global " + i.name.name)
                     ins += i.name.uri
-                  case x => throw new RuntimeException("Unexpected: " + x)
+                  case x => throw new UnexpectedError("Unexpected: " + x)
                 }
                 if (ml == "global") {
                   if (!ins.isEmpty) pd.globalsIn = ins
@@ -2038,7 +2039,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
 
                 pd.testCases = testCases :+ TestCase(name, mode, requires, ensures)
             }
-          case x => throw new RuntimeException("Unexpected: " + x)
+          case x => throw new UnexpectedError("Unexpected: " + x)
         }
         ctx.inProofContext = false
         ctx.noTempVars(false)
@@ -2165,7 +2166,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           ret = Some(NameExp(NameUser(ns.name + "::" + sname)))
         case x : IndexingExp =>
           ret = Some(AccessExp(x, NameUser(sname)))
-        case q => throw new RuntimeException("Unexpected: " + q)
+        case q => throw new UnexpectedError("Unexpected: " + q)
       }
       assert(ret.isDefined)
 
@@ -2237,7 +2238,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             val gl = ctx.createGotoJumpLocation(endLoc, ivectorEmpty, sloc)
             ctx.pushLocation(gl)
           }
-        case x => throw new RuntimeException("Unexpected: " + x)
+        case x => throw new UnexpectedError("Unexpected: " + x)
       }
 
       ctx.pushLocation(ctx.createEmptyLocation(endLoc))
@@ -2310,7 +2311,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           v(statements)
 
         case x =>
-          throw new RuntimeException("Not expecting " + x)
+          throw new UnexpectedError("Not expecting " + x)
       }
 
       ctx.pushLocation(ctx.createEmptyLocation(endLoc))
@@ -2533,7 +2534,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             // Initializes => (B, C, S => F.A)
             inits :+= AttributeInit(null, rhs.asInstanceOf[NameExp])
           }
-        case x => throw new RuntimeException("Unexpected: " + x)
+        case x => throw new UnexpectedError("Unexpected: " + x)
       }
       ctx.pushResult(NewRecordExp(null, inits), sloc)
       false
@@ -2595,13 +2596,13 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
                   elements ++= se.cases.map(f => (f.cond, f.exp))
                 case ne : NewRecordExp =>
                   elements ++= ne.attributeInits.map(f => (NameExp(f.name), f.exp))
-                case x => throw new RuntimeException("Unexpected: " + x)
+                case x => throw new UnexpectedError("Unexpected: " + x)
               }
             }
             val fe = ctx.addTypeUri(NewFunctionExp(elements), typeUri)
             val _args = TupleExp(ivector(exp, fe))
             ctx.createUIFCall(Attribute.ATTRIBUTE_UIF_UPDATE_EXP, _args, typeUri)
-          case x => throw new RuntimeException("Unexpected: " + x)
+          case x => throw new UnexpectedError("Unexpected: " + x)
         }
         ctx.pushResult(ce, sloc)
         false
@@ -2712,7 +2713,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           ctx.handleBE(v, sloc, PilarAstUtil.COND_AND_BINOP, lhs, rhs, theType), sloc)
         false
       case CaseExpressionEx(sloc, caseExp, expPaths, typ, checks) =>
-        throw new RuntimeException()
+        throw new UnexpectedError
       case DiscreteSimpleExpressionRangeEx(sloc, lb, ub, checks) =>
         v(lb)
         val _lb : Exp = ctx.popResult
@@ -2750,13 +2751,13 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           } else if (ctx.isUnaryOp(prefix)) {
             assert(plist.length == 1)
             val ue = (ctx.getUnaryOp(prefix).get, plist(0)) match {
-              case ("-", l @ LiteralExp(typ, b : BigInt, text)) => 
+              case ("-", l @ LiteralExp(typ, b : BigInt, text)) =>
                 val bi = b * -1
                 cp(l, PNF.buildLiteralExp(LiteralType.INTEGER, bi, bi.toString + "ii", ctx.convertTypeUri(callExpType)))
               case _ => ctx.handleUnaryExp(sloc, ctx.getUnaryOp(prefix).get, plist(0), callExpType)
             }
             ctx.pushResult(ue, sloc)
-          } else throw new RuntimeException("Unexpected infix expression")
+          } else throw new UnexpectedError("Unexpected infix expression")
         } else {
           v(prefix)
           ctx.popResult.asInstanceOf[Exp] match {
@@ -2789,7 +2790,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               cp(ce, _ce)
 
               ctx.pushResult(ctx.handleExp(_ce), sloc)
-            case x => throw new RuntimeException("Unexpected: " + x)
+            case x => throw new UnexpectedError("Unexpected: " + x)
           }
         }
         false
@@ -2866,7 +2867,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           v.split("#").toList match {
             case base :: numeral :: Nil             => num(base, numeral)
             case base :: numeral :: exponent :: Nil => num(base, numeral, exponent)
-            case x                                  => throw new RuntimeException("Unexpected: " + v)
+            case x                                  => throw new UnexpectedError("Unexpected: " + v)
           }
         } else v
 
@@ -2903,7 +2904,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
             assert(nre.recordType == null)
             val re = ctx.addTypeUri(NewRecordExp(nts, nre.attributeInits), typ)
             ctx.pushResult(re, sloc)
-          case x => throw new RuntimeException("Unexpected: " + x)
+          case x => throw new UnexpectedError("Unexpected: " + x)
         }
 
         false
@@ -2940,7 +2941,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               val _typeUri = if (typUri != "null") Some(typUri) else None
               val ret = PNF.buildNameExp(nu.name + "::" + selname, seluri, _typeUri)
               ctx.pushResult(ret, sloc)
-            case x => throw new RuntimeException("Unexpected: " + x)
+            case x => throw new UnexpectedError("Unexpected: " + x)
           }
         }
         false
@@ -3027,7 +3028,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               val ts = PNF.buildNamedTypeSpec(ctx.typeDeclarations(StandardURIs.boolURI))
               val pd = PNF.buildParamDecl(name, URIS.DUMMY_URI, ts)
               matchings :+= Matching(ivector(pd), e)
-            case x => throw new RuntimeException()
+            case x => throw new UnexpectedError
           }
           val ne = ctx.peekLoopLabel
           val te = TupleExp(ivector(ne, FunExp(matchings)))
@@ -3046,7 +3047,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       ctx.unhandledSet += o.getClass.getSimpleName
       true
     case null =>
-      throw new RuntimeException("Element is null")
+      throw new UnexpectedError("Element is null")
   }
 
   def theVisitor : BVisitor = b
@@ -3069,7 +3070,6 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         attributeH(theContext, theVisitor),
         everythingElseH(theContext, theVisitor))))
 
-  // TODO: introduce standard package types
   val standardPackageTypes = List(
     StandardTypeDefs.StandardBoolean,
     StandardTypeDefs.StandardInteger,
@@ -3077,7 +3077,6 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     StandardTypeDefs.StandardPositive,
     StandardTypeDefs.StandardFloat,
 
-    // FIXME: inject the non-standard universal_integer
     StandardTypeDefs.UniversalInteger,
     StandardTypeDefs.UniversalReal,
 
@@ -3089,39 +3088,44 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     theContext.typeDeclarations += (td.uri -> td)
   }
 
-  // pick up public type declarations
-  parseGnat2XMLresults.foreach {
-    case (fileUri, value) => {
-      theContext.fileUri = fileUri
-      value.getUnitDeclarationQ.getDeclaration match {
-        case o : PackageDeclaration =>
-          assert(o.getNamesQl.getDefiningNames.size == 1)
-          val pname = o.getNamesQl.getDefiningNames.head.asInstanceOf[DefiningIdentifier]
+  try {
+    // pick up public type declarations
+    parseGnat2XMLresults.foreach {
+      case (fileUri, value) => {
+        theContext.fileUri = fileUri
+        value.getUnitDeclarationQ.getDeclaration match {
+          case o : PackageDeclaration =>
+            assert(o.getNamesQl.getDefiningNames.size == 1)
+            val pname = o.getNamesQl.getDefiningNames.head.asInstanceOf[DefiningIdentifier]
 
-          theContext.pushContext(Context(CTX.PACKAGE, pname.getDefName, pname.getDef))
+            theContext.pushContext(Context(CTX.PACKAGE, pname.getDefName, pname.getDef))
 
-          val scope = theContext.constructScope(b, o)
+            val scope = theContext.constructScope(b, o)
 
-          theContext.popContext
-        case _ =>
+            theContext.popContext
+          case _ =>
+        }
       }
     }
-  }
 
-  parseGnat2XMLresults.foreach {
-    case (fileUri, value) => {
-      theContext.fileUri = fileUri
-      b(value)
+    parseGnat2XMLresults.foreach {
+      case (fileUri, value) => {
+        theContext.fileUri = fileUri
+        b(value)
+      }
     }
+
+    val nd = URIS.addResourceUri(NameDefinition("Standard"), PackageURIs.standardPackageURI)
+    val standardPackage = PNF.buildPackageDecl(nd, standardPackageTypes)
+    theContext.models += PNF.buildModel("fake/standard.ads", ivector(standardPackage))
+
+    if (DEBUG) println("Not handling: " + theContext.unhandledSet.toList.sorted)
+
+    models = theContext.models.toList
+  } catch {
+    case e : Throwable =>
+      info.tags += TagUtil.genUnexpectedErrorTag(e)
   }
-
-  val nd = URIS.addResourceUri(NameDefinition("Standard"), PackageURIs.standardPackageURI)
-  val standardPackage = PNF.buildPackageDecl(nd, standardPackageTypes)
-  theContext.models += PNF.buildModel("fake/standard.ads", ivector(standardPackage))
-
-  if (DEBUG) println("Not handling: " + theContext.unhandledSet.toList.sorted)
-
-  models = theContext.models.toList
 }
 
 case class BakarTranslator(

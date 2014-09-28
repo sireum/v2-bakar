@@ -31,23 +31,24 @@ import org.jgrapht.ext.DOTExporter
 import java.io.StringWriter
 import org.sireum.util.CSet
 import org.jgrapht.alg.StrongConnectivityInspector
+import org.sireum.bakar.util.TagUtil
 
 case class CallInfo(
-  val location: LocationDecl,
-  val name: NameExp,
-  val target: ProcedureDecl,
-  val source: ProcedureDecl)
+  val location : LocationDecl,
+  val name : NameExp,
+  val target : ProcedureDecl,
+  val source : ProcedureDecl)
 
 trait CallTree {
-  val graph: DirectedMultigraph[ProcedureDecl, CallInfo]
-  val symbolTable: BakarSymbolTable
+  val graph : DirectedMultigraph[ProcedureDecl, CallInfo]
+  val symbolTable : BakarSymbolTable
 
   def getAllInfo = graph.edgeSet
 
-  def getCalleeInfo(m: ProcedureDecl) = graph.outgoingEdgesOf(m)
+  def getCalleeInfo(m : ProcedureDecl) = graph.outgoingEdgesOf(m)
 
-  def getCallerInfo(m: ProcedureDecl) = graph.incomingEdgesOf(m)
-  
+  def getCallerInfo(m : ProcedureDecl) = graph.incomingEdgesOf(m)
+
   def stronglyConnectedSets : Iterable[CSet[ProcedureDecl]] = {
     import scala.collection.JavaConversions._
 
@@ -57,10 +58,10 @@ trait CallTree {
 
   def outputCallTree = {
     val vnp = new VertexNameProvider[ProcedureDecl] {
-      def getVertexName(m: ProcedureDecl) = "\"" + m.name.uri + "\""
+      def getVertexName(m : ProcedureDecl) = "\"" + m.name.uri + "\""
     }
     val vnp2 = new VertexNameProvider[ProcedureDecl] {
-      def getVertexName(m: ProcedureDecl) = {
+      def getVertexName(m : ProcedureDecl) = {
         import org.sireum.bakar.symbol.BakarSymbol._
         val pack = symbolTable.package_(m.parentUri.get)
         pack.name.get.name + "." + m.name.name
@@ -71,7 +72,7 @@ trait CallTree {
     sw.toString
   }
 
-  def outputCallTree(fileName: FileResourceUri) {
+  def outputCallTree(fileName : FileResourceUri) {
     val fw = new FileWriter(new File(fileName))
     fw.write(outputCallTree)
     fw.close
@@ -82,8 +83,8 @@ trait CallTree {
     new Exec().run(10000, args, None)
   }
 
-  private def postOrder(result: MList[ProcedureDecl], seen: MSet[ProcedureDecl],
-    m: ProcedureDecl): Unit = {
+  private def postOrder(result : MList[ProcedureDecl], seen : MSet[ProcedureDecl],
+                        m : ProcedureDecl) : Unit = {
     for (ci <- graph.outgoingEdgesOf(m)) {
       val q = ci.target
       if (!seen.contains(q)) {
@@ -94,7 +95,7 @@ trait CallTree {
     result += m
   }
 
-  def postOrders: MList[ProcedureDecl] = {
+  def postOrders : MList[ProcedureDecl] = {
     val result = mlistEmpty[ProcedureDecl]
     val seen = msetEmpty[ProcedureDecl]
     for (p <- graph.vertexSet)
@@ -104,29 +105,29 @@ trait CallTree {
   }
 }
 
-class BakarCallTreeModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) extends BakarCallTreeModule {
+class BakarCallTreeModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarCallTreeModule {
   type BVisitor = Any => Boolean
 
   class Context {
-    var currentLoc: LocationDecl = null
-    var currentProc: ProcedureDecl = null
+    var currentLoc : LocationDecl = null
+    var currentProc : ProcedureDecl = null
     val graph = new DirectedMultigraph[ProcedureDecl, CallInfo](classOf[CallInfo])
   }
 
   val ctx = new Context
 
-  def impl(v: => BVisitor): VisitorFunction = {
-    case o: ActionLocation =>
+  def impl(v : => BVisitor) : VisitorFunction = {
+    case o : ActionLocation =>
       ctx.currentLoc = o
       v(o.action)
       ctx.currentLoc = null
       false
-    case o: JumpLocation =>
+    case o : JumpLocation =>
       ctx.currentLoc = o
       v(o.jump)
       ctx.currentLoc = null
       false
-    case o: NameExp =>
+    case o : NameExp =>
       if (ctx.currentLoc != null) {
         val uri = o.name.uri
 
@@ -150,7 +151,7 @@ class BakarCallTreeModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
         }
       }
       false
-    case o: ProcedureDecl =>
+    case o : ProcedureDecl =>
       ctx.currentProc = o
       ctx.graph.addVertex(o)
       v(o.body)
@@ -158,26 +159,31 @@ class BakarCallTreeModuleDef(val job: PipelineJob, info: PipelineJobModuleInfo) 
       false
   }
 
-  def theVisitor: BVisitor = b
+  def theVisitor : BVisitor = b
 
   val b = Visitor.build(impl(theVisitor))
 
-  for (m <- this.models) b(m)
+  try {
+    for (m <- this.models) b(m)
 
-  this.callTree = new CallTree {
-    val graph = ctx.graph
-    val symbolTable = BakarCallTreeModuleDef.this.symbolTable
+    this.callTree = new CallTree {
+      val graph = ctx.graph
+      val symbolTable = BakarCallTreeModuleDef.this.symbolTable
+    }
+  } catch {
+    case e : Throwable =>
+      info.tags += TagUtil.genUnexpectedErrorTag(e)
   }
 }
 
 case class BakarCallTree(
-  title: String = "Bakar Kiasan Call Tree",
-  @Input models: ISeq[Model],
-  @Input symbolTable: BakarSymbolTable,
-  @Output callTree: CallTree)
+  title : String = "Bakar Kiasan Call Tree",
+  @Input models : ISeq[Model],
+  @Input symbolTable : BakarSymbolTable,
+  @Output callTree : CallTree)
 
 object BakarKiasanCallTree {
-  def main(args: Array[String]) {
+  def main(args : Array[String]) {
     val cnames = Array(BakarCallTree.getClass.getName.dropRight(1))
 
     val bindir = Some(new File("./bin"))

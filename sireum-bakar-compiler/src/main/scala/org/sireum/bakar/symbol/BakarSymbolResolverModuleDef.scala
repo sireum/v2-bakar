@@ -20,30 +20,36 @@ import org.sireum.pilar.ast.NameDefinition
 import org.sireum.pilar.ast.ParamDecl
 import org.sireum.pilar.ast.LocalVarDecl
 import org.sireum.pilar.ast.CatchClause
+import org.sireum.bakar.util.UnexpectedError
 
 class BakarSymbolResolverModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends BakarSymbolResolverModule {
-  val ms = this.models
-  val par = this.parallel
-  val fst = { _ : Unit => new BakarSymbolTable }
+  try {
 
-  val result : BakarSymbolTable =
-    if (this.hasExistingModels.isDefined) {
-      val ems = this.hasExistingModels.get
-      val ebst = ems.asInstanceOf[BakarSymbolTable]
-      val changedOrAddedFiles =
-        ms.map { _.sourceURI }.filter { !_.isEmpty }.map { _.get }.toSet
-      throw new RuntimeException("Not handling changed/added yet")
-    } else {
-      BakarSymbolTable(ms, fst, par)
-    }
+    val ms = this.models
+    val par = this.parallel
+    val fst = { _ : Unit => new BakarSymbolTable }
+    val result : BakarSymbolTable =
+      if (this.hasExistingModels.isDefined) {
+        val ems = this.hasExistingModels.get
+        val ebst = ems.asInstanceOf[BakarSymbolTable]
+        val changedOrAddedFiles =
+          ms.map { _.sourceURI }.filter { !_.isEmpty }.map { _.get }.toSet
+        throw new UnexpectedError("Not handling changed/added yet")
+      } else {
+        BakarSymbolTable(ms, fst, par)
+      }
 
-  val bst = result.asInstanceOf[BakarSymbolTable]
-  info.tags ++= bst.tags
+    val bst = result.asInstanceOf[BakarSymbolTable]
+    info.tags ++= bst.tags
 
-  if (bst.hasErrors)
-    info.hasError = true
+    if (bst.hasErrors)
+      info.hasError = true
 
-  this.symbolTable = result
+    symbolTable = result
+  } catch {
+    case e : Throwable =>
+      info.tags += org.sireum.bakar.util.TagUtil.genUnexpectedErrorTag(e)
+  }
 }
 
 case class BakarSymbolResolver(
@@ -62,7 +68,7 @@ case class BakarSymbolResolver(
 object BakarSymbolResolver {
   def main(args : Array[String]) {
     val sireum = System.getenv.get("SIREUM_HOME") + "/sireum"
-    val destdir = "./src/main/scala/org/sireum/bakar/symbol"    
+    val destdir = "./src/main/scala/org/sireum/bakar/symbol"
     val cnames = Array(BakarSymbolResolver.getClass.getName.dropRight(1))
 
     val args = List(sireum, "tools", "pipeline", "-d", destdir, cnames(0))

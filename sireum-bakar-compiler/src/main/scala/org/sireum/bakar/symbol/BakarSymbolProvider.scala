@@ -20,6 +20,7 @@ import org.sireum.pilar.state.Value
 import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.bakar.compiler.module.PackageURIs
 import org.sireum.bakar.compiler.module.BAKAR_KEYS
+import org.sireum.bakar.util.UnexpectedError
 
 object BakarSymbolTable {
   def apply(models : ISeq[Model],
@@ -186,7 +187,7 @@ object BakarSymbolTable {
           x.body = Some(p)
           (mlistEmpty[ResourceUri], x)
         } else {
-          throw new RuntimeException("Unexpected: " + p)
+          throw new UnexpectedError("Unexpected: " + p)
         }
 
         bst.sparkMethodTable(procUri) = sparkMethod
@@ -244,6 +245,7 @@ object BakarSymbolTable {
               index += 1
             }
 
+            /*
             assert(
               im.locations.last match {
                 case x @ JumpLocation(_, _, ReturnJump(_, _)) => true
@@ -253,6 +255,7 @@ object BakarSymbolTable {
                   println(NodePrettyPrinter.print(p))
                   false
               })
+              */
             ptables.bodyTables = Some(bstd)
           case _ =>
         }
