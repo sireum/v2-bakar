@@ -16,6 +16,7 @@ class UnexpectedError(msg : String, cause : Throwable)
 }
 
 object TagUtil {
+  val blameTag = "Unhandled case - please contact belt@ksu.edu with the example: "
 
   def genUnexpectedErrorTag(msg : String) : Tag = {
     InfoTag(MarkerType("ERROR", None, "Unexpected error",
@@ -26,13 +27,13 @@ object TagUtil {
   def genUnexpectedErrorTag(e : Throwable) : Tag = {
     import scala.collection.JavaConversions._
 
-    val message = if (e.isInstanceOf[UnexpectedError]) {
-      val re = e.asInstanceOf[UnexpectedError]
-      "Unhandled case - please contact belt@ksu.edu with the example: " +
-        re.getMessage + "\n\n" + e.getStackTrace.toList.mkString("\n")
-    } else
-      e.getMessage + "\n\n" + e.getStackTrace.toList.mkString("\n")
-
+    val message =
+      blameTag +
+        (if (e.isInstanceOf[UnexpectedError]) {
+          val re = e.asInstanceOf[UnexpectedError]
+          // do anything special here
+        } else "") + 
+        e.getMessage + "\n\n" + e.getStackTrace.toList.mkString("\n")
     genUnexpectedErrorTag(message)
   }
 }
