@@ -534,8 +534,20 @@ typealias Boolean Boolean
          <string>Boolean</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Boolean-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>0</bigInteger>
+             </scala.math.BigInt>
+             <string>0ii</string>
+           </some>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1</bigInteger>
+             </scala.math.BigInt>
+             <string>1ii</string>
+           </some>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
@@ -551,8 +563,20 @@ typealias Integer Integer
          <string>Integer</string>
          <string sid="1">ada://ordinary_type/Standard-1:1/Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>-2147483648</bigInteger>
+             </scala.math.BigInt>
+             <string>-2147483648ii</string>
+           </some>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>2147483647</bigInteger>
+             </scala.math.BigInt>
+             <string>2147483647ii</string>
+           </some>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
@@ -568,8 +592,20 @@ typealias Integer Natural
          <string>Natural</string>
          <string sid="1">ada://subtype/Standard-1:1/Natural-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>0</bigInteger>
+             </scala.math.BigInt>
+             <string>0ii</string>
+           </some>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>2147483647</bigInteger>
+             </scala.math.BigInt>
+             <string>2147483647ii</string>
+           </some>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
@@ -585,8 +621,20 @@ typealias Integer Positive
          <string>Positive</string>
          <string sid="1">ada://subtype/Standard-1:1/Positive-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>1</bigInteger>
+             </scala.math.BigInt>
+             <string>1ii</string>
+           </some>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>2147483647</bigInteger>
+             </scala.math.BigInt>
+             <string>2147483647ii</string>
+           </some>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
@@ -619,8 +667,20 @@ typealias universal_integer universal_integer
          <string sid="1">universal_integer</string>
          <string sid="2">ada://ordinary_type/Universal_Integer-1:1</string>
          <org.sireum.bakar.symbol.SignedIntegerTypeDef cid="2" size="2">
-           <none/>
-           <none/>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="3" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>9223372036854775807</bigInteger>
+             </scala.math.BigInt>
+             <string sid="3">9223372036854775807ii</string>
+           </some>
+           <some etype="org.sireum.pilar.ast.LiteralExp" cid="4" size="3">
+             <org.sireum.pilar.ast.LiteralType>INTEGER</org.sireum.pilar.ast.LiteralType>
+             <scala.math.BigInt>
+               <bigInteger>9223372036854775807</bigInteger>
+             </scala.math.BigInt>
+             <string srefid="3"/>
+           </some>
          </org.sireum.bakar.symbol.SignedIntegerTypeDef>
        </org.sireum.bakar.symbol.FullTypeDecl>""")
 
