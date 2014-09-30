@@ -213,7 +213,16 @@ object StandardTypeDefs {
     pilarTypeDec
   }
 
-  val UniversalInteger = createType("universal_integer", "universal_integer", StandardURIs.universalIntURI, 
+  def getBits(bits : Int, low : Option[Integer] = None) = {
+    val b = (if(bits < 1) 32 else bits) - 1 
+    val l = (if(low.isDefined) BigInt(low.get) else BigInt(2).pow(b) * -1)
+    val h = BigInt(2).pow(b) - 1
+    
+    (Some(LiteralExp(LiteralType.INTEGER, l, l.toString() + "ii")),
+      Some(LiteralExp(LiteralType.INTEGER, h, h.toString() + "ii")))
+  }
+
+  val UniversalInteger = createType("universal_integer", "universal_integer", StandardURIs.universalIntURI,
     Some(LiteralExp(LiteralType.INTEGER, BigInt(Long.MaxValue), Long.MaxValue.toString() + "ii")),
     Some(LiteralExp(LiteralType.INTEGER, BigInt(Long.MaxValue), Long.MaxValue.toString() + "ii")))
 
@@ -223,17 +232,20 @@ object StandardTypeDefs {
     Some(LiteralExp(LiteralType.INTEGER, BigInt(0), "0ii")),
     Some(LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii")))
 
-  val StandardInteger = createType("Integer", "Integer", StandardURIs.integerURI,
-    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MIN_VALUE), Integer.MIN_VALUE.toString() + "ii")),
-    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MAX_VALUE), Integer.MAX_VALUE.toString() + "ii")))
+  def StandardInteger(bits : Int) = {
+    val (low, high) = getBits(bits)
+    createType("Integer", "Integer", StandardURIs.integerURI, low, high)
+  }
 
-  val StandardNatural = createType("Natural", "Integer", StandardURIs.naturalURI,
-    Some(LiteralExp(LiteralType.INTEGER, BigInt(0), "0ii")),
-    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MAX_VALUE), Integer.MAX_VALUE.toString() + "ii")))
+  def StandardNatural(bits : Int) = {
+    val (low, high) = getBits(bits, Some(0))
+    createType("Natural", "Integer", StandardURIs.naturalURI, low, high)
+  }
 
-  val StandardPositive = createType("Positive", "Integer", StandardURIs.positiveURI,
-    Some(LiteralExp(LiteralType.INTEGER, BigInt(1), "1ii")),
-    Some(LiteralExp(LiteralType.INTEGER, BigInt(Integer.MAX_VALUE), Integer.MAX_VALUE.toString() + "ii")))
+  def StandardPositive(bits : Int) = {
+    val (low, high) = getBits(bits, Some(1))
+    createType("Positive", "Integer", StandardURIs.positiveURI, low, high)
+  }
 
   val StandardFloat = createType("Float", "Float", StandardURIs.floatURI, None, None)
 

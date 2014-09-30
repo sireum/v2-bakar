@@ -1130,7 +1130,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               v(high)
               val highBound : Exp = popResult
 
-              val i = URIS.getTypeDef(StandardTypeDefs.StandardInteger)
+              val i = URIS.getTypeDef(StandardTypeDefs.StandardInteger(intBits))
               val anon = introduceAnonymousType(lowBound, highBound, i.id, i.uri)
               auxTypes :+= anon
               indexTypes :+= anon.name.uri
@@ -3078,12 +3078,12 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         aggregateH(theContext, theVisitor),
         attributeH(theContext, theVisitor),
         everythingElseH(theContext, theVisitor))))
-
+  
   val standardPackageTypes = List(
     StandardTypeDefs.StandardBoolean,
-    StandardTypeDefs.StandardInteger,
-    StandardTypeDefs.StandardNatural,
-    StandardTypeDefs.StandardPositive,
+    StandardTypeDefs.StandardInteger(intBits),
+    StandardTypeDefs.StandardNatural(intBits),
+    StandardTypeDefs.StandardPositive(intBits),
     StandardTypeDefs.StandardFloat,
 
     StandardTypeDefs.UniversalInteger,
@@ -3143,6 +3143,8 @@ case class BakarTranslator(
 
   @Input parseGnat2XMLresults : IMap[FileResourceUri, CompilationUnit],
 
+  @Input intBits : Integer = 32,
+  
   @Input regression : Boolean = false,
 
   @Output models : ISeq[Model])

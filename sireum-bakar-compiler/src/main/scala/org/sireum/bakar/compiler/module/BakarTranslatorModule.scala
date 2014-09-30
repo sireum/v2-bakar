@@ -5,6 +5,7 @@ package org.sireum.bakar.compiler.module
 
 import org.sireum.util._
 import org.sireum.pipeline._
+import java.lang.Integer
 import java.lang.String
 import org.sireum.bakar.xml.CompilationUnit
 import org.sireum.pilar.ast.Model
@@ -16,6 +17,7 @@ object BakarTranslatorModule extends PipelineModule {
   def origin = classOf[BakarTranslator]
 
   val globalRegressionKey = "Global.regression"
+  val globalIntBitsKey = "Global.intBits"
   val globalParseGnat2XMLresultsKey = "Global.parseGnat2XMLresults"
   val globalModelsKey = "Global.models"
 
@@ -35,8 +37,13 @@ object BakarTranslatorModule extends PipelineModule {
   }
 
   override def initialize(job : PipelineJob) {
+    if(!(job ? BakarTranslatorModule.globalIntBitsKey)) {
+      val intBits = Class.forName("org.sireum.bakar.compiler.module.BakarTranslator").getDeclaredMethod("$lessinit$greater$default$3").invoke(null).asInstanceOf[java.lang.Integer]
+      setIntBits(job.propertyMap, intBits)
+    }
+
     if(!(job ? BakarTranslatorModule.globalRegressionKey)) {
-      val regression = Class.forName("org.sireum.bakar.compiler.module.BakarTranslator").getDeclaredMethod("$lessinit$greater$default$3").invoke(null).asInstanceOf[scala.Boolean]
+      val regression = Class.forName("org.sireum.bakar.compiler.module.BakarTranslator").getDeclaredMethod("$lessinit$greater$default$4").invoke(null).asInstanceOf[scala.Boolean]
       setRegression(job.propertyMap, regression)
     }
   }
@@ -82,6 +89,33 @@ object BakarTranslatorModule extends PipelineModule {
       case None =>
         tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
           "Input error for '" + this.title + "': No value found for 'parseGnat2XMLresults'")       
+    }
+    var _intBits : scala.Option[AnyRef] = None
+    var _intBitsKey : scala.Option[String] = None
+
+    val keylistintBits = List(BakarTranslatorModule.globalIntBitsKey)
+    keylistintBits.foreach(key => 
+      if(job ? key) { 
+        if(_intBits.isEmpty) {
+          _intBits = Some(job(key))
+          _intBitsKey = Some(key)
+        }
+        if(!(job(key).asInstanceOf[AnyRef] eq _intBits.get)) {
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': 'intBits' keys '" + _intBitsKey.get + " and '" + key + "' point to different objects.")
+        }
+      }
+    )
+
+    _intBits match{
+      case Some(x) =>
+        if(!x.isInstanceOf[java.lang.Integer]){
+          tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+            "Input error for '" + this.title + "': Wrong type found for 'intBits'.  Expecting 'java.lang.Integer' but found '" + x.getClass.toString + "'")
+        }
+      case None =>
+        tags += PipelineUtil.genTag(PipelineUtil.ErrorMarker,
+          "Input error for '" + this.title + "': No value found for 'intBits'")       
     }
     var _regression : scala.Option[AnyRef] = None
     var _regressionKey : scala.Option[String] = None
@@ -143,6 +177,21 @@ object BakarTranslatorModule extends PipelineModule {
     return options
   }
 
+  def getIntBits (options : scala.collection.Map[Property.Key, Any]) : java.lang.Integer = {
+    if (options.contains(BakarTranslatorModule.globalIntBitsKey)) {
+       return options(BakarTranslatorModule.globalIntBitsKey).asInstanceOf[java.lang.Integer]
+    }
+
+    throw new Exception("Pipeline checker should guarantee we never reach here")
+  }
+
+  def setIntBits (options : MMap[Property.Key, Any], intBits : java.lang.Integer) : MMap[Property.Key, Any] = {
+
+    options(BakarTranslatorModule.globalIntBitsKey) = intBits
+
+    return options
+  }
+
   def getRegression (options : scala.collection.Map[Property.Key, Any]) : scala.Boolean = {
     if (options.contains(BakarTranslatorModule.globalRegressionKey)) {
        return options(BakarTranslatorModule.globalRegressionKey).asInstanceOf[scala.Boolean]
@@ -176,6 +225,7 @@ object BakarTranslatorModule extends PipelineModule {
   object ConsumerView {
     implicit class BakarTranslatorModuleConsumerView (val job : PropertyProvider) extends AnyVal {
       def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+      def intBits : java.lang.Integer = BakarTranslatorModule.getIntBits(job.propertyMap)
       def regression : scala.Boolean = BakarTranslatorModule.getRegression(job.propertyMap)
       def models : scala.collection.immutable.Seq[org.sireum.pilar.ast.Model] = BakarTranslatorModule.getModels(job.propertyMap)
     }
@@ -186,6 +236,9 @@ object BakarTranslatorModule extends PipelineModule {
 
       def parseGnat2XMLresults_=(parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit]) { BakarTranslatorModule.setParseGnat2XMLresults(job.propertyMap, parseGnat2XMLresults) }
       def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+
+      def intBits_=(intBits : java.lang.Integer) { BakarTranslatorModule.setIntBits(job.propertyMap, intBits) }
+      def intBits : java.lang.Integer = BakarTranslatorModule.getIntBits(job.propertyMap)
 
       def regression_=(regression : scala.Boolean) { BakarTranslatorModule.setRegression(job.propertyMap, regression) }
       def regression : scala.Boolean = BakarTranslatorModule.getRegression(job.propertyMap)
@@ -200,6 +253,8 @@ trait BakarTranslatorModule {
   def job : PipelineJob
 
   def parseGnat2XMLresults : scala.collection.immutable.Map[java.lang.String, org.sireum.bakar.xml.CompilationUnit] = BakarTranslatorModule.getParseGnat2XMLresults(job.propertyMap)
+
+  def intBits : java.lang.Integer = BakarTranslatorModule.getIntBits(job.propertyMap)
 
   def regression : scala.Boolean = BakarTranslatorModule.getRegression(job.propertyMap)
 
