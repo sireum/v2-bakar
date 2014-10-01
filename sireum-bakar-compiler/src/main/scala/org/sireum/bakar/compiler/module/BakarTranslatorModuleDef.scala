@@ -755,8 +755,9 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
               assert(isEmpty(hasNullEx.getHasNullExclusion))
               assert(isEmpty(cons.getConstraint))
 
-              val (sloc3, refName, refUri, typUri) = getName(mark)
-              make(names, refName, refUri, initExp)
+              v(mark)
+              val p : NameExp = popResult
+              make(names, p.name.name, p.name.uri, initExp)
             case _ => throw new UnexpectedError("Unexpected: " + objDec.getDefinition)
           }
         case DeferredConstantDeclarationEx(sloc, names, hasAliased, objDec, aspect, checks) =>
@@ -2946,7 +2947,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           e match {
             case NameExp(nu) =>
               assert(URIS.isPackageUri(seluri) || URIS.isMethodUri(seluri) || URIS.isTypeUri(seluri)
-                || (URIS.isPackageUri(nu.uri) && URIS.isGlobalVarUri(seluri)))
+                || (URIS.isPackageUri(nu.uri) && (URIS.isGlobalVarUri(seluri) || URIS.isConstantUri(seluri))))
               val _typeUri = if (typUri != "null") Some(typUri) else None
               val ret = PNF.buildNameExp(nu.name + "::" + selname, seluri, _typeUri)
               ctx.pushResult(ret, sloc)

@@ -102,6 +102,9 @@ object URIS {
       (u.charAt(i) == '@' && u.charAt(i + 1) == '@') && u.startsWith("ada://variable")
     else false
   }
+  
+  def isConstantUri(u : ResourceUri) = 
+    u.startsWith("ada://constant")
 }
 
 object VariableURIs {

@@ -10,6 +10,7 @@ import org.sireum.pilar.ast._
 import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.bakar.compiler.module.URIS
 import org.sireum.bakar.compiler.module.PilarNodeFactory
+import org.sireum.bakar.compiler.module.PilarNodeFactory.{copyPropertyMap => cp}
 import org.sireum.bakar.symbol.TypeDecl
 import org.sireum.bakar.util.TagUtil
 
@@ -66,26 +67,8 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
     URIS.getTypeUri(e)
   }
 
-  def copyMap[T <: PilarAstNode](orig : T, n : T) : T = {
-    n.propertyMap ++= orig.propertyMap
-    n
-  }
-
   val rewriter = Rewriter.build[LocationDecl]({
-    case l : LocationDecl => l
-    case b @ BinaryExp(o, l, r) =>
-      val btype = typeMap(getTypeUri(b))
-      val ltype = typeMap(getTypeUri(l))
-      val rtype = typeMap(getTypeUri(r))
-
-      val le = newTempVar(ltype.id, ltype.uri)
-      prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, le, ":=", l))
-
-      val re = newTempVar(rtype.id, rtype.uri)
-      prelocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, re, ":=", r))
-
-      val be = copyMap(b, BinaryExp(o, le, re))
-      URIS.addTypeUri(be, btype.uri)
+    case l : LocationDecl                                   => l
     case e @ AccessExp(NameExp(NameUser(n)), attributeName) => e
     case e @ AccessExp(exp, attributeName) =>
       val etype = typeMap(getTypeUri(e))
@@ -97,7 +80,7 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
           postlocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, exp, ":=", te))
         case _ =>
       }
-      val ae = copyMap(e, AccessExp(te, attributeName))
+      val ae = cp(e, AccessExp(te, attributeName))
       URIS.addTypeUri(ae, etype.uri)
     case e @ IndexingExp(NameExp(NameUser(n)), indices) => e
     case e @ IndexingExp(exp, indices) =>
@@ -111,25 +94,8 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
         case _ =>
       }
 
-      val ie = copyMap(e, IndexingExp(te, indices))
+      val ie = cp(e, IndexingExp(te, indices))
       URIS.addTypeUri(ie, etype.uri)
-
-    // the rest of these are sanity checks
-    case te : TupleExp  => te // tuple exp don't need a type
-    case fe : FunExp    => fe
-    case se : SwitchExp => se
-    case e @ CallExp(NameExp(n), _) =>
-      assert(n.uri.startsWith("ada://procedure") || URIS.hasTypeUri(e))
-      e
-    case e @ NameExp(n) =>
-      assert(n.uri.startsWith("ada://procedure") || n.uri.startsWith("ada://function") ||
-        URIS.hasTypeUri(e))
-      e
-    case e : Exp =>
-      if (!URIS.hasTypeUri(e))
-        print(e)
-      assert(URIS.hasTypeUri(e))
-      e
   }, Rewriter.TraversalMode.BOTTOM_UP, true)
 
   def rewrite(m : Model) : Model = {
@@ -165,26 +131,45 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
               prelocs = ilistEmpty[LocationDecl]
               postlocs = ilistEmpty[LocationDecl]
 
-              val rl = if (rewrite) rewriter(l) else l
+              val rl = if (rewrite) cp(l, rewriter(l)) else l
               locmap += (rl -> (prelocs, postlocs))
             }
 
             import org.sireum.bakar.symbol.BakarSymbol._
-            val x = locmap.flatMap { s => (s._2._1 :+ s._1) ++ s._2._2 }
+            val x = locmap.flatMap { s =>
+              val preLocs = s._2._1
+              val (_preLocs, orig) = if (!preLocs.isEmpty) {
+                val firstPre = preLocs.head.asInstanceOf[ActionLocation]
+                val origLoc = s._1
+
+                val _origLoc = origLoc match {
+                  case i:ActionLocation => cp(origLoc, i.copy(name = firstPre.name))
+                  case i:ComplexLocation => cp(origLoc, i.copy(name = firstPre.name))
+                  case i: JumpLocation =>  cp(origLoc, i.copy(name = firstPre.name))
+                }
+                
+                val _firstPre = cp(firstPre, firstPre.copy(name = origLoc.name))
+                val _moddedPres = _firstPre +: preLocs.drop(1) 
+                
+                (_moddedPres, _origLoc)
+              } else 
+                (preLocs, s._1)
+              (_preLocs :+ orig) ++ s._2._2
+            }
             val _body = ImplementedBody(body.locals ++ this.newTempVars, x.toList, body.catchClauses)
             val parentUri = pd.parentUri.get
             val modpd = PilarNodeFactory.buildProcedureDecl(methName, parentUri, params, rt, _body)
-            copyMap(pd, modpd)
+            cp(pd, modpd)
             elems :+= modpd
 
             this.newTempVars = ilistEmpty[LocalVarDecl]
           }
           case o => elems :+= o
         }
-        packages :+= PilarNodeFactory.buildPackageDecl(p.name.get, p.annotations, elems)
+        packages :+= cp(p, PilarNodeFactory.buildPackageDecl(p.name.get, p.annotations, elems))
         false
     })(m)
-    Model(m.sourceURI, m.annotations, packages)
+    cp(m, Model(m.sourceURI, m.annotations, packages))
   }
 }
 
