@@ -15,6 +15,7 @@ import org.sireum.util.Rewriter
 import org.sireum.bakar.compiler.module.URIS
 import org.sireum.bakar.symbol.TypeDecl
 import org.sireum.bakar.symbol._
+import org.sireum.bakar.compiler.module.PilarNodeFactory.{copyPropertyMap => cp}
 
 class ConstantRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleInfo) extends ConstantRewriterModule {
   implicit def ee(p : PilarAstNode) = p.asInstanceOf[Exp]
@@ -52,9 +53,9 @@ class ConstantRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleI
 
     import org.sireum.bakar.symbol.BakarSymbol._
     for(pd <- procs) {
-      if(pd.pre.isDefined) pd.pre = r(pd.pre.get)
-      if(pd.post.isDefined) pd.post = r(pd.post.get)
-      if(pd.postRefined.isDefined) pd.postRefined = r(pd.postRefined.get)
+      if(pd.pre.isDefined) pd.pre = cp(pd.pre.get, r(pd.pre.get))
+      if(pd.post.isDefined) pd.post = cp(pd.post.get, r(pd.post.get))
+      if(pd.postRefined.isDefined) pd.postRefined = cp(pd.postRefined.get, r(pd.postRefined.get))
     }
     
     val rtd = Rewriter.build[Type]({

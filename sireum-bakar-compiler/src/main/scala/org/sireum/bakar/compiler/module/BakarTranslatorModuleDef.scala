@@ -505,6 +505,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
         val cond = if (quantifiedExpType.get == Proof.PROOF_UIF_FOR_SOME) resultVar
         else PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP, resultVar, StandardURIs.boolURI)
         val jl = PNF.buildIfJumpLocation(cond, newLocLabel, endLoc.name.get)
+        addSourceLoc(jl, sloc)
         pushLocation(jl)
       }
 
@@ -512,6 +513,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       val endbe = handleBE(sloc, PilarAstUtil.EQ_BINOP, iterNE,
         if (isRev) lowtemp else hightemp, markURI)
       val endCheck = PNF.buildIfJumpLocation(endbe, newLocLabel, endLoc.name.get)
+      addSourceLoc(endCheck, sloc)
       pushLocation(endCheck)
 
       // increment/decrement iter var
@@ -822,12 +824,8 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       o
     }
 
-    def getSourceLoc(o : PilarAstNode) : Option[SourceLocationWithAt[PilarAstNode]] = {
-      if (o ? Location.locPropKey) {
-        val x = o(Location.locPropKey).asInstanceOf[SourceLocationWithAt[PilarAstNode]]
-        Some(x)
-      } else None
-    }
+    def getSourceLoc(o : PilarAstNode) : Option[org.sireum.util.SourceLocation] = 
+      PNF.getSourceLoc(o)
 
     def isEmpty(o : Base) : Boolean = o.isInstanceOf[NotAnElement]
 
@@ -900,7 +898,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
     }
 
     def createJumpLocation(j : Jump, s : SourceLocation) =
-      JumpLocation(Some(newLocLabel), ivectorEmpty, j)
+      addSourceLoc(JumpLocation(Some(newLocLabel), ivectorEmpty, j), s)
 
     def createGotoJumpLocation(target : NameUser, annots : ISeq[Annotation], s : SourceLocation) =
       createJumpLocation(GotoJump(annots, target), s)
@@ -2259,8 +2257,13 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       if (!ctx.isEmpty(exitCond.getExpression)) {
         v(exitCond)
         val c : Exp = ctx.popResult
-
+        val condLoc = ctx.getSourceLoc(c).get
+        
         val exitJl = PNF.buildIfJumpLocation(c, ctx.newLocLabel, ctx.peekExitLocation.name.get)
+
+        // condLoc is a tighter bound than sloc
+        exitJl(Location.locPropKey) = condLoc
+
         ctx.pushLocation(exitJl)
 
       } else {
@@ -2290,13 +2293,14 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
           v(condExp)
 
           val cond : Exp = ctx.popResult
-          val condLoc = ctx.getSourceLoc(cond)
+          val condLoc = ctx.getSourceLoc(cond).get
 
           // #l0. if(!condExp) then goto <gotoLoc>;
           val ue = PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP, cond, StandardURIs.boolURI)
           val jl = PNF.buildIfJumpLocation(ue, ctx.newLocLabel, gotoLoc)
 
-          jl(Location.locPropKey) = condLoc.get
+          // condLoc is a tighter bound than slocJumpLoc
+          jl(Location.locPropKey) = condLoc 
           ctx.pushLocation(jl)
 
           // ... eval body statements
@@ -2405,6 +2409,7 @@ class BakarTranslatorModuleDef(val job : PipelineJob, info : PipelineJobModuleIn
       // # if (!loopCond) goto endLocLabel;
       val ue = PNF.buildUnaryExp(PilarAstUtil.NOT_UNOP, ctx.popResult, StandardURIs.boolURI)
       val jl = PNF.buildIfJumpLocation(ue, ctx.newLocLabel, endLoc.name.get)
+      ctx.addSourceLoc(jl, sloc)
       ctx.pushLocation(jl)
 
       v(loopStatements)
