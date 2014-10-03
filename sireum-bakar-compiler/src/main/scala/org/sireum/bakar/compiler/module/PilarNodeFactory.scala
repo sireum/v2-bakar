@@ -19,8 +19,10 @@ object PilarNodeFactory {
     b
   }
 
-  def addSourceLoc[T <: PilarAstNode](a : T, s : SourceLocation) {
-    a(Location.locPropKey) = s
+  def addSourceLoc[T <: PilarAstNode](a : T, s : Option[SourceLocation]) : T = {
+    if(s.isDefined)
+      a(Location.locPropKey) = s.get
+    a
   }
   
   def getSourceLoc(o : PilarAstNode) : Option[SourceLocation] = {
