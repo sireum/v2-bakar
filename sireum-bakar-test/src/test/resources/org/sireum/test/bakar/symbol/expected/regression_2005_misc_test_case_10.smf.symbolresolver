@@ -78,12 +78,6 @@ Procedure Symbol Table
       ada://parameter/Test_Case_10-1:9/P1-2:15/O2-2:48 
       ada://variable/Test_Case_10-1:9/P1-2:15/L1+4:9 
       ada://variable/Test_Case_10-1:9/P1-2:15/L2+4:13 
-      ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t0 
-      ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t1 
-      ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t2 
-      ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t3 
-      ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t4 
-      ada://variable__temp/Test_Case_10-1:9/P1-2:15/_t5 
 
     Params
       ada://parameter/Test_Case_10-1:9/P1-2:15/I1-2:19 

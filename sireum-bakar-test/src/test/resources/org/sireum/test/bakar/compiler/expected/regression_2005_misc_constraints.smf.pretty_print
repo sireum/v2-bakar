@@ -80,7 +80,17 @@ procedure foo (
   #l3.
     a := a + 2ii;
 
-  #l4.
+  #l4.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>constraints.adb</string>
+           <int>8</int>
+           <int>3</int>
+           <int>9</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l0;
 
   #l1.
@@ -102,7 +112,17 @@ procedure foo (
   #l7.
     a := a - 1ii;
 
-  #l8.
+  #l8.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>constraints.adb</string>
+           <int>10</int>
+           <int>3</int>
+           <int>11</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l0;
 
   #l5.

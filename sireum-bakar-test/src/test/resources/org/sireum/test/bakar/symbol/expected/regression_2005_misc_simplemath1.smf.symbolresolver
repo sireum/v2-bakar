@@ -69,8 +69,6 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/SimpleMath1-1:9/Inc-6:13/I-6:17 
-      ada://variable__temp/SimpleMath1-1:9/Inc-6:13/_t0 
-      ada://variable__temp/SimpleMath1-1:9/Inc-6:13/_t1 
 
     Params
       ada://parameter/SimpleMath1-1:9/Inc-6:13/I-6:17 

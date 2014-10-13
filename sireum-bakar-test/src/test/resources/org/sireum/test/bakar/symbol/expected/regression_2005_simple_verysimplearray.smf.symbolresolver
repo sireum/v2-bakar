@@ -92,8 +92,6 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://variable/VerySimpleArray-1:9/Del+16:14/T+17:6 
-      ada://variable__temp/VerySimpleArray-1:9/Del+16:14/_t0 
-      ada://variable__temp/VerySimpleArray-1:9/Del+16:14/_t1 
 
     Params
 

@@ -107,7 +107,17 @@ procedure Integer MinFunc (
   #l4.
     Max := X;
 
-  #l5.
+  #l5.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>minpackage.adb</string>
+           <int>5</int>
+           <int>7</int>
+           <int>7</int>
+           <int>18</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l0;
 
   #l1.

@@ -74,8 +74,6 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/P_Complex-1:9/Q-6:13/X-6:15 
       ada://parameter/P_Complex-1:9/Q-6:13/Z-6:30 
-      ada://variable__temp/P_Complex-1:9/Q-6:13/_t0 
-      ada://variable__temp/P_Complex-1:9/Q-6:13/_t1 
 
     Params
       ada://parameter/P_Complex-1:9/Q-6:13/X-6:15 

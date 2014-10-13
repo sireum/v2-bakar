@@ -215,7 +215,17 @@ procedure Test (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := true;
 
-  #l9.
+  #l9.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">faultintegrator.adb</string>
+           <int>20</int>
+           <int>7</int>
+           <int>21</int>
+           <int>27</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l5;
 
   #l6.
@@ -255,7 +265,17 @@ procedure Test (
   #l5.
     // empty loc
 
-  #l11.
+  #l11.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">faultintegrator.adb</string>
+           <int>19</int>
+           <int>5</int>
+           <int>24</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l2;
 
   #l3.
@@ -305,7 +325,17 @@ procedure Test (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
      := false;
 
-  #l16.
+  #l16.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">faultintegrator.adb</string>
+           <int>26</int>
+           <int>7</int>
+           <int>27</int>
+           <int>28</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l12;
 
   #l13.

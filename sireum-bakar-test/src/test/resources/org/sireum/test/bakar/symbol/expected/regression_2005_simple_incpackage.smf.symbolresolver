@@ -65,8 +65,6 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/IncPackage-1:9/Inc-2:13/X-2:17 
       ada://variable/IncPackage-1:9/Inc-2:13/R+4:6 
-      ada://variable__temp/IncPackage-1:9/Inc-2:13/_t0 
-      ada://variable__temp/IncPackage-1:9/Inc-2:13/_t1 
 
     Params
       ada://parameter/IncPackage-1:9/Inc-2:13/X-2:17 

@@ -90,16 +90,46 @@ procedure Boolean isSorted (
   #l7.
     B := Z[I] <= Z[I + 1ii];
 
-  #l8.
+  #l8.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">array_unconstrained.adb</string>
+           <int>7</int>
+           <int>17</int>
+           <int>7</int>
+           <int>21</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(B) then goto l1;
 
-  #l9.
+  #l9.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">array_unconstrained.adb</string>
+           <int>5</int>
+           <int>5</int>
+           <int>8</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l1;
 
   #l10.
     I := I + 1ii;
 
-  #l11.
+  #l11.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">array_unconstrained.adb</string>
+           <int>5</int>
+           <int>5</int>
+           <int>8</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l6;
 
   #l1.

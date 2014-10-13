@@ -157,13 +157,33 @@ procedure Integer Num_Repetition (
   #l7.
     // empty loc
 
-  #l10.
+  #l10.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>7</int>
+           <int>5</int>
+           <int>11</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l1;
 
   #l11.
     I := I + 1ii;
 
-  #l12.
+  #l12.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>7</int>
+           <int>5</int>
+           <int>11</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l6;
 
   #l1.
@@ -326,13 +346,33 @@ procedure Boolean Perm (
   #l21.
     // empty loc
 
-  #l26.
+  #l26.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>19</int>
+           <int>5</int>
+           <int>23</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp3 then goto l15;
 
   #l27.
     I := I + 1ii;
 
-  #l28.
+  #l28.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>19</int>
+           <int>5</int>
+           <int>23</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l20;
 
   #l15.
@@ -470,13 +510,33 @@ procedure Boolean Ordered (
   #l37.
     // empty loc
 
-  #l40.
+  #l40.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>31</int>
+           <int>5</int>
+           <int>35</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp7 then goto l31;
 
   #l41.
     I := I + 1ii;
 
-  #l42.
+  #l42.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>31</int>
+           <int>5</int>
+           <int>35</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l36;
 
   #l31.
@@ -1176,25 +1236,65 @@ procedure Boolean Partitioned (
   #l57.
     // empty loc
 
-  #l60.
+  #l60.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>47</int>
+           <int>7</int>
+           <int>51</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if J == _tcomp11 then goto l51;
 
   #l61.
     J := J + 1ii;
 
-  #l62.
+  #l62.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>47</int>
+           <int>7</int>
+           <int>51</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l56;
 
   #l51.
     // empty loc
 
-  #l63.
+  #l63.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>46</int>
+           <int>5</int>
+           <int>52</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp9 then goto l45;
 
   #l64.
     I := I + 1ii;
 
-  #l65.
+  #l65.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>46</int>
+           <int>5</int>
+           <int>52</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l50;
 
   #l45.
@@ -2300,13 +2400,33 @@ procedure BubbleSort (
           case (attribute__uif__first `Array_Type, J - 1ii) => Table[K] <= Table[J]
           default => true} &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_6, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type), "Assertion failed at [79, 9]");
 
-  #l87.
+  #l87.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>74</int>
+           <int>8</int>
+           <int>86</int>
+           <int>16</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if J == _tcomp15 then goto l77;
 
   #l88.
     J := J + 1ii;
 
-  #l89.
+  #l89.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>74</int>
+           <int>8</int>
+           <int>86</int>
+           <int>16</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l82;
 
   #l77.
@@ -2315,13 +2435,33 @@ procedure BubbleSort (
   #l90.
     assert (proof__uif__assert Ordered (Table, I, attribute__uif__last `Index_Type) &&& Partitioned (Table, attribute__uif__first `Index_Type, I, attribute__uif__last `Index_Type) &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_5, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type), "Assertion failed at [88, 8]");
 
-  #l91.
+  #l91.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>73</int>
+           <int>6</int>
+           <int>95</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp12 then goto l71;
 
   #l92.
     I := I - 1ii;
 
-  #l93.
+  #l93.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>73</int>
+           <int>6</int>
+           <int>95</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l76;
 
   #l71.
@@ -2413,7 +2553,17 @@ procedure BubbleSortFast (
   >
     // empty loc
 
-  #l98.
+  #l98.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>104</int>
+           <int>20</int>
+           <int>104</int>
+           <int>28</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if Bound == 0ii then goto l97;
 
   #l99.
@@ -2431,7 +2581,17 @@ procedure BubbleSortFast (
   >
     // empty loc
 
-  #l103.
+  #l103.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>107</int>
+           <int>7</int>
+           <int>123</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(J <= Bound - 1ii) then goto l101;
 
   #l105.<
@@ -2465,7 +2625,17 @@ procedure BubbleSortFast (
           case (attribute__uif__first `Index_Type, J - 1ii) => Table[K] <= Table[J]
           default => true} &&& Partitioned (Table, attribute__uif__first `Index_Type, T, J) &&& Perm (Table, attribute__uif__loop_entry (LOOP_LABEL_8, Table), attribute__uif__first `Index_Type, attribute__uif__last `Index_Type), "Assertion failed at [114, 9]");
 
-  #l110.
+  #l110.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>107</int>
+           <int>7</int>
+           <int>123</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l102;
 
   #l101.
@@ -2477,7 +2647,17 @@ procedure BubbleSortFast (
   #l112.
     Bound := T;
 
-  #l113.
+  #l113.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>104</int>
+           <int>5</int>
+           <int>134</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l96;
 
   #l97.
@@ -2585,7 +2765,17 @@ procedure InsertionSort (
   >
     // empty loc
 
-  #l125.
+  #l125.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>145</int>
+           <int>7</int>
+           <int>160</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(J >= attribute__uif__first `Index_Type + 1ii && Table[J - 1ii] > Temp) then goto l123;
 
   #l126.
@@ -2600,7 +2790,17 @@ procedure InsertionSort (
           case (J + 1ii, P) => Table[K] > Temp
           default => true} &&& Ordered (Table, attribute__uif__first `Index_Type, P) &&& Perm (attribute__uif__update_exp (Table, ^{J -> Temp}), attribute__uif__loop_entry (LOOP_LABEL_10, Table), attribute__uif__first `Index_Type, P), "Assertion failed at [149, 9]");
 
-  #l129.
+  #l129.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>145</int>
+           <int>7</int>
+           <int>160</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l124;
 
   #l123.
@@ -2615,13 +2815,33 @@ procedure InsertionSort (
           case (P + 1ii, attribute__uif__last `Index_Type) => Table[K] == attribute__uif__loop_entry (LOOP_LABEL_9, Table)[K]
           default => true}, "Assertion failed at [164, 9]");
 
-  #l132.
+  #l132.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>142</int>
+           <int>5</int>
+           <int>176</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if P == _tcomp17 then goto l115;
 
   #l133.
     P := P + 1ii;
 
-  #l134.
+  #l134.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>142</int>
+           <int>5</int>
+           <int>176</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l120;
 
   #l115.
@@ -2741,7 +2961,17 @@ procedure ShellSort (
   >
     // empty loc
 
-  #l149.
+  #l149.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>190</int>
+           <int>9</int>
+           <int>196</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(J >= attribute__uif__first `Index_Type && Table[J] > Table[J + Gap]) then goto l147;
 
   #l150.
@@ -2750,28 +2980,78 @@ procedure ShellSort (
   #l151.
     J := J - Gap;
 
-  #l152.
+  #l152.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>190</int>
+           <int>9</int>
+           <int>196</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l148;
 
   #l147.
     // empty loc
 
-  #l153.
+  #l153.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>188</int>
+           <int>7</int>
+           <int>200</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp19 then goto l140;
 
   #l154.
     I := I + 1ii;
 
-  #l155.
+  #l155.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>188</int>
+           <int>7</int>
+           <int>200</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l145;
 
   #l140.
     // empty loc
 
-  #l156.
+  #l156.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>201</int>
+           <int>17</int>
+           <int>201</int>
+           <int>38</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if Gap == attribute__uif__first `Index_Type then goto l138;
 
-  #l157.
+  #l157.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sort.adb</string>
+           <int>186</int>
+           <int>5</int>
+           <int>204</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l137;
 
   #l138.

@@ -103,13 +103,33 @@ procedure Stupid (
   #l7.
     @@A[I] := 1ii;
 
-  #l8.
+  #l8.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>8</int>
+           <int>6</int>
+           <int>10</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l1;
 
   #l9.
     I := I + 1ii;
 
-  #l10.
+  #l10.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>8</int>
+           <int>6</int>
+           <int>10</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l6;
 
   #l1.
@@ -139,13 +159,33 @@ procedure Stupid (
   #l17.
     @@A[I] := 1ii;
 
-  #l18.
+  #l18.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>12</int>
+           <int>6</int>
+           <int>14</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I0 == _tcomp2 then goto l11;
 
   #l19.
     I0 := I0 - 1ii;
 
-  #l20.
+  #l20.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>12</int>
+           <int>6</int>
+           <int>14</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l16;
 
   #l11.
@@ -175,13 +215,33 @@ procedure Stupid (
   #l27.
     @@A[I] := 1ii;
 
-  #l28.
+  #l28.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>16</int>
+           <int>6</int>
+           <int>18</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I1 == _tcomp5 then goto l21;
 
   #l29.
     I1 := I1 + 1ii;
 
-  #l30.
+  #l30.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>16</int>
+           <int>6</int>
+           <int>18</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l26;
 
   #l21.
@@ -211,13 +271,33 @@ procedure Stupid (
   #l37.
     @@A[I] := 1ii;
 
-  #l38.
+  #l38.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>20</int>
+           <int>6</int>
+           <int>22</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I2 == _tcomp6 then goto l31;
 
   #l39.
     I2 := I2 - 1ii;
 
-  #l40.
+  #l40.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>20</int>
+           <int>6</int>
+           <int>22</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l36;
 
   #l31.
@@ -247,13 +327,33 @@ procedure Stupid (
   #l47.
     @@A[I] := @@A[I];
 
-  #l48.
+  #l48.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>25</int>
+           <int>6</int>
+           <int>27</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I3 == _tcomp9 then goto l41;
 
   #l49.
     I3 := I3 + 1ii;
 
-  #l50.
+  #l50.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>25</int>
+           <int>6</int>
+           <int>27</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l46;
 
   #l41.
@@ -283,13 +383,33 @@ procedure Stupid (
   #l57.
     @@A[I] := @@A[I];
 
-  #l58.
+  #l58.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>30</int>
+           <int>6</int>
+           <int>32</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I4 == _tcomp10 then goto l51;
 
   #l59.
     I4 := I4 - 1ii;
 
-  #l60.
+  #l60.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>30</int>
+           <int>6</int>
+           <int>32</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l56;
 
   #l51.
@@ -319,13 +439,33 @@ procedure Stupid (
   #l67.
     @@A[I] := @@A[I];
 
-  #l68.
+  #l68.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>35</int>
+           <int>6</int>
+           <int>37</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I5 == _tcomp13 then goto l61;
 
   #l69.
     I5 := I5 + 1ii;
 
-  #l70.
+  #l70.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>35</int>
+           <int>6</int>
+           <int>37</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l66;
 
   #l61.
@@ -355,13 +495,33 @@ procedure Stupid (
   #l77.
     @@A[I] := @@A[I];
 
-  #l78.
+  #l78.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>39</int>
+           <int>6</int>
+           <int>41</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I6 == _tcomp14 then goto l71;
 
   #l79.
     I6 := I6 - 1ii;
 
-  #l80.
+  #l80.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>39</int>
+           <int>6</int>
+           <int>41</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l76;
 
   #l71.
@@ -391,13 +551,33 @@ procedure Stupid (
   #l87.
     @@A[I] := @@A[I];
 
-  #l88.
+  #l88.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>43</int>
+           <int>6</int>
+           <int>45</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I7 == _tcomp17 then goto l81;
 
   #l89.
     I7 := I7 + 1ii;
 
-  #l90.
+  #l90.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>43</int>
+           <int>6</int>
+           <int>45</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l86;
 
   #l81.
@@ -427,13 +607,33 @@ procedure Stupid (
   #l97.
     @@A[I] := @@A[I];
 
-  #l98.
+  #l98.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>47</int>
+           <int>6</int>
+           <int>49</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I8 == _tcomp18 then goto l91;
 
   #l99.
     I8 := I8 - 1ii;
 
-  #l100.
+  #l100.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>for_loops.adb</string>
+           <int>47</int>
+           <int>6</int>
+           <int>49</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l96;
 
   #l91.

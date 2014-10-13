@@ -69,8 +69,6 @@ Procedure Symbol Table
       ada://parameter/Minpackage-1:9/MinFunc-2:12/Y-2:23 
       ada://variable/Minpackage-1:9/MinFunc-2:12/Max+3:12 
       ada://variable/Minpackage-1:9/MinFunc-2:12/Min+3:7 
-      ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t0 
-      ada://variable__temp/Minpackage-1:9/MinFunc-2:12/_t1 
 
     Params
       ada://parameter/Minpackage-1:9/MinFunc-2:12/X-2:20 

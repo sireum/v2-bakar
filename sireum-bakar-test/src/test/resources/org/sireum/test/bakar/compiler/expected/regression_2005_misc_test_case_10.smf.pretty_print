@@ -183,7 +183,17 @@ procedure P1 (
   #l10.
     L2 := 8ii;
 
-  #l11.
+  #l11.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">test_case_10.adb</string>
+           <int>13</int>
+           <int>13</int>
+           <int>15</int>
+           <int>24</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l7;
 
   #l8.

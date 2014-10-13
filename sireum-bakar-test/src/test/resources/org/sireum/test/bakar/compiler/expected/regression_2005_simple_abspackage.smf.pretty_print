@@ -76,7 +76,17 @@ procedure Integer AbsFunc (
   #l3.
     r := x * -1ii;
 
-  #l4.
+  #l4.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>abspackage.adb</string>
+           <int>6</int>
+           <int>5</int>
+           <int>7</int>
+           <int>20</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l0;
 
   #l1.

@@ -87,16 +87,46 @@ procedure Boolean isSorted (
   #l6.
     B := Z[I] <= Z[I + 1ii];
 
-  #l7.
+  #l7.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>8</int>
+           <int>17</int>
+           <int>8</int>
+           <int>21</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(B) then goto l0;
 
-  #l8.
+  #l8.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>6</int>
+           <int>5</int>
+           <int>9</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l0;
 
   #l9.
     I := I + 1ii;
 
-  #l10.
+  #l10.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>6</int>
+           <int>5</int>
+           <int>9</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l5;
 
   #l0.
@@ -217,13 +247,33 @@ procedure Integer Num_Repetitions (
   #l19.
     // empty loc
 
-  #l22.
+  #l22.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>17</int>
+           <int>5</int>
+           <int>21</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp3 then goto l13;
 
   #l23.
     I := I + 1ii;
 
-  #l24.
+  #l24.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>17</int>
+           <int>5</int>
+           <int>21</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l18;
 
   #l13.
@@ -332,31 +382,91 @@ procedure Boolean isSet (
   #l38.
     Result := I == J || A[I] != A[J];
 
-  #l39.
+  #l39.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>32</int>
+           <int>19</int>
+           <int>32</int>
+           <int>28</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Result) then goto l32;
 
-  #l40.
+  #l40.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>30</int>
+           <int>7</int>
+           <int>33</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if J == _tcomp7 then goto l32;
 
   #l41.
     J := J + 1ii;
 
-  #l42.
+  #l42.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>30</int>
+           <int>7</int>
+           <int>33</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l37;
 
   #l32.
     // empty loc
 
-  #l43.
+  #l43.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>34</int>
+           <int>17</int>
+           <int>34</int>
+           <int>26</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Result) then goto l26;
 
-  #l44.
+  #l44.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>29</int>
+           <int>5</int>
+           <int>35</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp5 then goto l26;
 
   #l45.
     I := I + 1ii;
 
-  #l46.
+  #l46.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>29</int>
+           <int>5</int>
+           <int>35</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l31;
 
   #l26.
@@ -485,16 +595,46 @@ procedure Boolean isPerm (
   #l55.
     // empty loc
 
-  #l60.
+  #l60.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>49</int>
+           <int>17</int>
+           <int>49</int>
+           <int>26</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Result) then goto l49;
 
-  #l61.
+  #l61.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>43</int>
+           <int>5</int>
+           <int>50</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp9 then goto l49;
 
   #l62.
     I := I + 1ii;
 
-  #l63.
+  #l63.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>43</int>
+           <int>5</int>
+           <int>50</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l54;
 
   #l49.
@@ -641,13 +781,33 @@ procedure BubbleSort (
   #l75.
     // empty loc
 
-  #l81.
+  #l81.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>63</int>
+           <int>7</int>
+           <int>70</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp13 then goto l69;
 
   #l82.
     I := I + 1ii;
 
-  #l83.
+  #l83.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>63</int>
+           <int>7</int>
+           <int>70</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l74;
 
   #l69.
@@ -656,10 +816,30 @@ procedure BubbleSort (
   #l84.
     N := N - 1ii;
 
-  #l85.
+  #l85.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>72</int>
+           <int>17</int>
+           <int>72</int>
+           <int>27</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Swapped) then goto l67;
 
-  #l86.
+  #l86.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>61</int>
+           <int>5</int>
+           <int>73</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l66;
 
   #l67.
@@ -1877,13 +2057,33 @@ procedure BubbleSort_using_SwapElements (
   #l104.
     // empty loc
 
-  #l108.
+  #l108.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>106</int>
+           <int>7</int>
+           <int>111</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp15 then goto l98;
 
   #l109.
     I := I + 1ii;
 
-  #l110.
+  #l110.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>106</int>
+           <int>7</int>
+           <int>111</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l103;
 
   #l98.
@@ -1892,10 +2092,30 @@ procedure BubbleSort_using_SwapElements (
   #l111.
     N := N - 1ii;
 
-  #l112.
+  #l112.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>113</int>
+           <int>17</int>
+           <int>113</int>
+           <int>27</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Swapped) then goto l96;
 
-  #l113.
+  #l113.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>104</int>
+           <int>5</int>
+           <int>114</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l95;
 
   #l96.
@@ -2003,7 +2223,17 @@ procedure InsertionSort (
   >
     // empty loc
 
-  #l125.
+  #l125.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>125</int>
+           <int>7</int>
+           <int>128</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(J >= attribute__uif__first `A && A[J] > Value) then goto l123;
 
   #l126.
@@ -2012,7 +2242,17 @@ procedure InsertionSort (
   #l127.
     J := J - 1ii;
 
-  #l128.
+  #l128.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>125</int>
+           <int>7</int>
+           <int>128</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l124;
 
   #l123.
@@ -2021,13 +2261,33 @@ procedure InsertionSort (
   #l129.
     A[J + 1ii] := Value;
 
-  #l130.
+  #l130.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>122</int>
+           <int>5</int>
+           <int>130</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp17 then goto l115;
 
   #l131.
     I := I + 1ii;
 
-  #l132.
+  #l132.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>122</int>
+           <int>5</int>
+           <int>130</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l120;
 
   #l115.
@@ -2166,13 +2426,33 @@ procedure SelectionSort (
   #l147.
     // empty loc
 
-  #l150.
+  #l150.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>140</int>
+           <int>7</int>
+           <int>144</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp21 then goto l141;
 
   #l151.
     I := I + 1ii;
 
-  #l152.
+  #l152.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>140</int>
+           <int>7</int>
+           <int>144</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l146;
 
   #l141.
@@ -2203,13 +2483,33 @@ procedure SelectionSort (
   #l153.
     // empty loc
 
-  #l158.
+  #l158.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>138</int>
+           <int>5</int>
+           <int>151</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if Pos == _tcomp19 then goto l134;
 
   #l159.
     Pos := Pos + 1ii;
 
-  #l160.
+  #l160.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>138</int>
+           <int>5</int>
+           <int>151</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l139;
 
   #l134.
@@ -2304,7 +2604,17 @@ procedure ShellSort (
   >
     // empty loc
 
-  #l165.
+  #l165.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>159</int>
+           <int>5</int>
+           <int>171</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(Increment > 0ii) then goto l163;
 
   #l167.
@@ -2343,7 +2653,17 @@ procedure ShellSort (
   >
     // empty loc
 
-  #l176.
+  #l176.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>163</int>
+           <int>9</int>
+           <int>166</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(J > Increment && A[J - Increment] > Temp) then goto l174;
 
   #l177.
@@ -2352,7 +2672,17 @@ procedure ShellSort (
   #l178.
     J := J - Increment;
 
-  #l179.
+  #l179.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>163</int>
+           <int>9</int>
+           <int>166</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l175;
 
   #l174.
@@ -2361,13 +2691,33 @@ procedure ShellSort (
   #l180.
     A[J] := Temp;
 
-  #l181.
+  #l181.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>160</int>
+           <int>7</int>
+           <int>168</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp23 then goto l166;
 
   #l182.
     I := I + 1ii;
 
-  #l183.
+  #l183.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>160</int>
+           <int>7</int>
+           <int>168</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l171;
 
   #l166.
@@ -2376,7 +2726,17 @@ procedure ShellSort (
   #l184.
     Increment := Increment / 2ii;
 
-  #l185.
+  #l185.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">sort_simple_contract.adb</string>
+           <int>159</int>
+           <int>5</int>
+           <int>171</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l164;
 
   #l163.

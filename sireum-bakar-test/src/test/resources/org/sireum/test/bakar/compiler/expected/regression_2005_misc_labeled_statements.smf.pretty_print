@@ -97,7 +97,17 @@ procedure P (
   #l3.
     Ret := true;
 
-  #l4.
+  #l4.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>7</int>
+           <int>6</int>
+           <int>8</int>
+           <int>19</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l0;
 
   #l1.
@@ -208,7 +218,17 @@ procedure Integer Stupid (
   >
     // empty loc
 
-  #l16.
+  #l16.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>26</int>
+           <int>8</int>
+           <int>49</int>
+           <int>16</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(J < Z) then goto l14;
 
   #l17.
@@ -230,7 +250,17 @@ procedure Integer Stupid (
   >
     if !(B) then goto l19;
 
-  #l21.
+  #l21.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>36</int>
+           <int>12</int>
+           <int>37</int>
+           <int>16</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l14;
 
   #l19.
@@ -242,7 +272,17 @@ procedure Integer Stupid (
   #l25.
     J := J + 1ii;
 
-  #l26.
+  #l26.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>42</int>
+           <int>12</int>
+           <int>44</int>
+           <int>24</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l22;
 
   #l23.
@@ -254,19 +294,49 @@ procedure Integer Stupid (
   #l22.
     // empty loc
 
-  #l29.
+  #l29.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>26</int>
+           <int>8</int>
+           <int>49</int>
+           <int>16</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l15;
 
   #l14.
     // empty loc
 
-  #l30.
+  #l30.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>20</int>
+           <int>6</int>
+           <int>52</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l7;
 
   #l31.
     I := I + 1ii;
 
-  #l32.
+  #l32.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">labeled_statements.adb</string>
+           <int>20</int>
+           <int>6</int>
+           <int>52</int>
+           <int>14</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l12;
 
   #l7.

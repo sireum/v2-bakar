@@ -72,20 +72,6 @@ Procedure Symbol Table
       ada://parameter/Labeled_Statements-1:9/Stupid-5:13/Z-5:20 
       ada://variable/Labeled_Statements-1:9/Stupid-5:13/B+17:6 
       ada://variable/Labeled_Statements-1:9/Stupid-5:13/J+16:6 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t10 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t11 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t12 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t13 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t14 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t15 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t2 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t3 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t4 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t5 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t6 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t7 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t8 
-      ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_t9 
       ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_tcomp0 
       ada://variable__temp/Labeled_Statements-1:9/Stupid-5:13/_tcomp1 
 
@@ -102,8 +88,6 @@ Procedure Symbol Table
       ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17 
       ada://parameter/Labeled_Statements-1:9/P+4:14/J+4:20 
       ada://parameter/Labeled_Statements-1:9/P+4:14/Ret+4:33 
-      ada://variable__temp/Labeled_Statements-1:9/P+4:14/_t0 
-      ada://variable__temp/Labeled_Statements-1:9/P+4:14/_t1 
 
     Params
       ada://parameter/Labeled_Statements-1:9/P+4:14/I+4:17 

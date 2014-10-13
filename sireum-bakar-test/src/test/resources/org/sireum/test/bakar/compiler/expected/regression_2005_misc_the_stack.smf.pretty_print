@@ -515,19 +515,49 @@ procedure Boolean Value_Present (
   #l20.
     Result := true;
 
-  #l21.
+  #l21.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>the_stack.adb</string>
+           <int>56</int>
+           <int>13</int>
+           <int>56</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l12;
 
   #l18.
     // empty loc
 
-  #l22.
+  #l22.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>the_stack.adb</string>
+           <int>53</int>
+           <int>7</int>
+           <int>62</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l12;
 
   #l23.
     I := I + 1ii;
 
-  #l24.
+  #l24.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>the_stack.adb</string>
+           <int>53</int>
+           <int>7</int>
+           <int>62</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l17;
 
   #l12.
@@ -628,19 +658,49 @@ procedure Index_Range Find_Stack_Pos (
   #l35.
     Result_Pos := I;
 
-  #l36.
+  #l36.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>the_stack.adb</string>
+           <int>79</int>
+           <int>13</int>
+           <int>79</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l27;
 
   #l33.
     // empty loc
 
-  #l37.
+  #l37.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>the_stack.adb</string>
+           <int>76</int>
+           <int>7</int>
+           <int>81</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp3 then goto l27;
 
   #l38.
     I := I + 1ii;
 
-  #l39.
+  #l39.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>the_stack.adb</string>
+           <int>76</int>
+           <int>7</int>
+           <int>81</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l32;
 
   #l27.

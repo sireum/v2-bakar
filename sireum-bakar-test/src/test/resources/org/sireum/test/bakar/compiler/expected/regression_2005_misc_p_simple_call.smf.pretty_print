@@ -157,7 +157,17 @@ procedure Integer incX (
   #l8.
     result := X + 1ii;
 
-  #l9.
+  #l9.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string sid="1">p_simple_call.adb</string>
+           <int>16</int>
+           <int>5</int>
+           <int>17</int>
+           <int>22</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l5;
 
   #l6.

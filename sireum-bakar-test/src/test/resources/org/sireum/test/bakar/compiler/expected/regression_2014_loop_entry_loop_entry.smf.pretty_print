@@ -159,22 +159,62 @@ procedure Array_Loop_Entry (
           case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == attribute__uif__loop_entry (Inner, A)[J]
           default => true}, "Loop Invariant failed at [13, 10]");
 
-  #l12.
+  #l12.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>loop_entry.adb</string>
+           <int>8</int>
+           <int>8</int>
+           <int>22</int>
+           <int>22</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if Index == _tcomp1 then goto l2;
 
   #l13.
     Index := Index + 1ii;
 
-  #l14.
+  #l14.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>loop_entry.adb</string>
+           <int>8</int>
+           <int>8</int>
+           <int>22</int>
+           <int>22</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l7;
 
   #l2.
     // empty loc
 
-  #l15.
+  #l15.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>loop_entry.adb</string>
+           <int>23</int>
+           <int>8</int>
+           <int>23</int>
+           <int>12</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l1;
 
-  #l16.
+  #l16.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>loop_entry.adb</string>
+           <int>6</int>
+           <int>6</int>
+           <int>24</int>
+           <int>20</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l0;
 
   #l1.
@@ -423,13 +463,33 @@ procedure Record_Loop_Entry (
            </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
     [Z], "Loop Invariant failed at [43, 12]");
 
-  #l29.
+  #l29.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>loop_entry.adb</string>
+           <int>39</int>
+           <int>10</int>
+           <int>47</int>
+           <int>29</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l24;
 
   #l25.
     // empty loc
 
-  #l30.
+  #l30.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>loop_entry.adb</string>
+           <int>31</int>
+           <int>6</int>
+           <int>49</int>
+           <int>25</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l19;
 
   #l20.

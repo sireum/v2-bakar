@@ -169,37 +169,97 @@ procedure Multiply (
   #l19.
     Z[I, J] := Z[I, J] + X[I, K] * Y[K, J];
 
-  #l20.
+  #l20.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>mymatrix.adb</string>
+           <int>14</int>
+           <int>9</int>
+           <int>16</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if K == _tcomp5 then goto l13;
 
   #l21.
     K := K + 1ii;
 
-  #l22.
+  #l22.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>mymatrix.adb</string>
+           <int>14</int>
+           <int>9</int>
+           <int>16</int>
+           <int>17</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l18;
 
   #l13.
     // empty loc
 
-  #l23.
+  #l23.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>mymatrix.adb</string>
+           <int>13</int>
+           <int>7</int>
+           <int>17</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if J == _tcomp3 then goto l7;
 
   #l24.
     J := J + 1ii;
 
-  #l25.
+  #l25.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>mymatrix.adb</string>
+           <int>13</int>
+           <int>7</int>
+           <int>17</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l12;
 
   #l7.
     // empty loc
 
-  #l26.
+  #l26.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>mymatrix.adb</string>
+           <int>12</int>
+           <int>5</int>
+           <int>18</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l1;
 
   #l27.
     I := I + 1ii;
 
-  #l28.
+  #l28.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>mymatrix.adb</string>
+           <int>12</int>
+           <int>5</int>
+           <int>18</int>
+           <int>13</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l6;
 
   #l1.

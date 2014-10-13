@@ -133,10 +133,6 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success10+142:13/O2+142:53 
       ada://variable/Dependence_Test_Suite_01-1:9/Success10+142:13/L1+146:6 
       ada://variable/Dependence_Test_Suite_01-1:9/Success10+142:13/L2+146:10 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success10+142:13/_t16 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success10+142:13/_t17 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success10+142:13/_t18 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success10+142:13/_t19 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success10+142:13/I1+142:24 
@@ -153,8 +149,6 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success2+20:13/I+20:23 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success2+20:13/O+20:39 
       ada://variable/Dependence_Test_Suite_01-1:9/Success2+20:13/L+23:6 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success2+20:13/_t0 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success2+20:13/_t1 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success2+20:13/I+20:23 
@@ -186,8 +180,6 @@ Procedure Symbol Table
       ada://variable/Dependence_Test_Suite_01-1:9/Success4+48:13/L1+51:6 
       ada://variable/Dependence_Test_Suite_01-1:9/Success4+48:13/L2+51:10 
       ada://variable/Dependence_Test_Suite_01-1:9/Success4+48:13/L3+51:14 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success4+48:13/_t2 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success4+48:13/_t3 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success4+48:13/I1+48:23 
@@ -206,8 +198,6 @@ Procedure Symbol Table
       ada://variable/Dependence_Test_Suite_01-1:9/Success5+60:13/L1+64:6 
       ada://variable/Dependence_Test_Suite_01-1:9/Success5+60:13/L2+64:10 
       ada://variable/Dependence_Test_Suite_01-1:9/Success5+60:13/L3+64:14 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success5+60:13/_t4 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success5+60:13/_t5 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success5+60:13/I1+60:23 
@@ -224,8 +214,6 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success6+75:13/I2+75:27 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success6+75:13/O1+75:44 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success6+75:13/O2+75:48 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success6+75:13/_t6 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success6+75:13/_t7 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success6+75:13/I1+75:23 
@@ -242,8 +230,6 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success7+90:13/I2+90:27 
       ada://parameter/Dependence_Test_Suite_01-1:9/Success7+90:13/O+90:44 
       ada://variable/Dependence_Test_Suite_01-1:9/Success7+90:13/L1+93:6 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success7+90:13/_t8 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success7+90:13/_t9 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success7+90:13/I1+90:23 
@@ -260,8 +246,6 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success8+105:13/O+105:44 
       ada://variable/Dependence_Test_Suite_01-1:9/Success8+105:13/L1+108:6 
       ada://variable/Dependence_Test_Suite_01-1:9/Success8+105:13/L2+108:10 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success8+105:13/_t10 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success8+105:13/_t11 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success8+105:13/I1+105:23 
@@ -279,10 +263,6 @@ Procedure Symbol Table
       ada://parameter/Dependence_Test_Suite_01-1:9/Success9+121:13/O+121:48 
       ada://variable/Dependence_Test_Suite_01-1:9/Success9+121:13/L1+124:6 
       ada://variable/Dependence_Test_Suite_01-1:9/Success9+121:13/L2+124:10 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success9+121:13/_t12 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success9+121:13/_t13 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success9+121:13/_t14 
-      ada://variable__temp/Dependence_Test_Suite_01-1:9/Success9+121:13/_t15 
 
     Params
       ada://parameter/Dependence_Test_Suite_01-1:9/Success9+121:13/I1+121:23 

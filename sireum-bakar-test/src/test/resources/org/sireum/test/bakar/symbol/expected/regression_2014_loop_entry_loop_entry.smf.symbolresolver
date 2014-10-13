@@ -95,24 +95,6 @@ Procedure Symbol Table
       ada://loop_parameter/Loop_Entry-1:9/Array_Loop_Entry-14:14/Index+9:12 
       ada://parameter/Loop_Entry-1:9/Array_Loop_Entry-14:14/A-14:32 
       ada://variable/Loop_Entry-1:9/Array_Loop_Entry-14:14/Temp+4:7 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t0 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t1 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t10 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t11 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t12 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t13 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t14 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t15 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t16 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t17 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t2 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t3 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t4 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t5 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t6 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t7 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t8 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_t9 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_tcomp0 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_tcomp1 
 
@@ -129,8 +111,6 @@ Procedure Symbol Table
       ada://parameter/Loop_Entry-1:9/Record_Loop_Entry-18:14/A-18:33 
       ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Temp+28:6 
       ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Z+35:10 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t18 
-      ada://variable__temp/Loop_Entry-1:9/Record_Loop_Entry-18:14/_t19 
 
     Params
       ada://parameter/Loop_Entry-1:9/Record_Loop_Entry-18:14/A-18:33 

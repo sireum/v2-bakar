@@ -78,12 +78,6 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/P_Simple_Call-1:9/incX+11:12/X+11:17 
       ada://variable/P_Simple_Call-1:9/incX+11:12/result+14:5 
-      ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t4 
-      ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t5 
-      ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t6 
-      ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t7 
-      ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t8 
-      ada://variable__temp/P_Simple_Call-1:9/incX+11:12/_t9 
 
     Params
       ada://parameter/P_Simple_Call-1:9/incX+11:12/X+11:17 
@@ -117,8 +111,6 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/P_Simple_Call-1:9/Q-7:13/X-7:15 
       ada://parameter/P_Simple_Call-1:9/Q-7:13/Z-7:30 
-      ada://variable__temp/P_Simple_Call-1:9/Q-7:13/_t10 
-      ada://variable__temp/P_Simple_Call-1:9/Q-7:13/_t11 
       ada://variable__temp/P_Simple_Call-1:9/Q-7:13/_tcomp0 
 
     Params
@@ -131,10 +123,6 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/P_Simple_Call-1:9/R-11:13/X-11:15 
-      ada://variable__temp/P_Simple_Call-1:9/R-11:13/_t0 
-      ada://variable__temp/P_Simple_Call-1:9/R-11:13/_t1 
-      ada://variable__temp/P_Simple_Call-1:9/R-11:13/_t2 
-      ada://variable__temp/P_Simple_Call-1:9/R-11:13/_t3 
 
     Params
       ada://parameter/P_Simple_Call-1:9/R-11:13/X-11:15 

@@ -99,7 +99,17 @@ procedure Integer Sum (
   >
     // empty loc
 
-  #l6.
+  #l6.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sumpackage.adb</string>
+           <int>11</int>
+           <int>7</int>
+           <int>14</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(T >= 0ii) then goto l4;
 
   #l7.
@@ -108,7 +118,17 @@ procedure Integer Sum (
   #l8.
     T := T - 1ii;
 
-  #l9.
+  #l9.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sumpackage.adb</string>
+           <int>11</int>
+           <int>7</int>
+           <int>14</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l5;
 
   #l4.
@@ -217,7 +237,17 @@ procedure Sum2 (
   >
     // empty loc
 
-  #l18.
+  #l18.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sumpackage.adb</string>
+           <int>28</int>
+           <int>7</int>
+           <int>31</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if !(T >= 0ii) then goto l16;
 
   #l19.
@@ -226,7 +256,17 @@ procedure Sum2 (
   #l20.
     T := T - 1ii;
 
-  #l21.
+  #l21.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>sumpackage.adb</string>
+           <int>28</int>
+           <int>7</int>
+           <int>31</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l17;
 
   #l16.

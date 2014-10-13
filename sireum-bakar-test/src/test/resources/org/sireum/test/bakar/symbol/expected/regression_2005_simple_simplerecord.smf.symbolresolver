@@ -90,9 +90,7 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/SimpleRecord-1:9/AAdd+28:14/I+28:19 
       ada://parameter/SimpleRecord-1:9/AAdd+28:14/R+28:33 
-      ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t6 
-      ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t7 
-      ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t8 
+      ada://variable__temp/SimpleRecord-1:9/AAdd+28:14/_t2 
 
     Params
       ada://parameter/SimpleRecord-1:9/AAdd+28:14/I+28:19 
@@ -105,8 +103,6 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/SimpleRecord-1:9/Add+18:14/I+18:18 
       ada://parameter/SimpleRecord-1:9/Add+18:14/R+18:32 
-      ada://variable__temp/SimpleRecord-1:9/Add+18:14/_t0 
-      ada://variable__temp/SimpleRecord-1:9/Add+18:14/_t1 
 
     Params
       ada://parameter/SimpleRecord-1:9/Add+18:14/I+18:18 
@@ -119,10 +115,8 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/SimpleRecord-1:9/NAdd+23:14/I+23:19 
       ada://parameter/SimpleRecord-1:9/NAdd+23:14/NR+23:33 
-      ada://variable__temp/SimpleRecord-1:9/NAdd+23:14/_t2 
-      ada://variable__temp/SimpleRecord-1:9/NAdd+23:14/_t3 
-      ada://variable__temp/SimpleRecord-1:9/NAdd+23:14/_t4 
-      ada://variable__temp/SimpleRecord-1:9/NAdd+23:14/_t5 
+      ada://variable__temp/SimpleRecord-1:9/NAdd+23:14/_t0 
+      ada://variable__temp/SimpleRecord-1:9/NAdd+23:14/_t1 
 
     Params
       ada://parameter/SimpleRecord-1:9/NAdd+23:14/I+23:19 

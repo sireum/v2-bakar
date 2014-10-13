@@ -276,13 +276,33 @@ procedure Integer Max (
   #l10.
     // empty loc
 
-  #l13.
+  #l13.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>simplearray.adb</string>
+           <int>15</int>
+           <int>7</int>
+           <int>19</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     if I == _tcomp1 then goto l4;
 
   #l14.
     I := I + 1ii;
 
-  #l15.
+  #l15.<
+      @util.loc
+
+        ("""<org.sireum.util.SourceLocation_-SourceLocationWithAtImpl cid="1" size="5">
+           <string>simplearray.adb</string>
+           <int>15</int>
+           <int>7</int>
+           <int>19</int>
+           <int>15</int>
+         </org.sireum.util.SourceLocation_-SourceLocationWithAtImpl>""")
+  >
     goto l9;
 
   #l4.

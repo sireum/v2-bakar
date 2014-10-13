@@ -1,12 +1,2 @@
 ada://parameter/Constraints-1:9/foo-11:13/a-11:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://parameter/Constraints-1:9/foo-11:13/dayVar-11:37 -> ada://ordinary_type/Constraints-1:9/Day-8:8
-ada://variable__temp/Constraints-1:9/foo-11:13/_t0 -> ada://ordinary_type/Constraints-1:9/Day-8:8
-ada://variable__temp/Constraints-1:9/foo-11:13/_t1 -> ada://ordinary_type/Constraints-1:9/Day-8:8
-ada://variable__temp/Constraints-1:9/foo-11:13/_t2 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Constraints-1:9/foo-11:13/_t3 -> ada://ordinary_type/Universal_Integer-1:1
-ada://variable__temp/Constraints-1:9/foo-11:13/_t4 -> ada://ordinary_type/Constraints-1:9/Day-8:8
-ada://variable__temp/Constraints-1:9/foo-11:13/_t5 -> ada://ordinary_type/Constraints-1:9/Day-8:8
-ada://variable__temp/Constraints-1:9/foo-11:13/_t6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Constraints-1:9/foo-11:13/_t7 -> ada://ordinary_type/Universal_Integer-1:1
-ada://variable__temp/Constraints-1:9/foo-11:13/_t8 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Constraints-1:9/foo-11:13/_t9 -> ada://ordinary_type/Universal_Integer-1:1

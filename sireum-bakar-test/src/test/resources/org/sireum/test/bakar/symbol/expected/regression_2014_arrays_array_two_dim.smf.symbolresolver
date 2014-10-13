@@ -121,8 +121,6 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19 
       ada://parameter/Array_Two_Dim-1:9/dummy-40:13/Y-40:33 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy-40:13/_t6 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy-40:13/_t7 
 
     Params
       ada://parameter/Array_Two_Dim-1:9/dummy-40:13/X-40:19 
@@ -135,10 +133,8 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20 
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t10 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t11 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t8 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t9 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t0 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t1 
 
     Params
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20 
@@ -149,12 +145,6 @@ Procedure Symbol Table
   ada://procedure_body__package_init/Array_Two_Dim-1:9/$$binit 
 
     LocalVarTable
-      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t0 
-      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t1 
-      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t2 
-      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t3 
-      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t4 
-      ada://variable__temp/Array_Two_Dim-1:9/$$binit/_t5 
 
     Params
 
