@@ -10,73 +10,23 @@ global Vector @@A;
 global Vector @@B;
 
 procedure $$binit {
-  local
-    Index _t0;
-    Index _t1;
-    Index _t2;
-    Index _t3;
-    Index _t4;
-    Index _t5;
-    Index _t6;
-    Index _t7;
-    universal_integer _t8;
-    universal_integer _t9;
-    universal_integer _t10;
-    universal_integer _t11;
-
-
-  #rwl0.
-    _t0 := attribute__uif__first `Index;
-
-  #rwl1.
-    _t1 := 0ii;
-
-  #rwl2.
-    _t2 := attribute__uif__first `Index;
-
-  #rwl3.
-    _t3 := 1ii;
-
-  #rwl4.
-    _t4 := attribute__uif__first `Index;
-
-  #rwl5.
-    _t5 := 2ii;
-
-  #rwl6.
-    _t6 := attribute__uif__first `Index;
-
-  #rwl7.
-    _t7 := 3ii;
 
   #l0.
     @@A := `Vector {Index iter => 
         switch iter
-          case _t0 + _t1 => 0ii
-          case _t2 + _t3 => 1ii
-          case _t4 + _t5 => 2ii
-          case _t6 + _t7 => 3ii
+          case attribute__uif__first `Index + 0ii => 0ii
+          case attribute__uif__first `Index + 1ii => 1ii
+          case attribute__uif__first `Index + 2ii => 2ii
+          case attribute__uif__first `Index + 3ii => 3ii
           default => 9ii};
-
-  #rwl8.
-    _t8 := 1ii;
-
-  #rwl9.
-    _t9 := 1ii;
-
-  #rwl10.
-    _t10 := 8ii;
-
-  #rwl11.
-    _t11 := 2ii;
 
   #l1.
     @@B := `Vector {Index iter => 
         switch iter
           case 0ii => 0ii
           case 1ii => 1ii
-          case _t8 + _t9 => 2ii
-          case _t10 / _t11 => 3ii
+          case 1ii + 1ii => 2ii
+          case 8ii / 2ii => 3ii
           default => 9ii};
 
   #l17.
@@ -96,14 +46,6 @@ procedure Integer Max (
     Index I;
     Index _tcomp0;
     Index _tcomp1;
-    Index _t12;
-    Index _t13;
-    Integer _t14;
-    Integer _t15;
-    Index _t16;
-    Index _t17;
-    Index _t18;
-    universal_integer _t19;
 
 
   #l3.
@@ -115,14 +57,8 @@ procedure Integer Max (
   #l6.
     _tcomp1 := attribute__uif__last `Index;
 
-  #rwl12.
-    _t12 := _tcomp0;
-
-  #rwl13.
-    _t13 := _tcomp1;
-
   #l7.
-    if _t12 > _t13 then goto l4;
+    if _tcomp0 > _tcomp1 then goto l4;
 
   #l8.
     I := _tcomp0;
@@ -130,14 +66,8 @@ procedure Integer Max (
   #l9.
     // empty loc
 
-  #rwl14.
-    _t14 := V[I];
-
-  #rwl15.
-    _t15 := M;
-
   #l11.
-    if !(_t14 > _t15) then goto l10;
+    if !(V[I] > M) then goto l10;
 
   #l12.
     M := V[I];
@@ -145,23 +75,11 @@ procedure Integer Max (
   #l10.
     // empty loc
 
-  #rwl16.
-    _t16 := I;
-
-  #rwl17.
-    _t17 := _tcomp1;
-
   #l13.
-    if _t16 == _t17 then goto l4;
-
-  #rwl18.
-    _t18 := I;
-
-  #rwl19.
-    _t19 := 1ii;
+    if I == _tcomp1 then goto l4;
 
   #l14.
-    I := _t18 + _t19;
+    I := I + 1ii;
 
   #l15.
     goto l9;

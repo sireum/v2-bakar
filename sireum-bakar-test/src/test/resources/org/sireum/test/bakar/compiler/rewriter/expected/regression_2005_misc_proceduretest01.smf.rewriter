@@ -5,30 +5,12 @@ procedure P (
         Integer a,
         Integer b,
         Integer c) {
-  local
-    Integer _t0;
-    Integer _t1;
-    Integer _t2;
-    Integer _t3;
-
-
-  #rwl0.
-    _t0 := a;
-
-  #rwl1.
-    _t1 := b;
 
   #l0.
-    b := _t0 + _t1;
-
-  #rwl2.
-    _t2 := a;
-
-  #rwl3.
-    _t3 := b;
+    b := a + b;
 
   #l1.
-    c := _t2 + _t3;
+    c := a + b;
 
   #l2.
     return;
@@ -57,8 +39,6 @@ procedure Q (
         Integer R) {
   local
     Integer L1;
-    Integer _t4;
-    Integer _t5;
 
 
   #l6.
@@ -70,14 +50,8 @@ procedure Q (
   #l8.
     R := 5ii;
 
-  #rwl4.
-    _t4 := T;
-
-  #rwl5.
-    _t5 := L1;
-
   #l9.
-    T := _t4 + _t5;
+    T := T + L1;
 
   #l10.
     return;

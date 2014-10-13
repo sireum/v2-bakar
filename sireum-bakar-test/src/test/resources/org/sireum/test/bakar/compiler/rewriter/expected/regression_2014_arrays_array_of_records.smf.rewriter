@@ -24,31 +24,31 @@ procedure Swap (
     Object _t3;
 
 
-  #rwl0.
+  #l1.
     _t0 := Q[theIndex];
 
-  #l1.
+  #rwl0.
     temp1 := _t0.X;
 
-  #rwl1.
+  #l2.
     _t1 := Q[theIndex];
 
-  #l2.
+  #rwl1.
     temp2 := _t1.Y;
 
-  #rwl2.
+  #l3.
     _t2 := Q[theIndex];
 
-  #l3.
+  #rwl2.
     _t2.X := temp2;
 
   #rwl3.
     Q[theIndex] := _t2;
 
-  #rwl4.
+  #l4.
     _t3 := Q[theIndex];
 
-  #l4.
+  #rwl4.
     _t3.Y := temp1;
 
   #rwl5.

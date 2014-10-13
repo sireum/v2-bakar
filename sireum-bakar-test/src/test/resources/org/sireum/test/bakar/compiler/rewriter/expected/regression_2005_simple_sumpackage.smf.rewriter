@@ -6,68 +6,28 @@ procedure Integer Sum (
   local
     Integer R;
     Integer T;
-    Integer _t0;
-    universal_integer _t1;
-    Integer _t2;
-    universal_integer _t3;
-    Integer _t4;
-    universal_integer _t5;
-    Integer _t6;
-    universal_integer _t7;
-    Integer _t8;
-    universal_integer _t9;
 
 
   #l0.
     R := 0ii;
 
-  #rwl0.
-    _t0 := N;
-
-  #rwl1.
-    _t1 := 0ii;
-
   #l2.
-    if !(_t0 >= _t1) then goto l1;
-
-  #rwl2.
-    _t2 := N;
-
-  #rwl3.
-    _t3 := 1ii;
+    if !(N >= 0ii) then goto l1;
 
   #l3.
-    T := _t2 - _t3;
+    T := N - 1ii;
 
   #l5.
     // empty loc
 
-  #rwl4.
-    _t4 := T;
-
-  #rwl5.
-    _t5 := 0ii;
-
   #l6.
-    if !(_t4 >= _t5) then goto l4;
-
-  #rwl6.
-    _t6 := R;
-
-  #rwl7.
-    _t7 := 1ii;
+    if !(T >= 0ii) then goto l4;
 
   #l7.
-    R := _t6 + _t7;
-
-  #rwl8.
-    _t8 := T;
-
-  #rwl9.
-    _t9 := 1ii;
+    R := R + 1ii;
 
   #l8.
-    T := _t8 - _t9;
+    T := T - 1ii;
 
   #l9.
     goto l5;
@@ -90,68 +50,28 @@ procedure Sum2 (
         Integer R) {
   local
     Integer T;
-    Integer _t10;
-    universal_integer _t11;
-    Integer _t12;
-    universal_integer _t13;
-    Integer _t14;
-    universal_integer _t15;
-    Integer _t16;
-    universal_integer _t17;
-    Integer _t18;
-    universal_integer _t19;
 
 
   #l12.
     R := 0ii;
 
-  #rwl10.
-    _t10 := N;
-
-  #rwl11.
-    _t11 := 0ii;
-
   #l14.
-    if !(_t10 >= _t11) then goto l13;
-
-  #rwl12.
-    _t12 := N;
-
-  #rwl13.
-    _t13 := 1ii;
+    if !(N >= 0ii) then goto l13;
 
   #l15.
-    T := _t12 - _t13;
+    T := N - 1ii;
 
   #l17.
     // empty loc
 
-  #rwl14.
-    _t14 := T;
-
-  #rwl15.
-    _t15 := 0ii;
-
   #l18.
-    if !(_t14 >= _t15) then goto l16;
-
-  #rwl16.
-    _t16 := R;
-
-  #rwl17.
-    _t17 := 1ii;
+    if !(T >= 0ii) then goto l16;
 
   #l19.
-    R := _t16 + _t17;
-
-  #rwl18.
-    _t18 := T;
-
-  #rwl19.
-    _t19 := 1ii;
+    R := R + 1ii;
 
   #l20.
-    T := _t18 - _t19;
+    T := T - 1ii;
 
   #l21.
     goto l17;

@@ -32,19 +32,9 @@ procedure $$binit {
 
 procedure Push (
         Integer X) {
-  local
-    Pointer_Range _t0;
-    universal_integer _t1;
-
-
-  #rwl0.
-    _t0 := @@Pointer;
-
-  #rwl1.
-    _t1 := 1ii;
 
   #l2.
-    @@Pointer := _t0 + _t1;
+    @@Pointer := @@Pointer + 1ii;
 
   #l3.
     @@S[@@Pointer] := X;
@@ -55,22 +45,12 @@ procedure Push (
 
 procedure Pop (
         Integer X) {
-  local
-    Pointer_Range _t2;
-    universal_integer _t3;
-
 
   #l5.
     X := @@S[@@Pointer];
 
-  #rwl2.
-    _t2 := @@Pointer;
-
-  #rwl3.
-    _t3 := 1ii;
-
   #l6.
-    @@Pointer := _t2 - _t3;
+    @@Pointer := @@Pointer - 1ii;
 
   #l7.
     return;

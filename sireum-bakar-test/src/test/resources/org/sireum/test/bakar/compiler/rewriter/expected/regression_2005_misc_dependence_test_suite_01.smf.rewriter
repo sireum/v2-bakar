@@ -29,8 +29,6 @@ procedure Success2 (
         Integer O) {
   local
     Integer L;
-    Integer _t0;
-    Integer _t1;
 
 
   #l4.
@@ -39,14 +37,8 @@ procedure Success2 (
   #l5.
     O := L;
 
-  #rwl0.
-    _t0 := I;
-
-  #rwl1.
-    _t1 := attribute__uif__last `History_Range;
-
   #l8.
-    if !(_t0 < _t1) then goto l7;
+    if !(I < attribute__uif__last `History_Range) then goto l7;
 
   #l9.
     O := L;
@@ -100,8 +92,6 @@ procedure Success4 (
     Integer L1;
     Integer L2;
     Integer L3;
-    Integer _t2;
-    Integer _t3;
 
 
   #l18.
@@ -110,14 +100,8 @@ procedure Success4 (
   #l19.
     L2 := I2;
 
-  #rwl2.
-    _t2 := L1;
-
-  #rwl3.
-    _t3 := L2;
-
   #l20.
-    L3 := _t2 + _t3;
+    L3 := L1 + L2;
 
   #l21.
     O := L3;
@@ -135,8 +119,6 @@ procedure Success5 (
     Integer L1;
     Integer L2;
     Integer L3;
-    Integer _t4;
-    Integer _t5;
 
 
   #l23.
@@ -148,14 +130,8 @@ procedure Success5 (
   #l25.
     L2 := L1;
 
-  #rwl4.
-    _t4 := L1;
-
-  #rwl5.
-    _t5 := L2;
-
   #l26.
-    L3 := _t4 + _t5;
+    L3 := L1 + L2;
 
   #l27.
     O2 := O1;
@@ -172,22 +148,12 @@ procedure Success6 (
         Integer I2,
         Integer O1,
         Integer O2) {
-  local
-    Integer _t6;
-    universal_integer _t7;
-
 
   #l30.
     O1 := I1;
 
-  #rwl6.
-    _t6 := I2;
-
-  #rwl7.
-    _t7 := 5ii;
-
   #l33.
-    if !(_t6 > _t7) then goto l32;
+    if !(I2 > 5ii) then goto l32;
 
   #l34.
     O2 := 5ii;
@@ -214,21 +180,13 @@ procedure Success7 (
         Integer O) {
   local
     Integer L1;
-    Integer _t8;
-    Integer _t9;
 
 
   #l38.
     L1 := I1;
 
-  #rwl8.
-    _t8 := L1;
-
-  #rwl9.
-    _t9 := I2;
-
   #l41.
-    if !(_t8 > _t9) then goto l40;
+    if !(L1 > I2) then goto l40;
 
   #l42.
     O := 6ii;
@@ -256,21 +214,13 @@ procedure Success8 (
   local
     Integer L1;
     Integer L2;
-    Integer _t10;
-    universal_integer _t11;
 
 
   #l46.
     L1 := I1;
 
-  #rwl10.
-    _t10 := L1;
-
-  #rwl11.
-    _t11 := 5ii;
-
   #l49.
-    if !(_t10 > _t11) then goto l48;
+    if !(L1 > 5ii) then goto l48;
 
   #l50.
     L2 := 6ii;
@@ -302,23 +252,13 @@ procedure Success9 (
   local
     Integer L1;
     Integer L2;
-    Integer _t12;
-    universal_integer _t13;
-    Integer _t14;
-    universal_integer _t15;
 
 
   #l55.
     L1 := I1;
 
-  #rwl12.
-    _t12 := L1;
-
-  #rwl13.
-    _t13 := 5ii;
-
   #l58.
-    if !(_t12 > _t13) then goto l57;
+    if !(L1 > 5ii) then goto l57;
 
   #l59.
     L2 := 6ii;
@@ -329,14 +269,8 @@ procedure Success9 (
   #l57.
     // empty loc
 
-  #rwl14.
-    _t14 := I2;
-
-  #rwl15.
-    _t15 := 0ii;
-
   #l63.
-    if !(_t14 < _t15) then goto l62;
+    if !(I2 < 0ii) then goto l62;
 
   #l64.
     L2 := I3;
@@ -372,10 +306,6 @@ procedure Success10 (
   local
     Integer L1;
     Integer L2;
-    Integer _t16;
-    universal_integer _t17;
-    Integer _t18;
-    universal_integer _t19;
 
 
   #l69.
@@ -390,23 +320,11 @@ procedure Success10 (
   #l72.
     L1 := I2;
 
-  #rwl16.
-    _t16 := L1;
-
-  #rwl17.
-    _t17 := 5ii;
-
   #l74.
-    if !(_t16 > _t17) then goto l73;
-
-  #rwl18.
-    _t18 := I1;
-
-  #rwl19.
-    _t19 := 0ii;
+    if !(L1 > 5ii) then goto l73;
 
   #l77.
-    if !(_t18 < _t19) then goto l76;
+    if !(I1 < 0ii) then goto l76;
 
   #l78.
     L2 := 8ii;

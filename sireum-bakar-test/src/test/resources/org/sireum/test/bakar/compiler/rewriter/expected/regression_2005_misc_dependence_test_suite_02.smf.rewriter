@@ -72,8 +72,6 @@ procedure Success4 (
     Integer L1;
     Integer L2;
     Integer L3;
-    Integer _t0;
-    Integer _t1;
 
 
   #l12.
@@ -82,14 +80,8 @@ procedure Success4 (
   #l13.
     L2 := I2;
 
-  #rwl0.
-    _t0 := L1;
-
-  #rwl1.
-    _t1 := L2;
-
   #l14.
-    L3 := _t0 + _t1;
+    L3 := L1 + L2;
 
   #l15.
     O := L3;
@@ -107,8 +99,6 @@ procedure Success5 (
     Integer L1;
     Integer L2;
     Integer L3;
-    Integer _t2;
-    Integer _t3;
 
 
   #l17.
@@ -120,14 +110,8 @@ procedure Success5 (
   #l19.
     L2 := L1;
 
-  #rwl2.
-    _t2 := L1;
-
-  #rwl3.
-    _t3 := L2;
-
   #l20.
-    L3 := _t2 + _t3;
+    L3 := L1 + L2;
 
   #l21.
     O2 := O1;
@@ -144,22 +128,12 @@ procedure Success6 (
         Integer I2,
         Integer O1,
         Integer O2) {
-  local
-    Integer _t4;
-    universal_integer _t5;
-
 
   #l24.
     O1 := I1;
 
-  #rwl4.
-    _t4 := I2;
-
-  #rwl5.
-    _t5 := 5ii;
-
   #l27.
-    if !(_t4 > _t5) then goto l26;
+    if !(I2 > 5ii) then goto l26;
 
   #l28.
     O2 := 5ii;
@@ -186,21 +160,13 @@ procedure Success7 (
         Integer O) {
   local
     Integer L1;
-    Integer _t6;
-    Integer _t7;
 
 
   #l32.
     L1 := I1;
 
-  #rwl6.
-    _t6 := L1;
-
-  #rwl7.
-    _t7 := I2;
-
   #l35.
-    if !(_t6 > _t7) then goto l34;
+    if !(L1 > I2) then goto l34;
 
   #l36.
     O := 6ii;
@@ -228,21 +194,13 @@ procedure Success8 (
   local
     Integer L1;
     Integer L2;
-    Integer _t8;
-    universal_integer _t9;
 
 
   #l40.
     L1 := I1;
 
-  #rwl8.
-    _t8 := L1;
-
-  #rwl9.
-    _t9 := 5ii;
-
   #l43.
-    if !(_t8 > _t9) then goto l42;
+    if !(L1 > 5ii) then goto l42;
 
   #l44.
     L2 := 6ii;
@@ -274,23 +232,13 @@ procedure Success9 (
   local
     Integer L1;
     Integer L2;
-    Integer _t10;
-    universal_integer _t11;
-    Integer _t12;
-    universal_integer _t13;
 
 
   #l49.
     L1 := I1;
 
-  #rwl10.
-    _t10 := L1;
-
-  #rwl11.
-    _t11 := 5ii;
-
   #l52.
-    if !(_t10 > _t11) then goto l51;
+    if !(L1 > 5ii) then goto l51;
 
   #l53.
     L2 := 6ii;
@@ -301,14 +249,8 @@ procedure Success9 (
   #l51.
     // empty loc
 
-  #rwl12.
-    _t12 := I2;
-
-  #rwl13.
-    _t13 := 0ii;
-
   #l57.
-    if !(_t12 < _t13) then goto l56;
+    if !(I2 < 0ii) then goto l56;
 
   #l58.
     L2 := I3;
@@ -344,10 +286,6 @@ procedure Success10 (
   local
     Integer L1;
     Integer L2;
-    Integer _t14;
-    universal_integer _t15;
-    Integer _t16;
-    universal_integer _t17;
 
 
   #l63.
@@ -362,23 +300,11 @@ procedure Success10 (
   #l66.
     L1 := I2;
 
-  #rwl14.
-    _t14 := L1;
-
-  #rwl15.
-    _t15 := 5ii;
-
   #l68.
-    if !(_t14 > _t15) then goto l67;
-
-  #rwl16.
-    _t16 := I1;
-
-  #rwl17.
-    _t17 := 0ii;
+    if !(L1 > 5ii) then goto l67;
 
   #l71.
-    if !(_t16 < _t17) then goto l70;
+    if !(I1 < 0ii) then goto l70;
 
   #l72.
     L2 := 8ii;
@@ -411,12 +337,6 @@ procedure Success11 (
   local
     Integer Sum;
     Integer J;
-    Integer _t18;
-    Integer _t19;
-    Integer _t20;
-    Integer _t21;
-    Integer _t22;
-    universal_integer _t23;
 
 
   #l77.
@@ -428,32 +348,14 @@ procedure Success11 (
   #l80.
     // empty loc
 
-  #rwl18.
-    _t18 := J;
-
-  #rwl19.
-    _t19 := I1;
-
   #l81.
-    if !(_t18 <= _t19) then goto l79;
-
-  #rwl20.
-    _t20 := Sum;
-
-  #rwl21.
-    _t21 := J;
+    if !(J <= I1) then goto l79;
 
   #l82.
-    Sum := _t20 + _t21;
-
-  #rwl22.
-    _t22 := J;
-
-  #rwl23.
-    _t23 := 1ii;
+    Sum := Sum + J;
 
   #l83.
-    J := _t22 + _t23;
+    J := J + 1ii;
 
   #l84.
     goto l80;
@@ -475,14 +377,6 @@ procedure Success12 (
   local
     Integer Sum;
     Integer J;
-    Integer _t24;
-    Integer _t25;
-    Integer _t26;
-    Integer _t27;
-    Integer _t28;
-    Integer _t29;
-    Integer _t30;
-    universal_integer _t31;
 
 
   #l87.
@@ -494,32 +388,14 @@ procedure Success12 (
   #l90.
     // empty loc
 
-  #rwl24.
-    _t24 := J;
-
-  #rwl25.
-    _t25 := I1;
-
   #l91.
-    if !(_t24 <= _t25) then goto l89;
-
-  #rwl26.
-    _t26 := Sum;
-
-  #rwl27.
-    _t27 := J;
+    if !(J <= I1) then goto l89;
 
   #l92.
-    Sum := _t26 + _t27;
-
-  #rwl28.
-    _t28 := Sum;
-
-  #rwl29.
-    _t29 := I2;
+    Sum := Sum + J;
 
   #l94.
-    if !(_t28 > _t29) then goto l93;
+    if !(Sum > I2) then goto l93;
 
   #l95.
     Sum := 0ii;
@@ -527,14 +403,8 @@ procedure Success12 (
   #l93.
     // empty loc
 
-  #rwl30.
-    _t30 := J;
-
-  #rwl31.
-    _t31 := 1ii;
-
   #l96.
-    J := _t30 + _t31;
+    J := J + 1ii;
 
   #l97.
     goto l90;
@@ -557,18 +427,6 @@ procedure Success13 (
     Integer Sum;
     Integer J1;
     Integer J2;
-    Integer _t32;
-    Integer _t33;
-    Integer _t34;
-    Integer _t35;
-    Integer _t36;
-    Integer _t37;
-    Integer _t38;
-    Integer _t39;
-    Integer _t40;
-    universal_integer _t41;
-    Integer _t42;
-    universal_integer _t43;
 
 
   #l100.
@@ -583,50 +441,20 @@ procedure Success13 (
   #l104.
     // empty loc
 
-  #rwl32.
-    _t32 := J1;
-
-  #rwl33.
-    _t33 := I1;
-
   #l105.
-    if !(_t32 <= _t33) then goto l103;
+    if !(J1 <= I1) then goto l103;
 
   #l107.
     // empty loc
 
-  #rwl34.
-    _t34 := J2;
-
-  #rwl35.
-    _t35 := I2;
-
   #l108.
-    if !(_t34 <= _t35) then goto l106;
-
-  #rwl36.
-    _t36 := J1;
-
-  #rwl37.
-    _t37 := J2;
-
-  #rwl38.
-    _t38 := Sum;
-
-  #rwl39.
-    _t39 := _t36 * _t37;
+    if !(J2 <= I2) then goto l106;
 
   #l109.
-    Sum := _t38 + _t39;
-
-  #rwl40.
-    _t40 := J2;
-
-  #rwl41.
-    _t41 := 1ii;
+    Sum := Sum + J1 * J2;
 
   #l110.
-    J2 := _t40 + _t41;
+    J2 := J2 + 1ii;
 
   #l111.
     goto l107;
@@ -634,14 +462,8 @@ procedure Success13 (
   #l106.
     // empty loc
 
-  #rwl42.
-    _t42 := J1;
-
-  #rwl43.
-    _t43 := 1ii;
-
   #l112.
-    J1 := _t42 + _t43;
+    J1 := J1 + 1ii;
 
   #l113.
     goto l104;
@@ -664,14 +486,6 @@ procedure Success14 (
     Integer J;
     Integer L1;
     Integer L2;
-    Integer _t44;
-    Integer _t45;
-    Integer _t46;
-    Integer _t47;
-    Integer _t48;
-    universal_integer _t49;
-    Integer _t50;
-    Integer _t51;
 
 
   #l116.
@@ -686,23 +500,11 @@ procedure Success14 (
   #l120.
     // empty loc
 
-  #rwl44.
-    _t44 := J;
-
-  #rwl45.
-    _t45 := I1;
-
   #l121.
-    if !(_t44 <= _t45) then goto l119;
-
-  #rwl46.
-    _t46 := Sum;
-
-  #rwl47.
-    _t47 := J;
+    if !(J <= I1) then goto l119;
 
   #l122.
-    Sum := _t46 + _t47;
+    Sum := Sum + J;
 
   #l123.
     L1 := Sum;
@@ -710,14 +512,8 @@ procedure Success14 (
   #l124.
     L2 := L1;
 
-  #rwl48.
-    _t48 := J;
-
-  #rwl49.
-    _t49 := 1ii;
-
   #l125.
-    J := _t48 + _t49;
+    J := J + 1ii;
 
   #l126.
     goto l120;
@@ -725,14 +521,8 @@ procedure Success14 (
   #l119.
     // empty loc
 
-  #rwl50.
-    _t50 := Sum;
-
-  #rwl51.
-    _t51 := L2;
-
   #l127.
-    O1 := _t50 + _t51;
+    O1 := Sum + L2;
 
   #l128.
     return;
@@ -745,14 +535,6 @@ procedure Success15 (
     Integer J;
     Integer _tcomp0;
     Integer _tcomp1;
-    Integer _t52;
-    Integer _t53;
-    Integer _t54;
-    Integer _t55;
-    Integer _t56;
-    Integer _t57;
-    Integer _t58;
-    universal_integer _t59;
 
 
   #l129.
@@ -764,14 +546,8 @@ procedure Success15 (
   #l132.
     _tcomp1 := 10ii;
 
-  #rwl52.
-    _t52 := _tcomp0;
-
-  #rwl53.
-    _t53 := _tcomp1;
-
   #l133.
-    if _t52 > _t53 then goto l130;
+    if _tcomp0 > _tcomp1 then goto l130;
 
   #l134.
     J := _tcomp0;
@@ -779,32 +555,14 @@ procedure Success15 (
   #l135.
     // empty loc
 
-  #rwl54.
-    _t54 := Sum;
-
-  #rwl55.
-    _t55 := J;
-
   #l136.
-    Sum := _t54 + _t55;
-
-  #rwl56.
-    _t56 := J;
-
-  #rwl57.
-    _t57 := _tcomp1;
+    Sum := Sum + J;
 
   #l137.
-    if _t56 == _t57 then goto l130;
-
-  #rwl58.
-    _t58 := J;
-
-  #rwl59.
-    _t59 := 1ii;
+    if J == _tcomp1 then goto l130;
 
   #l138.
-    J := _t58 + _t59;
+    J := J + 1ii;
 
   #l139.
     goto l135;
@@ -827,14 +585,6 @@ procedure Success16 (
     Integer J;
     Integer _tcomp2;
     Integer _tcomp3;
-    Integer _t60;
-    Integer _t61;
-    Integer _t62;
-    Integer _t63;
-    Integer _t64;
-    Integer _t65;
-    Integer _t66;
-    universal_integer _t67;
 
 
   #l142.
@@ -846,14 +596,8 @@ procedure Success16 (
   #l145.
     _tcomp3 := I1;
 
-  #rwl60.
-    _t60 := _tcomp2;
-
-  #rwl61.
-    _t61 := _tcomp3;
-
   #l146.
-    if _t60 > _t61 then goto l143;
+    if _tcomp2 > _tcomp3 then goto l143;
 
   #l147.
     J := _tcomp3;
@@ -861,32 +605,14 @@ procedure Success16 (
   #l148.
     // empty loc
 
-  #rwl62.
-    _t62 := Sum;
-
-  #rwl63.
-    _t63 := J;
-
   #l149.
-    Sum := _t62 + _t63;
-
-  #rwl64.
-    _t64 := J;
-
-  #rwl65.
-    _t65 := _tcomp2;
+    Sum := Sum + J;
 
   #l150.
-    if _t64 == _t65 then goto l143;
-
-  #rwl66.
-    _t66 := J;
-
-  #rwl67.
-    _t67 := 1ii;
+    if J == _tcomp2 then goto l143;
 
   #l151.
-    J := _t66 - _t67;
+    J := J - 1ii;
 
   #l152.
     goto l148;
@@ -910,16 +636,6 @@ procedure Success17 (
     Integer J;
     Integer _tcomp4;
     Integer _tcomp5;
-    Integer _t68;
-    Integer _t69;
-    Integer _t70;
-    Integer _t71;
-    Integer _t72;
-    Integer _t73;
-    Integer _t74;
-    Integer _t75;
-    Integer _t76;
-    universal_integer _t77;
 
 
   #l155.
@@ -931,14 +647,8 @@ procedure Success17 (
   #l158.
     _tcomp5 := I1;
 
-  #rwl68.
-    _t68 := _tcomp4;
-
-  #rwl69.
-    _t69 := _tcomp5;
-
   #l159.
-    if _t68 > _t69 then goto l156;
+    if _tcomp4 > _tcomp5 then goto l156;
 
   #l160.
     J := _tcomp4;
@@ -946,23 +656,11 @@ procedure Success17 (
   #l161.
     // empty loc
 
-  #rwl70.
-    _t70 := Sum;
-
-  #rwl71.
-    _t71 := J;
-
   #l162.
-    Sum := _t70 + _t71;
-
-  #rwl72.
-    _t72 := Sum;
-
-  #rwl73.
-    _t73 := I2;
+    Sum := Sum + J;
 
   #l164.
-    if !(_t72 > _t73) then goto l163;
+    if !(Sum > I2) then goto l163;
 
   #l165.
     Sum := 0ii;
@@ -970,23 +668,11 @@ procedure Success17 (
   #l163.
     // empty loc
 
-  #rwl74.
-    _t74 := J;
-
-  #rwl75.
-    _t75 := _tcomp5;
-
   #l166.
-    if _t74 == _t75 then goto l156;
-
-  #rwl76.
-    _t76 := J;
-
-  #rwl77.
-    _t77 := 1ii;
+    if J == _tcomp5 then goto l156;
 
   #l167.
-    J := _t76 + _t77;
+    J := J + 1ii;
 
   #l168.
     goto l161;
@@ -1013,22 +699,6 @@ procedure Success18 (
     Integer J2;
     Integer _tcomp8;
     Integer _tcomp9;
-    Integer _t78;
-    Integer _t79;
-    Integer _t80;
-    Integer _t81;
-    Integer _t82;
-    Integer _t83;
-    Integer _t84;
-    Integer _t85;
-    Integer _t86;
-    Integer _t87;
-    Integer _t88;
-    universal_integer _t89;
-    Integer _t90;
-    Integer _t91;
-    Integer _t92;
-    universal_integer _t93;
 
 
   #l171.
@@ -1040,14 +710,8 @@ procedure Success18 (
   #l174.
     _tcomp7 := I1;
 
-  #rwl78.
-    _t78 := _tcomp6;
-
-  #rwl79.
-    _t79 := _tcomp7;
-
   #l175.
-    if _t78 > _t79 then goto l172;
+    if _tcomp6 > _tcomp7 then goto l172;
 
   #l176.
     J1 := _tcomp6;
@@ -1061,14 +725,8 @@ procedure Success18 (
   #l180.
     _tcomp9 := I2;
 
-  #rwl80.
-    _t80 := _tcomp8;
-
-  #rwl81.
-    _t81 := _tcomp9;
-
   #l181.
-    if _t80 > _t81 then goto l178;
+    if _tcomp8 > _tcomp9 then goto l178;
 
   #l182.
     J2 := _tcomp8;
@@ -1076,38 +734,14 @@ procedure Success18 (
   #l183.
     // empty loc
 
-  #rwl82.
-    _t82 := J1;
-
-  #rwl83.
-    _t83 := J2;
-
-  #rwl84.
-    _t84 := Sum;
-
-  #rwl85.
-    _t85 := _t82 * _t83;
-
   #l184.
-    Sum := _t84 + _t85;
-
-  #rwl86.
-    _t86 := J2;
-
-  #rwl87.
-    _t87 := _tcomp9;
+    Sum := Sum + J1 * J2;
 
   #l185.
-    if _t86 == _t87 then goto l178;
-
-  #rwl88.
-    _t88 := J2;
-
-  #rwl89.
-    _t89 := 1ii;
+    if J2 == _tcomp9 then goto l178;
 
   #l186.
-    J2 := _t88 + _t89;
+    J2 := J2 + 1ii;
 
   #l187.
     goto l183;
@@ -1115,23 +749,11 @@ procedure Success18 (
   #l178.
     // empty loc
 
-  #rwl90.
-    _t90 := J1;
-
-  #rwl91.
-    _t91 := _tcomp7;
-
   #l188.
-    if _t90 == _t91 then goto l172;
-
-  #rwl92.
-    _t92 := J1;
-
-  #rwl93.
-    _t93 := 1ii;
+    if J1 == _tcomp7 then goto l172;
 
   #l189.
-    J1 := _t92 + _t93;
+    J1 := J1 + 1ii;
 
   #l190.
     goto l177;
@@ -1155,49 +777,19 @@ procedure Success19 (
     Integer J1;
     Integer _tcomp10;
     Integer _tcomp11;
-    Integer _t94;
-    universal_integer _t95;
-    Integer _t96;
-    Integer _t97;
-    Integer _t98;
-    Integer _t99;
-    Integer _t100;
-    Integer _t101;
-    Integer _t102;
-    Integer _t103;
-    Integer _t104;
-    universal_integer _t105;
 
 
   #l193.
     Sum := 0ii;
 
-  #rwl94.
-    _t94 := Sum;
-
-  #rwl95.
-    _t95 := 1ii;
-
   #l195.
-    _tcomp10 := _t94 + _t95;
-
-  #rwl96.
-    _t96 := I1;
-
-  #rwl97.
-    _t97 := I2;
+    _tcomp10 := Sum + 1ii;
 
   #l196.
-    _tcomp11 := _t96 * _t97;
-
-  #rwl98.
-    _t98 := _tcomp10;
-
-  #rwl99.
-    _t99 := _tcomp11;
+    _tcomp11 := I1 * I2;
 
   #l197.
-    if _t98 > _t99 then goto l194;
+    if _tcomp10 > _tcomp11 then goto l194;
 
   #l198.
     J1 := _tcomp10;
@@ -1205,32 +797,14 @@ procedure Success19 (
   #l199.
     // empty loc
 
-  #rwl100.
-    _t100 := Sum;
-
-  #rwl101.
-    _t101 := J1;
-
   #l200.
-    Sum := _t100 + _t101;
-
-  #rwl102.
-    _t102 := J1;
-
-  #rwl103.
-    _t103 := _tcomp11;
+    Sum := Sum + J1;
 
   #l201.
-    if _t102 == _t103 then goto l194;
-
-  #rwl104.
-    _t104 := J1;
-
-  #rwl105.
-    _t105 := 1ii;
+    if J1 == _tcomp11 then goto l194;
 
   #l202.
-    J1 := _t104 + _t105;
+    J1 := J1 + 1ii;
 
   #l203.
     goto l199;
@@ -1251,12 +825,6 @@ procedure Success20 (
   local
     Integer Sum;
     Integer J;
-    Integer _t106;
-    Integer _t107;
-    Integer _t108;
-    universal_integer _t109;
-    Integer _t110;
-    Integer _t111;
 
 
   #l206.
@@ -1268,32 +836,14 @@ procedure Success20 (
   #l208.
     // empty loc
 
-  #rwl106.
-    _t106 := Sum;
-
-  #rwl107.
-    _t107 := J;
-
   #l210.
-    Sum := _t106 + _t107;
-
-  #rwl108.
-    _t108 := J;
-
-  #rwl109.
-    _t109 := 1ii;
+    Sum := Sum + J;
 
   #l211.
-    J := _t108 + _t109;
-
-  #rwl110.
-    _t110 := J;
-
-  #rwl111.
-    _t111 := I1;
+    J := J + 1ii;
 
   #l212.
-    if _t110 >= _t111 then goto l209;
+    if J >= I1 then goto l209;
 
   #l213.
     goto l208;
@@ -1314,12 +864,6 @@ procedure Success21 (
   local
     Integer Sum;
     Integer J;
-    Integer _t112;
-    Integer _t113;
-    Integer _t114;
-    universal_integer _t115;
-    Integer _t116;
-    Integer _t117;
 
 
   #l216.
@@ -1331,32 +875,14 @@ procedure Success21 (
   #l218.
     // empty loc
 
-  #rwl112.
-    _t112 := Sum;
-
-  #rwl113.
-    _t113 := J;
-
   #l220.
-    Sum := _t112 + _t113;
-
-  #rwl114.
-    _t114 := J;
-
-  #rwl115.
-    _t115 := 1ii;
+    Sum := Sum + J;
 
   #l221.
-    J := _t114 + _t115;
-
-  #rwl116.
-    _t116 := J;
-
-  #rwl117.
-    _t117 := I1;
+    J := J + 1ii;
 
   #l223.
-    if !(_t116 >= _t117) then goto l222;
+    if !(J >= I1) then goto l222;
 
   #l224.
     goto l219;
@@ -1384,14 +910,6 @@ procedure Success22 (
   local
     Integer Sum;
     Integer J;
-    Integer _t118;
-    Integer _t119;
-    Integer _t120;
-    Integer _t121;
-    Integer _t122;
-    Integer _t123;
-    Integer _t124;
-    universal_integer _t125;
 
 
   #l228.
@@ -1403,32 +921,14 @@ procedure Success22 (
   #l230.
     // empty loc
 
-  #rwl118.
-    _t118 := J;
-
-  #rwl119.
-    _t119 := I1;
-
   #l232.
-    if _t118 > _t119 then goto l231;
-
-  #rwl120.
-    _t120 := Sum;
-
-  #rwl121.
-    _t121 := J;
+    if J > I1 then goto l231;
 
   #l233.
-    Sum := _t120 + _t121;
-
-  #rwl122.
-    _t122 := Sum;
-
-  #rwl123.
-    _t123 := I2;
+    Sum := Sum + J;
 
   #l235.
-    if !(_t122 > _t123) then goto l234;
+    if !(Sum > I2) then goto l234;
 
   #l236.
     Sum := 0ii;
@@ -1436,14 +936,8 @@ procedure Success22 (
   #l234.
     // empty loc
 
-  #rwl124.
-    _t124 := J;
-
-  #rwl125.
-    _t125 := 1ii;
-
   #l237.
-    J := _t124 + _t125;
+    J := J + 1ii;
 
   #l238.
     goto l230;
@@ -1466,18 +960,6 @@ procedure Success23 (
     Integer Sum;
     Integer J1;
     Integer J2;
-    Integer _t126;
-    Integer _t127;
-    Integer _t128;
-    Integer _t129;
-    Integer _t130;
-    Integer _t131;
-    Integer _t132;
-    universal_integer _t133;
-    Integer _t134;
-    universal_integer _t135;
-    Integer _t136;
-    Integer _t137;
 
 
   #l241.
@@ -1495,38 +977,14 @@ procedure Success23 (
   #l246.
     // empty loc
 
-  #rwl126.
-    _t126 := J1;
-
-  #rwl127.
-    _t127 := J2;
-
-  #rwl128.
-    _t128 := Sum;
-
-  #rwl129.
-    _t129 := _t126 * _t127;
-
   #l248.
-    Sum := _t128 + _t129;
-
-  #rwl130.
-    _t130 := J2;
-
-  #rwl131.
-    _t131 := I2;
+    Sum := Sum + J1 * J2;
 
   #l249.
-    if _t130 > _t131 then goto l247;
-
-  #rwl132.
-    _t132 := J2;
-
-  #rwl133.
-    _t133 := 1ii;
+    if J2 > I2 then goto l247;
 
   #l250.
-    J2 := _t132 + _t133;
+    J2 := J2 + 1ii;
 
   #l251.
     goto l246;
@@ -1534,23 +992,11 @@ procedure Success23 (
   #l247.
     // empty loc
 
-  #rwl134.
-    _t134 := J1;
-
-  #rwl135.
-    _t135 := 1ii;
-
   #l252.
-    J1 := _t134 + _t135;
-
-  #rwl136.
-    _t136 := J1;
-
-  #rwl137.
-    _t137 := I1;
+    J1 := J1 + 1ii;
 
   #l253.
-    if _t136 > _t137 then goto l245;
+    if J1 > I1 then goto l245;
 
   #l254.
     goto l244;
@@ -1571,18 +1017,6 @@ procedure Success24 (
   local
     Integer Sum;
     Integer J;
-    Integer _t138;
-    Integer _t139;
-    Integer _t140;
-    Integer _t141;
-    universal_integer _t142;
-    Integer _t143;
-    Integer _t144;
-    Integer _t145;
-    Integer _t146;
-    universal_integer _t147;
-    Integer _t148;
-    Integer _t149;
 
 
   #l257.
@@ -1594,53 +1028,17 @@ procedure Success24 (
   #l259.
     // empty loc
 
-  #rwl138.
-    _t138 := Sum;
-
-  #rwl139.
-    _t139 := J;
-
   #l261.
-    Sum := _t138 + _t139;
-
-  #rwl140.
-    _t140 := Sum;
-
-  #rwl141.
-    _t141 := J;
-
-  #rwl142.
-    _t142 := 100ii;
-
-  #rwl143.
-    _t143 := J;
-
-  #rwl144.
-    _t144 := _t140 - _t141;
-
-  #rwl145.
-    _t145 := _t142 + _t143;
+    Sum := Sum + J;
 
   #l262.
-    if _t144 > _t145 then goto l260;
-
-  #rwl146.
-    _t146 := J;
-
-  #rwl147.
-    _t147 := 1ii;
+    if Sum - J > 100ii + J then goto l260;
 
   #l263.
-    J := _t146 + _t147;
-
-  #rwl148.
-    _t148 := J;
-
-  #rwl149.
-    _t149 := I1;
+    J := J + 1ii;
 
   #l264.
-    if _t148 > _t149 then goto l260;
+    if J > I1 then goto l260;
 
   #l265.
     goto l259;
@@ -1661,12 +1059,6 @@ procedure Success25 (
   local
     Integer Sum;
     Integer J;
-    Integer _t150;
-    Integer _t151;
-    Integer _t152;
-    universal_integer _t153;
-    Integer _t154;
-    Integer _t155;
 
 
   #l268.
@@ -1678,32 +1070,14 @@ procedure Success25 (
   #l270.
     // empty loc
 
-  #rwl150.
-    _t150 := Sum;
-
-  #rwl151.
-    _t151 := J;
-
   #l272.
-    Sum := _t150 + _t151;
-
-  #rwl152.
-    _t152 := J;
-
-  #rwl153.
-    _t153 := 1ii;
+    Sum := Sum + J;
 
   #l273.
-    J := _t152 + _t153;
-
-  #rwl154.
-    _t154 := J;
-
-  #rwl155.
-    _t155 := I1;
+    J := J + 1ii;
 
   #l274.
-    if _t154 >= _t155 then goto l271;
+    if J >= I1 then goto l271;
 
   #l275.
     goto l270;
@@ -1725,14 +1099,6 @@ procedure Success26 (
   local
     Integer Sum;
     Integer J;
-    Integer _t156;
-    Integer _t157;
-    Integer _t158;
-    Integer _t159;
-    Integer _t160;
-    Integer _t161;
-    Integer _t162;
-    universal_integer _t163;
 
 
   #l278.
@@ -1744,41 +1110,17 @@ procedure Success26 (
   #l281.
     // empty loc
 
-  #rwl156.
-    _t156 := J;
-
-  #rwl157.
-    _t157 := I1;
-
   #l282.
-    if !(_t156 <= _t157) then goto l280;
-
-  #rwl158.
-    _t158 := Sum;
-
-  #rwl159.
-    _t159 := J;
+    if !(J <= I1) then goto l280;
 
   #l283.
-    Sum := _t158 + _t159;
-
-  #rwl160.
-    _t160 := Sum;
-
-  #rwl161.
-    _t161 := I2;
+    Sum := Sum + J;
 
   #l284.
-    if _t160 > _t161 then goto l280;
-
-  #rwl162.
-    _t162 := J;
-
-  #rwl163.
-    _t163 := 1ii;
+    if Sum > I2 then goto l280;
 
   #l285.
-    J := _t162 + _t163;
+    J := J + 1ii;
 
   #l286.
     goto l281;
@@ -1802,16 +1144,6 @@ procedure Success27 (
     Integer J;
     Integer _tcomp12;
     Integer _tcomp13;
-    Integer _t164;
-    Integer _t165;
-    Integer _t166;
-    Integer _t167;
-    Integer _t168;
-    Integer _t169;
-    Integer _t170;
-    Integer _t171;
-    Integer _t172;
-    universal_integer _t173;
 
 
   #l289.
@@ -1823,14 +1155,8 @@ procedure Success27 (
   #l292.
     _tcomp13 := I1;
 
-  #rwl164.
-    _t164 := _tcomp12;
-
-  #rwl165.
-    _t165 := _tcomp13;
-
   #l293.
-    if _t164 > _t165 then goto l290;
+    if _tcomp12 > _tcomp13 then goto l290;
 
   #l294.
     J := _tcomp12;
@@ -1838,41 +1164,17 @@ procedure Success27 (
   #l295.
     // empty loc
 
-  #rwl166.
-    _t166 := Sum;
-
-  #rwl167.
-    _t167 := J;
-
   #l296.
-    Sum := _t166 + _t167;
-
-  #rwl168.
-    _t168 := Sum;
-
-  #rwl169.
-    _t169 := I2;
+    Sum := Sum + J;
 
   #l297.
-    if _t168 > _t169 then goto l290;
-
-  #rwl170.
-    _t170 := J;
-
-  #rwl171.
-    _t171 := _tcomp13;
+    if Sum > I2 then goto l290;
 
   #l298.
-    if _t170 == _t171 then goto l290;
-
-  #rwl172.
-    _t172 := J;
-
-  #rwl173.
-    _t173 := 1ii;
+    if J == _tcomp13 then goto l290;
 
   #l299.
-    J := _t172 + _t173;
+    J := J + 1ii;
 
   #l300.
     goto l295;

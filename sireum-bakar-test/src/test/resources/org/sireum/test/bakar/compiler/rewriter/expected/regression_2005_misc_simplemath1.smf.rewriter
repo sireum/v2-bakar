@@ -14,19 +14,9 @@ procedure $$binit {
 
 procedure Inc (
         Integer I) {
-  local
-    Integer _t0;
-    Integer _t1;
-
-
-  #rwl0.
-    _t0 := I;
-
-  #rwl1.
-    _t1 := @@B;
 
   #l1.
-    I := _t0 + _t1;
+    I := I + @@B;
 
   #l2.
     return;

@@ -20,28 +20,12 @@ procedure Test (
         T FI,
         Boolean CurrentEvent,
         Boolean IntegratedEvent) {
-  local
-    Natural _t0;
-    Positive _t1;
-    Natural _t2;
-    universal_integer _t3;
-    Natural _t4;
-    universal_integer _t5;
-    Natural _t6;
-    universal_integer _t7;
-
 
   #l4.
     if !(CurrentEvent) then goto l3;
 
-  #rwl0.
-    _t0 := FI.Counter;
-
-  #rwl1.
-    _t1 := FI.Limit;
-
   #l7.
-    if !(_t0 == _t1) then goto l6;
+    if !(FI.Counter == FI.Limit) then goto l6;
 
   #l8.
     FI.Tripped := true;
@@ -52,14 +36,8 @@ procedure Test (
   #l6.
     // empty loc
 
-  #rwl2.
-    _t2 := FI.Counter;
-
-  #rwl3.
-    _t3 := 1ii;
-
   #l10.
-    FI.Counter := _t2 + _t3;
+    FI.Counter := FI.Counter + 1ii;
 
   #l5.
     // empty loc
@@ -70,14 +48,8 @@ procedure Test (
   #l3.
     // empty loc
 
-  #rwl4.
-    _t4 := FI.Counter;
-
-  #rwl5.
-    _t5 := 0ii;
-
   #l14.
-    if !(_t4 == _t5) then goto l13;
+    if !(FI.Counter == 0ii) then goto l13;
 
   #l15.
     FI.Tripped := false;
@@ -88,14 +60,8 @@ procedure Test (
   #l13.
     // empty loc
 
-  #rwl6.
-    _t6 := FI.Counter;
-
-  #rwl7.
-    _t7 := 1ii;
-
   #l17.
-    FI.Counter := _t6 - _t7;
+    FI.Counter := FI.Counter - 1ii;
 
   #l12.
     // empty loc

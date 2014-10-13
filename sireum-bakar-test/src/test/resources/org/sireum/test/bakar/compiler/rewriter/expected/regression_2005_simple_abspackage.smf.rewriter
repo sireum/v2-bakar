@@ -5,29 +5,13 @@ procedure Integer AbsFunc (
         Integer x) {
   local
     Integer r;
-    Integer _t0;
-    universal_integer _t1;
-    Integer _t2;
-    universal_integer _t3;
 
-
-  #rwl0.
-    _t0 := x;
-
-  #rwl1.
-    _t1 := 0ii;
 
   #l2.
-    if !(_t0 < _t1) then goto l1;
-
-  #rwl2.
-    _t2 := x;
-
-  #rwl3.
-    _t3 := -1ii;
+    if !(x < 0ii) then goto l1;
 
   #l3.
-    r := _t2 * _t3;
+    r := x * -1ii;
 
   #l4.
     goto l0;

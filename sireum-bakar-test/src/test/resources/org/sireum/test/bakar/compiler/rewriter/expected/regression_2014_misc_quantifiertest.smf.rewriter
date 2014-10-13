@@ -14,10 +14,6 @@ procedure $$binit {
 
 procedure dummy (
         Index I) {
-  local
-    Integer _t0;
-    universal_integer _t1;
-
 
   #l1.
     assert (proof__uif__assert proof__uif__for_some {Index J => 
@@ -25,14 +21,8 @@ procedure dummy (
           case (1ii, 2ii) => @@V[J] > 0ii &&& @@V[J] < 7ii
           default => true}, "Assertion failed at [7, 5]");
 
-  #rwl0.
-    _t0 := @@V[I];
-
-  #rwl1.
-    _t1 := 3ii;
-
   #l2.
-    @@V[I] := _t0 + _t1;
+    @@V[I] := @@V[I] + 3ii;
 
   #l3.
     assert (proof__uif__assert 3ii == 3ii && proof__uif__for_all {Index J => 

@@ -8,40 +8,16 @@ procedure Boolean isSorted (
     Index_Type I;
     Index_Type _tcomp0;
     Index_Type _tcomp1;
-    Integer _t0;
-    universal_integer _t1;
-    Index_Type _t2;
-    Index_Type _t3;
-    Integer _t4;
-    universal_integer _t5;
-    Integer _t6;
-    Integer _t7;
-    Index_Type _t8;
-    Index_Type _t9;
-    Index_Type _t10;
-    universal_integer _t11;
 
 
   #l1.
     _tcomp0 := attribute__uif__first `Index_Type;
 
-  #rwl0.
-    _t0 := attribute__uif__last `Index_Type;
-
-  #rwl1.
-    _t1 := 1ii;
-
   #l2.
-    _tcomp1 := _t0 - _t1;
-
-  #rwl2.
-    _t2 := _tcomp0;
-
-  #rwl3.
-    _t3 := _tcomp1;
+    _tcomp1 := attribute__uif__last `Index_Type - 1ii;
 
   #l3.
-    if _t2 > _t3 then goto l0;
+    if _tcomp0 > _tcomp1 then goto l0;
 
   #l4.
     I := _tcomp0;
@@ -49,41 +25,17 @@ procedure Boolean isSorted (
   #l5.
     // empty loc
 
-  #rwl4.
-    _t4 := I;
-
-  #rwl5.
-    _t5 := 1ii;
-
-  #rwl6.
-    _t6 := Z[I];
-
-  #rwl7.
-    _t7 := Z[_t4 + _t5];
-
   #l6.
-    B := _t6 <= _t7;
+    B := Z[I] <= Z[I + 1ii];
 
   #l7.
     if !(B) then goto l0;
 
-  #rwl8.
-    _t8 := I;
-
-  #rwl9.
-    _t9 := _tcomp1;
-
   #l8.
-    if _t8 == _t9 then goto l0;
-
-  #rwl10.
-    _t10 := I;
-
-  #rwl11.
-    _t11 := 1ii;
+    if I == _tcomp1 then goto l0;
 
   #l9.
-    I := _t10 + _t11;
+    I := I + 1ii;
 
   #l10.
     goto l5;
@@ -103,16 +55,6 @@ procedure Integer Num_Repetitions (
     Index_Type I;
     Index_Type _tcomp2;
     Index_Type _tcomp3;
-    Index_Type _t12;
-    Index_Type _t13;
-    Integer _t14;
-    Integer _t15;
-    Integer _t16;
-    universal_integer _t17;
-    Index_Type _t18;
-    Index_Type _t19;
-    Index_Type _t20;
-    universal_integer _t21;
 
 
   #l12.
@@ -124,14 +66,8 @@ procedure Integer Num_Repetitions (
   #l15.
     _tcomp3 := attribute__uif__last `Index_Type;
 
-  #rwl12.
-    _t12 := _tcomp2;
-
-  #rwl13.
-    _t13 := _tcomp3;
-
   #l16.
-    if _t12 > _t13 then goto l13;
+    if _tcomp2 > _tcomp3 then goto l13;
 
   #l17.
     I := _tcomp2;
@@ -139,44 +75,20 @@ procedure Integer Num_Repetitions (
   #l18.
     // empty loc
 
-  #rwl14.
-    _t14 := A[I];
-
-  #rwl15.
-    _t15 := E;
-
   #l20.
-    if !(_t14 == _t15) then goto l19;
-
-  #rwl16.
-    _t16 := Result;
-
-  #rwl17.
-    _t17 := 1ii;
+    if !(A[I] == E) then goto l19;
 
   #l21.
-    Result := _t16 + _t17;
+    Result := Result + 1ii;
 
   #l19.
     // empty loc
 
-  #rwl18.
-    _t18 := I;
-
-  #rwl19.
-    _t19 := _tcomp3;
-
   #l22.
-    if _t18 == _t19 then goto l13;
-
-  #rwl20.
-    _t20 := I;
-
-  #rwl21.
-    _t21 := 1ii;
+    if I == _tcomp3 then goto l13;
 
   #l23.
-    I := _t20 + _t21;
+    I := I + 1ii;
 
   #l24.
     goto l18;
@@ -198,24 +110,6 @@ procedure Boolean isSet (
     Index_Type J;
     Index_Type _tcomp6;
     Index_Type _tcomp7;
-    Index_Type _t22;
-    Index_Type _t23;
-    Index_Type _t24;
-    Index_Type _t25;
-    Index_Type _t26;
-    Index_Type _t27;
-    Integer _t28;
-    Integer _t29;
-    Boolean _t30;
-    Boolean _t31;
-    Index_Type _t32;
-    Index_Type _t33;
-    Index_Type _t34;
-    universal_integer _t35;
-    Index_Type _t36;
-    Index_Type _t37;
-    Index_Type _t38;
-    universal_integer _t39;
 
 
   #l27.
@@ -224,14 +118,8 @@ procedure Boolean isSet (
   #l28.
     _tcomp5 := attribute__uif__last `Index_Type;
 
-  #rwl22.
-    _t22 := _tcomp4;
-
-  #rwl23.
-    _t23 := _tcomp5;
-
   #l29.
-    if _t22 > _t23 then goto l26;
+    if _tcomp4 > _tcomp5 then goto l26;
 
   #l30.
     I := _tcomp4;
@@ -245,14 +133,8 @@ procedure Boolean isSet (
   #l34.
     _tcomp7 := attribute__uif__last `Index_Type;
 
-  #rwl24.
-    _t24 := _tcomp6;
-
-  #rwl25.
-    _t25 := _tcomp7;
-
   #l35.
-    if _t24 > _t25 then goto l32;
+    if _tcomp6 > _tcomp7 then goto l32;
 
   #l36.
     J := _tcomp6;
@@ -260,47 +142,17 @@ procedure Boolean isSet (
   #l37.
     // empty loc
 
-  #rwl26.
-    _t26 := I;
-
-  #rwl27.
-    _t27 := J;
-
-  #rwl28.
-    _t28 := A[I];
-
-  #rwl29.
-    _t29 := A[J];
-
-  #rwl30.
-    _t30 := _t26 == _t27;
-
-  #rwl31.
-    _t31 := _t28 != _t29;
-
   #l38.
-    Result := _t30 || _t31;
+    Result := I == J || A[I] != A[J];
 
   #l39.
     if !(Result) then goto l32;
 
-  #rwl32.
-    _t32 := J;
-
-  #rwl33.
-    _t33 := _tcomp7;
-
   #l40.
-    if _t32 == _t33 then goto l32;
-
-  #rwl34.
-    _t34 := J;
-
-  #rwl35.
-    _t35 := 1ii;
+    if J == _tcomp7 then goto l32;
 
   #l41.
-    J := _t34 + _t35;
+    J := J + 1ii;
 
   #l42.
     goto l37;
@@ -311,23 +163,11 @@ procedure Boolean isSet (
   #l43.
     if !(Result) then goto l26;
 
-  #rwl36.
-    _t36 := I;
-
-  #rwl37.
-    _t37 := _tcomp5;
-
   #l44.
-    if _t36 == _t37 then goto l26;
-
-  #rwl38.
-    _t38 := I;
-
-  #rwl39.
-    _t39 := 1ii;
+    if I == _tcomp5 then goto l26;
 
   #l45.
-    I := _t38 + _t39;
+    I := I + 1ii;
 
   #l46.
     goto l31;
@@ -349,22 +189,6 @@ procedure Boolean isPerm (
     Index_Type _tcomp9;
     Integer _tcomp10;
     Integer _tcomp11;
-    Index_Type _t40;
-    Index_Type _t41;
-    Index_Type _t42;
-    Integer _t43;
-    Index_Type _t44;
-    universal_integer _t45;
-    Integer _t46;
-    Integer _t47;
-    Boolean _t48;
-    Boolean _t49;
-    Integer _t50;
-    Integer _t51;
-    Index_Type _t52;
-    Index_Type _t53;
-    Index_Type _t54;
-    universal_integer _t55;
 
 
   #l48.
@@ -376,14 +200,8 @@ procedure Boolean isPerm (
   #l51.
     _tcomp9 := attribute__uif__last `Index_Type;
 
-  #rwl40.
-    _t40 := _tcomp8;
-
-  #rwl41.
-    _t41 := _tcomp9;
-
   #l52.
-    if _t40 > _t41 then goto l49;
+    if _tcomp8 > _tcomp9 then goto l49;
 
   #l53.
     I := _tcomp8;
@@ -391,32 +209,8 @@ procedure Boolean isPerm (
   #l54.
     // empty loc
 
-  #rwl42.
-    _t42 := I;
-
-  #rwl43.
-    _t43 := attribute__uif__first `Index_Type;
-
-  #rwl44.
-    _t44 := I;
-
-  #rwl45.
-    _t45 := 1ii;
-
-  #rwl46.
-    _t46 := A[_t44 - _t45];
-
-  #rwl47.
-    _t47 := A[I];
-
-  #rwl48.
-    _t48 := _t42 == _t43;
-
-  #rwl49.
-    _t49 := _t46 != _t47;
-
   #l56.
-    if !(_t48 || _t49) then goto l55;
+    if !(I == attribute__uif__first `Index_Type || A[I - 1ii] != A[I]) then goto l55;
 
   #l57.
     call _tcomp10 := Num_Repetitions (A, A[I]);
@@ -424,14 +218,8 @@ procedure Boolean isPerm (
   #l58.
     call _tcomp11 := Num_Repetitions (B, A[I]);
 
-  #rwl50.
-    _t50 := _tcomp10;
-
-  #rwl51.
-    _t51 := _tcomp11;
-
   #l59.
-    Result := _t50 == _t51;
+    Result := _tcomp10 == _tcomp11;
 
   #l55.
     // empty loc
@@ -439,23 +227,11 @@ procedure Boolean isPerm (
   #l60.
     if !(Result) then goto l49;
 
-  #rwl52.
-    _t52 := I;
-
-  #rwl53.
-    _t53 := _tcomp9;
-
   #l61.
-    if _t52 == _t53 then goto l49;
-
-  #rwl54.
-    _t54 := I;
-
-  #rwl55.
-    _t55 := 1ii;
+    if I == _tcomp9 then goto l49;
 
   #l62.
-    I := _t54 + _t55;
+    I := I + 1ii;
 
   #l63.
     goto l54;
@@ -476,24 +252,6 @@ procedure BubbleSort (
     Integer I;
     Integer _tcomp12;
     Integer _tcomp13;
-    Integer _t56;
-    universal_integer _t57;
-    Integer _t58;
-    Integer _t59;
-    Integer _t60;
-    universal_integer _t61;
-    Integer _t62;
-    Integer _t63;
-    Integer _t64;
-    universal_integer _t65;
-    Integer _t66;
-    universal_integer _t67;
-    Integer _t68;
-    Integer _t69;
-    Integer _t70;
-    universal_integer _t71;
-    Integer _t72;
-    universal_integer _t73;
 
 
   #l65.
@@ -508,23 +266,11 @@ procedure BubbleSort (
   #l70.
     _tcomp12 := attribute__uif__first `A;
 
-  #rwl56.
-    _t56 := N;
-
-  #rwl57.
-    _t57 := 1ii;
-
   #l71.
-    _tcomp13 := _t56 - _t57;
-
-  #rwl58.
-    _t58 := _tcomp12;
-
-  #rwl59.
-    _t59 := _tcomp13;
+    _tcomp13 := N - 1ii;
 
   #l72.
-    if _t58 > _t59 then goto l69;
+    if _tcomp12 > _tcomp13 then goto l69;
 
   #l73.
     I := _tcomp12;
@@ -532,41 +278,17 @@ procedure BubbleSort (
   #l74.
     // empty loc
 
-  #rwl60.
-    _t60 := I;
-
-  #rwl61.
-    _t61 := 1ii;
-
-  #rwl62.
-    _t62 := A[I];
-
-  #rwl63.
-    _t63 := A[_t60 + _t61];
-
   #l76.
-    if !(_t62 > _t63) then goto l75;
+    if !(A[I] > A[I + 1ii]) then goto l75;
 
   #l77.
     Temp := A[I];
 
-  #rwl64.
-    _t64 := I;
-
-  #rwl65.
-    _t65 := 1ii;
-
   #l78.
-    A[I] := A[_t64 + _t65];
-
-  #rwl66.
-    _t66 := I;
-
-  #rwl67.
-    _t67 := 1ii;
+    A[I] := A[I + 1ii];
 
   #l79.
-    A[_t66 + _t67] := Temp;
+    A[I + 1ii] := Temp;
 
   #l80.
     Swapped := true;
@@ -574,23 +296,11 @@ procedure BubbleSort (
   #l75.
     // empty loc
 
-  #rwl68.
-    _t68 := I;
-
-  #rwl69.
-    _t69 := _tcomp13;
-
   #l81.
-    if _t68 == _t69 then goto l69;
-
-  #rwl70.
-    _t70 := I;
-
-  #rwl71.
-    _t71 := 1ii;
+    if I == _tcomp13 then goto l69;
 
   #l82.
-    I := _t70 + _t71;
+    I := I + 1ii;
 
   #l83.
     goto l74;
@@ -598,14 +308,8 @@ procedure BubbleSort (
   #l69.
     // empty loc
 
-  #rwl72.
-    _t72 := N;
-
-  #rwl73.
-    _t73 := 1ii;
-
   #l84.
-    N := _t72 - _t73;
+    N := N - 1ii;
 
   #l85.
     if !(Swapped) then goto l67;
@@ -660,22 +364,6 @@ procedure BubbleSort_using_SwapElements (
     Integer I;
     Integer _tcomp14;
     Integer _tcomp15;
-    Integer _t74;
-    universal_integer _t75;
-    Integer _t76;
-    Integer _t77;
-    Integer _t78;
-    universal_integer _t79;
-    Integer _t80;
-    Integer _t81;
-    Integer _t82;
-    universal_integer _t83;
-    Integer _t84;
-    Integer _t85;
-    Integer _t86;
-    universal_integer _t87;
-    Integer _t88;
-    universal_integer _t89;
 
 
   #l94.
@@ -690,23 +378,11 @@ procedure BubbleSort_using_SwapElements (
   #l99.
     _tcomp14 := attribute__uif__first `A;
 
-  #rwl74.
-    _t74 := N;
-
-  #rwl75.
-    _t75 := 1ii;
-
   #l100.
-    _tcomp15 := _t74 - _t75;
-
-  #rwl76.
-    _t76 := _tcomp14;
-
-  #rwl77.
-    _t77 := _tcomp15;
+    _tcomp15 := N - 1ii;
 
   #l101.
-    if _t76 > _t77 then goto l98;
+    if _tcomp14 > _tcomp15 then goto l98;
 
   #l102.
     I := _tcomp14;
@@ -714,29 +390,11 @@ procedure BubbleSort_using_SwapElements (
   #l103.
     // empty loc
 
-  #rwl78.
-    _t78 := I;
-
-  #rwl79.
-    _t79 := 1ii;
-
-  #rwl80.
-    _t80 := A[I];
-
-  #rwl81.
-    _t81 := A[_t78 + _t79];
-
   #l105.
-    if !(_t80 > _t81) then goto l104;
-
-  #rwl82.
-    _t82 := I;
-
-  #rwl83.
-    _t83 := 1ii;
+    if !(A[I] > A[I + 1ii]) then goto l104;
 
   #l106.
-    call SwapElements (A, I, _t82 + _t83);
+    call SwapElements (A, I, I + 1ii);
 
   #l107.
     Swapped := true;
@@ -744,23 +402,11 @@ procedure BubbleSort_using_SwapElements (
   #l104.
     // empty loc
 
-  #rwl84.
-    _t84 := I;
-
-  #rwl85.
-    _t85 := _tcomp15;
-
   #l108.
-    if _t84 == _t85 then goto l98;
-
-  #rwl86.
-    _t86 := I;
-
-  #rwl87.
-    _t87 := 1ii;
+    if I == _tcomp15 then goto l98;
 
   #l109.
-    I := _t86 + _t87;
+    I := I + 1ii;
 
   #l110.
     goto l103;
@@ -768,14 +414,8 @@ procedure BubbleSort_using_SwapElements (
   #l98.
     // empty loc
 
-  #rwl88.
-    _t88 := N;
-
-  #rwl89.
-    _t89 := 1ii;
-
   #l111.
-    N := _t88 - _t89;
+    N := N - 1ii;
 
   #l112.
     if !(Swapped) then goto l96;
@@ -798,50 +438,16 @@ procedure InsertionSort (
     Integer I;
     Integer _tcomp16;
     Integer _tcomp17;
-    Integer _t90;
-    universal_integer _t91;
-    Integer _t92;
-    Integer _t93;
-    Integer _t94;
-    universal_integer _t95;
-    Natural _t96;
-    Integer _t97;
-    Integer _t98;
-    Integer _t99;
-    Boolean _t100;
-    Boolean _t101;
-    Natural _t102;
-    universal_integer _t103;
-    Natural _t104;
-    universal_integer _t105;
-    Natural _t106;
-    universal_integer _t107;
-    Integer _t108;
-    Integer _t109;
-    Integer _t110;
-    universal_integer _t111;
 
-
-  #rwl90.
-    _t90 := attribute__uif__first `A;
-
-  #rwl91.
-    _t91 := 1ii;
 
   #l116.
-    _tcomp16 := _t90 + _t91;
+    _tcomp16 := attribute__uif__first `A + 1ii;
 
   #l117.
     _tcomp17 := attribute__uif__last `A;
 
-  #rwl92.
-    _t92 := _tcomp16;
-
-  #rwl93.
-    _t93 := _tcomp17;
-
   #l118.
-    if _t92 > _t93 then goto l115;
+    if _tcomp16 > _tcomp17 then goto l115;
 
   #l119.
     I := _tcomp16;
@@ -852,56 +458,20 @@ procedure InsertionSort (
   #l121.
     Value := A[I];
 
-  #rwl94.
-    _t94 := I;
-
-  #rwl95.
-    _t95 := 1ii;
-
   #l122.
-    J := _t94 - _t95;
+    J := I - 1ii;
 
   #l124.
     // empty loc
 
-  #rwl96.
-    _t96 := J;
-
-  #rwl97.
-    _t97 := attribute__uif__first `A;
-
-  #rwl98.
-    _t98 := A[J];
-
-  #rwl99.
-    _t99 := Value;
-
-  #rwl100.
-    _t100 := _t96 >= _t97;
-
-  #rwl101.
-    _t101 := _t98 > _t99;
-
   #l125.
-    if !(_t100 && _t101) then goto l123;
-
-  #rwl102.
-    _t102 := J;
-
-  #rwl103.
-    _t103 := 1ii;
+    if !(J >= attribute__uif__first `A && A[J] > Value) then goto l123;
 
   #l126.
-    A[_t102 + _t103] := A[J];
-
-  #rwl104.
-    _t104 := J;
-
-  #rwl105.
-    _t105 := 1ii;
+    A[J + 1ii] := A[J];
 
   #l127.
-    J := _t104 - _t105;
+    J := J - 1ii;
 
   #l128.
     goto l124;
@@ -909,32 +479,14 @@ procedure InsertionSort (
   #l123.
     // empty loc
 
-  #rwl106.
-    _t106 := J;
-
-  #rwl107.
-    _t107 := 1ii;
-
   #l129.
-    A[_t106 + _t107] := Value;
-
-  #rwl108.
-    _t108 := I;
-
-  #rwl109.
-    _t109 := _tcomp17;
+    A[J + 1ii] := Value;
 
   #l130.
-    if _t108 == _t109 then goto l115;
-
-  #rwl110.
-    _t110 := I;
-
-  #rwl111.
-    _t111 := 1ii;
+    if I == _tcomp17 then goto l115;
 
   #l131.
-    I := _t110 + _t111;
+    I := I + 1ii;
 
   #l132.
     goto l120;
@@ -957,24 +509,6 @@ procedure SelectionSort (
     Index_Type I;
     Index_Type _tcomp20;
     Index_Type _tcomp21;
-    Index_Type _t112;
-    Index_Type _t113;
-    Index_Type _t114;
-    universal_integer _t115;
-    Index_Type _t116;
-    Index_Type _t117;
-    Integer _t118;
-    Integer _t119;
-    Index_Type _t120;
-    Index_Type _t121;
-    Index_Type _t122;
-    universal_integer _t123;
-    Index_Type _t124;
-    Integer _t125;
-    Index_Type _t126;
-    Index_Type _t127;
-    Index_Type _t128;
-    universal_integer _t129;
 
 
   #l135.
@@ -983,14 +517,8 @@ procedure SelectionSort (
   #l136.
     _tcomp19 := attribute__uif__last `Index_Type;
 
-  #rwl112.
-    _t112 := _tcomp18;
-
-  #rwl113.
-    _t113 := _tcomp19;
-
   #l137.
-    if _t112 > _t113 then goto l134;
+    if _tcomp18 > _tcomp19 then goto l134;
 
   #l138.
     Pos := _tcomp18;
@@ -1001,26 +529,14 @@ procedure SelectionSort (
   #l140.
     Min := Pos;
 
-  #rwl114.
-    _t114 := Pos;
-
-  #rwl115.
-    _t115 := 1ii;
-
   #l142.
-    _tcomp20 := _t114 + _t115;
+    _tcomp20 := Pos + 1ii;
 
   #l143.
     _tcomp21 := attribute__uif__last `Index_Type;
 
-  #rwl116.
-    _t116 := _tcomp20;
-
-  #rwl117.
-    _t117 := _tcomp21;
-
   #l144.
-    if _t116 > _t117 then goto l141;
+    if _tcomp20 > _tcomp21 then goto l141;
 
   #l145.
     I := _tcomp20;
@@ -1028,14 +544,8 @@ procedure SelectionSort (
   #l146.
     // empty loc
 
-  #rwl118.
-    _t118 := A[I];
-
-  #rwl119.
-    _t119 := A[Min];
-
   #l148.
-    if !(_t118 < _t119) then goto l147;
+    if !(A[I] < A[Min]) then goto l147;
 
   #l149.
     Min := I;
@@ -1043,23 +553,11 @@ procedure SelectionSort (
   #l147.
     // empty loc
 
-  #rwl120.
-    _t120 := I;
-
-  #rwl121.
-    _t121 := _tcomp21;
-
   #l150.
-    if _t120 == _t121 then goto l141;
-
-  #rwl122.
-    _t122 := I;
-
-  #rwl123.
-    _t123 := 1ii;
+    if I == _tcomp21 then goto l141;
 
   #l151.
-    I := _t122 + _t123;
+    I := I + 1ii;
 
   #l152.
     goto l146;
@@ -1067,14 +565,8 @@ procedure SelectionSort (
   #l141.
     // empty loc
 
-  #rwl124.
-    _t124 := Pos;
-
-  #rwl125.
-    _t125 := Min;
-
   #l154.
-    if !(_t124 != _t125) then goto l153;
+    if !(Pos != Min) then goto l153;
 
   #l155.
     Temp := A[Pos];
@@ -1088,23 +580,11 @@ procedure SelectionSort (
   #l153.
     // empty loc
 
-  #rwl126.
-    _t126 := Pos;
-
-  #rwl127.
-    _t127 := _tcomp19;
-
   #l158.
-    if _t126 == _t127 then goto l134;
-
-  #rwl128.
-    _t128 := Pos;
-
-  #rwl129.
-    _t129 := 1ii;
+    if Pos == _tcomp19 then goto l134;
 
   #l159.
-    Pos := _t128 + _t129;
+    Pos := Pos + 1ii;
 
   #l160.
     goto l139;
@@ -1125,52 +605,16 @@ procedure ShellSort (
     Index_Type I;
     Index_Type _tcomp22;
     Index_Type _tcomp23;
-    Integer _t130;
-    universal_integer _t131;
-    Natural _t132;
-    universal_integer _t133;
-    Index_Type _t134;
-    Index_Type _t135;
-    Index_Type _t136;
-    Natural _t137;
-    Index_Type _t138;
-    Natural _t139;
-    Integer _t140;
-    Integer _t141;
-    Boolean _t142;
-    Boolean _t143;
-    Index_Type _t144;
-    Natural _t145;
-    Index_Type _t146;
-    Natural _t147;
-    Index_Type _t148;
-    Index_Type _t149;
-    Index_Type _t150;
-    universal_integer _t151;
-    Natural _t152;
-    universal_integer _t153;
 
-
-  #rwl130.
-    _t130 := attribute__uif__last `Index_Type;
-
-  #rwl131.
-    _t131 := 2ii;
 
   #l162.
-    Increment := _t130 / _t131;
+    Increment := attribute__uif__last `Index_Type / 2ii;
 
   #l164.
     // empty loc
 
-  #rwl132.
-    _t132 := Increment;
-
-  #rwl133.
-    _t133 := 0ii;
-
   #l165.
-    if !(_t132 > _t133) then goto l163;
+    if !(Increment > 0ii) then goto l163;
 
   #l167.
     _tcomp22 := Increment;
@@ -1178,14 +622,8 @@ procedure ShellSort (
   #l168.
     _tcomp23 := attribute__uif__last `Index_Type;
 
-  #rwl134.
-    _t134 := _tcomp22;
-
-  #rwl135.
-    _t135 := _tcomp23;
-
   #l169.
-    if _t134 > _t135 then goto l166;
+    if _tcomp22 > _tcomp23 then goto l166;
 
   #l170.
     I := _tcomp22;
@@ -1202,50 +640,14 @@ procedure ShellSort (
   #l175.
     // empty loc
 
-  #rwl136.
-    _t136 := J;
-
-  #rwl137.
-    _t137 := Increment;
-
-  #rwl138.
-    _t138 := J;
-
-  #rwl139.
-    _t139 := Increment;
-
-  #rwl140.
-    _t140 := A[_t138 - _t139];
-
-  #rwl141.
-    _t141 := Temp;
-
-  #rwl142.
-    _t142 := _t136 > _t137;
-
-  #rwl143.
-    _t143 := _t140 > _t141;
-
   #l176.
-    if !(_t142 && _t143) then goto l174;
-
-  #rwl144.
-    _t144 := J;
-
-  #rwl145.
-    _t145 := Increment;
+    if !(J > Increment && A[J - Increment] > Temp) then goto l174;
 
   #l177.
-    A[J] := A[_t144 - _t145];
-
-  #rwl146.
-    _t146 := J;
-
-  #rwl147.
-    _t147 := Increment;
+    A[J] := A[J - Increment];
 
   #l178.
-    J := _t146 - _t147;
+    J := J - Increment;
 
   #l179.
     goto l175;
@@ -1256,23 +658,11 @@ procedure ShellSort (
   #l180.
     A[J] := Temp;
 
-  #rwl148.
-    _t148 := I;
-
-  #rwl149.
-    _t149 := _tcomp23;
-
   #l181.
-    if _t148 == _t149 then goto l166;
-
-  #rwl150.
-    _t150 := I;
-
-  #rwl151.
-    _t151 := 1ii;
+    if I == _tcomp23 then goto l166;
 
   #l182.
-    I := _t150 + _t151;
+    I := I + 1ii;
 
   #l183.
     goto l171;
@@ -1280,14 +670,8 @@ procedure ShellSort (
   #l166.
     // empty loc
 
-  #rwl152.
-    _t152 := Increment;
-
-  #rwl153.
-    _t153 := 2ii;
-
   #l184.
-    Increment := _t152 / _t153;
+    Increment := Increment / 2ii;
 
   #l185.
     goto l164;

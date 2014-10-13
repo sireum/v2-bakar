@@ -2,32 +2,6 @@ package Array_Two_Dim;
 
 
 procedure $$binit {
-  local
-    universal_integer _t0;
-    universal_integer _t1;
-    universal_integer _t2;
-    universal_integer _t3;
-    Integer _t4;
-    universal_integer _t5;
-
-
-  #rwl0.
-    _t0 := constThree;
-
-  #rwl1.
-    _t1 := 1ii;
-
-  #rwl2.
-    _t2 := 10ii;
-
-  #rwl3.
-    _t3 := 2ii;
-
-  #rwl4.
-    _t4 := _t2 - _t3;
-
-  #rwl5.
-    _t5 := 1ii;
 
   #l2.
     @@Box := `Square {Integer iter => 
@@ -36,14 +10,14 @@ procedure $$binit {
               switch iter
                 case (attribute__uif__first `Index, attribute__uif__last `Index) => 0ii
                 default => 1ii}
-          case (_t0 + _t1, 5ii) => {Integer iter => 
+          case (constThree + 1ii, 5ii) => {Integer iter => 
               switch iter
                 case (1ii, 3ii) => 1ii
                 default => 2ii}
           case (attribute__uif__first `subIndexRange, attribute__uif__last `subIndexRange) => {Integer iter => 
               switch iter
                 default => 3ii}
-          case _t4 + _t5 => {Integer iter => 
+          case 10ii - 2ii + 1ii => {Integer iter => 
               switch iter
                 default => 5ii}
           default => {Integer iter => 
@@ -57,19 +31,9 @@ procedure $$binit {
 procedure dummy (
         Index X,
         Index Y) {
-  local
-    Integer _t6;
-    universal_integer _t7;
-
-
-  #rwl6.
-    _t6 := @@Box[X, Y];
-
-  #rwl7.
-    _t7 := 1ii;
 
   #l3.
-    @@Box[X, Y] := _t6 - _t7;
+    @@Box[X, Y] := @@Box[X, Y] - 1ii;
 
   #l4.
     return;
@@ -79,29 +43,21 @@ procedure dummy2 (
         Board_Index M,
         Board_Index N) {
   local
-    Row _t8;
-    Row _t9;
-    Integer _t10;
-    universal_integer _t11;
+    Row _t0;
+    Row _t1;
 
-
-  #rwl8.
-    _t8 := @@aBoard[M];
-
-  #rwl10.
-    _t9 := @@aBoard[M];
-
-  #rwl11.
-    _t10 := _t9[N];
-
-  #rwl12.
-    _t11 := 1ii;
 
   #l5.
-    _t8[N] := _t10 - _t11;
+    _t0 := @@aBoard[M];
 
-  #rwl9.
-    @@aBoard[M] := _t8;
+  #rwl2.
+    _t1 := @@aBoard[M];
+
+  #rwl0.
+    _t0[N] := _t1[N] - 1ii;
+
+  #rwl1.
+    @@aBoard[M] := _t0;
 
   #l6.
     return;

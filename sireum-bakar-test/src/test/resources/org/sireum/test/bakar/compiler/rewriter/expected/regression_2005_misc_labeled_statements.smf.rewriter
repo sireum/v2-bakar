@@ -5,19 +5,9 @@ procedure P (
         Integer I,
         Integer J,
         Boolean Ret) {
-  local
-    Integer _t0;
-    Integer _t1;
-
-
-  #rwl0.
-    _t0 := I;
-
-  #rwl1.
-    _t1 := J;
 
   #l2.
-    if !(_t0 > _t1) then goto l1;
+    if !(I > J) then goto l1;
 
   #l3.
     Ret := true;
@@ -46,20 +36,6 @@ procedure Integer Stupid (
     Index_Range I;
     Index_Range _tcomp0;
     Index_Range _tcomp1;
-    Index_Range _t2;
-    Index_Range _t3;
-    Integer _t4;
-    Index_Range _t5;
-    Integer _t6;
-    universal_integer _t7;
-    Integer _t8;
-    universal_integer _t9;
-    Integer _t10;
-    universal_integer _t11;
-    Index_Range _t12;
-    Index_Range _t13;
-    Index_Range _t14;
-    universal_integer _t15;
 
 
   #l8.
@@ -68,14 +44,8 @@ procedure Integer Stupid (
   #l9.
     _tcomp1 := attribute__uif__last `Index_Range;
 
-  #rwl2.
-    _t2 := _tcomp0;
-
-  #rwl3.
-    _t3 := _tcomp1;
-
   #l10.
-    if _t2 > _t3 then goto l7;
+    if _tcomp0 > _tcomp1 then goto l7;
 
   #l11.
     I := _tcomp0;
@@ -89,23 +59,11 @@ procedure Integer Stupid (
   #l15.
     // empty loc
 
-  #rwl4.
-    _t4 := J;
-
-  #rwl5.
-    _t5 := Z;
-
   #l16.
-    if !(_t4 < _t5) then goto l14;
-
-  #rwl6.
-    _t6 := J;
-
-  #rwl7.
-    _t7 := 1ii;
+    if !(J < Z) then goto l14;
 
   #l17.
-    J := _t6 + _t7;
+    J := J + 1ii;
 
   #l18.
     call P (I, J, B);
@@ -119,23 +77,11 @@ procedure Integer Stupid (
   #l19.
     // empty loc
 
-  #rwl8.
-    _t8 := J;
-
-  #rwl9.
-    _t9 := 3ii;
-
   #l24.
-    if !(_t8 == _t9) then goto l23;
-
-  #rwl10.
-    _t10 := J;
-
-  #rwl11.
-    _t11 := 1ii;
+    if !(J == 3ii) then goto l23;
 
   #l25.
-    J := _t10 + _t11;
+    J := J + 1ii;
 
   #l26.
     goto l22;
@@ -155,23 +101,11 @@ procedure Integer Stupid (
   #l14.
     // empty loc
 
-  #rwl12.
-    _t12 := I;
-
-  #rwl13.
-    _t13 := _tcomp1;
-
   #l30.
-    if _t12 == _t13 then goto l7;
-
-  #rwl14.
-    _t14 := I;
-
-  #rwl15.
-    _t15 := 1ii;
+    if I == _tcomp1 then goto l7;
 
   #l31.
-    I := _t14 + _t15;
+    I := I + 1ii;
 
   #l32.
     goto l12;

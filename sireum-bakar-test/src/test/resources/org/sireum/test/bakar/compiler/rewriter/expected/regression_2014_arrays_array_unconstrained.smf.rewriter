@@ -8,18 +8,6 @@ procedure Boolean isSorted (
     Integer I;
     Integer _tcomp0;
     Integer _tcomp1;
-    Integer _t0;
-    universal_integer _t1;
-    Integer _t2;
-    Integer _t3;
-    Integer _t4;
-    universal_integer _t5;
-    Integer _t6;
-    Integer _t7;
-    Integer _t8;
-    Integer _t9;
-    Integer _t10;
-    universal_integer _t11;
 
 
   #l0.
@@ -28,23 +16,11 @@ procedure Boolean isSorted (
   #l2.
     _tcomp0 := attribute__uif__first `Z;
 
-  #rwl0.
-    _t0 := attribute__uif__last `Z;
-
-  #rwl1.
-    _t1 := 1ii;
-
   #l3.
-    _tcomp1 := _t0 - _t1;
-
-  #rwl2.
-    _t2 := _tcomp0;
-
-  #rwl3.
-    _t3 := _tcomp1;
+    _tcomp1 := attribute__uif__last `Z - 1ii;
 
   #l4.
-    if _t2 > _t3 then goto l1;
+    if _tcomp0 > _tcomp1 then goto l1;
 
   #l5.
     I := _tcomp0;
@@ -52,41 +28,17 @@ procedure Boolean isSorted (
   #l6.
     // empty loc
 
-  #rwl4.
-    _t4 := I;
-
-  #rwl5.
-    _t5 := 1ii;
-
-  #rwl6.
-    _t6 := Z[I];
-
-  #rwl7.
-    _t7 := Z[_t4 + _t5];
-
   #l7.
-    B := _t6 <= _t7;
+    B := Z[I] <= Z[I + 1ii];
 
   #l8.
     if !(B) then goto l1;
 
-  #rwl8.
-    _t8 := I;
-
-  #rwl9.
-    _t9 := _tcomp1;
-
   #l9.
-    if _t8 == _t9 then goto l1;
-
-  #rwl10.
-    _t10 := I;
-
-  #rwl11.
-    _t11 := 1ii;
+    if I == _tcomp1 then goto l1;
 
   #l10.
-    I := _t10 + _t11;
+    I := I + 1ii;
 
   #l11.
     goto l6;
@@ -102,19 +54,9 @@ procedure Boolean indexIsValue (
         Vector Z,
         Integer Index,
         Integer V) {
-  local
-    Integer _t12;
-    Integer _t13;
-
-
-  #rwl12.
-    _t12 := Z[Index];
-
-  #rwl13.
-    _t13 := V;
 
   #l13.
-    return _t12 == _t13;
+    return Z[Index] == V;
 }package Array_Unconstrained;
 
 

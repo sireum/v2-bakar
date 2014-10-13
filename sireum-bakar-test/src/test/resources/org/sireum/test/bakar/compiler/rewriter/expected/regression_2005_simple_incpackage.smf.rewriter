@@ -5,18 +5,10 @@ procedure Integer Inc (
         Integer X) {
   local
     Integer R;
-    Integer _t0;
-    universal_integer _t1;
 
-
-  #rwl0.
-    _t0 := X;
-
-  #rwl1.
-    _t1 := 1ii;
 
   #l0.
-    R := _t0 + _t1;
+    R := X + 1ii;
 
   #l1.
     assert (proof__uif__assert R > X, "Assertion failed at [7, 7]");

@@ -28,21 +28,13 @@ procedure Add (
 procedure Del {
   local
     Integer T;
-    Integer _t0;
-    MyInt _t1;
 
 
   #l3.
     T := @@V[1ii];
 
-  #rwl0.
-    _t0 := T;
-
-  #rwl1.
-    _t1 := @@V[3ii];
-
   #l4.
-    @@V[2ii] := _t0 + _t1;
+    @@V[2ii] := T + @@V[3ii];
 
   #l5.
     return;

@@ -21,35 +21,9 @@ procedure $$binit {
 procedure R (
         Integer X,
         Integer Z) {
-  local
-    Integer _t0;
-    Integer _t1;
-    Integer _t2;
-    Integer _t3;
-    Integer _t4;
-    Integer _t5;
-
-
-  #rwl0.
-    _t0 := X;
-
-  #rwl1.
-    _t1 := @@Y;
-
-  #rwl2.
-    _t2 := _t0 + _t1;
-
-  #rwl3.
-    _t3 := @@B;
-
-  #rwl4.
-    _t4 := _t2 + _t3;
-
-  #rwl5.
-    _t5 := @@C;
 
   #l3.
-    Z := _t4 + _t5;
+    Z := X + @@Y + @@B + @@C;
 
   #l4.
     return;
@@ -58,22 +32,12 @@ procedure R (
 procedure Q (
         Integer X,
         Integer Z) {
-  local
-    Integer _t6;
-    Integer _t7;
-
 
   #l5.
     call R (X, Z);
 
-  #rwl6.
-    _t6 := Z;
-
-  #rwl7.
-    _t7 := X;
-
   #l6.
-    Z := _t6 + _t7;
+    Z := Z + X;
 
   #l7.
     return;

@@ -8,24 +8,6 @@ procedure Array_Loop_Entry (
     universal_integer Index;
     universal_integer _tcomp0;
     universal_integer _tcomp1;
-    Integer _t0;
-    universal_integer _t1;
-    Integer _t2;
-    universal_integer _t3;
-    universal_integer _t4;
-    universal_integer _t5;
-    Integer _t6;
-    Integer _t7;
-    Integer _t8;
-    universal_integer _t9;
-    Integer _t10;
-    Integer _t11;
-    Integer _t12;
-    universal_integer _t13;
-    universal_integer _t14;
-    universal_integer _t15;
-    universal_integer _t16;
-    universal_integer _t17;
 
 
   #l0.
@@ -34,29 +16,11 @@ procedure Array_Loop_Entry (
   #l3.
     _tcomp0 := attribute__uif__first `A;
 
-  #rwl0.
-    _t0 := attribute__uif__last `A;
-
-  #rwl1.
-    _t1 := 1ii;
-
-  #rwl2.
-    _t2 := _t0 + _t1;
-
-  #rwl3.
-    _t3 := 2ii;
-
   #l4.
-    _tcomp1 := _t2 / _t3;
-
-  #rwl4.
-    _t4 := _tcomp0;
-
-  #rwl5.
-    _t5 := _tcomp1;
+    _tcomp1 := attribute__uif__last `A + 1ii / 2ii;
 
   #l5.
-    if _t4 > _t5 then goto l2;
+    if _tcomp0 > _tcomp1 then goto l2;
 
   #l6.
     Index := _tcomp0;
@@ -67,35 +31,11 @@ procedure Array_Loop_Entry (
   #l8.
     Temp := A[Index];
 
-  #rwl6.
-    _t6 := attribute__uif__last `A;
-
-  #rwl7.
-    _t7 := Index;
-
-  #rwl8.
-    _t8 := _t6 - _t7;
-
-  #rwl9.
-    _t9 := 1ii;
-
   #l9.
-    A[Index] := A[_t8 + _t9];
-
-  #rwl10.
-    _t10 := attribute__uif__last `A;
-
-  #rwl11.
-    _t11 := Index;
-
-  #rwl12.
-    _t12 := _t10 - _t11;
-
-  #rwl13.
-    _t13 := 1ii;
+    A[Index] := A[attribute__uif__last `A - Index + 1ii];
 
   #l10.
-    A[_t12 + _t13] := Temp;
+    A[attribute__uif__last `A - Index + 1ii] := Temp;
 
   #l11.
     assert (proof__uif__loop_invariant proof__uif__for_all {universal_integer J => 
@@ -106,23 +46,11 @@ procedure Array_Loop_Entry (
           case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == attribute__uif__loop_entry (Inner, A)[J]
           default => true}, "Loop Invariant failed at [13, 10]");
 
-  #rwl14.
-    _t14 := Index;
-
-  #rwl15.
-    _t15 := _tcomp1;
-
   #l12.
-    if _t14 == _t15 then goto l2;
-
-  #rwl16.
-    _t16 := Index;
-
-  #rwl17.
-    _t17 := 1ii;
+    if Index == _tcomp1 then goto l2;
 
   #l13.
-    Index := _t16 + _t17;
+    Index := Index + 1ii;
 
   #l14.
     goto l7;
@@ -148,8 +76,6 @@ procedure Record_Loop_Entry (
   local
     Integer Temp;
     Integer Z;
-    Integer _t18;
-    universal_integer _t19;
 
 
   #l18.
@@ -161,14 +87,8 @@ procedure Record_Loop_Entry (
   #l21.
     Z := 3ii;
 
-  #rwl18.
-    _t18 := Temp;
-
-  #rwl19.
-    _t19 := 1ii;
-
   #l22.
-    Temp := _t18 + _t19;
+    Temp := Temp + 1ii;
 
   #l23.
     A := `Record_Of_Array_Of_Int {

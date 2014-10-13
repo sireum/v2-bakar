@@ -7,18 +7,10 @@ procedure Integer MinFunc (
   local
     Integer Min;
     Integer Max;
-    Integer _t0;
-    Integer _t1;
 
-
-  #rwl0.
-    _t0 := X;
-
-  #rwl1.
-    _t1 := Y;
 
   #l2.
-    if !(_t0 >= _t1) then goto l1;
+    if !(X >= Y) then goto l1;
 
   #l3.
     Min := Y;

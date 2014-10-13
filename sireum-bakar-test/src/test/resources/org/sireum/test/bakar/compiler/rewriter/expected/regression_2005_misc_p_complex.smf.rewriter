@@ -21,19 +21,9 @@ procedure $$binit {
 procedure Q (
         Integer X,
         Integer Z) {
-  local
-    Integer _t0;
-    Integer _t1;
-
-
-  #rwl0.
-    _t0 := X;
-
-  #rwl1.
-    _t1 := @@B;
 
   #l3.
-    Z := _t0 + _t1;
+    Z := X + @@B;
 
   #l4.
     return;

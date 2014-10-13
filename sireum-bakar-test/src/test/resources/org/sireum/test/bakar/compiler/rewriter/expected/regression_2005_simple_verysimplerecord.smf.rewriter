@@ -18,19 +18,9 @@ procedure Boolean Dummy {
 
 procedure Add (
         Rec R) {
-  local
-    Integer _t0;
-    universal_integer _t1;
-
-
-  #rwl0.
-    _t0 := R.A;
-
-  #rwl1.
-    _t1 := 1ii;
 
   #l1.
-    R.A := _t0 + _t1;
+    R.A := R.A + 1ii;
 
   #l2.
     return;
@@ -39,29 +29,13 @@ procedure Add (
 procedure Del {
   local
     Integer T;
-    Integer _t2;
-    Integer _t3;
-    Integer _t4;
-    universal_integer _t5;
 
 
   #l3.
     T := @@RG.A;
 
-  #rwl2.
-    _t2 := @@RG.B;
-
-  #rwl3.
-    _t3 := @@RG.A;
-
-  #rwl4.
-    _t4 := _t2 - _t3;
-
-  #rwl5.
-    _t5 := 7ii;
-
   #l4.
-    @@RG.A := _t4 - _t5;
+    @@RG.A := @@RG.B - @@RG.A - 7ii;
 
   #l5.
     return;

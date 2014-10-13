@@ -4,36 +4,12 @@ package Constraints;
 procedure foo (
         Integer a,
         Day dayVar) {
-  local
-    Day _t0;
-    Day _t1;
-    Integer _t2;
-    universal_integer _t3;
-    Day _t4;
-    Day _t5;
-    Integer _t6;
-    universal_integer _t7;
-    Integer _t8;
-    universal_integer _t9;
-
-
-  #rwl0.
-    _t0 := dayVar;
-
-  #rwl1.
-    _t1 := Tue;
 
   #l2.
-    if !(!(_t0 == _t1)) then goto l1;
-
-  #rwl2.
-    _t2 := a;
-
-  #rwl3.
-    _t3 := 2ii;
+    if !(!(dayVar == Tue)) then goto l1;
 
   #l3.
-    a := _t2 + _t3;
+    a := a + 2ii;
 
   #l4.
     goto l0;
@@ -41,23 +17,11 @@ procedure foo (
   #l1.
     // empty loc
 
-  #rwl4.
-    _t4 := attribute__uif__succ (`Day, dayVar);
-
-  #rwl5.
-    _t5 := Wed;
-
   #l6.
-    if !(_t4 == _t5) then goto l5;
-
-  #rwl6.
-    _t6 := a;
-
-  #rwl7.
-    _t7 := 1ii;
+    if !(attribute__uif__succ (`Day, dayVar) == Wed) then goto l5;
 
   #l7.
-    a := _t6 - _t7;
+    a := a - 1ii;
 
   #l8.
     goto l0;
@@ -65,14 +29,8 @@ procedure foo (
   #l5.
     // empty loc
 
-  #rwl8.
-    _t8 := a;
-
-  #rwl9.
-    _t9 := 1ii;
-
   #l9.
-    a := _t8 * _t9;
+    a := a * 1ii;
 
   #l0.
     // empty loc

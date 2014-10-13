@@ -14,19 +14,9 @@ procedure $$binit {
 
 procedure dummy (
         Index I) {
-  local
-    Integer _t0;
-    universal_integer _t1;
-
-
-  #rwl0.
-    _t0 := @@V[I];
-
-  #rwl1.
-    _t1 := 3ii;
 
   #l1.
-    @@V[I] := _t0 + _t1;
+    @@V[I] := @@V[I] + 3ii;
 
   #l2.
     return;

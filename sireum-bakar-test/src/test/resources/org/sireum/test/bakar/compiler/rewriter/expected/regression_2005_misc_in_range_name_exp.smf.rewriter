@@ -5,94 +5,16 @@ procedure Boolean test (
         Integer Z) {
   local
     Boolean ret;
-    Natural _t0;
-    Integer _t1;
-    Integer _t2;
-    Natural _t3;
-    Boolean _t4;
-    Boolean _t5;
-    universal_integer _t6;
-    Integer _t7;
-    Integer _t8;
-    universal_integer _t9;
-    Boolean _t10;
-    Boolean _t11;
-    Positive _t12;
-    Integer _t13;
-    Integer _t14;
-    Positive _t15;
-    Boolean _t16;
-    Boolean _t17;
-    Positive _t18;
-    Integer _t19;
-    Integer _t20;
-    Positive _t21;
-    Boolean _t22;
-    Boolean _t23;
-    Integer _t24;
-    universal_integer _t25;
-    Boolean _t26;
-    Boolean _t27;
-    universal_integer _t28;
-    Integer _t29;
-    Integer _t30;
-    universal_integer _t31;
-    Boolean _t32;
-    Boolean _t33;
-    Boolean _t34;
-    Boolean _t35;
-    universal_integer _t36;
-    universal_integer _t37;
-    Integer _t38;
-    Integer _t39;
-    Boolean _t40;
-    Boolean _t41;
 
-
-  #rwl0.
-    _t0 := attribute__uif__first `Natural;
-
-  #rwl1.
-    _t1 := Z;
-
-  #rwl2.
-    _t2 := Z;
-
-  #rwl3.
-    _t3 := attribute__uif__last `Natural;
-
-  #rwl4.
-    _t4 := _t0 <= _t1;
-
-  #rwl5.
-    _t5 := _t2 <= _t3;
 
   #l0.
-    ret := _t4 && _t5;
+    ret := attribute__uif__first `Natural <= Z && Z <= attribute__uif__last `Natural;
 
   #l2.
     if !(ret) then goto l1;
 
-  #rwl6.
-    _t6 := 1ii;
-
-  #rwl7.
-    _t7 := Z;
-
-  #rwl8.
-    _t8 := Z;
-
-  #rwl9.
-    _t9 := 10ii;
-
-  #rwl10.
-    _t10 := _t6 <= _t7;
-
-  #rwl11.
-    _t11 := _t8 <= _t9;
-
   #l3.
-    ret := _t10 && _t11;
+    ret := 1ii <= Z && Z <= 10ii;
 
   #l1.
     // empty loc
@@ -100,26 +22,8 @@ procedure Boolean test (
   #l5.
     if !(ret) then goto l4;
 
-  #rwl12.
-    _t12 := attribute__uif__first `Positive;
-
-  #rwl13.
-    _t13 := Z;
-
-  #rwl14.
-    _t14 := Z;
-
-  #rwl15.
-    _t15 := attribute__uif__last `Positive;
-
-  #rwl16.
-    _t16 := _t12 <= _t13;
-
-  #rwl17.
-    _t17 := _t14 <= _t15;
-
   #l6.
-    ret := !(_t16 && _t17);
+    ret := !(attribute__uif__first `Positive <= Z && Z <= attribute__uif__last `Positive);
 
   #l4.
     // empty loc
@@ -127,80 +31,8 @@ procedure Boolean test (
   #l8.
     if !(ret) then goto l7;
 
-  #rwl18.
-    _t18 := attribute__uif__first `Positive;
-
-  #rwl19.
-    _t19 := Z;
-
-  #rwl20.
-    _t20 := Z;
-
-  #rwl21.
-    _t21 := attribute__uif__last `Positive;
-
-  #rwl22.
-    _t22 := _t18 <= _t19;
-
-  #rwl23.
-    _t23 := _t20 <= _t21;
-
-  #rwl24.
-    _t24 := Z;
-
-  #rwl25.
-    _t25 := 4ii;
-
-  #rwl26.
-    _t26 := _t22 && _t23;
-
-  #rwl27.
-    _t27 := _t24 == _t25;
-
-  #rwl28.
-    _t28 := 5ii;
-
-  #rwl29.
-    _t29 := Z;
-
-  #rwl30.
-    _t30 := Z;
-
-  #rwl31.
-    _t31 := 7ii;
-
-  #rwl32.
-    _t32 := _t28 <= _t29;
-
-  #rwl33.
-    _t33 := _t30 <= _t31;
-
-  #rwl34.
-    _t34 := _t26 || _t27;
-
-  #rwl35.
-    _t35 := _t32 && _t33;
-
-  #rwl36.
-    _t36 := 3ii;
-
-  #rwl37.
-    _t37 := 5ii;
-
-  #rwl38.
-    _t38 := Z;
-
-  #rwl39.
-    _t39 := _t36 + _t37;
-
-  #rwl40.
-    _t40 := _t34 || _t35;
-
-  #rwl41.
-    _t41 := _t38 == _t39;
-
   #l9.
-    ret := !(_t40 || _t41);
+    ret := !(attribute__uif__first `Positive <= Z && Z <= attribute__uif__last `Positive || Z == 4ii || 5ii <= Z && Z <= 7ii || Z == 3ii + 5ii);
 
   #l7.
     // empty loc

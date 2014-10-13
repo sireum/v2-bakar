@@ -20,27 +20,9 @@ procedure $$binit {
 
 procedure R (
         Integer X) {
-  local
-    Integer _t0;
-    Integer _t1;
-    Integer _t2;
-    Integer _t3;
-
-
-  #rwl0.
-    _t0 := @@Y;
-
-  #rwl1.
-    _t1 := @@B;
-
-  #rwl2.
-    _t2 := _t0 + _t1;
-
-  #rwl3.
-    _t3 := @@C;
 
   #l3.
-    X := _t2 + _t3;
+    X := @@Y + @@B + @@C;
 
   #l4.
     return;
@@ -50,31 +32,13 @@ procedure Integer incX (
         Integer X) {
   local
     Integer result;
-    Integer _t4;
-    universal_integer _t5;
-    Integer _t6;
-    universal_integer _t7;
-    Integer _t8;
-    universal_integer _t9;
 
-
-  #rwl4.
-    _t4 := X;
-
-  #rwl5.
-    _t5 := 0ii;
 
   #l7.
-    if !(_t4 == _t5) then goto l6;
-
-  #rwl6.
-    _t6 := X;
-
-  #rwl7.
-    _t7 := 1ii;
+    if !(X == 0ii) then goto l6;
 
   #l8.
-    result := _t6 + _t7;
+    result := X + 1ii;
 
   #l9.
     goto l5;
@@ -82,14 +46,8 @@ procedure Integer incX (
   #l6.
     // empty loc
 
-  #rwl8.
-    _t8 := X;
-
-  #rwl9.
-    _t9 := 1ii;
-
   #l10.
-    result := _t8 - _t9;
+    result := X - 1ii;
 
   #l5.
     // empty loc
@@ -103,8 +61,6 @@ procedure Q (
         Integer Z) {
   local
     Integer _tcomp0;
-    Integer _t10;
-    Integer _t11;
 
 
   #l12.
@@ -113,14 +69,8 @@ procedure Q (
   #l13.
     call _tcomp0 := incX (X);
 
-  #rwl10.
-    _t10 := Z;
-
-  #rwl11.
-    _t11 := _tcomp0;
-
   #l14.
-    Z := _t10 + _t11;
+    Z := Z + _tcomp0;
 
   #l15.
     return;

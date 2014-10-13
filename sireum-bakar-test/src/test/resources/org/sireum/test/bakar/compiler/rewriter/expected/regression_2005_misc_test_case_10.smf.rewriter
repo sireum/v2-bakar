@@ -10,12 +10,6 @@ procedure P1 (
   local
     Integer L1;
     Integer L2;
-    Integer _t0;
-    Integer _t1;
-    Integer _t2;
-    universal_integer _t3;
-    Integer _t4;
-    universal_integer _t5;
 
 
   #l0.
@@ -30,32 +24,14 @@ procedure P1 (
   #l3.
     L1 := I2;
 
-  #rwl0.
-    _t0 := I1;
-
-  #rwl1.
-    _t1 := I2;
-
   #l4.
-    L1 := _t0 + _t1;
-
-  #rwl2.
-    _t2 := L1;
-
-  #rwl3.
-    _t3 := 5ii;
+    L1 := I1 + I2;
 
   #l6.
-    if !(_t2 > _t3) then goto l5;
-
-  #rwl4.
-    _t4 := I1;
-
-  #rwl5.
-    _t5 := 0ii;
+    if !(L1 > 5ii) then goto l5;
 
   #l9.
-    if !(_t4 < _t5) then goto l8;
+    if !(I1 < 0ii) then goto l8;
 
   #l10.
     L2 := 8ii;

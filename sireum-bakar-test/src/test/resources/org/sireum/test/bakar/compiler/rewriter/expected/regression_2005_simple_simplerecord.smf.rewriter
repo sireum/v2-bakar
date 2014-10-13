@@ -26,19 +26,9 @@ procedure Boolean Dummy {
 procedure Add (
         SmallInt I,
         Rec R) {
-  local
-    SmallInt _t0;
-    SmallInt _t1;
-
-
-  #rwl0.
-    _t0 := R.A;
-
-  #rwl1.
-    _t1 := I;
 
   #l1.
-    R.A := _t0 + _t1;
+    R.A := R.A + I;
 
   #l2.
     return;
@@ -48,29 +38,21 @@ procedure NAdd (
         SmallInt I,
         NestedRec NR) {
   local
-    Rec _t2;
-    Rec _t3;
-    SmallInt _t4;
-    SmallInt _t5;
+    Rec _t0;
+    Rec _t1;
 
-
-  #rwl2.
-    _t2 := NR.X;
-
-  #rwl4.
-    _t3 := NR.X;
-
-  #rwl5.
-    _t4 := _t3.A;
-
-  #rwl6.
-    _t5 := I;
 
   #l3.
-    _t2.A := _t4 + _t5;
+    _t0 := NR.X;
 
-  #rwl3.
-    NR.X := _t2;
+  #rwl2.
+    _t1 := NR.X;
+
+  #rwl0.
+    _t0.A := _t1.A + I;
+
+  #rwl1.
+    NR.X := _t0;
 
   #l4.
     return;
@@ -80,25 +62,17 @@ procedure AAdd (
         SmallInt I,
         Rec R) {
   local
-    Vector _t6;
-    SmallInt _t7;
-    universal_integer _t8;
+    Vector _t2;
 
-
-  #rwl7.
-    _t6 := R.B;
-
-  #rwl9.
-    _t7 := I;
-
-  #rwl10.
-    _t8 := 1ii;
 
   #l5.
-    _t6[I] := _t7 + _t8;
+    _t2 := R.B;
 
-  #rwl8.
-    R.B := _t6;
+  #rwl3.
+    _t2[I] := I + 1ii;
+
+  #rwl4.
+    R.B := _t2;
 
   #l6.
     return;

@@ -4,19 +4,9 @@ package PackageDemo_A;
 procedure Q (
         Integer X,
         Integer Z) {
-  local
-    Integer _t0;
-    universal_integer _t1;
-
-
-  #rwl0.
-    _t0 := X;
-
-  #rwl1.
-    _t1 := 2ii;
 
   #l0.
-    Z := _t0 + _t1;
+    Z := X + 2ii;
 
   #l1.
     return;

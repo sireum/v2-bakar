@@ -4,19 +4,9 @@ package Example;
 procedure add (
         Integer x,
         Integer y) {
-  local
-    Integer _t0;
-    Integer _t1;
-
-
-  #rwl0.
-    _t0 := x;
-
-  #rwl1.
-    _t1 := y;
 
   #l0.
-    x := _t0 + _t1;
+    x := x + y;
 
   #l1.
     return;
@@ -27,10 +17,6 @@ procedure foo (
         Integer B) {
   local
     Integer M;
-    Integer _t2;
-    universal_integer _t3;
-    Integer _t4;
-    universal_integer _t5;
 
 
   #l2.
@@ -42,23 +28,11 @@ procedure foo (
   #l4.
     call add (B, 5ii);
 
-  #rwl2.
-    _t2 := A;
-
-  #rwl3.
-    _t3 := 2ii;
-
   #l5.
-    A := _t2 + _t3;
-
-  #rwl4.
-    _t4 := B;
-
-  #rwl5.
-    _t5 := 5ii;
+    A := A + 2ii;
 
   #l6.
-    B := _t4 + _t5;
+    B := B + 5ii;
 
   #l7.
     return;
