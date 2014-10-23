@@ -65,6 +65,9 @@ object BakarProgram extends ImplicitLogging {
 
   def setJobEnvirenment(job : PipelineJob, mode : SireumBakarProgramMode) {
     BakarProgramTranslatorModule.setJagoProgramTarget(job.properties, mode.typ)
+    if(mode.gnatpath != "")
+      Gnat2XMLWrapperModule.setGnatBin(job.properties, Some(mode.gnatpath))
+
     var srcFiles = mlistEmpty[String]
     for (srcFile <- mode.srcFiles) {
       val absoluteFileName = TranslatorUtil.getAbsolutePath(srcFile)
