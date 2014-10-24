@@ -231,7 +231,28 @@ stringFormat(value) ::= <<
 "$value$"%string
 >>
 
-symbolTable(vars, procs, types, exps, slocs) ::= <<
+nameTable(varNames, procNames, pkgNames, typeNames) ::= <<
+(mkNameTable_xx
+  (*///////////////////////////////////*)
+  (* = = = (1) variable names map = = = *)
+  (*///////////////////////////////////*)
+  ($varNames; separator = " :: "$$if(varNames)$ :: $endif$nil)
+  (*////////////////////////////////////////////*)
+  (* = = = (2) subprogram names map = = = *)
+  (*////////////////////////////////////////////*)
+  ($procNames; separator = " :: "$$if(procNames)$ :: $endif$nil)
+  (*//////////////////////////////////////*)
+  (* = = = (3) package names map = = = *)
+  (*//////////////////////////////////////*)
+  ($pkgNames; separator = " :: "$$if(pkgNames)$ :: $endif$nil)
+  (*/////////////////////////////////////*)
+  (* = = = (4) type names map = = = *)
+  (*/////////////////////////////////////*)
+  ($typeNames; separator = " :: "$$if(typeNames)$ :: $endif$nil)
+)
+>>
+
+symbolTable(vars, procs, types, exps, slocs, nameTable) ::= <<
 (mkSymbolTable_xx
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
@@ -253,6 +274,9 @@ symbolTable(vars, procs, types, exps, slocs) ::= <<
   (* = = = (5) ast node to source location map = = = *)
   (*/////////////////////////////////////////////////*)
   ($slocs; separator = " :: "$$if(slocs)$ :: $endif$nil)
+  (* = = = (6) name id to a pair of (name string, unique name string) map = = = *)
+  (*/////////////////////////////////////////////////*)
+  ($nameTable$)
 )
 >>
 

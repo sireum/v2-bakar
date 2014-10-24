@@ -26,20 +26,35 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       params : MList[String],
       localVars : String,
       subprogramBody : String)
-        
+  
+  /*
+   * map each name, which is represented as a natural number, to its source code name and the
+   * unique reference name;
+   * e.g. 1 -> (“X”, “ada://variable/pacakge_name/procedure_name_where_X_is_decalred/X+12:24")
+   */
+  final case class NameTableClass(
+      varNameTable : MMap[Int, (String, String)],
+      procNameTable: MMap[Int, (String, String)],
+      pkgNameTable: MMap[Int, (String, String)],
+      typeNameTable: MMap[Int, (String, String)]
+  )      
+      
   class SymbolTable {
-//  Record symboltable := mkSymbolTable{
-//    vars: list (idnum * (mode * type));
-//    procs: list (procnum * (level * proc_decl));
-//    types: list (typenum * type_decl);
-//    exps: list (astnum * type)
-//  }.
+    /*
+      Record symboltable := mkSymbolTable{
+        vars: list (idnum * (mode * type));
+      	procs: list (procnum * (level * proc_decl));
+    		types: list (typenum * type_decl);
+    		exps: list (astnum * type)
+    		names: list (astnum * String)
+  		}.
+     */
     
     // natural number is used to represent identifier, in order to make 
     // it readable, we annotate each natural number with its identifier 
     // string, that's why we use string as key for the following maps
     val var_type_map = mmapEmpty[String, (String, String)]
-    val proc_decl_map = mmapEmpty[String, (Integer, String)]
+    val proc_decl_map = mmapEmpty[String, (Int, String)]
     val type_decl_map = mmapEmpty[String, String]
     val exp_type_map = mmapEmpty[Int, String]
 
@@ -122,6 +137,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     val results = mlistEmpty[String]
     var result : Any = null
     val symboltable = new SymbolTable
+    var subprogramNestingLevel = 0
 
     def pushResult(o : Any) {
       result = o;
@@ -138,6 +154,14 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     }
 
     def getResults = results
+    
+    def increaseNestingLevel {
+      subprogramNestingLevel = subprogramNestingLevel + 1;
+    }
+    
+    def decreaseNestingLevel {
+      subprogramNestingLevel = subprogramNestingLevel - 1;
+    }
 
     def isEmpty(o : Base) : Boolean = o.isInstanceOf[NotAnElement]
 
@@ -260,7 +284,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     if (declIds.length == 1)
       return declIds.head
       
-    // declIds is in the form of: Seq_Decl ast number :: Decl :: Seq_Decl ast number :: Decl :: Decl 
+    // declIds is in the form of: (Seq_Decl ast number) :: Decl :: (Seq_Decl ast number) :: Decl :: Decl 
     val astnum = declIds.head.toInt
     val d1 = declIds.tail.head
     val d2 = handSeqDeclarations(declIds.tail.tail)
@@ -306,8 +330,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         }
         
         // [4] declared local objects, e.g. variables, array/record types, or nested procedures
+        ctx.increaseNestingLevel
         declarativePartH(ctx, v, bodyDeclItems.getElements.toList)
         val declItems = ctx.popResult.asInstanceOf[String]
+        ctx.decreaseNestingLevel
         
         // [5] subprogram body
         v(bodyStatements)
@@ -351,7 +377,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val procedureBodyDecl = factory.buildProcedureBodyDeclaration(procbody_astnum, m.subprogramName, m.params, m.localVars, m.subprogramBody)
         val procedureBody = factory.buildProcedureBodyDeclarationWrapper(astnum, procedureBodyDecl)
         // add to symbol table
-        ctx.symboltable.insertProcedureDecl(m.subprogramName, procedureBodyDecl)
+        ctx.symboltable.insertProcedureDecl(m.subprogramName, procedureBodyDecl, ctx.subprogramNestingLevel)
         
         ctx.pushResult(procedureBody)
         false
@@ -370,7 +396,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         // val functionBody = factory.buildProcedureBodyDeclarationWrapper(astnum, functionBodyDecl)
         
         // add to symbol table
-        ctx.symboltable.insertProcedureDecl(m.subprogramName, functionBodyDecl)
+        ctx.symboltable.insertProcedureDecl(m.subprogramName, functionBodyDecl, ctx.subprogramNestingLevel)
         
         ctx.pushResult(functionBodyDecl)
         false
@@ -1043,49 +1069,6 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     }
   }
   
-  def buildSymbolTable(st: SymbolTable, stg: STGroupFile): String = {
-    val result = stg.getInstanceOf("symbolTable")
-    
-    val vars = st.getVarTypeMap
-    val procs = st.getProcDeclMap
-    val types = st.getTypeDeclMap
-    val exps = st.getExpTypeMap
-    val slocs = st.getSlocMap
-    
-    for(x <- vars) {
-      val var_element = stg.getInstanceOf("product")
-      var_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
-      result.add("vars", var_element)
-    }
-    
-    for(x <- procs) {
-      val proc_element = stg.getInstanceOf("product")
-      proc_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
-      result.add("procs", proc_element)
-    }
-    
-    for(x <- types) {
-      val type_element = stg.getInstanceOf("product")
-      type_element.add("x", x._1).add("y", x._2)
-      result.add("types", type_element)
-    }
-    
-    for(x <- exps) {
-      val exp_type_element = stg.getInstanceOf("product")
-      exp_type_element.add("x", x._1).add("y", x._2)
-      result.add("exps", exp_type_element)
-    }
-    
-    for(x <- slocs) {
-      val sloc_element = stg.getInstanceOf("product")
-      val sloc = factory.buildSourceLocation(x._2.getLine, x._2.getCol, x._2.getEndline, x._2.getEndcol)
-      sloc_element.add("x", x._1).add("y", sloc)
-      result.add("slocs", sloc_element)
-    }    
-    
-    result.render()
-  }
-  
   val COQ_AST_ID = "Coq_AST_Tree_XX"
   val SYMBOL_TABLE_ID = "Symbol_Table_XX"  
 
@@ -1129,8 +1112,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     i += 1
   }
   
+  val namesMap = factory.buildNameTable(stg, factory.getVarNameMap, factory.getProcNameMap, factory.getPkgNameMap, factory.getTypeNameMap)
   val coq_ast_tree = factory.buildDefinition(COQ_AST_ID, this.handSeqDeclarations(cus))
-  val symbol_table = factory.buildDefinition(SYMBOL_TABLE_ID, buildSymbolTable(ctx.symboltable, stg))
+  val symbol_table = factory.buildDefinition(SYMBOL_TABLE_ID, 
+      factory.buildSymbolTable(stg, ctx.symboltable.getVarTypeMap, ctx.symboltable.getProcDeclMap, 
+          ctx.symboltable.getTypeDeclMap, ctx.symboltable.getExpTypeMap, ctx.symboltable.getSlocMap, namesMap))
   
   val ret = mlistEmpty[String]
   ret += coq_ast_tree

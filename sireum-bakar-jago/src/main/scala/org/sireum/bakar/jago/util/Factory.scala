@@ -4,8 +4,9 @@ import org.stringtemplate.v4.STGroupFile
 import org.sireum.util._
 import org.sireum.option.ProgramTarget
 import org.sireum.bakar.xml._
+import org.sireum.bakar.xml.SourceLocation
 
-class Factory(stg: STGroupFile) {
+class Factory(stg: STGroupFile) {  
   /**********************************************************
    * [1] The Following Is For Bakar Jago Program Translator *
    **********************************************************/
@@ -18,6 +19,17 @@ class Factory(stg: STGroupFile) {
   val unitExpTypeMap = mmapEmpty[Int, Int] // from expression AST# number to its type number
   // TODO: it's none now
   val unitTypeDeclsMap = mmapEmpty[String, Int] // declared type to its ast number 
+  
+  // e.g. 1 -> (“X”, “ada://variable/pacakge_name/procedure_name_where_X_is_decalred/X+12:24")
+  val varNameMap = mmapEmpty[Int, (String, String)]
+  val procNameMap = mmapEmpty[Int, (String, String)]
+  val pkgNameMap = mmapEmpty[Int, (String, String)]
+  val typeNameMap = mmapEmpty[Int, (String, String)]
+  
+  def getVarNameMap = varNameMap
+  def getProcNameMap = procNameMap
+  def getPkgNameMap = pkgNameMap
+  def getTypeNameMap = typeNameMap
   
   //val ident2TypeMap = mmapEmpty[String, String] // int x; x --> int
 
@@ -290,8 +302,26 @@ class Factory(stg: STGroupFile) {
       else
         // TODO: to deal with other kind of identifier
         getIdNum(id_uri)
-        
+     
+     buildNameTable(id_num, id, id_uri)
      buildAnnotatedIdNum(id, id_num)   
+  }
+  
+  def buildNameTable(id_num: Int, id: String, id_uri: String){
+    if (id_uri.contains("constant") || id_uri.contains("variable") || 
+        id_uri.contains("parameter") || id_uri.contains("component"))
+      // constant example, T : constant Boolean := false;
+      varNameMap += (id_num -> ("\""+id+"\"", "\""+id_uri+"\""))
+    else if(id_uri.contains("ordinary_type") || id_uri.contains("subtype") || id_uri.contains("private_type"))
+      typeNameMap += (id_num -> ("\""+id+"\"", "\""+id_uri+"\""))
+    else if(id_uri.contains("procedure_body") || id_uri.contains("function_body") ||
+        id_uri.contains("procedure/") || id_uri.contains("function/"))
+      // for a newly declared procedure, its id_uri is in the form like 
+      // "ada://procedure_body/Array_Record_Package-1:9/Increase-10:14"
+      procNameMap += (id_num -> ("\""+id+"\"", "\""+id_uri+"\""))
+    else if(id_uri.contains("package_body") || id_uri.contains("package/"))
+      pkgNameMap += (id_num -> ("\""+id+"\"", "\""+id_uri+"\""))
+    else {}
   }
   
   def buildAnnotatedIdNum(id_str: String, id_nat: Int) = {
@@ -653,6 +683,84 @@ class Factory(stg: STGroupFile) {
     val result = stg.getInstanceOf("definition")
     result.add("x", x)
     result.add("v", v)
+    result.render()
+  }
+  
+  def buildNameTable(stg: STGroupFile, 
+      varNameMap: MMap[Int, (String, String)],
+      procNameMap: MMap[Int, (String, String)],
+      pkgNameMap: MMap[Int, (String, String)],
+      typeNameMap: MMap[Int, (String, String)]): String = {
+    val result = stg.getInstanceOf("nameTable") 
+    
+    for(x <- varNameMap) {
+      val var_element = stg.getInstanceOf("product")
+      var_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("varNames", var_element)
+    }
+    
+    for(x <- procNameMap) {
+      val proc_element = stg.getInstanceOf("product")
+      proc_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("procNames", proc_element)
+    }
+    
+    for(x <- pkgNameMap) {
+      val pkg_element = stg.getInstanceOf("product")
+      pkg_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("pkgNames", pkg_element)
+    }
+    
+    for(x <- typeNameMap) {
+      val type_element = stg.getInstanceOf("product")
+      type_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("typeNames", type_element)
+    }
+    
+    result.render()
+  }  
+  
+  def buildSymbolTable(stg: STGroupFile, 
+      vars: MMap[String,(String, String)],
+      procs: MMap[String,(Int, String)],
+      types: MMap[String,String],
+      exps: MMap[Int, String],
+      slocs: MMap[Int, SourceLocation],
+      names: String): String = {
+    val result = stg.getInstanceOf("symbolTable")
+    
+    for(x <- vars) {
+      val var_element = stg.getInstanceOf("product")
+      var_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("vars", var_element)
+    }
+    
+    for(x <- procs) {
+      val proc_element = stg.getInstanceOf("product")
+      proc_element.add("x", x._1).add("y", stg.getInstanceOf("product").add("x", x._2._1).add("y", x._2._2))
+      result.add("procs", proc_element)
+    }
+    
+    for(x <- types) {
+      val type_element = stg.getInstanceOf("product")
+      type_element.add("x", x._1).add("y", x._2)
+      result.add("types", type_element)
+    }
+    
+    for(x <- exps) {
+      val exp_type_element = stg.getInstanceOf("product")
+      exp_type_element.add("x", x._1).add("y", x._2)
+      result.add("exps", exp_type_element)
+    }
+    
+    for(x <- slocs) {
+      val sloc_element = stg.getInstanceOf("product")
+      val sloc = buildSourceLocation(x._2.getLine, x._2.getCol, x._2.getEndline, x._2.getEndcol)
+      sloc_element.add("x", x._1).add("y", sloc)
+      result.add("slocs", sloc_element)
+    }    
+    
+    result.add("nameTable", names)
     result.render()
   }
   
