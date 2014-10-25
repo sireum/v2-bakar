@@ -8,6 +8,7 @@ import org.stringtemplate.v4.STGroupFile
 import org.sireum.option.TypeTarget
 import java.io.File
 import java.io.FileWriter
+import scala.util.matching.Regex
 
 object URIS {
   // 
@@ -128,4 +129,25 @@ object TranslatorUtil {
       case _ => false
     }
   }
+  
+  def generateStandardAst(target : String) = {
+    // val regexp = """(Regexp1) (Regexp2)""", for object matched with regexp, 
+    // the part matched by Regexp1 is called object.group(1), and 
+    // the part matched by Regexp2 is called object.group(2); 
+    // parenthesss "()" is used to separate the matched object into different groups
+    // to match "(**...**)" using reluctant match "*?" instead of greedy one "*";
+    val regexp = """(\(\*\*.*?\*\*\))|_xx|_XX""".r 
+    regexp.replaceAllIn(target, matchedObj => "")
+  }
+  
+  def generateAstWithChecks(target : String) = {
+    // for a matched object, e.g. (**check**), group(1) is "(**", group(2) is "check", 
+    // and group(3) is "**)";
+    val regexp1 = """(\(\*\*)(.*?)(\*\*\))""".r 
+    val regexp2 = """xx""".r
+    val regexp3 = """XX""".r
+    var result = regexp1.replaceAllIn(target, matchedObj => matchedObj.group(2)) // remove run-time check flags from ast
+    result = regexp2.replaceAllIn(result, matchedObj => "x")
+    regexp3.replaceAllIn(result, matchedObj => "X")
+  }    
 }

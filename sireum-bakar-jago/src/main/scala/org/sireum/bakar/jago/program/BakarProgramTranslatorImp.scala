@@ -1113,14 +1113,16 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   }
   
   val namesMap = factory.buildNameTable(stg, factory.getVarNameMap, factory.getProcNameMap, factory.getPkgNameMap, factory.getTypeNameMap)
-  val coq_ast_tree = factory.buildDefinition(COQ_AST_ID, this.handSeqDeclarations(cus))
-  val symbol_table = factory.buildDefinition(SYMBOL_TABLE_ID, 
+  val coq_ast_tree_template = factory.buildDefinition(COQ_AST_ID, this.handSeqDeclarations(cus))
+  val symbol_table_template = factory.buildDefinition(SYMBOL_TABLE_ID, 
       factory.buildSymbolTable(stg, ctx.symboltable.getVarTypeMap, ctx.symboltable.getProcDeclMap, 
           ctx.symboltable.getTypeDeclMap, ctx.symboltable.getExpTypeMap, ctx.symboltable.getSlocMap, namesMap))
   
   val ret = mlistEmpty[String]
-  ret += coq_ast_tree
-  ret += symbol_table
+  ret += TranslatorUtil.generateStandardAst(coq_ast_tree_template)
+  ret += TranslatorUtil.generateStandardAst(symbol_table_template)
+  ret += TranslatorUtil.generateAstWithChecks(coq_ast_tree_template)
+  ret += TranslatorUtil.generateAstWithChecks(symbol_table_template)  
   
   // store the program translation results as PipelineJob's properties
   // so the result can be used by the following pipeline modules  
