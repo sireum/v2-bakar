@@ -1,3 +1,7 @@
+Require Import String.
+Require Import symboltable.
+Open Scope string_scope.
+
 Definition Coq_AST_Tree := 
 (D_Procedure_Body 1 
   (mkprocedure_body 2
@@ -5,20 +9,20 @@ Definition Coq_AST_Tree :=
     ((*Min*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 3 ((*X*) 1) Integer In) :: 
-    (mkparameter_specification 4 ((*Y*) 2) Integer In) :: 
-    (mkparameter_specification 5 ((*R*) 3) Integer Out) :: nil)
+    (mkparameter_specification 3 ((*X*) 2) Integer In) :: 
+    (mkparameter_specification 4 ((*Y*) 3) Integer In) :: 
+    (mkparameter_specification 5 ((*R*) 4) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Object_Declaration 6 (mkobject_declaration 7 ((*Result*) 4) Integer None)))
+    ((D_Object_Declaration 6 (mkobject_declaration 7 ((*Result*) 5) Integer None)))
     (* = = = Procedure Body = = = *)
       (S_Sequence 8
-      (S_Assignment 9 (E_Identifier 10 ((*Result*) 4) ) (E_Name 11 (E_Identifier 12 ((*X*) 1) ) )) 
+      (S_Assignment 9 (E_Identifier 10 ((*Result*) 5) ) (E_Name 11 (E_Identifier 12 ((*X*) 2) ) )) 
       (S_Sequence 13
-      (S_If 14 (E_Binary_Operation 15 Greater_Than (E_Name 16 (E_Identifier 17 ((*X*) 1) ) ) (E_Name 18 (E_Identifier 19 ((*Y*) 2) ) ) )
-        (S_Assignment 20 (E_Identifier 21 ((*Result*) 4) ) (E_Name 22 (E_Identifier 23 ((*Y*) 2) ) ))
+      (S_If 14 (E_Binary_Operation 15 Greater_Than (E_Name 16 (E_Identifier 17 ((*X*) 2) ) ) (E_Name 18 (E_Identifier 19 ((*Y*) 3) ) ) )
+        (S_Assignment 20 (E_Identifier 21 ((*Result*) 5) ) (E_Name 22 (E_Identifier 23 ((*Y*) 3) ) ))
         S_Null
       ) 
-      (S_Assignment 24 (E_Identifier 25 ((*R*) 3) ) (E_Name 26 (E_Identifier 27 ((*Result*) 4) ) ))))
+      (S_Assignment 24 (E_Identifier 25 ((*R*) 4) ) (E_Name 26 (E_Identifier 27 ((*Result*) 5) ) ))))
   )
 ).
 
@@ -36,20 +40,20 @@ Definition Symbol_Table :=
   ((*Min*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 3 ((*X*) 1) Integer In) :: 
-  (mkparameter_specification 4 ((*Y*) 2) Integer In) :: 
-  (mkparameter_specification 5 ((*R*) 3) Integer Out) :: nil)
+  (mkparameter_specification 3 ((*X*) 2) Integer In) :: 
+  (mkparameter_specification 4 ((*Y*) 3) Integer In) :: 
+  (mkparameter_specification 5 ((*R*) 4) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration 6 (mkobject_declaration 7 ((*Result*) 4) Integer None)))
+  ((D_Object_Declaration 6 (mkobject_declaration 7 ((*Result*) 5) Integer None)))
   (* = = = Procedure Body = = = *)
     (S_Sequence 8
-    (S_Assignment 9 (E_Identifier 10 ((*Result*) 4) ) (E_Name 11 (E_Identifier 12 ((*X*) 1) ) )) 
+    (S_Assignment 9 (E_Identifier 10 ((*Result*) 5) ) (E_Name 11 (E_Identifier 12 ((*X*) 2) ) )) 
     (S_Sequence 13
-    (S_If 14 (E_Binary_Operation 15 Greater_Than (E_Name 16 (E_Identifier 17 ((*X*) 1) ) ) (E_Name 18 (E_Identifier 19 ((*Y*) 2) ) ) )
-      (S_Assignment 20 (E_Identifier 21 ((*Result*) 4) ) (E_Name 22 (E_Identifier 23 ((*Y*) 2) ) ))
+    (S_If 14 (E_Binary_Operation 15 Greater_Than (E_Name 16 (E_Identifier 17 ((*X*) 2) ) ) (E_Name 18 (E_Identifier 19 ((*Y*) 3) ) ) )
+      (S_Assignment 20 (E_Identifier 21 ((*Result*) 5) ) (E_Name 22 (E_Identifier 23 ((*Y*) 3) ) ))
       S_Null
     ) 
-    (S_Assignment 24 (E_Identifier 25 ((*R*) 3) ) (E_Name 26 (E_Identifier 27 ((*Result*) 4) ) ))))
+    (S_Assignment 24 (E_Identifier 25 ((*R*) 4) ) (E_Name 26 (E_Identifier 27 ((*Result*) 5) ) ))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
@@ -69,7 +73,7 @@ Definition Symbol_Table :=
   (*///////////////////////////////////*)
   (* = = = (1) variable names map = = = *)
   (*///////////////////////////////////*)
-  ((2, ("Y", "ada://parameter/Min+1:11/Y+1:29")) :: (4, ("Result", "ada://variable/Min+1:11/Result+3:4")) :: (1, ("X", "ada://parameter/Min+1:11/X+1:16")) :: (3, ("R", "ada://parameter/Min+1:11/R+1:42")) :: nil)
+  ((2, ("X", "ada://parameter/Min+1:11/X+1:16")) :: (5, ("Result", "ada://variable/Min+1:11/Result+3:4")) :: (4, ("R", "ada://parameter/Min+1:11/R+1:42")) :: (3, ("Y", "ada://parameter/Min+1:11/Y+1:29")) :: nil)
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram names map = = = *)
   (*////////////////////////////////////////////*)
@@ -92,20 +96,20 @@ Definition Coq_AST_Tree_X :=
     ((*Min*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 3 ((*X*) 1) Integer In) :: 
-    (mkparameter_specification_x 4 ((*Y*) 2) Integer In) :: 
-    (mkparameter_specification_x 5 ((*R*) 3) Integer Out) :: nil)
+    (mkparameter_specification_x 3 ((*X*) 2) Integer In) :: 
+    (mkparameter_specification_x 4 ((*Y*) 3) Integer In) :: 
+    (mkparameter_specification_x 5 ((*R*) 4) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Object_Declaration_X 6 (mkobject_declaration_x 7 ((*Result*) 4) Integer None)))
+    ((D_Object_Declaration_X 6 (mkobject_declaration_x 7 ((*Result*) 5) Integer None)))
     (* = = = Procedure Body = = = *)
       (S_Sequence_X 8
-      (S_Assignment_X 9 (E_Identifier_X 10 ((*Result*) 4) (nil)) (E_Name_X 11 (E_Identifier_X 12 ((*X*) 1) (nil)) (nil))) 
+      (S_Assignment_X 9 (E_Identifier_X 10 ((*Result*) 5) (nil)) (E_Name_X 11 (E_Identifier_X 12 ((*X*) 2) (nil)) (nil))) 
       (S_Sequence_X 13
-      (S_If_X 14 (E_Binary_Operation_X 15 Greater_Than (E_Name_X 16 (E_Identifier_X 17 ((*X*) 1) (nil)) (nil)) (E_Name_X 18 (E_Identifier_X 19 ((*Y*) 2) (nil)) (nil)) (nil))
-        (S_Assignment_X 20 (E_Identifier_X 21 ((*Result*) 4) (nil)) (E_Name_X 22 (E_Identifier_X 23 ((*Y*) 2) (nil)) (nil)))
+      (S_If_X 14 (E_Binary_Operation_X 15 Greater_Than (E_Name_X 16 (E_Identifier_X 17 ((*X*) 2) (nil)) (nil)) (E_Name_X 18 (E_Identifier_X 19 ((*Y*) 3) (nil)) (nil)) (nil))
+        (S_Assignment_X 20 (E_Identifier_X 21 ((*Result*) 5) (nil)) (E_Name_X 22 (E_Identifier_X 23 ((*Y*) 3) (nil)) (nil)))
         S_Null_X
       ) 
-      (S_Assignment_X 24 (E_Identifier_X 25 ((*R*) 3) (nil)) (E_Name_X 26 (E_Identifier_X 27 ((*Result*) 4) (nil)) (nil)))))
+      (S_Assignment_X 24 (E_Identifier_X 25 ((*R*) 4) (nil)) (E_Name_X 26 (E_Identifier_X 27 ((*Result*) 5) (nil)) (nil)))))
   )
 ).
 
@@ -123,20 +127,20 @@ Definition Symbol_Table_X :=
   ((*Min*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 3 ((*X*) 1) Integer In) :: 
-  (mkparameter_specification_x 4 ((*Y*) 2) Integer In) :: 
-  (mkparameter_specification_x 5 ((*R*) 3) Integer Out) :: nil)
+  (mkparameter_specification_x 3 ((*X*) 2) Integer In) :: 
+  (mkparameter_specification_x 4 ((*Y*) 3) Integer In) :: 
+  (mkparameter_specification_x 5 ((*R*) 4) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration_X 6 (mkobject_declaration_x 7 ((*Result*) 4) Integer None)))
+  ((D_Object_Declaration_X 6 (mkobject_declaration_x 7 ((*Result*) 5) Integer None)))
   (* = = = Procedure Body = = = *)
     (S_Sequence_X 8
-    (S_Assignment_X 9 (E_Identifier_X 10 ((*Result*) 4) (nil)) (E_Name_X 11 (E_Identifier_X 12 ((*X*) 1) (nil)) (nil))) 
+    (S_Assignment_X 9 (E_Identifier_X 10 ((*Result*) 5) (nil)) (E_Name_X 11 (E_Identifier_X 12 ((*X*) 2) (nil)) (nil))) 
     (S_Sequence_X 13
-    (S_If_X 14 (E_Binary_Operation_X 15 Greater_Than (E_Name_X 16 (E_Identifier_X 17 ((*X*) 1) (nil)) (nil)) (E_Name_X 18 (E_Identifier_X 19 ((*Y*) 2) (nil)) (nil)) (nil))
-      (S_Assignment_X 20 (E_Identifier_X 21 ((*Result*) 4) (nil)) (E_Name_X 22 (E_Identifier_X 23 ((*Y*) 2) (nil)) (nil)))
+    (S_If_X 14 (E_Binary_Operation_X 15 Greater_Than (E_Name_X 16 (E_Identifier_X 17 ((*X*) 2) (nil)) (nil)) (E_Name_X 18 (E_Identifier_X 19 ((*Y*) 3) (nil)) (nil)) (nil))
+      (S_Assignment_X 20 (E_Identifier_X 21 ((*Result*) 5) (nil)) (E_Name_X 22 (E_Identifier_X 23 ((*Y*) 3) (nil)) (nil)))
       S_Null_X
     ) 
-    (S_Assignment_X 24 (E_Identifier_X 25 ((*R*) 3) (nil)) (E_Name_X 26 (E_Identifier_X 27 ((*Result*) 4) (nil)) (nil)))))
+    (S_Assignment_X 24 (E_Identifier_X 25 ((*R*) 4) (nil)) (E_Name_X 26 (E_Identifier_X 27 ((*Result*) 5) (nil)) (nil)))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
@@ -156,7 +160,7 @@ Definition Symbol_Table_X :=
   (*///////////////////////////////////*)
   (* = = = (1) variable names map = = = *)
   (*///////////////////////////////////*)
-  ((2, ("Y", "ada://parameter/Min+1:11/Y+1:29")) :: (4, ("Result", "ada://variable/Min+1:11/Result+3:4")) :: (1, ("X", "ada://parameter/Min+1:11/X+1:16")) :: (3, ("R", "ada://parameter/Min+1:11/R+1:42")) :: nil)
+  ((2, ("X", "ada://parameter/Min+1:11/X+1:16")) :: (5, ("Result", "ada://variable/Min+1:11/Result+3:4")) :: (4, ("R", "ada://parameter/Min+1:11/R+1:42")) :: (3, ("Y", "ada://parameter/Min+1:11/Y+1:29")) :: nil)
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram names map = = = *)
   (*////////////////////////////////////////////*)
