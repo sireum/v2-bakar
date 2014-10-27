@@ -1078,7 +1078,6 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   val stg = getProgramTranslatorSTG(t)
   val factory = new Factory(stg)
 
-
   // for multiple source files, do translation one by one  
   
   // now only allow one .ads file and one .adb file, otherwise there will be
@@ -1119,6 +1118,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           ctx.symboltable.getTypeDeclMap, ctx.symboltable.getExpTypeMap, ctx.symboltable.getSlocMap, namesMap))
   
   val ret = mlistEmpty[String]
+  ret += factory.buildImportRequiredLibs()
   ret += TranslatorUtil.generateStandardAst(coq_ast_tree_template)
   ret += TranslatorUtil.generateStandardAst(symbol_table_template)
   ret += TranslatorUtil.generateAstWithChecks(coq_ast_tree_template)

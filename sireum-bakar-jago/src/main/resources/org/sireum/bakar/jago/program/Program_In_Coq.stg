@@ -1,5 +1,11 @@
 // group SPARKTRANS_Coq_MODEL;
 
+importRequiredLibsForAst() ::= <<
+Require Import String.
+Require Import symboltable.
+Open Scope string_scope.
+>>
+
 optionVal(value) ::= <<
 $if(value)$Some($value$)$else$None$endif$ 
 >>

@@ -6,10 +6,17 @@ import org.sireum.option.ProgramTarget
 import org.sireum.bakar.xml._
 import org.sireum.bakar.xml.SourceLocation
 
-class Factory(stg: STGroupFile) {  
+/*
+ * uniqueIdNumOrNot: denote whether generate unique id number for all
+ * id strings or generate unique id number only for the same type of
+ * id strings and id numbers of different type can be the same ;
+ */
+class Factory(stg: STGroupFile) {    
   /**********************************************************
    * [1] The Following Is For Bakar Jago Program Translator *
    **********************************************************/
+  val uniqueIdNumOrNot = true;
+  
   // use natural number to represent variable (package/procedure name) string: VarStr -> NatVal
   val unitIdentMap = mmapEmpty[String, Int] // from variable name to natural number
   val unitTypeMap = mmapEmpty[String, Int] // from type name string to natural number
@@ -53,18 +60,33 @@ class Factory(stg: STGroupFile) {
   }
   
   def next_procnum = {
-    procnum = procnum + 1
-    procnum
+    if(uniqueIdNumOrNot){
+      idnum = idnum + 1
+      idnum
+    }else{
+      procnum = procnum + 1
+      procnum
+    }
   }
   
   def next_pkgnum = {
-    pkgnum = pkgnum + 1
-    pkgnum
+    if(uniqueIdNumOrNot){
+      idnum = idnum + 1
+      idnum
+    }else{
+      pkgnum = pkgnum + 1
+      pkgnum
+    }
   }
   
   def next_typenum = {
-    typenum = typenum + 1
-    typenum
+    if(uniqueIdNumOrNot){
+      idnum = idnum + 1
+      idnum
+    }else{
+      typenum = typenum + 1
+      typenum
+    }
   }
   
   def next_typedeclnum = {
@@ -951,7 +973,11 @@ class Factory(stg: STGroupFile) {
     result.add("x", x)
     result.add("y", y)
     result.render()
-  }  
+  }
+  
+  def buildImportRequiredLibs() = {
+    stg.getInstanceOf("importRequiredLibsForAst").render()
+  }
 }
 
 
