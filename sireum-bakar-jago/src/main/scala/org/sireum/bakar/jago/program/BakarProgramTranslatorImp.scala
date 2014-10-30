@@ -313,6 +313,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         v(names.getDefiningNames().get(0))
         val subprogramName = ctx.popResult.asInstanceOf[String]
         
+        // add to symbol table
+        // a placehold for declared procedure, so if it's a recursive procedure,
+        // then it will not get into an error of calling undefined procedure; 
+        ctx.symboltable.insertProcedureDecl(subprogramName, factory.buildEmptyProcedureBody, 0);
+        
         // [2] return type only for function
         val returnType : Option[String] = 
           resultProfile match {
@@ -351,7 +356,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           names, paramProfile, hasAbstract, aspectSpec, checks) =>
         val pn = names.getDefiningNames.get(0)
         v(pn)
-        val procedureName = ctx.popResult
+        val procedureName = ctx.popResult.asInstanceOf[String]
+        
+        // add to symbol table
+        // a placehold for declared procedures, so in package boby, when a procedure calls another
+        // procedure that is defined later, it will not get into error of calling undefined procedure; 
+        ctx.symboltable.insertProcedureDecl(procedureName, factory.buildEmptyProcedureBody, 0);
+        
         // o.getClass().getSimpleName()
         val procedureDecl = "Ignore Procedure Declaration !"
         ctx.pushResult(procedureDecl)
@@ -361,7 +372,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           names, paramProfile, isNotNullReturn, resultProfile, hasAbstract, aspectSpec, checks) =>
         val fn = names.getDefiningNames.get(0)
         v(fn)
-        val functionName = ctx.popResult
+        val functionName = ctx.popResult.asInstanceOf[String]
+        
+        // add to symbol table
+        // a placehold for declared procedures, so in package boby, when a procedure calls another
+        // procedure that is defined later, it will not get into error of calling undefined procedure; 
+        ctx.symboltable.insertProcedureDecl(functionName, factory.buildEmptyProcedureBody, 0);
+        
         val functionDecl = "Ignore Function Declaration !"
         ctx.pushResult(functionDecl)
         false
@@ -782,15 +799,22 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // for a procedure call, if we cannot find its declaration body in package body, 
       // e.g. library procedure or procedure declaration with no procedure body;
       if (ctx.symboltable.getProcDeclMap.get(p.asInstanceOf[String]).isDefined){
+        var b = false
         for (arg <- callStatementParameters.getAssociations()) {
           val e = arg.asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
-          args += nameExprH(v)(e)
+          val a = nameExprH(v)(e)
+          args += a
+          if(a == null)
+            // if the argument is a string, which is not supported by our SPARK subset, then a will be null;
+            b = true
         }
-        val result = factory.buildProcedureCall(astnum, p_astnum, p, args)
-        ctx.pushResult(result)
+        if (b)
+          ctx.pushResult(factory.buildNullStmt + " (* arguments of procedure call are unrecognized ! *)")
+        else
+          ctx.pushResult(factory.buildProcedureCall(astnum, p_astnum, p, args)) 
       }else{
         val result = factory.buildNullStmt
-        ctx.pushResult(s"$result (* call a procedure with no procedure body ! *)")
+        ctx.pushResult(s"$result (* call an undeclared procedure ! *)")
       }
       false
     case o @ ReturnStatementEx(sloc, labelNamesQl, returnExpressionQ, checks) =>
@@ -960,8 +984,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
       ctx.symboltable.insertSloc(astnum, sloc)
-      val loperand = nameExprH(v)(leftExpressionQ)
-      val roperand = nameExprH(v)(rightExpressionQ)
+      val loperand = nameExprH(v)(leftExpressionQ.getExpression())
+      val roperand = nameExprH(v)(rightExpressionQ.getExpression())
       val bexp = factory.buildBinaryExpr(astnum, theType, "Or", loperand, roperand, checks)
       ctx.pushResult(bexp)
       false
@@ -971,8 +995,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
       ctx.symboltable.insertSloc(astnum, sloc)
-      val loperand = nameExprH(v)(leftExpressionQ)
-      val roperand = nameExprH(v)(rightExpressionQ)
+      val loperand = nameExprH(v)(leftExpressionQ.getExpression())
+      val roperand = nameExprH(v)(rightExpressionQ.getExpression())
       val bexp = factory.buildBinaryExpr(astnum, theType, "And", loperand, roperand, checks)
       ctx.pushResult(bexp)
       false

@@ -205,6 +205,11 @@ subProgram(astnum, kind, prog, annotation) ::= <<
 )
 >>
 
+// it's used as a placehold for unrecognized or undeclared subprograms
+emptySubProgram() ::= <<
+(mkprocedure_body_xx 0 0 nil D_Null_Declaration_XX S_Null_XX)
+>>
+
 packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
 (* Package Body Declaration *)
 (PackageBody_XX $astnum$

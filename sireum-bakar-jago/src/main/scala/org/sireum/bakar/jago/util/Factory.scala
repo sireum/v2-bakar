@@ -643,6 +643,12 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
+  def buildEmptyProcedureBody = {
+    // it's used as a placehold for unrecognized or undeclared subprograms;
+    val result = stg.getInstanceOf("emptySubProgram")
+    result.render()
+  }
+  
   def buildPackageBody(astnum: Int, pkgBodyName: String, pkgBodyAspectSpecs: MList[String], pkgBodyDeclItems: String*) = {
     val result = stg.getInstanceOf("packageBody")
     result.add("astnum", astnum)
