@@ -59,14 +59,14 @@ D_Null_Declaration (* Undefined Declarations ! *))))))))))))))))
       (S_Sequence 44
       (S_Assignment 45 (E_Indexed_Component 46 47 ((*FT*) 22) (E_Literal 49 (Integer_Literal 1) ) ) (E_Literal 50 (Boolean_Literal true) )) 
       (S_Sequence 51
-      S_Null (* call a procedure with no procedure body ! *) 
+      S_Null (* arguments of procedure call are unrecognized ! *) 
       (S_Sequence 54
       (S_While_Loop 55 (E_Binary_Operation 56 Not_Equal (E_Name 57 (E_Identifier 58 ((*I*) 19) ) ) (E_Literal 59 (Integer_Literal 10) ) )
         (S_Assignment 60 (E_Identifier 61 ((*I*) 19) ) (E_Binary_Operation 62 Plus (E_Name 63 (E_Identifier 64 ((*I*) 19) ) ) (E_Literal 65 (Integer_Literal 1) ) ))
       ) 
       (S_Sequence 66
       (S_If 67 (E_Binary_Operation 68 Not_Equal (E_Name 69 (E_Identifier 70 ((*I*) 19) ) ) (E_Literal 71 (Integer_Literal 10) ) )
-        S_Null (* call a procedure with no procedure body ! *)
+        S_Null (* arguments of procedure call are unrecognized ! *)
         S_Null
       ) 
       (S_Sequence 74
@@ -82,10 +82,12 @@ D_Null_Declaration (* Undefined Declarations ! *))))))))))))))))
       ) 
       (S_Sequence 104
       (S_If 105 (E_Binary_Operation 106 Not_Equal (E_Name 107 (E_Identifier 108 ((*I*) 19) ) ) (E_Literal 109 (Integer_Literal 14) ) )
-        S_Null (* call a procedure with no procedure body ! *)
+        S_Null (* arguments of procedure call are unrecognized ! *)
         S_Null
       ) 
-      S_Null (* call a procedure with no procedure body ! *))))))))))
+      (S_Procedure_Call 112 113 ((*RESULT*) 7) 
+        (nil)
+      ))))))))))
   )
 )).
 
@@ -98,7 +100,7 @@ Definition Symbol_Table :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*C55C02B*) 17), (0, (mkprocedure_body 20
+  ((((*TIME_STAMP*) 16), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: (((*LEGAL_FILE_NAME*) 15), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: (((*FAILED*) 3), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: (((*RESULT*) 7), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: (((*SPECIAL_ACTION*) 5), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: (((*TEST*) 2), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: (((*NOT_APPLICABLE*) 4), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: (((*C55C02B*) 17), (0, (mkprocedure_body 20
   (* = = = Procedure Name = = = *)
   ((*C55C02B*) 17)
   (* = = = Formal Parameters = = = *)
@@ -121,14 +123,14 @@ D_Null_Declaration (* Undefined Declarations ! *)
     (S_Sequence 44
     (S_Assignment 45 (E_Indexed_Component 46 47 ((*FT*) 22) (E_Literal 49 (Integer_Literal 1) ) ) (E_Literal 50 (Boolean_Literal true) )) 
     (S_Sequence 51
-    S_Null (* call a procedure with no procedure body ! *) 
+    S_Null (* arguments of procedure call are unrecognized ! *) 
     (S_Sequence 54
     (S_While_Loop 55 (E_Binary_Operation 56 Not_Equal (E_Name 57 (E_Identifier 58 ((*I*) 19) ) ) (E_Literal 59 (Integer_Literal 10) ) )
       (S_Assignment 60 (E_Identifier 61 ((*I*) 19) ) (E_Binary_Operation 62 Plus (E_Name 63 (E_Identifier 64 ((*I*) 19) ) ) (E_Literal 65 (Integer_Literal 1) ) ))
     ) 
     (S_Sequence 66
     (S_If 67 (E_Binary_Operation 68 Not_Equal (E_Name 69 (E_Identifier 70 ((*I*) 19) ) ) (E_Literal 71 (Integer_Literal 10) ) )
-      S_Null (* call a procedure with no procedure body ! *)
+      S_Null (* arguments of procedure call are unrecognized ! *)
       S_Null
     ) 
     (S_Sequence 74
@@ -144,11 +146,13 @@ D_Null_Declaration (* Undefined Declarations ! *)
     ) 
     (S_Sequence 104
     (S_If 105 (E_Binary_Operation 106 Not_Equal (E_Name 107 (E_Identifier 108 ((*I*) 19) ) ) (E_Literal 109 (Integer_Literal 14) ) )
-      S_Null (* call a procedure with no procedure body ! *)
+      S_Null (* arguments of procedure call are unrecognized ! *)
       S_Null
     ) 
-    S_Null (* call a procedure with no procedure body ! *))))))))))
-))) :: nil)
+    (S_Procedure_Call 112 113 ((*RESULT*) 7) 
+      (nil)
+    ))))))))))
+))) :: (((*COMMENT*) 6), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
@@ -240,14 +244,14 @@ D_Null_Declaration_X (* Undefined Declarations ! *))))))))))))))))
       (S_Sequence_X 44
       (S_Assignment_X 45 (E_Indexed_Component_X 46 47 ((*FT*) 22) (E_Literal_X 49 (Integer_Literal 1) (nil)) (nil)) (E_Literal_X 50 (Boolean_Literal true) (nil))) 
       (S_Sequence_X 51
-      S_Null_X (* call a procedure with no procedure body ! *) 
+      S_Null_X (* arguments of procedure call are unrecognized ! *) 
       (S_Sequence_X 54
       (S_While_Loop_X 55 (E_Binary_Operation_X 56 Not_Equal (E_Name_X 57 (E_Identifier_X 58 ((*I*) 19) (nil)) (nil)) (E_Literal_X 59 (Integer_Literal 10) (nil)) (nil))
         (S_Assignment_X 60 (E_Identifier_X 61 ((*I*) 19) (nil)) (E_Binary_Operation_X 62 Plus (E_Name_X 63 (E_Identifier_X 64 ((*I*) 19) (nil)) (nil)) (E_Literal_X 65 (Integer_Literal 1) (nil)) (Do_Overflow_Check :: nil)))
       ) 
       (S_Sequence_X 66
       (S_If_X 67 (E_Binary_Operation_X 68 Not_Equal (E_Name_X 69 (E_Identifier_X 70 ((*I*) 19) (nil)) (nil)) (E_Literal_X 71 (Integer_Literal 10) (nil)) (nil))
-        S_Null_X (* call a procedure with no procedure body ! *)
+        S_Null_X (* arguments of procedure call are unrecognized ! *)
         S_Null_X
       ) 
       (S_Sequence_X 74
@@ -263,10 +267,12 @@ D_Null_Declaration_X (* Undefined Declarations ! *))))))))))))))))
       ) 
       (S_Sequence_X 104
       (S_If_X 105 (E_Binary_Operation_X 106 Not_Equal (E_Name_X 107 (E_Identifier_X 108 ((*I*) 19) (nil)) (nil)) (E_Literal_X 109 (Integer_Literal 14) (nil)) (nil))
-        S_Null_X (* call a procedure with no procedure body ! *)
+        S_Null_X (* arguments of procedure call are unrecognized ! *)
         S_Null_X
       ) 
-      S_Null_X (* call a procedure with no procedure body ! *))))))))))
+      (S_Procedure_Call_X 112 113 ((*RESULT*) 7) 
+        (nil)
+      ))))))))))
   )
 )).
 
@@ -279,7 +285,7 @@ Definition Symbol_Table_X :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*C55C02B*) 17), (0, (mkprocedure_body_x 20
+  ((((*TIME_STAMP*) 16), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: (((*LEGAL_FILE_NAME*) 15), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: (((*FAILED*) 3), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: (((*RESULT*) 7), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: (((*SPECIAL_ACTION*) 5), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: (((*TEST*) 2), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: (((*NOT_APPLICABLE*) 4), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: (((*C55C02B*) 17), (0, (mkprocedure_body_x 20
   (* = = = Procedure Name = = = *)
   ((*C55C02B*) 17)
   (* = = = Formal Parameters = = = *)
@@ -302,14 +308,14 @@ D_Null_Declaration_X (* Undefined Declarations ! *)
     (S_Sequence_X 44
     (S_Assignment_X 45 (E_Indexed_Component_X 46 47 ((*FT*) 22) (E_Literal_X 49 (Integer_Literal 1) (nil)) (nil)) (E_Literal_X 50 (Boolean_Literal true) (nil))) 
     (S_Sequence_X 51
-    S_Null_X (* call a procedure with no procedure body ! *) 
+    S_Null_X (* arguments of procedure call are unrecognized ! *) 
     (S_Sequence_X 54
     (S_While_Loop_X 55 (E_Binary_Operation_X 56 Not_Equal (E_Name_X 57 (E_Identifier_X 58 ((*I*) 19) (nil)) (nil)) (E_Literal_X 59 (Integer_Literal 10) (nil)) (nil))
       (S_Assignment_X 60 (E_Identifier_X 61 ((*I*) 19) (nil)) (E_Binary_Operation_X 62 Plus (E_Name_X 63 (E_Identifier_X 64 ((*I*) 19) (nil)) (nil)) (E_Literal_X 65 (Integer_Literal 1) (nil)) (Do_Overflow_Check :: nil)))
     ) 
     (S_Sequence_X 66
     (S_If_X 67 (E_Binary_Operation_X 68 Not_Equal (E_Name_X 69 (E_Identifier_X 70 ((*I*) 19) (nil)) (nil)) (E_Literal_X 71 (Integer_Literal 10) (nil)) (nil))
-      S_Null_X (* call a procedure with no procedure body ! *)
+      S_Null_X (* arguments of procedure call are unrecognized ! *)
       S_Null_X
     ) 
     (S_Sequence_X 74
@@ -325,11 +331,13 @@ D_Null_Declaration_X (* Undefined Declarations ! *)
     ) 
     (S_Sequence_X 104
     (S_If_X 105 (E_Binary_Operation_X 106 Not_Equal (E_Name_X 107 (E_Identifier_X 108 ((*I*) 19) (nil)) (nil)) (E_Literal_X 109 (Integer_Literal 14) (nil)) (nil))
-      S_Null_X (* call a procedure with no procedure body ! *)
+      S_Null_X (* arguments of procedure call are unrecognized ! *)
       S_Null_X
     ) 
-    S_Null_X (* call a procedure with no procedure body ! *))))))))))
-))) :: nil)
+    (S_Procedure_Call_X 112 113 ((*RESULT*) 7) 
+      (nil)
+    ))))))))))
+))) :: (((*COMMENT*) 6), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
