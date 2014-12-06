@@ -151,8 +151,8 @@ object TypeConverter {
 
   //    KiasanEvaluatorTestUtil  
 
-  def buildType(m : IMap[ResourceUri, TypeDecl], t : TypeDecl) : org.sireum.kiasan.alpha.types.Type = {
-    import org.sireum.kiasan.alpha.types._
+  def buildType(m : IMap[ResourceUri, TypeDecl], t : TypeDecl) : org.sireum.kiasan.types.Type = {
+    import org.sireum.kiasan.types._
 
     SymbolUtil.getTypeDef(t, m) match {
       case e : SignedIntegerTypeDef => IntegerType
@@ -181,8 +181,8 @@ object TypeConverter {
     }
   }
 
-  def converter(m : IMap[ResourceUri, TypeDecl]) : IMap[ResourceUri, org.sireum.kiasan.alpha.types.Type] = {
-    var typeMap : IMap[ResourceUri, org.sireum.kiasan.alpha.types.Type] = imapEmpty
+  def converter(m : IMap[ResourceUri, TypeDecl]) : IMap[ResourceUri, org.sireum.kiasan.types.Type] = {
+    var typeMap : IMap[ResourceUri, org.sireum.kiasan.types.Type] = imapEmpty
     m.foreach { p =>
       p match {
         case (uri, t) =>
