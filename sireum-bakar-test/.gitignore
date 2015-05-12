@@ -7,5 +7,5 @@
 *.sireum
 /bin
 /target
-/.cache
+/.cache*
 /.scala_dependencies

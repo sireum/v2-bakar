@@ -3,7 +3,7 @@
 *.pyo
 /bin
 /target
-/.cache
+/.cache*
 /.scala_dependencies
 *.adt
 *.ali
