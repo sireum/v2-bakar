@@ -23,19 +23,19 @@ literal(theType, theLiteral) ::= <<
 >>
 
 literalExpr(astnum, litval, checks) ::= <<
-(E_Literal_XX $astnum$ $litval$ (**$checks$**))
+(E_Literal_XX $astnum$ $litval$ (**$checks$ nil**))
 >>
 
 binaryExpr(astnum, op, loperand, roperand, checks) ::= <<
-(E_Binary_Operation_XX $astnum$ $op$ $loperand$ $roperand$ (**$checks$**))
+(E_Binary_Operation_XX $astnum$ $op$ $loperand$ $roperand$ (**$checks$ nil**))
 >>
 
 unaryExpr(astnum, op, operand, checks) ::= <<
-(E_Unary_Operation_XX $astnum$ $op$ $operand$ (**$checks$**))
+(E_Unary_Operation_XX $astnum$ $op$ $operand$ (**$checks$ nil**))
 >>
 
-nameExpr(astnum, x, checks) ::= <<
-(E_Name_XX $astnum$ $x$ (**$checks$**))
+nameExpr(astnum, x) ::= <<
+(E_Name_XX $astnum$ $x$)
 >>
 
 varId(id, annotation) ::= <<
@@ -243,7 +243,7 @@ stringFormat(value) ::= <<
 >>
 
 nameTable(varNames, procNames, pkgNames, typeNames) ::= <<
-(mkNameTable_xx
+(mkNameTable
   (*///////////////////////////////////*)
   (* = = = (1) variable names map = = = *)
   (*///////////////////////////////////*)

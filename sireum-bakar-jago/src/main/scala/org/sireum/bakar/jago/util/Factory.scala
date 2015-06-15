@@ -268,8 +268,8 @@ class Factory(stg: STGroupFile) {
     val result = stg.getInstanceOf("nameExpr")
     result.add("astnum", astnum)
     result.add("x", x)
-    val cks = buildChecks(checks)
-    result.add("checks", cks)
+    // val cks = buildChecks(checks)
+    // result.add("checks", cks)
     result.render()
   }
   

@@ -457,7 +457,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val constDecl = factory.buildObjectDecl(astnum2, constName, theType, optionalInitExp)
         val const = factory.buildObjectDeclarationWrapper(astnum1, constDecl)
         consts += const
-        
+        // add the type of the constant variable into symbol table;
+        ctx.symboltable.insertVarType(constName.asInstanceOf[String], "In", theType.asInstanceOf[String])
       }
       ctx.pushResult(consts) 
       
@@ -486,7 +487,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         val varName = ctx.popResult
         val varDecl = factory.buildObjectDecl(astnum2, varName, theType, optionalInitExp)
         val objDecl = factory.buildObjectDeclarationWrapper(astnum1, varDecl)
-        vars += objDecl
+        vars += objDecl 
+        // add the type of the declared variable into symbol table;
+        ctx.symboltable.insertVarType(varName.asInstanceOf[String], "In_Out", theType.asInstanceOf[String])
       }
       ctx.pushResult(vars)
       
@@ -701,6 +704,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         params.append(param)
         if(it.hasNext)
           params.append(" :: ")
+        // add the type of the declared variable into symbol table;
+        ctx.symboltable.insertVarType(paramName.asInstanceOf[String], paramMode, paramType.asInstanceOf[String])
       }
       
       val result = params.toString()
