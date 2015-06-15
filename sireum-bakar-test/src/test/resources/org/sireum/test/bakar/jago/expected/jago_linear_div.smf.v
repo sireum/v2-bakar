@@ -19,13 +19,13 @@ Definition Coq_AST_Tree :=
       (S_Sequence 7
       (S_Assignment 8 (E_Identifier 9 ((*Quotient*) 4) ) (E_Literal 10 (Integer_Literal 0) )) 
       (S_Sequence 11
-      (S_Assignment 12 (E_Identifier 13 ((*Remainder*) 5) ) (E_Name 14 (E_Identifier 15 ((*Dividend*) 2) ) )) 
-      (S_While_Loop 16 (E_Binary_Operation 17 Greater_Than_Or_Equal (E_Name 18 (E_Identifier 19 ((*Remainder*) 5) ) ) (E_Name 20 (E_Identifier 21 ((*Divisor*) 3) ) ) )
+      (S_Assignment 12 (E_Identifier 13 ((*Remainder*) 5) ) (E_Name 14 (E_Identifier 15 ((*Dividend*) 2) ))) 
+      (S_While_Loop 16 (E_Binary_Operation 17 Greater_Than_Or_Equal (E_Name 18 (E_Identifier 19 ((*Remainder*) 5) )) (E_Name 20 (E_Identifier 21 ((*Divisor*) 3) )) )
         (S_Sequence 22
-        (S_Assignment 23 (E_Identifier 24 ((*Quotient*) 4) ) (E_Binary_Operation 25 Plus (E_Name 26 (E_Identifier 27 ((*Quotient*) 4) ) ) (E_Literal 28 (Integer_Literal 1) ) )) 
+        (S_Assignment 23 (E_Identifier 24 ((*Quotient*) 4) ) (E_Binary_Operation 25 Plus (E_Name 26 (E_Identifier 27 ((*Quotient*) 4) )) (E_Literal 28 (Integer_Literal 1) ) )) 
         (S_Sequence 29
-        (S_Assignment 30 (E_Identifier 31 ((*Quotient*) 4) ) (E_Binary_Operation 32 Plus (E_Name 33 (E_Identifier 34 ((*Quotient*) 4) ) ) (E_Literal 35 (Integer_Literal 1) ) )) 
-        (S_Assignment 36 (E_Identifier 37 ((*Remainder*) 5) ) (E_Binary_Operation 38 Minus (E_Name 39 (E_Identifier 40 ((*Remainder*) 5) ) ) (E_Name 41 (E_Identifier 42 ((*Divisor*) 3) ) ) ))))
+        (S_Assignment 30 (E_Identifier 31 ((*Quotient*) 4) ) (E_Binary_Operation 32 Plus (E_Name 33 (E_Identifier 34 ((*Quotient*) 4) )) (E_Literal 35 (Integer_Literal 1) ) )) 
+        (S_Assignment 36 (E_Identifier 37 ((*Remainder*) 5) ) (E_Binary_Operation 38 Minus (E_Name 39 (E_Identifier 40 ((*Remainder*) 5) )) (E_Name 41 (E_Identifier 42 ((*Divisor*) 3) )) ))))
       )))
   )
 ).
@@ -35,7 +35,7 @@ Definition Symbol_Table :=
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
-  (nil)
+  ((((*Quotient*) 4), (Out, Integer)) :: (((*Dividend*) 2), (In, Integer)) :: (((*Remainder*) 5), (Out, Integer)) :: (((*Divisor*) 3), (In, Integer)) :: nil)
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
@@ -54,13 +54,13 @@ Definition Symbol_Table :=
     (S_Sequence 7
     (S_Assignment 8 (E_Identifier 9 ((*Quotient*) 4) ) (E_Literal 10 (Integer_Literal 0) )) 
     (S_Sequence 11
-    (S_Assignment 12 (E_Identifier 13 ((*Remainder*) 5) ) (E_Name 14 (E_Identifier 15 ((*Dividend*) 2) ) )) 
-    (S_While_Loop 16 (E_Binary_Operation 17 Greater_Than_Or_Equal (E_Name 18 (E_Identifier 19 ((*Remainder*) 5) ) ) (E_Name 20 (E_Identifier 21 ((*Divisor*) 3) ) ) )
+    (S_Assignment 12 (E_Identifier 13 ((*Remainder*) 5) ) (E_Name 14 (E_Identifier 15 ((*Dividend*) 2) ))) 
+    (S_While_Loop 16 (E_Binary_Operation 17 Greater_Than_Or_Equal (E_Name 18 (E_Identifier 19 ((*Remainder*) 5) )) (E_Name 20 (E_Identifier 21 ((*Divisor*) 3) )) )
       (S_Sequence 22
-      (S_Assignment 23 (E_Identifier 24 ((*Quotient*) 4) ) (E_Binary_Operation 25 Plus (E_Name 26 (E_Identifier 27 ((*Quotient*) 4) ) ) (E_Literal 28 (Integer_Literal 1) ) )) 
+      (S_Assignment 23 (E_Identifier 24 ((*Quotient*) 4) ) (E_Binary_Operation 25 Plus (E_Name 26 (E_Identifier 27 ((*Quotient*) 4) )) (E_Literal 28 (Integer_Literal 1) ) )) 
       (S_Sequence 29
-      (S_Assignment 30 (E_Identifier 31 ((*Quotient*) 4) ) (E_Binary_Operation 32 Plus (E_Name 33 (E_Identifier 34 ((*Quotient*) 4) ) ) (E_Literal 35 (Integer_Literal 1) ) )) 
-      (S_Assignment 36 (E_Identifier 37 ((*Remainder*) 5) ) (E_Binary_Operation 38 Minus (E_Name 39 (E_Identifier 40 ((*Remainder*) 5) ) ) (E_Name 41 (E_Identifier 42 ((*Divisor*) 3) ) ) ))))
+      (S_Assignment 30 (E_Identifier 31 ((*Quotient*) 4) ) (E_Binary_Operation 32 Plus (E_Name 33 (E_Identifier 34 ((*Quotient*) 4) )) (E_Literal 35 (Integer_Literal 1) ) )) 
+      (S_Assignment 36 (E_Identifier 37 ((*Remainder*) 5) ) (E_Binary_Operation 38 Minus (E_Name 39 (E_Identifier 40 ((*Remainder*) 5) )) (E_Name 41 (E_Identifier 42 ((*Divisor*) 3) )) ))))
     )))
 ))) :: nil)
   (*//////////////////////////////////////*)
@@ -112,15 +112,15 @@ Definition Coq_AST_Tree_X :=
     (D_Null_Declaration_X)
     (* = = = Procedure Body = = = *)
       (S_Sequence_X 7
-      (S_Assignment_X 8 (E_Identifier_X 9 ((*Quotient*) 4) (nil)) (E_Literal_X 10 (Integer_Literal 0) (nil))) 
+      (S_Assignment_X 8 (E_Identifier_X 9 ((*Quotient*) 4) (nil)) (E_Literal_X 10 (Integer_Literal 0) (nil) nil)) 
       (S_Sequence_X 11
-      (S_Assignment_X 12 (E_Identifier_X 13 ((*Remainder*) 5) (nil)) (E_Name_X 14 (E_Identifier_X 15 ((*Dividend*) 2) (nil)) (nil))) 
-      (S_While_Loop_X 16 (E_Binary_Operation_X 17 Greater_Than_Or_Equal (E_Name_X 18 (E_Identifier_X 19 ((*Remainder*) 5) (nil)) (nil)) (E_Name_X 20 (E_Identifier_X 21 ((*Divisor*) 3) (nil)) (nil)) (nil))
+      (S_Assignment_X 12 (E_Identifier_X 13 ((*Remainder*) 5) (nil)) (E_Name_X 14 (E_Identifier_X 15 ((*Dividend*) 2) (nil)))) 
+      (S_While_Loop_X 16 (E_Binary_Operation_X 17 Greater_Than_Or_Equal (E_Name_X 18 (E_Identifier_X 19 ((*Remainder*) 5) (nil))) (E_Name_X 20 (E_Identifier_X 21 ((*Divisor*) 3) (nil))) (nil) nil)
         (S_Sequence_X 22
-        (S_Assignment_X 23 (E_Identifier_X 24 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 25 Plus (E_Name_X 26 (E_Identifier_X 27 ((*Quotient*) 4) (nil)) (nil)) (E_Literal_X 28 (Integer_Literal 1) (nil)) (Do_Overflow_Check :: nil))) 
+        (S_Assignment_X 23 (E_Identifier_X 24 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 25 Plus (E_Name_X 26 (E_Identifier_X 27 ((*Quotient*) 4) (nil))) (E_Literal_X 28 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil)) 
         (S_Sequence_X 29
-        (S_Assignment_X 30 (E_Identifier_X 31 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 32 Plus (E_Name_X 33 (E_Identifier_X 34 ((*Quotient*) 4) (nil)) (nil)) (E_Literal_X 35 (Integer_Literal 1) (nil)) (Do_Overflow_Check :: nil))) 
-        (S_Assignment_X 36 (E_Identifier_X 37 ((*Remainder*) 5) (nil)) (E_Binary_Operation_X 38 Minus (E_Name_X 39 (E_Identifier_X 40 ((*Remainder*) 5) (nil)) (nil)) (E_Name_X 41 (E_Identifier_X 42 ((*Divisor*) 3) (nil)) (nil)) (Do_Overflow_Check :: nil)))))
+        (S_Assignment_X 30 (E_Identifier_X 31 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 32 Plus (E_Name_X 33 (E_Identifier_X 34 ((*Quotient*) 4) (nil))) (E_Literal_X 35 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil)) 
+        (S_Assignment_X 36 (E_Identifier_X 37 ((*Remainder*) 5) (nil)) (E_Binary_Operation_X 38 Minus (E_Name_X 39 (E_Identifier_X 40 ((*Remainder*) 5) (nil))) (E_Name_X 41 (E_Identifier_X 42 ((*Divisor*) 3) (nil))) (Do_Overflow_Check :: nil) nil))))
       )))
   )
 ).
@@ -130,7 +130,7 @@ Definition Symbol_Table_X :=
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
-  (nil)
+  ((((*Quotient*) 4), (Out, Integer)) :: (((*Dividend*) 2), (In, Integer)) :: (((*Remainder*) 5), (Out, Integer)) :: (((*Divisor*) 3), (In, Integer)) :: nil)
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
@@ -147,15 +147,15 @@ Definition Symbol_Table_X :=
   (D_Null_Declaration_X)
   (* = = = Procedure Body = = = *)
     (S_Sequence_X 7
-    (S_Assignment_X 8 (E_Identifier_X 9 ((*Quotient*) 4) (nil)) (E_Literal_X 10 (Integer_Literal 0) (nil))) 
+    (S_Assignment_X 8 (E_Identifier_X 9 ((*Quotient*) 4) (nil)) (E_Literal_X 10 (Integer_Literal 0) (nil) nil)) 
     (S_Sequence_X 11
-    (S_Assignment_X 12 (E_Identifier_X 13 ((*Remainder*) 5) (nil)) (E_Name_X 14 (E_Identifier_X 15 ((*Dividend*) 2) (nil)) (nil))) 
-    (S_While_Loop_X 16 (E_Binary_Operation_X 17 Greater_Than_Or_Equal (E_Name_X 18 (E_Identifier_X 19 ((*Remainder*) 5) (nil)) (nil)) (E_Name_X 20 (E_Identifier_X 21 ((*Divisor*) 3) (nil)) (nil)) (nil))
+    (S_Assignment_X 12 (E_Identifier_X 13 ((*Remainder*) 5) (nil)) (E_Name_X 14 (E_Identifier_X 15 ((*Dividend*) 2) (nil)))) 
+    (S_While_Loop_X 16 (E_Binary_Operation_X 17 Greater_Than_Or_Equal (E_Name_X 18 (E_Identifier_X 19 ((*Remainder*) 5) (nil))) (E_Name_X 20 (E_Identifier_X 21 ((*Divisor*) 3) (nil))) (nil) nil)
       (S_Sequence_X 22
-      (S_Assignment_X 23 (E_Identifier_X 24 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 25 Plus (E_Name_X 26 (E_Identifier_X 27 ((*Quotient*) 4) (nil)) (nil)) (E_Literal_X 28 (Integer_Literal 1) (nil)) (Do_Overflow_Check :: nil))) 
+      (S_Assignment_X 23 (E_Identifier_X 24 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 25 Plus (E_Name_X 26 (E_Identifier_X 27 ((*Quotient*) 4) (nil))) (E_Literal_X 28 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil)) 
       (S_Sequence_X 29
-      (S_Assignment_X 30 (E_Identifier_X 31 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 32 Plus (E_Name_X 33 (E_Identifier_X 34 ((*Quotient*) 4) (nil)) (nil)) (E_Literal_X 35 (Integer_Literal 1) (nil)) (Do_Overflow_Check :: nil))) 
-      (S_Assignment_X 36 (E_Identifier_X 37 ((*Remainder*) 5) (nil)) (E_Binary_Operation_X 38 Minus (E_Name_X 39 (E_Identifier_X 40 ((*Remainder*) 5) (nil)) (nil)) (E_Name_X 41 (E_Identifier_X 42 ((*Divisor*) 3) (nil)) (nil)) (Do_Overflow_Check :: nil)))))
+      (S_Assignment_X 30 (E_Identifier_X 31 ((*Quotient*) 4) (nil)) (E_Binary_Operation_X 32 Plus (E_Name_X 33 (E_Identifier_X 34 ((*Quotient*) 4) (nil))) (E_Literal_X 35 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil)) 
+      (S_Assignment_X 36 (E_Identifier_X 37 ((*Remainder*) 5) (nil)) (E_Binary_Operation_X 38 Minus (E_Name_X 39 (E_Identifier_X 40 ((*Remainder*) 5) (nil))) (E_Name_X 41 (E_Identifier_X 42 ((*Divisor*) 3) (nil))) (Do_Overflow_Check :: nil) nil))))
     )))
 ))) :: nil)
   (*//////////////////////////////////////*)
@@ -172,7 +172,7 @@ Definition Symbol_Table_X :=
   ((32, (sloc (*Line*)18 (*Col*)19 (*EndLine*)18 (*EndCol*)30)) :: (41, (sloc (*Line*)19 (*Col*)32 (*EndLine*)19 (*EndCol*)38)) :: (17, (sloc (*Line*)12 (*Col*)10 (*EndLine*)12 (*EndCol*)29)) :: (35, (sloc (*Line*)18 (*Col*)30 (*EndLine*)18 (*EndCol*)30)) :: (26, (sloc (*Line*)17 (*Col*)19 (*EndLine*)17 (*EndCol*)26)) :: (38, (sloc (*Line*)19 (*Col*)20 (*EndLine*)19 (*EndCol*)38)) :: (20, (sloc (*Line*)12 (*Col*)23 (*EndLine*)12 (*EndCol*)29)) :: (14, (sloc (*Line*)11 (*Col*)17 (*EndLine*)11 (*EndCol*)24)) :: (40, (sloc (*Line*)19 (*Col*)20 (*EndLine*)19 (*EndCol*)28)) :: (13, (sloc (*Line*)11 (*Col*)4 (*EndLine*)11 (*EndCol*)12)) :: (31, (sloc (*Line*)18 (*Col*)7 (*EndLine*)18 (*EndCol*)14)) :: (25, (sloc (*Line*)17 (*Col*)19 (*EndLine*)17 (*EndCol*)30)) :: (34, (sloc (*Line*)18 (*Col*)19 (*EndLine*)18 (*EndCol*)26)) :: (10, (sloc (*Line*)10 (*Col*)16 (*EndLine*)10 (*EndCol*)16)) :: (37, (sloc (*Line*)19 (*Col*)7 (*EndLine*)19 (*EndCol*)15)) :: (19, (sloc (*Line*)12 (*Col*)10 (*EndLine*)12 (*EndCol*)18)) :: (28, (sloc (*Line*)17 (*Col*)30 (*EndLine*)17 (*EndCol*)30)) :: (18, (sloc (*Line*)12 (*Col*)10 (*EndLine*)12 (*EndCol*)18)) :: (9, (sloc (*Line*)10 (*Col*)4 (*EndLine*)10 (*EndCol*)11)) :: (27, (sloc (*Line*)17 (*Col*)19 (*EndLine*)17 (*EndCol*)26)) :: (21, (sloc (*Line*)12 (*Col*)23 (*EndLine*)12 (*EndCol*)29)) :: (39, (sloc (*Line*)19 (*Col*)20 (*EndLine*)19 (*EndCol*)28)) :: (42, (sloc (*Line*)19 (*Col*)32 (*EndLine*)19 (*EndCol*)38)) :: (15, (sloc (*Line*)11 (*Col*)17 (*EndLine*)11 (*EndCol*)24)) :: (24, (sloc (*Line*)17 (*Col*)7 (*EndLine*)17 (*EndCol*)14)) :: (33, (sloc (*Line*)18 (*Col*)19 (*EndLine*)18 (*EndCol*)26)) :: nil)
   (* = = = (6) name id to a pair of (name string, unique name string) map = = = *)
   (*/////////////////////////////////////////////////*)
-  ((mkNameTable_x
+  ((mkNameTable
   (*///////////////////////////////////*)
   (* = = = (1) variable names map = = = *)
   (*///////////////////////////////////*)
