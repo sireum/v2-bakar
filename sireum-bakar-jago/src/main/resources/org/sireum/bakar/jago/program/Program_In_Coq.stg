@@ -47,13 +47,13 @@ identifierExpr(astnum, id, checks) ::= <<
 >>
 
 // x[e]
-indexedComponent(astnum, x_astnum, x, e, checks) ::= <<
-(E_Indexed_Component_XX $astnum$ $x_astnum$ $x$ $e$ (**$checks$**))
+indexedComponent(astnum, x, e, checks) ::= <<
+(E_Indexed_Component_XX $astnum$ $x$ $e$ (**$checks$**))
 >>
 
 // x.f
-selectedComponent(astnum, x_astnum, x, f, checks) ::= <<
-(E_Selected_Component_XX $astnum$ $x_astnum$ $x$ $f$ (**$checks$**))
+selectedComponent(astnum, x, f, checks) ::= <<
+(E_Selected_Component_XX $astnum$ $x$ $f$ (**$checks$**))
 >>
 
 nullStmt() ::= <<

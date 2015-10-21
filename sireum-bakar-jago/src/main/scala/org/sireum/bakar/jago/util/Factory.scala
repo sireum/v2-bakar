@@ -372,22 +372,20 @@ class Factory(stg: STGroupFile) {
     // result.render()    
   }
    
-  def buildIndexedComponent(astnum: Int, x_astnum: Int, x: String, e: String, checks: String) = {
+  def buildIndexedComponent(astnum: Int, x: String, e: String, checks: String) = {
     val result = stg.getInstanceOf("indexedComponent")
     val cks = buildChecks(checks)
     result.add("astnum", astnum)
-    result.add("x_astnum", x_astnum)
     result.add("x", x)
     result.add("e", e)
     result.add("checks", cks)
     result.render()    
   }
   
-  def buildSelectedComponent(astnum: Int, x_astnum: Int, x: String, f: String, checks: String) = {
+  def buildSelectedComponent(astnum: Int, x: String, f: String, checks: String) = {
     val result = stg.getInstanceOf("selectedComponent")
     val cks = buildChecks(checks)
     result.add("astnum", astnum)
-    result.add("x_astnum", x_astnum)
     result.add("x", x)
     result.add("f", f)
     result.add("checks", cks)
@@ -507,7 +505,7 @@ class Factory(stg: STGroupFile) {
     result.render()
   }
   
-  def buildArrayTypeDecl(astnum: Int, arrayTypeName: Any, componentType: Any, indexSubtypeMark: Any) = {
+  def buildArrayTypeDecl(astnum: Int, arrayTypeName: Any, indexSubtypeMark: Any, componentType: Any) = {
     val result = stg.getInstanceOf("arrayTypeDecl")
     result.add("astnum", astnum)
     result.add("tid", arrayTypeName)
@@ -983,6 +981,13 @@ class Factory(stg: STGroupFile) {
   
   def buildImportRequiredLibs() = {
     stg.getInstanceOf("importRequiredLibsForAst").render()
+  }
+  
+  def getStringValue(o : Any) = {
+    if (o.isInstanceOf[org.stringtemplate.v4.ST])
+      o.asInstanceOf[org.stringtemplate.v4.ST].render()
+    else
+      o.asInstanceOf[String]
   }
 }
 

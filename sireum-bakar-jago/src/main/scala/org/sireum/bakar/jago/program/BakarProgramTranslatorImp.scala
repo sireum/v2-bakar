@@ -101,7 +101,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     
     def insertExpType(expAstNum: Int, typeRefName: String) {
       val typeIdNum = this.getRefName(typeRefName)
-      assert(typeIdNum.isDefined)
+/*      if(!(typeIdNum.isDefined)) {
+        System.out.println("TODO !")
+      }
+*/      assert(typeIdNum.isDefined)
       exp_type_map += (expAstNum -> typeIdNum.get)
     }
     
@@ -204,7 +207,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         case MultiplyOperatorEx(_)           => Some("Multiply")
         case PlusOperatorEx(_)               => Some("Plus")
 //      case RemOperatorEx(_)                => Some("Rem")
-//      case ModOperatorEx                   => Some("Mod")
+        case ModOperatorEx(_)                => Some("Divide") // temporary solution
         case _                               => None
       }
     }
@@ -529,9 +532,9 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           factory.buildTypeDeclarationWrapper(astnum1, typeDecl)
         case ConstrainedArrayDefinitionEx(sloc, discreteSubtypeDefinitionsQl, arrayComponentDefinitionQ, checks) =>
           val elements = ctx.popResult.asInstanceOf[MList[Any]]
-          val componentType = elements(0)
-          val indexSubtypeMark = elements(1)
-          typeDecl = factory.buildArrayTypeDecl(astnum2, typeName, componentType, indexSubtypeMark)
+          val indexSubtypeMark = elements(0)
+          val componentType = elements(1)
+          typeDecl = factory.buildArrayTypeDecl(astnum2, typeName, indexSubtypeMark, componentType)
           factory.buildTypeDeclarationWrapper(astnum1, typeDecl)
         case _ =>
           System.out.println("TODO: to deal with other OrdinaryTypeDeclaration !")
@@ -627,13 +630,17 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       val record_components = record_def.getRecordComponentsQl().getRecordComponents()
       for(record_component <- record_components){
         val component_decl = record_component.asInstanceOf[ComponentDeclaration]
-        // DefiningIdentifier
-        v(component_decl.getNamesQl().getDefiningNames().get(0))
-        val name = ctx.popResult
         v(component_decl.getObjectDeclarationViewQ().getDefinition())
         val theType = ctx.popResult
-        val field = factory.buildFieldDecl(name, theType)
-        fields += field
+        // DefiningIdentifier
+        for(definingName <- component_decl.getNamesQl().getDefiningNames()) {
+            // example: type Object is record X, Y : Integer; end record;
+            // v(component_decl.getNamesQl().getDefiningNames().get(0))
+            v(definingName)
+            val name = ctx.popResult
+            val field = factory.buildFieldDecl(name, theType)
+            fields += field            
+        }
       }
       // ctx.pushResult(factory.buildList(fields))
       ctx.pushResult(fields)
@@ -647,11 +654,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // val range = discreteSubtypeDefinitionsQl.getDefinitions().get(0).asInstanceOf[DiscreteSimpleExpressionRangeAsSubtypeDefinition]
       
       v(index_subtype_indication.getSubtypeMarkQ().getExpression())
-      val index_subtype_mark = ctx.popResult.asInstanceOf[String]
+      val index_subtype_mark = factory.getStringValue(ctx.popResult)
             
       val componentTypeDef = arrayComponentDefinitionQ.getElement()
       v(componentTypeDef)
-      val componentType = ctx.popResult.asInstanceOf[String]
+      val componentType = factory.getStringValue(ctx.popResult)
       result += index_subtype_mark
       result += componentType
       ctx.pushResult(result)
@@ -928,33 +935,32 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // prefixQ: ExpressionClass
       // indexExpressionsQl: ExpessionList
       val astnum = factory.next_astnum
-      val x_astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
       ctx.symboltable.insertSloc(astnum, sloc)
+      //v(prefixQ)
+      //val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
+      //assert(indexExpressionsQl.getExpressions().size() == 1)
       v(prefixQ)
-      val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
-      // TODO: to extendit to nested array, now only consider one dimensional array
-      assert(indexExpressionsQl.getExpressions().size() == 1)
+      val x = factory.getStringValue(ctx.popResult)
       val index = indexExpressionsQl.getExpressions().get(0)
       val e = nameExprH(v)(index)
-      val result = factory.buildIndexedComponent(astnum, x_astnum, x, e, checks)
+      val result = factory.buildIndexedComponent(astnum, x, e, checks)
       ctx.pushResult(result)
       false
     case o @ SelectedComponentEx(sloc, prefixQ, selectorQ, theType, checks) =>
       // prefixQ: ExpressionClass
       // selectorQ: ExpressionClass
       val astnum = factory.next_astnum
-      val x_astnum = factory.next_astnum 
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
       ctx.symboltable.insertSloc(astnum, sloc)
-      // TODO: to extend it to nested record
       v(prefixQ)
-      val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
+      //val x = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
+      val x = factory.getStringValue(ctx.popResult)
       v(selectorQ)
       val f = ctx.popResult.asInstanceOf[org.stringtemplate.v4.ST].getAttribute("id").toString()
-      val result = factory.buildSelectedComponent(astnum, x_astnum, x.toString, f, checks)
+      val result = factory.buildSelectedComponent(astnum, x.toString, f, checks)
       ctx.pushResult(result)
       false
     case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType, checks) =>
@@ -1036,10 +1042,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o =>
       v(o)
       val result = ctx.popResult
-      if (result.isInstanceOf[org.stringtemplate.v4.ST])
-        result.asInstanceOf[org.stringtemplate.v4.ST].render()
-      else
-        result.asInstanceOf[String]
+      factory.getStringValue(result)
   }
 
   def associationListH(ctx : Context, v : => BVisitor) : VisitorFunction = {

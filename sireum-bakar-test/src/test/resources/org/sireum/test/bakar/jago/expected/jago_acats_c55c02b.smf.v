@@ -49,43 +49,43 @@ D_Null_Declaration (* Undefined Declarations ! *))))))))))))))))
   (D_Seq_Declaration 26
   (D_Type_Declaration 27 (Integer_Type_Declaration 28 ((*Index*) 20) (Range 0 1))) 
   (D_Seq_Declaration 29
-  (D_Type_Declaration 30 (Array_Type_Declaration 31 ((*ArrayT*) 21) ((*index subtype mark*) Boolean) ((*component type*) (Integer_Type ((*Index*) 20))))) 
+  (D_Type_Declaration 30 (Array_Type_Declaration 31 ((*ArrayT*) 21) ((*index subtype mark*) (Integer_Type ((*Index*) 20))) ((*component type*) Boolean))) 
   (D_Seq_Declaration 32
   (D_Object_Declaration 33 (mkobject_declaration 34 ((*FT*) 22) (Array_Type ((*ArrayT*) 21)) None)) 
   (D_Object_Declaration 35 (mkobject_declaration 36 ((*X*) 23) (Integer_Type ((*Index*) 20)) None))))))))
     (* = = = Procedure Body = = = *)
       (S_Sequence 37
-      (S_Assignment 38 (E_Indexed_Component 39 40 ((*FT*) 22) (E_Literal 42 (Integer_Literal 0) ) ) (E_Literal 43 (Boolean_Literal false) )) 
-      (S_Sequence 44
-      (S_Assignment 45 (E_Indexed_Component 46 47 ((*FT*) 22) (E_Literal 49 (Integer_Literal 1) ) ) (E_Literal 50 (Boolean_Literal true) )) 
-      (S_Sequence 51
+      (S_Assignment 38 (E_Indexed_Component 39 (E_Identifier 40 ((*FT*) 22) ) (E_Literal 41 (Integer_Literal 0) ) ) (E_Literal 42 (Boolean_Literal false) )) 
+      (S_Sequence 43
+      (S_Assignment 44 (E_Indexed_Component 45 (E_Identifier 46 ((*FT*) 22) ) (E_Literal 47 (Integer_Literal 1) ) ) (E_Literal 48 (Boolean_Literal true) )) 
+      (S_Sequence 49
       S_Null (* arguments of procedure call are unrecognized ! *) 
-      (S_Sequence 54
-      (S_While_Loop 55 (E_Binary_Operation 56 Not_Equal (E_Name 57 (E_Identifier 58 ((*I*) 19) )) (E_Literal 59 (Integer_Literal 10) ) )
-        (S_Assignment 60 (E_Identifier 61 ((*I*) 19) ) (E_Binary_Operation 62 Plus (E_Name 63 (E_Identifier 64 ((*I*) 19) )) (E_Literal 65 (Integer_Literal 1) ) ))
+      (S_Sequence 52
+      (S_While_Loop 53 (E_Binary_Operation 54 Not_Equal (E_Name 55 (E_Identifier 56 ((*I*) 19) )) (E_Literal 57 (Integer_Literal 10) ) )
+        (S_Assignment 58 (E_Identifier 59 ((*I*) 19) ) (E_Binary_Operation 60 Plus (E_Name 61 (E_Identifier 62 ((*I*) 19) )) (E_Literal 63 (Integer_Literal 1) ) ))
       ) 
-      (S_Sequence 66
-      (S_If 67 (E_Binary_Operation 68 Not_Equal (E_Name 69 (E_Identifier 70 ((*I*) 19) )) (E_Literal 71 (Integer_Literal 10) ) )
+      (S_Sequence 64
+      (S_If 65 (E_Binary_Operation 66 Not_Equal (E_Name 67 (E_Identifier 68 ((*I*) 19) )) (E_Literal 69 (Integer_Literal 10) ) )
         S_Null (* arguments of procedure call are unrecognized ! *)
         S_Null
       ) 
-      (S_Sequence 74
-      (S_Assignment 75 (E_Identifier 76 ((*I*) 19) ) (E_Literal 77 (Integer_Literal 10) )) 
-      (S_Sequence 78
-      (S_If 79 (E_Binary_Operation 80 Not_Equal (E_Name 81 (E_Identifier 82 ((*I*) 19) )) (E_Literal 83 (Integer_Literal 14) ) )
-        (S_Assignment 84 (E_Identifier 85 ((*X*) 23) ) (E_Literal 86 (Integer_Literal 1) ))
-        (S_Assignment 87 (E_Identifier 88 ((*X*) 23) ) (E_Literal 89 (Integer_Literal 0) ))
+      (S_Sequence 72
+      (S_Assignment 73 (E_Identifier 74 ((*I*) 19) ) (E_Literal 75 (Integer_Literal 10) )) 
+      (S_Sequence 76
+      (S_If 77 (E_Binary_Operation 78 Not_Equal (E_Name 79 (E_Identifier 80 ((*I*) 19) )) (E_Literal 81 (Integer_Literal 14) ) )
+        (S_Assignment 82 (E_Identifier 83 ((*X*) 23) ) (E_Literal 84 (Integer_Literal 1) ))
+        (S_Assignment 85 (E_Identifier 86 ((*X*) 23) ) (E_Literal 87 (Integer_Literal 0) ))
       ) 
-      (S_Sequence 90
-      (S_While_Loop 91 (E_Name 92 (E_Indexed_Component 93 94 ((*FT*) 22) (E_Name 96 (E_Identifier 97 ((*X*) 23) )) ))
-        (S_Assignment 98 (E_Identifier 99 ((*I*) 19) ) (E_Binary_Operation 100 Plus (E_Name 101 (E_Identifier 102 ((*I*) 19) )) (E_Literal 103 (Integer_Literal 1) ) ))
+      (S_Sequence 88
+      (S_While_Loop 89 (E_Name 90 (E_Indexed_Component 91 (E_Identifier 92 ((*FT*) 22) ) (E_Name 93 (E_Identifier 94 ((*X*) 23) )) ))
+        (S_Assignment 95 (E_Identifier 96 ((*I*) 19) ) (E_Binary_Operation 97 Plus (E_Name 98 (E_Identifier 99 ((*I*) 19) )) (E_Literal 100 (Integer_Literal 1) ) ))
       ) 
-      (S_Sequence 104
-      (S_If 105 (E_Binary_Operation 106 Not_Equal (E_Name 107 (E_Identifier 108 ((*I*) 19) )) (E_Literal 109 (Integer_Literal 14) ) )
+      (S_Sequence 101
+      (S_If 102 (E_Binary_Operation 103 Not_Equal (E_Name 104 (E_Identifier 105 ((*I*) 19) )) (E_Literal 106 (Integer_Literal 14) ) )
         S_Null (* arguments of procedure call are unrecognized ! *)
         S_Null
       ) 
-      (S_Procedure_Call 112 113 ((*RESULT*) 7) 
+      (S_Procedure_Call 109 110 ((*RESULT*) 7) 
         (nil)
       ))))))))))
   )
@@ -113,58 +113,58 @@ D_Null_Declaration (* Undefined Declarations ! *)
 (D_Seq_Declaration 26
 (D_Type_Declaration 27 (Integer_Type_Declaration 28 ((*Index*) 20) (Range 0 1))) 
 (D_Seq_Declaration 29
-(D_Type_Declaration 30 (Array_Type_Declaration 31 ((*ArrayT*) 21) ((*index subtype mark*) Boolean) ((*component type*) (Integer_Type ((*Index*) 20))))) 
+(D_Type_Declaration 30 (Array_Type_Declaration 31 ((*ArrayT*) 21) ((*index subtype mark*) (Integer_Type ((*Index*) 20))) ((*component type*) Boolean))) 
 (D_Seq_Declaration 32
 (D_Object_Declaration 33 (mkobject_declaration 34 ((*FT*) 22) (Array_Type ((*ArrayT*) 21)) None)) 
 (D_Object_Declaration 35 (mkobject_declaration 36 ((*X*) 23) (Integer_Type ((*Index*) 20)) None))))))))
   (* = = = Procedure Body = = = *)
     (S_Sequence 37
-    (S_Assignment 38 (E_Indexed_Component 39 40 ((*FT*) 22) (E_Literal 42 (Integer_Literal 0) ) ) (E_Literal 43 (Boolean_Literal false) )) 
-    (S_Sequence 44
-    (S_Assignment 45 (E_Indexed_Component 46 47 ((*FT*) 22) (E_Literal 49 (Integer_Literal 1) ) ) (E_Literal 50 (Boolean_Literal true) )) 
-    (S_Sequence 51
+    (S_Assignment 38 (E_Indexed_Component 39 (E_Identifier 40 ((*FT*) 22) ) (E_Literal 41 (Integer_Literal 0) ) ) (E_Literal 42 (Boolean_Literal false) )) 
+    (S_Sequence 43
+    (S_Assignment 44 (E_Indexed_Component 45 (E_Identifier 46 ((*FT*) 22) ) (E_Literal 47 (Integer_Literal 1) ) ) (E_Literal 48 (Boolean_Literal true) )) 
+    (S_Sequence 49
     S_Null (* arguments of procedure call are unrecognized ! *) 
-    (S_Sequence 54
-    (S_While_Loop 55 (E_Binary_Operation 56 Not_Equal (E_Name 57 (E_Identifier 58 ((*I*) 19) )) (E_Literal 59 (Integer_Literal 10) ) )
-      (S_Assignment 60 (E_Identifier 61 ((*I*) 19) ) (E_Binary_Operation 62 Plus (E_Name 63 (E_Identifier 64 ((*I*) 19) )) (E_Literal 65 (Integer_Literal 1) ) ))
+    (S_Sequence 52
+    (S_While_Loop 53 (E_Binary_Operation 54 Not_Equal (E_Name 55 (E_Identifier 56 ((*I*) 19) )) (E_Literal 57 (Integer_Literal 10) ) )
+      (S_Assignment 58 (E_Identifier 59 ((*I*) 19) ) (E_Binary_Operation 60 Plus (E_Name 61 (E_Identifier 62 ((*I*) 19) )) (E_Literal 63 (Integer_Literal 1) ) ))
     ) 
-    (S_Sequence 66
-    (S_If 67 (E_Binary_Operation 68 Not_Equal (E_Name 69 (E_Identifier 70 ((*I*) 19) )) (E_Literal 71 (Integer_Literal 10) ) )
+    (S_Sequence 64
+    (S_If 65 (E_Binary_Operation 66 Not_Equal (E_Name 67 (E_Identifier 68 ((*I*) 19) )) (E_Literal 69 (Integer_Literal 10) ) )
       S_Null (* arguments of procedure call are unrecognized ! *)
       S_Null
     ) 
-    (S_Sequence 74
-    (S_Assignment 75 (E_Identifier 76 ((*I*) 19) ) (E_Literal 77 (Integer_Literal 10) )) 
-    (S_Sequence 78
-    (S_If 79 (E_Binary_Operation 80 Not_Equal (E_Name 81 (E_Identifier 82 ((*I*) 19) )) (E_Literal 83 (Integer_Literal 14) ) )
-      (S_Assignment 84 (E_Identifier 85 ((*X*) 23) ) (E_Literal 86 (Integer_Literal 1) ))
-      (S_Assignment 87 (E_Identifier 88 ((*X*) 23) ) (E_Literal 89 (Integer_Literal 0) ))
+    (S_Sequence 72
+    (S_Assignment 73 (E_Identifier 74 ((*I*) 19) ) (E_Literal 75 (Integer_Literal 10) )) 
+    (S_Sequence 76
+    (S_If 77 (E_Binary_Operation 78 Not_Equal (E_Name 79 (E_Identifier 80 ((*I*) 19) )) (E_Literal 81 (Integer_Literal 14) ) )
+      (S_Assignment 82 (E_Identifier 83 ((*X*) 23) ) (E_Literal 84 (Integer_Literal 1) ))
+      (S_Assignment 85 (E_Identifier 86 ((*X*) 23) ) (E_Literal 87 (Integer_Literal 0) ))
     ) 
-    (S_Sequence 90
-    (S_While_Loop 91 (E_Name 92 (E_Indexed_Component 93 94 ((*FT*) 22) (E_Name 96 (E_Identifier 97 ((*X*) 23) )) ))
-      (S_Assignment 98 (E_Identifier 99 ((*I*) 19) ) (E_Binary_Operation 100 Plus (E_Name 101 (E_Identifier 102 ((*I*) 19) )) (E_Literal 103 (Integer_Literal 1) ) ))
+    (S_Sequence 88
+    (S_While_Loop 89 (E_Name 90 (E_Indexed_Component 91 (E_Identifier 92 ((*FT*) 22) ) (E_Name 93 (E_Identifier 94 ((*X*) 23) )) ))
+      (S_Assignment 95 (E_Identifier 96 ((*I*) 19) ) (E_Binary_Operation 97 Plus (E_Name 98 (E_Identifier 99 ((*I*) 19) )) (E_Literal 100 (Integer_Literal 1) ) ))
     ) 
-    (S_Sequence 104
-    (S_If 105 (E_Binary_Operation 106 Not_Equal (E_Name 107 (E_Identifier 108 ((*I*) 19) )) (E_Literal 109 (Integer_Literal 14) ) )
+    (S_Sequence 101
+    (S_If 102 (E_Binary_Operation 103 Not_Equal (E_Name 104 (E_Identifier 105 ((*I*) 19) )) (E_Literal 106 (Integer_Literal 14) ) )
       S_Null (* arguments of procedure call are unrecognized ! *)
       S_Null
     ) 
-    (S_Procedure_Call 112 113 ((*RESULT*) 7) 
+    (S_Procedure_Call 109 110 ((*RESULT*) 7) 
       (nil)
     ))))))))))
 ))) :: (((*COMMENT*) 6), (0, (mkprocedure_body 0 0 nil D_Null_Declaration S_Null))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*ArrayT*) 21), (Array_Type_Declaration 31 ((*ArrayT*) 21) ((*index subtype mark*) Boolean) ((*component type*) (Integer_Type ((*Index*) 20))))) :: (((*FILE_NUM*) 1), (Subtype_Declaration 4 ((*FILE_NUM*) 1) Integer (Range 1 5))) :: (((*Index*) 20), (Integer_Type_Declaration 28 ((*Index*) 20) (Range 0 1))) :: nil)
+  ((((*ArrayT*) 21), (Array_Type_Declaration 31 ((*ArrayT*) 21) ((*index subtype mark*) (Integer_Type ((*Index*) 20))) ((*component type*) Boolean))) :: (((*FILE_NUM*) 1), (Subtype_Declaration 4 ((*FILE_NUM*) 1) Integer (Range 1 5))) :: (((*Index*) 20), (Integer_Type_Declaration 28 ((*Index*) 20) (Range 0 1))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
-  ((92, Boolean) :: (101, Integer) :: (83, Integer) :: (95, (Array_Type ((*ArrayT*) 21))) :: (23, Integer) :: (86, Integer) :: (77, Integer) :: (59, Integer) :: (50, Boolean) :: (41, (Array_Type ((*ArrayT*) 21))) :: (68, Boolean) :: (62, Integer) :: (89, Integer) :: (80, Boolean) :: (107, Integer) :: (71, Integer) :: (56, Boolean) :: (65, Integer) :: (106, Boolean) :: (46, Boolean) :: (109, Integer) :: (100, Integer) :: (82, Integer) :: (64, Integer) :: (85, (Integer_Type ((*Index*) 20))) :: (58, Integer) :: (49, Integer) :: (103, Integer) :: (76, Integer) :: (97, (Integer_Type ((*Index*) 20))) :: (88, (Integer_Type ((*Index*) 20))) :: (43, Boolean) :: (70, Integer) :: (61, Integer) :: (96, (Integer_Type ((*Index*) 20))) :: (69, Integer) :: (99, Integer) :: (63, Integer) :: (81, Integer) :: (108, Integer) :: (57, Integer) :: (48, (Array_Type ((*ArrayT*) 21))) :: (102, Integer) :: (93, Boolean) :: (39, Boolean) :: (42, Integer) :: nil)
+  ((92, (Array_Type ((*ArrayT*) 21))) :: (83, (Integer_Type ((*Index*) 20))) :: (104, Integer) :: (23, Integer) :: (86, (Integer_Type ((*Index*) 20))) :: (41, Integer) :: (59, Integer) :: (68, Integer) :: (62, Integer) :: (80, Integer) :: (98, Integer) :: (74, Integer) :: (56, Integer) :: (47, Integer) :: (106, Integer) :: (46, (Array_Type ((*ArrayT*) 21))) :: (100, Integer) :: (91, Boolean) :: (55, Integer) :: (94, (Integer_Type ((*Index*) 20))) :: (40, (Array_Type ((*ArrayT*) 21))) :: (67, Integer) :: (103, Boolean) :: (97, Integer) :: (79, Integer) :: (61, Integer) :: (87, Integer) :: (60, Integer) :: (96, Integer) :: (105, Integer) :: (69, Integer) :: (78, Boolean) :: (99, Integer) :: (90, Boolean) :: (54, Boolean) :: (45, Boolean) :: (63, Integer) :: (81, Integer) :: (84, Integer) :: (57, Integer) :: (48, Boolean) :: (93, (Integer_Type ((*Index*) 20))) :: (75, Integer) :: (39, Boolean) :: (66, Boolean) :: (42, Boolean) :: nil)
   (*/////////////////////////////////////////////////*)
   (* = = = (5) ast node to source location map = = = *)
   (*/////////////////////////////////////////////////*)
-  ((92, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (101, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (83, (sloc (*Line*)59 (*Col*)15 (*EndLine*)59 (*EndCol*)16)) :: (95, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)13)) :: (23, (sloc (*Line*)35 (*Col*)21 (*EndLine*)35 (*EndCol*)21)) :: (86, (sloc (*Line*)60 (*Col*)13 (*EndLine*)60 (*EndCol*)13)) :: (77, (sloc (*Line*)57 (*Col*)11 (*EndLine*)57 (*EndCol*)12)) :: (59, (sloc (*Line*)50 (*Col*)17 (*EndLine*)50 (*EndCol*)18)) :: (50, (sloc (*Line*)46 (*Col*)15 (*EndLine*)46 (*EndCol*)18)) :: (41, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)7)) :: (68, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)15)) :: (62, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)20)) :: (89, (sloc (*Line*)62 (*Col*)13 (*EndLine*)62 (*EndCol*)13)) :: (80, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)16)) :: (107, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (71, (sloc (*Line*)53 (*Col*)14 (*EndLine*)53 (*EndCol*)15)) :: (56, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)18)) :: (65, (sloc (*Line*)51 (*Col*)20 (*EndLine*)51 (*EndCol*)20)) :: (106, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)15)) :: (46, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)10)) :: (109, (sloc (*Line*)69 (*Col*)14 (*EndLine*)69 (*EndCol*)15)) :: (100, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)20)) :: (82, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (64, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (85, (sloc (*Line*)60 (*Col*)8 (*EndLine*)60 (*EndCol*)8)) :: (58, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (49, (sloc (*Line*)46 (*Col*)9 (*EndLine*)46 (*EndCol*)9)) :: (103, (sloc (*Line*)67 (*Col*)20 (*EndLine*)67 (*EndCol*)20)) :: (76, (sloc (*Line*)57 (*Col*)6 (*EndLine*)57 (*EndCol*)6)) :: (97, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (88, (sloc (*Line*)62 (*Col*)8 (*EndLine*)62 (*EndCol*)8)) :: (43, (sloc (*Line*)45 (*Col*)15 (*EndLine*)45 (*EndCol*)19)) :: (70, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (61, (sloc (*Line*)51 (*Col*)11 (*EndLine*)51 (*EndCol*)11)) :: (96, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (69, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (99, (sloc (*Line*)67 (*Col*)11 (*EndLine*)67 (*EndCol*)11)) :: (63, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (81, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (108, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (57, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (48, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)7)) :: (102, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (93, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (39, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)10)) :: (42, (sloc (*Line*)45 (*Col*)9 (*EndLine*)45 (*EndCol*)9)) :: nil)
+  ((92, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)13)) :: (83, (sloc (*Line*)60 (*Col*)8 (*EndLine*)60 (*EndCol*)8)) :: (104, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (23, (sloc (*Line*)35 (*Col*)21 (*EndLine*)35 (*EndCol*)21)) :: (86, (sloc (*Line*)62 (*Col*)8 (*EndLine*)62 (*EndCol*)8)) :: (41, (sloc (*Line*)45 (*Col*)9 (*EndLine*)45 (*EndCol*)9)) :: (59, (sloc (*Line*)51 (*Col*)11 (*EndLine*)51 (*EndCol*)11)) :: (68, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (62, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (80, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (98, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (74, (sloc (*Line*)57 (*Col*)6 (*EndLine*)57 (*EndCol*)6)) :: (56, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (47, (sloc (*Line*)46 (*Col*)9 (*EndLine*)46 (*EndCol*)9)) :: (106, (sloc (*Line*)69 (*Col*)14 (*EndLine*)69 (*EndCol*)15)) :: (46, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)7)) :: (100, (sloc (*Line*)67 (*Col*)20 (*EndLine*)67 (*EndCol*)20)) :: (91, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (55, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (94, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (40, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)7)) :: (67, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (103, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)15)) :: (97, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)20)) :: (79, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (61, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (87, (sloc (*Line*)62 (*Col*)13 (*EndLine*)62 (*EndCol*)13)) :: (60, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)20)) :: (96, (sloc (*Line*)67 (*Col*)11 (*EndLine*)67 (*EndCol*)11)) :: (105, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (69, (sloc (*Line*)53 (*Col*)14 (*EndLine*)53 (*EndCol*)15)) :: (78, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)16)) :: (99, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (90, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (54, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)18)) :: (45, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)10)) :: (63, (sloc (*Line*)51 (*Col*)20 (*EndLine*)51 (*EndCol*)20)) :: (81, (sloc (*Line*)59 (*Col*)15 (*EndLine*)59 (*EndCol*)16)) :: (84, (sloc (*Line*)60 (*Col*)13 (*EndLine*)60 (*EndCol*)13)) :: (57, (sloc (*Line*)50 (*Col*)17 (*EndLine*)50 (*EndCol*)18)) :: (48, (sloc (*Line*)46 (*Col*)15 (*EndLine*)46 (*EndCol*)18)) :: (93, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (75, (sloc (*Line*)57 (*Col*)11 (*EndLine*)57 (*EndCol*)12)) :: (39, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)10)) :: (66, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)15)) :: (42, (sloc (*Line*)45 (*Col*)15 (*EndLine*)45 (*EndCol*)19)) :: nil)
   (* = = = (6) name id to a pair of (name string, unique name string) map = = = *)
   (*/////////////////////////////////////////////////*)
   ((mkNameTable
@@ -234,43 +234,43 @@ D_Null_Declaration_X (* Undefined Declarations ! *))))))))))))))))
   (D_Seq_Declaration_X 26
   (D_Type_Declaration_X 27 (Integer_Type_Declaration_X 28 ((*Index*) 20) (Range_X 0 1))) 
   (D_Seq_Declaration_X 29
-  (D_Type_Declaration_X 30 (Array_Type_Declaration_X 31 ((*ArrayT*) 21) ((*index subtype mark*) Boolean) ((*component type*) (Integer_Type ((*Index*) 20))))) 
+  (D_Type_Declaration_X 30 (Array_Type_Declaration_X 31 ((*ArrayT*) 21) ((*index subtype mark*) (Integer_Type ((*Index*) 20))) ((*component type*) Boolean))) 
   (D_Seq_Declaration_X 32
   (D_Object_Declaration_X 33 (mkobject_declaration_x 34 ((*FT*) 22) (Array_Type ((*ArrayT*) 21)) None)) 
   (D_Object_Declaration_X 35 (mkobject_declaration_x 36 ((*X*) 23) (Integer_Type ((*Index*) 20)) None))))))))
     (* = = = Procedure Body = = = *)
       (S_Sequence_X 37
-      (S_Assignment_X 38 (E_Indexed_Component_X 39 40 ((*FT*) 22) (E_Literal_X 42 (Integer_Literal 0) (nil) nil) (nil)) (E_Literal_X 43 (Boolean_Literal false) (nil) nil)) 
-      (S_Sequence_X 44
-      (S_Assignment_X 45 (E_Indexed_Component_X 46 47 ((*FT*) 22) (E_Literal_X 49 (Integer_Literal 1) (nil) nil) (nil)) (E_Literal_X 50 (Boolean_Literal true) (nil) nil)) 
-      (S_Sequence_X 51
+      (S_Assignment_X 38 (E_Indexed_Component_X 39 (E_Identifier_X 40 ((*FT*) 22) (nil)) (E_Literal_X 41 (Integer_Literal 0) (nil) nil) (nil)) (E_Literal_X 42 (Boolean_Literal false) (nil) nil)) 
+      (S_Sequence_X 43
+      (S_Assignment_X 44 (E_Indexed_Component_X 45 (E_Identifier_X 46 ((*FT*) 22) (nil)) (E_Literal_X 47 (Integer_Literal 1) (nil) nil) (nil)) (E_Literal_X 48 (Boolean_Literal true) (nil) nil)) 
+      (S_Sequence_X 49
       S_Null_X (* arguments of procedure call are unrecognized ! *) 
-      (S_Sequence_X 54
-      (S_While_Loop_X 55 (E_Binary_Operation_X 56 Not_Equal (E_Name_X 57 (E_Identifier_X 58 ((*I*) 19) (nil))) (E_Literal_X 59 (Integer_Literal 10) (nil) nil) (nil) nil)
-        (S_Assignment_X 60 (E_Identifier_X 61 ((*I*) 19) (nil)) (E_Binary_Operation_X 62 Plus (E_Name_X 63 (E_Identifier_X 64 ((*I*) 19) (nil))) (E_Literal_X 65 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+      (S_Sequence_X 52
+      (S_While_Loop_X 53 (E_Binary_Operation_X 54 Not_Equal (E_Name_X 55 (E_Identifier_X 56 ((*I*) 19) (nil))) (E_Literal_X 57 (Integer_Literal 10) (nil) nil) (nil) nil)
+        (S_Assignment_X 58 (E_Identifier_X 59 ((*I*) 19) (nil)) (E_Binary_Operation_X 60 Plus (E_Name_X 61 (E_Identifier_X 62 ((*I*) 19) (nil))) (E_Literal_X 63 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
       ) 
-      (S_Sequence_X 66
-      (S_If_X 67 (E_Binary_Operation_X 68 Not_Equal (E_Name_X 69 (E_Identifier_X 70 ((*I*) 19) (nil))) (E_Literal_X 71 (Integer_Literal 10) (nil) nil) (nil) nil)
+      (S_Sequence_X 64
+      (S_If_X 65 (E_Binary_Operation_X 66 Not_Equal (E_Name_X 67 (E_Identifier_X 68 ((*I*) 19) (nil))) (E_Literal_X 69 (Integer_Literal 10) (nil) nil) (nil) nil)
         S_Null_X (* arguments of procedure call are unrecognized ! *)
         S_Null_X
       ) 
-      (S_Sequence_X 74
-      (S_Assignment_X 75 (E_Identifier_X 76 ((*I*) 19) (nil)) (E_Literal_X 77 (Integer_Literal 10) (nil) nil)) 
-      (S_Sequence_X 78
-      (S_If_X 79 (E_Binary_Operation_X 80 Not_Equal (E_Name_X 81 (E_Identifier_X 82 ((*I*) 19) (nil))) (E_Literal_X 83 (Integer_Literal 14) (nil) nil) (nil) nil)
-        (S_Assignment_X 84 (E_Identifier_X 85 ((*X*) 23) (nil)) (E_Literal_X 86 (Integer_Literal 1) (nil) nil))
-        (S_Assignment_X 87 (E_Identifier_X 88 ((*X*) 23) (nil)) (E_Literal_X 89 (Integer_Literal 0) (nil) nil))
+      (S_Sequence_X 72
+      (S_Assignment_X 73 (E_Identifier_X 74 ((*I*) 19) (nil)) (E_Literal_X 75 (Integer_Literal 10) (nil) nil)) 
+      (S_Sequence_X 76
+      (S_If_X 77 (E_Binary_Operation_X 78 Not_Equal (E_Name_X 79 (E_Identifier_X 80 ((*I*) 19) (nil))) (E_Literal_X 81 (Integer_Literal 14) (nil) nil) (nil) nil)
+        (S_Assignment_X 82 (E_Identifier_X 83 ((*X*) 23) (nil)) (E_Literal_X 84 (Integer_Literal 1) (nil) nil))
+        (S_Assignment_X 85 (E_Identifier_X 86 ((*X*) 23) (nil)) (E_Literal_X 87 (Integer_Literal 0) (nil) nil))
       ) 
-      (S_Sequence_X 90
-      (S_While_Loop_X 91 (E_Name_X 92 (E_Indexed_Component_X 93 94 ((*FT*) 22) (E_Name_X 96 (E_Identifier_X 97 ((*X*) 23) (nil))) (nil)))
-        (S_Assignment_X 98 (E_Identifier_X 99 ((*I*) 19) (nil)) (E_Binary_Operation_X 100 Plus (E_Name_X 101 (E_Identifier_X 102 ((*I*) 19) (nil))) (E_Literal_X 103 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+      (S_Sequence_X 88
+      (S_While_Loop_X 89 (E_Name_X 90 (E_Indexed_Component_X 91 (E_Identifier_X 92 ((*FT*) 22) (nil)) (E_Name_X 93 (E_Identifier_X 94 ((*X*) 23) (nil))) (nil)))
+        (S_Assignment_X 95 (E_Identifier_X 96 ((*I*) 19) (nil)) (E_Binary_Operation_X 97 Plus (E_Name_X 98 (E_Identifier_X 99 ((*I*) 19) (nil))) (E_Literal_X 100 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
       ) 
-      (S_Sequence_X 104
-      (S_If_X 105 (E_Binary_Operation_X 106 Not_Equal (E_Name_X 107 (E_Identifier_X 108 ((*I*) 19) (nil))) (E_Literal_X 109 (Integer_Literal 14) (nil) nil) (nil) nil)
+      (S_Sequence_X 101
+      (S_If_X 102 (E_Binary_Operation_X 103 Not_Equal (E_Name_X 104 (E_Identifier_X 105 ((*I*) 19) (nil))) (E_Literal_X 106 (Integer_Literal 14) (nil) nil) (nil) nil)
         S_Null_X (* arguments of procedure call are unrecognized ! *)
         S_Null_X
       ) 
-      (S_Procedure_Call_X 112 113 ((*RESULT*) 7) 
+      (S_Procedure_Call_X 109 110 ((*RESULT*) 7) 
         (nil)
       ))))))))))
   )
@@ -298,58 +298,58 @@ D_Null_Declaration_X (* Undefined Declarations ! *)
 (D_Seq_Declaration_X 26
 (D_Type_Declaration_X 27 (Integer_Type_Declaration_X 28 ((*Index*) 20) (Range_X 0 1))) 
 (D_Seq_Declaration_X 29
-(D_Type_Declaration_X 30 (Array_Type_Declaration_X 31 ((*ArrayT*) 21) ((*index subtype mark*) Boolean) ((*component type*) (Integer_Type ((*Index*) 20))))) 
+(D_Type_Declaration_X 30 (Array_Type_Declaration_X 31 ((*ArrayT*) 21) ((*index subtype mark*) (Integer_Type ((*Index*) 20))) ((*component type*) Boolean))) 
 (D_Seq_Declaration_X 32
 (D_Object_Declaration_X 33 (mkobject_declaration_x 34 ((*FT*) 22) (Array_Type ((*ArrayT*) 21)) None)) 
 (D_Object_Declaration_X 35 (mkobject_declaration_x 36 ((*X*) 23) (Integer_Type ((*Index*) 20)) None))))))))
   (* = = = Procedure Body = = = *)
     (S_Sequence_X 37
-    (S_Assignment_X 38 (E_Indexed_Component_X 39 40 ((*FT*) 22) (E_Literal_X 42 (Integer_Literal 0) (nil) nil) (nil)) (E_Literal_X 43 (Boolean_Literal false) (nil) nil)) 
-    (S_Sequence_X 44
-    (S_Assignment_X 45 (E_Indexed_Component_X 46 47 ((*FT*) 22) (E_Literal_X 49 (Integer_Literal 1) (nil) nil) (nil)) (E_Literal_X 50 (Boolean_Literal true) (nil) nil)) 
-    (S_Sequence_X 51
+    (S_Assignment_X 38 (E_Indexed_Component_X 39 (E_Identifier_X 40 ((*FT*) 22) (nil)) (E_Literal_X 41 (Integer_Literal 0) (nil) nil) (nil)) (E_Literal_X 42 (Boolean_Literal false) (nil) nil)) 
+    (S_Sequence_X 43
+    (S_Assignment_X 44 (E_Indexed_Component_X 45 (E_Identifier_X 46 ((*FT*) 22) (nil)) (E_Literal_X 47 (Integer_Literal 1) (nil) nil) (nil)) (E_Literal_X 48 (Boolean_Literal true) (nil) nil)) 
+    (S_Sequence_X 49
     S_Null_X (* arguments of procedure call are unrecognized ! *) 
-    (S_Sequence_X 54
-    (S_While_Loop_X 55 (E_Binary_Operation_X 56 Not_Equal (E_Name_X 57 (E_Identifier_X 58 ((*I*) 19) (nil))) (E_Literal_X 59 (Integer_Literal 10) (nil) nil) (nil) nil)
-      (S_Assignment_X 60 (E_Identifier_X 61 ((*I*) 19) (nil)) (E_Binary_Operation_X 62 Plus (E_Name_X 63 (E_Identifier_X 64 ((*I*) 19) (nil))) (E_Literal_X 65 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+    (S_Sequence_X 52
+    (S_While_Loop_X 53 (E_Binary_Operation_X 54 Not_Equal (E_Name_X 55 (E_Identifier_X 56 ((*I*) 19) (nil))) (E_Literal_X 57 (Integer_Literal 10) (nil) nil) (nil) nil)
+      (S_Assignment_X 58 (E_Identifier_X 59 ((*I*) 19) (nil)) (E_Binary_Operation_X 60 Plus (E_Name_X 61 (E_Identifier_X 62 ((*I*) 19) (nil))) (E_Literal_X 63 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
     ) 
-    (S_Sequence_X 66
-    (S_If_X 67 (E_Binary_Operation_X 68 Not_Equal (E_Name_X 69 (E_Identifier_X 70 ((*I*) 19) (nil))) (E_Literal_X 71 (Integer_Literal 10) (nil) nil) (nil) nil)
+    (S_Sequence_X 64
+    (S_If_X 65 (E_Binary_Operation_X 66 Not_Equal (E_Name_X 67 (E_Identifier_X 68 ((*I*) 19) (nil))) (E_Literal_X 69 (Integer_Literal 10) (nil) nil) (nil) nil)
       S_Null_X (* arguments of procedure call are unrecognized ! *)
       S_Null_X
     ) 
-    (S_Sequence_X 74
-    (S_Assignment_X 75 (E_Identifier_X 76 ((*I*) 19) (nil)) (E_Literal_X 77 (Integer_Literal 10) (nil) nil)) 
-    (S_Sequence_X 78
-    (S_If_X 79 (E_Binary_Operation_X 80 Not_Equal (E_Name_X 81 (E_Identifier_X 82 ((*I*) 19) (nil))) (E_Literal_X 83 (Integer_Literal 14) (nil) nil) (nil) nil)
-      (S_Assignment_X 84 (E_Identifier_X 85 ((*X*) 23) (nil)) (E_Literal_X 86 (Integer_Literal 1) (nil) nil))
-      (S_Assignment_X 87 (E_Identifier_X 88 ((*X*) 23) (nil)) (E_Literal_X 89 (Integer_Literal 0) (nil) nil))
+    (S_Sequence_X 72
+    (S_Assignment_X 73 (E_Identifier_X 74 ((*I*) 19) (nil)) (E_Literal_X 75 (Integer_Literal 10) (nil) nil)) 
+    (S_Sequence_X 76
+    (S_If_X 77 (E_Binary_Operation_X 78 Not_Equal (E_Name_X 79 (E_Identifier_X 80 ((*I*) 19) (nil))) (E_Literal_X 81 (Integer_Literal 14) (nil) nil) (nil) nil)
+      (S_Assignment_X 82 (E_Identifier_X 83 ((*X*) 23) (nil)) (E_Literal_X 84 (Integer_Literal 1) (nil) nil))
+      (S_Assignment_X 85 (E_Identifier_X 86 ((*X*) 23) (nil)) (E_Literal_X 87 (Integer_Literal 0) (nil) nil))
     ) 
-    (S_Sequence_X 90
-    (S_While_Loop_X 91 (E_Name_X 92 (E_Indexed_Component_X 93 94 ((*FT*) 22) (E_Name_X 96 (E_Identifier_X 97 ((*X*) 23) (nil))) (nil)))
-      (S_Assignment_X 98 (E_Identifier_X 99 ((*I*) 19) (nil)) (E_Binary_Operation_X 100 Plus (E_Name_X 101 (E_Identifier_X 102 ((*I*) 19) (nil))) (E_Literal_X 103 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+    (S_Sequence_X 88
+    (S_While_Loop_X 89 (E_Name_X 90 (E_Indexed_Component_X 91 (E_Identifier_X 92 ((*FT*) 22) (nil)) (E_Name_X 93 (E_Identifier_X 94 ((*X*) 23) (nil))) (nil)))
+      (S_Assignment_X 95 (E_Identifier_X 96 ((*I*) 19) (nil)) (E_Binary_Operation_X 97 Plus (E_Name_X 98 (E_Identifier_X 99 ((*I*) 19) (nil))) (E_Literal_X 100 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
     ) 
-    (S_Sequence_X 104
-    (S_If_X 105 (E_Binary_Operation_X 106 Not_Equal (E_Name_X 107 (E_Identifier_X 108 ((*I*) 19) (nil))) (E_Literal_X 109 (Integer_Literal 14) (nil) nil) (nil) nil)
+    (S_Sequence_X 101
+    (S_If_X 102 (E_Binary_Operation_X 103 Not_Equal (E_Name_X 104 (E_Identifier_X 105 ((*I*) 19) (nil))) (E_Literal_X 106 (Integer_Literal 14) (nil) nil) (nil) nil)
       S_Null_X (* arguments of procedure call are unrecognized ! *)
       S_Null_X
     ) 
-    (S_Procedure_Call_X 112 113 ((*RESULT*) 7) 
+    (S_Procedure_Call_X 109 110 ((*RESULT*) 7) 
       (nil)
     ))))))))))
 ))) :: (((*COMMENT*) 6), (0, (mkprocedure_body_x 0 0 nil D_Null_Declaration_X S_Null_X))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*ArrayT*) 21), (Array_Type_Declaration_X 31 ((*ArrayT*) 21) ((*index subtype mark*) Boolean) ((*component type*) (Integer_Type ((*Index*) 20))))) :: (((*FILE_NUM*) 1), (Subtype_Declaration_X 4 ((*FILE_NUM*) 1) Integer (Range_X 1 5))) :: (((*Index*) 20), (Integer_Type_Declaration_X 28 ((*Index*) 20) (Range_X 0 1))) :: nil)
+  ((((*ArrayT*) 21), (Array_Type_Declaration_X 31 ((*ArrayT*) 21) ((*index subtype mark*) (Integer_Type ((*Index*) 20))) ((*component type*) Boolean))) :: (((*FILE_NUM*) 1), (Subtype_Declaration_X 4 ((*FILE_NUM*) 1) Integer (Range_X 1 5))) :: (((*Index*) 20), (Integer_Type_Declaration_X 28 ((*Index*) 20) (Range_X 0 1))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
-  ((92, Boolean) :: (101, Integer) :: (83, Integer) :: (95, (Array_Type ((*ArrayT*) 21))) :: (23, Integer) :: (86, Integer) :: (77, Integer) :: (59, Integer) :: (50, Boolean) :: (41, (Array_Type ((*ArrayT*) 21))) :: (68, Boolean) :: (62, Integer) :: (89, Integer) :: (80, Boolean) :: (107, Integer) :: (71, Integer) :: (56, Boolean) :: (65, Integer) :: (106, Boolean) :: (46, Boolean) :: (109, Integer) :: (100, Integer) :: (82, Integer) :: (64, Integer) :: (85, (Integer_Type ((*Index*) 20))) :: (58, Integer) :: (49, Integer) :: (103, Integer) :: (76, Integer) :: (97, (Integer_Type ((*Index*) 20))) :: (88, (Integer_Type ((*Index*) 20))) :: (43, Boolean) :: (70, Integer) :: (61, Integer) :: (96, (Integer_Type ((*Index*) 20))) :: (69, Integer) :: (99, Integer) :: (63, Integer) :: (81, Integer) :: (108, Integer) :: (57, Integer) :: (48, (Array_Type ((*ArrayT*) 21))) :: (102, Integer) :: (93, Boolean) :: (39, Boolean) :: (42, Integer) :: nil)
+  ((92, (Array_Type ((*ArrayT*) 21))) :: (83, (Integer_Type ((*Index*) 20))) :: (104, Integer) :: (23, Integer) :: (86, (Integer_Type ((*Index*) 20))) :: (41, Integer) :: (59, Integer) :: (68, Integer) :: (62, Integer) :: (80, Integer) :: (98, Integer) :: (74, Integer) :: (56, Integer) :: (47, Integer) :: (106, Integer) :: (46, (Array_Type ((*ArrayT*) 21))) :: (100, Integer) :: (91, Boolean) :: (55, Integer) :: (94, (Integer_Type ((*Index*) 20))) :: (40, (Array_Type ((*ArrayT*) 21))) :: (67, Integer) :: (103, Boolean) :: (97, Integer) :: (79, Integer) :: (61, Integer) :: (87, Integer) :: (60, Integer) :: (96, Integer) :: (105, Integer) :: (69, Integer) :: (78, Boolean) :: (99, Integer) :: (90, Boolean) :: (54, Boolean) :: (45, Boolean) :: (63, Integer) :: (81, Integer) :: (84, Integer) :: (57, Integer) :: (48, Boolean) :: (93, (Integer_Type ((*Index*) 20))) :: (75, Integer) :: (39, Boolean) :: (66, Boolean) :: (42, Boolean) :: nil)
   (*/////////////////////////////////////////////////*)
   (* = = = (5) ast node to source location map = = = *)
   (*/////////////////////////////////////////////////*)
-  ((92, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (101, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (83, (sloc (*Line*)59 (*Col*)15 (*EndLine*)59 (*EndCol*)16)) :: (95, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)13)) :: (23, (sloc (*Line*)35 (*Col*)21 (*EndLine*)35 (*EndCol*)21)) :: (86, (sloc (*Line*)60 (*Col*)13 (*EndLine*)60 (*EndCol*)13)) :: (77, (sloc (*Line*)57 (*Col*)11 (*EndLine*)57 (*EndCol*)12)) :: (59, (sloc (*Line*)50 (*Col*)17 (*EndLine*)50 (*EndCol*)18)) :: (50, (sloc (*Line*)46 (*Col*)15 (*EndLine*)46 (*EndCol*)18)) :: (41, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)7)) :: (68, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)15)) :: (62, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)20)) :: (89, (sloc (*Line*)62 (*Col*)13 (*EndLine*)62 (*EndCol*)13)) :: (80, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)16)) :: (107, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (71, (sloc (*Line*)53 (*Col*)14 (*EndLine*)53 (*EndCol*)15)) :: (56, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)18)) :: (65, (sloc (*Line*)51 (*Col*)20 (*EndLine*)51 (*EndCol*)20)) :: (106, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)15)) :: (46, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)10)) :: (109, (sloc (*Line*)69 (*Col*)14 (*EndLine*)69 (*EndCol*)15)) :: (100, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)20)) :: (82, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (64, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (85, (sloc (*Line*)60 (*Col*)8 (*EndLine*)60 (*EndCol*)8)) :: (58, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (49, (sloc (*Line*)46 (*Col*)9 (*EndLine*)46 (*EndCol*)9)) :: (103, (sloc (*Line*)67 (*Col*)20 (*EndLine*)67 (*EndCol*)20)) :: (76, (sloc (*Line*)57 (*Col*)6 (*EndLine*)57 (*EndCol*)6)) :: (97, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (88, (sloc (*Line*)62 (*Col*)8 (*EndLine*)62 (*EndCol*)8)) :: (43, (sloc (*Line*)45 (*Col*)15 (*EndLine*)45 (*EndCol*)19)) :: (70, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (61, (sloc (*Line*)51 (*Col*)11 (*EndLine*)51 (*EndCol*)11)) :: (96, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (69, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (99, (sloc (*Line*)67 (*Col*)11 (*EndLine*)67 (*EndCol*)11)) :: (63, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (81, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (108, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (57, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (48, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)7)) :: (102, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (93, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (39, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)10)) :: (42, (sloc (*Line*)45 (*Col*)9 (*EndLine*)45 (*EndCol*)9)) :: nil)
+  ((92, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)13)) :: (83, (sloc (*Line*)60 (*Col*)8 (*EndLine*)60 (*EndCol*)8)) :: (104, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (23, (sloc (*Line*)35 (*Col*)21 (*EndLine*)35 (*EndCol*)21)) :: (86, (sloc (*Line*)62 (*Col*)8 (*EndLine*)62 (*EndCol*)8)) :: (41, (sloc (*Line*)45 (*Col*)9 (*EndLine*)45 (*EndCol*)9)) :: (59, (sloc (*Line*)51 (*Col*)11 (*EndLine*)51 (*EndCol*)11)) :: (68, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (62, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (80, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (98, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (74, (sloc (*Line*)57 (*Col*)6 (*EndLine*)57 (*EndCol*)6)) :: (56, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (47, (sloc (*Line*)46 (*Col*)9 (*EndLine*)46 (*EndCol*)9)) :: (106, (sloc (*Line*)69 (*Col*)14 (*EndLine*)69 (*EndCol*)15)) :: (46, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)7)) :: (100, (sloc (*Line*)67 (*Col*)20 (*EndLine*)67 (*EndCol*)20)) :: (91, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (55, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)12)) :: (94, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (40, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)7)) :: (67, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)9)) :: (103, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)15)) :: (97, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)20)) :: (79, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)10)) :: (61, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)16)) :: (87, (sloc (*Line*)62 (*Col*)13 (*EndLine*)62 (*EndCol*)13)) :: (60, (sloc (*Line*)51 (*Col*)16 (*EndLine*)51 (*EndCol*)20)) :: (96, (sloc (*Line*)67 (*Col*)11 (*EndLine*)67 (*EndCol*)11)) :: (105, (sloc (*Line*)69 (*Col*)9 (*EndLine*)69 (*EndCol*)9)) :: (69, (sloc (*Line*)53 (*Col*)14 (*EndLine*)53 (*EndCol*)15)) :: (78, (sloc (*Line*)59 (*Col*)10 (*EndLine*)59 (*EndCol*)16)) :: (99, (sloc (*Line*)67 (*Col*)16 (*EndLine*)67 (*EndCol*)16)) :: (90, (sloc (*Line*)66 (*Col*)12 (*EndLine*)66 (*EndCol*)17)) :: (54, (sloc (*Line*)50 (*Col*)12 (*EndLine*)50 (*EndCol*)18)) :: (45, (sloc (*Line*)46 (*Col*)6 (*EndLine*)46 (*EndCol*)10)) :: (63, (sloc (*Line*)51 (*Col*)20 (*EndLine*)51 (*EndCol*)20)) :: (81, (sloc (*Line*)59 (*Col*)15 (*EndLine*)59 (*EndCol*)16)) :: (84, (sloc (*Line*)60 (*Col*)13 (*EndLine*)60 (*EndCol*)13)) :: (57, (sloc (*Line*)50 (*Col*)17 (*EndLine*)50 (*EndCol*)18)) :: (48, (sloc (*Line*)46 (*Col*)15 (*EndLine*)46 (*EndCol*)18)) :: (93, (sloc (*Line*)66 (*Col*)16 (*EndLine*)66 (*EndCol*)16)) :: (75, (sloc (*Line*)57 (*Col*)11 (*EndLine*)57 (*EndCol*)12)) :: (39, (sloc (*Line*)45 (*Col*)6 (*EndLine*)45 (*EndCol*)10)) :: (66, (sloc (*Line*)53 (*Col*)9 (*EndLine*)53 (*EndCol*)15)) :: (42, (sloc (*Line*)45 (*Col*)15 (*EndLine*)45 (*EndCol*)19)) :: nil)
   (* = = = (6) name id to a pair of (name string, unique name string) map = = = *)
   (*/////////////////////////////////////////////////*)
   ((mkNameTable
