@@ -73,7 +73,7 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
         false,
         BakarProgramTranslatorModule))
 
-  override def generateExpected = true
+  override def generateExpected = false
   override def outputSuffix = "v"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {
