@@ -1,0 +1,8 @@
+$ cd /usr/local/lib
+$ curl -O http://www.antlr.org/download/antlr-4.5-complete.jar
+add the following line to .bash_profile by: $ emacs .bash_profile
+$ alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+
+$ export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"
+
+$ antlr4 test.g4
