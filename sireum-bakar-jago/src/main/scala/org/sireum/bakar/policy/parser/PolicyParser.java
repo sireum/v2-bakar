@@ -1,4 +1,4 @@
-// $ANTLR 3.5 /Users/zhi/Downloads/antlrworks-1.5/Policy.g 2016-01-31 22:44:01
+// $ANTLR 3.5 /Users/zhi/Downloads/antlrworks-1.5/Policy.g 2016-02-04 10:50:05
 
 package org.sireum.bakar.policy.parser;
 import java.util.ArrayList;
@@ -503,7 +503,7 @@ public class PolicyParser extends Parser {
 
 
 		Token id=null;
-		ArrayList<String> p =null;
+		T_Pair p =null;
 		HashMap<String, String> d =null;
 
 		try {
@@ -529,8 +529,9 @@ public class PolicyParser extends Parser {
 
 			match(input,13,FOLLOW_13_in_declassifier385); 
 			result.set_name((id!=null?id.getText():null)); 
-				   result.set_params(p); 
-				   result.set_param_domains(d);
+				   result.set_params((ArrayList<String>)p.getFirst()); 
+				   result.set_param_mode((HashMap<String, String>)p.getSecond());
+				   result.set_param_types(d);
 			}
 
 		}
@@ -548,21 +549,28 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "params"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:68:1: params returns [ArrayList<String> result = new ArrayList<String>()] : id1= ID ':' ( access_mode )? ID ( ';' id2= ID ':' ( access_mode )? ID )* ;
-	public final ArrayList<String> params() throws RecognitionException {
-		ArrayList<String> result =  new ArrayList<String>();
+	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:69:1: params returns [T_Pair result = new T_Pair<ArrayList<String>, HashMap<String, String>>()] : id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )* ;
+	public final T_Pair params() throws RecognitionException {
+		T_Pair result =  new T_Pair<ArrayList<String>, HashMap<String, String>>();
 
 
 		Token id1=null;
 		Token id2=null;
+		String m1 =null;
+		String m2 =null;
+
+
+		ArrayList<String> params = new ArrayList<String>();
+		HashMap<String, String> param_mode = new HashMap<String, String>();
+		String mode = "in";
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:69:2: (id1= ID ':' ( access_mode )? ID ( ';' id2= ID ':' ( access_mode )? ID )* )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:69:4: id1= ID ':' ( access_mode )? ID ( ';' id2= ID ':' ( access_mode )? ID )*
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:2: (id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )* )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:4: id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )*
 			{
-			id1=(Token)match(input,ID,FOLLOW_ID_in_params410); 
-			match(input,11,FOLLOW_11_in_params412); 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:69:15: ( access_mode )?
+			id1=(Token)match(input,ID,FOLLOW_ID_in_params415); 
+			match(input,11,FOLLOW_11_in_params417); 
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:15: (m1= access_mode )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0==19||LA8_0==22) ) {
@@ -570,20 +578,21 @@ public class PolicyParser extends Parser {
 			}
 			switch (alt8) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:69:16: access_mode
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:16: m1= access_mode
 					{
-					pushFollow(FOLLOW_access_mode_in_params415);
-					access_mode();
+					pushFollow(FOLLOW_access_mode_in_params422);
+					m1=access_mode();
 					state._fsp--;
 
+					mode = m1;
 					}
 					break;
 
 			}
 
-			match(input,ID,FOLLOW_ID_in_params419); 
-			result.add((id1!=null?id1.getText():null));
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:71:4: ( ';' id2= ID ':' ( access_mode )? ID )*
+			match(input,ID,FOLLOW_ID_in_params428); 
+			params.add((id1!=null?id1.getText():null)); param_mode.put((id1!=null?id1.getText():null), mode);
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:4: ( ';' id2= ID ':' (m2= access_mode )? ID )*
 			loop10:
 			while (true) {
 				int alt10=2;
@@ -594,12 +603,13 @@ public class PolicyParser extends Parser {
 
 				switch (alt10) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:71:5: ';' id2= ID ':' ( access_mode )? ID
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:5: ';' id2= ID ':' (m2= access_mode )? ID
 					{
-					match(input,13,FOLLOW_13_in_params431); 
-					id2=(Token)match(input,ID,FOLLOW_ID_in_params435); 
-					match(input,11,FOLLOW_11_in_params437); 
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:71:20: ( access_mode )?
+					match(input,13,FOLLOW_13_in_params440); 
+					id2=(Token)match(input,ID,FOLLOW_ID_in_params444); 
+					match(input,11,FOLLOW_11_in_params446); 
+					mode = "in";
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:34: (m2= access_mode )?
 					int alt9=2;
 					int LA9_0 = input.LA(1);
 					if ( (LA9_0==19||LA9_0==22) ) {
@@ -607,19 +617,20 @@ public class PolicyParser extends Parser {
 					}
 					switch (alt9) {
 						case 1 :
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:71:21: access_mode
+							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:35: m2= access_mode
 							{
-							pushFollow(FOLLOW_access_mode_in_params440);
-							access_mode();
+							pushFollow(FOLLOW_access_mode_in_params452);
+							m2=access_mode();
 							state._fsp--;
 
+							mode = m2;
 							}
 							break;
 
 					}
 
-					match(input,ID,FOLLOW_ID_in_params444); 
-					result.add((id2!=null?id2.getText():null));
+					match(input,ID,FOLLOW_ID_in_params458); 
+					params.add((id2!=null?id2.getText():null)); param_mode.put((id2!=null?id2.getText():null), mode);
 					}
 					break;
 
@@ -628,6 +639,7 @@ public class PolicyParser extends Parser {
 				}
 			}
 
+			result.setFirst(params); result.setSecond(param_mode);
 			}
 
 		}
@@ -645,10 +657,13 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "access_mode"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:1: access_mode : ( 'in' | 'out' | 'in' 'out' );
-	public final void access_mode() throws RecognitionException {
+	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:82:1: access_mode returns [String result = null] : ( 'in' | 'out' | 'in' 'out' );
+	public final String access_mode() throws RecognitionException {
+		String result =  null;
+
+
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:76:2: ( 'in' | 'out' | 'in' 'out' )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:83:2: ( 'in' | 'out' | 'in' 'out' )
 			int alt11=3;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0==19) ) {
@@ -685,22 +700,25 @@ public class PolicyParser extends Parser {
 
 			switch (alt11) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:76:4: 'in'
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:83:4: 'in'
 					{
-					match(input,19,FOLLOW_19_in_access_mode464); 
+					match(input,19,FOLLOW_19_in_access_mode487); 
+					result="in";
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:76:11: 'out'
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:84:4: 'out'
 					{
-					match(input,22,FOLLOW_22_in_access_mode468); 
+					match(input,22,FOLLOW_22_in_access_mode497); 
+					result="out";
 					}
 					break;
 				case 3 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:76:19: 'in' 'out'
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:85:4: 'in' 'out'
 					{
-					match(input,19,FOLLOW_19_in_access_mode472); 
-					match(input,22,FOLLOW_22_in_access_mode474); 
+					match(input,19,FOLLOW_19_in_access_mode507); 
+					match(input,22,FOLLOW_22_in_access_mode509); 
+					result="inout";
 					}
 					break;
 
@@ -713,13 +731,14 @@ public class PolicyParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
+		return result;
 	}
 	// $ANTLR end "access_mode"
 
 
 
 	// $ANTLR start "domain_def"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:79:1: domain_def returns [HashMap<String, String> result = new HashMap<String, String>()] : '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' ;
+	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:88:1: domain_def returns [HashMap<String, String> result = new HashMap<String, String>()] : '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' ;
 	public final HashMap<String, String> domain_def() throws RecognitionException {
 		HashMap<String, String> result =  new HashMap<String, String>();
 
@@ -730,15 +749,15 @@ public class PolicyParser extends Parser {
 		Token id4=null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:80:2: ( '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:80:4: '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')'
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:89:2: ( '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:89:4: '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')'
 			{
-			match(input,8,FOLLOW_8_in_domain_def489); 
-			id1=(Token)match(input,ID,FOLLOW_ID_in_domain_def502); 
-			match(input,15,FOLLOW_15_in_domain_def504); 
-			id2=(Token)match(input,ID,FOLLOW_ID_in_domain_def508); 
+			match(input,8,FOLLOW_8_in_domain_def526); 
+			id1=(Token)match(input,ID,FOLLOW_ID_in_domain_def539); 
+			match(input,15,FOLLOW_15_in_domain_def541); 
+			id2=(Token)match(input,ID,FOLLOW_ID_in_domain_def545); 
 			result.put((id1!=null?id1.getText():null), (id2!=null?id2.getText():null));
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:82:8: ( ',' id3= ID '=>' id4= ID )*
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:8: ( ',' id3= ID '=>' id4= ID )*
 			loop12:
 			while (true) {
 				int alt12=2;
@@ -749,12 +768,12 @@ public class PolicyParser extends Parser {
 
 				switch (alt12) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:82:9: ',' id3= ID '=>' id4= ID
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:9: ',' id3= ID '=>' id4= ID
 					{
-					match(input,10,FOLLOW_10_in_domain_def520); 
-					id3=(Token)match(input,ID,FOLLOW_ID_in_domain_def524); 
-					match(input,15,FOLLOW_15_in_domain_def526); 
-					id4=(Token)match(input,ID,FOLLOW_ID_in_domain_def530); 
+					match(input,10,FOLLOW_10_in_domain_def557); 
+					id3=(Token)match(input,ID,FOLLOW_ID_in_domain_def561); 
+					match(input,15,FOLLOW_15_in_domain_def563); 
+					id4=(Token)match(input,ID,FOLLOW_ID_in_domain_def567); 
 					result.put((id3!=null?id3.getText():null), (id4!=null?id4.getText():null));
 					}
 					break;
@@ -764,7 +783,7 @@ public class PolicyParser extends Parser {
 				}
 			}
 
-			match(input,9,FOLLOW_9_in_domain_def539); 
+			match(input,9,FOLLOW_9_in_domain_def576); 
 			}
 
 		}
@@ -782,7 +801,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:86:1: value returns [String result = null] : (n= NUM_INT |id= ID );
+	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:95:1: value returns [String result = null] : (n= NUM_INT |id= ID );
 	public final String value() throws RecognitionException {
 		String result =  null;
 
@@ -791,7 +810,7 @@ public class PolicyParser extends Parser {
 		Token id=null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:87:2: (n= NUM_INT |id= ID )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:96:2: (n= NUM_INT |id= ID )
 			int alt13=2;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0==NUM_INT) ) {
@@ -809,16 +828,16 @@ public class PolicyParser extends Parser {
 
 			switch (alt13) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:87:4: n= NUM_INT
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:96:4: n= NUM_INT
 					{
-					n=(Token)match(input,NUM_INT,FOLLOW_NUM_INT_in_value556); 
+					n=(Token)match(input,NUM_INT,FOLLOW_NUM_INT_in_value593); 
 					result = (n!=null?n.getText():null);
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:87:36: id= ID
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:96:36: id= ID
 					{
-					id=(Token)match(input,ID,FOLLOW_ID_in_value564); 
+					id=(Token)match(input,ID,FOLLOW_ID_in_value601); 
 					result = (id!=null?id.getText():null);
 					}
 					break;
@@ -891,28 +910,28 @@ public class PolicyParser extends Parser {
 	public static final BitSet FOLLOW_15_in_declassifier379 = new BitSet(new long[]{0x0000000000000100L});
 	public static final BitSet FOLLOW_domain_def_in_declassifier383 = new BitSet(new long[]{0x0000000000002000L});
 	public static final BitSet FOLLOW_13_in_declassifier385 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_params410 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_params412 = new BitSet(new long[]{0x0000000000480020L});
-	public static final BitSet FOLLOW_access_mode_in_params415 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ID_in_params419 = new BitSet(new long[]{0x0000000000002002L});
-	public static final BitSet FOLLOW_13_in_params431 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ID_in_params435 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_params437 = new BitSet(new long[]{0x0000000000480020L});
-	public static final BitSet FOLLOW_access_mode_in_params440 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ID_in_params444 = new BitSet(new long[]{0x0000000000002002L});
-	public static final BitSet FOLLOW_19_in_access_mode464 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_22_in_access_mode468 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_19_in_access_mode472 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_access_mode474 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_8_in_domain_def489 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ID_in_domain_def502 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_15_in_domain_def504 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ID_in_domain_def508 = new BitSet(new long[]{0x0000000000000600L});
-	public static final BitSet FOLLOW_10_in_domain_def520 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ID_in_domain_def524 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_15_in_domain_def526 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ID_in_domain_def530 = new BitSet(new long[]{0x0000000000000600L});
-	public static final BitSet FOLLOW_9_in_domain_def539 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUM_INT_in_value556 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_value564 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_params415 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_params417 = new BitSet(new long[]{0x0000000000480020L});
+	public static final BitSet FOLLOW_access_mode_in_params422 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ID_in_params428 = new BitSet(new long[]{0x0000000000002002L});
+	public static final BitSet FOLLOW_13_in_params440 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ID_in_params444 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_params446 = new BitSet(new long[]{0x0000000000480020L});
+	public static final BitSet FOLLOW_access_mode_in_params452 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ID_in_params458 = new BitSet(new long[]{0x0000000000002002L});
+	public static final BitSet FOLLOW_19_in_access_mode487 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_22_in_access_mode497 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_19_in_access_mode507 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_access_mode509 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_8_in_domain_def526 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ID_in_domain_def539 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_domain_def541 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ID_in_domain_def545 = new BitSet(new long[]{0x0000000000000600L});
+	public static final BitSet FOLLOW_10_in_domain_def557 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ID_in_domain_def561 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_domain_def563 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ID_in_domain_def567 = new BitSet(new long[]{0x0000000000000600L});
+	public static final BitSet FOLLOW_9_in_domain_def576 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUM_INT_in_value593 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_value601 = new BitSet(new long[]{0x0000000000000002L});
 }

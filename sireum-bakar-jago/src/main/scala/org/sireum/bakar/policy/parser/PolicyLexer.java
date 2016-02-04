@@ -1,4 +1,4 @@
-// $ANTLR 3.5 /Users/zhi/Downloads/antlrworks-1.5/Policy.g 2016-01-31 22:44:01
+// $ANTLR 3.5 /Users/zhi/Downloads/antlrworks-1.5/Policy.g 2016-02-04 10:50:05
 
 package org.sireum.bakar.policy.parser;
 import java.util.ArrayList;
@@ -471,10 +471,10 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = NUM_INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:2: ( ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:2: ( ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* ) )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
 			{
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='0') ) {
@@ -492,13 +492,13 @@ public class PolicyLexer extends Lexer {
 
 			switch (alt2) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:5: '0'
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:5: '0'
 					{
 					match('0'); 
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:11: ( '1' .. '9' ) ( '0' .. '9' )*
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:11: ( '1' .. '9' ) ( '0' .. '9' )*
 					{
 					if ( (input.LA(1) >= '1' && input.LA(1) <= '9') ) {
 						input.consume();
@@ -508,7 +508,7 @@ public class PolicyLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:22: ( '0' .. '9' )*
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:22: ( '0' .. '9' )*
 					loop1:
 					while (true) {
 						int alt1=2;
@@ -558,8 +558,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:94:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:94:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:103:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:103:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -569,7 +569,7 @@ public class PolicyLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:94:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:103:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -614,15 +614,15 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:9: ( ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:9: ( ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) ) )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
 			{
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:13: '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:13: '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? )
 			{
 			match("--"); 
 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:18: (~ ( '\\n' | '\\r' ) )*
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:18: (~ ( '\\n' | '\\r' ) )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -651,7 +651,7 @@ public class PolicyLexer extends Lexer {
 				}
 			}
 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:34: ( '\\n' | '\\r' ( '\\n' )? )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:34: ( '\\n' | '\\r' ( '\\n' )? )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0=='\n') ) {
@@ -669,16 +669,16 @@ public class PolicyLexer extends Lexer {
 
 			switch (alt6) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:35: '\\n'
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:35: '\\n'
 					{
 					match('\n'); 
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:40: '\\r' ( '\\n' )?
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:40: '\\r' ( '\\n' )?
 					{
 					match('\r'); 
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:44: ( '\\n' )?
+					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:44: ( '\\n' )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0=='\n') ) {
@@ -686,7 +686,7 @@ public class PolicyLexer extends Lexer {
 					}
 					switch (alt5) {
 						case 1 :
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:97:45: '\\n'
+							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:45: '\\n'
 							{
 							match('\n'); 
 							}
@@ -718,8 +718,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:101:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:101:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:110:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:110:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
 				input.consume();
