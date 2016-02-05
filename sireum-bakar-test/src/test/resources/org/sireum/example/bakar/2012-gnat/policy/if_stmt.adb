@@ -2,7 +2,7 @@ package body If_Stmt
 is
    procedure Test (X : in Integer; Y : out Integer) is
       T : Integer;
-      M : Integer;
+      M : Integer := 2;
       N : Integer;
    begin
       T := 1;

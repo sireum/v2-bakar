@@ -4,10 +4,6 @@ import org.sireum.pipeline._
 import org.sireum.bakar.xml._
 import org.sireum.util._
 import scala.collection.JavaConversions.asScalaBuffer
-import org.sireum.bakar.jago.util.Factory
-import org.sireum.bakar.jago.util.TranslatorUtil
-import org.stringtemplate.v4.STGroupFile
-import org.sireum.bakar.jago.util.TypeNameSpace
 import org.sireum.bakar.xml.SourceLocation
 import org.sireum.bakar.policy.parser.T_Policy
 import org.sireum.bakar.policy.parser.PolicyReader
@@ -21,6 +17,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // - Bakar2CoqTranslatorImp implements our specific translation from SPARK XML AST tree to Coq, and it's called in Bakar2CoqTranslatorModuleCore
   type BVisitor = Any => Boolean
   
+  /*
   final case class TypeConstraint(lhs_type: String, rhs_type: IList[String]) {
     // e.g. rhs_type <= lhs_type, where rhs_type maybe the union of a list of types, such as t' v t''
     
@@ -222,6 +219,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       }
     }
   }
+  */
 
   def packageDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ CompilationUnitEx(sloc, contextClauseElements, unitDeclaration, pragmasAfter,
@@ -322,6 +320,16 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         
         ctx.reset_global_mapping(Tg_old)
         ctx.Tl.clear()
+        
+        // 
+        println("\n=== before simplification ===\n")
+        Util.prettyPrint(f_param_constraints)
+        val atomicTypeConstraints = TypeConstraintSimplification.normalize(f_param_constraints)
+        val typeConstraintsClosure = TypeConstraintSimplification.transitive_closure(atomicTypeConstraints)
+        val simplifiedTypeConstraints = TypeConstraintSimplification.simplify(typeConstraintsClosure)
+        println("\n=== after simplification === \n")        
+        Util.prettyPrint_atomicTypeConstraints(simplifiedTypeConstraints)
+        println("finish one procedure !")
       }
 
     {
