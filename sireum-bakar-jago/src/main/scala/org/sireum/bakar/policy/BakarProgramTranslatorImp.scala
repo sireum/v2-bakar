@@ -21,7 +21,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // - Bakar2CoqTranslatorImp implements our specific translation from SPARK XML AST tree to Coq, and it's called in Bakar2CoqTranslatorModuleCore
   type BVisitor = Any => Boolean
   
-  final case class TypeConstraint(lhs_type: String, rhs_type: MList[String]) {
+  final case class TypeConstraint(lhs_type: String, rhs_type: IList[String]) {
     // e.g. rhs_type <= lhs_type, where rhs_type maybe the union of a list of types, such as t' v t''
     
   }
@@ -55,40 +55,73 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     val Tf = mmapEmpty[String, TypeConstraint_of_Subprogram]
     val Tg = mmapEmpty[String, String]
     val Tl = mmapEmpty[String, String]
-    val Tp = mlistEmpty[String]
+    var Tp = scala.collection.immutable.List.empty[String]
     var fresh_n = 0
-    val Cs = mlistEmpty[TypeConstraint]
+    var Cs = mlistEmpty[TypeConstraint]
+    var Vm = mlistEmpty[String] // variables that maybe modified
     var lhs_or_rhs = false
         
+    Tp = Tp :+ "BOTTOM"
+    
     // help functions
-    def gen_fresh(): Int = {
-      fresh_n += 1;
-      return fresh_n;
+    def gen_fresh_type(): String = {
+      fresh_n += 1
+      return ("t" + fresh_n)
     }
     
     def fetch_type(x: String): Option[String] = {
       if(Tg.get(x) != None)
         return Tg.get(x)
       
-      if(lhs_or_rhs) {
+      if(lhs_or_rhs) 
         // if it's a lhs variable
-        val fresh_t = "t" + gen_fresh
-        Tl += (x -> fresh_t)
-      }
+        Tl += (x -> gen_fresh_type)
+      
+      if(Tl.get(x).isEmpty)
+        Tl += (x -> gen_fresh_type)
+      
       return Tl.get(x)
     }
     
-    def add_typeConstraint(lhs_type: String, rhs_type: MList[String]) = {
+    def add_program_constraint(f_name: String, c: TypeConstraint_of_Subprogram) {
+      Tf += (f_name -> c)
+    }
+    
+    def add_typeConstraint(lhs_type: String, rhs_type: IList[String]) = {
       Cs += new TypeConstraint(lhs_type, rhs_type)
+    }
+    
+    def get_typeConstraint() = {
+      val tc = Cs
+      Cs = mlistEmpty[TypeConstraint]
+      tc
+    }
+    
+    def add_modVar(x: String) = {
+      Vm += x
+    }
+    
+    def get_modVars() = {
+      val t = Vm
+      Vm = mlistEmpty[String]
+      t
+    }    
+    
+    def add_global_mapping(new_gm: MMap[String, String]) {
+      Tg ++= new_gm
+    }
+    
+    def reset_global_mapping(gm: MMap[String, String]) {
+      Tg.clear()
+      Tg ++= gm
     }
     
     def add_context_type(new_ct: MList[String]) {
       Tp ++= new_ct
     }
     
-    def reset_context_type(ct: MList[String]) {
-      Tp.clear()
-      Tp ++= ct
+    def reset_context_type(ct: IList[String]) {
+      Tp = ct
     }
     
     def is_lhs_or_rhs(b: Boolean) {
@@ -113,16 +146,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
             Declassifiers += (f_name -> declassifier_constraint)
           }
       )
-    }
-    
-  final case class TypeConstraint_of_Subprogram1(
-      f_name: String, 
-      f_param_t: MMap[String, String], 
-      f_param_mode: MMap[String, String], 
-      f_param_constraints: MList[TypeConstraint])    
+    }    
     
     // results: hold the union of types for an expression
-    val type_disj = mlistEmpty[String]
+    var type_disj = mlistEmpty[String]
     
     def add_type(t : String) {
       type_disj += t
@@ -130,15 +157,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     
     def get_type = {
       val t = type_disj
-      type_disj.clear()
+      type_disj = mlistEmpty[String]
       t
     }
     
     // ==============================
     // ==============================    
     
-    
-    val results = mlistEmpty[String]
     var result : Any = null
 
     def pushResult(o : Any) {
@@ -150,12 +175,6 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       result = null
       t
     }
-
-    def addToResults(o : String) {
-      results += o
-    }
-
-    def getResults = results
 
     def isEmpty(o : Base) : Boolean = o.isInstanceOf[NotAnElement]
 
@@ -218,7 +237,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       visiblePartDecItems, privatePartDecItems, checks) =>
       val visibleDecItems = visiblePartDecItems.getDeclarativeItems()      
       val privateDecItems = privatePartDecItems.getDeclarativeItems()
-      declarativePartH(ctx, v, visibleDecItems.toList ++ privateDecItems.toList)
+      // declarativePartH(ctx, v, visibleDecItems.toList ++ privateDecItems.toList)
 
       false
     case o @ PackageBodyDeclarationEx(sloc, names, aspectSpec,
@@ -264,37 +283,59 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
 //      assert(ctx.isEmpty(isNotOverridingDec))
         
         // [1] subprogram name
-        // assert(names.getDefiningNames().length == 1)
         v(names.getDefiningNames().get(0))
+        val f_name = ctx.popResult.asInstanceOf[String]
         
         // [3] subprogram parameters
-        val params = mlistEmpty[String]
+        val f_param_type = mmapEmpty[String, String]
+        val f_param_mode = mmapEmpty[String, String] 
+        
         for (p <- paramProfile.getParameterSpecifications()) {
           v(p)
+          val param_mode_types = ctx.popResult.asInstanceOf[MList[(String, String, String)]]
+          param_mode_types.foreach(
+              triple => {
+                val param_name = triple._1
+                val param_mode = triple._2
+                val param_type = triple._3
+                f_param_type += (param_name -> param_type)
+                f_param_mode += (param_name -> param_mode)
+              })
         }
+        
+        val Tg_old = mmapEmpty[String, String]
+        Tg_old ++= ctx.Tg
+        ctx.add_global_mapping(f_param_type)
         
         // [4] declared local objects, e.g. variables, array/record types, or nested procedures
         declarativePartH(ctx, v, bodyDeclItems.getElements.toList)
         
         // [5] subprogram body
         v(bodyStatements)
-
+        val f_param_constraints = ctx.get_typeConstraint()
+        
         // [6] subprogram aspect specification, for example, Pre and Post 
         
+        // 
+        val program_constraint = TypeConstraint_of_Subprogram(f_name, f_param_type, f_param_mode, f_param_constraints) 
+        ctx.add_program_constraint(f_name, program_constraint)
+        
+        ctx.reset_global_mapping(Tg_old)
+        ctx.Tl.clear()
       }
 
     {
       case o @ ProcedureDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           names, paramProfile, hasAbstract, aspectSpec, checks) =>
         val pn = names.getDefiningNames.get(0)
-        v(pn)
+        // v(pn)
 
         false
         
       case o @ FunctionDeclarationEx(sloc, isOverridingDec, isNotOverridingDec,
           names, paramProfile, isNotNullReturn, resultProfile, hasAbstract, aspectSpec, checks) =>
         val fn = names.getDefiningNames.get(0)
-        v(fn)
+        // v(fn)
         
         false
 
@@ -315,7 +356,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         false
       case o @ ExpressionFunctionDeclarationEx(sloc, namesQl, paramProfileQl, resultProfileQ, resultExprQ, aspectSpecQl, checks) =>
         val efn = namesQl.getDefiningNames.get(0)
-        v(efn)
+        // v(efn)
         
         false
     }
@@ -325,49 +366,44 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   // the last two declarations are translated separately;
   def otherDeclarationH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ ConstantDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl, checks) =>
-      v(objDeclViewQ.getDefinition())
-      
-      val optionalInitExp =
-        if (ctx.isEmpty(initExpQ.getExpression())) {
-          None
-        } else {
-          // in XML AST, binary/unary expression is represented as a function call;
-          v(initExpQ.getExpression())
-          Some(ctx.get_type) // type of initialization expression
-        }
-      
-      val it = namesQl.getDefiningNames().iterator()
-      
-      while(it.hasNext){
-        // define constant variable
-        val x = it.next()
-        v(x)
+      if (!ctx.isEmpty(initExpQ.getExpression())) {
+        // in XML AST, binary/unary expression is represented as a function call;
+        v(initExpQ.getExpression())
+        val initExpType = ctx.get_type // type of initialization expression 
+        val it = namesQl.getDefiningNames().iterator()
+        while(it.hasNext){
+          // define constant variable
+          val x = it.next()
+          v(x)
+          val xName = ctx.popResult.asInstanceOf[String]
+          val xType = ctx.fetch_type(xName).getOrElse("UndefinedType")
+          ctx.add_typeConstraint(xType, initExpType.toList)   
+          ctx.add_typeConstraint(xType, ctx.Tp) 
+        }        
       }
       
       false
     case o @ VariableDeclarationEx(sloc, namesQl, hasAliasedQ, objDeclViewQ, initExpQ, aspectSpecQl, checks) =>
-      v(objDeclViewQ.getDefinition())
-
-      val optionalInitExp =
-        if (ctx.isEmpty(initExpQ.getExpression())) {
-          None
-        } else {
-          v(initExpQ.getExpression())
-          Some(ctx.get_type) // type of initialization expression
-        }
-      
-      val it = namesQl.getDefiningNames().iterator()
-      while(it.hasNext){
-        val x = it.next()
-        v(x)
+      if (!ctx.isEmpty(initExpQ.getExpression())) {
+        v(initExpQ.getExpression())
+        val initExpType = ctx.get_type // type of initialization expression
+        val it = namesQl.getDefiningNames().iterator()
+        while(it.hasNext){
+          val x = it.next()
+          v(x)
+          val xName = ctx.popResult.asInstanceOf[String]
+          val xType = ctx.fetch_type(xName).getOrElse("UndefinedType")
+          ctx.add_typeConstraint(xType, initExpType.toList)
+          ctx.add_typeConstraint(xType, ctx.Tp) 
+        }        
       }
       
       false
     case o @ OrdinaryTypeDeclarationEx(sloc, namesQl, discriminantPartQ, typeDeclarationViewQ, aspectSpecificationsQl, checks) => 
-      v(namesQl.getDefiningNames().get(0)) // typeName
+      // v(namesQl.getDefiningNames().get(0)) // typeName
       val typeRef = namesQl.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDef()
       val typeDef = typeDeclarationViewQ.getDefinition()
-      v(typeDef)
+      // v(typeDef)
       
       // e.g. type T is range 0 .. 10;
       // type name: T is represented by a natural number: (1 (*T*))
@@ -379,13 +415,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       v(namesQl.getDefiningNames().get(0))
       val typeRef = namesQl.getDefiningNames().get(0).asInstanceOf[DefiningIdentifier].getDef()
       val typeDef = typeDeclarationViewQ.getDefinition()
-      v(typeDef)
+      // v(typeDef)
       
       false
     case o @ PrivateTypeDeclarationEx(sloc, namesQl, discriminantPartQ, typeDeclarationViewQ, aspectSpecificationsQl, checks) =>
       // e.g. type Stack_Type is private;
       val ptn = namesQl.getDefiningNames.get(0)
-      v(ptn)
+      // v(ptn)
       
       false
     case o @ UsePackageClauseEx(sloc, clauseNamesQl, checks) =>
@@ -421,29 +457,46 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       assert(ctx.isEmpty(hasAliasedQ.getHasAliased()))
       assert(ctx.isEmpty(hasNullExclusionQ.getHasNullExclusion()))
       assert(ctx.isEmpty(initializationExpressionQ.getExpression()))
+      
+      val param_mode_types = mlistEmpty[(String, String, String)]
 
       // (1) parameter type
-      v(objectDeclarationViewQ.getDefinition())
+      // v(objectDeclarationViewQ.getDefinition())
       
       // (2) parameter mode
-      val paramMode = factory.buildMode(mode)      
+      val paramMode =       
+        if(mode == "AN_IN_MODE")
+          "in"
+        else if(mode == "AN_OUT_MODE")
+          "out"
+        else
+          "inout"
       
       // (3) parameter name
       // example of multiple parameters of the same type: Swap (A : in out Arr; I J : Index)
       val it = namesQl.getDefiningNames().iterator()
       while(it.hasNext){
         v(it.next)
+        val paramName = ctx.popResult.asInstanceOf[String]
+        val paramType = ctx.gen_fresh_type() // fresh type for the parameter
+        val triple = (paramName, paramMode, paramType)
+        param_mode_types += triple
       }
+      
+      ctx.pushResult(param_mode_types)
       
       false
   }
 
   /**
+   * Procedure name
+   * procedure parameters
    * ProcedureBodyDeclaration /- body_declarative_items_ql: List[VariableDeclaration]
    */
   def definingIdentifierH(ctx : Context, v : => BVisitor) : VisitorFunction = {
     case o @ DefiningIdentifierEx(sloc, defName, theDef, theType, checks) =>
-      // val result = factory.buildId(defName, theDef)
+      // theDef: the unique identifier name
+      ctx.pushResult(defName)
       false
   }
 
@@ -455,15 +508,16 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o @ NullStatementEx(sloc, labelNamesQl, checks) =>
       false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression, checks) =>
+      // get the type of the right hand side expression
+      ctx.is_lhs_or_rhs(false)
+      v(assignmentExpression.getExpression())
+      val rhs_type = ctx.get_type      
       // get the type of left hand side variable
       ctx.is_lhs_or_rhs(true)
       v(assignmentVariableName.getExpression())
       val lhs_type = ctx.get_type.head
-      // get the type of the right hand side expression
       ctx.is_lhs_or_rhs(false)
-      v(assignmentExpression.getExpression())
-      val rhs_type = ctx.get_type
-      ctx.add_typeConstraint(lhs_type, rhs_type)
+      ctx.add_typeConstraint(lhs_type, rhs_type.toList)
       ctx.add_typeConstraint(lhs_type, ctx.Tp)
       false
     case o @ IfStatementEx(sloc, labelNames, statementPaths, checks) =>
@@ -475,8 +529,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           case IfPathEx(sloc, condExp, statements, checks) =>
             v(condExp.getExpression())
             val b_type = ctx.get_type // type of conditional expression
-            val old_context_type = mlistEmpty[String]
-            old_context_type ++= ctx.Tp
+            val old_context_type = ctx.Tp
             ctx.add_context_type(b_type)
             // true branch
             v(statements)
@@ -486,8 +539,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           case ElsifPathEx(sloc, condExp, statements, checks) =>
             v(condExp.getExpression())
             val b_type = ctx.get_type // type of conditional expression
-            val old_context_type = mlistEmpty[String]
-            old_context_type ++= ctx.Tp
+            val old_context_type = ctx.Tp
             ctx.add_context_type(b_type)
             // true branch
             v(statements)
@@ -502,16 +554,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       HandleIfStmt(statementPaths.getPaths().toList)
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier, whileCondition, loopStatements, checks) =>
-      val astnum = factory.next_astnum
       v(whileCondition.getExpression())
       v(loopStatements)
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation, checks) =>
-      val astnum = factory.next_astnum
-      val p_astnum = factory.next_astnum
       val args = mlistEmpty[Any]
       v(calledName.getExpression())
-      val p = ctx.popResult
+      
       // 
       // for a procedure call, if we cannot find its declaration body in package body, 
       // e.g. library procedure or procedure declaration with no procedure body;
@@ -523,15 +572,13 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     case o @ ReturnStatementEx(sloc, labelNamesQl, returnExpressionQ, checks) =>
       // TODO: now just ignore it as our formalized SPARK subset does not support it now, 
       //       in fact there should be checks for return expressions;
-      val result = factory.buildNullStmt
-      ctx.pushResult(s"$result (* Ignore Return Statement ! *)")
+      ctx.pushResult(s"(* Ignore Return Statement ! *)")
       false
     case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName, checks) =>
       // TOOD: just ignore ImplementationDefinedPragma, e.g. pragma Loop_Variant (Decreases => J - I);
       // in order to accept more SPARK tests and reduce manual modifications to those SPARK test cases,
       // as pragma is quite common in practical SPARK programs,
-      val result = factory.buildNullStmt
-      ctx.pushResult(s"$result (* Ignore Pragma ! *)")
+      ctx.pushResult(s"(* Ignore Pragma ! *)")
       false
   }
   
@@ -620,7 +667,99 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       assert(false)
       false
   }
-
+  
+  def statementC(ctx : Context, v : => BVisitor) : VisitorFunction = {
+    case o @ StatementListEx(statements) =>
+      for(statement <- statements)
+        v(statement)
+      false
+    case o @ NullStatementEx(sloc, labelNamesQl, checks) =>
+      false
+    case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression, checks) =>
+      // get the type of the right hand side expression
+      v(assignmentExpression.getExpression())
+      false
+    case o @ IfStatementEx(sloc, labelNames, statementPaths, checks) =>
+      def HandleIfStmt(statementPaths: List[org.sireum.bakar.xml.Base]) {
+        if(statementPaths.isEmpty)
+          return
+        
+        statementPaths.head match {
+          case IfPathEx(sloc, condExp, statements, checks) =>
+            // true branch
+            v(statements)
+            // false branch
+            HandleIfStmt(statementPaths.tail)
+          case ElsifPathEx(sloc, condExp, statements, checks) =>
+            // true branch
+            v(statements)
+            // false branch
+            HandleIfStmt(statementPaths.tail)
+          case ElsePathEx(sloc, statements, checks) =>
+            v(statements)
+        }
+      }
+      
+      HandleIfStmt(statementPaths.getPaths().toList)
+      false
+    case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier, whileCondition, loopStatements, checks) =>
+      v(loopStatements)
+      false
+    case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation, checks) =>
+      val args = mlistEmpty[Any]
+      v(calledName.getExpression())
+      
+      // 
+      // for a procedure call, if we cannot find its declaration body in package body, 
+      // e.g. library procedure or procedure declaration with no procedure body;
+      for (arg <- callStatementParameters.getAssociations()) {
+        val e = arg.asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
+        v(e)
+      }      
+      false
+    case o @ ReturnStatementEx(sloc, labelNamesQl, returnExpressionQ, checks) =>
+      false
+    case o @ ImplementationDefinedPragmaEx(sloc, pragmaArgumentAssociationsQl, pragmaName, checks) =>
+      false
+  }
+  
+  def expressionC(ctx : Context, v : => BVisitor) : VisitorFunction = {
+    case o @ IntegerLiteralEx(sloc, litVal, theType, checks) =>
+      false
+    case o @ EnumerationLiteralEx(sloc, refName, ref, theType, checks) =>
+      false
+    case o @ IdentifierEx(sloc, refName, ref, theType, checks) =>
+      // Identifier object is used to reference to either
+      // - constant, variable, parameter, record field, or 
+      // - type name, or subtype / derived type name
+      // - package/procedure name
+      if(ref.contains("variable")) {
+        if(ctx.Tg.get(refName).isEmpty)
+          ctx.add_modVar(refName)
+      } else if (ref.contains("parameter")) {
+       
+      } else if(ref.contains("procedure")) {
+        // it's used as a procedure call
+        
+      } else {
+        
+      }
+      false
+    case o @ FunctionCallEx(sloc, prefixQ, functionCallParameters, isPrefixCall, isPrefixNotation, theType, checks) =>
+      false
+    case o @ OrElseShortCircuitEx(sloc, leftExpressionQ, rightExpressionQ, theType, checks) =>
+      false
+    case o @ AndThenShortCircuitEx(sloc, leftExpressionQ, rightExpressionQ, theType, checks) =>
+      false
+//  case o =>
+//    println("expressionH: need to handle: " + o.getClass.getSimpleName)
+//    true
+  }  
+  
+  // =================================================
+  //  Generate Type Constraints
+  // =================================================  
+  
   val policy_file = ""
   val policy = PolicyReader.ParsePolicy(policy_file)
   
@@ -644,25 +783,19 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         everythingElseH(ctx, theVisitor)
       )))
 
-  import org.sireum.option.ProgramTarget
-  def getProgramTranslatorSTG(o : ProgramTarget.Type) = {
-    (o : @unchecked) match {
-      case ProgramTarget.Ocaml =>
-        new STGroupFile(getClass.getResource(TypeNameSpace.ProgramTransTemplate_OCaml), "UTF-8", '$', '$')
-      case ProgramTarget.Coq =>
-        new STGroupFile(getClass.getResource(TypeNameSpace.ProgramTransTemplate_Coq), "UTF-8", '$', '$')
-    }
-  }
+  // =================================================
+  //  Collect Maybe-Modified Local Variables
+  // =================================================
+  def theCollector : BVisitor = collect
   
-  val COQ_AST_ID = "Coq_AST_Tree_XX"
-  val SYMBOL_TABLE_ID = "Symbol_Table_XX"  
-
-  val t = this.jagoProgramTarget
-  assert(t == ProgramTarget.Coq || t == ProgramTarget.Ocaml)
-
-  val stg = getProgramTranslatorSTG(t)
-  val factory = new Factory(stg)
-
+  val collect = Visitor.build(
+    Visitor.first(
+      ivector(
+        statementC(ctx, theCollector),
+        expressionC(ctx, theCollector),
+        everythingElseH(ctx, theCollector)
+      )))       
+  
   // for multiple source files, do translation one by one  
   
   // now only allow one .ads file and one .adb file, otherwise there will be
@@ -684,22 +817,14 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   }
 
   // cus: Compilation Units
-  val cus = mlistEmpty[String]
   val it = xmlResults.iterator
-  var i = 0
   while(it.hasNext){
     val value = it.next()
-    if(it.hasNext)
-      cus += factory.next_astnum.toString()
     visit(value)
-    cus += ctx.results(i)
-    i += 1
   }
   
-  val namesMap = factory.buildNameTable(stg, factory.getVarNameMap, factory.getProcNameMap, factory.getPkgNameMap, factory.getTypeNameMap)
   
   val ret = mlistEmpty[String]
-  ret += factory.buildImportRequiredLibs()
   
   // store the program translation results as PipelineJob's properties
   // so the result can be used by the following pipeline modules  
