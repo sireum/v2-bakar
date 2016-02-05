@@ -1,5 +1,5 @@
 package org.sireum.test.bakar.policy
-
+/*
 import java.io.Writer
 import org.junit.runner.RunWith
 import org.sireum.bakar.policy.BakarProgramTranslatorModule
@@ -87,3 +87,4 @@ class PolicyEnforcementTest extends BakarTestFileFramework[ProjectFile] {
     }
   }
 }
+*/

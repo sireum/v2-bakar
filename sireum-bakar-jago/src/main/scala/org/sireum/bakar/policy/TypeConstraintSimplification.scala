@@ -26,6 +26,7 @@ object TypeConstraintSimplification {
   // step 2. transitive closure
   def transitive_closure(typeConstraints: MList[(String, String)]) = {
     // Warshall's algorithm to compute transitive closure
+    // R(k)[i,j] = R(k-1)[i,j] or (R(k-1)[i,k] and R(k-1)[k,j])
     typeConstraints
   }
   
