@@ -322,14 +322,24 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         ctx.Tl.clear()
         
         // 
-        println("\n=== before simplification ===\n")
-        Util.prettyPrint(f_param_constraints)
+        // println("\n=== before simplification ===\n")
+        val domainConstraints = TypeConstraintSimplification.transitive_closure(ctx.Domain_Ordering)
+        // Util.prettyPrint(f_param_constraints)
         val atomicTypeConstraints = TypeConstraintSimplification.normalize(f_param_constraints)
         val typeConstraintsClosure = TypeConstraintSimplification.transitive_closure(atomicTypeConstraints)
-        val simplifiedTypeConstraints = TypeConstraintSimplification.simplify(typeConstraintsClosure)
-        println("\n=== after simplification === \n")        
-        Util.prettyPrint_atomicTypeConstraints(simplifiedTypeConstraints)
-        println("finish one procedure !")
+        val simplifiedTypeConstraints = TypeConstraintSimplification.simplify(typeConstraintsClosure, domainConstraints)
+        // println("\n=== after simplification === \n")
+        // Util.prettyPrint_atomicTypeConstraints(TypeConstraintSimplification.restoreTypeConstraints(simplifiedTypeConstraints))
+        val constraint_of_Subprogram = 
+          Util.build_typeConstraint_of_Subprogram(f_name, f_param_type, f_param_mode, simplifiedTypeConstraints, ctx.Domains, domainConstraints)
+        val securityViolated = TypeConstraintSAT.constraint_sat(simplifiedTypeConstraints, domainConstraints).securityViolated
+        if(securityViolated) {
+          println(s"The information flow security is violated within procedure: $f_name !")  
+        }else {
+          println("The program is information flow secure !")
+          ctx.add_program_constraint(f_name, constraint_of_Subprogram)
+        }
+        println("it's done for one procedure constraint generation !")
       }
 
     {

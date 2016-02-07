@@ -92,7 +92,7 @@ trait Context {
   // fresh_n: fresh variables
   // Cs:   type constraint set
   val Domains = mlistEmpty[String]
-  val Domain_Ordering = mmapEmpty[String, String] // key <= value
+  val Domain_Ordering = mlistEmpty[(String, String)] // value._1 <= value._2
   val Declassifiers = mmapEmpty[String, TypeConstraint_of_Subprogram]
   
   val Tf = mmapEmpty[String, TypeConstraint_of_Subprogram]
@@ -175,7 +175,11 @@ trait Context {
     for(d <- policy.get_domains.get_domains)
       Domains += d
     import scala.collection.JavaConversions._
-    policy.get_domains.get_domain_ordering.foreach(kv => Domain_Ordering += (kv._1 -> kv._2))
+    policy.get_domains.get_domain_ordering.foreach(
+        kv => {
+          val p = (kv._1, kv._2)
+          Domain_Ordering += p
+          })
     policy.get_domain_bindings.foreach(kv => Tg += (kv._1 -> kv._2))
     policy.get_declassifiers.foreach(
         kv => {
