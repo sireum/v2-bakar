@@ -30,6 +30,7 @@ object Util {
   
   def build_typeConstraint_of_Subprogram(
       f_name: String, 
+      f_params: MList[String],
       f_param_type: MMap[String, String], 
       f_param_mode: MMap[String, String], 
       typeConstraints: TypeConstraintMatrix,
@@ -65,7 +66,7 @@ object Util {
         }
       }
     }    
-    TypeConstraint_of_Subprogram(f_name, f_param_type, f_param_mode, f_param_constraints)
+    TypeConstraint_of_Subprogram(f_name, f_params, f_param_type, f_param_mode, f_param_constraints)
   }  
 }
 

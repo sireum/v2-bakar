@@ -71,6 +71,7 @@ final case class TypeConstraint(lhs_type: String, rhs_type: IList[String]) {
 
 final case class TypeConstraint_of_Subprogram(
     f_name: String, 
+    f_params: MList[String],
     f_param_type: MMap[String, String], 
     f_param_mode: MMap[String, String], 
     f_param_constraints: MList[TypeConstraint]) {
@@ -184,12 +185,15 @@ trait Context {
     policy.get_declassifiers.foreach(
         kv => {
           val f_name = kv._1
+          val f_params = mlistEmpty[String]
           val f_param_type = mmapEmpty[String, String]
           val f_param_mode = mmapEmpty[String, String]
           val f_param_constraints = mlistEmpty[TypeConstraint]
+          kv._2.get_params.foreach(param => f_params += param)
           kv._2.get_param_types.foreach(pt => f_param_type += (pt._1 -> pt._2))
           kv._2.get_param_mode.foreach(pm => f_param_mode += (pm._1 -> pm._2))
-          val declassifier_constraint = new TypeConstraint_of_Subprogram(f_name, f_param_type, f_param_mode, f_param_constraints)
+          val declassifier_constraint = 
+            new TypeConstraint_of_Subprogram(f_name, f_params, f_param_type, f_param_mode, f_param_constraints)
           Declassifiers += (f_name -> declassifier_constraint)
         }
     )
@@ -206,6 +210,37 @@ trait Context {
     val t = type_disj
     type_disj = mlistEmpty[String]
     t
+  }
+  
+  def typeConstraint_substitute(typeConstraint: TypeConstraint, x: String, y: String) = {
+    val lhs_type1 = 
+      if(typeConstraint.lhs_type == x)
+        y
+      else
+        typeConstraint.lhs_type
+    val rhs_type1 = mlistEmpty[String]
+    typeConstraint.rhs_type.foreach(
+        t => {
+          val t1 = 
+            if(t == x)
+              y
+            else
+              t
+          rhs_type1 += t1
+        })
+    TypeConstraint(lhs_type1, rhs_type1.toList)
+  }
+  
+  def Cs_substitute(Cs: MList[TypeConstraint], x: String, y: String) = {
+    // replace x with y in constraint set Cs
+    val Cs1 = mlistEmpty[TypeConstraint]
+    val n = Cs.size
+    var i = 0
+    while(i < n) {
+      Cs1 += typeConstraint_substitute(Cs(i), x, y)
+      i += 1
+    }
+    Cs1
   }
   
   // ==============================

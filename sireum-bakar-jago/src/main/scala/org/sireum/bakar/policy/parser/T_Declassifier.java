@@ -15,6 +15,7 @@ public class T_Declassifier {
 		this.f_name = f_name;
 		this.f_params = new ArrayList<String>();
 		this.f_param_type = new HashMap<String, String>();
+		this.f_param_mode = new HashMap<String, String>();
 	}
 	
 	String f_name;

@@ -284,7 +284,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         v(names.getDefiningNames().get(0))
         val f_name = ctx.popResult.asInstanceOf[String]
         
+        // if it's a declassifier function, then just ignore it
+        if(!ctx.Declassifiers.get(f_name).isEmpty)
+          return
+        
         // [3] subprogram parameters
+        val f_params = mlistEmpty[String]
         val f_param_type = mmapEmpty[String, String]
         val f_param_mode = mmapEmpty[String, String] 
         
@@ -296,6 +301,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
                 val param_name = triple._1
                 val param_mode = triple._2
                 val param_type = triple._3
+                f_params += param_name
                 f_param_type += (param_name -> param_type)
                 f_param_mode += (param_name -> param_mode)
               })
@@ -315,7 +321,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         // [6] subprogram aspect specification, for example, Pre and Post 
         
         // 
-        val program_constraint = TypeConstraint_of_Subprogram(f_name, f_param_type, f_param_mode, f_param_constraints) 
+        val program_constraint = 
+          TypeConstraint_of_Subprogram(f_name, f_params, f_param_type, f_param_mode, f_param_constraints) 
         ctx.add_program_constraint(f_name, program_constraint)
         
         ctx.reset_global_mapping(Tg_old)
@@ -331,7 +338,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         // println("\n=== after simplification === \n")
         // Util.prettyPrint_atomicTypeConstraints(TypeConstraintSimplification.restoreTypeConstraints(simplifiedTypeConstraints))
         val constraint_of_Subprogram = 
-          Util.build_typeConstraint_of_Subprogram(f_name, f_param_type, f_param_mode, simplifiedTypeConstraints, ctx.Domains, domainConstraints)
+          Util.build_typeConstraint_of_Subprogram(f_name, f_params, f_param_type, f_param_mode, simplifiedTypeConstraints, ctx.Domains, domainConstraints)
         val securityViolated = TypeConstraintSAT.constraint_sat(simplifiedTypeConstraints, domainConstraints).securityViolated
         if(securityViolated) {
           println(s"The information flow security is violated within procedure: $f_name !")  
@@ -576,16 +583,71 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       v(loopStatements)
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation, checks) =>
-      val args = mlistEmpty[Any]
       v(calledName.getExpression())
-      
-      // 
+      val f_name = ctx.popResult.asInstanceOf[String]
+      val isDeclassifier = !ctx.Declassifiers.get(f_name).isEmpty
+      val proceduerConstraints = 
+        if(isDeclassifier)
+          ctx.Declassifiers.get(f_name).get
+        else
+          ctx.Tf.get(f_name).get
+      var paramConstraints = proceduerConstraints.f_param_constraints
+            
+      // (1) generate type constraints between arguments and parameters
       // for a procedure call, if we cannot find its declaration body in package body, 
       // e.g. library procedure or procedure declaration with no procedure body;
+      var i = 0
       for (arg <- callStatementParameters.getAssociations()) {
+        val param = proceduerConstraints.f_params(i)
+        val mode = proceduerConstraints.f_param_mode.get(param).get
+        val paramType = proceduerConstraints.f_param_type.get(param).get
+        // generate fresh type for paramType
+        val paramTypeFresh = 
+          if(ctx.Domains.contains(paramType))
+            paramType
+          else
+            ctx.gen_fresh_type()
+        // replace argument paramType with paramTypeFresh in type constraints of the procedure
+        paramConstraints = ctx.Cs_substitute(paramConstraints, paramType, paramTypeFresh)
+        // generate type constraints between argument and parameters
+        val type_lst = mlistEmpty[String]
         val e = arg.asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
-        v(e)
-      }      
+        if(mode == "in") {
+          v(e)
+          val e_type = ctx.get_type // type of argument e
+          ctx.add_typeConstraint(paramTypeFresh, e_type.toList)
+          // add type constraint for the type of the context
+          ctx.add_typeConstraint(paramTypeFresh, ctx.Tp)
+        }else if(mode == "out") {
+          type_lst += paramTypeFresh
+          ctx.is_lhs_or_rhs(true)
+          v(e)
+          val e_type = ctx.get_type.head
+          ctx.is_lhs_or_rhs(false)
+          ctx.add_typeConstraint(e_type, type_lst.toList)
+          // add type constraint for the type of the context
+          ctx.add_typeConstraint(e_type, ctx.Tp)
+        }else { 
+          // in out mode
+          // type constraint for passing in argument when procedure is called
+          v(e)
+          val e_type = ctx.get_type // type of argument e
+          ctx.add_typeConstraint(paramTypeFresh, e_type.toList)   
+          ctx.add_typeConstraint(paramTypeFresh, ctx.Tp)
+          // type constraint for passing out parameter when procedure call returns
+          type_lst += paramTypeFresh
+          ctx.is_lhs_or_rhs(true)
+          v(e)
+          val e_type1 = ctx.get_type.head
+          ctx.is_lhs_or_rhs(false)
+          ctx.add_typeConstraint(e_type1, type_lst.toList)  
+          ctx.add_typeConstraint(e_type1, ctx.Tp)
+        }
+        i += 1
+      }
+      // (2) add type constraints between parameters of the procedure
+      ctx.Cs ++= paramConstraints
+      
       false
     case o @ ReturnStatementEx(sloc, labelNamesQl, returnExpressionQ, checks) =>
       // TODO: now just ignore it as our formalized SPARK subset does not support it now, 
