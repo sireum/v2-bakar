@@ -343,7 +343,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         if(securityViolated) {
           println(s"The information flow security is violated within procedure: $f_name !")  
         }else {
-          println("The program is information flow secure !")
+          println(s"The program ($f_name) is information flow secure !")
           ctx.add_program_constraint(f_name, constraint_of_Subprogram)
         }
         println("it's done for one procedure constraint generation !")
@@ -579,8 +579,41 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       HandleIfStmt(statementPaths.getPaths().toList)
       false
     case o @ WhileLoopStatementEx(sloc, labelNames, statementIdentifier, whileCondition, loopStatements, checks) =>
+      collect(loopStatements)
+      val modVars = ctx.get_modVars()
+      // Tl_before : type mapping for local variables (maybe modified within while loop) before the while loop
+      // Tl_fixed: fixed point type of local variables (maybe modified within while loop) after the while loop
+      val Tl_before = mmapEmpty[String, String]
+      val Tl_fixed = mmapEmpty[String, String]
+      // assign fresh type variable to the local variables that are maybe modified within while loop
+      modVars.foreach(
+          x => {
+            // the local variable maybe have no type yet
+            Tl_before += (x -> ctx.Tl.get(x).getOrElse(ctx.gen_fresh_type()))
+            // if x is already in the map, then it will update the map with new value
+            val fresh_type = ctx.gen_fresh_type()
+            Tl_fixed += (x -> fresh_type)
+            ctx.Tl += (x -> fresh_type)
+          })
+      // get type of the conditional expression
       v(whileCondition.getExpression())
+      val b_type = ctx.get_type // type of conditional expression
+      val old_context_type = ctx.Tp
+      ctx.add_context_type(b_type)      
       v(loopStatements)
+      //
+      modVars.foreach(
+          x => {
+            // if x is already in the map, then it will update the map with new value
+            val type_fixed = Tl_fixed.get(x).get
+            val type_before = Tl_before.get(x).get
+            val type_after = ctx.Tl.get(x).get
+            ctx.add_typeConstraint(type_fixed, List(type_before))
+            ctx.add_typeConstraint(type_fixed, List(type_after))
+            ctx.Tl += (x -> type_fixed)
+          })      
+      ctx.reset_context_type(old_context_type)
+      
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation, checks) =>
       v(calledName.getExpression())
@@ -757,7 +790,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       false
     case o @ AssignmentStatementEx(sloc, labelName, assignmentVariableName, assignmentExpression, checks) =>
       // get the type of the right hand side expression
-      v(assignmentExpression.getExpression())
+      v(assignmentVariableName.getExpression())
       false
     case o @ IfStatementEx(sloc, labelNames, statementPaths, checks) =>
       def HandleIfStmt(statementPaths: List[org.sireum.bakar.xml.Base]) {
@@ -786,15 +819,28 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       v(loopStatements)
       false
     case o @ ProcedureCallStatementEx(sloc, labelName, calledName, callStatementParameters, isPrefixNotation, checks) =>
-      val args = mlistEmpty[Any]
-      v(calledName.getExpression())
-      
-      // 
+      val f_name = calledName.getExpression().asInstanceOf[Identifier].getRefName
+      val isDeclassifier = !ctx.Declassifiers.get(f_name).isEmpty
+      val proceduerConstraints = 
+        if(isDeclassifier)
+          ctx.Declassifiers.get(f_name).get
+        else
+          ctx.Tf.get(f_name).get
+            
+      // (1) generate type constraints between arguments and parameters
       // for a procedure call, if we cannot find its declaration body in package body, 
       // e.g. library procedure or procedure declaration with no procedure body;
+      var i = 0
       for (arg <- callStatementParameters.getAssociations()) {
+        val param = proceduerConstraints.f_params(i)
+        val mode = proceduerConstraints.f_param_mode.get(param).get
         val e = arg.asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
-        v(e)
+        if(mode == "out" || mode == "inout") {
+          val x = e.asInstanceOf[Identifier].getRefName
+          if(ctx.Tg.get(x).isEmpty)
+            v(e)
+        }
+        i += 1
       }      
       false
     case o @ ReturnStatementEx(sloc, labelNamesQl, returnExpressionQ, checks) =>
