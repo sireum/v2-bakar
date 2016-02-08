@@ -6,6 +6,6 @@ is
 
    high: Integer := 0;
    
-   procedure Test;
+   procedure Seq_Test;
 
 end Seq_Stmt;

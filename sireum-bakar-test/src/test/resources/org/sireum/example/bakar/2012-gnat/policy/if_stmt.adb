@@ -5,7 +5,7 @@ is
       R := K * V;
    end Encrypt;
    
-   procedure Test (X : in Integer; Y : out Integer) is
+   procedure If_Test (X : in Integer; Y : out Integer) is
       T : Integer;
       M : Integer := 2;
       N : Integer;
@@ -22,6 +22,6 @@ is
 	 Disk := X;
       end if;
 
-   end Test;
+   end If_Test;
 
 end If_Stmt;

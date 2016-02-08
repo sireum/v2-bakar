@@ -5,7 +5,7 @@ is
       R := K * V;
    end Encrypt;
    
-   procedure Test (U, V : in Integer; W : out Integer) is
+   procedure While_Test (U, V : in Integer; W : out Integer) is
       X : Integer;
       Y : Integer;
       Z : Integer;
@@ -23,6 +23,6 @@ is
       end loop;
       W := Z;
       
-   end Test;
+   end While_Test;
 
 end While_Stmt;

@@ -10,6 +10,6 @@ is
    
    procedure Encrypt(K: in Integer; V: in Integer; R: out Integer);
    
-   procedure Test (U, V : in Integer; W : out Integer);
+   procedure While_Test (U, V : in Integer; W : out Integer);
 
 end While_Stmt;

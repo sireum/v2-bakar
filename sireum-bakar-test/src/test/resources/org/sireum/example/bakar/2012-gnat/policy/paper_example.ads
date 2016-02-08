@@ -1,4 +1,4 @@
-package If_Stmt
+package Paper_Example
 is
 
    Key: Integer := 0;
@@ -8,6 +8,8 @@ is
    
    procedure Encrypt(K: in Integer; V: in Integer; R: out Integer);
    
-   procedure If_Test (X : in Integer; Y : out Integer);
+   procedure Write;
+   
+   procedure Write_E;   
 
-end If_Stmt;
+end Paper_Example;

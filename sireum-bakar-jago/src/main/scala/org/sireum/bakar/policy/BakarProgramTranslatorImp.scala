@@ -341,12 +341,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
           Util.build_typeConstraint_of_Subprogram(f_name, f_params, f_param_type, f_param_mode, simplifiedTypeConstraints, ctx.Domains, domainConstraints)
         val securityViolated = TypeConstraintSAT.constraint_sat(simplifiedTypeConstraints, domainConstraints).securityViolated
         if(securityViolated) {
-          println(s"The information flow security is violated within procedure: $f_name !")  
+          println(s"ERROR: The information flow security is violated within procedure: $f_name !")  
         }else {
-          println(s"The program ($f_name) is information flow secure !")
+          println(s"OK: The program ($f_name) is information flow secure !")
           ctx.add_program_constraint(f_name, constraint_of_Subprogram)
         }
-        println("it's done for one procedure constraint generation !")
+        println("\n")
       }
 
     {
