@@ -15,3 +15,7 @@ Disk: Integer with Domain => Public;
 procedure Encrypt(K: in Integer; V: in Integer; R: out Integer) with
   Declassifier,
   Domain => (K => Secret, V => Secret, R => Public);
+
+procedure Filter_And_Clean(X: in Integer; Y: out Integer) with
+  Declassifier,
+  Domain => (X => TopSecret, Y => Public);
