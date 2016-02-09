@@ -19,3 +19,11 @@ procedure Encrypt(K: in Integer; V: in Integer; R: out Integer) with
 procedure Filter_And_Clean(X: in Integer; Y: out Integer) with
   Declassifier,
   Domain => (X => TopSecret, Y => Public);
+
+procedure Declassifier_TopSecret_Secret(X: in Integer; Y: out Integer) with
+  Declassifier,
+  Domain => (X => TopSecret, Y => Secret);
+   
+procedure Declassifier_Secret_Public(X: in Integer; Y: out Integer) with
+  Declassifier,
+  Domain => (X => Secret, Y => Public);

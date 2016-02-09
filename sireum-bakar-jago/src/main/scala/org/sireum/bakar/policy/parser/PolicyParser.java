@@ -529,8 +529,8 @@ public class PolicyParser extends Parser {
 
 			match(input,13,FOLLOW_13_in_declassifier385); 
 			result.set_name((id!=null?id.getText():null)); 
-				   result.set_params((ArrayList<String>)p.getFirst()); 
-				   result.set_param_mode((HashMap<String, String>)p.getSecond());
+				   result.set_params((ArrayList<String>)(p.getFirst())); 
+				   result.set_param_mode((HashMap<String, String>)(p.getSecond()));
 				   result.set_param_types(d);
 			}
 

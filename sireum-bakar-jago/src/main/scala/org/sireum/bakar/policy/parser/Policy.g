@@ -61,8 +61,8 @@ declassifier	returns [T_Declassifier result = new T_Declassifier()]
 	  'Declassifier' ',' 
 	  'Domain' '=>' d=domain_def ';'
 	  {result.set_name($id.text); 
-	   result.set_params((ArrayList<String>)$p.result.getFirst()); 
-	   result.set_param_mode((HashMap<String, String>)$p.result.getSecond());
+	   result.set_params((ArrayList<String>)($p.result.getFirst())); 
+	   result.set_param_mode((HashMap<String, String>)($p.result.getSecond()));
 	   result.set_param_types($d.result);}
 	;
 	  
