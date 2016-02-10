@@ -231,4 +231,14 @@ object TypeConstraintSimplification {
     }
     constraints
   }
+
+  def numberOfTypeConstraints(typeConstraints: TypeConstraintMatrix) = {
+    var count = 0
+    val n = typeConstraints.matrix.size - 1
+    for(i <- 0 to n)
+      for(j <- 0 to n) 
+        if(typeConstraints.matrix(i)(j))
+          count += 1
+    count
+  }
 }
