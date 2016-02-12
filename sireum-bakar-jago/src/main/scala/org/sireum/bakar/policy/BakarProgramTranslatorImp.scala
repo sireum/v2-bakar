@@ -334,14 +334,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         // Util.prettyPrint(f_param_constraints)
         val atomicTypeConstraints = TypeConstraintSimplification.normalize(f_param_constraints)
         val typeConstraintsClosure = TypeConstraintSimplification.transitive_closure(atomicTypeConstraints)
-        val xx0 = TypeConstraintSimplification.restoreTypeConstraints(typeConstraintsClosure)
         val m = TypeConstraintSimplification.numberOfTypeConstraints(typeConstraintsClosure)
         val simplifiedTypeConstraints = TypeConstraintSimplification.simplify(typeConstraintsClosure, domainConstraints)
         val n = TypeConstraintSimplification.numberOfTypeConstraints(simplifiedTypeConstraints)
         println(s":: $f_name: number of constraints: $m, number of simplified constraints: $n")
         // println("\n=== after simplification === \n")
         // Util.prettyPrint_atomicTypeConstraints(TypeConstraintSimplification.restoreTypeConstraints(simplifiedTypeConstraints))
-        val xx = TypeConstraintSimplification.restoreTypeConstraints(simplifiedTypeConstraints)
         val constraint_of_Subprogram = 
           Util.build_typeConstraint_of_Subprogram(f_name, f_params, f_param_type, f_param_mode, simplifiedTypeConstraints, ctx.Domains, domainConstraints)
         val securityViolated = TypeConstraintSAT.constraint_sat(simplifiedTypeConstraints, domainConstraints).securityViolated
