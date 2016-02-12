@@ -1,6 +1,5 @@
---type  Domains is (Public, Secret, TopSecret) with Ordered;
 type  Domains is (Public, Secret, TopSecret, Section0, Section1, Scrubbed, Encrypted) with Ordered 
-  => {Public <= Secret, Secret <= TopSecret, Public <= TopSecret, Encrypted <= Public};
+  => {Public <= Secret, Secret <= TopSecret, Public <= TopSecret, Encrypted <= Section1};
 
 low1: Integer with Domain => Public;
 low2: Integer with Domain => Public;

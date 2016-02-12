@@ -1,4 +1,4 @@
-// $ANTLR 3.5 /Users/zhi/Downloads/antlrworks-1.5/Policy.g 2016-02-04 10:50:05
+// $ANTLR 3.5 /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g 2016-02-11 23:25:17
 
 package org.sireum.bakar.policy.parser;
 import java.util.ArrayList;
@@ -60,12 +60,12 @@ public class PolicyParser extends Parser {
 	}
 
 	@Override public String[] getTokenNames() { return PolicyParser.tokenNames; }
-	@Override public String getGrammarFileName() { return "/Users/zhi/Downloads/antlrworks-1.5/Policy.g"; }
+	@Override public String getGrammarFileName() { return "/Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g"; }
 
 
 
 	// $ANTLR start "start"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:15:1: start returns [T_Policy result = new T_Policy()] : d= domain_definition b= domain_bindings f= declassifiers ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:15:1: start returns [T_Policy result = new T_Policy()] : d= domain_definition b= domain_bindings f= declassifiers ;
 	public final T_Policy start() throws RecognitionException {
 		T_Policy result =  new T_Policy();
 
@@ -75,8 +75,8 @@ public class PolicyParser extends Parser {
 		HashMap<String, T_Declassifier> f =null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:16:2: (d= domain_definition b= domain_bindings f= declassifiers )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:16:4: d= domain_definition b= domain_bindings f= declassifiers
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:16:2: (d= domain_definition b= domain_bindings f= declassifiers )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:16:4: d= domain_definition b= domain_bindings f= declassifiers
 			{
 			pushFollow(FOLLOW_domain_definition_in_start32);
 			d=domain_definition();
@@ -110,17 +110,17 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "domain_definition"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:24:1: domain_definition returns [T_Domain result = new T_Domain()] : 'type' ID 'is' v= enumerated_values 'with' o= ordering ';' ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:24:1: domain_definition returns [T_Domain result = new T_Domain()] : 'type' ID 'is' v= enumerated_values 'with' o= ordering ';' ;
 	public final T_Domain domain_definition() throws RecognitionException {
 		T_Domain result =  new T_Domain();
 
 
 		ArrayList<String> v =null;
-		HashMap<String, String> o =null;
+		ArrayList<T_Pair<String, String>> o =null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:25:2: ( 'type' ID 'is' v= enumerated_values 'with' o= ordering ';' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:25:4: 'type' ID 'is' v= enumerated_values 'with' o= ordering ';'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:25:2: ( 'type' ID 'is' v= enumerated_values 'with' o= ordering ';' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:25:4: 'type' ID 'is' v= enumerated_values 'with' o= ordering ';'
 			{
 			match(input,24,FOLLOW_24_in_domain_definition66); 
 			match(input,ID,FOLLOW_ID_in_domain_definition68); 
@@ -153,7 +153,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "enumerated_values"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:29:1: enumerated_values returns [ArrayList<String> result = new ArrayList<String>()] : '(' id1= ID ( ',' id2= ID )* ')' ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:29:1: enumerated_values returns [ArrayList<String> result = new ArrayList<String>()] : '(' id1= ID ( ',' id2= ID )* ')' ;
 	public final ArrayList<String> enumerated_values() throws RecognitionException {
 		ArrayList<String> result =  new ArrayList<String>();
 
@@ -162,13 +162,13 @@ public class PolicyParser extends Parser {
 		Token id2=null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:30:2: ( '(' id1= ID ( ',' id2= ID )* ')' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:30:4: '(' id1= ID ( ',' id2= ID )* ')'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:30:2: ( '(' id1= ID ( ',' id2= ID )* ')' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:30:4: '(' id1= ID ( ',' id2= ID )* ')'
 			{
 			match(input,8,FOLLOW_8_in_enumerated_values103); 
 			id1=(Token)match(input,ID,FOLLOW_ID_in_enumerated_values115); 
 			result.add((id1!=null?id1.getText():null));
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:32:8: ( ',' id2= ID )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:32:8: ( ',' id2= ID )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -179,7 +179,7 @@ public class PolicyParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:32:9: ',' id2= ID
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:32:9: ',' id2= ID
 					{
 					match(input,10,FOLLOW_10_in_enumerated_values127); 
 					id2=(Token)match(input,ID,FOLLOW_ID_in_enumerated_values131); 
@@ -210,9 +210,9 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "ordering"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:36:1: ordering returns [HashMap<String, String> result = new HashMap<String, String>()] : 'Ordered' ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )? ;
-	public final HashMap<String, String> ordering() throws RecognitionException {
-		HashMap<String, String> result =  new HashMap<String, String>();
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:36:1: ordering returns [ArrayList<T_Pair<String, String>> result = new ArrayList<T_Pair<String, String>>()] : 'Ordered' ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )? ;
+	public final ArrayList<T_Pair<String, String>> ordering() throws RecognitionException {
+		ArrayList<T_Pair<String, String>> result =  new ArrayList<T_Pair<String, String>>();
 
 
 		Token id1=null;
@@ -222,11 +222,11 @@ public class PolicyParser extends Parser {
 
 		 boolean b = true; 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:2: ( 'Ordered' ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )? )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:4: 'Ordered' ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )?
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:2: ( 'Ordered' ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )? )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:4: 'Ordered' ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )?
 			{
 			match(input,18,FOLLOW_18_in_ordering161); 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:14: ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )?
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:14: ( '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' ) )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==15) ) {
@@ -234,10 +234,10 @@ public class PolicyParser extends Parser {
 			}
 			switch (alt4) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:15: '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' )
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:15: '=>' ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' )
 					{
 					match(input,15,FOLLOW_15_in_ordering164); 
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:20: ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' )
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:20: ( ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' ) | 'null' )
 					int alt3=2;
 					int LA3_0 = input.LA(1);
 					if ( (LA3_0==26) ) {
@@ -255,17 +255,17 @@ public class PolicyParser extends Parser {
 
 					switch (alt3) {
 						case 1 :
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:21: ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' )
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:21: ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' )
 							{
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:21: ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' )
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:38:22: '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}'
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:21: ( '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}' )
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:38:22: '{' id1= ID '<=' id2= ID ( ',' id3= ID '<=' id4= ID )* '}'
 							{
 							match(input,26,FOLLOW_26_in_ordering168); 
 							id1=(Token)match(input,ID,FOLLOW_ID_in_ordering172); 
 							match(input,14,FOLLOW_14_in_ordering174); 
 							id2=(Token)match(input,ID,FOLLOW_ID_in_ordering178); 
-							result.put((id1!=null?id1.getText():null), (id2!=null?id2.getText():null)); b = false;
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:39:14: ( ',' id3= ID '<=' id4= ID )*
+							result.add(new T_Pair<String, String>((id1!=null?id1.getText():null), (id2!=null?id2.getText():null))); b = false;
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:39:14: ( ',' id3= ID '<=' id4= ID )*
 							loop2:
 							while (true) {
 								int alt2=2;
@@ -276,13 +276,13 @@ public class PolicyParser extends Parser {
 
 								switch (alt2) {
 								case 1 :
-									// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:39:15: ',' id3= ID '<=' id4= ID
+									// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:39:15: ',' id3= ID '<=' id4= ID
 									{
 									match(input,10,FOLLOW_10_in_ordering196); 
 									id3=(Token)match(input,ID,FOLLOW_ID_in_ordering200); 
 									match(input,14,FOLLOW_14_in_ordering202); 
 									id4=(Token)match(input,ID,FOLLOW_ID_in_ordering206); 
-									result.put((id3!=null?id3.getText():null), (id4!=null?id4.getText():null));
+									result.add(new T_Pair<String, String>((id3!=null?id3.getText():null), (id4!=null?id4.getText():null)));
 									}
 									break;
 
@@ -297,7 +297,7 @@ public class PolicyParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:40:15: 'null'
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:40:15: 'null'
 							{
 							match(input,21,FOLLOW_21_in_ordering232); 
 							b = false;
@@ -312,7 +312,7 @@ public class PolicyParser extends Parser {
 			}
 
 			if(b == true)
-				     result.put("default", "true");
+				     result.add(new T_Pair<String, String>("default", "true"));
 				  
 			}
 
@@ -331,7 +331,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "domain_bindings"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:46:1: domain_bindings returns [HashMap<String, String> result = new HashMap<String, String>()] : (d= domain_binding )* ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:46:1: domain_bindings returns [HashMap<String, String> result = new HashMap<String, String>()] : (d= domain_binding )* ;
 	public final HashMap<String, String> domain_bindings() throws RecognitionException {
 		HashMap<String, String> result =  new HashMap<String, String>();
 
@@ -339,10 +339,10 @@ public class PolicyParser extends Parser {
 		T_Pair<String, String> d =null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:47:2: ( (d= domain_binding )* )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:47:4: (d= domain_binding )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:47:2: ( (d= domain_binding )* )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:47:4: (d= domain_binding )*
 			{
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:47:4: (d= domain_binding )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:47:4: (d= domain_binding )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -353,7 +353,7 @@ public class PolicyParser extends Parser {
 
 				switch (alt5) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:47:5: d= domain_binding
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:47:5: d= domain_binding
 					{
 					pushFollow(FOLLOW_domain_binding_in_domain_bindings261);
 					d=domain_binding();
@@ -385,7 +385,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "domain_binding"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:50:1: domain_binding returns [T_Pair<String, String> result = new T_Pair<String, String>()] : id1= ID ':' ID 'with' 'Domain' '=>' id2= ID ( ':=' value )? ';' ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:50:1: domain_binding returns [T_Pair<String, String> result = new T_Pair<String, String>()] : id1= ID ':' ID 'with' 'Domain' '=>' id2= ID ( ':=' value )? ';' ;
 	public final T_Pair<String, String> domain_binding() throws RecognitionException {
 		T_Pair<String, String> result =  new T_Pair<String, String>();
 
@@ -394,8 +394,8 @@ public class PolicyParser extends Parser {
 		Token id2=null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:51:2: (id1= ID ':' ID 'with' 'Domain' '=>' id2= ID ( ':=' value )? ';' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:51:4: id1= ID ':' ID 'with' 'Domain' '=>' id2= ID ( ':=' value )? ';'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:51:2: (id1= ID ':' ID 'with' 'Domain' '=>' id2= ID ( ':=' value )? ';' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:51:4: id1= ID ':' ID 'with' 'Domain' '=>' id2= ID ( ':=' value )? ';'
 			{
 			id1=(Token)match(input,ID,FOLLOW_ID_in_domain_binding283); 
 			match(input,11,FOLLOW_11_in_domain_binding285); 
@@ -404,7 +404,7 @@ public class PolicyParser extends Parser {
 			match(input,17,FOLLOW_17_in_domain_binding291); 
 			match(input,15,FOLLOW_15_in_domain_binding293); 
 			id2=(Token)match(input,ID,FOLLOW_ID_in_domain_binding297); 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:51:46: ( ':=' value )?
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:51:46: ( ':=' value )?
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0==12) ) {
@@ -412,7 +412,7 @@ public class PolicyParser extends Parser {
 			}
 			switch (alt6) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:51:47: ':=' value
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:51:47: ':=' value
 					{
 					match(input,12,FOLLOW_12_in_domain_binding300); 
 					pushFollow(FOLLOW_value_in_domain_binding302);
@@ -443,7 +443,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "declassifiers"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:55:1: declassifiers returns [HashMap<String, T_Declassifier> result = new HashMap<String, T_Declassifier>()] : (d= declassifier )* ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:55:1: declassifiers returns [HashMap<String, T_Declassifier> result = new HashMap<String, T_Declassifier>()] : (d= declassifier )* ;
 	public final HashMap<String, T_Declassifier> declassifiers() throws RecognitionException {
 		HashMap<String, T_Declassifier> result =  new HashMap<String, T_Declassifier>();
 
@@ -451,10 +451,10 @@ public class PolicyParser extends Parser {
 		T_Declassifier d =null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:56:2: ( (d= declassifier )* )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:56:4: (d= declassifier )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:56:2: ( (d= declassifier )* )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:56:4: (d= declassifier )*
 			{
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:56:4: (d= declassifier )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:56:4: (d= declassifier )*
 			loop7:
 			while (true) {
 				int alt7=2;
@@ -465,7 +465,7 @@ public class PolicyParser extends Parser {
 
 				switch (alt7) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:56:5: d= declassifier
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:56:5: d= declassifier
 					{
 					pushFollow(FOLLOW_declassifier_in_declassifiers329);
 					d=declassifier();
@@ -497,7 +497,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "declassifier"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:59:1: declassifier returns [T_Declassifier result = new T_Declassifier()] : 'procedure' id= ID '(' p= params ')' 'with' 'Declassifier' ',' 'Domain' '=>' d= domain_def ';' ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:59:1: declassifier returns [T_Declassifier result = new T_Declassifier()] : 'procedure' id= ID '(' p= params ')' 'with' 'Declassifier' ',' 'Domain' '=>' d= domain_def ';' ;
 	public final T_Declassifier declassifier() throws RecognitionException {
 		T_Declassifier result =  new T_Declassifier();
 
@@ -507,8 +507,8 @@ public class PolicyParser extends Parser {
 		HashMap<String, String> d =null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:60:2: ( 'procedure' id= ID '(' p= params ')' 'with' 'Declassifier' ',' 'Domain' '=>' d= domain_def ';' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:60:4: 'procedure' id= ID '(' p= params ')' 'with' 'Declassifier' ',' 'Domain' '=>' d= domain_def ';'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:60:2: ( 'procedure' id= ID '(' p= params ')' 'with' 'Declassifier' ',' 'Domain' '=>' d= domain_def ';' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:60:4: 'procedure' id= ID '(' p= params ')' 'with' 'Declassifier' ',' 'Domain' '=>' d= domain_def ';'
 			{
 			match(input,23,FOLLOW_23_in_declassifier349); 
 			id=(Token)match(input,ID,FOLLOW_ID_in_declassifier353); 
@@ -549,7 +549,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "params"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:69:1: params returns [T_Pair result = new T_Pair<ArrayList<String>, HashMap<String, String>>()] : id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )* ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:69:1: params returns [T_Pair result = new T_Pair<ArrayList<String>, HashMap<String, String>>()] : id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )* ;
 	public final T_Pair params() throws RecognitionException {
 		T_Pair result =  new T_Pair<ArrayList<String>, HashMap<String, String>>();
 
@@ -565,12 +565,12 @@ public class PolicyParser extends Parser {
 		String mode = "in";
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:2: (id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )* )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:4: id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:75:2: (id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )* )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:75:4: id1= ID ':' (m1= access_mode )? ID ( ';' id2= ID ':' (m2= access_mode )? ID )*
 			{
 			id1=(Token)match(input,ID,FOLLOW_ID_in_params415); 
 			match(input,11,FOLLOW_11_in_params417); 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:15: (m1= access_mode )?
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:75:15: (m1= access_mode )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0==19||LA8_0==22) ) {
@@ -578,7 +578,7 @@ public class PolicyParser extends Parser {
 			}
 			switch (alt8) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:75:16: m1= access_mode
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:75:16: m1= access_mode
 					{
 					pushFollow(FOLLOW_access_mode_in_params422);
 					m1=access_mode();
@@ -592,7 +592,7 @@ public class PolicyParser extends Parser {
 
 			match(input,ID,FOLLOW_ID_in_params428); 
 			params.add((id1!=null?id1.getText():null)); param_mode.put((id1!=null?id1.getText():null), mode);
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:4: ( ';' id2= ID ':' (m2= access_mode )? ID )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:77:4: ( ';' id2= ID ':' (m2= access_mode )? ID )*
 			loop10:
 			while (true) {
 				int alt10=2;
@@ -603,13 +603,13 @@ public class PolicyParser extends Parser {
 
 				switch (alt10) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:5: ';' id2= ID ':' (m2= access_mode )? ID
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:77:5: ';' id2= ID ':' (m2= access_mode )? ID
 					{
 					match(input,13,FOLLOW_13_in_params440); 
 					id2=(Token)match(input,ID,FOLLOW_ID_in_params444); 
 					match(input,11,FOLLOW_11_in_params446); 
 					mode = "in";
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:34: (m2= access_mode )?
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:77:34: (m2= access_mode )?
 					int alt9=2;
 					int LA9_0 = input.LA(1);
 					if ( (LA9_0==19||LA9_0==22) ) {
@@ -617,7 +617,7 @@ public class PolicyParser extends Parser {
 					}
 					switch (alt9) {
 						case 1 :
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:77:35: m2= access_mode
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:77:35: m2= access_mode
 							{
 							pushFollow(FOLLOW_access_mode_in_params452);
 							m2=access_mode();
@@ -657,13 +657,13 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "access_mode"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:82:1: access_mode returns [String result = null] : ( 'in' | 'out' | 'in' 'out' );
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:82:1: access_mode returns [String result = null] : ( 'in' | 'out' | 'in' 'out' );
 	public final String access_mode() throws RecognitionException {
 		String result =  null;
 
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:83:2: ( 'in' | 'out' | 'in' 'out' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:83:2: ( 'in' | 'out' | 'in' 'out' )
 			int alt11=3;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0==19) ) {
@@ -700,21 +700,21 @@ public class PolicyParser extends Parser {
 
 			switch (alt11) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:83:4: 'in'
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:83:4: 'in'
 					{
 					match(input,19,FOLLOW_19_in_access_mode487); 
 					result="in";
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:84:4: 'out'
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:84:4: 'out'
 					{
 					match(input,22,FOLLOW_22_in_access_mode497); 
 					result="out";
 					}
 					break;
 				case 3 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:85:4: 'in' 'out'
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:85:4: 'in' 'out'
 					{
 					match(input,19,FOLLOW_19_in_access_mode507); 
 					match(input,22,FOLLOW_22_in_access_mode509); 
@@ -738,7 +738,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "domain_def"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:88:1: domain_def returns [HashMap<String, String> result = new HashMap<String, String>()] : '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' ;
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:88:1: domain_def returns [HashMap<String, String> result = new HashMap<String, String>()] : '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' ;
 	public final HashMap<String, String> domain_def() throws RecognitionException {
 		HashMap<String, String> result =  new HashMap<String, String>();
 
@@ -749,15 +749,15 @@ public class PolicyParser extends Parser {
 		Token id4=null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:89:2: ( '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:89:4: '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:89:2: ( '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:89:4: '(' id1= ID '=>' id2= ID ( ',' id3= ID '=>' id4= ID )* ')'
 			{
 			match(input,8,FOLLOW_8_in_domain_def526); 
 			id1=(Token)match(input,ID,FOLLOW_ID_in_domain_def539); 
 			match(input,15,FOLLOW_15_in_domain_def541); 
 			id2=(Token)match(input,ID,FOLLOW_ID_in_domain_def545); 
 			result.put((id1!=null?id1.getText():null), (id2!=null?id2.getText():null));
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:8: ( ',' id3= ID '=>' id4= ID )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:91:8: ( ',' id3= ID '=>' id4= ID )*
 			loop12:
 			while (true) {
 				int alt12=2;
@@ -768,7 +768,7 @@ public class PolicyParser extends Parser {
 
 				switch (alt12) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:91:9: ',' id3= ID '=>' id4= ID
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:91:9: ',' id3= ID '=>' id4= ID
 					{
 					match(input,10,FOLLOW_10_in_domain_def557); 
 					id3=(Token)match(input,ID,FOLLOW_ID_in_domain_def561); 
@@ -801,7 +801,7 @@ public class PolicyParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:95:1: value returns [String result = null] : (n= NUM_INT |id= ID );
+	// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:95:1: value returns [String result = null] : (n= NUM_INT |id= ID );
 	public final String value() throws RecognitionException {
 		String result =  null;
 
@@ -810,7 +810,7 @@ public class PolicyParser extends Parser {
 		Token id=null;
 
 		try {
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:96:2: (n= NUM_INT |id= ID )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:96:2: (n= NUM_INT |id= ID )
 			int alt13=2;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0==NUM_INT) ) {
@@ -828,14 +828,14 @@ public class PolicyParser extends Parser {
 
 			switch (alt13) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:96:4: n= NUM_INT
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:96:4: n= NUM_INT
 					{
 					n=(Token)match(input,NUM_INT,FOLLOW_NUM_INT_in_value593); 
 					result = (n!=null?n.getText():null);
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:96:36: id= ID
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:96:36: id= ID
 					{
 					id=(Token)match(input,ID,FOLLOW_ID_in_value601); 
 					result = (id!=null?id.getText():null);

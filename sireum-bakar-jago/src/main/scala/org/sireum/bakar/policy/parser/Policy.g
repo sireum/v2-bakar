@@ -33,13 +33,13 @@ enumerated_values	returns [ArrayList<String> result = new ArrayList<String>()]
 	  ')'
 	;
 	
-ordering	returns [HashMap<String, String> result = new HashMap<String, String>()]
+ordering	returns [ArrayList<T_Pair<String, String>> result = new ArrayList<T_Pair<String, String>>()]
 @init{ boolean b = true; }
-	: 'Ordered' ('=>' (('{' id1=ID '<=' id2=ID {result.put($id1.text, $id2.text); b = false;}
-		           (',' id3=ID '<=' id4=ID {result.put($id3.text, $id4.text);})* '}') | 
+	: 'Ordered' ('=>' (('{' id1=ID '<=' id2=ID {result.add(new T_Pair<String, String>($id1.text, $id2.text)); b = false;}
+		           (',' id3=ID '<=' id4=ID {result.add(new T_Pair<String, String>($id3.text, $id4.text));})* '}') | 
 		            'null' {b = false;}))?
 	  {if(b == true)
-	     result.put("default", "true");
+	     result.add(new T_Pair<String, String>("default", "true"));
 	  }
 	;
 	

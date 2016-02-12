@@ -1,4 +1,4 @@
-// $ANTLR 3.5 /Users/zhi/Downloads/antlrworks-1.5/Policy.g 2016-02-04 10:50:05
+// $ANTLR 3.5 /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g 2016-02-11 23:25:17
 
 package org.sireum.bakar.policy.parser;
 import java.util.ArrayList;
@@ -51,15 +51,15 @@ public class PolicyLexer extends Lexer {
 	public PolicyLexer(CharStream input, RecognizerSharedState state) {
 		super(input,state);
 	}
-	@Override public String getGrammarFileName() { return "/Users/zhi/Downloads/antlrworks-1.5/Policy.g"; }
+	@Override public String getGrammarFileName() { return "/Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g"; }
 
 	// $ANTLR start "T__8"
 	public final void mT__8() throws RecognitionException {
 		try {
 			int _type = T__8;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:8:6: ( '(' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:8:8: '('
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:8:6: ( '(' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:8:8: '('
 			{
 			match('('); 
 			}
@@ -78,8 +78,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__9;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:9:6: ( ')' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:9:8: ')'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:9:6: ( ')' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:9:8: ')'
 			{
 			match(')'); 
 			}
@@ -98,8 +98,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__10;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:10:7: ( ',' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:10:9: ','
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:10:7: ( ',' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:10:9: ','
 			{
 			match(','); 
 			}
@@ -118,8 +118,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__11;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:11:7: ( ':' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:11:9: ':'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:11:7: ( ':' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:11:9: ':'
 			{
 			match(':'); 
 			}
@@ -138,8 +138,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__12;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:12:7: ( ':=' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:12:9: ':='
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:12:7: ( ':=' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:12:9: ':='
 			{
 			match(":="); 
 
@@ -159,8 +159,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__13;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:13:7: ( ';' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:13:9: ';'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:13:7: ( ';' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:13:9: ';'
 			{
 			match(';'); 
 			}
@@ -179,8 +179,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__14;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:14:7: ( '<=' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:14:9: '<='
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:14:7: ( '<=' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:14:9: '<='
 			{
 			match("<="); 
 
@@ -200,8 +200,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__15;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:15:7: ( '=>' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:15:9: '=>'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:15:7: ( '=>' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:15:9: '=>'
 			{
 			match("=>"); 
 
@@ -221,8 +221,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__16;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:16:7: ( 'Declassifier' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:16:9: 'Declassifier'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:16:7: ( 'Declassifier' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:16:9: 'Declassifier'
 			{
 			match("Declassifier"); 
 
@@ -242,8 +242,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__17;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:17:7: ( 'Domain' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:17:9: 'Domain'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:17:7: ( 'Domain' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:17:9: 'Domain'
 			{
 			match("Domain"); 
 
@@ -263,8 +263,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__18;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:18:7: ( 'Ordered' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:18:9: 'Ordered'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:18:7: ( 'Ordered' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:18:9: 'Ordered'
 			{
 			match("Ordered"); 
 
@@ -284,8 +284,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__19;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:19:7: ( 'in' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:19:9: 'in'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:19:7: ( 'in' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:19:9: 'in'
 			{
 			match("in"); 
 
@@ -305,8 +305,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__20;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:20:7: ( 'is' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:20:9: 'is'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:20:7: ( 'is' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:20:9: 'is'
 			{
 			match("is"); 
 
@@ -326,8 +326,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__21;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:21:7: ( 'null' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:21:9: 'null'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:21:7: ( 'null' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:21:9: 'null'
 			{
 			match("null"); 
 
@@ -347,8 +347,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__22;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:22:7: ( 'out' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:22:9: 'out'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:22:7: ( 'out' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:22:9: 'out'
 			{
 			match("out"); 
 
@@ -368,8 +368,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__23;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:23:7: ( 'procedure' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:23:9: 'procedure'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:23:7: ( 'procedure' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:23:9: 'procedure'
 			{
 			match("procedure"); 
 
@@ -389,8 +389,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__24;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:24:7: ( 'type' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:24:9: 'type'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:24:7: ( 'type' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:24:9: 'type'
 			{
 			match("type"); 
 
@@ -410,8 +410,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__25;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:25:7: ( 'with' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:25:9: 'with'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:25:7: ( 'with' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:25:9: 'with'
 			{
 			match("with"); 
 
@@ -431,8 +431,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__26;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:26:7: ( '{' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:26:9: '{'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:26:7: ( '{' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:26:9: '{'
 			{
 			match('{'); 
 			}
@@ -451,8 +451,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = T__27;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:27:7: ( '}' )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:27:9: '}'
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:27:7: ( '}' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:27:9: '}'
 			{
 			match('}'); 
 			}
@@ -471,10 +471,10 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = NUM_INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:2: ( ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:100:2: ( ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* ) )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:100:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
 			{
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:100:4: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='0') ) {
@@ -492,13 +492,13 @@ public class PolicyLexer extends Lexer {
 
 			switch (alt2) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:5: '0'
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:100:5: '0'
 					{
 					match('0'); 
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:11: ( '1' .. '9' ) ( '0' .. '9' )*
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:100:11: ( '1' .. '9' ) ( '0' .. '9' )*
 					{
 					if ( (input.LA(1) >= '1' && input.LA(1) <= '9') ) {
 						input.consume();
@@ -508,7 +508,7 @@ public class PolicyLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:100:22: ( '0' .. '9' )*
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:100:22: ( '0' .. '9' )*
 					loop1:
 					while (true) {
 						int alt1=2;
@@ -519,7 +519,7 @@ public class PolicyLexer extends Lexer {
 
 						switch (alt1) {
 						case 1 :
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:
 							{
 							if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
 								input.consume();
@@ -558,8 +558,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:103:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:103:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:103:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:103:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -569,7 +569,7 @@ public class PolicyLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:103:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:103:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -580,7 +580,7 @@ public class PolicyLexer extends Lexer {
 
 				switch (alt3) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 						input.consume();
@@ -614,15 +614,15 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:9: ( ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:9: ( ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) ) )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
 			{
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:13: '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:11: ( '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? ) )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:13: '--' (~ ( '\\n' | '\\r' ) )* ( '\\n' | '\\r' ( '\\n' )? )
 			{
 			match("--"); 
 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:18: (~ ( '\\n' | '\\r' ) )*
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:18: (~ ( '\\n' | '\\r' ) )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -633,7 +633,7 @@ public class PolicyLexer extends Lexer {
 
 				switch (alt4) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -651,7 +651,7 @@ public class PolicyLexer extends Lexer {
 				}
 			}
 
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:34: ( '\\n' | '\\r' ( '\\n' )? )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:34: ( '\\n' | '\\r' ( '\\n' )? )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0=='\n') ) {
@@ -669,16 +669,16 @@ public class PolicyLexer extends Lexer {
 
 			switch (alt6) {
 				case 1 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:35: '\\n'
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:35: '\\n'
 					{
 					match('\n'); 
 					}
 					break;
 				case 2 :
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:40: '\\r' ( '\\n' )?
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:40: '\\r' ( '\\n' )?
 					{
 					match('\r'); 
-					// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:44: ( '\\n' )?
+					// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:44: ( '\\n' )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0=='\n') ) {
@@ -686,7 +686,7 @@ public class PolicyLexer extends Lexer {
 					}
 					switch (alt5) {
 						case 1 :
-							// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:106:45: '\\n'
+							// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:106:45: '\\n'
 							{
 							match('\n'); 
 							}
@@ -718,8 +718,8 @@ public class PolicyLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:110:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-			// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:110:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:110:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:110:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
 				input.consume();
@@ -743,173 +743,173 @@ public class PolicyLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:8: ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | NUM_INT | ID | COMMENT | WS )
+		// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:8: ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | NUM_INT | ID | COMMENT | WS )
 		int alt7=24;
 		alt7 = dfa7.predict(input);
 		switch (alt7) {
 			case 1 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:10: T__8
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:10: T__8
 				{
 				mT__8(); 
 
 				}
 				break;
 			case 2 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:15: T__9
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:15: T__9
 				{
 				mT__9(); 
 
 				}
 				break;
 			case 3 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:20: T__10
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:20: T__10
 				{
 				mT__10(); 
 
 				}
 				break;
 			case 4 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:26: T__11
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:26: T__11
 				{
 				mT__11(); 
 
 				}
 				break;
 			case 5 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:32: T__12
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:32: T__12
 				{
 				mT__12(); 
 
 				}
 				break;
 			case 6 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:38: T__13
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:38: T__13
 				{
 				mT__13(); 
 
 				}
 				break;
 			case 7 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:44: T__14
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:44: T__14
 				{
 				mT__14(); 
 
 				}
 				break;
 			case 8 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:50: T__15
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:50: T__15
 				{
 				mT__15(); 
 
 				}
 				break;
 			case 9 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:56: T__16
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:56: T__16
 				{
 				mT__16(); 
 
 				}
 				break;
 			case 10 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:62: T__17
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:62: T__17
 				{
 				mT__17(); 
 
 				}
 				break;
 			case 11 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:68: T__18
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:68: T__18
 				{
 				mT__18(); 
 
 				}
 				break;
 			case 12 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:74: T__19
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:74: T__19
 				{
 				mT__19(); 
 
 				}
 				break;
 			case 13 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:80: T__20
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:80: T__20
 				{
 				mT__20(); 
 
 				}
 				break;
 			case 14 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:86: T__21
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:86: T__21
 				{
 				mT__21(); 
 
 				}
 				break;
 			case 15 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:92: T__22
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:92: T__22
 				{
 				mT__22(); 
 
 				}
 				break;
 			case 16 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:98: T__23
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:98: T__23
 				{
 				mT__23(); 
 
 				}
 				break;
 			case 17 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:104: T__24
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:104: T__24
 				{
 				mT__24(); 
 
 				}
 				break;
 			case 18 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:110: T__25
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:110: T__25
 				{
 				mT__25(); 
 
 				}
 				break;
 			case 19 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:116: T__26
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:116: T__26
 				{
 				mT__26(); 
 
 				}
 				break;
 			case 20 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:122: T__27
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:122: T__27
 				{
 				mT__27(); 
 
 				}
 				break;
 			case 21 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:128: NUM_INT
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:128: NUM_INT
 				{
 				mNUM_INT(); 
 
 				}
 				break;
 			case 22 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:136: ID
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:136: ID
 				{
 				mID(); 
 
 				}
 				break;
 			case 23 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:139: COMMENT
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:139: COMMENT
 				{
 				mCOMMENT(); 
 
 				}
 				break;
 			case 24 :
-				// /Users/zhi/Downloads/antlrworks-1.5/Policy.g:1:147: WS
+				// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:1:147: WS
 				{
 				mWS(); 
 

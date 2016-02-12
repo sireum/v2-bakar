@@ -114,6 +114,41 @@ object TypeConstraintSimplification {
     atomic_typeConstraints
   }
   
+  def domain_ordering_closure(domain_ordering: MList[(String, String)], domains: MList[String]) = {        
+    val typeMap = mmapEmpty[String, Int]
+    val typeMapR = mmapEmpty[Int, String]
+    var k = 0
+    domains.foreach(
+        t => {
+          typeMap += (t -> k)
+          typeMapR += (k -> t)
+          k = k + 1
+        })
+    
+    val n = domains.size
+    val matrix = Array.ofDim[Boolean](n,n)
+    // initialize the matrix
+    for(i <- 0 to (n-1))
+      for(j <- 0 to (n-1))
+        matrix(i)(j) = false
+        
+    domain_ordering.foreach(
+        domain_order => {
+          val i = typeMap.get(domain_order._1).getOrElse(-1)
+          val j = typeMap.get(domain_order._2).getOrElse(-1)
+          assert(i != -1 && j != -1)
+          matrix(i)(j) = true
+        })
+    
+    // (2) compute the transitive closure
+    for(k <- 0 to (n-1))
+      for(i <- 0 to (n-1))
+        for(j <- 0 to (n-1))
+          matrix(i)(j) = matrix(i)(j) || (matrix(i)(k) && matrix(k)(j))
+    
+    TypeConstraintMatrix(matrix, typeMap, typeMapR, false)   
+  }
+  
   // step 2. transitive closure
   def transitive_closure(typeConstraints: MList[(String, String)]) = {
     // Warshall's algorithm to compute transitive closure

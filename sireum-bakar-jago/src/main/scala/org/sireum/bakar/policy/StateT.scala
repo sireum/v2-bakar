@@ -178,7 +178,7 @@ trait Context {
     import scala.collection.JavaConversions._
     policy.get_domains.get_domain_ordering.foreach(
         kv => {
-          val p = (kv._1, kv._2)
+          val p = (kv.getFirst, kv.getSecond)
           Domain_Ordering += p
           })
     policy.get_domain_bindings.foreach(kv => Tg += (kv._1 -> kv._2))

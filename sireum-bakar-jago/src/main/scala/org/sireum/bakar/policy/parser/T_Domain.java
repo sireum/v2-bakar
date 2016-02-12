@@ -3,18 +3,16 @@ package org.sireum.bakar.policy.parser;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 public class T_Domain {
 	String domain_name;
 	ArrayList<String> domains;
-	// domain_of(key) <= domain_of(value)
-	HashMap<String, String> domain_ordering;
+	ArrayList<T_Pair<String, String>> domain_ordering;
 	
 	public T_Domain() {
 		this.domain_name = null;
 		this.domains = new ArrayList<String>();
-		this.domain_ordering = new HashMap<String, String>();
+		this.domain_ordering = new ArrayList<T_Pair<String, String>>();
 	}
 	
 	// ---
@@ -26,7 +24,7 @@ public class T_Domain {
 		return this.domains;
 	}
 	
-	public HashMap<String, String> get_domain_ordering() {
+	public ArrayList<T_Pair<String, String>> get_domain_ordering() {
 		return this.domain_ordering;
 	}
 	
@@ -39,14 +37,14 @@ public class T_Domain {
 		this.domains = domains;
 	}
 	
-	public void set_domain_ordering(HashMap<String, String> domain_ordering) {
-		if(domain_ordering.containsKey("default")) {
+	public void set_domain_ordering(ArrayList<T_Pair<String, String>> domain_ordering) {
+		if(domain_ordering.size() > 0 && domain_ordering.get(0).getFirst() == "default") {
 			// by default, it's a totally ordering domains
 			Iterator<String> i = this.domains.iterator();
 			String p = i.next();
 			while(i.hasNext()) {
 				String q = i.next();
-				this.domain_ordering.put(p, q);
+				this.domain_ordering.add(new T_Pair<String, String>(p, q));
 				p = q;
 			}
 			/*
@@ -67,6 +65,6 @@ public class T_Domain {
 	}
 	
 	public void add_domain_ordering(String l_domain, String r_domain) {
-		this.domain_ordering.put(l_domain, r_domain);
+		this.domain_ordering.add(new T_Pair<String, String>(l_domain, r_domain));
 	}
 }

@@ -13,7 +13,7 @@ object TypeConstraintSAT {
   def constraint_sat(typeConstraints: TypeConstraintMatrix, domainConstraints: TypeConstraintMatrix) = {
     val b1 = groud_consistent(typeConstraints)
     val b2 = weakly_satisfiable(typeConstraints, domainConstraints)
-    typeConstraints.securityViolated = b1 && b2
+    typeConstraints.securityViolated = ! (b1 && b2)
     typeConstraints
   }
   
@@ -21,7 +21,7 @@ object TypeConstraintSAT {
   // (1) C is ground consistent
   def groud_consistent(typeConstraints: TypeConstraintMatrix) = {
     // this has already be done in type constraint simplification step
-    typeConstraints.securityViolated
+    !(typeConstraints.securityViolated)
   }
     
   // (2) C is weakly satisfiable
