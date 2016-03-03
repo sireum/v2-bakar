@@ -119,8 +119,7 @@ public class PolicyParser extends Parser {
 		ArrayList<T_Pair<String, String>> o =null;
 
 		try {
-			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:25:2: ( 'type' ID 'is' v= enumerated_values 'with' o= ordering ';' )
-			// /Users/zhi/Documents/workspace/bakar/sireum-bakar-jago/src/main/scala/org/sireum/bakar/policy/parser/Policy.g:25:4: 'type' ID 'is' v= enumerated_values 'with' o= ordering ';'
+			// 
 			{
 			match(input,24,FOLLOW_24_in_domain_definition66); 
 			match(input,ID,FOLLOW_ID_in_domain_definition68); 

@@ -57,6 +57,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     val proc_decl_map = mmapEmpty[String, (Int, String)]
     val type_decl_map = mmapEmpty[String, String]
     val exp_type_map = mmapEmpty[Int, String]
+    
+    // as our formalized SPARK subset doesn't support constant variables,
+    // const_map can be used to replace the constant variable with constant values;
+    // e.g. CI1 : CONSTANT INTEGER := 1; 
+    // const_map: CI1_Unique_Reference_Name -> Coq Expression AST for constant 1
+    val const_map = mmapEmpty[String, String] // 
 
     // it's a help map from the unique reference name (either declared type or variable name)
     // to its Coq type, e.g. R: RecordT: ada://variable/Test+1:11/R+14:4 -> (Record_Type (1 (*R*)))
@@ -109,6 +115,12 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     }
     
     def getExpType(expAstNum: Int) = exp_type_map.get(expAstNum)
+    
+    def insertConstExp(constVarID: String, constExp: String) {
+      const_map += (constVarID -> constExp)
+    }
+    
+    def getConstExp(constVarID: String) = const_map.get(constVarID)    
     
     /** Coq type refName can be: 
      * Inductive type: Type :=
@@ -207,7 +219,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         case MultiplyOperatorEx(_)           => Some("Multiply")
         case PlusOperatorEx(_)               => Some("Plus")
 //      case RemOperatorEx(_)                => Some("Rem")
-        case ModOperatorEx(_)                => Some("Divide") // temporary solution
+        case ModOperatorEx(_)                => Some("Modulus")
         case _                               => None
       }
     }
@@ -462,6 +474,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         consts += const
         // add the type of the constant variable into symbol table;
         ctx.symboltable.insertVarType(constName.asInstanceOf[String], "In", theType.asInstanceOf[String])
+        ctx.symboltable.insertConstExp(x.asInstanceOf[DefiningIdentifier].getDef, optionalInitExp.get)
       }
       ctx.pushResult(consts) 
       
@@ -1023,8 +1036,14 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       // add to symbol table: expression ast number -> type id number
       ctx.symboltable.insertExpType(astnum, theType)
       ctx.symboltable.insertSloc(astnum, sloc)
-      v(o)
-      factory.buildNameExp(astnum, theType, ctx.popResult, null)
+      if (ref.contains("constant")) {
+        // add to symbol table
+        val constExp = ctx.symboltable.getConstExp(ref)
+        constExp.get
+      }else{
+        v(o)
+        factory.buildNameExp(astnum, theType, ctx.popResult, null)        
+      }
     case o @ IndexedComponentEx(sloc, prefixQ, indexExpressionsQl, theType, checks) =>
       val astnum = factory.next_astnum
       // add to symbol table: expression ast number -> type id number
