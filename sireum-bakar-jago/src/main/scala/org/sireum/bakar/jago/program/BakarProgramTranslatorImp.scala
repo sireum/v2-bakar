@@ -685,8 +685,29 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
       subtypeConstraintQ.getConstraint() match {
         case o @ SimpleExpressionRangeEx(sloc, lowerBoundQ, upperBoundQ, checks) =>
           val result = mlistEmpty[String]
-          val low = lowerBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
-          val upper = upperBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
+          // -10 will be represented as function in XML AST
+          var low = "not_supported_range_low_bound_it_must_constant"
+          if(lowerBoundQ.getExpression().isInstanceOf[IntegerLiteral]) {
+            low = lowerBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
+          } else if (lowerBoundQ.getExpression().isInstanceOf[FunctionCall]) {
+            val func_exp = lowerBoundQ.getExpression().asInstanceOf[FunctionCall]
+            if (ctx.isUnaryOp(func_exp.getPrefixQ)) {
+              val low_exp = func_exp.getFunctionCallParametersQl.getAssociations()(0).asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
+              low = "-" + low_exp.asInstanceOf[IntegerLiteral].getLitVal
+            }
+          }
+          
+          var upper = "not_supported_range_upper_bound_it_must_constant"
+          if(upperBoundQ.getExpression().isInstanceOf[IntegerLiteral]) {
+            upper = upperBoundQ.getExpression().asInstanceOf[IntegerLiteral].getLitVal().replaceAll("_", "") 
+          } else if (upperBoundQ.getExpression().isInstanceOf[FunctionCall]) {
+            val func_exp = upperBoundQ.getExpression().asInstanceOf[FunctionCall]
+            if (ctx.isUnaryOp(func_exp.getPrefixQ)) {
+              val upper_exp = func_exp.getFunctionCallParametersQl.getAssociations()(0).asInstanceOf[ParameterAssociation].getActualParameterQ().getExpression()
+              upper = "-" + upper_exp.asInstanceOf[IntegerLiteral].getLitVal
+            }
+          }          
+          
           result += parent_subtype_mark
           result += low
           result += upper

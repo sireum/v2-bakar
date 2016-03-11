@@ -471,8 +471,14 @@ class Factory(stg: STGroupFile) {
 
   def buildRange(low: Any, upper: Any) = {
     val result = stg.getInstanceOf("range")
-    result.add("l", low)
-    result.add("u", upper)
+    var low_bound = low
+    var upper_bound = upper
+    if (low.asInstanceOf[String].charAt(0) == '-')
+      low_bound = "(" + low + ")"
+    if (upper.asInstanceOf[String].charAt(0) == '-')
+      upper_bound = "(" + upper + ")"      
+    result.add("l", low_bound)
+    result.add("u", upper_bound)
     result.render()
   }
   
