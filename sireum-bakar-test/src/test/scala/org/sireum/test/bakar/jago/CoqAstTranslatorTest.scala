@@ -27,10 +27,10 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
   def set() : Option[FileResourceUri] = {
     val sireumHome = System.getenv("SIREUM_HOME")
     if (sireumHome != null) {
-      var gnatPath = "/apps/gnat-internal/2014/bin/gnat2xml" + ext
+      var gnatPath = "/apps/gnat/bin/gnat2xml" + ext
       val f = new File(sireumHome, gnatPath)
       if (f.canExecute()) 
-        return Some(new File(sireumHome, "/apps/gnat-internal/2014/bin/").getAbsolutePath)
+        return Some(new File(sireumHome, "/apps/gnat/bin/").getAbsolutePath)
     }
     None
   }
