@@ -281,11 +281,11 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
         else 
           handSeqDeclarations(r.asInstanceOf[MList[String]])
       
-      if(x.contains("D_Type_Declaration") || x.contains("D_Object_Declaration") || 
-          x.contains("D_Procedure_Body") || x.contains("D_Seq_Declaration"))
+      if(x.contains("TypeDecl") || x.contains("ObjDecl") || 
+          x.contains("ProcBodyDecl") || x.contains("SeqDecl"))
         declItems +=  x
       else
-        declItems += "D_Null_Declaration_XX (* Undefined Declarations ! *)"
+        declItems += "NullDecl_XX (* Undefined Declarations ! *)"
 
     }
     val result = handSeqDeclarations(declItems)
@@ -294,7 +294,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   
   def handSeqDeclarations(declIds: MList[String]): String = {
     if(declIds.isEmpty)
-      return "D_Null_Declaration_XX"
+      return "NullDecl_XX"
         
     if (declIds.length == 1)
       return declIds.head
@@ -1184,7 +1184,10 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   }
   
   val namesMap = factory.buildNameTable(stg, factory.getVarNameMap, factory.getProcNameMap, factory.getPkgNameMap, factory.getTypeNameMap)
-  val coq_ast_tree_template = factory.buildDefinition(COQ_AST_ID, this.handSeqDeclarations(cus))
+  val mainProc = "1"
+  val xx = this.handSeqDeclarations(cus)
+  val programAST = factory.buildProgramDeclaration(this.handSeqDeclarations(cus), mainProc)
+  val coq_ast_tree_template = factory.buildDefinition(COQ_AST_ID, programAST)
   val symbol_table_template = factory.buildDefinition(SYMBOL_TABLE_ID, 
       factory.buildSymbolTable(stg, ctx.symboltable.getVarTypeMap, ctx.symboltable.getProcDeclMap, 
           ctx.symboltable.getTypeDeclMap, ctx.symboltable.getExpTypeMap, ctx.symboltable.getSlocMap, namesMap))

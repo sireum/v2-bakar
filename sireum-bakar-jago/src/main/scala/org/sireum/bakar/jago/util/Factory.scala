@@ -194,13 +194,13 @@ class Factory(stg: STGroupFile) {
       for(e <- ls){
         e match {
           case "do_division_check" => 
-            cks += "Do_Division_Check"
+            cks += "DivCheck"
           case "do_overflow_check" =>
-            cks += "Do_Overflow_Check"
+            cks += "OverflowCheck"
           case "do_range_check" =>
-            cks += "Do_Range_Check"
+            cks += "RangeCheck"
           case _ =>
-            cks += "Undefined_Check"
+            cks += "UndefinedCheck"
         }
       }
     }
@@ -277,15 +277,15 @@ class Factory(stg: STGroupFile) {
   // declaring subtype and derived type; it can be standard integer, boolean type
   // or declared array / record / subtype;
   def buildRefTypeMark(refTypeName: String, refTypeDecl: String) = {
-    if (refTypeDecl.contains("Subtype_Declaration"))
+    if (refTypeDecl.contains("SubtypeDecl"))
       buildRefType("Subtype", refTypeName)
-    else if (refTypeDecl.contains("Derived_Type_Declaration"))
+    else if (refTypeDecl.contains("DerivedTypeDecl"))
       buildRefType("Derived_Type", refTypeName)
-    else if (refTypeDecl.contains("Integer_Type_Declaration"))
+    else if (refTypeDecl.contains("IntegerTypeDecl"))
       buildRefType("Integer_Type", refTypeName)
-    else if (refTypeDecl.contains("Array_Type_Declaration"))
+    else if (refTypeDecl.contains("ArrayTypeDecl"))
       buildRefType("Array_Type", refTypeName)
-    else if (refTypeDecl.contains("Record_Type_Declaration"))
+    else if (refTypeDecl.contains("RecordTypeDecl"))
       buildRefType("Record_Type", refTypeName)
     else 
       "Undefined RefType !"
@@ -600,16 +600,16 @@ class Factory(stg: STGroupFile) {
   }
   
   def buildDeclaration(astnum: Int, decl: String) = {
-    if (decl.startsWith("(mkobject_declaration")) {
+    if (decl.startsWith("(mkobjDecl")) {
       buildObjectDeclarationWrapper(astnum, decl)
-    } else if (decl.startsWith("(mkprocedure_body")) {
+    } else if (decl.startsWith("(mkprocBodyDecl")) {
       buildProcedureBodyDeclarationWrapper(astnum, decl)
-    } else if (decl.startsWith("(Subtype_Declaration") || decl.startsWith("(Derived_Type_Declaration") ||
-        decl.startsWith("(Integer_Type_Declaration") || decl.startsWith("(Array_Type_Declaration") || 
-        decl.startsWith("(Record_Type_Declaration")) {
+    } else if (decl.startsWith("(SubtypeDecl") || decl.startsWith("(DerivedTypeDecl") ||
+        decl.startsWith("(IntegerTypeDecl") || decl.startsWith("(ArrayTypeDecl") || 
+        decl.startsWith("(RecordTypeDecl")) {
       buildTypeDeclarationWrapper(astnum, decl)
     } else {
-      "D_Null_Declaration_XX (* Undefined Declarations ! *)"
+      "NullDecl_XX (* Undefined Declarations ! *)"
     }
   }
 
@@ -636,6 +636,13 @@ class Factory(stg: STGroupFile) {
     buildListAttributes(result, "params", params: _*)
     result.render()
   }
+  
+  def buildProgramDeclaration(decls: String, main: String) = {
+    val result = stg.getInstanceOf("programDeclaration")
+    result.add("decls", decls)
+    result.add("main", main)
+    result.render()
+  }  
   
   def buildSubProgram(astnum: Int, kind: String, prog: String, annotation: Option[String]) = {
     val result = stg.getInstanceOf("subProgram")

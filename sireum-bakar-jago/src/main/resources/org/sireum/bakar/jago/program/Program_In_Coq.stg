@@ -23,19 +23,19 @@ literal(theType, theLiteral) ::= <<
 >>
 
 literalExpr(astnum, litval, checks) ::= <<
-(E_Literal_XX $astnum$ $litval$ (**$checks$ nil**))
+(Literal_XX $astnum$ $litval$ (**$checks$ nil**))
 >>
 
 binaryExpr(astnum, op, loperand, roperand, checks) ::= <<
-(E_Binary_Operation_XX $astnum$ $op$ $loperand$ $roperand$ (**$checks$ nil**))
+(BinOp_XX $astnum$ $op$ $loperand$ $roperand$ (**$checks$ nil**))
 >>
 
 unaryExpr(astnum, op, operand, checks) ::= <<
-(E_Unary_Operation_XX $astnum$ $op$ $operand$ (**$checks$ nil**))
+(UnOp_XX $astnum$ $op$ $operand$ (**$checks$ nil**))
 >>
 
 nameExpr(astnum, x) ::= <<
-(E_Name_XX $astnum$ $x$)
+(Name_XX $astnum$ $x$)
 >>
 
 varId(id, annotation) ::= <<
@@ -43,62 +43,62 @@ varId(id, annotation) ::= <<
 >>
 
 identifierExpr(astnum, id, checks) ::= <<
-(E_Identifier_XX $astnum$ $id$ (**$checks$**))
+(Identifier_XX $astnum$ $id$ (**$checks$**))
 >>
 
 // x[e]
 indexedComponent(astnum, x, e, checks) ::= <<
-(E_Indexed_Component_XX $astnum$ $x$ $e$ (**$checks$**))
+(IndexedComponent_XX $astnum$ $x$ $e$ (**$checks$**))
 >>
 
 // x.f
 selectedComponent(astnum, x, f, checks) ::= <<
-(E_Selected_Component_XX $astnum$ $x$ $f$ (**$checks$**))
+(SelectedComponent_XX $astnum$ $x$ $f$ (**$checks$**))
 >>
 
 nullStmt() ::= <<
-S_Null_XX
+Null_XX
 >>
 
 assignStmt(astnum, lhs, rhs) ::= <<
-(S_Assignment_XX $astnum$ $lhs$ $rhs$)
+(Assign_XX $astnum$ $lhs$ $rhs$)
 >>
 
 ifStmt(astnum, cond, trueBranch, falseBranch) ::= <<
-(S_If_XX $astnum$ $cond$
+(If_XX $astnum$ $cond$
   $trueBranch$
   $if(falseBranch)$$falseBranch$$else$$nullStmt()$$endif$
 )
 >>
 
 whileStmt(astnum, cond, loopBody) ::= <<
-(S_While_Loop_XX $astnum$ $cond$
+(While_XX $astnum$ $cond$
   $loopBody$
 )
 >>
 
 procedureCall(astnum, p_astnum, p, args) ::= <<
-(S_Procedure_Call_XX $astnum$ $p_astnum$ $p$ 
+(Call_XX $astnum$ $p_astnum$ $p$ 
   $args$
 )
 >>
 
 seqStmt(astnum, stmt1, stmt2) ::= <<
-(S_Sequence_XX $astnum$
+(Seq_XX $astnum$
 $stmt1$ 
 $stmt2$)
 >>
 
 returnStmt(astnum, returnExp) ::= <<
-(S_Return_XX $astnum$ $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
+(Return_XX $astnum$ $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
 >>
 
 assertStmt(astnum, assertExp) ::= <<
-(S_Assert_XX $astnum$ $assertExp$)
+(Assert_XX $astnum$ $assertExp$)
 >>	
 
 loopInvariantStmt(astnum, invariantExp) ::= <<
-(S_Loop_Invariant_XX $astnum$ $invariantExp$)
+(LoopInvariant_XX $astnum$ $invariantExp$)
 >>
 
 range(l, u) ::= <<
@@ -106,15 +106,15 @@ range(l, u) ::= <<
 >>
 
 subtypeDecl(astnum, tid, parentSubtypeMark, range) ::= <<
-(Subtype_Declaration_XX $astnum$ $tid$ $parentSubtypeMark$ $range$)
+(SubtypeDecl_XX $astnum$ $tid$ $parentSubtypeMark$ $range$)
 >>
 
 derivedtypeDecl(astnum, tid, parentSubtypeMark, range) ::= <<
-(Derived_Type_Declaration_XX $astnum$ $tid$ $parentSubtypeMark$ $range$)
+(DerivedTypeDecl_XX $astnum$ $tid$ $parentSubtypeMark$ $range$)
 >>
 
 integertypeDecl(astnum, tid, range) ::= <<
-(Integer_Type_Declaration_XX $astnum$ $tid$ $range$)
+(IntegerTypeDecl_XX $astnum$ $tid$ $range$)
 >>
 
 fieldDeclaration(fieldName, fieldType) ::= <<
@@ -122,23 +122,23 @@ fieldDeclaration(fieldName, fieldType) ::= <<
 >>
 
 arrayTypeDecl(astnum, tid, indexSubtypeMark, componentType) ::= <<
-(Array_Type_Declaration_XX $astnum$ $tid$ ((*index subtype mark*) $indexSubtypeMark$) ((*component type*) $componentType$))
+(ArrayTypeDecl_XX $astnum$ $tid$ ((*index subtype mark*) $indexSubtypeMark$) ((*component type*) $componentType$))
 >>
 
 recordTypeDecl(astnum, tid, fields) ::= <<
-(Record_Type_Declaration_XX $astnum$ $tid$ $fields$)
+(RecordTypeDecl_XX $astnum$ $tid$ $fields$)
 >>
 
 objectDeclaration(astnum, id, theType, init) ::= <<
-(mkobject_declaration_xx $astnum$ $id$ $theType$ $if(init)$(Some ($init$))$else$None$endif$)
+(mkobjDecl_XX $astnum$ $id$ $theType$ $if(init)$(Some ($init$))$else$None$endif$)
 >>
 
 paramSpecification(astnum, id, mode, theType) ::= <<
-(mkparameter_specification_xx $astnum$ $id$ $theType$ $if(mode)$$mode$$else$In$endif$)
+(mkparamSpec_XX $astnum$ $id$ $theType$ $if(mode)$$mode$$else$In$endif$)
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
-(mkaspect_specification_xx $astnum$
+(mkaspectSpec_XX $astnum$
   (* Aspect Mark *)
   $aspectMark$
   (* Aspect Definition *)
@@ -147,27 +147,27 @@ aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 >>
 
 objectDeclarationWrapper(astnum, objectDecl) ::= <<
-(D_Object_Declaration_XX $astnum$ $objectDecl$)
+(ObjDecl_XX $astnum$ $objectDecl$)
 >>
 
 procedureBodyDeclWrapper(astnum, procedureBodyDecl) ::= <<
-(D_Procedure_Body_XX $astnum$ 
+(ProcBodyDecl_XX $astnum$ 
   $procedureBodyDecl$
 )
 >>
 
 typeDeclarationWrapper(astnum, typeDecl) ::= <<
-(D_Type_Declaration_XX $astnum$ $typeDecl$)
+(TypeDecl_XX $astnum$ $typeDecl$)
 >>
 
 seqDeclaration(astnum, d1, d2) ::= <<
-(D_Seq_Declaration_XX $astnum$
+(SeqDecl_XX $astnum$
 $d1$ 
 $d2$)
 >>
 
 procedureBodyDeclaration(astnum, procName, params, identDecls, procBody) ::= <<
-(mkprocedure_body_xx $astnum$
+(mkprocBodyDecl_XX $astnum$
   (* = = = Procedure Name = = = *)
   $procName$
   (* = = = Formal Parameters = = = *)
@@ -181,7 +181,7 @@ procedureBodyDeclaration(astnum, procName, params, identDecls, procBody) ::= <<
 >>
 
 functionBodyDeclaration(astnum, funcName, returnT, params, identDecls, funcBody) ::= <<
-(mkfunction_body_xx $astnum$
+(mkfuncBodyDecl_XX $astnum$
   (* = = = Function Name = = = *)
   $funcName$
   (* = = = Return Type = = = *) 
@@ -196,6 +196,15 @@ functionBodyDeclaration(astnum, funcName, returnT, params, identDecls, funcBody)
 )
 >>
 
+programDeclaration(decls, main) ::= << 
+(mkprogram_XX
+(* = = = declarations = = = *)
+$decls$
+(* = = = main procedure = = = *)
+$main$
+)
+>>
+
 // <Procedure procedure_body> or <Function function_body>
 // <annotation> can be either "Procedure" or "Function"
 subProgram(astnum, kind, prog, annotation) ::= <<
@@ -207,7 +216,7 @@ subProgram(astnum, kind, prog, annotation) ::= <<
 
 // it's used as a placehold for unrecognized or undeclared subprograms
 emptySubProgram() ::= <<
-(mkprocedure_body_xx 0 0 nil D_Null_Declaration_XX S_Null_XX)
+(mkprocedure_body_XX 0 0 nil D_Null_Declaration_XX S_Null_XX)
 >>
 
 packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
@@ -264,7 +273,7 @@ nameTable(varNames, procNames, pkgNames, typeNames) ::= <<
 >>
 
 symbolTable(vars, procs, types, exps, slocs, nameTable) ::= <<
-(mkSymbolTable_xx
+(Symbol_Table_Module_xx.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)

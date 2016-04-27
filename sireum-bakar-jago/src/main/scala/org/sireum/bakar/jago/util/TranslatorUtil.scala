@@ -145,9 +145,9 @@ object TranslatorUtil {
     // and group(3) is "**)";
     val regexp1 = """(\(\*\*)(.*?)(\*\*\))""".r 
     val regexp2 = """xx""".r
-    val regexp3 = """XX""".r
+    val regexp3 = """_XX""".r
     var result = regexp1.replaceAllIn(target, matchedObj => matchedObj.group(2)) // remove run-time check flags from ast
-    result = regexp2.replaceAllIn(result, matchedObj => "x")
-    regexp3.replaceAllIn(result, matchedObj => "X")
+    result = regexp2.replaceAllIn(result, matchedObj => "RT")
+    regexp3.replaceAllIn(result, matchedObj => "RT")
   }    
 }
