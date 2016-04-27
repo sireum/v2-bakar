@@ -3,54 +3,60 @@ Require Import symboltable.
 Open Scope string_scope.
 
 Definition Coq_AST_Tree := 
-(D_Seq_Declaration 1
-(D_Seq_Declaration 2
-D_Null_Declaration (* Undefined Declarations ! *) 
-D_Null_Declaration (* Undefined Declarations ! *)) 
-(D_Seq_Declaration 3
-(D_Type_Declaration 4 (Integer_Type_Declaration 5 ((*Pointer_Range*) 4) (Range 0 100))) 
-(D_Seq_Declaration 6
-(D_Type_Declaration 7 (Subtype_Declaration 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (Range 1 100))) 
-(D_Seq_Declaration 9
-(D_Type_Declaration 10 (Array_Type_Declaration 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) 
-(D_Seq_Declaration 12
-(D_Object_Declaration 13 (mkobject_declaration 14 ((*S*) 7) (Array_Type ((*Vector*) 6)) None)) 
-(D_Seq_Declaration 15
-(D_Object_Declaration 16 (mkobject_declaration 17 ((*Pointer*) 8) (Integer_Type ((*Pointer_Range*) 4)) None)) 
-(D_Seq_Declaration 18
-(D_Procedure_Body 19 
-  (mkprocedure_body 20
+
+(mkprogram
+(* = = = declarations = = = *)
+(SeqDecl 1
+(SeqDecl 2
+NullDecl (* Undefined Declarations ! *) 
+NullDecl (* Undefined Declarations ! *)) 
+(SeqDecl 3
+(TypeDecl 4 (IntegerTypeDecl 5 ((*Pointer_Range*) 4) (Range 0 100))) 
+(SeqDecl 6
+(TypeDecl 7 (SubtypeDecl 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (Range 1 100))) 
+(SeqDecl 9
+(TypeDecl 10 (ArrayTypeDecl 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) 
+(SeqDecl 12
+(ObjDecl 13 (mkobjDecl 14 ((*S*) 7) (Array_Type ((*Vector*) 6)) None)) 
+(SeqDecl 15
+(ObjDecl 16 (mkobjDecl 17 ((*Pointer*) 8) (Integer_Type ((*Pointer_Range*) 4)) None)) 
+(SeqDecl 18
+(ProcBodyDecl 19 
+  (mkprocBodyDecl 20
     (* = = = Procedure Name = = = *)
     ((*Push*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 21 ((*X*) 9) Integer In) :: nil)
+    (mkparamSpec 21 ((*X*) 9) Integer In) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration)
+    (NullDecl)
     (* = = = Procedure Body = = = *)
-      (S_Sequence 22
-      (S_Assignment 23 (E_Identifier 24 ((*Pointer*) 8) ) (E_Binary_Operation 25 Plus (E_Name 26 (E_Identifier 27 ((*Pointer*) 8) )) (E_Literal 28 (Integer_Literal 1) ) )) 
-      (S_Assignment 29 (E_Indexed_Component 30 (E_Identifier 31 ((*S*) 7) ) (E_Name 32 (E_Identifier 33 ((*Pointer*) 8) )) ) (E_Name 34 (E_Identifier 35 ((*X*) 9) ))))
+      (Seq 22
+      (Assign 23 (Identifier 24 ((*Pointer*) 8) ) (BinOp 25 Plus (Name 26 (Identifier 27 ((*Pointer*) 8) )) (Literal 28 (Integer_Literal 1) ) )) 
+      (Assign 29 (IndexedComponent 30 (Identifier 31 ((*S*) 7) ) (Name 32 (Identifier 33 ((*Pointer*) 8) )) ) (Name 34 (Identifier 35 ((*X*) 9) ))))
   )
 ) 
-(D_Procedure_Body 36 
-  (mkprocedure_body 37
+(ProcBodyDecl 36 
+  (mkprocBodyDecl 37
     (* = = = Procedure Name = = = *)
     ((*Pop*) 2)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 38 ((*X*) 12) Integer Out) :: nil)
+    (mkparamSpec 38 ((*X*) 12) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration)
+    (NullDecl)
     (* = = = Procedure Body = = = *)
-      (S_Sequence 39
-      (S_Assignment 40 (E_Identifier 41 ((*X*) 12) ) (E_Name 42 (E_Indexed_Component 43 (E_Identifier 44 ((*S*) 7) ) (E_Name 45 (E_Identifier 46 ((*Pointer*) 8) )) ))) 
-      (S_Assignment 47 (E_Identifier 48 ((*Pointer*) 8) ) (E_Binary_Operation 49 Minus (E_Name 50 (E_Identifier 51 ((*Pointer*) 8) )) (E_Literal 52 (Integer_Literal 1) ) )))
+      (Seq 39
+      (Assign 40 (Identifier 41 ((*X*) 12) ) (Name 42 (IndexedComponent 43 (Identifier 44 ((*S*) 7) ) (Name 45 (Identifier 46 ((*Pointer*) 8) )) ))) 
+      (Assign 47 (Identifier 48 ((*Pointer*) 8) ) (BinOp 49 Minus (Name 50 (Identifier 51 ((*Pointer*) 8) )) (Literal 52 (Integer_Literal 1) ) )))
   )
-)))))))).
+))))))))
+(* = = = main procedure = = = *)
+1
+).
 
 Definition Symbol_Table := 
-(mkSymbolTable
+(Symbol_Table_Module.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -58,35 +64,35 @@ Definition Symbol_Table :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Push*) 1), (0, (mkprocedure_body 20
+  ((((*Push*) 1), (0, (mkprocBodyDecl 20
   (* = = = Procedure Name = = = *)
   ((*Push*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 21 ((*X*) 9) Integer In) :: nil)
+  (mkparamSpec 21 ((*X*) 9) Integer In) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration)
+  (NullDecl)
   (* = = = Procedure Body = = = *)
-    (S_Sequence 22
-    (S_Assignment 23 (E_Identifier 24 ((*Pointer*) 8) ) (E_Binary_Operation 25 Plus (E_Name 26 (E_Identifier 27 ((*Pointer*) 8) )) (E_Literal 28 (Integer_Literal 1) ) )) 
-    (S_Assignment 29 (E_Indexed_Component 30 (E_Identifier 31 ((*S*) 7) ) (E_Name 32 (E_Identifier 33 ((*Pointer*) 8) )) ) (E_Name 34 (E_Identifier 35 ((*X*) 9) ))))
-))) :: (((*Pop*) 2), (0, (mkprocedure_body 37
+    (Seq 22
+    (Assign 23 (Identifier 24 ((*Pointer*) 8) ) (BinOp 25 Plus (Name 26 (Identifier 27 ((*Pointer*) 8) )) (Literal 28 (Integer_Literal 1) ) )) 
+    (Assign 29 (IndexedComponent 30 (Identifier 31 ((*S*) 7) ) (Name 32 (Identifier 33 ((*Pointer*) 8) )) ) (Name 34 (Identifier 35 ((*X*) 9) ))))
+))) :: (((*Pop*) 2), (0, (mkprocBodyDecl 37
   (* = = = Procedure Name = = = *)
   ((*Pop*) 2)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 38 ((*X*) 12) Integer Out) :: nil)
+  (mkparamSpec 38 ((*X*) 12) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration)
+  (NullDecl)
   (* = = = Procedure Body = = = *)
-    (S_Sequence 39
-    (S_Assignment 40 (E_Identifier 41 ((*X*) 12) ) (E_Name 42 (E_Indexed_Component 43 (E_Identifier 44 ((*S*) 7) ) (E_Name 45 (E_Identifier 46 ((*Pointer*) 8) )) ))) 
-    (S_Assignment 47 (E_Identifier 48 ((*Pointer*) 8) ) (E_Binary_Operation 49 Minus (E_Name 50 (E_Identifier 51 ((*Pointer*) 8) )) (E_Literal 52 (Integer_Literal 1) ) )))
+    (Seq 39
+    (Assign 40 (Identifier 41 ((*X*) 12) ) (Name 42 (IndexedComponent 43 (Identifier 44 ((*S*) 7) ) (Name 45 (Identifier 46 ((*Pointer*) 8) )) ))) 
+    (Assign 47 (Identifier 48 ((*Pointer*) 8) ) (BinOp 49 Minus (Name 50 (Identifier 51 ((*Pointer*) 8) )) (Literal 52 (Integer_Literal 1) ) )))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*Index_Range*) 5), (Subtype_Declaration 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (Range 1 100))) :: (((*Pointer_Range*) 4), (Integer_Type_Declaration 5 ((*Pointer_Range*) 4) (Range 0 100))) :: (((*Vector*) 6), (Array_Type_Declaration 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) :: nil)
+  ((((*Index_Range*) 5), (SubtypeDecl 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (Range 1 100))) :: (((*Pointer_Range*) 4), (IntegerTypeDecl 5 ((*Pointer_Range*) 4) (Range 0 100))) :: (((*Vector*) 6), (ArrayTypeDecl 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
@@ -117,55 +123,61 @@ Definition Symbol_Table :=
 ))
 ).
 
-Definition Coq_AST_Tree_X := 
-(D_Seq_Declaration_X 1
-(D_Seq_Declaration_X 2
-D_Null_Declaration_X (* Undefined Declarations ! *) 
-D_Null_Declaration_X (* Undefined Declarations ! *)) 
-(D_Seq_Declaration_X 3
-(D_Type_Declaration_X 4 (Integer_Type_Declaration_X 5 ((*Pointer_Range*) 4) (Range_X 0 100))) 
-(D_Seq_Declaration_X 6
-(D_Type_Declaration_X 7 (Subtype_Declaration_X 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (Range_X 1 100))) 
-(D_Seq_Declaration_X 9
-(D_Type_Declaration_X 10 (Array_Type_Declaration_X 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) 
-(D_Seq_Declaration_X 12
-(D_Object_Declaration_X 13 (mkobject_declaration_x 14 ((*S*) 7) (Array_Type ((*Vector*) 6)) None)) 
-(D_Seq_Declaration_X 15
-(D_Object_Declaration_X 16 (mkobject_declaration_x 17 ((*Pointer*) 8) (Integer_Type ((*Pointer_Range*) 4)) None)) 
-(D_Seq_Declaration_X 18
-(D_Procedure_Body_X 19 
-  (mkprocedure_body_x 20
+Definition Coq_AST_TreeRT := 
+
+(mkprogramRT
+(* = = = declarations = = = *)
+(SeqDeclRT 1
+(SeqDeclRT 2
+NullDeclRT (* Undefined Declarations ! *) 
+NullDeclRT (* Undefined Declarations ! *)) 
+(SeqDeclRT 3
+(TypeDeclRT 4 (IntegerTypeDeclRT 5 ((*Pointer_Range*) 4) (RangeRT 0 100))) 
+(SeqDeclRT 6
+(TypeDeclRT 7 (SubtypeDeclRT 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (RangeRT 1 100))) 
+(SeqDeclRT 9
+(TypeDeclRT 10 (ArrayTypeDeclRT 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) 
+(SeqDeclRT 12
+(ObjDeclRT 13 (mkobjDeclRT 14 ((*S*) 7) (Array_Type ((*Vector*) 6)) None)) 
+(SeqDeclRT 15
+(ObjDeclRT 16 (mkobjDeclRT 17 ((*Pointer*) 8) (Integer_Type ((*Pointer_Range*) 4)) None)) 
+(SeqDeclRT 18
+(ProcBodyDeclRT 19 
+  (mkprocBodyDeclRT 20
     (* = = = Procedure Name = = = *)
     ((*Push*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 21 ((*X*) 9) Integer In) :: nil)
+    (mkparamSpecRT 21 ((*X*) 9) Integer In) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration_X)
+    (NullDeclRT)
     (* = = = Procedure Body = = = *)
-      (S_Sequence_X 22
-      (S_Assignment_X 23 (E_Identifier_X 24 ((*Pointer*) 8) (nil)) (E_Binary_Operation_X 25 Plus (E_Name_X 26 (E_Identifier_X 27 ((*Pointer*) 8) (nil))) (E_Literal_X 28 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil)) 
-      (S_Assignment_X 29 (E_Indexed_Component_X 30 (E_Identifier_X 31 ((*S*) 7) (nil)) (E_Name_X 32 (E_Identifier_X 33 ((*Pointer*) 8) (Do_Range_Check :: nil))) (nil)) (E_Name_X 34 (E_Identifier_X 35 ((*X*) 9) (nil)))))
+      (SeqRT 22
+      (AssignRT 23 (IdentifierRT 24 ((*Pointer*) 8) (nil)) (BinOpRT 25 Plus (NameRT 26 (IdentifierRT 27 ((*Pointer*) 8) (nil))) (LiteralRT 28 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil)) 
+      (AssignRT 29 (IndexedComponentRT 30 (IdentifierRT 31 ((*S*) 7) (nil)) (NameRT 32 (IdentifierRT 33 ((*Pointer*) 8) (RangeCheck :: nil))) (nil)) (NameRT 34 (IdentifierRT 35 ((*X*) 9) (nil)))))
   )
 ) 
-(D_Procedure_Body_X 36 
-  (mkprocedure_body_x 37
+(ProcBodyDeclRT 36 
+  (mkprocBodyDeclRT 37
     (* = = = Procedure Name = = = *)
     ((*Pop*) 2)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 38 ((*X*) 12) Integer Out) :: nil)
+    (mkparamSpecRT 38 ((*X*) 12) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration_X)
+    (NullDeclRT)
     (* = = = Procedure Body = = = *)
-      (S_Sequence_X 39
-      (S_Assignment_X 40 (E_Identifier_X 41 ((*X*) 12) (nil)) (E_Name_X 42 (E_Indexed_Component_X 43 (E_Identifier_X 44 ((*S*) 7) (nil)) (E_Name_X 45 (E_Identifier_X 46 ((*Pointer*) 8) (Do_Range_Check :: nil))) (nil)))) 
-      (S_Assignment_X 47 (E_Identifier_X 48 ((*Pointer*) 8) (nil)) (E_Binary_Operation_X 49 Minus (E_Name_X 50 (E_Identifier_X 51 ((*Pointer*) 8) (nil))) (E_Literal_X 52 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil)))
+      (SeqRT 39
+      (AssignRT 40 (IdentifierRT 41 ((*X*) 12) (nil)) (NameRT 42 (IndexedComponentRT 43 (IdentifierRT 44 ((*S*) 7) (nil)) (NameRT 45 (IdentifierRT 46 ((*Pointer*) 8) (RangeCheck :: nil))) (nil)))) 
+      (AssignRT 47 (IdentifierRT 48 ((*Pointer*) 8) (nil)) (BinOpRT 49 Minus (NameRT 50 (IdentifierRT 51 ((*Pointer*) 8) (nil))) (LiteralRT 52 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil)))
   )
-)))))))).
+))))))))
+(* = = = main procedure = = = *)
+1
+).
 
-Definition Symbol_Table_X := 
-(mkSymbolTable_x
+Definition Symbol_TableRT := 
+(Symbol_Table_Module_RT.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -173,35 +185,35 @@ Definition Symbol_Table_X :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Push*) 1), (0, (mkprocedure_body_x 20
+  ((((*Push*) 1), (0, (mkprocBodyDeclRT 20
   (* = = = Procedure Name = = = *)
   ((*Push*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 21 ((*X*) 9) Integer In) :: nil)
+  (mkparamSpecRT 21 ((*X*) 9) Integer In) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration_X)
+  (NullDeclRT)
   (* = = = Procedure Body = = = *)
-    (S_Sequence_X 22
-    (S_Assignment_X 23 (E_Identifier_X 24 ((*Pointer*) 8) (nil)) (E_Binary_Operation_X 25 Plus (E_Name_X 26 (E_Identifier_X 27 ((*Pointer*) 8) (nil))) (E_Literal_X 28 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil)) 
-    (S_Assignment_X 29 (E_Indexed_Component_X 30 (E_Identifier_X 31 ((*S*) 7) (nil)) (E_Name_X 32 (E_Identifier_X 33 ((*Pointer*) 8) (Do_Range_Check :: nil))) (nil)) (E_Name_X 34 (E_Identifier_X 35 ((*X*) 9) (nil)))))
-))) :: (((*Pop*) 2), (0, (mkprocedure_body_x 37
+    (SeqRT 22
+    (AssignRT 23 (IdentifierRT 24 ((*Pointer*) 8) (nil)) (BinOpRT 25 Plus (NameRT 26 (IdentifierRT 27 ((*Pointer*) 8) (nil))) (LiteralRT 28 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil)) 
+    (AssignRT 29 (IndexedComponentRT 30 (IdentifierRT 31 ((*S*) 7) (nil)) (NameRT 32 (IdentifierRT 33 ((*Pointer*) 8) (RangeCheck :: nil))) (nil)) (NameRT 34 (IdentifierRT 35 ((*X*) 9) (nil)))))
+))) :: (((*Pop*) 2), (0, (mkprocBodyDeclRT 37
   (* = = = Procedure Name = = = *)
   ((*Pop*) 2)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 38 ((*X*) 12) Integer Out) :: nil)
+  (mkparamSpecRT 38 ((*X*) 12) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration_X)
+  (NullDeclRT)
   (* = = = Procedure Body = = = *)
-    (S_Sequence_X 39
-    (S_Assignment_X 40 (E_Identifier_X 41 ((*X*) 12) (nil)) (E_Name_X 42 (E_Indexed_Component_X 43 (E_Identifier_X 44 ((*S*) 7) (nil)) (E_Name_X 45 (E_Identifier_X 46 ((*Pointer*) 8) (Do_Range_Check :: nil))) (nil)))) 
-    (S_Assignment_X 47 (E_Identifier_X 48 ((*Pointer*) 8) (nil)) (E_Binary_Operation_X 49 Minus (E_Name_X 50 (E_Identifier_X 51 ((*Pointer*) 8) (nil))) (E_Literal_X 52 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil)))
+    (SeqRT 39
+    (AssignRT 40 (IdentifierRT 41 ((*X*) 12) (nil)) (NameRT 42 (IndexedComponentRT 43 (IdentifierRT 44 ((*S*) 7) (nil)) (NameRT 45 (IdentifierRT 46 ((*Pointer*) 8) (RangeCheck :: nil))) (nil)))) 
+    (AssignRT 47 (IdentifierRT 48 ((*Pointer*) 8) (nil)) (BinOpRT 49 Minus (NameRT 50 (IdentifierRT 51 ((*Pointer*) 8) (nil))) (LiteralRT 52 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil)))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*Index_Range*) 5), (Subtype_Declaration_X 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (Range_X 1 100))) :: (((*Pointer_Range*) 4), (Integer_Type_Declaration_X 5 ((*Pointer_Range*) 4) (Range_X 0 100))) :: (((*Vector*) 6), (Array_Type_Declaration_X 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) :: nil)
+  ((((*Index_Range*) 5), (SubtypeDeclRT 8 ((*Index_Range*) 5) (Integer_Type ((*Pointer_Range*) 4)) (RangeRT 1 100))) :: (((*Pointer_Range*) 4), (IntegerTypeDeclRT 5 ((*Pointer_Range*) 4) (RangeRT 0 100))) :: (((*Vector*) 6), (ArrayTypeDeclRT 11 ((*Vector*) 6) ((*index subtype mark*) (Subtype ((*Index_Range*) 5))) ((*component type*) Integer))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)

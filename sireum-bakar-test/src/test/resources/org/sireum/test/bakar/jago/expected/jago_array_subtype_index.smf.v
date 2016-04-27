@@ -3,30 +3,36 @@ Require Import symboltable.
 Open Scope string_scope.
 
 Definition Coq_AST_Tree := 
-(D_Procedure_Body 1 
-  (mkprocedure_body 2
+
+(mkprogram
+(* = = = declarations = = = *)
+(ProcBodyDecl 1 
+  (mkprocBodyDecl 2
     (* = = = Procedure Name = = = *)
     ((*Array_Subtype_Index*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 3 ((*I*) 2) Integer In_Out) :: nil)
+    (mkparamSpec 3 ((*I*) 2) Integer In_Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Seq_Declaration 4
-  (D_Type_Declaration 5 (Integer_Type_Declaration 6 ((*T*) 3) (Range 0 10))) 
-  (D_Seq_Declaration 7
-  (D_Type_Declaration 8 (Subtype_Declaration 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range 1 10))) 
-  (D_Seq_Declaration 10
-  (D_Type_Declaration 11 (Array_Type_Declaration 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
-  (D_Object_Declaration 13 (mkobject_declaration 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
+    ((SeqDecl 4
+  (TypeDecl 5 (IntegerTypeDecl 6 ((*T*) 3) (Range 0 10))) 
+  (SeqDecl 7
+  (TypeDecl 8 (SubtypeDecl 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range 1 10))) 
+  (SeqDecl 10
+  (TypeDecl 11 (ArrayTypeDecl 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
+  (ObjDecl 13 (mkobjDecl 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
     (* = = = Procedure Body = = = *)
-      (S_Sequence 15
-      (S_Assignment 16 (E_Indexed_Component 17 (E_Identifier 18 ((*A*) 6) ) (E_Literal 19 (Integer_Literal 0) ) ) (E_Literal 20 (Integer_Literal 0) )) 
-      (S_Assignment 21 (E_Identifier 22 ((*I*) 2) ) (E_Binary_Operation 23 Plus (E_Name 24 (E_Identifier 25 ((*I*) 2) )) (E_Literal 26 (Integer_Literal 1) ) )))
+      (Seq 15
+      (Assign 16 (IndexedComponent 17 (Identifier 18 ((*A*) 6) ) (Literal 19 (Integer_Literal 0) ) ) (Literal 20 (Integer_Literal 0) )) 
+      (Assign 21 (Identifier 22 ((*I*) 2) ) (BinOp 23 Plus (Name 24 (Identifier 25 ((*I*) 2) )) (Literal 26 (Integer_Literal 1) ) )))
   )
+)
+(* = = = main procedure = = = *)
+1
 ).
 
 Definition Symbol_Table := 
-(mkSymbolTable
+(Symbol_Table_Module.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -34,29 +40,29 @@ Definition Symbol_Table :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Array_Subtype_Index*) 1), (0, (mkprocedure_body 2
+  ((((*Array_Subtype_Index*) 1), (0, (mkprocBodyDecl 2
   (* = = = Procedure Name = = = *)
   ((*Array_Subtype_Index*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 3 ((*I*) 2) Integer In_Out) :: nil)
+  (mkparamSpec 3 ((*I*) 2) Integer In_Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Seq_Declaration 4
-(D_Type_Declaration 5 (Integer_Type_Declaration 6 ((*T*) 3) (Range 0 10))) 
-(D_Seq_Declaration 7
-(D_Type_Declaration 8 (Subtype_Declaration 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range 1 10))) 
-(D_Seq_Declaration 10
-(D_Type_Declaration 11 (Array_Type_Declaration 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
-(D_Object_Declaration 13 (mkobject_declaration 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
+  ((SeqDecl 4
+(TypeDecl 5 (IntegerTypeDecl 6 ((*T*) 3) (Range 0 10))) 
+(SeqDecl 7
+(TypeDecl 8 (SubtypeDecl 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range 1 10))) 
+(SeqDecl 10
+(TypeDecl 11 (ArrayTypeDecl 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
+(ObjDecl 13 (mkobjDecl 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
   (* = = = Procedure Body = = = *)
-    (S_Sequence 15
-    (S_Assignment 16 (E_Indexed_Component 17 (E_Identifier 18 ((*A*) 6) ) (E_Literal 19 (Integer_Literal 0) ) ) (E_Literal 20 (Integer_Literal 0) )) 
-    (S_Assignment 21 (E_Identifier 22 ((*I*) 2) ) (E_Binary_Operation 23 Plus (E_Name 24 (E_Identifier 25 ((*I*) 2) )) (E_Literal 26 (Integer_Literal 1) ) )))
+    (Seq 15
+    (Assign 16 (IndexedComponent 17 (Identifier 18 ((*A*) 6) ) (Literal 19 (Integer_Literal 0) ) ) (Literal 20 (Integer_Literal 0) )) 
+    (Assign 21 (Identifier 22 ((*I*) 2) ) (BinOp 23 Plus (Name 24 (Identifier 25 ((*I*) 2) )) (Literal 26 (Integer_Literal 1) ) )))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*Ar*) 5), (Array_Type_Declaration 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) :: (((*U*) 4), (Subtype_Declaration 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range 1 10))) :: (((*T*) 3), (Integer_Type_Declaration 6 ((*T*) 3) (Range 0 10))) :: nil)
+  ((((*Ar*) 5), (ArrayTypeDecl 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) :: (((*U*) 4), (SubtypeDecl 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range 1 10))) :: (((*T*) 3), (IntegerTypeDecl 6 ((*T*) 3) (Range 0 10))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
@@ -87,31 +93,37 @@ Definition Symbol_Table :=
 ))
 ).
 
-Definition Coq_AST_Tree_X := 
-(D_Procedure_Body_X 1 
-  (mkprocedure_body_x 2
+Definition Coq_AST_TreeRT := 
+
+(mkprogramRT
+(* = = = declarations = = = *)
+(ProcBodyDeclRT 1 
+  (mkprocBodyDeclRT 2
     (* = = = Procedure Name = = = *)
     ((*Array_Subtype_Index*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 3 ((*I*) 2) Integer In_Out) :: nil)
+    (mkparamSpecRT 3 ((*I*) 2) Integer In_Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Seq_Declaration_X 4
-  (D_Type_Declaration_X 5 (Integer_Type_Declaration_X 6 ((*T*) 3) (Range_X 0 10))) 
-  (D_Seq_Declaration_X 7
-  (D_Type_Declaration_X 8 (Subtype_Declaration_X 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range_X 1 10))) 
-  (D_Seq_Declaration_X 10
-  (D_Type_Declaration_X 11 (Array_Type_Declaration_X 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
-  (D_Object_Declaration_X 13 (mkobject_declaration_x 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
+    ((SeqDeclRT 4
+  (TypeDeclRT 5 (IntegerTypeDeclRT 6 ((*T*) 3) (RangeRT 0 10))) 
+  (SeqDeclRT 7
+  (TypeDeclRT 8 (SubtypeDeclRT 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (RangeRT 1 10))) 
+  (SeqDeclRT 10
+  (TypeDeclRT 11 (ArrayTypeDeclRT 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
+  (ObjDeclRT 13 (mkobjDeclRT 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
     (* = = = Procedure Body = = = *)
-      (S_Sequence_X 15
-      (S_Assignment_X 16 (E_Indexed_Component_X 17 (E_Identifier_X 18 ((*A*) 6) (nil)) (E_Literal_X 19 (Integer_Literal 0) (nil) nil) (nil)) (E_Literal_X 20 (Integer_Literal 0) (nil) nil)) 
-      (S_Assignment_X 21 (E_Identifier_X 22 ((*I*) 2) (nil)) (E_Binary_Operation_X 23 Plus (E_Name_X 24 (E_Identifier_X 25 ((*I*) 2) (nil))) (E_Literal_X 26 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil)))
+      (SeqRT 15
+      (AssignRT 16 (IndexedComponentRT 17 (IdentifierRT 18 ((*A*) 6) (nil)) (LiteralRT 19 (Integer_Literal 0) (nil) nil) (nil)) (LiteralRT 20 (Integer_Literal 0) (nil) nil)) 
+      (AssignRT 21 (IdentifierRT 22 ((*I*) 2) (nil)) (BinOpRT 23 Plus (NameRT 24 (IdentifierRT 25 ((*I*) 2) (nil))) (LiteralRT 26 (Integer_Literal 1) (nil) nil) (OverflowCheck :: nil) nil)))
   )
+)
+(* = = = main procedure = = = *)
+1
 ).
 
-Definition Symbol_Table_X := 
-(mkSymbolTable_x
+Definition Symbol_TableRT := 
+(Symbol_Table_Module_RT.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -119,29 +131,29 @@ Definition Symbol_Table_X :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Array_Subtype_Index*) 1), (0, (mkprocedure_body_x 2
+  ((((*Array_Subtype_Index*) 1), (0, (mkprocBodyDeclRT 2
   (* = = = Procedure Name = = = *)
   ((*Array_Subtype_Index*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 3 ((*I*) 2) Integer In_Out) :: nil)
+  (mkparamSpecRT 3 ((*I*) 2) Integer In_Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Seq_Declaration_X 4
-(D_Type_Declaration_X 5 (Integer_Type_Declaration_X 6 ((*T*) 3) (Range_X 0 10))) 
-(D_Seq_Declaration_X 7
-(D_Type_Declaration_X 8 (Subtype_Declaration_X 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range_X 1 10))) 
-(D_Seq_Declaration_X 10
-(D_Type_Declaration_X 11 (Array_Type_Declaration_X 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
-(D_Object_Declaration_X 13 (mkobject_declaration_x 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
+  ((SeqDeclRT 4
+(TypeDeclRT 5 (IntegerTypeDeclRT 6 ((*T*) 3) (RangeRT 0 10))) 
+(SeqDeclRT 7
+(TypeDeclRT 8 (SubtypeDeclRT 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (RangeRT 1 10))) 
+(SeqDeclRT 10
+(TypeDeclRT 11 (ArrayTypeDeclRT 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) 
+(ObjDeclRT 13 (mkobjDeclRT 14 ((*A*) 6) (Array_Type ((*Ar*) 5)) None))))))
   (* = = = Procedure Body = = = *)
-    (S_Sequence_X 15
-    (S_Assignment_X 16 (E_Indexed_Component_X 17 (E_Identifier_X 18 ((*A*) 6) (nil)) (E_Literal_X 19 (Integer_Literal 0) (nil) nil) (nil)) (E_Literal_X 20 (Integer_Literal 0) (nil) nil)) 
-    (S_Assignment_X 21 (E_Identifier_X 22 ((*I*) 2) (nil)) (E_Binary_Operation_X 23 Plus (E_Name_X 24 (E_Identifier_X 25 ((*I*) 2) (nil))) (E_Literal_X 26 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil)))
+    (SeqRT 15
+    (AssignRT 16 (IndexedComponentRT 17 (IdentifierRT 18 ((*A*) 6) (nil)) (LiteralRT 19 (Integer_Literal 0) (nil) nil) (nil)) (LiteralRT 20 (Integer_Literal 0) (nil) nil)) 
+    (AssignRT 21 (IdentifierRT 22 ((*I*) 2) (nil)) (BinOpRT 23 Plus (NameRT 24 (IdentifierRT 25 ((*I*) 2) (nil))) (LiteralRT 26 (Integer_Literal 1) (nil) nil) (OverflowCheck :: nil) nil)))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*Ar*) 5), (Array_Type_Declaration_X 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) :: (((*U*) 4), (Subtype_Declaration_X 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (Range_X 1 10))) :: (((*T*) 3), (Integer_Type_Declaration_X 6 ((*T*) 3) (Range_X 0 10))) :: nil)
+  ((((*Ar*) 5), (ArrayTypeDeclRT 12 ((*Ar*) 5) ((*index subtype mark*) (Subtype ((*U*) 4))) ((*component type*) Integer))) :: (((*U*) 4), (SubtypeDeclRT 9 ((*U*) 4) (Integer_Type ((*T*) 3)) (RangeRT 1 10))) :: (((*T*) 3), (IntegerTypeDeclRT 6 ((*T*) 3) (RangeRT 0 10))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)

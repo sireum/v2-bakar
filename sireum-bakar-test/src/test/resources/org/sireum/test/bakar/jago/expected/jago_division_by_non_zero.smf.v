@@ -3,42 +3,48 @@ Require Import symboltable.
 Open Scope string_scope.
 
 Definition Coq_AST_Tree := 
-(D_Procedure_Body 1 
-  (mkprocedure_body 2
+
+(mkprogram
+(* = = = declarations = = = *)
+(ProcBodyDecl 1 
+  (mkprocBodyDecl 2
     (* = = = Procedure Name = = = *)
     ((*Division_By_Non_Zero*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 3 ((*X*) 2) Integer In_Out) :: nil)
+    (mkparamSpec 3 ((*X*) 2) Integer In_Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Seq_Declaration 4
-  (D_Type_Declaration 5 (Subtype_Declaration 6 ((*T1*) 3) Integer (Range 0 10))) 
-  (D_Seq_Declaration 7
-  (D_Procedure_Body 8 
-    (mkprocedure_body 9
+    ((SeqDecl 4
+  (TypeDecl 5 (SubtypeDecl 6 ((*T1*) 3) Integer (Range 0 10))) 
+  (SeqDecl 7
+  (ProcBodyDecl 8 
+    (mkprocBodyDecl 9
       (* = = = Procedure Name = = = *)
       ((*Divide*) 4)
       (* = = = Formal Parameters = = = *)
       (
-      (mkparameter_specification 10 ((*X*) 5) Integer In) :: 
-      (mkparameter_specification 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
-      (mkparameter_specification 12 ((*Z*) 7) Integer Out) :: nil)
+      (mkparamSpec 10 ((*X*) 5) Integer In) :: 
+      (mkparamSpec 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
+      (mkparamSpec 12 ((*Z*) 7) Integer Out) :: nil)
       (* = = = Object Declarations = = = *)
-      (D_Null_Declaration)
+      (NullDecl)
       (* = = = Procedure Body = = = *)
-        (S_Assignment 13 (E_Identifier 14 ((*Z*) 7) ) (E_Binary_Operation 15 Divide (E_Name 16 (E_Identifier 17 ((*X*) 5) )) (E_Binary_Operation 18 Plus (E_Name 19 (E_Identifier 20 ((*Y*) 6) )) (E_Literal 21 (Integer_Literal 1) ) ) ))
+        (Assign 13 (Identifier 14 ((*Z*) 7) ) (BinOp 15 Divide (Name 16 (Identifier 17 ((*X*) 5) )) (BinOp 18 Plus (Name 19 (Identifier 20 ((*Y*) 6) )) (Literal 21 (Integer_Literal 1) ) ) ))
     )
   ) 
-  (D_Object_Declaration 22 (mkobject_declaration 23 ((*Result*) 10) Integer None)))))
+  (ObjDecl 22 (mkobjDecl 23 ((*Result*) 10) Integer None)))))
     (* = = = Procedure Body = = = *)
-      (S_Procedure_Call 24 25 ((*Divide*) 4) 
-        ((E_Name 26 (E_Identifier 27 ((*X*) 2) )) :: (E_Literal 28 (Integer_Literal 8) ) :: (E_Name 29 (E_Identifier 30 ((*Result*) 10) )) :: nil)
+      (Call 24 25 ((*Divide*) 4) 
+        ((Name 26 (Identifier 27 ((*X*) 2) )) :: (Literal 28 (Integer_Literal 8) ) :: (Name 29 (Identifier 30 ((*Result*) 10) )) :: nil)
       )
   )
+)
+(* = = = main procedure = = = *)
+1
 ).
 
 Definition Symbol_Table := 
-(mkSymbolTable
+(Symbol_Table_Module.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -46,53 +52,53 @@ Definition Symbol_Table :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Division_By_Non_Zero*) 1), (0, (mkprocedure_body 2
+  ((((*Division_By_Non_Zero*) 1), (0, (mkprocBodyDecl 2
   (* = = = Procedure Name = = = *)
   ((*Division_By_Non_Zero*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 3 ((*X*) 2) Integer In_Out) :: nil)
+  (mkparamSpec 3 ((*X*) 2) Integer In_Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Seq_Declaration 4
-(D_Type_Declaration 5 (Subtype_Declaration 6 ((*T1*) 3) Integer (Range 0 10))) 
-(D_Seq_Declaration 7
-(D_Procedure_Body 8 
-  (mkprocedure_body 9
+  ((SeqDecl 4
+(TypeDecl 5 (SubtypeDecl 6 ((*T1*) 3) Integer (Range 0 10))) 
+(SeqDecl 7
+(ProcBodyDecl 8 
+  (mkprocBodyDecl 9
     (* = = = Procedure Name = = = *)
     ((*Divide*) 4)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 10 ((*X*) 5) Integer In) :: 
-    (mkparameter_specification 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
-    (mkparameter_specification 12 ((*Z*) 7) Integer Out) :: nil)
+    (mkparamSpec 10 ((*X*) 5) Integer In) :: 
+    (mkparamSpec 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
+    (mkparamSpec 12 ((*Z*) 7) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration)
+    (NullDecl)
     (* = = = Procedure Body = = = *)
-      (S_Assignment 13 (E_Identifier 14 ((*Z*) 7) ) (E_Binary_Operation 15 Divide (E_Name 16 (E_Identifier 17 ((*X*) 5) )) (E_Binary_Operation 18 Plus (E_Name 19 (E_Identifier 20 ((*Y*) 6) )) (E_Literal 21 (Integer_Literal 1) ) ) ))
+      (Assign 13 (Identifier 14 ((*Z*) 7) ) (BinOp 15 Divide (Name 16 (Identifier 17 ((*X*) 5) )) (BinOp 18 Plus (Name 19 (Identifier 20 ((*Y*) 6) )) (Literal 21 (Integer_Literal 1) ) ) ))
   )
 ) 
-(D_Object_Declaration 22 (mkobject_declaration 23 ((*Result*) 10) Integer None)))))
+(ObjDecl 22 (mkobjDecl 23 ((*Result*) 10) Integer None)))))
   (* = = = Procedure Body = = = *)
-    (S_Procedure_Call 24 25 ((*Divide*) 4) 
-      ((E_Name 26 (E_Identifier 27 ((*X*) 2) )) :: (E_Literal 28 (Integer_Literal 8) ) :: (E_Name 29 (E_Identifier 30 ((*Result*) 10) )) :: nil)
+    (Call 24 25 ((*Divide*) 4) 
+      ((Name 26 (Identifier 27 ((*X*) 2) )) :: (Literal 28 (Integer_Literal 8) ) :: (Name 29 (Identifier 30 ((*Result*) 10) )) :: nil)
     )
-))) :: (((*Divide*) 4), (1, (mkprocedure_body 9
+))) :: (((*Divide*) 4), (1, (mkprocBodyDecl 9
   (* = = = Procedure Name = = = *)
   ((*Divide*) 4)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 10 ((*X*) 5) Integer In) :: 
-  (mkparameter_specification 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
-  (mkparameter_specification 12 ((*Z*) 7) Integer Out) :: nil)
+  (mkparamSpec 10 ((*X*) 5) Integer In) :: 
+  (mkparamSpec 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
+  (mkparamSpec 12 ((*Z*) 7) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration)
+  (NullDecl)
   (* = = = Procedure Body = = = *)
-    (S_Assignment 13 (E_Identifier 14 ((*Z*) 7) ) (E_Binary_Operation 15 Divide (E_Name 16 (E_Identifier 17 ((*X*) 5) )) (E_Binary_Operation 18 Plus (E_Name 19 (E_Identifier 20 ((*Y*) 6) )) (E_Literal 21 (Integer_Literal 1) ) ) ))
+    (Assign 13 (Identifier 14 ((*Z*) 7) ) (BinOp 15 Divide (Name 16 (Identifier 17 ((*X*) 5) )) (BinOp 18 Plus (Name 19 (Identifier 20 ((*Y*) 6) )) (Literal 21 (Integer_Literal 1) ) ) ))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*T1*) 3), (Subtype_Declaration 6 ((*T1*) 3) Integer (Range 0 10))) :: nil)
+  ((((*T1*) 3), (SubtypeDecl 6 ((*T1*) 3) Integer (Range 0 10))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
@@ -123,43 +129,49 @@ Definition Symbol_Table :=
 ))
 ).
 
-Definition Coq_AST_Tree_X := 
-(D_Procedure_Body_X 1 
-  (mkprocedure_body_x 2
+Definition Coq_AST_TreeRT := 
+
+(mkprogramRT
+(* = = = declarations = = = *)
+(ProcBodyDeclRT 1 
+  (mkprocBodyDeclRT 2
     (* = = = Procedure Name = = = *)
     ((*Division_By_Non_Zero*) 1)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 3 ((*X*) 2) Integer In_Out) :: nil)
+    (mkparamSpecRT 3 ((*X*) 2) Integer In_Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Seq_Declaration_X 4
-  (D_Type_Declaration_X 5 (Subtype_Declaration_X 6 ((*T1*) 3) Integer (Range_X 0 10))) 
-  (D_Seq_Declaration_X 7
-  (D_Procedure_Body_X 8 
-    (mkprocedure_body_x 9
+    ((SeqDeclRT 4
+  (TypeDeclRT 5 (SubtypeDeclRT 6 ((*T1*) 3) Integer (RangeRT 0 10))) 
+  (SeqDeclRT 7
+  (ProcBodyDeclRT 8 
+    (mkprocBodyDeclRT 9
       (* = = = Procedure Name = = = *)
       ((*Divide*) 4)
       (* = = = Formal Parameters = = = *)
       (
-      (mkparameter_specification_x 10 ((*X*) 5) Integer In) :: 
-      (mkparameter_specification_x 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
-      (mkparameter_specification_x 12 ((*Z*) 7) Integer Out) :: nil)
+      (mkparamSpecRT 10 ((*X*) 5) Integer In) :: 
+      (mkparamSpecRT 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
+      (mkparamSpecRT 12 ((*Z*) 7) Integer Out) :: nil)
       (* = = = Object Declarations = = = *)
-      (D_Null_Declaration_X)
+      (NullDeclRT)
       (* = = = Procedure Body = = = *)
-        (S_Assignment_X 13 (E_Identifier_X 14 ((*Z*) 7) (nil)) (E_Binary_Operation_X 15 Divide (E_Name_X 16 (E_Identifier_X 17 ((*X*) 5) (nil))) (E_Binary_Operation_X 18 Plus (E_Name_X 19 (E_Identifier_X 20 ((*Y*) 6) (nil))) (E_Literal_X 21 (Integer_Literal 1) (nil) nil) (nil) nil) (Do_Division_Check :: nil) nil))
+        (AssignRT 13 (IdentifierRT 14 ((*Z*) 7) (nil)) (BinOpRT 15 Divide (NameRT 16 (IdentifierRT 17 ((*X*) 5) (nil))) (BinOpRT 18 Plus (NameRT 19 (IdentifierRT 20 ((*Y*) 6) (nil))) (LiteralRT 21 (Integer_Literal 1) (nil) nil) (nil) nil) (DivCheck :: nil) nil))
     )
   ) 
-  (D_Object_Declaration_X 22 (mkobject_declaration_x 23 ((*Result*) 10) Integer None)))))
+  (ObjDeclRT 22 (mkobjDeclRT 23 ((*Result*) 10) Integer None)))))
     (* = = = Procedure Body = = = *)
-      (S_Procedure_Call_X 24 25 ((*Divide*) 4) 
-        ((E_Name_X 26 (E_Identifier_X 27 ((*X*) 2) (nil))) :: (E_Literal_X 28 (Integer_Literal 8) (nil) nil) :: (E_Name_X 29 (E_Identifier_X 30 ((*Result*) 10) (nil))) :: nil)
+      (CallRT 24 25 ((*Divide*) 4) 
+        ((NameRT 26 (IdentifierRT 27 ((*X*) 2) (nil))) :: (LiteralRT 28 (Integer_Literal 8) (nil) nil) :: (NameRT 29 (IdentifierRT 30 ((*Result*) 10) (nil))) :: nil)
       )
   )
+)
+(* = = = main procedure = = = *)
+1
 ).
 
-Definition Symbol_Table_X := 
-(mkSymbolTable_x
+Definition Symbol_TableRT := 
+(Symbol_Table_Module_RT.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -167,53 +179,53 @@ Definition Symbol_Table_X :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Division_By_Non_Zero*) 1), (0, (mkprocedure_body_x 2
+  ((((*Division_By_Non_Zero*) 1), (0, (mkprocBodyDeclRT 2
   (* = = = Procedure Name = = = *)
   ((*Division_By_Non_Zero*) 1)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 3 ((*X*) 2) Integer In_Out) :: nil)
+  (mkparamSpecRT 3 ((*X*) 2) Integer In_Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Seq_Declaration_X 4
-(D_Type_Declaration_X 5 (Subtype_Declaration_X 6 ((*T1*) 3) Integer (Range_X 0 10))) 
-(D_Seq_Declaration_X 7
-(D_Procedure_Body_X 8 
-  (mkprocedure_body_x 9
+  ((SeqDeclRT 4
+(TypeDeclRT 5 (SubtypeDeclRT 6 ((*T1*) 3) Integer (RangeRT 0 10))) 
+(SeqDeclRT 7
+(ProcBodyDeclRT 8 
+  (mkprocBodyDeclRT 9
     (* = = = Procedure Name = = = *)
     ((*Divide*) 4)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 10 ((*X*) 5) Integer In) :: 
-    (mkparameter_specification_x 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
-    (mkparameter_specification_x 12 ((*Z*) 7) Integer Out) :: nil)
+    (mkparamSpecRT 10 ((*X*) 5) Integer In) :: 
+    (mkparamSpecRT 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
+    (mkparamSpecRT 12 ((*Z*) 7) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration_X)
+    (NullDeclRT)
     (* = = = Procedure Body = = = *)
-      (S_Assignment_X 13 (E_Identifier_X 14 ((*Z*) 7) (nil)) (E_Binary_Operation_X 15 Divide (E_Name_X 16 (E_Identifier_X 17 ((*X*) 5) (nil))) (E_Binary_Operation_X 18 Plus (E_Name_X 19 (E_Identifier_X 20 ((*Y*) 6) (nil))) (E_Literal_X 21 (Integer_Literal 1) (nil) nil) (nil) nil) (Do_Division_Check :: nil) nil))
+      (AssignRT 13 (IdentifierRT 14 ((*Z*) 7) (nil)) (BinOpRT 15 Divide (NameRT 16 (IdentifierRT 17 ((*X*) 5) (nil))) (BinOpRT 18 Plus (NameRT 19 (IdentifierRT 20 ((*Y*) 6) (nil))) (LiteralRT 21 (Integer_Literal 1) (nil) nil) (nil) nil) (DivCheck :: nil) nil))
   )
 ) 
-(D_Object_Declaration_X 22 (mkobject_declaration_x 23 ((*Result*) 10) Integer None)))))
+(ObjDeclRT 22 (mkobjDeclRT 23 ((*Result*) 10) Integer None)))))
   (* = = = Procedure Body = = = *)
-    (S_Procedure_Call_X 24 25 ((*Divide*) 4) 
-      ((E_Name_X 26 (E_Identifier_X 27 ((*X*) 2) (nil))) :: (E_Literal_X 28 (Integer_Literal 8) (nil) nil) :: (E_Name_X 29 (E_Identifier_X 30 ((*Result*) 10) (nil))) :: nil)
+    (CallRT 24 25 ((*Divide*) 4) 
+      ((NameRT 26 (IdentifierRT 27 ((*X*) 2) (nil))) :: (LiteralRT 28 (Integer_Literal 8) (nil) nil) :: (NameRT 29 (IdentifierRT 30 ((*Result*) 10) (nil))) :: nil)
     )
-))) :: (((*Divide*) 4), (1, (mkprocedure_body_x 9
+))) :: (((*Divide*) 4), (1, (mkprocBodyDeclRT 9
   (* = = = Procedure Name = = = *)
   ((*Divide*) 4)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 10 ((*X*) 5) Integer In) :: 
-  (mkparameter_specification_x 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
-  (mkparameter_specification_x 12 ((*Z*) 7) Integer Out) :: nil)
+  (mkparamSpecRT 10 ((*X*) 5) Integer In) :: 
+  (mkparamSpecRT 11 ((*Y*) 6) (Subtype ((*T1*) 3)) In) :: 
+  (mkparamSpecRT 12 ((*Z*) 7) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration_X)
+  (NullDeclRT)
   (* = = = Procedure Body = = = *)
-    (S_Assignment_X 13 (E_Identifier_X 14 ((*Z*) 7) (nil)) (E_Binary_Operation_X 15 Divide (E_Name_X 16 (E_Identifier_X 17 ((*X*) 5) (nil))) (E_Binary_Operation_X 18 Plus (E_Name_X 19 (E_Identifier_X 20 ((*Y*) 6) (nil))) (E_Literal_X 21 (Integer_Literal 1) (nil) nil) (nil) nil) (Do_Division_Check :: nil) nil))
+    (AssignRT 13 (IdentifierRT 14 ((*Z*) 7) (nil)) (BinOpRT 15 Divide (NameRT 16 (IdentifierRT 17 ((*X*) 5) (nil))) (BinOpRT 18 Plus (NameRT 19 (IdentifierRT 20 ((*Y*) 6) (nil))) (LiteralRT 21 (Integer_Literal 1) (nil) nil) (nil) nil) (DivCheck :: nil) nil))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*T1*) 3), (Subtype_Declaration_X 6 ((*T1*) 3) Integer (Range_X 0 10))) :: nil)
+  ((((*T1*) 3), (SubtypeDeclRT 6 ((*T1*) 3) Integer (RangeRT 0 10))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)

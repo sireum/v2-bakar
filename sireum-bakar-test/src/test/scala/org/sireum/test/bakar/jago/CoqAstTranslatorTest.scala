@@ -41,7 +41,7 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
     else msetEmpty + ".*"
   }
   
-  //  register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago_test", true))
+  // register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago_test", true))
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
   override def pre(c : Configuration) : Boolean = {
@@ -73,7 +73,7 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
         false,
         BakarProgramTranslatorModule))
 
-  override def generateExpected = false
+  override def generateExpected = false 
   override def outputSuffix = "v"
 
   override def writeTestString(job : PipelineJob, w : Writer) = {

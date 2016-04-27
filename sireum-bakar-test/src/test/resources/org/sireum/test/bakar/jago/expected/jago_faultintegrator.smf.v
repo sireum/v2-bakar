@@ -3,39 +3,45 @@ Require Import symboltable.
 Open Scope string_scope.
 
 Definition Coq_AST_Tree := 
-(D_Seq_Declaration 1
-(D_Seq_Declaration 2
-(D_Type_Declaration 3 (Record_Type_Declaration 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) 
-D_Null_Declaration (* Undefined Declarations ! *)) 
-(D_Procedure_Body 6 
-  (mkprocedure_body 7
+
+(mkprogram
+(* = = = declarations = = = *)
+(SeqDecl 1
+(SeqDecl 2
+(TypeDecl 3 (RecordTypeDecl 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) 
+NullDecl (* Undefined Declarations ! *)) 
+(ProcBodyDecl 6 
+  (mkprocBodyDecl 7
     (* = = = Procedure Name = = = *)
     ((*Test*) 5)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
-    (mkparameter_specification 9 ((*CurrentEvent*) 8) Boolean In) :: 
-    (mkparameter_specification 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
+    (mkparamSpec 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
+    (mkparamSpec 9 ((*CurrentEvent*) 8) Boolean In) :: 
+    (mkparamSpec 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration)
+    (NullDecl)
     (* = = = Procedure Body = = = *)
-      (S_Sequence 11
-      (S_If 12 (E_Name 13 (E_Identifier 14 ((*CurrentEvent*) 8) ))
-        (S_If 15 (E_Binary_Operation 16 Equal (E_Name 17 (E_Selected_Component 18 (E_Identifier 19 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Name 21 (E_Selected_Component 22 (E_Identifier 23 ((*FI*) 7) ) ((*Limit*) 2) )) )
-          (S_Assignment 25 (E_Selected_Component 26 (E_Identifier 27 ((*FI*) 7) ) ((*Tripped*) 4) ) (E_Literal 29 (Boolean_Literal true) ))
-          (S_Assignment 30 (E_Selected_Component 31 (E_Identifier 32 ((*FI*) 7) ) ((*Counter*) 3) ) (E_Binary_Operation 34 Plus (E_Name 35 (E_Selected_Component 36 (E_Identifier 37 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Literal 39 (Integer_Literal 1) ) ))
+      (Seq 11
+      (If 12 (Name 13 (Identifier 14 ((*CurrentEvent*) 8) ))
+        (If 15 (BinOp 16 Equal (Name 17 (SelectedComponent 18 (Identifier 19 ((*FI*) 7) ) ((*Counter*) 3) )) (Name 21 (SelectedComponent 22 (Identifier 23 ((*FI*) 7) ) ((*Limit*) 2) )) )
+          (Assign 25 (SelectedComponent 26 (Identifier 27 ((*FI*) 7) ) ((*Tripped*) 4) ) (Literal 29 (Boolean_Literal true) ))
+          (Assign 30 (SelectedComponent 31 (Identifier 32 ((*FI*) 7) ) ((*Counter*) 3) ) (BinOp 34 Plus (Name 35 (SelectedComponent 36 (Identifier 37 ((*FI*) 7) ) ((*Counter*) 3) )) (Literal 39 (Integer_Literal 1) ) ))
         )
-        (S_If 40 (E_Binary_Operation 41 Equal (E_Name 42 (E_Selected_Component 43 (E_Identifier 44 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Literal 46 (Integer_Literal 0) ) )
-          (S_Assignment 47 (E_Selected_Component 48 (E_Identifier 49 ((*FI*) 7) ) ((*Tripped*) 4) ) (E_Literal 51 (Boolean_Literal false) ))
-          (S_Assignment 52 (E_Selected_Component 53 (E_Identifier 54 ((*FI*) 7) ) ((*Counter*) 3) ) (E_Binary_Operation 56 Minus (E_Name 57 (E_Selected_Component 58 (E_Identifier 59 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Literal 61 (Integer_Literal 1) ) ))
+        (If 40 (BinOp 41 Equal (Name 42 (SelectedComponent 43 (Identifier 44 ((*FI*) 7) ) ((*Counter*) 3) )) (Literal 46 (Integer_Literal 0) ) )
+          (Assign 47 (SelectedComponent 48 (Identifier 49 ((*FI*) 7) ) ((*Tripped*) 4) ) (Literal 51 (Boolean_Literal false) ))
+          (Assign 52 (SelectedComponent 53 (Identifier 54 ((*FI*) 7) ) ((*Counter*) 3) ) (BinOp 56 Minus (Name 57 (SelectedComponent 58 (Identifier 59 ((*FI*) 7) ) ((*Counter*) 3) )) (Literal 61 (Integer_Literal 1) ) ))
         )
       ) 
-      (S_Assignment 62 (E_Identifier 63 ((*IntegratedEvent*) 9) ) (E_Name 64 (E_Selected_Component 65 (E_Identifier 66 ((*FI*) 7) ) ((*Tripped*) 4) ))))
+      (Assign 62 (Identifier 63 ((*IntegratedEvent*) 9) ) (Name 64 (SelectedComponent 65 (Identifier 66 ((*FI*) 7) ) ((*Tripped*) 4) ))))
   )
-)).
+))
+(* = = = main procedure = = = *)
+1
+).
 
 Definition Symbol_Table := 
-(mkSymbolTable
+(Symbol_Table_Module.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -43,34 +49,34 @@ Definition Symbol_Table :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Test*) 5), (0, (mkprocedure_body 7
+  ((((*Test*) 5), (0, (mkprocBodyDecl 7
   (* = = = Procedure Name = = = *)
   ((*Test*) 5)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
-  (mkparameter_specification 9 ((*CurrentEvent*) 8) Boolean In) :: 
-  (mkparameter_specification 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
+  (mkparamSpec 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
+  (mkparamSpec 9 ((*CurrentEvent*) 8) Boolean In) :: 
+  (mkparamSpec 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration)
+  (NullDecl)
   (* = = = Procedure Body = = = *)
-    (S_Sequence 11
-    (S_If 12 (E_Name 13 (E_Identifier 14 ((*CurrentEvent*) 8) ))
-      (S_If 15 (E_Binary_Operation 16 Equal (E_Name 17 (E_Selected_Component 18 (E_Identifier 19 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Name 21 (E_Selected_Component 22 (E_Identifier 23 ((*FI*) 7) ) ((*Limit*) 2) )) )
-        (S_Assignment 25 (E_Selected_Component 26 (E_Identifier 27 ((*FI*) 7) ) ((*Tripped*) 4) ) (E_Literal 29 (Boolean_Literal true) ))
-        (S_Assignment 30 (E_Selected_Component 31 (E_Identifier 32 ((*FI*) 7) ) ((*Counter*) 3) ) (E_Binary_Operation 34 Plus (E_Name 35 (E_Selected_Component 36 (E_Identifier 37 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Literal 39 (Integer_Literal 1) ) ))
+    (Seq 11
+    (If 12 (Name 13 (Identifier 14 ((*CurrentEvent*) 8) ))
+      (If 15 (BinOp 16 Equal (Name 17 (SelectedComponent 18 (Identifier 19 ((*FI*) 7) ) ((*Counter*) 3) )) (Name 21 (SelectedComponent 22 (Identifier 23 ((*FI*) 7) ) ((*Limit*) 2) )) )
+        (Assign 25 (SelectedComponent 26 (Identifier 27 ((*FI*) 7) ) ((*Tripped*) 4) ) (Literal 29 (Boolean_Literal true) ))
+        (Assign 30 (SelectedComponent 31 (Identifier 32 ((*FI*) 7) ) ((*Counter*) 3) ) (BinOp 34 Plus (Name 35 (SelectedComponent 36 (Identifier 37 ((*FI*) 7) ) ((*Counter*) 3) )) (Literal 39 (Integer_Literal 1) ) ))
       )
-      (S_If 40 (E_Binary_Operation 41 Equal (E_Name 42 (E_Selected_Component 43 (E_Identifier 44 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Literal 46 (Integer_Literal 0) ) )
-        (S_Assignment 47 (E_Selected_Component 48 (E_Identifier 49 ((*FI*) 7) ) ((*Tripped*) 4) ) (E_Literal 51 (Boolean_Literal false) ))
-        (S_Assignment 52 (E_Selected_Component 53 (E_Identifier 54 ((*FI*) 7) ) ((*Counter*) 3) ) (E_Binary_Operation 56 Minus (E_Name 57 (E_Selected_Component 58 (E_Identifier 59 ((*FI*) 7) ) ((*Counter*) 3) )) (E_Literal 61 (Integer_Literal 1) ) ))
+      (If 40 (BinOp 41 Equal (Name 42 (SelectedComponent 43 (Identifier 44 ((*FI*) 7) ) ((*Counter*) 3) )) (Literal 46 (Integer_Literal 0) ) )
+        (Assign 47 (SelectedComponent 48 (Identifier 49 ((*FI*) 7) ) ((*Tripped*) 4) ) (Literal 51 (Boolean_Literal false) ))
+        (Assign 52 (SelectedComponent 53 (Identifier 54 ((*FI*) 7) ) ((*Counter*) 3) ) (BinOp 56 Minus (Name 57 (SelectedComponent 58 (Identifier 59 ((*FI*) 7) ) ((*Counter*) 3) )) (Literal 61 (Integer_Literal 1) ) ))
       )
     ) 
-    (S_Assignment 62 (E_Identifier 63 ((*IntegratedEvent*) 9) ) (E_Name 64 (E_Selected_Component 65 (E_Identifier 66 ((*FI*) 7) ) ((*Tripped*) 4) ))))
+    (Assign 62 (Identifier 63 ((*IntegratedEvent*) 9) ) (Name 64 (SelectedComponent 65 (Identifier 66 ((*FI*) 7) ) ((*Tripped*) 4) ))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*T*) 1), (Record_Type_Declaration 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) :: nil)
+  ((((*T*) 1), (RecordTypeDecl 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
@@ -101,40 +107,46 @@ Definition Symbol_Table :=
 ))
 ).
 
-Definition Coq_AST_Tree_X := 
-(D_Seq_Declaration_X 1
-(D_Seq_Declaration_X 2
-(D_Type_Declaration_X 3 (Record_Type_Declaration_X 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) 
-D_Null_Declaration_X (* Undefined Declarations ! *)) 
-(D_Procedure_Body_X 6 
-  (mkprocedure_body_x 7
+Definition Coq_AST_TreeRT := 
+
+(mkprogramRT
+(* = = = declarations = = = *)
+(SeqDeclRT 1
+(SeqDeclRT 2
+(TypeDeclRT 3 (RecordTypeDeclRT 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) 
+NullDeclRT (* Undefined Declarations ! *)) 
+(ProcBodyDeclRT 6 
+  (mkprocBodyDeclRT 7
     (* = = = Procedure Name = = = *)
     ((*Test*) 5)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
-    (mkparameter_specification_x 9 ((*CurrentEvent*) 8) Boolean In) :: 
-    (mkparameter_specification_x 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
+    (mkparamSpecRT 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
+    (mkparamSpecRT 9 ((*CurrentEvent*) 8) Boolean In) :: 
+    (mkparamSpecRT 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
     (* = = = Object Declarations = = = *)
-    (D_Null_Declaration_X)
+    (NullDeclRT)
     (* = = = Procedure Body = = = *)
-      (S_Sequence_X 11
-      (S_If_X 12 (E_Name_X 13 (E_Identifier_X 14 ((*CurrentEvent*) 8) (nil)))
-        (S_If_X 15 (E_Binary_Operation_X 16 Equal (E_Name_X 17 (E_Selected_Component_X 18 (E_Identifier_X 19 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Name_X 21 (E_Selected_Component_X 22 (E_Identifier_X 23 ((*FI*) 7) (nil)) ((*Limit*) 2) (nil))) (nil) nil)
-          (S_Assignment_X 25 (E_Selected_Component_X 26 (E_Identifier_X 27 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (E_Literal_X 29 (Boolean_Literal true) (nil) nil))
-          (S_Assignment_X 30 (E_Selected_Component_X 31 (E_Identifier_X 32 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (E_Binary_Operation_X 34 Plus (E_Name_X 35 (E_Selected_Component_X 36 (E_Identifier_X 37 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Literal_X 39 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+      (SeqRT 11
+      (IfRT 12 (NameRT 13 (IdentifierRT 14 ((*CurrentEvent*) 8) (nil)))
+        (IfRT 15 (BinOpRT 16 Equal (NameRT 17 (SelectedComponentRT 18 (IdentifierRT 19 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (NameRT 21 (SelectedComponentRT 22 (IdentifierRT 23 ((*FI*) 7) (nil)) ((*Limit*) 2) (nil))) (nil) nil)
+          (AssignRT 25 (SelectedComponentRT 26 (IdentifierRT 27 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (LiteralRT 29 (Boolean_Literal true) (nil) nil))
+          (AssignRT 30 (SelectedComponentRT 31 (IdentifierRT 32 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (BinOpRT 34 Plus (NameRT 35 (SelectedComponentRT 36 (IdentifierRT 37 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (LiteralRT 39 (Integer_Literal 1) (nil) nil) (OverflowCheck :: nil) nil))
         )
-        (S_If_X 40 (E_Binary_Operation_X 41 Equal (E_Name_X 42 (E_Selected_Component_X 43 (E_Identifier_X 44 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Literal_X 46 (Integer_Literal 0) (nil) nil) (nil) nil)
-          (S_Assignment_X 47 (E_Selected_Component_X 48 (E_Identifier_X 49 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (E_Literal_X 51 (Boolean_Literal false) (nil) nil))
-          (S_Assignment_X 52 (E_Selected_Component_X 53 (E_Identifier_X 54 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (E_Binary_Operation_X 56 Minus (E_Name_X 57 (E_Selected_Component_X 58 (E_Identifier_X 59 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Literal_X 61 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+        (IfRT 40 (BinOpRT 41 Equal (NameRT 42 (SelectedComponentRT 43 (IdentifierRT 44 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (LiteralRT 46 (Integer_Literal 0) (nil) nil) (nil) nil)
+          (AssignRT 47 (SelectedComponentRT 48 (IdentifierRT 49 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (LiteralRT 51 (Boolean_Literal false) (nil) nil))
+          (AssignRT 52 (SelectedComponentRT 53 (IdentifierRT 54 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (BinOpRT 56 Minus (NameRT 57 (SelectedComponentRT 58 (IdentifierRT 59 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (LiteralRT 61 (Integer_Literal 1) (nil) nil) (OverflowCheck :: nil) nil))
         )
       ) 
-      (S_Assignment_X 62 (E_Identifier_X 63 ((*IntegratedEvent*) 9) (nil)) (E_Name_X 64 (E_Selected_Component_X 65 (E_Identifier_X 66 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)))))
+      (AssignRT 62 (IdentifierRT 63 ((*IntegratedEvent*) 9) (nil)) (NameRT 64 (SelectedComponentRT 65 (IdentifierRT 66 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)))))
   )
-)).
+))
+(* = = = main procedure = = = *)
+1
+).
 
-Definition Symbol_Table_X := 
-(mkSymbolTable_x
+Definition Symbol_TableRT := 
+(Symbol_Table_Module_RT.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -142,34 +154,34 @@ Definition Symbol_Table_X :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Test*) 5), (0, (mkprocedure_body_x 7
+  ((((*Test*) 5), (0, (mkprocBodyDeclRT 7
   (* = = = Procedure Name = = = *)
   ((*Test*) 5)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
-  (mkparameter_specification_x 9 ((*CurrentEvent*) 8) Boolean In) :: 
-  (mkparameter_specification_x 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
+  (mkparamSpecRT 8 ((*FI*) 7) (Record_Type ((*T*) 1)) In_Out) :: 
+  (mkparamSpecRT 9 ((*CurrentEvent*) 8) Boolean In) :: 
+  (mkparamSpecRT 10 ((*IntegratedEvent*) 9) Boolean Out) :: nil)
   (* = = = Object Declarations = = = *)
-  (D_Null_Declaration_X)
+  (NullDeclRT)
   (* = = = Procedure Body = = = *)
-    (S_Sequence_X 11
-    (S_If_X 12 (E_Name_X 13 (E_Identifier_X 14 ((*CurrentEvent*) 8) (nil)))
-      (S_If_X 15 (E_Binary_Operation_X 16 Equal (E_Name_X 17 (E_Selected_Component_X 18 (E_Identifier_X 19 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Name_X 21 (E_Selected_Component_X 22 (E_Identifier_X 23 ((*FI*) 7) (nil)) ((*Limit*) 2) (nil))) (nil) nil)
-        (S_Assignment_X 25 (E_Selected_Component_X 26 (E_Identifier_X 27 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (E_Literal_X 29 (Boolean_Literal true) (nil) nil))
-        (S_Assignment_X 30 (E_Selected_Component_X 31 (E_Identifier_X 32 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (E_Binary_Operation_X 34 Plus (E_Name_X 35 (E_Selected_Component_X 36 (E_Identifier_X 37 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Literal_X 39 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+    (SeqRT 11
+    (IfRT 12 (NameRT 13 (IdentifierRT 14 ((*CurrentEvent*) 8) (nil)))
+      (IfRT 15 (BinOpRT 16 Equal (NameRT 17 (SelectedComponentRT 18 (IdentifierRT 19 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (NameRT 21 (SelectedComponentRT 22 (IdentifierRT 23 ((*FI*) 7) (nil)) ((*Limit*) 2) (nil))) (nil) nil)
+        (AssignRT 25 (SelectedComponentRT 26 (IdentifierRT 27 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (LiteralRT 29 (Boolean_Literal true) (nil) nil))
+        (AssignRT 30 (SelectedComponentRT 31 (IdentifierRT 32 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (BinOpRT 34 Plus (NameRT 35 (SelectedComponentRT 36 (IdentifierRT 37 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (LiteralRT 39 (Integer_Literal 1) (nil) nil) (OverflowCheck :: nil) nil))
       )
-      (S_If_X 40 (E_Binary_Operation_X 41 Equal (E_Name_X 42 (E_Selected_Component_X 43 (E_Identifier_X 44 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Literal_X 46 (Integer_Literal 0) (nil) nil) (nil) nil)
-        (S_Assignment_X 47 (E_Selected_Component_X 48 (E_Identifier_X 49 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (E_Literal_X 51 (Boolean_Literal false) (nil) nil))
-        (S_Assignment_X 52 (E_Selected_Component_X 53 (E_Identifier_X 54 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (E_Binary_Operation_X 56 Minus (E_Name_X 57 (E_Selected_Component_X 58 (E_Identifier_X 59 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (E_Literal_X 61 (Integer_Literal 1) (nil) nil) (Do_Overflow_Check :: nil) nil))
+      (IfRT 40 (BinOpRT 41 Equal (NameRT 42 (SelectedComponentRT 43 (IdentifierRT 44 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (LiteralRT 46 (Integer_Literal 0) (nil) nil) (nil) nil)
+        (AssignRT 47 (SelectedComponentRT 48 (IdentifierRT 49 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)) (LiteralRT 51 (Boolean_Literal false) (nil) nil))
+        (AssignRT 52 (SelectedComponentRT 53 (IdentifierRT 54 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil)) (BinOpRT 56 Minus (NameRT 57 (SelectedComponentRT 58 (IdentifierRT 59 ((*FI*) 7) (nil)) ((*Counter*) 3) (nil))) (LiteralRT 61 (Integer_Literal 1) (nil) nil) (OverflowCheck :: nil) nil))
       )
     ) 
-    (S_Assignment_X 62 (E_Identifier_X 63 ((*IntegratedEvent*) 9) (nil)) (E_Name_X 64 (E_Selected_Component_X 65 (E_Identifier_X 66 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)))))
+    (AssignRT 62 (IdentifierRT 63 ((*IntegratedEvent*) 9) (nil)) (NameRT 64 (SelectedComponentRT 65 (IdentifierRT 66 ((*FI*) 7) (nil)) ((*Tripped*) 4) (nil)))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*T*) 1), (Record_Type_Declaration_X 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) :: nil)
+  ((((*T*) 1), (RecordTypeDeclRT 4 ((*T*) 1) ((((*Limit*) 2), Integer) :: (((*Counter*) 3), Integer) :: (((*Tripped*) 4), Boolean) :: nil))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)

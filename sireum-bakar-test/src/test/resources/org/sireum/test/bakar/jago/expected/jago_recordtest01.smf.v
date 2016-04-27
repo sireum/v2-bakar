@@ -3,57 +3,63 @@ Require Import symboltable.
 Open Scope string_scope.
 
 Definition Coq_AST_Tree := 
-(D_Seq_Declaration 1
-(D_Seq_Declaration 2
-(D_Type_Declaration 3 (Record_Type_Declaration 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) 
-(D_Seq_Declaration 6
-(D_Type_Declaration 7 (Record_Type_Declaration 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) 
-(D_Seq_Declaration 10
-D_Null_Declaration (* Undefined Declarations ! *) 
-(D_Seq_Declaration 11
-(D_Object_Declaration 12 (mkobject_declaration 13 ((*aNestedObject*) 7) (Record_Type ((*NestedObject*) 4)) None)) 
-(D_Object_Declaration 14 (mkobject_declaration 15 ((*anObject*) 8) (Record_Type ((*Object*) 1)) None)))))) 
-(D_Seq_Declaration 16
-(D_Procedure_Body 17 
-  (mkprocedure_body 18
+
+(mkprogram
+(* = = = declarations = = = *)
+(SeqDecl 1
+(SeqDecl 2
+(TypeDecl 3 (RecordTypeDecl 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) 
+(SeqDecl 6
+(TypeDecl 7 (RecordTypeDecl 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) 
+(SeqDecl 10
+NullDecl (* Undefined Declarations ! *) 
+(SeqDecl 11
+(ObjDecl 12 (mkobjDecl 13 ((*aNestedObject*) 7) (Record_Type ((*NestedObject*) 4)) None)) 
+(ObjDecl 14 (mkobjDecl 15 ((*anObject*) 8) (Record_Type ((*Object*) 1)) None)))))) 
+(SeqDecl 16
+(ProcBodyDecl 17 
+  (mkprocBodyDecl 18
     (* = = = Procedure Name = = = *)
     ((*Test01*) 6)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
+    (mkparamSpec 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Object_Declaration 20 (mkobject_declaration 21 ((*T*) 11) Integer None)))
+    ((ObjDecl 20 (mkobjDecl 21 ((*T*) 11) Integer None)))
     (* = = = Procedure Body = = = *)
-      (S_Sequence 22
-      (S_Assignment 23 (E_Identifier 24 ((*T*) 11) ) (E_Name 25 (E_Selected_Component 26 (E_Identifier 27 ((*Q*) 10) ) ((*X*) 2) ))) 
-      (S_Sequence 29
-      (S_Assignment 30 (E_Selected_Component 31 (E_Identifier 32 ((*Q*) 10) ) ((*X*) 2) ) (E_Name 34 (E_Selected_Component 35 (E_Identifier 36 ((*Q*) 10) ) ((*Y*) 3) ))) 
-      (S_Assignment 38 (E_Selected_Component 39 (E_Identifier 40 ((*Q*) 10) ) ((*Y*) 3) ) (E_Name 42 (E_Identifier 43 ((*T*) 11) )))))
+      (Seq 22
+      (Assign 23 (Identifier 24 ((*T*) 11) ) (Name 25 (SelectedComponent 26 (Identifier 27 ((*Q*) 10) ) ((*X*) 2) ))) 
+      (Seq 29
+      (Assign 30 (SelectedComponent 31 (Identifier 32 ((*Q*) 10) ) ((*X*) 2) ) (Name 34 (SelectedComponent 35 (Identifier 36 ((*Q*) 10) ) ((*Y*) 3) ))) 
+      (Assign 38 (SelectedComponent 39 (Identifier 40 ((*Q*) 10) ) ((*Y*) 3) ) (Name 42 (Identifier 43 ((*T*) 11) )))))
   )
 ) 
-(D_Procedure_Body 44 
-  (mkprocedure_body 45
+(ProcBodyDecl 44 
+  (mkprocBodyDecl 45
     (* = = = Procedure Name = = = *)
     ((*Test02*) 13)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 46 ((*I1*) 14) Integer In) :: (mkparameter_specification 47 ((*I2*) 15) Integer In) :: 
-    (mkparameter_specification 48 ((*O1*) 16) Integer Out) :: (mkparameter_specification 49 ((*O2*) 17) Integer Out) :: nil)
+    (mkparamSpec 46 ((*I1*) 14) Integer In) :: (mkparamSpec 47 ((*I2*) 15) Integer In) :: 
+    (mkparamSpec 48 ((*O1*) 16) Integer Out) :: (mkparamSpec 49 ((*O2*) 17) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Object_Declaration 50 (mkobject_declaration 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
+    ((ObjDecl 50 (mkobjDecl 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
     (* = = = Procedure Body = = = *)
-      (S_Sequence 52
-      (S_Assignment 53 (E_Selected_Component 54 (E_Selected_Component 55 (E_Identifier 56 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ) (E_Name 59 (E_Identifier 60 ((*I1*) 14) ))) 
-      (S_Sequence 61
-      (S_Assignment 62 (E_Selected_Component 63 (E_Selected_Component 64 (E_Identifier 65 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ) (E_Name 68 (E_Identifier 69 ((*I2*) 15) ))) 
-      (S_Sequence 70
-      (S_Assignment 71 (E_Identifier 72 ((*O1*) 16) ) (E_Name 73 (E_Selected_Component 74 (E_Selected_Component 75 (E_Identifier 76 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ))) 
-      (S_Assignment 79 (E_Identifier 80 ((*O2*) 17) ) (E_Name 81 (E_Selected_Component 82 (E_Selected_Component 83 (E_Identifier 84 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ))))))
+      (Seq 52
+      (Assign 53 (SelectedComponent 54 (SelectedComponent 55 (Identifier 56 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ) (Name 59 (Identifier 60 ((*I1*) 14) ))) 
+      (Seq 61
+      (Assign 62 (SelectedComponent 63 (SelectedComponent 64 (Identifier 65 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ) (Name 68 (Identifier 69 ((*I2*) 15) ))) 
+      (Seq 70
+      (Assign 71 (Identifier 72 ((*O1*) 16) ) (Name 73 (SelectedComponent 74 (SelectedComponent 75 (Identifier 76 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ))) 
+      (Assign 79 (Identifier 80 ((*O2*) 17) ) (Name 81 (SelectedComponent 82 (SelectedComponent 83 (Identifier 84 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ))))))
   )
-))).
+)))
+(* = = = main procedure = = = *)
+1
+).
 
 Definition Symbol_Table := 
-(mkSymbolTable
+(Symbol_Table_Module.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -61,42 +67,42 @@ Definition Symbol_Table :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Test01*) 6), (0, (mkprocedure_body 18
+  ((((*Test01*) 6), (0, (mkprocBodyDecl 18
   (* = = = Procedure Name = = = *)
   ((*Test01*) 6)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
+  (mkparamSpec 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration 20 (mkobject_declaration 21 ((*T*) 11) Integer None)))
+  ((ObjDecl 20 (mkobjDecl 21 ((*T*) 11) Integer None)))
   (* = = = Procedure Body = = = *)
-    (S_Sequence 22
-    (S_Assignment 23 (E_Identifier 24 ((*T*) 11) ) (E_Name 25 (E_Selected_Component 26 (E_Identifier 27 ((*Q*) 10) ) ((*X*) 2) ))) 
-    (S_Sequence 29
-    (S_Assignment 30 (E_Selected_Component 31 (E_Identifier 32 ((*Q*) 10) ) ((*X*) 2) ) (E_Name 34 (E_Selected_Component 35 (E_Identifier 36 ((*Q*) 10) ) ((*Y*) 3) ))) 
-    (S_Assignment 38 (E_Selected_Component 39 (E_Identifier 40 ((*Q*) 10) ) ((*Y*) 3) ) (E_Name 42 (E_Identifier 43 ((*T*) 11) )))))
-))) :: (((*Test02*) 13), (0, (mkprocedure_body 45
+    (Seq 22
+    (Assign 23 (Identifier 24 ((*T*) 11) ) (Name 25 (SelectedComponent 26 (Identifier 27 ((*Q*) 10) ) ((*X*) 2) ))) 
+    (Seq 29
+    (Assign 30 (SelectedComponent 31 (Identifier 32 ((*Q*) 10) ) ((*X*) 2) ) (Name 34 (SelectedComponent 35 (Identifier 36 ((*Q*) 10) ) ((*Y*) 3) ))) 
+    (Assign 38 (SelectedComponent 39 (Identifier 40 ((*Q*) 10) ) ((*Y*) 3) ) (Name 42 (Identifier 43 ((*T*) 11) )))))
+))) :: (((*Test02*) 13), (0, (mkprocBodyDecl 45
   (* = = = Procedure Name = = = *)
   ((*Test02*) 13)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 46 ((*I1*) 14) Integer In) :: (mkparameter_specification 47 ((*I2*) 15) Integer In) :: 
-  (mkparameter_specification 48 ((*O1*) 16) Integer Out) :: (mkparameter_specification 49 ((*O2*) 17) Integer Out) :: nil)
+  (mkparamSpec 46 ((*I1*) 14) Integer In) :: (mkparamSpec 47 ((*I2*) 15) Integer In) :: 
+  (mkparamSpec 48 ((*O1*) 16) Integer Out) :: (mkparamSpec 49 ((*O2*) 17) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration 50 (mkobject_declaration 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
+  ((ObjDecl 50 (mkobjDecl 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
   (* = = = Procedure Body = = = *)
-    (S_Sequence 52
-    (S_Assignment 53 (E_Selected_Component 54 (E_Selected_Component 55 (E_Identifier 56 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ) (E_Name 59 (E_Identifier 60 ((*I1*) 14) ))) 
-    (S_Sequence 61
-    (S_Assignment 62 (E_Selected_Component 63 (E_Selected_Component 64 (E_Identifier 65 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ) (E_Name 68 (E_Identifier 69 ((*I2*) 15) ))) 
-    (S_Sequence 70
-    (S_Assignment 71 (E_Identifier 72 ((*O1*) 16) ) (E_Name 73 (E_Selected_Component 74 (E_Selected_Component 75 (E_Identifier 76 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ))) 
-    (S_Assignment 79 (E_Identifier 80 ((*O2*) 17) ) (E_Name 81 (E_Selected_Component 82 (E_Selected_Component 83 (E_Identifier 84 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ))))))
+    (Seq 52
+    (Assign 53 (SelectedComponent 54 (SelectedComponent 55 (Identifier 56 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ) (Name 59 (Identifier 60 ((*I1*) 14) ))) 
+    (Seq 61
+    (Assign 62 (SelectedComponent 63 (SelectedComponent 64 (Identifier 65 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ) (Name 68 (Identifier 69 ((*I2*) 15) ))) 
+    (Seq 70
+    (Assign 71 (Identifier 72 ((*O1*) 16) ) (Name 73 (SelectedComponent 74 (SelectedComponent 75 (Identifier 76 ((*Q*) 18) ) ((*O*) 5) ) ((*X*) 2) ))) 
+    (Assign 79 (Identifier 80 ((*O2*) 17) ) (Name 81 (SelectedComponent 82 (SelectedComponent 83 (Identifier 84 ((*Q*) 18) ) ((*O*) 5) ) ((*Y*) 3) ))))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*NestedObject*) 4), (Record_Type_Declaration 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) :: (((*Object*) 1), (Record_Type_Declaration 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) :: nil)
+  ((((*NestedObject*) 4), (RecordTypeDecl 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) :: (((*Object*) 1), (RecordTypeDecl 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
@@ -127,58 +133,64 @@ Definition Symbol_Table :=
 ))
 ).
 
-Definition Coq_AST_Tree_X := 
-(D_Seq_Declaration_X 1
-(D_Seq_Declaration_X 2
-(D_Type_Declaration_X 3 (Record_Type_Declaration_X 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) 
-(D_Seq_Declaration_X 6
-(D_Type_Declaration_X 7 (Record_Type_Declaration_X 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) 
-(D_Seq_Declaration_X 10
-D_Null_Declaration_X (* Undefined Declarations ! *) 
-(D_Seq_Declaration_X 11
-(D_Object_Declaration_X 12 (mkobject_declaration_x 13 ((*aNestedObject*) 7) (Record_Type ((*NestedObject*) 4)) None)) 
-(D_Object_Declaration_X 14 (mkobject_declaration_x 15 ((*anObject*) 8) (Record_Type ((*Object*) 1)) None)))))) 
-(D_Seq_Declaration_X 16
-(D_Procedure_Body_X 17 
-  (mkprocedure_body_x 18
+Definition Coq_AST_TreeRT := 
+
+(mkprogramRT
+(* = = = declarations = = = *)
+(SeqDeclRT 1
+(SeqDeclRT 2
+(TypeDeclRT 3 (RecordTypeDeclRT 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) 
+(SeqDeclRT 6
+(TypeDeclRT 7 (RecordTypeDeclRT 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) 
+(SeqDeclRT 10
+NullDeclRT (* Undefined Declarations ! *) 
+(SeqDeclRT 11
+(ObjDeclRT 12 (mkobjDeclRT 13 ((*aNestedObject*) 7) (Record_Type ((*NestedObject*) 4)) None)) 
+(ObjDeclRT 14 (mkobjDeclRT 15 ((*anObject*) 8) (Record_Type ((*Object*) 1)) None)))))) 
+(SeqDeclRT 16
+(ProcBodyDeclRT 17 
+  (mkprocBodyDeclRT 18
     (* = = = Procedure Name = = = *)
     ((*Test01*) 6)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
+    (mkparamSpecRT 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Object_Declaration_X 20 (mkobject_declaration_x 21 ((*T*) 11) Integer None)))
+    ((ObjDeclRT 20 (mkobjDeclRT 21 ((*T*) 11) Integer None)))
     (* = = = Procedure Body = = = *)
-      (S_Sequence_X 22
-      (S_Assignment_X 23 (E_Identifier_X 24 ((*T*) 11) (nil)) (E_Name_X 25 (E_Selected_Component_X 26 (E_Identifier_X 27 ((*Q*) 10) (nil)) ((*X*) 2) (nil)))) 
-      (S_Sequence_X 29
-      (S_Assignment_X 30 (E_Selected_Component_X 31 (E_Identifier_X 32 ((*Q*) 10) (nil)) ((*X*) 2) (nil)) (E_Name_X 34 (E_Selected_Component_X 35 (E_Identifier_X 36 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)))) 
-      (S_Assignment_X 38 (E_Selected_Component_X 39 (E_Identifier_X 40 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)) (E_Name_X 42 (E_Identifier_X 43 ((*T*) 11) (nil))))))
+      (SeqRT 22
+      (AssignRT 23 (IdentifierRT 24 ((*T*) 11) (nil)) (NameRT 25 (SelectedComponentRT 26 (IdentifierRT 27 ((*Q*) 10) (nil)) ((*X*) 2) (nil)))) 
+      (SeqRT 29
+      (AssignRT 30 (SelectedComponentRT 31 (IdentifierRT 32 ((*Q*) 10) (nil)) ((*X*) 2) (nil)) (NameRT 34 (SelectedComponentRT 35 (IdentifierRT 36 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)))) 
+      (AssignRT 38 (SelectedComponentRT 39 (IdentifierRT 40 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)) (NameRT 42 (IdentifierRT 43 ((*T*) 11) (nil))))))
   )
 ) 
-(D_Procedure_Body_X 44 
-  (mkprocedure_body_x 45
+(ProcBodyDeclRT 44 
+  (mkprocBodyDeclRT 45
     (* = = = Procedure Name = = = *)
     ((*Test02*) 13)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 46 ((*I1*) 14) Integer In) :: (mkparameter_specification_x 47 ((*I2*) 15) Integer In) :: 
-    (mkparameter_specification_x 48 ((*O1*) 16) Integer Out) :: (mkparameter_specification_x 49 ((*O2*) 17) Integer Out) :: nil)
+    (mkparamSpecRT 46 ((*I1*) 14) Integer In) :: (mkparamSpecRT 47 ((*I2*) 15) Integer In) :: 
+    (mkparamSpecRT 48 ((*O1*) 16) Integer Out) :: (mkparamSpecRT 49 ((*O2*) 17) Integer Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Object_Declaration_X 50 (mkobject_declaration_x 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
+    ((ObjDeclRT 50 (mkobjDeclRT 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
     (* = = = Procedure Body = = = *)
-      (S_Sequence_X 52
-      (S_Assignment_X 53 (E_Selected_Component_X 54 (E_Selected_Component_X 55 (E_Identifier_X 56 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)) (E_Name_X 59 (E_Identifier_X 60 ((*I1*) 14) (nil)))) 
-      (S_Sequence_X 61
-      (S_Assignment_X 62 (E_Selected_Component_X 63 (E_Selected_Component_X 64 (E_Identifier_X 65 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)) (E_Name_X 68 (E_Identifier_X 69 ((*I2*) 15) (nil)))) 
-      (S_Sequence_X 70
-      (S_Assignment_X 71 (E_Identifier_X 72 ((*O1*) 16) (nil)) (E_Name_X 73 (E_Selected_Component_X 74 (E_Selected_Component_X 75 (E_Identifier_X 76 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)))) 
-      (S_Assignment_X 79 (E_Identifier_X 80 ((*O2*) 17) (nil)) (E_Name_X 81 (E_Selected_Component_X 82 (E_Selected_Component_X 83 (E_Identifier_X 84 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)))))))
+      (SeqRT 52
+      (AssignRT 53 (SelectedComponentRT 54 (SelectedComponentRT 55 (IdentifierRT 56 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)) (NameRT 59 (IdentifierRT 60 ((*I1*) 14) (nil)))) 
+      (SeqRT 61
+      (AssignRT 62 (SelectedComponentRT 63 (SelectedComponentRT 64 (IdentifierRT 65 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)) (NameRT 68 (IdentifierRT 69 ((*I2*) 15) (nil)))) 
+      (SeqRT 70
+      (AssignRT 71 (IdentifierRT 72 ((*O1*) 16) (nil)) (NameRT 73 (SelectedComponentRT 74 (SelectedComponentRT 75 (IdentifierRT 76 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)))) 
+      (AssignRT 79 (IdentifierRT 80 ((*O2*) 17) (nil)) (NameRT 81 (SelectedComponentRT 82 (SelectedComponentRT 83 (IdentifierRT 84 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)))))))
   )
-))).
+)))
+(* = = = main procedure = = = *)
+1
+).
 
-Definition Symbol_Table_X := 
-(mkSymbolTable_x
+Definition Symbol_TableRT := 
+(Symbol_Table_Module_RT.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -186,42 +198,42 @@ Definition Symbol_Table_X :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Test01*) 6), (0, (mkprocedure_body_x 18
+  ((((*Test01*) 6), (0, (mkprocBodyDeclRT 18
   (* = = = Procedure Name = = = *)
   ((*Test01*) 6)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
+  (mkparamSpecRT 19 ((*Q*) 10) (Record_Type ((*Object*) 1)) In_Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration_X 20 (mkobject_declaration_x 21 ((*T*) 11) Integer None)))
+  ((ObjDeclRT 20 (mkobjDeclRT 21 ((*T*) 11) Integer None)))
   (* = = = Procedure Body = = = *)
-    (S_Sequence_X 22
-    (S_Assignment_X 23 (E_Identifier_X 24 ((*T*) 11) (nil)) (E_Name_X 25 (E_Selected_Component_X 26 (E_Identifier_X 27 ((*Q*) 10) (nil)) ((*X*) 2) (nil)))) 
-    (S_Sequence_X 29
-    (S_Assignment_X 30 (E_Selected_Component_X 31 (E_Identifier_X 32 ((*Q*) 10) (nil)) ((*X*) 2) (nil)) (E_Name_X 34 (E_Selected_Component_X 35 (E_Identifier_X 36 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)))) 
-    (S_Assignment_X 38 (E_Selected_Component_X 39 (E_Identifier_X 40 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)) (E_Name_X 42 (E_Identifier_X 43 ((*T*) 11) (nil))))))
-))) :: (((*Test02*) 13), (0, (mkprocedure_body_x 45
+    (SeqRT 22
+    (AssignRT 23 (IdentifierRT 24 ((*T*) 11) (nil)) (NameRT 25 (SelectedComponentRT 26 (IdentifierRT 27 ((*Q*) 10) (nil)) ((*X*) 2) (nil)))) 
+    (SeqRT 29
+    (AssignRT 30 (SelectedComponentRT 31 (IdentifierRT 32 ((*Q*) 10) (nil)) ((*X*) 2) (nil)) (NameRT 34 (SelectedComponentRT 35 (IdentifierRT 36 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)))) 
+    (AssignRT 38 (SelectedComponentRT 39 (IdentifierRT 40 ((*Q*) 10) (nil)) ((*Y*) 3) (nil)) (NameRT 42 (IdentifierRT 43 ((*T*) 11) (nil))))))
+))) :: (((*Test02*) 13), (0, (mkprocBodyDeclRT 45
   (* = = = Procedure Name = = = *)
   ((*Test02*) 13)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 46 ((*I1*) 14) Integer In) :: (mkparameter_specification_x 47 ((*I2*) 15) Integer In) :: 
-  (mkparameter_specification_x 48 ((*O1*) 16) Integer Out) :: (mkparameter_specification_x 49 ((*O2*) 17) Integer Out) :: nil)
+  (mkparamSpecRT 46 ((*I1*) 14) Integer In) :: (mkparamSpecRT 47 ((*I2*) 15) Integer In) :: 
+  (mkparamSpecRT 48 ((*O1*) 16) Integer Out) :: (mkparamSpecRT 49 ((*O2*) 17) Integer Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Object_Declaration_X 50 (mkobject_declaration_x 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
+  ((ObjDeclRT 50 (mkobjDeclRT 51 ((*Q*) 18) (Record_Type ((*NestedObject*) 4)) None)))
   (* = = = Procedure Body = = = *)
-    (S_Sequence_X 52
-    (S_Assignment_X 53 (E_Selected_Component_X 54 (E_Selected_Component_X 55 (E_Identifier_X 56 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)) (E_Name_X 59 (E_Identifier_X 60 ((*I1*) 14) (nil)))) 
-    (S_Sequence_X 61
-    (S_Assignment_X 62 (E_Selected_Component_X 63 (E_Selected_Component_X 64 (E_Identifier_X 65 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)) (E_Name_X 68 (E_Identifier_X 69 ((*I2*) 15) (nil)))) 
-    (S_Sequence_X 70
-    (S_Assignment_X 71 (E_Identifier_X 72 ((*O1*) 16) (nil)) (E_Name_X 73 (E_Selected_Component_X 74 (E_Selected_Component_X 75 (E_Identifier_X 76 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)))) 
-    (S_Assignment_X 79 (E_Identifier_X 80 ((*O2*) 17) (nil)) (E_Name_X 81 (E_Selected_Component_X 82 (E_Selected_Component_X 83 (E_Identifier_X 84 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)))))))
+    (SeqRT 52
+    (AssignRT 53 (SelectedComponentRT 54 (SelectedComponentRT 55 (IdentifierRT 56 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)) (NameRT 59 (IdentifierRT 60 ((*I1*) 14) (nil)))) 
+    (SeqRT 61
+    (AssignRT 62 (SelectedComponentRT 63 (SelectedComponentRT 64 (IdentifierRT 65 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)) (NameRT 68 (IdentifierRT 69 ((*I2*) 15) (nil)))) 
+    (SeqRT 70
+    (AssignRT 71 (IdentifierRT 72 ((*O1*) 16) (nil)) (NameRT 73 (SelectedComponentRT 74 (SelectedComponentRT 75 (IdentifierRT 76 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*X*) 2) (nil)))) 
+    (AssignRT 79 (IdentifierRT 80 ((*O2*) 17) (nil)) (NameRT 81 (SelectedComponentRT 82 (SelectedComponentRT 83 (IdentifierRT 84 ((*Q*) 18) (nil)) ((*O*) 5) (nil)) ((*Y*) 3) (nil)))))))
 ))) :: nil)
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*NestedObject*) 4), (Record_Type_Declaration_X 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) :: (((*Object*) 1), (Record_Type_Declaration_X 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) :: nil)
+  ((((*NestedObject*) 4), (RecordTypeDeclRT 8 ((*NestedObject*) 4) ((((*O*) 5), (Record_Type ((*Object*) 1))) :: nil))) :: (((*Object*) 1), (RecordTypeDeclRT 4 ((*Object*) 1) ((((*X*) 2), Integer) :: (((*Y*) 3), Integer) :: nil))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)

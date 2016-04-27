@@ -3,57 +3,63 @@ Require Import symboltable.
 Open Scope string_scope.
 
 Definition Coq_AST_Tree := 
-(D_Seq_Declaration 1
-(D_Seq_Declaration 2
-(D_Type_Declaration 3 (Integer_Type_Declaration 4 ((*T*) 1) (Range 0 10))) 
-(D_Seq_Declaration 5
-(D_Type_Declaration 6 (Subtype_Declaration 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (Range 1 10))) 
-(D_Seq_Declaration 8
-(D_Type_Declaration 9 (Array_Type_Declaration 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) 
-D_Null_Declaration (* Undefined Declarations ! *)))) 
-(D_Procedure_Body 11 
-  (mkprocedure_body 12
+
+(mkprogram
+(* = = = declarations = = = *)
+(SeqDecl 1
+(SeqDecl 2
+(TypeDecl 3 (IntegerTypeDecl 4 ((*T*) 1) (Range 0 10))) 
+(SeqDecl 5
+(TypeDecl 6 (SubtypeDecl 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (Range 1 10))) 
+(SeqDecl 8
+(TypeDecl 9 (ArrayTypeDecl 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) 
+NullDecl (* Undefined Declarations ! *)))) 
+(ProcBodyDecl 11 
+  (mkprocBodyDecl 12
     (* = = = Procedure Name = = = *)
     ((*Search*) 4)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
-    (mkparameter_specification 14 ((*I*) 7) Integer In) :: 
-    (mkparameter_specification 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
+    (mkparamSpec 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
+    (mkparamSpec 14 ((*I*) 7) Integer In) :: 
+    (mkparamSpec 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Seq_Declaration 16
-  (D_Object_Declaration 17 (mkobject_declaration 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
-  (D_Seq_Declaration 19
-  (D_Object_Declaration 20 (mkobject_declaration 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
-  (D_Object_Declaration 22 (mkobject_declaration 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
+    ((SeqDecl 16
+  (ObjDecl 17 (mkobjDecl 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
+  (SeqDecl 19
+  (ObjDecl 20 (mkobjDecl 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
+  (ObjDecl 22 (mkobjDecl 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
     (* = = = Procedure Body = = = *)
-      (S_Sequence 24
-      (S_Assignment 25 (E_Identifier 26 ((*Left*) 9) ) (E_Literal 27 (Integer_Literal 1) )) 
-      (S_Sequence 28
-      (S_Assignment 29 (E_Identifier 30 ((*Right*) 10) ) (E_Literal 31 (Integer_Literal 10) )) 
-      (S_Sequence 32
-      (S_Assignment 33 (E_Identifier 34 ((*Result*) 8) ) (E_Literal 35 (Integer_Literal 0) )) 
-      (S_Sequence 36
-      (S_If 37 (E_Binary_Operation 38 Or (E_Binary_Operation 39 Greater_Than (E_Name 40 (E_Indexed_Component 41 (E_Identifier 42 ((*A*) 6) ) (E_Binary_Operation 43 Plus (E_Name 44 (E_Identifier 45 ((*Left*) 9) )) (E_Literal 46 (Integer_Literal 1) ) ) )) (E_Name 47 (E_Identifier 48 ((*I*) 7) )) ) (E_Binary_Operation 49 Less_Than (E_Name 50 (E_Indexed_Component 51 (E_Identifier 52 ((*A*) 6) ) (E_Name 53 (E_Identifier 54 ((*Right*) 10) )) )) (E_Name 55 (E_Identifier 56 ((*I*) 7) )) ) )
-        (S_Assignment 57 (E_Identifier 58 ((*Result*) 8) ) (E_Literal 59 (Integer_Literal 0) ))
-        S_Null
+      (Seq 24
+      (Assign 25 (Identifier 26 ((*Left*) 9) ) (Literal 27 (Integer_Literal 1) )) 
+      (Seq 28
+      (Assign 29 (Identifier 30 ((*Right*) 10) ) (Literal 31 (Integer_Literal 10) )) 
+      (Seq 32
+      (Assign 33 (Identifier 34 ((*Result*) 8) ) (Literal 35 (Integer_Literal 0) )) 
+      (Seq 36
+      (If 37 (BinOp 38 Or (BinOp 39 Greater_Than (Name 40 (IndexedComponent 41 (Identifier 42 ((*A*) 6) ) (BinOp 43 Plus (Name 44 (Identifier 45 ((*Left*) 9) )) (Literal 46 (Integer_Literal 1) ) ) )) (Name 47 (Identifier 48 ((*I*) 7) )) ) (BinOp 49 Less_Than (Name 50 (IndexedComponent 51 (Identifier 52 ((*A*) 6) ) (Name 53 (Identifier 54 ((*Right*) 10) )) )) (Name 55 (Identifier 56 ((*I*) 7) )) ) )
+        (Assign 57 (Identifier 58 ((*Result*) 8) ) (Literal 59 (Integer_Literal 0) ))
+        Null
       ) 
-      (S_While_Loop 60 (E_Binary_Operation 61 Less_Than_Or_Equal (E_Name 62 (E_Identifier 63 ((*Left*) 9) )) (E_Name 64 (E_Identifier 65 ((*Right*) 10) )) )
-        (S_Sequence 66
-        (S_Assignment 67 (E_Identifier 68 ((*Med*) 11) ) (E_Binary_Operation 69 Plus (E_Name 70 (E_Identifier 71 ((*Left*) 9) )) (E_Binary_Operation 72 Divide (E_Binary_Operation 73 Minus (E_Name 74 (E_Identifier 75 ((*Right*) 10) )) (E_Name 76 (E_Identifier 77 ((*Left*) 9) )) ) (E_Literal 78 (Integer_Literal 2) ) ) )) 
-        (S_If 79 (E_Binary_Operation 80 Less_Than (E_Name 81 (E_Indexed_Component 82 (E_Identifier 83 ((*A*) 6) ) (E_Name 84 (E_Identifier 85 ((*Med*) 11) )) )) (E_Name 86 (E_Identifier 87 ((*I*) 7) )) )
-          (S_Assignment 88 (E_Identifier 89 ((*Left*) 9) ) (E_Binary_Operation 90 Plus (E_Name 91 (E_Identifier 92 ((*Med*) 11) )) (E_Literal 93 (Integer_Literal 1) ) ))
-          (S_If 94 (E_Binary_Operation 95 Greater_Than (E_Name 96 (E_Indexed_Component 97 (E_Identifier 98 ((*A*) 6) ) (E_Name 99 (E_Identifier 100 ((*Med*) 11) )) )) (E_Name 101 (E_Identifier 102 ((*I*) 7) )) )
-            (S_Assignment 103 (E_Identifier 104 ((*Right*) 10) ) (E_Binary_Operation 105 Minus (E_Name 106 (E_Identifier 107 ((*Med*) 11) )) (E_Literal 108 (Integer_Literal 1) ) ))
-            (S_Assignment 109 (E_Identifier 110 ((*Result*) 8) ) (E_Name 111 (E_Identifier 112 ((*Med*) 11) )))
+      (While 60 (BinOp 61 Less_Than_Or_Equal (Name 62 (Identifier 63 ((*Left*) 9) )) (Name 64 (Identifier 65 ((*Right*) 10) )) )
+        (Seq 66
+        (Assign 67 (Identifier 68 ((*Med*) 11) ) (BinOp 69 Plus (Name 70 (Identifier 71 ((*Left*) 9) )) (BinOp 72 Divide (BinOp 73 Minus (Name 74 (Identifier 75 ((*Right*) 10) )) (Name 76 (Identifier 77 ((*Left*) 9) )) ) (Literal 78 (Integer_Literal 2) ) ) )) 
+        (If 79 (BinOp 80 Less_Than (Name 81 (IndexedComponent 82 (Identifier 83 ((*A*) 6) ) (Name 84 (Identifier 85 ((*Med*) 11) )) )) (Name 86 (Identifier 87 ((*I*) 7) )) )
+          (Assign 88 (Identifier 89 ((*Left*) 9) ) (BinOp 90 Plus (Name 91 (Identifier 92 ((*Med*) 11) )) (Literal 93 (Integer_Literal 1) ) ))
+          (If 94 (BinOp 95 Greater_Than (Name 96 (IndexedComponent 97 (Identifier 98 ((*A*) 6) ) (Name 99 (Identifier 100 ((*Med*) 11) )) )) (Name 101 (Identifier 102 ((*I*) 7) )) )
+            (Assign 103 (Identifier 104 ((*Right*) 10) ) (BinOp 105 Minus (Name 106 (Identifier 107 ((*Med*) 11) )) (Literal 108 (Integer_Literal 1) ) ))
+            (Assign 109 (Identifier 110 ((*Result*) 8) ) (Name 111 (Identifier 112 ((*Med*) 11) )))
           )
         ))
       )))))
   )
-)).
+))
+(* = = = main procedure = = = *)
+1
+).
 
 Definition Symbol_Table := 
-(mkSymbolTable
+(Symbol_Table_Module.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -61,40 +67,40 @@ Definition Symbol_Table :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Search*) 4), (0, (mkprocedure_body 12
+  ((((*Search*) 4), (0, (mkprocBodyDecl 12
   (* = = = Procedure Name = = = *)
   ((*Search*) 4)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
-  (mkparameter_specification 14 ((*I*) 7) Integer In) :: 
-  (mkparameter_specification 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
+  (mkparamSpec 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
+  (mkparamSpec 14 ((*I*) 7) Integer In) :: 
+  (mkparamSpec 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Seq_Declaration 16
-(D_Object_Declaration 17 (mkobject_declaration 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
-(D_Seq_Declaration 19
-(D_Object_Declaration 20 (mkobject_declaration 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
-(D_Object_Declaration 22 (mkobject_declaration 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
+  ((SeqDecl 16
+(ObjDecl 17 (mkobjDecl 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
+(SeqDecl 19
+(ObjDecl 20 (mkobjDecl 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
+(ObjDecl 22 (mkobjDecl 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
   (* = = = Procedure Body = = = *)
-    (S_Sequence 24
-    (S_Assignment 25 (E_Identifier 26 ((*Left*) 9) ) (E_Literal 27 (Integer_Literal 1) )) 
-    (S_Sequence 28
-    (S_Assignment 29 (E_Identifier 30 ((*Right*) 10) ) (E_Literal 31 (Integer_Literal 10) )) 
-    (S_Sequence 32
-    (S_Assignment 33 (E_Identifier 34 ((*Result*) 8) ) (E_Literal 35 (Integer_Literal 0) )) 
-    (S_Sequence 36
-    (S_If 37 (E_Binary_Operation 38 Or (E_Binary_Operation 39 Greater_Than (E_Name 40 (E_Indexed_Component 41 (E_Identifier 42 ((*A*) 6) ) (E_Binary_Operation 43 Plus (E_Name 44 (E_Identifier 45 ((*Left*) 9) )) (E_Literal 46 (Integer_Literal 1) ) ) )) (E_Name 47 (E_Identifier 48 ((*I*) 7) )) ) (E_Binary_Operation 49 Less_Than (E_Name 50 (E_Indexed_Component 51 (E_Identifier 52 ((*A*) 6) ) (E_Name 53 (E_Identifier 54 ((*Right*) 10) )) )) (E_Name 55 (E_Identifier 56 ((*I*) 7) )) ) )
-      (S_Assignment 57 (E_Identifier 58 ((*Result*) 8) ) (E_Literal 59 (Integer_Literal 0) ))
-      S_Null
+    (Seq 24
+    (Assign 25 (Identifier 26 ((*Left*) 9) ) (Literal 27 (Integer_Literal 1) )) 
+    (Seq 28
+    (Assign 29 (Identifier 30 ((*Right*) 10) ) (Literal 31 (Integer_Literal 10) )) 
+    (Seq 32
+    (Assign 33 (Identifier 34 ((*Result*) 8) ) (Literal 35 (Integer_Literal 0) )) 
+    (Seq 36
+    (If 37 (BinOp 38 Or (BinOp 39 Greater_Than (Name 40 (IndexedComponent 41 (Identifier 42 ((*A*) 6) ) (BinOp 43 Plus (Name 44 (Identifier 45 ((*Left*) 9) )) (Literal 46 (Integer_Literal 1) ) ) )) (Name 47 (Identifier 48 ((*I*) 7) )) ) (BinOp 49 Less_Than (Name 50 (IndexedComponent 51 (Identifier 52 ((*A*) 6) ) (Name 53 (Identifier 54 ((*Right*) 10) )) )) (Name 55 (Identifier 56 ((*I*) 7) )) ) )
+      (Assign 57 (Identifier 58 ((*Result*) 8) ) (Literal 59 (Integer_Literal 0) ))
+      Null
     ) 
-    (S_While_Loop 60 (E_Binary_Operation 61 Less_Than_Or_Equal (E_Name 62 (E_Identifier 63 ((*Left*) 9) )) (E_Name 64 (E_Identifier 65 ((*Right*) 10) )) )
-      (S_Sequence 66
-      (S_Assignment 67 (E_Identifier 68 ((*Med*) 11) ) (E_Binary_Operation 69 Plus (E_Name 70 (E_Identifier 71 ((*Left*) 9) )) (E_Binary_Operation 72 Divide (E_Binary_Operation 73 Minus (E_Name 74 (E_Identifier 75 ((*Right*) 10) )) (E_Name 76 (E_Identifier 77 ((*Left*) 9) )) ) (E_Literal 78 (Integer_Literal 2) ) ) )) 
-      (S_If 79 (E_Binary_Operation 80 Less_Than (E_Name 81 (E_Indexed_Component 82 (E_Identifier 83 ((*A*) 6) ) (E_Name 84 (E_Identifier 85 ((*Med*) 11) )) )) (E_Name 86 (E_Identifier 87 ((*I*) 7) )) )
-        (S_Assignment 88 (E_Identifier 89 ((*Left*) 9) ) (E_Binary_Operation 90 Plus (E_Name 91 (E_Identifier 92 ((*Med*) 11) )) (E_Literal 93 (Integer_Literal 1) ) ))
-        (S_If 94 (E_Binary_Operation 95 Greater_Than (E_Name 96 (E_Indexed_Component 97 (E_Identifier 98 ((*A*) 6) ) (E_Name 99 (E_Identifier 100 ((*Med*) 11) )) )) (E_Name 101 (E_Identifier 102 ((*I*) 7) )) )
-          (S_Assignment 103 (E_Identifier 104 ((*Right*) 10) ) (E_Binary_Operation 105 Minus (E_Name 106 (E_Identifier 107 ((*Med*) 11) )) (E_Literal 108 (Integer_Literal 1) ) ))
-          (S_Assignment 109 (E_Identifier 110 ((*Result*) 8) ) (E_Name 111 (E_Identifier 112 ((*Med*) 11) )))
+    (While 60 (BinOp 61 Less_Than_Or_Equal (Name 62 (Identifier 63 ((*Left*) 9) )) (Name 64 (Identifier 65 ((*Right*) 10) )) )
+      (Seq 66
+      (Assign 67 (Identifier 68 ((*Med*) 11) ) (BinOp 69 Plus (Name 70 (Identifier 71 ((*Left*) 9) )) (BinOp 72 Divide (BinOp 73 Minus (Name 74 (Identifier 75 ((*Right*) 10) )) (Name 76 (Identifier 77 ((*Left*) 9) )) ) (Literal 78 (Integer_Literal 2) ) ) )) 
+      (If 79 (BinOp 80 Less_Than (Name 81 (IndexedComponent 82 (Identifier 83 ((*A*) 6) ) (Name 84 (Identifier 85 ((*Med*) 11) )) )) (Name 86 (Identifier 87 ((*I*) 7) )) )
+        (Assign 88 (Identifier 89 ((*Left*) 9) ) (BinOp 90 Plus (Name 91 (Identifier 92 ((*Med*) 11) )) (Literal 93 (Integer_Literal 1) ) ))
+        (If 94 (BinOp 95 Greater_Than (Name 96 (IndexedComponent 97 (Identifier 98 ((*A*) 6) ) (Name 99 (Identifier 100 ((*Med*) 11) )) )) (Name 101 (Identifier 102 ((*I*) 7) )) )
+          (Assign 103 (Identifier 104 ((*Right*) 10) ) (BinOp 105 Minus (Name 106 (Identifier 107 ((*Med*) 11) )) (Literal 108 (Integer_Literal 1) ) ))
+          (Assign 109 (Identifier 110 ((*Result*) 8) ) (Name 111 (Identifier 112 ((*Med*) 11) )))
         )
       ))
     )))))
@@ -102,7 +108,7 @@ Definition Symbol_Table :=
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*Ar*) 3), (Array_Type_Declaration 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) :: (((*U*) 2), (Subtype_Declaration 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (Range 1 10))) :: (((*T*) 1), (Integer_Type_Declaration 4 ((*T*) 1) (Range 0 10))) :: nil)
+  ((((*Ar*) 3), (ArrayTypeDecl 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) :: (((*U*) 2), (SubtypeDecl 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (Range 1 10))) :: (((*T*) 1), (IntegerTypeDecl 4 ((*T*) 1) (Range 0 10))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
@@ -133,58 +139,64 @@ Definition Symbol_Table :=
 ))
 ).
 
-Definition Coq_AST_Tree_X := 
-(D_Seq_Declaration_X 1
-(D_Seq_Declaration_X 2
-(D_Type_Declaration_X 3 (Integer_Type_Declaration_X 4 ((*T*) 1) (Range_X 0 10))) 
-(D_Seq_Declaration_X 5
-(D_Type_Declaration_X 6 (Subtype_Declaration_X 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (Range_X 1 10))) 
-(D_Seq_Declaration_X 8
-(D_Type_Declaration_X 9 (Array_Type_Declaration_X 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) 
-D_Null_Declaration_X (* Undefined Declarations ! *)))) 
-(D_Procedure_Body_X 11 
-  (mkprocedure_body_x 12
+Definition Coq_AST_TreeRT := 
+
+(mkprogramRT
+(* = = = declarations = = = *)
+(SeqDeclRT 1
+(SeqDeclRT 2
+(TypeDeclRT 3 (IntegerTypeDeclRT 4 ((*T*) 1) (RangeRT 0 10))) 
+(SeqDeclRT 5
+(TypeDeclRT 6 (SubtypeDeclRT 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (RangeRT 1 10))) 
+(SeqDeclRT 8
+(TypeDeclRT 9 (ArrayTypeDeclRT 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) 
+NullDeclRT (* Undefined Declarations ! *)))) 
+(ProcBodyDeclRT 11 
+  (mkprocBodyDeclRT 12
     (* = = = Procedure Name = = = *)
     ((*Search*) 4)
     (* = = = Formal Parameters = = = *)
     (
-    (mkparameter_specification_x 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
-    (mkparameter_specification_x 14 ((*I*) 7) Integer In) :: 
-    (mkparameter_specification_x 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
+    (mkparamSpecRT 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
+    (mkparamSpecRT 14 ((*I*) 7) Integer In) :: 
+    (mkparamSpecRT 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
     (* = = = Object Declarations = = = *)
-    ((D_Seq_Declaration_X 16
-  (D_Object_Declaration_X 17 (mkobject_declaration_x 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
-  (D_Seq_Declaration_X 19
-  (D_Object_Declaration_X 20 (mkobject_declaration_x 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
-  (D_Object_Declaration_X 22 (mkobject_declaration_x 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
+    ((SeqDeclRT 16
+  (ObjDeclRT 17 (mkobjDeclRT 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
+  (SeqDeclRT 19
+  (ObjDeclRT 20 (mkobjDeclRT 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
+  (ObjDeclRT 22 (mkobjDeclRT 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
     (* = = = Procedure Body = = = *)
-      (S_Sequence_X 24
-      (S_Assignment_X 25 (E_Identifier_X 26 ((*Left*) 9) (nil)) (E_Literal_X 27 (Integer_Literal 1) (nil) nil)) 
-      (S_Sequence_X 28
-      (S_Assignment_X 29 (E_Identifier_X 30 ((*Right*) 10) (nil)) (E_Literal_X 31 (Integer_Literal 10) (nil) nil)) 
-      (S_Sequence_X 32
-      (S_Assignment_X 33 (E_Identifier_X 34 ((*Result*) 8) (nil)) (E_Literal_X 35 (Integer_Literal 0) (nil) nil)) 
-      (S_Sequence_X 36
-      (S_If_X 37 (E_Binary_Operation_X 38 Or (E_Binary_Operation_X 39 Greater_Than (E_Name_X 40 (E_Indexed_Component_X 41 (E_Identifier_X 42 ((*A*) 6) (nil)) (E_Binary_Operation_X 43 Plus (E_Name_X 44 (E_Identifier_X 45 ((*Left*) 9) (nil))) (E_Literal_X 46 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil) (nil))) (E_Name_X 47 (E_Identifier_X 48 ((*I*) 7) (nil))) (nil) nil) (E_Binary_Operation_X 49 Less_Than (E_Name_X 50 (E_Indexed_Component_X 51 (E_Identifier_X 52 ((*A*) 6) (nil)) (E_Name_X 53 (E_Identifier_X 54 ((*Right*) 10) (nil))) (nil))) (E_Name_X 55 (E_Identifier_X 56 ((*I*) 7) (nil))) (nil) nil) (nil) nil)
-        (S_Assignment_X 57 (E_Identifier_X 58 ((*Result*) 8) (nil)) (E_Literal_X 59 (Integer_Literal 0) (nil) nil))
-        S_Null_X
+      (SeqRT 24
+      (AssignRT 25 (IdentifierRT 26 ((*Left*) 9) (nil)) (LiteralRT 27 (Integer_Literal 1) (nil) nil)) 
+      (SeqRT 28
+      (AssignRT 29 (IdentifierRT 30 ((*Right*) 10) (nil)) (LiteralRT 31 (Integer_Literal 10) (nil) nil)) 
+      (SeqRT 32
+      (AssignRT 33 (IdentifierRT 34 ((*Result*) 8) (nil)) (LiteralRT 35 (Integer_Literal 0) (nil) nil)) 
+      (SeqRT 36
+      (IfRT 37 (BinOpRT 38 Or (BinOpRT 39 Greater_Than (NameRT 40 (IndexedComponentRT 41 (IdentifierRT 42 ((*A*) 6) (nil)) (BinOpRT 43 Plus (NameRT 44 (IdentifierRT 45 ((*Left*) 9) (nil))) (LiteralRT 46 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil) (nil))) (NameRT 47 (IdentifierRT 48 ((*I*) 7) (nil))) (nil) nil) (BinOpRT 49 Less_Than (NameRT 50 (IndexedComponentRT 51 (IdentifierRT 52 ((*A*) 6) (nil)) (NameRT 53 (IdentifierRT 54 ((*Right*) 10) (nil))) (nil))) (NameRT 55 (IdentifierRT 56 ((*I*) 7) (nil))) (nil) nil) (nil) nil)
+        (AssignRT 57 (IdentifierRT 58 ((*Result*) 8) (nil)) (LiteralRT 59 (Integer_Literal 0) (nil) nil))
+        NullRT
       ) 
-      (S_While_Loop_X 60 (E_Binary_Operation_X 61 Less_Than_Or_Equal (E_Name_X 62 (E_Identifier_X 63 ((*Left*) 9) (nil))) (E_Name_X 64 (E_Identifier_X 65 ((*Right*) 10) (nil))) (nil) nil)
-        (S_Sequence_X 66
-        (S_Assignment_X 67 (E_Identifier_X 68 ((*Med*) 11) (nil)) (E_Binary_Operation_X 69 Plus (E_Name_X 70 (E_Identifier_X 71 ((*Left*) 9) (nil))) (E_Binary_Operation_X 72 Divide (E_Binary_Operation_X 73 Minus (E_Name_X 74 (E_Identifier_X 75 ((*Right*) 10) (nil))) (E_Name_X 76 (E_Identifier_X 77 ((*Left*) 9) (nil))) (nil) nil) (E_Literal_X 78 (Integer_Literal 2) (nil) nil) (Do_Division_Check :: nil) nil) (Do_Range_Check :: nil) nil)) 
-        (S_If_X 79 (E_Binary_Operation_X 80 Less_Than (E_Name_X 81 (E_Indexed_Component_X 82 (E_Identifier_X 83 ((*A*) 6) (nil)) (E_Name_X 84 (E_Identifier_X 85 ((*Med*) 11) (nil))) (nil))) (E_Name_X 86 (E_Identifier_X 87 ((*I*) 7) (nil))) (nil) nil)
-          (S_Assignment_X 88 (E_Identifier_X 89 ((*Left*) 9) (nil)) (E_Binary_Operation_X 90 Plus (E_Name_X 91 (E_Identifier_X 92 ((*Med*) 11) (nil))) (E_Literal_X 93 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil))
-          (S_If_X 94 (E_Binary_Operation_X 95 Greater_Than (E_Name_X 96 (E_Indexed_Component_X 97 (E_Identifier_X 98 ((*A*) 6) (nil)) (E_Name_X 99 (E_Identifier_X 100 ((*Med*) 11) (nil))) (nil))) (E_Name_X 101 (E_Identifier_X 102 ((*I*) 7) (nil))) (nil) nil)
-            (S_Assignment_X 103 (E_Identifier_X 104 ((*Right*) 10) (nil)) (E_Binary_Operation_X 105 Minus (E_Name_X 106 (E_Identifier_X 107 ((*Med*) 11) (nil))) (E_Literal_X 108 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil))
-            (S_Assignment_X 109 (E_Identifier_X 110 ((*Result*) 8) (nil)) (E_Name_X 111 (E_Identifier_X 112 ((*Med*) 11) (nil))))
+      (WhileRT 60 (BinOpRT 61 Less_Than_Or_Equal (NameRT 62 (IdentifierRT 63 ((*Left*) 9) (nil))) (NameRT 64 (IdentifierRT 65 ((*Right*) 10) (nil))) (nil) nil)
+        (SeqRT 66
+        (AssignRT 67 (IdentifierRT 68 ((*Med*) 11) (nil)) (BinOpRT 69 Plus (NameRT 70 (IdentifierRT 71 ((*Left*) 9) (nil))) (BinOpRT 72 Divide (BinOpRT 73 Minus (NameRT 74 (IdentifierRT 75 ((*Right*) 10) (nil))) (NameRT 76 (IdentifierRT 77 ((*Left*) 9) (nil))) (nil) nil) (LiteralRT 78 (Integer_Literal 2) (nil) nil) (DivCheck :: nil) nil) (RangeCheck :: nil) nil)) 
+        (IfRT 79 (BinOpRT 80 Less_Than (NameRT 81 (IndexedComponentRT 82 (IdentifierRT 83 ((*A*) 6) (nil)) (NameRT 84 (IdentifierRT 85 ((*Med*) 11) (nil))) (nil))) (NameRT 86 (IdentifierRT 87 ((*I*) 7) (nil))) (nil) nil)
+          (AssignRT 88 (IdentifierRT 89 ((*Left*) 9) (nil)) (BinOpRT 90 Plus (NameRT 91 (IdentifierRT 92 ((*Med*) 11) (nil))) (LiteralRT 93 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil))
+          (IfRT 94 (BinOpRT 95 Greater_Than (NameRT 96 (IndexedComponentRT 97 (IdentifierRT 98 ((*A*) 6) (nil)) (NameRT 99 (IdentifierRT 100 ((*Med*) 11) (nil))) (nil))) (NameRT 101 (IdentifierRT 102 ((*I*) 7) (nil))) (nil) nil)
+            (AssignRT 103 (IdentifierRT 104 ((*Right*) 10) (nil)) (BinOpRT 105 Minus (NameRT 106 (IdentifierRT 107 ((*Med*) 11) (nil))) (LiteralRT 108 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil))
+            (AssignRT 109 (IdentifierRT 110 ((*Result*) 8) (nil)) (NameRT 111 (IdentifierRT 112 ((*Med*) 11) (nil))))
           )
         ))
       )))))
   )
-)).
+))
+(* = = = main procedure = = = *)
+1
+).
 
-Definition Symbol_Table_X := 
-(mkSymbolTable_x
+Definition Symbol_TableRT := 
+(Symbol_Table_Module_RT.mkSymbolTable
   (*///////////////////////////////////*)
   (* = = = (1) variable type map = = = *)
   (*///////////////////////////////////*)
@@ -192,40 +204,40 @@ Definition Symbol_Table_X :=
   (*////////////////////////////////////////////*)
   (* = = = (2) subprogram declaration map = = = *)
   (*////////////////////////////////////////////*)
-  ((((*Search*) 4), (0, (mkprocedure_body_x 12
+  ((((*Search*) 4), (0, (mkprocBodyDeclRT 12
   (* = = = Procedure Name = = = *)
   ((*Search*) 4)
   (* = = = Formal Parameters = = = *)
   (
-  (mkparameter_specification_x 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
-  (mkparameter_specification_x 14 ((*I*) 7) Integer In) :: 
-  (mkparameter_specification_x 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
+  (mkparamSpecRT 13 ((*A*) 6) (Array_Type ((*Ar*) 3)) In) :: 
+  (mkparamSpecRT 14 ((*I*) 7) Integer In) :: 
+  (mkparamSpecRT 15 ((*Result*) 8) (Integer_Type ((*T*) 1)) Out) :: nil)
   (* = = = Object Declarations = = = *)
-  ((D_Seq_Declaration_X 16
-(D_Object_Declaration_X 17 (mkobject_declaration_x 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
-(D_Seq_Declaration_X 19
-(D_Object_Declaration_X 20 (mkobject_declaration_x 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
-(D_Object_Declaration_X 22 (mkobject_declaration_x 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
+  ((SeqDeclRT 16
+(ObjDeclRT 17 (mkobjDeclRT 18 ((*Left*) 9) (Subtype ((*U*) 2)) None)) 
+(SeqDeclRT 19
+(ObjDeclRT 20 (mkobjDeclRT 21 ((*Right*) 10) (Subtype ((*U*) 2)) None)) 
+(ObjDeclRT 22 (mkobjDeclRT 23 ((*Med*) 11) (Subtype ((*U*) 2)) None)))))
   (* = = = Procedure Body = = = *)
-    (S_Sequence_X 24
-    (S_Assignment_X 25 (E_Identifier_X 26 ((*Left*) 9) (nil)) (E_Literal_X 27 (Integer_Literal 1) (nil) nil)) 
-    (S_Sequence_X 28
-    (S_Assignment_X 29 (E_Identifier_X 30 ((*Right*) 10) (nil)) (E_Literal_X 31 (Integer_Literal 10) (nil) nil)) 
-    (S_Sequence_X 32
-    (S_Assignment_X 33 (E_Identifier_X 34 ((*Result*) 8) (nil)) (E_Literal_X 35 (Integer_Literal 0) (nil) nil)) 
-    (S_Sequence_X 36
-    (S_If_X 37 (E_Binary_Operation_X 38 Or (E_Binary_Operation_X 39 Greater_Than (E_Name_X 40 (E_Indexed_Component_X 41 (E_Identifier_X 42 ((*A*) 6) (nil)) (E_Binary_Operation_X 43 Plus (E_Name_X 44 (E_Identifier_X 45 ((*Left*) 9) (nil))) (E_Literal_X 46 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil) (nil))) (E_Name_X 47 (E_Identifier_X 48 ((*I*) 7) (nil))) (nil) nil) (E_Binary_Operation_X 49 Less_Than (E_Name_X 50 (E_Indexed_Component_X 51 (E_Identifier_X 52 ((*A*) 6) (nil)) (E_Name_X 53 (E_Identifier_X 54 ((*Right*) 10) (nil))) (nil))) (E_Name_X 55 (E_Identifier_X 56 ((*I*) 7) (nil))) (nil) nil) (nil) nil)
-      (S_Assignment_X 57 (E_Identifier_X 58 ((*Result*) 8) (nil)) (E_Literal_X 59 (Integer_Literal 0) (nil) nil))
-      S_Null_X
+    (SeqRT 24
+    (AssignRT 25 (IdentifierRT 26 ((*Left*) 9) (nil)) (LiteralRT 27 (Integer_Literal 1) (nil) nil)) 
+    (SeqRT 28
+    (AssignRT 29 (IdentifierRT 30 ((*Right*) 10) (nil)) (LiteralRT 31 (Integer_Literal 10) (nil) nil)) 
+    (SeqRT 32
+    (AssignRT 33 (IdentifierRT 34 ((*Result*) 8) (nil)) (LiteralRT 35 (Integer_Literal 0) (nil) nil)) 
+    (SeqRT 36
+    (IfRT 37 (BinOpRT 38 Or (BinOpRT 39 Greater_Than (NameRT 40 (IndexedComponentRT 41 (IdentifierRT 42 ((*A*) 6) (nil)) (BinOpRT 43 Plus (NameRT 44 (IdentifierRT 45 ((*Left*) 9) (nil))) (LiteralRT 46 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil) (nil))) (NameRT 47 (IdentifierRT 48 ((*I*) 7) (nil))) (nil) nil) (BinOpRT 49 Less_Than (NameRT 50 (IndexedComponentRT 51 (IdentifierRT 52 ((*A*) 6) (nil)) (NameRT 53 (IdentifierRT 54 ((*Right*) 10) (nil))) (nil))) (NameRT 55 (IdentifierRT 56 ((*I*) 7) (nil))) (nil) nil) (nil) nil)
+      (AssignRT 57 (IdentifierRT 58 ((*Result*) 8) (nil)) (LiteralRT 59 (Integer_Literal 0) (nil) nil))
+      NullRT
     ) 
-    (S_While_Loop_X 60 (E_Binary_Operation_X 61 Less_Than_Or_Equal (E_Name_X 62 (E_Identifier_X 63 ((*Left*) 9) (nil))) (E_Name_X 64 (E_Identifier_X 65 ((*Right*) 10) (nil))) (nil) nil)
-      (S_Sequence_X 66
-      (S_Assignment_X 67 (E_Identifier_X 68 ((*Med*) 11) (nil)) (E_Binary_Operation_X 69 Plus (E_Name_X 70 (E_Identifier_X 71 ((*Left*) 9) (nil))) (E_Binary_Operation_X 72 Divide (E_Binary_Operation_X 73 Minus (E_Name_X 74 (E_Identifier_X 75 ((*Right*) 10) (nil))) (E_Name_X 76 (E_Identifier_X 77 ((*Left*) 9) (nil))) (nil) nil) (E_Literal_X 78 (Integer_Literal 2) (nil) nil) (Do_Division_Check :: nil) nil) (Do_Range_Check :: nil) nil)) 
-      (S_If_X 79 (E_Binary_Operation_X 80 Less_Than (E_Name_X 81 (E_Indexed_Component_X 82 (E_Identifier_X 83 ((*A*) 6) (nil)) (E_Name_X 84 (E_Identifier_X 85 ((*Med*) 11) (nil))) (nil))) (E_Name_X 86 (E_Identifier_X 87 ((*I*) 7) (nil))) (nil) nil)
-        (S_Assignment_X 88 (E_Identifier_X 89 ((*Left*) 9) (nil)) (E_Binary_Operation_X 90 Plus (E_Name_X 91 (E_Identifier_X 92 ((*Med*) 11) (nil))) (E_Literal_X 93 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil))
-        (S_If_X 94 (E_Binary_Operation_X 95 Greater_Than (E_Name_X 96 (E_Indexed_Component_X 97 (E_Identifier_X 98 ((*A*) 6) (nil)) (E_Name_X 99 (E_Identifier_X 100 ((*Med*) 11) (nil))) (nil))) (E_Name_X 101 (E_Identifier_X 102 ((*I*) 7) (nil))) (nil) nil)
-          (S_Assignment_X 103 (E_Identifier_X 104 ((*Right*) 10) (nil)) (E_Binary_Operation_X 105 Minus (E_Name_X 106 (E_Identifier_X 107 ((*Med*) 11) (nil))) (E_Literal_X 108 (Integer_Literal 1) (nil) nil) (Do_Range_Check :: nil) nil))
-          (S_Assignment_X 109 (E_Identifier_X 110 ((*Result*) 8) (nil)) (E_Name_X 111 (E_Identifier_X 112 ((*Med*) 11) (nil))))
+    (WhileRT 60 (BinOpRT 61 Less_Than_Or_Equal (NameRT 62 (IdentifierRT 63 ((*Left*) 9) (nil))) (NameRT 64 (IdentifierRT 65 ((*Right*) 10) (nil))) (nil) nil)
+      (SeqRT 66
+      (AssignRT 67 (IdentifierRT 68 ((*Med*) 11) (nil)) (BinOpRT 69 Plus (NameRT 70 (IdentifierRT 71 ((*Left*) 9) (nil))) (BinOpRT 72 Divide (BinOpRT 73 Minus (NameRT 74 (IdentifierRT 75 ((*Right*) 10) (nil))) (NameRT 76 (IdentifierRT 77 ((*Left*) 9) (nil))) (nil) nil) (LiteralRT 78 (Integer_Literal 2) (nil) nil) (DivCheck :: nil) nil) (RangeCheck :: nil) nil)) 
+      (IfRT 79 (BinOpRT 80 Less_Than (NameRT 81 (IndexedComponentRT 82 (IdentifierRT 83 ((*A*) 6) (nil)) (NameRT 84 (IdentifierRT 85 ((*Med*) 11) (nil))) (nil))) (NameRT 86 (IdentifierRT 87 ((*I*) 7) (nil))) (nil) nil)
+        (AssignRT 88 (IdentifierRT 89 ((*Left*) 9) (nil)) (BinOpRT 90 Plus (NameRT 91 (IdentifierRT 92 ((*Med*) 11) (nil))) (LiteralRT 93 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil))
+        (IfRT 94 (BinOpRT 95 Greater_Than (NameRT 96 (IndexedComponentRT 97 (IdentifierRT 98 ((*A*) 6) (nil)) (NameRT 99 (IdentifierRT 100 ((*Med*) 11) (nil))) (nil))) (NameRT 101 (IdentifierRT 102 ((*I*) 7) (nil))) (nil) nil)
+          (AssignRT 103 (IdentifierRT 104 ((*Right*) 10) (nil)) (BinOpRT 105 Minus (NameRT 106 (IdentifierRT 107 ((*Med*) 11) (nil))) (LiteralRT 108 (Integer_Literal 1) (nil) nil) (RangeCheck :: nil) nil))
+          (AssignRT 109 (IdentifierRT 110 ((*Result*) 8) (nil)) (NameRT 111 (IdentifierRT 112 ((*Med*) 11) (nil))))
         )
       ))
     )))))
@@ -233,7 +245,7 @@ Definition Symbol_Table_X :=
   (*//////////////////////////////////////*)
   (* = = = (3) type declaration map = = = *)
   (*//////////////////////////////////////*)
-  ((((*Ar*) 3), (Array_Type_Declaration_X 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) :: (((*U*) 2), (Subtype_Declaration_X 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (Range_X 1 10))) :: (((*T*) 1), (Integer_Type_Declaration_X 4 ((*T*) 1) (Range_X 0 10))) :: nil)
+  ((((*Ar*) 3), (ArrayTypeDeclRT 10 ((*Ar*) 3) ((*index subtype mark*) (Subtype ((*U*) 2))) ((*component type*) Integer))) :: (((*U*) 2), (SubtypeDeclRT 7 ((*U*) 2) (Integer_Type ((*T*) 1)) (RangeRT 1 10))) :: (((*T*) 1), (IntegerTypeDeclRT 4 ((*T*) 1) (RangeRT 0 10))) :: nil)
   (*/////////////////////////////////////*)
   (* = = = (4) expression type map = = = *)
   (*/////////////////////////////////////*)
