@@ -27,6 +27,9 @@ class CoqAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
   def set() : Option[FileResourceUri] = {
     val sireumHome = System.getenv("SIREUM_HOME")
     if (sireumHome != null) {
+      // under sireum/apps/, build a symbolic link to the installed gnat by following steps:
+      // cd sireum/apps/
+      // ln -s /Users/zhi/gnatpro/gnat-gpl-2015-darwin ./gnat
       var gnatPath = "/apps/gnat/bin/gnat2xml" + ext
       val f = new File(sireumHome, gnatPath)
       if (f.canExecute()) 
