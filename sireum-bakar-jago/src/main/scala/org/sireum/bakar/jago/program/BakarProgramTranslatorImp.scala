@@ -1141,7 +1141,7 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
     }
   }
   
-  val COQ_AST_ID = "Coq_AST_Tree_XX"
+  val AST_ID = "AST_Tree_XX"
   val SYMBOL_TABLE_ID = "Symbol_Table_XX"  
 
   val t = this.jagoProgramTarget
@@ -1185,9 +1185,8 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
   
   val namesMap = factory.buildNameTable(stg, factory.getVarNameMap, factory.getProcNameMap, factory.getPkgNameMap, factory.getTypeNameMap)
   val mainProc = "1"
-  val xx = this.handSeqDeclarations(cus)
   val programAST = factory.buildProgramDeclaration(this.handSeqDeclarations(cus), mainProc)
-  val coq_ast_tree_template = factory.buildDefinition(COQ_AST_ID, programAST)
+  val coq_ast_tree_template = factory.buildDefinition(AST_ID, programAST)
   val symbol_table_template = factory.buildDefinition(SYMBOL_TABLE_ID, 
       factory.buildSymbolTable(stg, ctx.symboltable.getVarTypeMap, ctx.symboltable.getProcDeclMap, 
           ctx.symboltable.getTypeDeclMap, ctx.symboltable.getExpTypeMap, ctx.symboltable.getSlocMap, namesMap))

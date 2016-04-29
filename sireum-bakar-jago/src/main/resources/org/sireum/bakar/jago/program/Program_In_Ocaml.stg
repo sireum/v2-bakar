@@ -4,78 +4,119 @@ optionVal(value) ::= <<
 $if(value)$Some($value$)$else$None$endif$ 
 >>
 
-binaryExpr(astnum, op, loperand, roperand) ::= <<
-E_Binary_Operation ($astnum$, $op$, $loperand$, $roperand$)
+refType(typeMark, typeId) ::= <<
+($typeMark$ $typeId$)
 >>
 
-unaryExpr(astnum, op, operand) ::= <<
-E_Unary_Operation ($astnum$, $op$, $operand$)
+list(elements) ::= <<
+[$elements; separator="; "$]
 >>
 
-// identifier is either (1) Bid nat; or (2) Aid nat 
-varId(theType, id, annotation) ::= <<
-$theType$ $if(annotation)$(*$annotation$*)$endif$ $id$
->>
-
-identifierExpr(astnum, id) ::= <<
-E_Identifier ($astnum$, $id$)
->>
-
-// Inductive literal: Type := 
-//     | Integer_Literal: nat -> constant
-// the type is "Integer_Literal", the value is of type nat
-// $if(theType)$$theType$ $endif$$constVal$
 literal(theType, theLiteral) ::= <<
-$theType$ $theLiteral$
+($theType$ $theLiteral$)
 >>
 
-literalExpr(astnum, litval) ::= <<
-E_Literal ($astnum$, $litval$)
+literalExpr(astnum, litval, checks) ::= <<
+(Literal_XX ($astnum$, $litval$ (**, $checks$, []**)))
 >>
 
-// procedureCall(procName, args) ::= <<
-// $procName$($args; separator=", "$)
-// >>
-
-seqStmt(astnum, stmt1, stmt2) ::= <<
-S_Sequence ($astnum$,
-  $stmt1$,
-  $stmt2$ )
+binaryExpr(astnum, op, loperand, roperand, checks) ::= <<
+(BinOp_XX ($astnum$, $op$, $loperand$, $roperand$ (**, $checks$, []**)))
 >>
 
-assertStmt(astnum, assertExp) ::= <<
-S_Assert ($astnum$, $assertExp$)
->>	
-
-loopInvariantStmt(astnum, invariantExp) ::= <<
-S_Loop_Invariant ($astnum$, $invariantExp$)
+unaryExpr(astnum, op, operand, checks) ::= <<
+(UnOp_XX ($astnum$, $op$, $operand$ (**, $checks$, []**)))
 >>
 
-whileStmt(astnum, cond, loopBody) ::= <<
-S_While_Loop ($astnum$, $cond$,
-  $loopBody$
-)
+nameExpr(astnum, x) ::= <<
+(Name_XX ($astnum$, $x$))
 >>
 
-ifStmt(astnum, cond, ifBody) ::= <<
-S_If ($astnum$, $cond$,
-  $ifBody$
-)
+varId(id, annotation) ::= <<
+($if(annotation)$(*$annotation$*) $endif$$id$)
+>>
+
+identifierExpr(astnum, id, checks) ::= <<
+(Identifier_XX ($astnum$, $id$ (**, $checks$**)))
+>>
+
+// x[e]
+indexedComponent(astnum, x, e, checks) ::= <<
+(IndexedComponent_XX ($astnum$, $x$, $e$ (**, $checks$**)))
+>>
+
+// x.f
+selectedComponent(astnum, x, f, checks) ::= <<
+(SelectedComponent_XX ($astnum$, $x$, $f$ (**, $checks$**)))
+>>
+
+nullStmt() ::= <<
+Null_XX
 >>
 
 assignStmt(astnum, lhs, rhs) ::= <<
-S_Assignment ($astnum$, $lhs$, $rhs$)
+(Assign_XX ($astnum$, $lhs$, $rhs$))
 >>
 
-returnStmt(astnum, returnExp) ::= <<
-S_Return ($astnum$, $if(returnExp)$(Some ($returnExp$))$else$None$endif$)
+ifStmt(astnum, cond, trueBranch, falseBranch) ::= <<
+(If_XX ($astnum$, $cond$,
+  $trueBranch$,
+  $if(falseBranch)$$falseBranch$$else$$nullStmt()$$endif$)
+)
 >>
 
-//paramSpecification(astnum, ids, theType, mode, initExp) ::= <<
-//{ parameter_astnum = $astnum$; parameter_names = [$ids; separator="; "$]; parameter_subtype_mark = $theType$; parameter_mode = $mode$; parameter_default_expression = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
-//>>
-paramSpecification(astnum, id, theType, mode, initExp) ::= <<
-{ parameter_astnum = $astnum$; parameter_name = $id$; parameter_subtype_mark = $theType$; parameter_mode = $mode$; parameter_default_expression = $if(initExp)$(Some ($initExp$))$else$None$endif$ }
+whileStmt(astnum, cond, loopBody) ::= <<
+(While_XX ($astnum$, $cond$,
+  $loopBody$)
+)
+>>
+
+procedureCall(astnum, p_astnum, p, args) ::= <<
+(Call_XX ($astnum$, $p_astnum$, $p$, 
+  $args$)
+)
+>>
+
+seqStmt(astnum, stmt1, stmt2) ::= <<
+(Seq_XX ($astnum$,
+$stmt1$,
+$stmt2$))
+>>
+
+range(l, u) ::= <<
+(Range_XX ($l$, $u$))
+>>
+
+subtypeDecl(astnum, tid, parentSubtypeMark, range) ::= <<
+(SubtypeDecl_XX ($astnum$, $tid$, $parentSubtypeMark$, $range$))
+>>
+
+derivedtypeDecl(astnum, tid, parentSubtypeMark, range) ::= <<
+(DerivedTypeDecl_XX ($astnum$, $tid$, $parentSubtypeMark$, $range$))
+>>
+
+integertypeDecl(astnum, tid, range) ::= <<
+(IntegerTypeDecl_XX ($astnum$, $tid$, $range$))
+>>
+
+fieldDeclaration(fieldName, fieldType) ::= <<
+($fieldName$, $fieldType$)
+>>
+
+arrayTypeDecl(astnum, tid, indexSubtypeMark, componentType) ::= <<
+(ArrayTypeDecl_XX ($astnum$, $tid$, ((*index subtype mark*) $indexSubtypeMark$), ((*component type*) $componentType$)))
+>>
+
+recordTypeDecl(astnum, tid, fields) ::= <<
+(RecordTypeDecl_XX ($astnum$, $tid$, $fields$))
+>>
+
+objectDeclaration(astnum, id, theType, init) ::= <<
+{ declaration_astnum_XX = $astnum$; object_name_XX = $id$; object_nominal_subtype_XX = $theType$; initialization_exp_XX = $if(init)$(Some ($init$))$else$None$endif$ }
+>>
+
+paramSpecification(astnum, id, mode, theType) ::= <<
+{ parameter_astnum_XX = $astnum$; parameter_name_XX = $id$; parameter_subtype_mark_XX = $theType$; parameter_mode_XX = $if(mode)$$mode$$else$In$endif$) }
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -89,130 +130,122 @@ aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
 }
 >>
 
-// +++++++++
-//objectDeclaration(astnum, ids, theType, init) ::= <<
-//{ declaration_astnum = $astnum$; object_names = [$ids; separator="; "$]; object_nominal_subtype = $theType$; initialization_expression = $if(init)$(Some ($init$))$else$None$endif$ }
-//>>
-objectDeclaration(astnum, id, theType, init) ::= <<
-{ declaration_astnum = $astnum$; object_name = $id$; object_nominal_subtype = $theType$; initialization_expression = $if(init)$(Some ($init$))$else$None$endif$ }
+objectDeclarationWrapper(astnum, objectDecl) ::= <<
+(ObjDecl_XX ($astnum$, $objectDecl$))
 >>
 
-// ++++++
-procedureBody(astnum, procName, aspectSpecs, params, identDecls, procBody) ::= <<
-{ 
-  procedure_astnum = 
-    (* Procedure Body - AST Number *)
-    $astnum$;
-  procedure_name = 
-    (* Procedure Body - Name *)
-    $procName$;
-  procedure_contracts =
-    (* Procedure Body - Specification *)
-    [$if(aspectSpecs)$
-    $aspectSpecs; separator="; \n"$$endif$];
-  procedure_parameter_profile = 
-    (* Procedure Body - Parameters *)
-    [$if(params)$
-    $params; separator="; \n"$$endif$];
-  procedure_declarative_part = 
-    (* Procedure Body - Variable Declarations *)
-    [$if(identDecls)$
-    $identDecls; separator="; \n"$$endif$];
-  procedure_statements =
-    (* Procedure Body - Statements *)
-    $procBody$
+procedureBodyDeclWrapper(astnum, procedureBodyDecl) ::= <<
+(ProcBodyDecl_XX ($astnum$, 
+  $procedureBodyDecl$)
+)
+>>
+
+typeDeclarationWrapper(astnum, typeDecl) ::= <<
+(TypeDecl_XX ($astnum$, $typeDecl$))
+>>
+
+seqDeclaration(astnum, d1, d2) ::= <<
+(SeqDecl_XX ($astnum$,
+$d1$,
+$d2$))
+>>
+
+procedureBodyDeclaration(astnum, procName, params, identDecls, procBody) ::= <<
+{ procedure_astnum_XX = $astnum$;
+  (* = = = Procedure Name = = = *)
+  procedurName_XX = $procName$;
+  (* = = = Formal Parameters = = = *)
+  procedure_parameter_profile_XX = 
+  [$params; separator="; \n"$];
+  (* = = = Object Declarations = = = *)
+  procedure_declarative_part_XX = 
+  [$identDecls; separator="; \n"$];
+  (* = = = Procedure Body = = = *)
+  procedure_statements_XX = $procBody$
 }
 >>
 
-// ++++
-functionBody(astnum, funcName, aspectSpecs, returnT, params, identDecls, funcBody) ::= <<
+programDeclaration(decls, main) ::= << 
 {
-  function_astnum =   
-    (* Function Body - AST Number *)
-    $astnum$; 
-  function_name =
-    (* Function Body - Name *)
-    $funcName$;
-  function_result_subtype = 
-    (* Function Body - Return Type *)
-    $returnT$;
-  function_contracts = 
-    (* Function Body - Specification *)
-    [$if(aspectSpecs)$
-    $aspectSpecs; separator="; \n"$$endif$];
-  function_parameter_profile = 
-    (* Function Body - Parameters *)
-    [$if(params)$
-    $params; separator="; \n"$$endif$];
-  function_declarative_part = 
-    (* Function Body - Locally Defined Variables *)
-    [$if(identDecls)$
-    $identDecls; separator="; \n"$$endif$];
-  function_statements = 
-    (* Function Body - Statements *)
-    $funcBody$
+(* = = = declarations = = = *)
+decls_XX = $decls$;
+(* = = = main procedure = = = *)
+main_XX = $main$
 }
 >>
 
-// <Procedure procedure_body> or <Function function_body>
-subProgram(astnum, kind, prog, annotation) ::= <<
-(* $annotation$ Body Declaration *)
-$kind$( $astnum$,
-  $prog$
-)
->>
-
-// ++++++
-packageBody(astnum, pkgBodyName, pkgBodyAspectSpecs, pkgBodyDeclItems) ::= <<
-(* Package Body Declaration *)
-PackageBody ( $astnum$,
-  (* Package Body - Name *)
-  $pkgBodyName$,
-  (* Package Body - Specification *)
-  $if(pkgBodyAspectSpecs)$
-  $pkgBodyAspectSpecs; separator="; \n"$$else$
-  None$endif$, 
-  (* Package Body - Declared Items *)
-  [
-    $pkgBodyDeclItems; separator="; \n"$
-  ]
-)
->>
-
-unitDeclaration(astnum, kind, packageUnit) ::= <<
-$kind$( $astnum$,
-  $packageUnit$
-)
->>
-
-compilationUnit(astnum, unitDecl, unitExpTypeTable, unitTypeNameTable) ::= <<
-(* Compilation Unit *)
-Library_Unit ( $astnum$,
-  (* Compilation Unit - Unit Declaration *)
-  $unitDecl$,  
-  (* Compilation Unit - Type Table *)
-  {
-    tt_exptype_table = 
-      (* Expression AstNum --> TypeNum *) 
-      [
-        $unitExpTypeTable; separator=" ;\n"$
-      ];
-    tt_typename_table = 
-      (* TypeNum --> (Type URI * (Type Declaration AST Num) Option) *) 
-      [
-        $unitTypeNameTable; separator=" ;\n"$
-      ]
-  }
-)
+// it's used as a placehold for unrecognized or undeclared subprograms
+emptySubProgram() ::= <<
+{ procedure_astnum_XX = 0;
+  procedurName_XX = 0;
+  procedure_parameter_profile_XX = [];
+  procedure_declarative_part_XX = NullDecl_XX;
+  procedure_statements_XX = Null_XX
+}
 >>
 
 stringFormat(value) ::= <<
 "$value$"
 >>
 
-mappingPair(key, value) ::= <<
-($key$, $value$)
+nameTable(varNames, procNames, pkgNames, typeNames) ::= <<
+{
+  (*///////////////////////////////////*)
+  (* = = = (1) variable names map = = = *)
+  (*///////////////////////////////////*)
+  varNames = [$varNames; separator = "; "$];
+  (*////////////////////////////////////////////*)
+  (* = = = (2) subprogram names map = = = *)
+  (*////////////////////////////////////////////*)
+  procNames = [$procNames; separator = "; "$];
+  (*//////////////////////////////////////*)
+  (* = = = (3) package names map = = = *)
+  (*//////////////////////////////////////*)
+  pkgNames = [$pkgNames; separator = "; "$];
+  (*/////////////////////////////////////*)
+  (* = = = (4) type names map = = = *)
+  (*/////////////////////////////////////*)
+  typeNames = [$typeNames; separator = "; "$]
+}
 >>
 
+symbolTable(vars, procs, types, exps, slocs, nameTable) ::= <<
+{
+  (*///////////////////////////////////*)
+  (* = = = (1) variable type map = = = *)
+  (*///////////////////////////////////*)
+  vars = [$vars; separator = "; "$];
+  (*////////////////////////////////////////////*)
+  (* = = = (2) subprogram declaration map = = = *)
+  (*////////////////////////////////////////////*)
+  procs = [$procs; separator = "; "$];
+  (*//////////////////////////////////////*)
+  (* = = = (3) type declaration map = = = *)
+  (*//////////////////////////////////////*)
+  types = [$types; separator = "; "$];
+  (*/////////////////////////////////////*)
+  (* = = = (4) expression type map = = = *)
+  (*/////////////////////////////////////*)
+  exps = [$exps; separator = "; "$];
+  (*/////////////////////////////////////////////////*)
+  (* = = = (5) ast node to source location map = = = *)
+  (*/////////////////////////////////////////////////*)
+  sloc = [$slocs; separator = "; "$];
+  (* = = = (6) name id to a pair of (name string, unique name string) map = = = *)
+  (*/////////////////////////////////////////////////*)
+  names = ($nameTable$)
+}
+>>
 
+sourceLocation(line, col, endline, endcol) ::= <<
+{ line = (*Line*)$line$; col = (*Col*)$col$; endline = (*EndLine*)$endline$; endcol = (*EndCol*)$endcol$ }
+>>
 
+product(x, y) ::= <<
+($x$, $y$)
+>>
+
+definition(x, v) ::= <<
+let $x$ = $v$
+
+>>
