@@ -1,5 +1,9 @@
 // group SPARKTRANS_OCaml_MODEL;
 
+importRequiredLibsForAst() ::= <<
+
+>>
+
 optionVal(value) ::= <<
 $if(value)$Some($value$)$else$None$endif$ 
 >>
@@ -116,7 +120,7 @@ objectDeclaration(astnum, id, theType, init) ::= <<
 >>
 
 paramSpecification(astnum, id, mode, theType) ::= <<
-{ parameter_astnum_XX = $astnum$; parameter_name_XX = $id$; parameter_subtype_mark_XX = $theType$; parameter_mode_XX = $if(mode)$$mode$$else$In$endif$) }
+{ parameter_astnum_XX = $astnum$; parameter_name_XX = $id$; parameter_subtype_mark_XX = $theType$; parameter_mode_XX = $if(mode)$$mode$$else$In$endif$ }
 >>
 
 aspectSpecification(astnum, aspectMark, aspectDef) ::= <<
@@ -151,18 +155,17 @@ $d2$))
 >>
 
 procedureBodyDeclaration(astnum, procName, params, identDecls, procBody) ::= <<
-{ procedure_astnum_XX = $astnum$;
+mkprocBodyDecl_XX (
+ $astnum$,
   (* = = = Procedure Name = = = *)
-  procedurName_XX = $procName$;
+  $procName$,
   (* = = = Formal Parameters = = = *)
-  procedure_parameter_profile_XX = 
-  [$params; separator="; \n"$];
+  [$params; separator="; \n"$],
   (* = = = Object Declarations = = = *)
-  procedure_declarative_part_XX = 
-  [$identDecls; separator="; \n"$];
+  $identDecls$,
   (* = = = Procedure Body = = = *)
-  procedure_statements_XX = $procBody$
-}
+  $procBody$
+)
 >>
 
 programDeclaration(decls, main) ::= << 
@@ -176,12 +179,7 @@ main_XX = $main$
 
 // it's used as a placehold for unrecognized or undeclared subprograms
 emptySubProgram() ::= <<
-{ procedure_astnum_XX = 0;
-  procedurName_XX = 0;
-  procedure_parameter_profile_XX = [];
-  procedure_declarative_part_XX = NullDecl_XX;
-  procedure_statements_XX = Null_XX
-}
+mkprocBodyDecl_XX (0, 0, [], NullDecl_XX, Null_XX)
 >>
 
 stringFormat(value) ::= <<
