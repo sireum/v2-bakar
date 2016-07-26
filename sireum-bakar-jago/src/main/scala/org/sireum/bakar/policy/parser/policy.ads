@@ -15,7 +15,16 @@ Key: Integer with Domain => Secret;
 SSN: Integer with Domain => Secret;
 BankAccount: Integer with Domain => TopSecret;
 Disk: Integer with Domain => Public;
+
+-- thumper example --
+-- server side data --
+TopKey: Integer with Domain => TopSecret;
+Time: Integer with Domain => Public;
+-- client side data --
+Document: Integer with Domain => Secret;
+DocSignature: Integer with Domain => Public;
     
+
 IN_0_DAT : Integer with Domain => Section0;
 OUT_1_DAT : Integer with Domain => Section1; 
     
@@ -55,3 +64,7 @@ procedure Padding(V: in Integer; R: out Boolean) with
 procedure CheckSumX(V: in Integer; R: out Integer) with
   Declassifier,
   Domain => (V => Secret, R => Public);
+
+procedure Sign(Data: in Integer; Signature: out Integer) with
+  Declassifier,
+  Domain => (Data => Secret, Signature => Public);
