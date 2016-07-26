@@ -559,10 +559,54 @@ class BakarProgramTranslatorModuleDef(val job : PipelineJob, info : PipelineJobM
             val b_type = ctx.get_type // type of conditional expression
             val old_context_type = ctx.Tp
             ctx.add_context_type(b_type)
+            
+            /*
             // true branch
             v(statements)
             // false branch
             HandleIfStmt(statementPaths.tail)
+            ctx.reset_context_type(old_context_type)
+            */
+            
+            // modified local variables in true and false branches
+            collect(statements)
+            val modVarsT = ctx.get_modVars()
+            collect(statementPaths.tail);
+            val modVarsF = ctx.get_modVars()
+            val vars = mlistEmpty[String]
+            vars ++= modVarsT
+            vars ++= modVarsF
+            val modVars = mlistEmpty[String]
+            modVars ++= vars.toSet.toList
+            
+            // type of local variables before entering each branch
+            var Tl_before = mmapEmpty[String, String]
+            Tl_before ++= ctx.Tl
+            
+            // true branch
+            v(statements)
+            var Tl_t = mmapEmpty[String, String] // types after the true branch
+            Tl_t ++= ctx.Tl
+            // false branch
+            ctx.Tl.clear() 
+            ctx.Tl ++= Tl_before
+            //ctx.Tl += ("M" -> "t10")
+            HandleIfStmt(statementPaths.tail)
+            var Tl_f = mmapEmpty[String, String] // types after the true branch
+            Tl_f ++= ctx.Tl
+            
+            // merge the types of local modified variables
+            modVars.foreach { x =>
+              val tl = ctx.gen_fresh_type()
+              ctx.Tl += (x -> tl)
+              var tr = mlistEmpty[String]
+              if(Tl_t.get(x).isDefined)
+                tr += Tl_t.get(x).get
+              if(Tl_f.get(x).isDefined)
+                tr += Tl_f.get(x).get
+              ctx.add_typeConstraint(tl, tr.toList)
+            }
+            
             ctx.reset_context_type(old_context_type)
           case ElsifPathEx(sloc, condExp, statements, checks) =>
             v(condExp.getExpression())

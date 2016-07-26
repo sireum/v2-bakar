@@ -92,19 +92,20 @@ trait Context {
   // Tp: type of the program counter
   // fresh_n: fresh variables
   // Cs:   type constraint set
+  // 
   val Domains = mlistEmpty[String]
   val Domain_Ordering = mlistEmpty[(String, String)] // value._1 <= value._2
   val Declassifiers = mmapEmpty[String, TypeConstraint_of_Subprogram]
   
   val Tf = mmapEmpty[String, TypeConstraint_of_Subprogram]
   val Tg = mmapEmpty[String, String]
-  val Tl = mmapEmpty[String, String]
+  var Tl = mmapEmpty[String, String]
   var Tp = scala.collection.immutable.List.empty[String]
   var fresh_n = 0
   var Cs = mlistEmpty[TypeConstraint]
   var Vm = mlistEmpty[String] // variables that maybe modified
   var lhs_or_rhs = false
-      
+  
   Tp = Tp :+ "BOTTOM"
   
   // help functions
@@ -117,9 +118,9 @@ trait Context {
     if(Tg.get(x) != None)
       return Tg.get(x)
     
-    if(lhs_or_rhs) 
+    if(lhs_or_rhs)
       // if it's a lhs variable
-      Tl += (x -> gen_fresh_type)
+      Tl += (x -> gen_fresh_type) 
     
     if(Tl.get(x).isEmpty)
       Tl += (x -> gen_fresh_type)
