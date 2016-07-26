@@ -46,3 +46,12 @@ procedure Scrub(V: in Integer; R: out Integer) with
 procedure Encrypt1(V: in Integer; R: out Integer) with
    Declassifier,
    Domain => (V => Scrubbed, R => Encrypted);
+
+------------
+procedure Padding(V: in Integer; R: out Boolean) with
+  Declassifier,
+  Domain => (V => Secret, R => Public);
+
+procedure CheckSumX(V: in Integer; R: out Integer) with
+  Declassifier,
+  Domain => (V => Secret, R => Public);
