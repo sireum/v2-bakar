@@ -6,7 +6,6 @@ import org.sireum.bakar.compiler.module.BakarTranslatorModule
 import org.sireum.bakar.compiler.rewriter.BakarExpRewriterModule
 import org.sireum.bakar.xml.module.Gnat2XMLWrapperModule
 import org.sireum.bakar.xml.module.ParseGnat2XMLModule
-import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
 import org.sireum.pipeline.PipelineStage
@@ -54,6 +53,7 @@ object BakarExpRewriterTest extends ImplicitLogging {
 
   def writeTestString(job: PipelineJob, w: Writer) = {
     import BakarExpRewriterModule.ConsumerView._
+    import org.sireum.pilar.pretty.NodePrettyPrinter
     job.models foreach (m => w.write(NodePrettyPrinter.print(m)))
   }
 }
