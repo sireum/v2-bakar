@@ -152,21 +152,28 @@ object TypeConverter {
   //    KiasanEvaluatorTestUtil  
 
   def buildType(m : IMap[ResourceUri, TypeDecl], t : TypeDecl) : org.sireum.kiasan.types.Type = {
-    import org.sireum.kiasan.types._
+    import org.sireum.kiasan.types.IntegerType
+    import org.sireum.kiasan.types.ArrayType
+    import org.sireum.kiasan.types.RecordType
 
     SymbolUtil.getTypeDef(t, m) match {
       case e : SignedIntegerTypeDef => IntegerType
       case e : EnumerationTypeDef   => IntegerType
       case e : ArrayTypeDef =>
         val componentTypeUri = e.componentSubtype
-        val indexTypeUri =
-          if (e.isInstanceOf[ConstrainedArrayDef])
-            e.asInstanceOf[ConstrainedArrayDef].discreteSubtypes(0)
-          else if (e.isInstanceOf[UnconstrainedArrayDef])
-            e.asInstanceOf[UnconstrainedArrayDef].indexSubtypes(0)
-          else
-            throw new UnexpectedError("Not handling")
-        ArrayType(SireumNumber(BigInt(0)), SireumNumber(BigInt(100)), componentTypeUri)
+        val (min, max) =
+          e match {
+            case ConstrainedArrayDef(dim, compSubtype, discreteSubtypes) =>
+              assert(dim == 1)
+              m(discreteSubtypes(0)) match {
+                case SubTypeDecl(_, _, _, Some(SimpleRangeConstraint(
+                  LiteralExp(LiteralType.INTEGER, l : BigInt, _),
+                  LiteralExp(LiteralType.INTEGER, u : BigInt, _)))) =>
+                  (l, u)
+              }
+            case _ => throw new RuntimeException()
+          }
+        ArrayType(SireumNumber(min), SireumNumber(max), componentTypeUri)
       case e : RecordDef =>
         assert(e.isInstanceOf[RecordTypeDef])
         var components = imapEmpty[ResourceUri, (ResourceUri, String)]
