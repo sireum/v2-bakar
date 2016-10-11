@@ -10,7 +10,7 @@ import org.sireum.pilar.ast._
 import org.sireum.pilar.pretty.NodePrettyPrinter
 import org.sireum.bakar.compiler.module.URIS
 import org.sireum.bakar.compiler.module.PilarNodeFactory
-import org.sireum.bakar.compiler.module.PilarNodeFactory.{copyPropertyMap => cp}
+import org.sireum.bakar.compiler.module.PilarNodeFactory.{ copyPropertyMap => cp }
 import org.sireum.bakar.symbol.TypeDecl
 import org.sireum.bakar.util.TagUtil
 
@@ -18,8 +18,11 @@ class BakarExpRewriterModuleDef(val job : PipelineJob, info : PipelineJobModuleI
   try {
     models = for (m <- this.models) yield BakarRewriter.rewriter(m, bakarTypeUri2TypeMap)
   } catch {
-    case e : Throwable =>
+    case e : Throwable => {
+      job.exceptions += e
+      info.hasError = true
       info.tags += TagUtil.genUnexpectedErrorTag(e)
+    }
   }
 }
 
@@ -32,8 +35,8 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
   type RVistor = Any => Any
   var tcounter = 0;
   var lcounter = 0;
-  val tempVarPrefix = "_t"
-  val locPrefix = "rwl"
+  val tempVarPrefix = "_bert"
+  val locPrefix = "berl"
 
   val eannot = ilistEmpty[Annotation]
   def newTempVar(typeName : String, typeUri : String) = {
@@ -54,7 +57,13 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
     lcounter += 1
     Some(PilarNodeFactory.buildLocationLabel(path))
   }
-
+  
+  implicit def nd2nu(nd : NameDefinition) = {
+    val nu = NameUser(nd.name)
+    nu.propertyMap ++= nd.propertyMap
+    nu
+  }
+  
   var clhs : Option[Exp] = None
   var prelocs = ilistEmpty[LocationDecl]
   var postlocs = ilistEmpty[LocationDecl]
@@ -93,12 +102,42 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
           postlocs :+= ActionLocation(newLabel, eannot, AssignAction(eannot, exp, ":=", te))
         case _ =>
       }
-
       val ie = cp(e, IndexingExp(te, indices))
       URIS.addTypeUri(ie, etype.uri)
   }, Rewriter.TraversalMode.BOTTOM_UP, true)
-
+  
   def rewrite(m : Model) : Model = {
+    val _m = Rewriter.build[Model]({
+      case p : ProcedureDecl =>
+        currentMethodUri = p.name.uri
+        p
+      case b : ImplementedBody => {
+        this.newTempVars = ilistEmpty[LocalVarDecl]
+        val mappy = mlinkedMapEmpty[LocationDecl, Seq[LocationDecl]]
+        for (l <- b.locations) {
+          prelocs = ilistEmpty[LocationDecl]
+          val _l = Rewriter.build({
+            case be @ BinaryExp(op, lhs, rhs) if op == PilarAstUtil.COND_AND_BINOP || op == PilarAstUtil.COND_OR_BINOP =>
+              val beType = typeMap(getTypeUri(be))
+              val result = newTempVar(beType.id, beType.uri)
+              val c = if(op == PilarAstUtil.COND_AND_BINOP) UnaryExp("!", result) else result
+              prelocs :+= ActionLocation(newLabel, ilistEmpty, AssignAction(ilistEmpty, result, ":=", lhs))
+              prelocs :+= ComplexLocation(newLabel, ilistEmpty,
+                ilist(Transformation(ilistEmpty, None, ilistEmpty, Some(IfJump(ilistEmpty,
+                  ilist(IfThenJump(c, ilistEmpty, l.name.get)), None)))))
+              prelocs :+= ActionLocation(newLabel, ilistEmpty, AssignAction(ilistEmpty, result, ":=", rhs))
+              cp(be, result)
+          })(l)
+          mappy(_l) = prelocs
+        }
+        cp(b, ImplementedBody(b.locals ++ newTempVars,
+          ilistEmpty ++ mappy.map(f => f._2 :+ f._1).flatten, b.catchClauses))
+      }
+    }, Rewriter.TraversalMode.TOP_DOWN, true)(m)
+
+    newTempVars = ilistEmpty[LocalVarDecl]
+    prelocs = ilistEmpty[LocationDecl]
+
     var packages = ilistEmpty[PackageDecl]
     Visitor.build({
       case p @ PackageDecl(packName, _, elements) =>
@@ -143,16 +182,16 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
                 val origLoc = s._1
 
                 val _origLoc = origLoc match {
-                  case i:ActionLocation => cp(origLoc, i.copy(name = firstPre.name))
-                  case i:ComplexLocation => cp(origLoc, i.copy(name = firstPre.name))
-                  case i: JumpLocation =>  cp(origLoc, i.copy(name = firstPre.name))
+                  case i : ActionLocation  => cp(origLoc, i.copy(name = firstPre.name))
+                  case i : ComplexLocation => cp(origLoc, i.copy(name = firstPre.name))
+                  case i : JumpLocation    => cp(origLoc, i.copy(name = firstPre.name))
                 }
-                
+
                 val _firstPre = cp(firstPre, firstPre.copy(name = origLoc.name))
-                val _moddedPres = _firstPre +: preLocs.drop(1) 
-                
+                val _moddedPres = _firstPre +: preLocs.drop(1)
+
                 (_moddedPres, _origLoc)
-              } else 
+              } else
                 (preLocs, s._1)
               (_preLocs :+ orig) ++ s._2._2
             }
@@ -168,7 +207,7 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
         }
         packages :+= cp(p, PilarNodeFactory.buildPackageDecl(p.name.get, p.annotations, elems))
         false
-    })(m)
+    })(_m)
     cp(m, Model(m.sourceURI, m.annotations, packages))
   }
 }
