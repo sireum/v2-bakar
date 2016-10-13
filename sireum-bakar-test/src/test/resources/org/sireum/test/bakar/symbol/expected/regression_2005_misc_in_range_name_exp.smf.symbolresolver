@@ -65,6 +65,14 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 
       ada://variable/in_range_name_exp-1:9/test-3:12/ret+7:5 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert0 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert1 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert2 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert3 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert4 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert5 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert6 
+      ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert7 
 
     Params
       ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 

@@ -38,21 +38,21 @@ procedure NAdd (
         SmallInt I,
         NestedRec NR) {
   local
-    Rec _t0;
-    Rec _t1;
+    Rec _bert0;
+    Rec _bert1;
 
 
   #l3.
-    _t0 := NR.X;
+    _bert0 := NR.X;
 
-  #rwl2.
-    _t1 := NR.X;
+  #berl2.
+    _bert1 := NR.X;
 
-  #rwl0.
-    _t0.A := _t1.A + I;
+  #berl0.
+    _bert0.A := _bert1.A + I;
 
-  #rwl1.
-    NR.X := _t0;
+  #berl1.
+    NR.X := _bert0;
 
   #l4.
     return;
@@ -62,17 +62,17 @@ procedure AAdd (
         SmallInt I,
         Rec R) {
   local
-    Vector _t2;
+    Vector _bert2;
 
 
   #l5.
-    _t2 := R.B;
+    _bert2 := R.B;
 
-  #rwl3.
-    _t2[I] := I + 1ii;
+  #berl3.
+    _bert2[I] := I + 1ii;
 
-  #rwl4.
-    R.B := _t2;
+  #berl4.
+    R.B := _bert2;
 
   #l6.
     return;

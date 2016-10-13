@@ -8,6 +8,10 @@ procedure Array_Loop_Entry (
     universal_integer Index;
     universal_integer _tcomp0;
     universal_integer _tcomp1;
+    Boolean _bert0;
+    Array_Of_Int _bert1;
+    Array_Of_Int _bert2;
+    Array_Of_Int _bert3;
 
 
   #l0.
@@ -37,14 +41,35 @@ procedure Array_Loop_Entry (
   #l10.
     A[attribute__uif__last `A - Index + 1ii] := Temp;
 
+  #berl1.
+    _bert1 := attribute__uif__loop_entry (Inner, A);
+
+  #berl5.
+    _bert2 := attribute__uif__loop_entry (Outer, A);
+
+  #berl4.
+    _bert0 := proof__uif__for_all {universal_integer J => 
+        switch J
+          case (attribute__uif__first `A, Index) => A[J] == _bert1[attribute__uif__last `A - J + 1ii] &&& A[attribute__uif__last `A - J + 1ii] == _bert2[J]
+          default => true};
+
+  #berl2.
+    if !(_bert0) then goto berl0;
+
+  #berl3.
+    _bert3 := attribute__uif__loop_entry (Inner, A);
+
+  #berl6.
+    _bert0 := proof__uif__for_all {universal_integer J => 
+        switch J
+          case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == _bert3[J]
+          default => true};
+
+  #berl0.
+    // empty loc
+
   #l11.
-    assert (proof__uif__loop_invariant proof__uif__for_all {universal_integer J => 
-        switch J
-          case (attribute__uif__first `A, Index) => A[J] == attribute__uif__loop_entry (Inner, A)[attribute__uif__last `A - J + 1ii] &&& A[attribute__uif__last `A - J + 1ii] == attribute__uif__loop_entry (Outer, A)[J]
-          default => true} && proof__uif__for_all {universal_integer J => 
-        switch J
-          case (Index + 1ii, attribute__uif__last `A - Index) => A[J] == attribute__uif__loop_entry (Inner, A)[J]
-          default => true}, "Loop Invariant failed at [13, 10]");
+    assert (proof__uif__loop_invariant _bert0, "Loop Invariant failed at [13, 10]");
 
   #l12.
     if Index == _tcomp1 then goto l2;

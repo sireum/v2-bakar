@@ -49,6 +49,7 @@ ada://variable__temp/Sort-1:9/BubbleSort-16:13/_tcomp12 -> ada://subtype/Sort-1:
 ada://variable__temp/Sort-1:9/BubbleSort-16:13/_tcomp13 -> ada://subtype/Sort-1:9/Index_Type-7:11
 ada://variable__temp/Sort-1:9/BubbleSort-16:13/_tcomp14 -> ada://subtype/Sort-1:9/Index_Type-7:11
 ada://variable__temp/Sort-1:9/BubbleSort-16:13/_tcomp15 -> ada://subtype/Sort-1:9/Index_Type-7:11
+ada://variable__temp/Sort-1:9/InsertionSort-32:13/_bert0 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
 ada://variable__temp/Sort-1:9/InsertionSort-32:13/_tcomp16 -> ada://subtype/Sort-1:9/Index_Type-7:11
 ada://variable__temp/Sort-1:9/InsertionSort-32:13/_tcomp17 -> ada://subtype/Sort-1:9/Index_Type-7:11
 ada://variable__temp/Sort-1:9/Num_Repetition+2:12/_tcomp0 -> ada://subtype/Sort-1:9/Index_Type-7:11
@@ -63,5 +64,6 @@ ada://variable__temp/Sort-1:9/Perm-14:12/_tcomp2 -> ada://subtype/Sort-1:9/Index
 ada://variable__temp/Sort-1:9/Perm-14:12/_tcomp3 -> ada://subtype/Sort-1:9/Index_Type-7:11
 ada://variable__temp/Sort-1:9/Perm-14:12/_tcomp4 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort-1:9/Perm-14:12/_tcomp5 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/Sort-1:9/ShellSort-40:13/_bert1 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
 ada://variable__temp/Sort-1:9/ShellSort-40:13/_tcomp18 -> ada://subtype/Sort-1:9/Index_Type-7:11
 ada://variable__temp/Sort-1:9/ShellSort-40:13/_tcomp19 -> ada://subtype/Sort-1:9/Index_Type-7:11

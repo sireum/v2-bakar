@@ -71,6 +71,12 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Case_Statement_Int-1:9/isWorkDay-7:12/d-7:23 
       ada://variable/Case_Statement_Int-1:9/isWorkDay-7:12/ret+6:5 
+      ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert0 
+      ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert1 
+      ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert2 
+      ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert3 
+      ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert4 
+      ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert5 
 
     Params
       ada://parameter/Case_Statement_Int-1:9/isWorkDay-7:12/d-7:23 

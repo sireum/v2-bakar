@@ -110,6 +110,7 @@ procedure Boolean isSet (
     Index_Type J;
     Index_Type _tcomp6;
     Index_Type _tcomp7;
+    Boolean _bert0;
 
 
   #l27.
@@ -142,8 +143,20 @@ procedure Boolean isSet (
   #l37.
     // empty loc
 
+  #berl1.
+    _bert0 := I == J;
+
+  #berl2.
+    if _bert0 then goto berl0;
+
+  #berl3.
+    _bert0 := A[I] != A[J];
+
+  #berl0.
+    // empty loc
+
   #l38.
-    Result := I == J || A[I] != A[J];
+    Result := _bert0;
 
   #l39.
     if !(Result) then goto l32;
@@ -189,6 +202,7 @@ procedure Boolean isPerm (
     Index_Type _tcomp9;
     Integer _tcomp10;
     Integer _tcomp11;
+    Boolean _bert1;
 
 
   #l48.
@@ -209,8 +223,20 @@ procedure Boolean isPerm (
   #l54.
     // empty loc
 
+  #berl5.
+    _bert1 := I == attribute__uif__first `Index_Type;
+
+  #berl6.
+    if _bert1 then goto berl4;
+
+  #berl7.
+    _bert1 := A[I - 1ii] != A[I];
+
+  #berl4.
+    // empty loc
+
   #l56.
-    if !(I == attribute__uif__first `Index_Type || A[I - 1ii] != A[I]) then goto l55;
+    if !(_bert1) then goto l55;
 
   #l57.
     call _tcomp10 := Num_Repetitions (A, A[I]);
@@ -438,6 +464,7 @@ procedure InsertionSort (
     Integer I;
     Integer _tcomp16;
     Integer _tcomp17;
+    Boolean _bert2;
 
 
   #l116.
@@ -464,8 +491,20 @@ procedure InsertionSort (
   #l124.
     // empty loc
 
+  #berl9.
+    _bert2 := J >= attribute__uif__first `A;
+
+  #berl10.
+    if !(_bert2) then goto berl8;
+
+  #berl11.
+    _bert2 := A[J] > Value;
+
+  #berl8.
+    // empty loc
+
   #l125.
-    if !(J >= attribute__uif__first `A && A[J] > Value) then goto l123;
+    if !(_bert2) then goto l123;
 
   #l126.
     A[J + 1ii] := A[J];
@@ -605,6 +644,7 @@ procedure ShellSort (
     Index_Type I;
     Index_Type _tcomp22;
     Index_Type _tcomp23;
+    Boolean _bert3;
 
 
   #l162.
@@ -640,8 +680,20 @@ procedure ShellSort (
   #l175.
     // empty loc
 
+  #berl13.
+    _bert3 := J > Increment;
+
+  #berl14.
+    if !(_bert3) then goto berl12;
+
+  #berl15.
+    _bert3 := A[J - Increment] > Temp;
+
+  #berl12.
+    // empty loc
+
   #l176.
-    if !(J > Increment && A[J - Increment] > Temp) then goto l174;
+    if !(_bert3) then goto l174;
 
   #l177.
     A[J] := A[J - Increment];

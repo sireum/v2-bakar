@@ -5,5 +5,5 @@ ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40 -> ada://ordinary_type/Ar
 ada://variable/Array_Two_Dim-1:9/@@Box-24:3 -> ada://subtype/Array_Two_Dim-1:9/Square-22:11
 ada://variable/Array_Two_Dim-1:9/@@Box2-29:3 -> ada://subtype/Array_Two_Dim-1:9/Square-22:11
 ada://variable/Array_Two_Dim-1:9/@@aBoard-38:3 -> ada://ordinary_type/Array_Two_Dim-1:9/Board-34:8
-ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t0 -> ada://ordinary_type/Array_Two_Dim-1:9/Row-33:8
-ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t1 -> ada://ordinary_type/Array_Two_Dim-1:9/Row-33:8
+ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_bert0 -> ada://ordinary_type/Array_Two_Dim-1:9/Row-33:8
+ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_bert1 -> ada://ordinary_type/Array_Two_Dim-1:9/Row-33:8

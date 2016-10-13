@@ -1,2 +1,6 @@
 ada://parameter/Case_Statement_Enum-1:9/isWorkDay-10:12/d-10:23 -> ada://ordinary_type/Case_Statement_Enum-1:9/Week-3:8
 ada://variable/Case_Statement_Enum-1:9/isWorkDay-10:12/ret+6:5 -> ada://ordinary_type/Case_Statement_Enum-1:9/Activity-8:8
+ada://variable__temp/Case_Statement_Enum-1:9/isWorkDay-10:12/_bert0 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Enum-1:9/isWorkDay-10:12/_bert1 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Enum-1:9/isWorkDay-10:12/_bert2 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Enum-1:9/isWorkDay-10:12/_bert3 -> ada://ordinary_type/Standard-1:1/Boolean-1:1

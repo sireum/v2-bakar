@@ -18,41 +18,41 @@ procedure Swap (
   local
     Integer temp1;
     Integer temp2;
-    Object _t0;
-    Object _t1;
-    Object _t2;
-    Object _t3;
+    Object _bert0;
+    Object _bert1;
+    Object _bert2;
+    Object _bert3;
 
 
   #l1.
-    _t0 := Q[theIndex];
+    _bert0 := Q[theIndex];
 
-  #rwl0.
-    temp1 := _t0.X;
+  #berl0.
+    temp1 := _bert0.X;
 
   #l2.
-    _t1 := Q[theIndex];
+    _bert1 := Q[theIndex];
 
-  #rwl1.
-    temp2 := _t1.Y;
+  #berl1.
+    temp2 := _bert1.Y;
 
   #l3.
-    _t2 := Q[theIndex];
+    _bert2 := Q[theIndex];
 
-  #rwl2.
-    _t2.X := temp2;
+  #berl2.
+    _bert2.X := temp2;
 
-  #rwl3.
-    Q[theIndex] := _t2;
+  #berl3.
+    Q[theIndex] := _bert2;
 
   #l4.
-    _t3 := Q[theIndex];
+    _bert3 := Q[theIndex];
 
-  #rwl4.
-    _t3.Y := temp1;
+  #berl4.
+    _bert3.Y := temp1;
 
-  #rwl5.
-    Q[theIndex] := _t3;
+  #berl5.
+    Q[theIndex] := _bert3;
 
   #l5.
     return;

@@ -109,10 +109,10 @@ Procedure Symbol Table
       ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O1+45:38 
       ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O2+45:42 
       ada://variable/SimpleRecordTests-1:9/Test03+45:12/Q+49:7 
-      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t0 
-      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t1 
-      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t2 
-      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t3 
+      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert0 
+      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert1 
+      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert2 
+      ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert3 
 
     Params
       ada://parameter/SimpleRecordTests-1:9/Test03+45:12/I1+45:19 

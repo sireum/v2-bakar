@@ -5,16 +5,48 @@ procedure Boolean test (
         Integer Z) {
   local
     Boolean ret;
+    Boolean _bert0;
+    Boolean _bert1;
+    Boolean _bert2;
+    Boolean _bert3;
+    Boolean _bert4;
+    Boolean _bert5;
+    Boolean _bert6;
+    Boolean _bert7;
 
+
+  #berl1.
+    _bert0 := attribute__uif__first `Natural <= Z;
+
+  #berl2.
+    if !(_bert0) then goto berl0;
+
+  #berl3.
+    _bert0 := Z <= attribute__uif__last `Natural;
+
+  #berl0.
+    // empty loc
 
   #l0.
-    ret := attribute__uif__first `Natural <= Z && Z <= attribute__uif__last `Natural;
+    ret := _bert0;
 
   #l2.
     if !(ret) then goto l1;
 
+  #berl5.
+    _bert1 := 1ii <= Z;
+
+  #berl6.
+    if !(_bert1) then goto berl4;
+
+  #berl7.
+    _bert1 := Z <= 10ii;
+
+  #berl4.
+    // empty loc
+
   #l3.
-    ret := 1ii <= Z && Z <= 10ii;
+    ret := _bert1;
 
   #l1.
     // empty loc
@@ -22,8 +54,20 @@ procedure Boolean test (
   #l5.
     if !(ret) then goto l4;
 
+  #berl9.
+    _bert2 := attribute__uif__first `Positive <= Z;
+
+  #berl10.
+    if !(_bert2) then goto berl8;
+
+  #berl11.
+    _bert2 := Z <= attribute__uif__last `Positive;
+
+  #berl8.
+    // empty loc
+
   #l6.
-    ret := !(attribute__uif__first `Positive <= Z && Z <= attribute__uif__last `Positive);
+    ret := !(_bert2);
 
   #l4.
     // empty loc
@@ -31,8 +75,68 @@ procedure Boolean test (
   #l8.
     if !(ret) then goto l7;
 
+  #berl13.
+    _bert3 := attribute__uif__first `Positive <= Z;
+
+  #berl14.
+    if !(_bert3) then goto berl12;
+
+  #berl15.
+    _bert3 := Z <= attribute__uif__last `Positive;
+
+  #berl12.
+    // empty loc
+
+  #berl17.
+    _bert4 := _bert3;
+
+  #berl18.
+    if _bert4 then goto berl16;
+
+  #berl19.
+    _bert4 := Z == 4ii;
+
+  #berl16.
+    // empty loc
+
+  #berl25.
+    _bert6 := _bert4;
+
+  #berl26.
+    if _bert6 then goto berl24;
+
+  #berl21.
+    _bert5 := 5ii <= Z;
+
+  #berl22.
+    if !(_bert5) then goto berl20;
+
+  #berl23.
+    _bert5 := Z <= 7ii;
+
+  #berl20.
+    // empty loc
+
+  #berl27.
+    _bert6 := _bert5;
+
+  #berl24.
+    // empty loc
+
+  #berl29.
+    _bert7 := _bert6;
+
+  #berl30.
+    if _bert7 then goto berl28;
+
+  #berl31.
+    _bert7 := Z == 3ii + 5ii;
+
+  #berl28.
+    // empty loc
+
   #l9.
-    ret := !(attribute__uif__first `Positive <= Z && Z <= attribute__uif__last `Positive || Z == 4ii || 5ii <= Z && Z <= 7ii || Z == 3ii + 5ii);
+    ret := !(_bert7);
 
   #l7.
     // empty loc

@@ -1,2 +1,8 @@
 ada://parameter/Case_Statement_Int-1:9/isWorkDay-7:12/d-7:23 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Case_Statement_Int-1:9/isWorkDay-7:12/ret+6:5 -> ada://ordinary_type/Case_Statement_Int-1:9/Activity-3:8
+ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert0 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert1 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert2 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert3 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert4 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/Case_Statement_Int-1:9/isWorkDay-7:12/_bert5 -> ada://ordinary_type/Standard-1:1/Boolean-1:1

@@ -71,6 +71,7 @@ Procedure Symbol Table
 
     LocalVarTable
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 
+      ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_bert0 
 
     Params
       ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 

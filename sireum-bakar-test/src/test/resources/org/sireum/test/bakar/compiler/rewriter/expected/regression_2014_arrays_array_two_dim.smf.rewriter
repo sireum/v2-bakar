@@ -43,21 +43,21 @@ procedure dummy2 (
         Board_Index M,
         Board_Index N) {
   local
-    Row _t0;
-    Row _t1;
+    Row _bert0;
+    Row _bert1;
 
 
   #l5.
-    _t0 := @@aBoard[M];
+    _bert0 := @@aBoard[M];
 
-  #rwl2.
-    _t1 := @@aBoard[M];
+  #berl2.
+    _bert1 := @@aBoard[M];
 
-  #rwl0.
-    _t0[N] := _t1[N] - 1ii;
+  #berl0.
+    _bert0[N] := _bert1[N] - 1ii;
 
-  #rwl1.
-    @@aBoard[M] := _t0;
+  #berl1.
+    @@aBoard[M] := _bert0;
 
   #l6.
     return;

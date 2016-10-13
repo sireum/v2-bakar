@@ -446,6 +446,7 @@ procedure InsertionSort (
     Index_Type P;
     Index_Type _tcomp16;
     Index_Type _tcomp17;
+    Boolean _bert0;
 
 
   #l116.
@@ -472,8 +473,20 @@ procedure InsertionSort (
   #l124.
     // empty loc
 
+  #berl1.
+    _bert0 := J >= attribute__uif__first `Index_Type + 1ii;
+
+  #berl2.
+    if !(_bert0) then goto berl0;
+
+  #berl3.
+    _bert0 := Table[J - 1ii] > Temp;
+
+  #berl0.
+    // empty loc
+
   #l125.
-    if !(J >= attribute__uif__first `Index_Type + 1ii && Table[J - 1ii] > Temp) then goto l123;
+    if !(_bert0) then goto l123;
 
   #l126.
     Table[J] := Table[J - 1ii];
@@ -526,6 +539,7 @@ procedure ShellSort (
     Index_Type I;
     Index_Type _tcomp18;
     Index_Type _tcomp19;
+    Boolean _bert1;
 
 
   #l136.
@@ -558,8 +572,20 @@ procedure ShellSort (
   #l148.
     // empty loc
 
+  #berl5.
+    _bert1 := J >= attribute__uif__first `Index_Type;
+
+  #berl6.
+    if !(_bert1) then goto berl4;
+
+  #berl7.
+    _bert1 := Table[J] > Table[J + Gap];
+
+  #berl4.
+    // empty loc
+
   #l149.
-    if !(J >= attribute__uif__first `Index_Type && Table[J] > Table[J + Gap]) then goto l147;
+    if !(_bert1) then goto l147;
 
   #l150.
     call Swap_Elements (Table, J, J + Gap);

@@ -5,10 +5,26 @@ procedure Activity isWorkDay (
         Week d) {
   local
     Activity ret;
+    Boolean _bert0;
+    Boolean _bert1;
+    Boolean _bert2;
+    Boolean _bert3;
 
+
+  #berl1.
+    _bert0 := Mon <= d;
+
+  #berl2.
+    if !(_bert0) then goto berl0;
+
+  #berl3.
+    _bert0 := d <= Tue;
+
+  #berl0.
+    // empty loc
 
   #l2.
-    if !(Mon <= d && d <= Tue) then goto l1;
+    if !(_bert0) then goto l1;
 
   #l3.
     ret := Work;
@@ -19,8 +35,20 @@ procedure Activity isWorkDay (
   #l1.
     // empty loc
 
+  #berl5.
+    _bert1 := attribute__uif__first `HumpDay <= d;
+
+  #berl6.
+    if !(_bert1) then goto berl4;
+
+  #berl7.
+    _bert1 := d <= attribute__uif__last `HumpDay;
+
+  #berl4.
+    // empty loc
+
   #l6.
-    if !(attribute__uif__first `HumpDay <= d && d <= attribute__uif__last `HumpDay) then goto l5;
+    if !(_bert1) then goto l5;
 
   #l7.
     ret := Sleep;
@@ -43,8 +71,20 @@ procedure Activity isWorkDay (
   #l9.
     // empty loc
 
+  #berl9.
+    _bert2 := d == Fri;
+
+  #berl10.
+    if _bert2 then goto berl8;
+
+  #berl11.
+    _bert2 := d == FriPart2;
+
+  #berl8.
+    // empty loc
+
   #l14.
-    if !(d == Fri || d == FriPart2) then goto l13;
+    if !(_bert2) then goto l13;
 
   #l15.
     ret := Party;
@@ -55,8 +95,20 @@ procedure Activity isWorkDay (
   #l13.
     // empty loc
 
+  #berl13.
+    _bert3 := attribute__uif__first `WeekEnd <= d;
+
+  #berl14.
+    if !(_bert3) then goto berl12;
+
+  #berl15.
+    _bert3 := d <= attribute__uif__last `WeekEnd;
+
+  #berl12.
+    // empty loc
+
   #l18.
-    if !(attribute__uif__first `WeekEnd <= d && d <= attribute__uif__last `WeekEnd) then goto l0;
+    if !(_bert3) then goto l0;
 
   #l19.
     ret := Drink;

@@ -1,2 +1,10 @@
 ada://parameter/in_range_name_exp-1:9/test-3:12/Z-3:17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/in_range_name_exp-1:9/test-3:12/ret+7:5 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert0 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert1 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert2 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert3 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert4 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert5 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert6 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
+ada://variable__temp/in_range_name_exp-1:9/test-3:12/_bert7 -> ada://ordinary_type/Standard-1:1/Boolean-1:1

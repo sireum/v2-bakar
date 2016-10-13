@@ -13,7 +13,7 @@ ada://parameter/SimpleRecordTests-1:9/Test03+45:12/O2+45:42 -> ada://ordinary_ty
 ada://variable/SimpleRecordTests-1:9/Test01-14:11/T+10:7 -> ada://ordinary_type/Standard-1:1/Float-1:1
 ada://variable/SimpleRecordTests-1:9/Test02+24:12/Q+28:7 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
 ada://variable/SimpleRecordTests-1:9/Test03+45:12/Q+49:7 -> ada://ordinary_type/SimpleRecordTests-1:9/NestedObject-8:6
-ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t0 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
-ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t1 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
-ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t2 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
-ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_t3 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
+ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert0 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
+ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert1 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
+ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert2 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6
+ada://variable__temp/SimpleRecordTests-1:9/Test03+45:12/_bert3 -> ada://ordinary_type/SimpleRecordTests-1:9/Object-3:6

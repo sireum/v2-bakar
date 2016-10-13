@@ -46,6 +46,7 @@ ada://variable__temp/Sort_Simple_Contract-1:9/BubbleSort-15:13/_tcomp12 -> ada:/
 ada://variable__temp/Sort_Simple_Contract-1:9/BubbleSort-15:13/_tcomp13 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/_tcomp14 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/BubbleSort_using_SwapElements-20:13/_tcomp15 -> ada://ordinary_type/Standard-1:1/Integer-1:1
+ada://variable__temp/Sort_Simple_Contract-1:9/InsertionSort-25:13/_bert2 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/InsertionSort-25:13/_tcomp16 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/InsertionSort-25:13/_tcomp17 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/Num_Repetitions+13:12/_tcomp2 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
@@ -54,12 +55,15 @@ ada://variable__temp/Sort_Simple_Contract-1:9/SelectionSort-30:13/_tcomp18 -> ad
 ada://variable__temp/Sort_Simple_Contract-1:9/SelectionSort-30:13/_tcomp19 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract-1:9/SelectionSort-30:13/_tcomp20 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract-1:9/SelectionSort-30:13/_tcomp21 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
+ada://variable__temp/Sort_Simple_Contract-1:9/ShellSort-35:13/_bert3 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/ShellSort-35:13/_tcomp22 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract-1:9/ShellSort-35:13/_tcomp23 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
+ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_bert1 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_tcomp10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_tcomp11 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_tcomp8 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_tcomp9 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
+ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_bert0 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
 ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_tcomp4 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_tcomp5 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11
 ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_tcomp6 -> ada://subtype/Sort_Simple_Contract-1:9/Index_Type-6:11

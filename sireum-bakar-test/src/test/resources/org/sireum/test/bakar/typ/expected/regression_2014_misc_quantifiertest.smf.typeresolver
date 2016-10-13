@@ -2,3 +2,4 @@ ada://loop_parameter/QuantifierTest-1:9/dummy-15:13/J+12:42 -> ada://ordinary_ty
 ada://loop_parameter/QuantifierTest-1:9/dummy-15:13/J+7:29 -> ada://ordinary_type/QuantifierTest-1:9/Index-10:8
 ada://parameter/QuantifierTest-1:9/dummy-15:13/I-15:19 -> ada://ordinary_type/QuantifierTest-1:9/Index-10:8
 ada://variable/QuantifierTest-1:9/@@V-13:3 -> ada://ordinary_type/QuantifierTest-1:9/Vector-11:8
+ada://variable__temp/QuantifierTest-1:9/dummy-15:13/_bert0 -> ada://ordinary_type/Standard-1:1/Boolean-1:1

@@ -133,8 +133,8 @@ Procedure Symbol Table
     LocalVarTable
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20 
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/N-46:40 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t0 
-      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_t1 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_bert0 
+      ada://variable__temp/Array_Two_Dim-1:9/dummy2-46:13/_bert1 
 
     Params
       ada://parameter/Array_Two_Dim-1:9/dummy2-46:13/M-46:20 

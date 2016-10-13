@@ -326,6 +326,7 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/InsertionSort-32:13/Table-32:27 
       ada://variable/Sort-1:9/InsertionSort-32:13/J+139:5 
       ada://variable/Sort-1:9/InsertionSort-32:13/Temp+140:5 
+      ada://variable__temp/Sort-1:9/InsertionSort-32:13/_bert0 
       ada://variable__temp/Sort-1:9/InsertionSort-32:13/_tcomp16 
       ada://variable__temp/Sort-1:9/InsertionSort-32:13/_tcomp17 
 
@@ -343,6 +344,7 @@ Procedure Symbol Table
       ada://parameter/Sort-1:9/ShellSort-40:13/Table-40:23 
       ada://variable/Sort-1:9/ShellSort-40:13/Gap+182:5 
       ada://variable/Sort-1:9/ShellSort-40:13/J+183:5 
+      ada://variable__temp/Sort-1:9/ShellSort-40:13/_bert1 
       ada://variable__temp/Sort-1:9/ShellSort-40:13/_tcomp18 
       ada://variable__temp/Sort-1:9/ShellSort-40:13/_tcomp19 
 

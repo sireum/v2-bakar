@@ -206,6 +206,7 @@ Procedure Symbol Table
       ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/A-12:19 
       ada://parameter/Sort_Simple_Contract-1:9/isPerm-12:12/B-12:22 
       ada://variable/Sort_Simple_Contract-1:9/isPerm-12:12/Result+41:5 
+      ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_bert1 
       ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_tcomp10 
       ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_tcomp11 
       ada://variable__temp/Sort_Simple_Contract-1:9/isPerm-12:12/_tcomp8 
@@ -225,6 +226,7 @@ Procedure Symbol Table
       ada://loop_parameter/Sort_Simple_Contract-1:9/isSet-13:12/J+30:11 
       ada://parameter/Sort_Simple_Contract-1:9/isSet-13:12/A-13:18 
       ada://variable/Sort_Simple_Contract-1:9/isSet-13:12/Result+27:5 
+      ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_bert0 
       ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_tcomp4 
       ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_tcomp5 
       ada://variable__temp/Sort_Simple_Contract-1:9/isSet-13:12/_tcomp6 
@@ -344,6 +346,7 @@ Procedure Symbol Table
       ada://parameter/Sort_Simple_Contract-1:9/InsertionSort-25:13/A-25:27 
       ada://variable/Sort_Simple_Contract-1:9/InsertionSort-25:13/J+120:5 
       ada://variable/Sort_Simple_Contract-1:9/InsertionSort-25:13/Value+119:5 
+      ada://variable__temp/Sort_Simple_Contract-1:9/InsertionSort-25:13/_bert2 
       ada://variable__temp/Sort_Simple_Contract-1:9/InsertionSort-25:13/_tcomp16 
       ada://variable__temp/Sort_Simple_Contract-1:9/InsertionSort-25:13/_tcomp17 
 
@@ -382,6 +385,7 @@ Procedure Symbol Table
       ada://variable/Sort_Simple_Contract-1:9/ShellSort-35:13/Increment+155:5 
       ada://variable/Sort_Simple_Contract-1:9/ShellSort-35:13/J+156:5 
       ada://variable/Sort_Simple_Contract-1:9/ShellSort-35:13/Temp+157:5 
+      ada://variable__temp/Sort_Simple_Contract-1:9/ShellSort-35:13/_bert3 
       ada://variable__temp/Sort_Simple_Contract-1:9/ShellSort-35:13/_tcomp22 
       ada://variable__temp/Sort_Simple_Contract-1:9/ShellSort-35:13/_tcomp23 
 
