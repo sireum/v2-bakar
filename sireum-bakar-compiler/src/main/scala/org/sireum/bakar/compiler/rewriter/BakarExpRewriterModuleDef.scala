@@ -57,13 +57,13 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
     lcounter += 1
     Some(PilarNodeFactory.buildLocationLabel(path))
   }
-  
+
   implicit def nd2nu(nd : NameDefinition) = {
     val nu = NameUser(nd.name)
     nu.propertyMap ++= nd.propertyMap
     nu
   }
-  
+
   var clhs : Option[Exp] = None
   var prelocs = ilistEmpty[LocationDecl]
   var postlocs = ilistEmpty[LocationDecl]
@@ -105,38 +105,58 @@ class BakarRewriter(typeMap : IMap[ResourceUri, TypeDecl]) {
       val ie = cp(e, IndexingExp(te, indices))
       URIS.addTypeUri(ie, etype.uri)
   }, Rewriter.TraversalMode.BOTTOM_UP, true)
-  
+
+  var q = (c : Int) => c
+
   def rewrite(m : Model) : Model = {
     val _m = Rewriter.build[Model]({
       case p : ProcedureDecl =>
         currentMethodUri = p.name.uri
         p
       case b : ImplementedBody => {
-        this.newTempVars = ilistEmpty[LocalVarDecl]
-        val mappy = mlinkedMapEmpty[LocationDecl, Seq[LocationDecl]]
+        newTempVars = ilistEmpty[LocalVarDecl]
+        val lmap = mlinkedMapEmpty[LocationDecl, Seq[LocationDecl]]
         for (l <- b.locations) {
-          prelocs = ilistEmpty[LocationDecl]
+          val x = mlinkedMapEmpty[Exp, Seq[LocationDecl]]
+
           val _l = Rewriter.build({
-            case be @ BinaryExp(op, lhs, rhs) if op == PilarAstUtil.COND_AND_BINOP || op == PilarAstUtil.COND_OR_BINOP =>
+            case be @ BinaryExp(op, lhs, rhs) if (op == PilarAstUtil.COND_AND_BINOP || op == PilarAstUtil.COND_OR_BINOP) =>
+              // lhs and then rhs --> #. r := lhs
+              //                      #. if !(r) then exit.
+              //                      #. r := rhs
+              //                      #exit.
               val beType = typeMap(getTypeUri(be))
               val result = newTempVar(beType.id, beType.uri)
-              val c = if(op == PilarAstUtil.COND_AND_BINOP) UnaryExp("!", result) else result
-              prelocs :+= ActionLocation(newLabel, ilistEmpty, AssignAction(ilistEmpty, result, ":=", lhs))
-              prelocs :+= ComplexLocation(newLabel, ilistEmpty,
+              val exit = newLabel
+
+              val p = mlistEmpty[LocationDecl]
+
+              if (x.contains(lhs)) p ++= x.remove(lhs).get
+              p += ActionLocation(newLabel, ilistEmpty, AssignAction(ilistEmpty, result, ":=", lhs))
+
+              val c = if (op == PilarAstUtil.COND_AND_BINOP) UnaryExp("!", result) else result
+              p += ComplexLocation(newLabel, ilistEmpty,
                 ilist(Transformation(ilistEmpty, None, ilistEmpty, Some(IfJump(ilistEmpty,
-                  ilist(IfThenJump(c, ilistEmpty, l.name.get)), None)))))
-              prelocs :+= ActionLocation(newLabel, ilistEmpty, AssignAction(ilistEmpty, result, ":=", rhs))
+                  ilist(IfThenJump(c, ilistEmpty, exit.get)), None)))))
+
+              if (x.contains(rhs)) p ++= x.remove(rhs).get
+              p += ActionLocation(newLabel, ilistEmpty, AssignAction(ilistEmpty, result, ":=", rhs))
+
+              p += EmptyLocation(exit, ilistEmpty)
+
+              x(result) = p
               cp(be, result)
-          })(l)
-          mappy(_l) = prelocs
+          }, Rewriter.TraversalMode.BOTTOM_UP, true)(l)
+          cp(l, _l)
+          assert(x.size <= 1)
+          lmap(_l) = if (!x.isEmpty) x.head._2 else mlistEmpty
         }
         cp(b, ImplementedBody(b.locals ++ newTempVars,
-          ilistEmpty ++ mappy.map(f => f._2 :+ f._1).flatten, b.catchClauses))
+          ilistEmpty ++ lmap.map(f => f._2 :+ f._1).flatten, b.catchClauses))
       }
     }, Rewriter.TraversalMode.TOP_DOWN, true)(m)
 
     newTempVars = ilistEmpty[LocalVarDecl]
-    prelocs = ilistEmpty[LocationDecl]
 
     var packages = ilistEmpty[PackageDecl]
     Visitor.build({

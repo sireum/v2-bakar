@@ -166,7 +166,11 @@ object TypeConverter {
             case ConstrainedArrayDef(dim, compSubtype, discreteSubtypes) =>
               assert(dim == 1)
               m(discreteSubtypes(0)) match {
-                case SubTypeDecl(_, _, _, Some(SimpleRangeConstraint(
+                case FullTypeDecl(_, _, SignedIntegerTypeDef(
+                    Some(LiteralExp(LiteralType.INTEGER, l : BigInt, _)),
+                    Some(LiteralExp(LiteralType.INTEGER, u : BigInt, _))))=>
+                  (l, u)
+               case SubTypeDecl(_, _, _, Some(SimpleRangeConstraint(
                   LiteralExp(LiteralType.INTEGER, l : BigInt, _),
                   LiteralExp(LiteralType.INTEGER, u : BigInt, _)))) =>
                   (l, u)
