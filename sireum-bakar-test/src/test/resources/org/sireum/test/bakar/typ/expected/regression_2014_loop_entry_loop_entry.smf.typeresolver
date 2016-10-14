@@ -7,9 +7,5 @@ ada://parameter/Loop_Entry-1:9/Record_Loop_Entry-18:14/A-18:33 -> ada://ordinary
 ada://variable/Loop_Entry-1:9/Array_Loop_Entry-14:14/Temp+4:7 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Temp+28:6 -> ada://ordinary_type/Standard-1:1/Integer-1:1
 ada://variable/Loop_Entry-1:9/Record_Loop_Entry-18:14/Z+35:10 -> ada://ordinary_type/Standard-1:1/Integer-1:1
-ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert0 -> ada://ordinary_type/Standard-1:1/Boolean-1:1
-ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert1 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
-ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert2 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
-ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert3 -> ada://ordinary_type/Loop_Entry-1:9/Array_Of_Int-2:9
 ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_tcomp0 -> ada://ordinary_type/Universal_Integer-1:1
 ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_tcomp1 -> ada://ordinary_type/Universal_Integer-1:1

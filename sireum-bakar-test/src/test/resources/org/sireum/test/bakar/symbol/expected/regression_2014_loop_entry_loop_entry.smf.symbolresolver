@@ -95,10 +95,6 @@ Procedure Symbol Table
       ada://loop_parameter/Loop_Entry-1:9/Array_Loop_Entry-14:14/Index+9:12 
       ada://parameter/Loop_Entry-1:9/Array_Loop_Entry-14:14/A-14:32 
       ada://variable/Loop_Entry-1:9/Array_Loop_Entry-14:14/Temp+4:7 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert0 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert1 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert2 
-      ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_bert3 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_tcomp0 
       ada://variable__temp/Loop_Entry-1:9/Array_Loop_Entry-14:14/_tcomp1 
 

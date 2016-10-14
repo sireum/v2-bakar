@@ -7,9 +7,6 @@ procedure Integer MinFunc (
   local
     Integer Min;
     Integer Max;
-    Boolean _bert0;
-    Boolean _bert1;
-    Boolean _bert2;
 
 
   #l2.
@@ -36,44 +33,8 @@ procedure Integer MinFunc (
   #l0.
     // empty loc
 
-  #berl1.
-    _bert0 := Min <= X;
-
-  #berl2.
-    if !(_bert0) then goto berl0;
-
-  #berl3.
-    _bert0 := Min <= Y;
-
-  #berl0.
-    // empty loc
-
-  #berl5.
-    _bert1 := _bert0;
-
-  #berl6.
-    if !(_bert1) then goto berl4;
-
-  #berl7.
-    _bert1 := X <= Max;
-
-  #berl4.
-    // empty loc
-
-  #berl9.
-    _bert2 := _bert1;
-
-  #berl10.
-    if !(_bert2) then goto berl8;
-
-  #berl11.
-    _bert2 := Y <= Max;
-
-  #berl8.
-    // empty loc
-
   #l8.
-    assert (proof__uif__assert _bert2, "Assertion failed at [13, 7]");
+    assert (proof__uif__assert Min <= X && Min <= Y && X <= Max && Y <= Max, "Assertion failed at [13, 7]");
 
   #l9.
     return Min;
