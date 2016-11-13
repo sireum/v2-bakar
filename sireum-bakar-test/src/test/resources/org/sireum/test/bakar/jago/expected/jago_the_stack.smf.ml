@@ -32,7 +32,7 @@ NullDecl (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnum = 31; parameter_name = ((*X*) 14); parameter_subtype_mark = Integer; parameter_mode = In }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Seq (32,
     (Assign (33, (Identifier (34, ((*Pointer*) 12) )), (BinOp (35, Plus, (Name (36, (Identifier (37, ((*Pointer*) 12) )))), (Literal (38, (Integer_Literal 1) )) )))),
@@ -49,7 +49,7 @@ NullDecl (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnum = 59; parameter_name = ((*X*) 17); parameter_subtype_mark = Integer; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Seq (60,
     (Assign (61, (Identifier (62, ((*X*) 17) )), (Name (63, (IndexedComponent (64, (Identifier (65, ((*S*) 11) )), (Name (66, (Identifier (67, ((*Pointer*) 12) )))) )))))),
@@ -78,7 +78,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 31; parameter_name = ((*X*) 14); parameter_subtype_mark = Integer; parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (32,
   (Assign (33, (Identifier (34, ((*Pointer*) 12) )), (BinOp (35, Plus, (Name (36, (Identifier (37, ((*Pointer*) 12) )))), (Literal (38, (Integer_Literal 1) )) )))),
@@ -92,7 +92,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 59; parameter_name = ((*X*) 17); parameter_subtype_mark = Integer; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (60,
   (Assign (61, (Identifier (62, ((*X*) 17) )), (Name (63, (IndexedComponent (64, (Identifier (65, ((*S*) 11) )), (Name (66, (Identifier (67, ((*Pointer*) 12) )))) )))))),
@@ -167,7 +167,7 @@ NullDeclRT (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnumRT = 31; parameter_nameRT = ((*X*) 14); parameter_subtype_markRT = Integer; parameter_modeRT = In }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (SeqRT (32,
     (AssignRT (33, (IdentifierRT (34, ((*Pointer*) 12) , [])), (BinOpRT (35, Plus, (NameRT (36, (IdentifierRT (37, ((*Pointer*) 12) , [])))), (LiteralRT (38, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))),
@@ -184,7 +184,7 @@ NullDeclRT (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnumRT = 59; parameter_nameRT = ((*X*) 17); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (SeqRT (60,
     (AssignRT (61, (IdentifierRT (62, ((*X*) 17) , [])), (NameRT (63, (IndexedComponentRT (64, (IdentifierRT (65, ((*S*) 11) , [])), (NameRT (66, (IdentifierRT (67, ((*Pointer*) 12) , [RangeCheck])))) , [])))))),
@@ -213,7 +213,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 31; parameter_nameRT = ((*X*) 14); parameter_subtype_markRT = Integer; parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (32,
   (AssignRT (33, (IdentifierRT (34, ((*Pointer*) 12) , [])), (BinOpRT (35, Plus, (NameRT (36, (IdentifierRT (37, ((*Pointer*) 12) , [])))), (LiteralRT (38, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))),
@@ -227,7 +227,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 59; parameter_nameRT = ((*X*) 17); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (60,
   (AssignRT (61, (IdentifierRT (62, ((*X*) 17) , [])), (NameRT (63, (IndexedComponentRT (64, (IdentifierRT (65, ((*S*) 11) , [])), (NameRT (66, (IdentifierRT (67, ((*Pointer*) 12) , [RangeCheck])))) , [])))))),

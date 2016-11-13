@@ -703,6 +703,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -835,6 +836,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -967,6 +969,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -1099,6 +1102,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -1231,6 +1235,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -1362,6 +1367,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -2107,6 +2113,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -2239,6 +2246,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -2371,6 +2379,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -2503,6 +2512,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -2635,6 +2645,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -2766,6 +2777,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -3370,6 +3382,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -3502,6 +3515,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -3634,6 +3648,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -3766,6 +3781,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -3898,6 +3914,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -4029,6 +4046,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -4907,7 +4925,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
-                      <checks>do_division_check</checks>
+                      <checks>do_division_check,do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -5040,7 +5058,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
-                      <checks>do_division_check</checks>
+                      <checks>do_division_check,do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -5173,7 +5191,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
-                      <checks>do_division_check</checks>
+                      <checks>do_division_check,do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
@@ -5306,7 +5324,7 @@ binaryexpressions.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
-                      <checks>do_division_check</checks>
+                      <checks>do_division_check,do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>

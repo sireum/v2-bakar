@@ -11,51 +11,51 @@ decls = (ProcBodyDecl (1,
     (* = = = Formal Parameters = = = *)
     [],
     (* = = = Object Declarations = = = *)
-    [(SeqDecl (3,
-  NullDecl (* Undefined Declarations ! *),
-  (SeqDecl (4,
-  (ProcBodyDecl (5, 
-    mkprocBodyDecl (
-     6,
-      (* = = = Procedure Name = = = *)
-      ((*Swap*) 2),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnum = 7; parameter_name = ((*X*) 3); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 8; parameter_name = ((*Y*) 4); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
-      (* = = = Object Declarations = = = *)
-      [NullDecl],
-      (* = = = Procedure Body = = = *)
-      (Seq (9,
-      (Assign (10, (Identifier (11, ((*X*) 3) )), (BinOp (12, Or, (Name (13, (Identifier (14, ((*X*) 3) )))), (Name (15, (Identifier (16, ((*Y*) 4) )))) )))),
-      (Seq (17,
-      (Assign (18, (Identifier (19, ((*Y*) 4) )), (BinOp (20, Equal, (Name (21, (Identifier (22, ((*X*) 3) )))), (Name (23, (Identifier (24, ((*Y*) 4) )))) )))),
-      (Seq (25,
-      (Assign (26, (Identifier (27, ((*X*) 3) )), (BinOp (28, Or, (Name (29, (Identifier (30, ((*X*) 3) )))), (Name (31, (Identifier (32, ((*Y*) 4) )))) )))),
-      (Seq (33,
-      (Assign (34, (Identifier (35, ((*X*) 3) )), (UnOp (36, Not, (Name (37, (Identifier (38, ((*X*) 3) )))) )))),
-      (Assign (39, (Identifier (40, ((*Y*) 4) )), (UnOp (41, Not, (Name (42, (Identifier (43, ((*Y*) 4) )))) ))))))))))))
-    ))
-  ),
-  (SeqDecl (44,
-  NullDecl (* Undefined Declarations ! *),
-  (SeqDecl (45,
-  (ProcBodyDecl (46, 
-    mkprocBodyDecl (
-     47,
-      (* = = = Procedure Name = = = *)
-      ((*Implies*) 6),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnum = 48; parameter_name = ((*X*) 7); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 49; parameter_name = ((*Y*) 8); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
-      (* = = = Object Declarations = = = *)
-      [(ObjDecl (55, { declaration_astnum = 56; object_name = ((*Z*) 9); object_nominal_subtype = Boolean; initialization_exp = (Some ((BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )))) }))],
-      (* = = = Procedure Body = = = *)
-      (Seq (57,
-      (Assign (58, (Identifier (59, ((*X*) 7) )), (BinOp (60, Or, (UnOp (61, Not, (Name (62, (Identifier (63, ((*X*) 7) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) )))),
-      (Assign (65, (Identifier (66, ((*Y*) 8) )), (BinOp (67, Or, (UnOp (68, Not, (Name (69, (Identifier (70, ((*Y*) 8) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) ))))))
-    ))
-  ),
-  (SeqDecl (72,
-  (ObjDecl (73, { declaration_astnum = 74; object_name = ((*X*) 10); object_nominal_subtype = Boolean; initialization_exp = None })),
-  (ObjDecl (75, { declaration_astnum = 76; object_name = ((*Y*) 11); object_nominal_subtype = Boolean; initialization_exp = None }))))))))))))],
+    (SeqDecl (3,
+    NullDecl (* Undefined Declarations ! *),
+    (SeqDecl (4,
+    (ProcBodyDecl (5, 
+      mkprocBodyDecl (
+       6,
+        (* = = = Procedure Name = = = *)
+        ((*Swap*) 2),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnum = 7; parameter_name = ((*X*) 3); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 8; parameter_name = ((*Y*) 4); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
+        (* = = = Object Declarations = = = *)
+        NullDecl,
+        (* = = = Procedure Body = = = *)
+        (Seq (9,
+        (Assign (10, (Identifier (11, ((*X*) 3) )), (BinOp (12, Or, (Name (13, (Identifier (14, ((*X*) 3) )))), (Name (15, (Identifier (16, ((*Y*) 4) )))) )))),
+        (Seq (17,
+        (Assign (18, (Identifier (19, ((*Y*) 4) )), (BinOp (20, Equal, (Name (21, (Identifier (22, ((*X*) 3) )))), (Name (23, (Identifier (24, ((*Y*) 4) )))) )))),
+        (Seq (25,
+        (Assign (26, (Identifier (27, ((*X*) 3) )), (BinOp (28, Or, (Name (29, (Identifier (30, ((*X*) 3) )))), (Name (31, (Identifier (32, ((*Y*) 4) )))) )))),
+        (Seq (33,
+        (Assign (34, (Identifier (35, ((*X*) 3) )), (UnOp (36, Not, (Name (37, (Identifier (38, ((*X*) 3) )))) )))),
+        (Assign (39, (Identifier (40, ((*Y*) 4) )), (UnOp (41, Not, (Name (42, (Identifier (43, ((*Y*) 4) )))) ))))))))))))
+      ))
+    ),
+    (SeqDecl (44,
+    NullDecl (* Undefined Declarations ! *),
+    (SeqDecl (45,
+    (ProcBodyDecl (46, 
+      mkprocBodyDecl (
+       47,
+        (* = = = Procedure Name = = = *)
+        ((*Implies*) 6),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnum = 48; parameter_name = ((*X*) 7); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 49; parameter_name = ((*Y*) 8); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
+        (* = = = Object Declarations = = = *)
+        (ObjDecl (55, { declaration_astnum = 56; object_name = ((*Z*) 9); object_nominal_subtype = Boolean; initialization_exp = (Some ((BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )))) })),
+        (* = = = Procedure Body = = = *)
+        (Seq (57,
+        (Assign (58, (Identifier (59, ((*X*) 7) )), (BinOp (60, Or, (UnOp (61, Not, (Name (62, (Identifier (63, ((*X*) 7) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) )))),
+        (Assign (65, (Identifier (66, ((*Y*) 8) )), (BinOp (67, Or, (UnOp (68, Not, (Name (69, (Identifier (70, ((*Y*) 8) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) ))))))
+      ))
+    ),
+    (SeqDecl (72,
+    (ObjDecl (73, { declaration_astnum = 74; object_name = ((*X*) 10); object_nominal_subtype = Boolean; initialization_exp = None })),
+    (ObjDecl (75, { declaration_astnum = 76; object_name = ((*Y*) 11); object_nominal_subtype = Boolean; initialization_exp = None })))))))))))),
     (* = = = Procedure Body = = = *)
     (Seq (77,
     (Assign (78, (Identifier (79, ((*X*) 10) )), (Literal (80, (Boolean_Literal true) )))),
@@ -126,51 +126,51 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (3,
-NullDecl (* Undefined Declarations ! *),
-(SeqDecl (4,
-(ProcBodyDecl (5, 
-  mkprocBodyDecl (
-   6,
-    (* = = = Procedure Name = = = *)
-    ((*Swap*) 2),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnum = 7; parameter_name = ((*X*) 3); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 8; parameter_name = ((*Y*) 4); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
-    (* = = = Object Declarations = = = *)
-    [NullDecl],
-    (* = = = Procedure Body = = = *)
-    (Seq (9,
-    (Assign (10, (Identifier (11, ((*X*) 3) )), (BinOp (12, Or, (Name (13, (Identifier (14, ((*X*) 3) )))), (Name (15, (Identifier (16, ((*Y*) 4) )))) )))),
-    (Seq (17,
-    (Assign (18, (Identifier (19, ((*Y*) 4) )), (BinOp (20, Equal, (Name (21, (Identifier (22, ((*X*) 3) )))), (Name (23, (Identifier (24, ((*Y*) 4) )))) )))),
-    (Seq (25,
-    (Assign (26, (Identifier (27, ((*X*) 3) )), (BinOp (28, Or, (Name (29, (Identifier (30, ((*X*) 3) )))), (Name (31, (Identifier (32, ((*Y*) 4) )))) )))),
-    (Seq (33,
-    (Assign (34, (Identifier (35, ((*X*) 3) )), (UnOp (36, Not, (Name (37, (Identifier (38, ((*X*) 3) )))) )))),
-    (Assign (39, (Identifier (40, ((*Y*) 4) )), (UnOp (41, Not, (Name (42, (Identifier (43, ((*Y*) 4) )))) ))))))))))))
-  ))
-),
-(SeqDecl (44,
-NullDecl (* Undefined Declarations ! *),
-(SeqDecl (45,
-(ProcBodyDecl (46, 
-  mkprocBodyDecl (
-   47,
-    (* = = = Procedure Name = = = *)
-    ((*Implies*) 6),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnum = 48; parameter_name = ((*X*) 7); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 49; parameter_name = ((*Y*) 8); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
-    (* = = = Object Declarations = = = *)
-    [(ObjDecl (55, { declaration_astnum = 56; object_name = ((*Z*) 9); object_nominal_subtype = Boolean; initialization_exp = (Some ((BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )))) }))],
-    (* = = = Procedure Body = = = *)
-    (Seq (57,
-    (Assign (58, (Identifier (59, ((*X*) 7) )), (BinOp (60, Or, (UnOp (61, Not, (Name (62, (Identifier (63, ((*X*) 7) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) )))),
-    (Assign (65, (Identifier (66, ((*Y*) 8) )), (BinOp (67, Or, (UnOp (68, Not, (Name (69, (Identifier (70, ((*Y*) 8) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) ))))))
-  ))
-),
-(SeqDecl (72,
-(ObjDecl (73, { declaration_astnum = 74; object_name = ((*X*) 10); object_nominal_subtype = Boolean; initialization_exp = None })),
-(ObjDecl (75, { declaration_astnum = 76; object_name = ((*Y*) 11); object_nominal_subtype = Boolean; initialization_exp = None }))))))))))))],
+  (SeqDecl (3,
+  NullDecl (* Undefined Declarations ! *),
+  (SeqDecl (4,
+  (ProcBodyDecl (5, 
+    mkprocBodyDecl (
+     6,
+      (* = = = Procedure Name = = = *)
+      ((*Swap*) 2),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnum = 7; parameter_name = ((*X*) 3); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 8; parameter_name = ((*Y*) 4); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
+      (* = = = Object Declarations = = = *)
+      NullDecl,
+      (* = = = Procedure Body = = = *)
+      (Seq (9,
+      (Assign (10, (Identifier (11, ((*X*) 3) )), (BinOp (12, Or, (Name (13, (Identifier (14, ((*X*) 3) )))), (Name (15, (Identifier (16, ((*Y*) 4) )))) )))),
+      (Seq (17,
+      (Assign (18, (Identifier (19, ((*Y*) 4) )), (BinOp (20, Equal, (Name (21, (Identifier (22, ((*X*) 3) )))), (Name (23, (Identifier (24, ((*Y*) 4) )))) )))),
+      (Seq (25,
+      (Assign (26, (Identifier (27, ((*X*) 3) )), (BinOp (28, Or, (Name (29, (Identifier (30, ((*X*) 3) )))), (Name (31, (Identifier (32, ((*Y*) 4) )))) )))),
+      (Seq (33,
+      (Assign (34, (Identifier (35, ((*X*) 3) )), (UnOp (36, Not, (Name (37, (Identifier (38, ((*X*) 3) )))) )))),
+      (Assign (39, (Identifier (40, ((*Y*) 4) )), (UnOp (41, Not, (Name (42, (Identifier (43, ((*Y*) 4) )))) ))))))))))))
+    ))
+  ),
+  (SeqDecl (44,
+  NullDecl (* Undefined Declarations ! *),
+  (SeqDecl (45,
+  (ProcBodyDecl (46, 
+    mkprocBodyDecl (
+     47,
+      (* = = = Procedure Name = = = *)
+      ((*Implies*) 6),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnum = 48; parameter_name = ((*X*) 7); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 49; parameter_name = ((*Y*) 8); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
+      (* = = = Object Declarations = = = *)
+      (ObjDecl (55, { declaration_astnum = 56; object_name = ((*Z*) 9); object_nominal_subtype = Boolean; initialization_exp = (Some ((BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )))) })),
+      (* = = = Procedure Body = = = *)
+      (Seq (57,
+      (Assign (58, (Identifier (59, ((*X*) 7) )), (BinOp (60, Or, (UnOp (61, Not, (Name (62, (Identifier (63, ((*X*) 7) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) )))),
+      (Assign (65, (Identifier (66, ((*Y*) 8) )), (BinOp (67, Or, (UnOp (68, Not, (Name (69, (Identifier (70, ((*Y*) 8) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) ))))))
+    ))
+  ),
+  (SeqDecl (72,
+  (ObjDecl (73, { declaration_astnum = 74; object_name = ((*X*) 10); object_nominal_subtype = Boolean; initialization_exp = None })),
+  (ObjDecl (75, { declaration_astnum = 76; object_name = ((*Y*) 11); object_nominal_subtype = Boolean; initialization_exp = None })))))))))))),
   (* = = = Procedure Body = = = *)
   (Seq (77,
   (Assign (78, (Identifier (79, ((*X*) 10) )), (Literal (80, (Boolean_Literal true) )))),
@@ -226,7 +226,7 @@ NullDecl (* Undefined Declarations ! *),
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 48; parameter_name = ((*X*) 7); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 49; parameter_name = ((*Y*) 8); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDecl (55, { declaration_astnum = 56; object_name = ((*Z*) 9); object_nominal_subtype = Boolean; initialization_exp = (Some ((BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )))) }))],
+  (ObjDecl (55, { declaration_astnum = 56; object_name = ((*Z*) 9); object_nominal_subtype = Boolean; initialization_exp = (Some ((BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )))) })),
   (* = = = Procedure Body = = = *)
   (Seq (57,
   (Assign (58, (Identifier (59, ((*X*) 7) )), (BinOp (60, Or, (UnOp (61, Not, (Name (62, (Identifier (63, ((*X*) 7) )))) )), (BinOp (50, And, (Name (51, (Identifier (52, ((*X*) 7) )))), (Name (53, (Identifier (54, ((*Y*) 8) )))) )) )))),
@@ -238,7 +238,7 @@ NullDecl (* Undefined Declarations ! *),
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 7; parameter_name = ((*X*) 3); parameter_subtype_mark = Boolean; parameter_mode = In_Out } :: { parameter_astnum = 8; parameter_name = ((*Y*) 4); parameter_subtype_mark = Boolean; parameter_mode = In_Out }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (9,
   (Assign (10, (Identifier (11, ((*X*) 3) )), (BinOp (12, Or, (Name (13, (Identifier (14, ((*X*) 3) )))), (Name (15, (Identifier (16, ((*Y*) 4) )))) )))),
@@ -296,51 +296,51 @@ declsRT = (ProcBodyDeclRT (1,
     (* = = = Formal Parameters = = = *)
     [],
     (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (3,
-  NullDeclRT (* Undefined Declarations ! *),
-  (SeqDeclRT (4,
-  (ProcBodyDeclRT (5, 
-    mkprocBodyDeclRT (
-     6,
-      (* = = = Procedure Name = = = *)
-      ((*Swap*) 2),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnumRT = 7; parameter_nameRT = ((*X*) 3); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 8; parameter_nameRT = ((*Y*) 4); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
-      (* = = = Object Declarations = = = *)
-      [NullDeclRT],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (9,
-      (AssignRT (10, (IdentifierRT (11, ((*X*) 3) , [])), (BinOpRT (12, Or, (NameRT (13, (IdentifierRT (14, ((*X*) 3) , [])))), (NameRT (15, (IdentifierRT (16, ((*Y*) 4) , [])))) , [], [])))),
-      (SeqRT (17,
-      (AssignRT (18, (IdentifierRT (19, ((*Y*) 4) , [])), (BinOpRT (20, Equal, (NameRT (21, (IdentifierRT (22, ((*X*) 3) , [])))), (NameRT (23, (IdentifierRT (24, ((*Y*) 4) , [])))) , [], [])))),
-      (SeqRT (25,
-      (AssignRT (26, (IdentifierRT (27, ((*X*) 3) , [])), (BinOpRT (28, Or, (NameRT (29, (IdentifierRT (30, ((*X*) 3) , [])))), (NameRT (31, (IdentifierRT (32, ((*Y*) 4) , [])))) , [], [])))),
-      (SeqRT (33,
-      (AssignRT (34, (IdentifierRT (35, ((*X*) 3) , [])), (UnOpRT (36, Not, (NameRT (37, (IdentifierRT (38, ((*X*) 3) , [])))) , [], [])))),
-      (AssignRT (39, (IdentifierRT (40, ((*Y*) 4) , [])), (UnOpRT (41, Not, (NameRT (42, (IdentifierRT (43, ((*Y*) 4) , [])))) , [], []))))))))))))
-    ))
-  ),
-  (SeqDeclRT (44,
-  NullDeclRT (* Undefined Declarations ! *),
-  (SeqDeclRT (45,
-  (ProcBodyDeclRT (46, 
-    mkprocBodyDeclRT (
-     47,
-      (* = = = Procedure Name = = = *)
-      ((*Implies*) 6),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnumRT = 48; parameter_nameRT = ((*X*) 7); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 49; parameter_nameRT = ((*Y*) 8); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
-      (* = = = Object Declarations = = = *)
-      [(ObjDeclRT (55, { declaration_astnumRT = 56; object_nameRT = ((*Z*) 9); object_nominal_subtypeRT = Boolean; initialization_expRT = (Some ((BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])))) }))],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (57,
-      (AssignRT (58, (IdentifierRT (59, ((*X*) 7) , [])), (BinOpRT (60, Or, (UnOpRT (61, Not, (NameRT (62, (IdentifierRT (63, ((*X*) 7) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], [])))),
-      (AssignRT (65, (IdentifierRT (66, ((*Y*) 8) , [])), (BinOpRT (67, Or, (UnOpRT (68, Not, (NameRT (69, (IdentifierRT (70, ((*Y*) 8) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], []))))))
-    ))
-  ),
-  (SeqDeclRT (72,
-  (ObjDeclRT (73, { declaration_astnumRT = 74; object_nameRT = ((*X*) 10); object_nominal_subtypeRT = Boolean; initialization_expRT = None })),
-  (ObjDeclRT (75, { declaration_astnumRT = 76; object_nameRT = ((*Y*) 11); object_nominal_subtypeRT = Boolean; initialization_expRT = None }))))))))))))],
+    (SeqDeclRT (3,
+    NullDeclRT (* Undefined Declarations ! *),
+    (SeqDeclRT (4,
+    (ProcBodyDeclRT (5, 
+      mkprocBodyDeclRT (
+       6,
+        (* = = = Procedure Name = = = *)
+        ((*Swap*) 2),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnumRT = 7; parameter_nameRT = ((*X*) 3); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 8; parameter_nameRT = ((*Y*) 4); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
+        (* = = = Object Declarations = = = *)
+        NullDeclRT,
+        (* = = = Procedure Body = = = *)
+        (SeqRT (9,
+        (AssignRT (10, (IdentifierRT (11, ((*X*) 3) , [])), (BinOpRT (12, Or, (NameRT (13, (IdentifierRT (14, ((*X*) 3) , [])))), (NameRT (15, (IdentifierRT (16, ((*Y*) 4) , [])))) , [], [])))),
+        (SeqRT (17,
+        (AssignRT (18, (IdentifierRT (19, ((*Y*) 4) , [])), (BinOpRT (20, Equal, (NameRT (21, (IdentifierRT (22, ((*X*) 3) , [])))), (NameRT (23, (IdentifierRT (24, ((*Y*) 4) , [])))) , [], [])))),
+        (SeqRT (25,
+        (AssignRT (26, (IdentifierRT (27, ((*X*) 3) , [])), (BinOpRT (28, Or, (NameRT (29, (IdentifierRT (30, ((*X*) 3) , [])))), (NameRT (31, (IdentifierRT (32, ((*Y*) 4) , [])))) , [], [])))),
+        (SeqRT (33,
+        (AssignRT (34, (IdentifierRT (35, ((*X*) 3) , [])), (UnOpRT (36, Not, (NameRT (37, (IdentifierRT (38, ((*X*) 3) , [])))) , [], [])))),
+        (AssignRT (39, (IdentifierRT (40, ((*Y*) 4) , [])), (UnOpRT (41, Not, (NameRT (42, (IdentifierRT (43, ((*Y*) 4) , [])))) , [], []))))))))))))
+      ))
+    ),
+    (SeqDeclRT (44,
+    NullDeclRT (* Undefined Declarations ! *),
+    (SeqDeclRT (45,
+    (ProcBodyDeclRT (46, 
+      mkprocBodyDeclRT (
+       47,
+        (* = = = Procedure Name = = = *)
+        ((*Implies*) 6),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnumRT = 48; parameter_nameRT = ((*X*) 7); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 49; parameter_nameRT = ((*Y*) 8); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
+        (* = = = Object Declarations = = = *)
+        (ObjDeclRT (55, { declaration_astnumRT = 56; object_nameRT = ((*Z*) 9); object_nominal_subtypeRT = Boolean; initialization_expRT = (Some ((BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])))) })),
+        (* = = = Procedure Body = = = *)
+        (SeqRT (57,
+        (AssignRT (58, (IdentifierRT (59, ((*X*) 7) , [])), (BinOpRT (60, Or, (UnOpRT (61, Not, (NameRT (62, (IdentifierRT (63, ((*X*) 7) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], [])))),
+        (AssignRT (65, (IdentifierRT (66, ((*Y*) 8) , [])), (BinOpRT (67, Or, (UnOpRT (68, Not, (NameRT (69, (IdentifierRT (70, ((*Y*) 8) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], []))))))
+      ))
+    ),
+    (SeqDeclRT (72,
+    (ObjDeclRT (73, { declaration_astnumRT = 74; object_nameRT = ((*X*) 10); object_nominal_subtypeRT = Boolean; initialization_expRT = None })),
+    (ObjDeclRT (75, { declaration_astnumRT = 76; object_nameRT = ((*Y*) 11); object_nominal_subtypeRT = Boolean; initialization_expRT = None })))))))))))),
     (* = = = Procedure Body = = = *)
     (SeqRT (77,
     (AssignRT (78, (IdentifierRT (79, ((*X*) 10) , [])), (LiteralRT (80, (Boolean_Literal true) , [], [])))),
@@ -411,51 +411,51 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (3,
-NullDeclRT (* Undefined Declarations ! *),
-(SeqDeclRT (4,
-(ProcBodyDeclRT (5, 
-  mkprocBodyDeclRT (
-   6,
-    (* = = = Procedure Name = = = *)
-    ((*Swap*) 2),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnumRT = 7; parameter_nameRT = ((*X*) 3); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 8; parameter_nameRT = ((*Y*) 4); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
-    (* = = = Object Declarations = = = *)
-    [NullDeclRT],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (9,
-    (AssignRT (10, (IdentifierRT (11, ((*X*) 3) , [])), (BinOpRT (12, Or, (NameRT (13, (IdentifierRT (14, ((*X*) 3) , [])))), (NameRT (15, (IdentifierRT (16, ((*Y*) 4) , [])))) , [], [])))),
-    (SeqRT (17,
-    (AssignRT (18, (IdentifierRT (19, ((*Y*) 4) , [])), (BinOpRT (20, Equal, (NameRT (21, (IdentifierRT (22, ((*X*) 3) , [])))), (NameRT (23, (IdentifierRT (24, ((*Y*) 4) , [])))) , [], [])))),
-    (SeqRT (25,
-    (AssignRT (26, (IdentifierRT (27, ((*X*) 3) , [])), (BinOpRT (28, Or, (NameRT (29, (IdentifierRT (30, ((*X*) 3) , [])))), (NameRT (31, (IdentifierRT (32, ((*Y*) 4) , [])))) , [], [])))),
-    (SeqRT (33,
-    (AssignRT (34, (IdentifierRT (35, ((*X*) 3) , [])), (UnOpRT (36, Not, (NameRT (37, (IdentifierRT (38, ((*X*) 3) , [])))) , [], [])))),
-    (AssignRT (39, (IdentifierRT (40, ((*Y*) 4) , [])), (UnOpRT (41, Not, (NameRT (42, (IdentifierRT (43, ((*Y*) 4) , [])))) , [], []))))))))))))
-  ))
-),
-(SeqDeclRT (44,
-NullDeclRT (* Undefined Declarations ! *),
-(SeqDeclRT (45,
-(ProcBodyDeclRT (46, 
-  mkprocBodyDeclRT (
-   47,
-    (* = = = Procedure Name = = = *)
-    ((*Implies*) 6),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnumRT = 48; parameter_nameRT = ((*X*) 7); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 49; parameter_nameRT = ((*Y*) 8); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
-    (* = = = Object Declarations = = = *)
-    [(ObjDeclRT (55, { declaration_astnumRT = 56; object_nameRT = ((*Z*) 9); object_nominal_subtypeRT = Boolean; initialization_expRT = (Some ((BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])))) }))],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (57,
-    (AssignRT (58, (IdentifierRT (59, ((*X*) 7) , [])), (BinOpRT (60, Or, (UnOpRT (61, Not, (NameRT (62, (IdentifierRT (63, ((*X*) 7) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], [])))),
-    (AssignRT (65, (IdentifierRT (66, ((*Y*) 8) , [])), (BinOpRT (67, Or, (UnOpRT (68, Not, (NameRT (69, (IdentifierRT (70, ((*Y*) 8) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], []))))))
-  ))
-),
-(SeqDeclRT (72,
-(ObjDeclRT (73, { declaration_astnumRT = 74; object_nameRT = ((*X*) 10); object_nominal_subtypeRT = Boolean; initialization_expRT = None })),
-(ObjDeclRT (75, { declaration_astnumRT = 76; object_nameRT = ((*Y*) 11); object_nominal_subtypeRT = Boolean; initialization_expRT = None }))))))))))))],
+  (SeqDeclRT (3,
+  NullDeclRT (* Undefined Declarations ! *),
+  (SeqDeclRT (4,
+  (ProcBodyDeclRT (5, 
+    mkprocBodyDeclRT (
+     6,
+      (* = = = Procedure Name = = = *)
+      ((*Swap*) 2),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnumRT = 7; parameter_nameRT = ((*X*) 3); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 8; parameter_nameRT = ((*Y*) 4); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
+      (* = = = Object Declarations = = = *)
+      NullDeclRT,
+      (* = = = Procedure Body = = = *)
+      (SeqRT (9,
+      (AssignRT (10, (IdentifierRT (11, ((*X*) 3) , [])), (BinOpRT (12, Or, (NameRT (13, (IdentifierRT (14, ((*X*) 3) , [])))), (NameRT (15, (IdentifierRT (16, ((*Y*) 4) , [])))) , [], [])))),
+      (SeqRT (17,
+      (AssignRT (18, (IdentifierRT (19, ((*Y*) 4) , [])), (BinOpRT (20, Equal, (NameRT (21, (IdentifierRT (22, ((*X*) 3) , [])))), (NameRT (23, (IdentifierRT (24, ((*Y*) 4) , [])))) , [], [])))),
+      (SeqRT (25,
+      (AssignRT (26, (IdentifierRT (27, ((*X*) 3) , [])), (BinOpRT (28, Or, (NameRT (29, (IdentifierRT (30, ((*X*) 3) , [])))), (NameRT (31, (IdentifierRT (32, ((*Y*) 4) , [])))) , [], [])))),
+      (SeqRT (33,
+      (AssignRT (34, (IdentifierRT (35, ((*X*) 3) , [])), (UnOpRT (36, Not, (NameRT (37, (IdentifierRT (38, ((*X*) 3) , [])))) , [], [])))),
+      (AssignRT (39, (IdentifierRT (40, ((*Y*) 4) , [])), (UnOpRT (41, Not, (NameRT (42, (IdentifierRT (43, ((*Y*) 4) , [])))) , [], []))))))))))))
+    ))
+  ),
+  (SeqDeclRT (44,
+  NullDeclRT (* Undefined Declarations ! *),
+  (SeqDeclRT (45,
+  (ProcBodyDeclRT (46, 
+    mkprocBodyDeclRT (
+     47,
+      (* = = = Procedure Name = = = *)
+      ((*Implies*) 6),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnumRT = 48; parameter_nameRT = ((*X*) 7); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 49; parameter_nameRT = ((*Y*) 8); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
+      (* = = = Object Declarations = = = *)
+      (ObjDeclRT (55, { declaration_astnumRT = 56; object_nameRT = ((*Z*) 9); object_nominal_subtypeRT = Boolean; initialization_expRT = (Some ((BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])))) })),
+      (* = = = Procedure Body = = = *)
+      (SeqRT (57,
+      (AssignRT (58, (IdentifierRT (59, ((*X*) 7) , [])), (BinOpRT (60, Or, (UnOpRT (61, Not, (NameRT (62, (IdentifierRT (63, ((*X*) 7) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], [])))),
+      (AssignRT (65, (IdentifierRT (66, ((*Y*) 8) , [])), (BinOpRT (67, Or, (UnOpRT (68, Not, (NameRT (69, (IdentifierRT (70, ((*Y*) 8) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], []))))))
+    ))
+  ),
+  (SeqDeclRT (72,
+  (ObjDeclRT (73, { declaration_astnumRT = 74; object_nameRT = ((*X*) 10); object_nominal_subtypeRT = Boolean; initialization_expRT = None })),
+  (ObjDeclRT (75, { declaration_astnumRT = 76; object_nameRT = ((*Y*) 11); object_nominal_subtypeRT = Boolean; initialization_expRT = None })))))))))))),
   (* = = = Procedure Body = = = *)
   (SeqRT (77,
   (AssignRT (78, (IdentifierRT (79, ((*X*) 10) , [])), (LiteralRT (80, (Boolean_Literal true) , [], [])))),
@@ -511,7 +511,7 @@ NullDeclRT (* Undefined Declarations ! *),
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 48; parameter_nameRT = ((*X*) 7); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 49; parameter_nameRT = ((*Y*) 8); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDeclRT (55, { declaration_astnumRT = 56; object_nameRT = ((*Z*) 9); object_nominal_subtypeRT = Boolean; initialization_expRT = (Some ((BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])))) }))],
+  (ObjDeclRT (55, { declaration_astnumRT = 56; object_nameRT = ((*Z*) 9); object_nominal_subtypeRT = Boolean; initialization_expRT = (Some ((BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])))) })),
   (* = = = Procedure Body = = = *)
   (SeqRT (57,
   (AssignRT (58, (IdentifierRT (59, ((*X*) 7) , [])), (BinOpRT (60, Or, (UnOpRT (61, Not, (NameRT (62, (IdentifierRT (63, ((*X*) 7) , [])))) , [], [])), (BinOpRT (50, And, (NameRT (51, (IdentifierRT (52, ((*X*) 7) , [])))), (NameRT (53, (IdentifierRT (54, ((*Y*) 8) , [])))) , [], [])) , [], [])))),
@@ -523,7 +523,7 @@ NullDeclRT (* Undefined Declarations ! *),
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 7; parameter_nameRT = ((*X*) 3); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out } :: { parameter_astnumRT = 8; parameter_nameRT = ((*Y*) 4); parameter_subtype_markRT = Boolean; parameter_modeRT = In_Out }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (9,
   (AssignRT (10, (IdentifierRT (11, ((*X*) 3) , [])), (BinOpRT (12, Or, (NameRT (13, (IdentifierRT (14, ((*X*) 3) , [])))), (NameRT (15, (IdentifierRT (16, ((*Y*) 4) , [])))) , [], [])))),

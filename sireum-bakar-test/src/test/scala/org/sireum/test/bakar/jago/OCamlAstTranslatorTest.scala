@@ -24,26 +24,6 @@ import java.io.File
 class OCamlAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
   import org.sireum.bakar.xml.module.Gnat2XMLWrapperModuleDef._
   
-  def set() : Option[FileResourceUri] = {
-    val sireumHome = System.getenv("SIREUM_HOME")
-    if (sireumHome != null) {
-      // under sireum/apps/, build a symbolic link to the installed gnat by following steps:
-      // cd sireum/apps/
-      // ln -s /Users/zhi/gnatpro/gnat-gpl-2015-darwin ./gnat
-      var gnatPath = "/apps/gnat/bin/gnat2xml" + ext
-      val f = new File(sireumHome, gnatPath)
-      if (f.canExecute()) 
-        return Some(new File(sireumHome, "/apps/gnat/bin/").getAbsolutePath)
-    }
-    None
-  }
-  
-  // ignore all tests if not using wavefront version
-  override def ignores = {
-    if(set.isDefined) super.includes
-    else msetEmpty + ".*"
-  }
-  
   // register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago_test", true))
   register(Projects.getProjects(BakarSmfProjectProvider, BakarExamplesAnchor.GNAT_2012_DIR + "/jago", true))
 
@@ -53,9 +33,7 @@ class OCamlAstTranslatorTest extends BakarTestFileFramework[ProjectFile] {
 
     Gnat2XMLWrapperModule.setSrcFiles(c.job.properties, c.project.files)
     Gnat2XMLWrapperModule.setDestDir(c.job.properties, Some(FileUtil.toUri(c.resultsDir)))
-    
-    Gnat2XMLWrapperModule.setGnatBin(c.job.properties, set)
-
+ 
     return true;
   }
 

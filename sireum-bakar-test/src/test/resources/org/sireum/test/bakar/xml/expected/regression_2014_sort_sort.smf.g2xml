@@ -817,6 +817,7 @@ sort.adb
                                           </isPrefixNotation>
                                         </isPrefixNotationQ>
                                         <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                        <checks>do_overflow_check</checks>
                                       </expression>
                                     </assignmentExpressionQ>
                                   </org.sireum.bakar.xml.AssignmentStatement>
@@ -2644,7 +2645,7 @@ sort.adb
                                                     </isPrefixNotation>
                                                   </isPrefixNotationQ>
                                                   <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
-                                                  <checks>do_range_check</checks>
+                                                  <checks>do_overflow_check,do_range_check</checks>
                                                 </org.sireum.bakar.xml.FunctionCall>
                                               </expressions>
                                             </indexExpressionsQl>
@@ -17516,6 +17517,7 @@ sort.adb
                                     </isPrefixNotation>
                                   </isPrefixNotationQ>
                                   <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                  <checks>do_overflow_check</checks>
                                 </expression>
                               </assignmentExpressionQ>
                             </org.sireum.bakar.xml.AssignmentStatement>
@@ -17908,7 +17910,7 @@ sort.adb
                                                         </isPrefixNotation>
                                                       </isPrefixNotationQ>
                                                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
-                                                      <checks>do_range_check</checks>
+                                                      <checks>do_overflow_check,do_range_check</checks>
                                                     </org.sireum.bakar.xml.FunctionCall>
                                                   </expressions>
                                                 </indexExpressionsQl>
@@ -18158,10 +18160,10 @@ sort.adb
                                                 </isPrefixNotation>
                                               </isPrefixNotationQ>
                                               <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
-                                              <checks>do_range_check</checks>
+                                              <checks>do_overflow_check,do_range_check</checks>
                                             </expression>
                                           </actualParameterQ>
-                                          <checks>do_range_check</checks>
+                                          <checks>do_overflow_check,do_range_check</checks>
                                         </org.sireum.bakar.xml.ParameterAssociation>
                                       </associations>
                                     </callStatementParametersQl>
@@ -18305,6 +18307,7 @@ sort.adb
                                           </isPrefixNotation>
                                         </isPrefixNotationQ>
                                         <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                        <checks>do_overflow_check</checks>
                                       </expression>
                                     </assignmentExpressionQ>
                                   </org.sireum.bakar.xml.AssignmentStatement>

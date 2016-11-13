@@ -47,7 +47,7 @@ object Gnat2XMLWrapperModuleDef {
 
     val sireumHome = System.getenv("SIREUM_HOME")
     if (sireumHome != null) { // in sireum dist
-      var gnatPath = "/apps/gnat/2014/bin/" + s
+      var gnatPath = "/apps/gnat/bin/" + s
       val f = new File(sireumHome, gnatPath)
       if (f.canExecute())
         return f.getAbsolutePath()

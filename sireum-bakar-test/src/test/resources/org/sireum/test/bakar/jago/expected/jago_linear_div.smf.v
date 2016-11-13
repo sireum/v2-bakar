@@ -2,7 +2,7 @@ Require Import String.
 Require Import symboltable.
 Open Scope string_scope.
 
-Definition Coq_AST_Tree := 
+Definition AST_Tree := 
 
 (mkprogram
 (* = = = declarations = = = *)
@@ -103,7 +103,7 @@ Definition Symbol_Table :=
 ))
 ).
 
-Definition Coq_AST_TreeRT := 
+Definition AST_TreeRT := 
 
 (mkprogramRT
 (* = = = declarations = = = *)

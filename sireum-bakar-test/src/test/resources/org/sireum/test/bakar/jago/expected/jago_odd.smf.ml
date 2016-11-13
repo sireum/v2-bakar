@@ -12,9 +12,9 @@ decls = (ProcBodyDecl (1,
     [{ parameter_astnum = 3; parameter_name = ((*X*) 2); parameter_subtype_mark = Integer; parameter_mode = In }; 
   { parameter_astnum = 4; parameter_name = ((*R*) 3); parameter_subtype_mark = Integer; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [(SeqDecl (5,
-  (ObjDecl (6, { declaration_astnum = 7; object_name = ((*Result*) 4); object_nominal_subtype = Integer; initialization_exp = None })),
-  (ObjDecl (8, { declaration_astnum = 9; object_name = ((*T*) 5); object_nominal_subtype = Integer; initialization_exp = None }))))],
+    (SeqDecl (5,
+    (ObjDecl (6, { declaration_astnum = 7; object_name = ((*Result*) 4); object_nominal_subtype = Integer; initialization_exp = None })),
+    (ObjDecl (8, { declaration_astnum = 9; object_name = ((*T*) 5); object_nominal_subtype = Integer; initialization_exp = None })))),
     (* = = = Procedure Body = = = *)
     (Seq (10,
     (Assign (11, (Identifier (12, ((*Result*) 4) )), (Literal (13, (Integer_Literal 1) )))),
@@ -49,9 +49,9 @@ let Symbol_Table = {
   [{ parameter_astnum = 3; parameter_name = ((*X*) 2); parameter_subtype_mark = Integer; parameter_mode = In }; 
 { parameter_astnum = 4; parameter_name = ((*R*) 3); parameter_subtype_mark = Integer; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (5,
-(ObjDecl (6, { declaration_astnum = 7; object_name = ((*Result*) 4); object_nominal_subtype = Integer; initialization_exp = None })),
-(ObjDecl (8, { declaration_astnum = 9; object_name = ((*T*) 5); object_nominal_subtype = Integer; initialization_exp = None }))))],
+  (SeqDecl (5,
+  (ObjDecl (6, { declaration_astnum = 7; object_name = ((*Result*) 4); object_nominal_subtype = Integer; initialization_exp = None })),
+  (ObjDecl (8, { declaration_astnum = 9; object_name = ((*T*) 5); object_nominal_subtype = Integer; initialization_exp = None })))),
   (* = = = Procedure Body = = = *)
   (Seq (10,
   (Assign (11, (Identifier (12, ((*Result*) 4) )), (Literal (13, (Integer_Literal 1) )))),
@@ -111,9 +111,9 @@ declsRT = (ProcBodyDeclRT (1,
     [{ parameter_astnumRT = 3; parameter_nameRT = ((*X*) 2); parameter_subtype_markRT = Integer; parameter_modeRT = In }; 
   { parameter_astnumRT = 4; parameter_nameRT = ((*R*) 3); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (5,
-  (ObjDeclRT (6, { declaration_astnumRT = 7; object_nameRT = ((*Result*) 4); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
-  (ObjDeclRT (8, { declaration_astnumRT = 9; object_nameRT = ((*T*) 5); object_nominal_subtypeRT = Integer; initialization_expRT = None }))))],
+    (SeqDeclRT (5,
+    (ObjDeclRT (6, { declaration_astnumRT = 7; object_nameRT = ((*Result*) 4); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
+    (ObjDeclRT (8, { declaration_astnumRT = 9; object_nameRT = ((*T*) 5); object_nominal_subtypeRT = Integer; initialization_expRT = None })))),
     (* = = = Procedure Body = = = *)
     (SeqRT (10,
     (AssignRT (11, (IdentifierRT (12, ((*Result*) 4) , [])), (LiteralRT (13, (Integer_Literal 1) , [], [])))),
@@ -148,9 +148,9 @@ let Symbol_TableRT = {
   [{ parameter_astnumRT = 3; parameter_nameRT = ((*X*) 2); parameter_subtype_markRT = Integer; parameter_modeRT = In }; 
 { parameter_astnumRT = 4; parameter_nameRT = ((*R*) 3); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (5,
-(ObjDeclRT (6, { declaration_astnumRT = 7; object_nameRT = ((*Result*) 4); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
-(ObjDeclRT (8, { declaration_astnumRT = 9; object_nameRT = ((*T*) 5); object_nominal_subtypeRT = Integer; initialization_expRT = None }))))],
+  (SeqDeclRT (5,
+  (ObjDeclRT (6, { declaration_astnumRT = 7; object_nameRT = ((*Result*) 4); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
+  (ObjDeclRT (8, { declaration_astnumRT = 9; object_nameRT = ((*T*) 5); object_nominal_subtypeRT = Integer; initialization_expRT = None })))),
   (* = = = Procedure Body = = = *)
   (SeqRT (10,
   (AssignRT (11, (IdentifierRT (12, ((*Result*) 4) , [])), (LiteralRT (13, (Integer_Literal 1) , [], [])))),

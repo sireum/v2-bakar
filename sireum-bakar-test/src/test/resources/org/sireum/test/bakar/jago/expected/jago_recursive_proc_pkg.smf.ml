@@ -16,7 +16,7 @@ NullDecl (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnum = 6; parameter_name = ((*X*) 4); parameter_subtype_mark = Integer; parameter_mode = In_Out }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Seq (7,
     (Assign (8, (Identifier (9, ((*X*) 4) )), (BinOp (10, Plus, (Name (11, (Identifier (12, ((*X*) 4) )))), (Literal (13, (Integer_Literal 1) )) )))),
@@ -33,7 +33,7 @@ NullDecl (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnum = 20; parameter_name = ((*X*) 7); parameter_subtype_mark = Integer; parameter_mode = In_Out }],
     (* = = = Object Declarations = = = *)
-    [(ObjDecl (21, { declaration_astnum = 22; object_name = ((*Y*) 8); object_nominal_subtype = Integer; initialization_exp = None }))],
+    (ObjDecl (21, { declaration_astnum = 22; object_name = ((*Y*) 8); object_nominal_subtype = Integer; initialization_exp = None })),
     (* = = = Procedure Body = = = *)
     (If (23, (BinOp (24, Greater_Than, (Name (25, (Identifier (26, ((*X*) 7) )))), (Literal (27, (Integer_Literal 0) )) )),
       (Seq (28,
@@ -67,7 +67,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 20; parameter_name = ((*X*) 7); parameter_subtype_mark = Integer; parameter_mode = In_Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDecl (21, { declaration_astnum = 22; object_name = ((*Y*) 8); object_nominal_subtype = Integer; initialization_exp = None }))],
+  (ObjDecl (21, { declaration_astnum = 22; object_name = ((*Y*) 8); object_nominal_subtype = Integer; initialization_exp = None })),
   (* = = = Procedure Body = = = *)
   (If (23, (BinOp (24, Greater_Than, (Name (25, (Identifier (26, ((*X*) 7) )))), (Literal (27, (Integer_Literal 0) )) )),
     (Seq (28,
@@ -86,7 +86,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 6; parameter_name = ((*X*) 4); parameter_subtype_mark = Integer; parameter_mode = In_Out }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (7,
   (Assign (8, (Identifier (9, ((*X*) 4) )), (BinOp (10, Plus, (Name (11, (Identifier (12, ((*X*) 4) )))), (Literal (13, (Integer_Literal 1) )) )))),
@@ -145,7 +145,7 @@ NullDeclRT (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnumRT = 6; parameter_nameRT = ((*X*) 4); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (SeqRT (7,
     (AssignRT (8, (IdentifierRT (9, ((*X*) 4) , [])), (BinOpRT (10, Plus, (NameRT (11, (IdentifierRT (12, ((*X*) 4) , [])))), (LiteralRT (13, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))),
@@ -162,7 +162,7 @@ NullDeclRT (* Undefined Declarations ! *))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnumRT = 20; parameter_nameRT = ((*X*) 7); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }],
     (* = = = Object Declarations = = = *)
-    [(ObjDeclRT (21, { declaration_astnumRT = 22; object_nameRT = ((*Y*) 8); object_nominal_subtypeRT = Integer; initialization_expRT = None }))],
+    (ObjDeclRT (21, { declaration_astnumRT = 22; object_nameRT = ((*Y*) 8); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
     (* = = = Procedure Body = = = *)
     (IfRT (23, (BinOpRT (24, Greater_Than, (NameRT (25, (IdentifierRT (26, ((*X*) 7) , [])))), (LiteralRT (27, (Integer_Literal 0) , [], [])) , [], [])),
       (SeqRT (28,
@@ -196,7 +196,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 20; parameter_nameRT = ((*X*) 7); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDeclRT (21, { declaration_astnumRT = 22; object_nameRT = ((*Y*) 8); object_nominal_subtypeRT = Integer; initialization_expRT = None }))],
+  (ObjDeclRT (21, { declaration_astnumRT = 22; object_nameRT = ((*Y*) 8); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
   (* = = = Procedure Body = = = *)
   (IfRT (23, (BinOpRT (24, Greater_Than, (NameRT (25, (IdentifierRT (26, ((*X*) 7) , [])))), (LiteralRT (27, (Integer_Literal 0) , [], [])) , [], [])),
     (SeqRT (28,
@@ -215,7 +215,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 6; parameter_nameRT = ((*X*) 4); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (7,
   (AssignRT (8, (IdentifierRT (9, ((*X*) 4) , [])), (BinOpRT (10, Plus, (NameRT (11, (IdentifierRT (12, ((*X*) 4) , [])))), (LiteralRT (13, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))),

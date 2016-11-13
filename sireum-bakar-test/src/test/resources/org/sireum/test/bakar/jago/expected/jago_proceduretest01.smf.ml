@@ -20,7 +20,7 @@ NullDecl (* Undefined Declarations ! *))))),
   { parameter_astnum = 8; parameter_name = ((*b*) 6); parameter_subtype_mark = Integer; parameter_mode = In_Out }; 
   { parameter_astnum = 9; parameter_name = ((*c*) 7); parameter_subtype_mark = Integer; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Seq (10,
     (Assign (11, (Identifier (12, ((*b*) 6) )), (BinOp (13, Plus, (Name (14, (Identifier (15, ((*a*) 5) )))), (Name (16, (Identifier (17, ((*b*) 6) )))) )))),
@@ -37,7 +37,7 @@ NullDecl (* Undefined Declarations ! *))))),
     [{ parameter_astnum = 28; parameter_name = ((*x*) 9); parameter_subtype_mark = Integer; parameter_mode = In_Out }; 
   { parameter_astnum = 29; parameter_name = ((*y*) 10); parameter_subtype_mark = Integer; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [(ObjDecl (30, { declaration_astnum = 31; object_name = ((*arg0*) 11); object_nominal_subtype = Integer; initialization_exp = None }))],
+    (ObjDecl (30, { declaration_astnum = 31; object_name = ((*arg0*) 11); object_nominal_subtype = Integer; initialization_exp = None })),
     (* = = = Procedure Body = = = *)
     (Seq (32,
     (Assign (33, (Identifier (34, ((*arg0*) 11) )), (Literal (35, (Integer_Literal 1) )))),
@@ -56,7 +56,7 @@ NullDecl (* Undefined Declarations ! *))))),
   { parameter_astnum = 47; parameter_name = ((*T*) 14); parameter_subtype_mark = Integer; parameter_mode = Out }; 
   { parameter_astnum = 48; parameter_name = ((*R*) 15); parameter_subtype_mark = Integer; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [(ObjDecl (49, { declaration_astnum = 50; object_name = ((*L1*) 16); object_nominal_subtype = Integer; initialization_exp = None }))],
+    (ObjDecl (49, { declaration_astnum = 50; object_name = ((*L1*) 16); object_nominal_subtype = Integer; initialization_exp = None })),
     (* = = = Procedure Body = = = *)
     (Seq (51,
     (Assign (52, (Identifier (53, ((*L1*) 16) )), (Name (54, (Identifier (55, ((*S*) 13) )))))),
@@ -91,7 +91,7 @@ let Symbol_Table = {
 { parameter_astnum = 47; parameter_name = ((*T*) 14); parameter_subtype_mark = Integer; parameter_mode = Out }; 
 { parameter_astnum = 48; parameter_name = ((*R*) 15); parameter_subtype_mark = Integer; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDecl (49, { declaration_astnum = 50; object_name = ((*L1*) 16); object_nominal_subtype = Integer; initialization_exp = None }))],
+  (ObjDecl (49, { declaration_astnum = 50; object_name = ((*L1*) 16); object_nominal_subtype = Integer; initialization_exp = None })),
   (* = = = Procedure Body = = = *)
   (Seq (51,
   (Assign (52, (Identifier (53, ((*L1*) 16) )), (Name (54, (Identifier (55, ((*S*) 13) )))))),
@@ -110,7 +110,7 @@ let Symbol_Table = {
   [{ parameter_astnum = 28; parameter_name = ((*x*) 9); parameter_subtype_mark = Integer; parameter_mode = In_Out }; 
 { parameter_astnum = 29; parameter_name = ((*y*) 10); parameter_subtype_mark = Integer; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDecl (30, { declaration_astnum = 31; object_name = ((*arg0*) 11); object_nominal_subtype = Integer; initialization_exp = None }))],
+  (ObjDecl (30, { declaration_astnum = 31; object_name = ((*arg0*) 11); object_nominal_subtype = Integer; initialization_exp = None })),
   (* = = = Procedure Body = = = *)
   (Seq (32,
   (Assign (33, (Identifier (34, ((*arg0*) 11) )), (Literal (35, (Integer_Literal 1) )))),
@@ -126,7 +126,7 @@ let Symbol_Table = {
 { parameter_astnum = 8; parameter_name = ((*b*) 6); parameter_subtype_mark = Integer; parameter_mode = In_Out }; 
 { parameter_astnum = 9; parameter_name = ((*c*) 7); parameter_subtype_mark = Integer; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (10,
   (Assign (11, (Identifier (12, ((*b*) 6) )), (BinOp (13, Plus, (Name (14, (Identifier (15, ((*a*) 5) )))), (Name (16, (Identifier (17, ((*b*) 6) )))) )))),
@@ -187,7 +187,7 @@ NullDeclRT (* Undefined Declarations ! *))))),
   { parameter_astnumRT = 8; parameter_nameRT = ((*b*) 6); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }; 
   { parameter_astnumRT = 9; parameter_nameRT = ((*c*) 7); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (SeqRT (10,
     (AssignRT (11, (IdentifierRT (12, ((*b*) 6) , [])), (BinOpRT (13, Plus, (NameRT (14, (IdentifierRT (15, ((*a*) 5) , [])))), (NameRT (16, (IdentifierRT (17, ((*b*) 6) , [])))) , [OverflowCheck], [])))),
@@ -204,7 +204,7 @@ NullDeclRT (* Undefined Declarations ! *))))),
     [{ parameter_astnumRT = 28; parameter_nameRT = ((*x*) 9); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }; 
   { parameter_astnumRT = 29; parameter_nameRT = ((*y*) 10); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [(ObjDeclRT (30, { declaration_astnumRT = 31; object_nameRT = ((*arg0*) 11); object_nominal_subtypeRT = Integer; initialization_expRT = None }))],
+    (ObjDeclRT (30, { declaration_astnumRT = 31; object_nameRT = ((*arg0*) 11); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
     (* = = = Procedure Body = = = *)
     (SeqRT (32,
     (AssignRT (33, (IdentifierRT (34, ((*arg0*) 11) , [])), (LiteralRT (35, (Integer_Literal 1) , [], [])))),
@@ -223,7 +223,7 @@ NullDeclRT (* Undefined Declarations ! *))))),
   { parameter_astnumRT = 47; parameter_nameRT = ((*T*) 14); parameter_subtype_markRT = Integer; parameter_modeRT = Out }; 
   { parameter_astnumRT = 48; parameter_nameRT = ((*R*) 15); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [(ObjDeclRT (49, { declaration_astnumRT = 50; object_nameRT = ((*L1*) 16); object_nominal_subtypeRT = Integer; initialization_expRT = None }))],
+    (ObjDeclRT (49, { declaration_astnumRT = 50; object_nameRT = ((*L1*) 16); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
     (* = = = Procedure Body = = = *)
     (SeqRT (51,
     (AssignRT (52, (IdentifierRT (53, ((*L1*) 16) , [])), (NameRT (54, (IdentifierRT (55, ((*S*) 13) , [])))))),
@@ -258,7 +258,7 @@ let Symbol_TableRT = {
 { parameter_astnumRT = 47; parameter_nameRT = ((*T*) 14); parameter_subtype_markRT = Integer; parameter_modeRT = Out }; 
 { parameter_astnumRT = 48; parameter_nameRT = ((*R*) 15); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDeclRT (49, { declaration_astnumRT = 50; object_nameRT = ((*L1*) 16); object_nominal_subtypeRT = Integer; initialization_expRT = None }))],
+  (ObjDeclRT (49, { declaration_astnumRT = 50; object_nameRT = ((*L1*) 16); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
   (* = = = Procedure Body = = = *)
   (SeqRT (51,
   (AssignRT (52, (IdentifierRT (53, ((*L1*) 16) , [])), (NameRT (54, (IdentifierRT (55, ((*S*) 13) , [])))))),
@@ -277,7 +277,7 @@ let Symbol_TableRT = {
   [{ parameter_astnumRT = 28; parameter_nameRT = ((*x*) 9); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }; 
 { parameter_astnumRT = 29; parameter_nameRT = ((*y*) 10); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [(ObjDeclRT (30, { declaration_astnumRT = 31; object_nameRT = ((*arg0*) 11); object_nominal_subtypeRT = Integer; initialization_expRT = None }))],
+  (ObjDeclRT (30, { declaration_astnumRT = 31; object_nameRT = ((*arg0*) 11); object_nominal_subtypeRT = Integer; initialization_expRT = None })),
   (* = = = Procedure Body = = = *)
   (SeqRT (32,
   (AssignRT (33, (IdentifierRT (34, ((*arg0*) 11) , [])), (LiteralRT (35, (Integer_Literal 1) , [], [])))),
@@ -293,7 +293,7 @@ let Symbol_TableRT = {
 { parameter_astnumRT = 8; parameter_nameRT = ((*b*) 6); parameter_subtype_markRT = Integer; parameter_modeRT = In_Out }; 
 { parameter_astnumRT = 9; parameter_nameRT = ((*c*) 7); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (10,
   (AssignRT (11, (IdentifierRT (12, ((*b*) 6) , [])), (BinOpRT (13, Plus, (NameRT (14, (IdentifierRT (15, ((*a*) 5) , [])))), (NameRT (16, (IdentifierRT (17, ((*b*) 6) , [])))) , [OverflowCheck], [])))),

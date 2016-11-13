@@ -179,7 +179,7 @@ NullDecl (* Undefined Declarations ! *),
   { parameter_astnum = 281; parameter_name = ((*Src*) 101); parameter_subtype_mark = (Array_Type ((*U64_Seq*) 22)); parameter_mode = In }; 
   { parameter_astnum = 282; parameter_name = ((*Byte_Count*) 102); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
     (* = = = Object Declarations = = = *)
-    [(ObjDecl (283, { declaration_astnum = 284; object_name = ((*N*) 103); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))],
+    (ObjDecl (283, { declaration_astnum = 284; object_name = ((*N*) 103); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
     (* = = = Procedure Body = = = *)
     (If (285, (BinOp (286, Greater_Than_Or_Equal, (Name (287, (Identifier (288, ((*Byte_Count*) 102) )))), (Literal (289, (Integer_Literal 1) )) )),
       (Seq (290,
@@ -204,9 +204,9 @@ NullDecl (* Undefined Declarations ! *),
   { parameter_astnum = 328; parameter_name = ((*Src*) 107); parameter_subtype_mark = (Array_Type ((*Byte_Seq*) 14)); parameter_mode = In }; 
   { parameter_astnum = 329; parameter_name = ((*Src_Offset*) 108); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDecl (330,
-  (ObjDecl (331, { declaration_astnum = 332; object_name = ((*Dst_Index*) 109); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-  (ObjDecl (333, { declaration_astnum = 334; object_name = ((*Src_Index*) 110); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))],
+    (SeqDecl (330,
+    (ObjDecl (331, { declaration_astnum = 332; object_name = ((*Dst_Index*) 109); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+    (ObjDecl (333, { declaration_astnum = 334; object_name = ((*Src_Index*) 110); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))),
     (* = = = Procedure Body = = = *)
     (Seq (335,
     (Assign (336, (Identifier (337, ((*Dst_Index*) 109) )), (Literal (338, (Integer_Literal 0) )))),
@@ -232,209 +232,209 @@ NullDecl (* Undefined Declarations ! *),
   { parameter_astnum = 433; parameter_name = ((*Block_Count*) 115); parameter_subtype_mark = (Subtype ((*Positive_Block_512_Count_T*) 38)); parameter_mode = In }; 
   { parameter_astnum = 434; parameter_name = ((*Byte_Count_Add*) 116); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDecl (435,
-  (ObjDecl (436, { declaration_astnum = 437; object_name = ((*TS*) 117); object_nominal_subtype = (Array_Type ((*U64_Seq_3*) 23)); initialization_exp = None })),
-  (SeqDecl (438,
-  (ObjDecl (439, { declaration_astnum = 440; object_name = ((*KS*) 118); object_nominal_subtype = (Array_Type ((*U64_Seq_9*) 26)); initialization_exp = None })),
-  (SeqDecl (441,
-  (ObjDecl (442, { declaration_astnum = 443; object_name = ((*X*) 119); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
-  (SeqDecl (444,
-  (ObjDecl (445, { declaration_astnum = 446; object_name = ((*W*) 120); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
-  (SeqDecl (447,
-  (ProcBodyDecl (448, 
-    mkprocBodyDecl (
-     449,
-      (* = = = Procedure Name = = = *)
-      ((*Initialize_Key_Schedule*) 121),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [(ObjDecl (450, { declaration_astnum = 451; object_name = ((*I*) 122); object_nominal_subtype = (Subtype ((*I8*) 9)); initialization_exp = None }))],
-      (* = = = Procedure Body = = = *)
-      (Seq (452,
-      (Assign (453, (IndexedComponent (454, (Identifier (455, ((*KS*) 118) )), (Literal (456, (Integer_Literal 8) )) )), (Literal (457, (Integer_Literal 16) )))),
-      (Seq (458,
-      (Assign (459, (Identifier (460, ((*I*) 122) )), (Literal (461, (Integer_Literal 0) )))),
-      (While (462, (BinOp (463, Less_Than_Or_Equal, (Name (464, (Identifier (465, ((*I*) 122) )))), (Literal (466, (Integer_Literal 7) )) )),
-        (Seq (467,
-        (Assign (468, (IndexedComponent (469, (Identifier (470, ((*KS*) 118) )), (Name (471, (Identifier (472, ((*I*) 122) )))) )), (Name (473, (IndexedComponent (474, (SelectedComponent (475, (Identifier (476, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (478, (Identifier (479, ((*I*) 122) )))) )))))),
-        (Seq (480,
-        (Assign (481, (IndexedComponent (482, (Identifier (483, ((*KS*) 118) )), (Literal (484, (Integer_Literal 8) )) )), (BinOp (485, Plus, (Name (486, (IndexedComponent (487, (Identifier (488, ((*KS*) 118) )), (Literal (489, (Integer_Literal 8) )) )))), (Name (490, (IndexedComponent (491, (SelectedComponent (492, (Identifier (493, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (495, (Identifier (496, ((*I*) 122) )))) )))) )))),
-        (Assign (497, (Identifier (498, ((*I*) 122) )), (BinOp (499, Plus, (Name (500, (Identifier (501, ((*I*) 122) )))), (Literal (502, (Integer_Literal 1) )) )))))))))
-      )))))
-    ))
-  ),
-  (SeqDecl (503,
-  (ProcBodyDecl (504, 
-    mkprocBodyDecl (
-     505,
-      (* = = = Procedure Name = = = *)
-      ((*Initialize_TS*) 123),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [NullDecl],
-      (* = = = Procedure Body = = = *)
-      (Seq (506,
-      (Assign (507, (IndexedComponent (508, (Identifier (509, ((*TS*) 117) )), (Literal (510, (Integer_Literal 0) )) )), (Literal (511, (Integer_Literal 0) )))),
-      (Seq (512,
-      (Assign (513, (IndexedComponent (514, (Identifier (515, ((*TS*) 117) )), (Literal (516, (Integer_Literal 1) )) )), (Literal (517, (Integer_Literal 1) )))),
-      (Seq (518,
-      (Assign (519, (IndexedComponent (520, (Identifier (521, ((*TS*) 117) )), (Literal (522, (Integer_Literal 2) )) )), (Literal (523, (Integer_Literal 2) )))),
-      (Seq (524,
-      (Assign (525, (IndexedComponent (526, (Identifier (527, ((*W*) 120) )), (Literal (528, (Integer_Literal 0) )) )), (Literal (529, (Integer_Literal 0) )))),
-      (Seq (530,
-      (Assign (531, (IndexedComponent (532, (Identifier (533, ((*W*) 120) )), (Literal (534, (Integer_Literal 1) )) )), (Literal (535, (Integer_Literal 1) )))),
-      (Seq (536,
-      (Assign (537, (IndexedComponent (538, (Identifier (539, ((*W*) 120) )), (Literal (540, (Integer_Literal 2) )) )), (Literal (541, (Integer_Literal 2) )))),
-      (Seq (542,
-      (Assign (543, (IndexedComponent (544, (Identifier (545, ((*W*) 120) )), (Literal (546, (Integer_Literal 3) )) )), (Literal (547, (Integer_Literal 3) )))),
-      (Seq (548,
-      (Assign (549, (IndexedComponent (550, (Identifier (551, ((*W*) 120) )), (Literal (552, (Integer_Literal 4) )) )), (Literal (553, (Integer_Literal 4) )))),
-      (Seq (554,
-      (Assign (555, (IndexedComponent (556, (Identifier (557, ((*W*) 120) )), (Literal (558, (Integer_Literal 5) )) )), (Literal (559, (Integer_Literal 5) )))),
-      (Seq (560,
-      (Assign (561, (IndexedComponent (562, (Identifier (563, ((*W*) 120) )), (Literal (564, (Integer_Literal 6) )) )), (Literal (565, (Integer_Literal 6) )))),
-      (Assign (566, (IndexedComponent (567, (Identifier (568, ((*W*) 120) )), (Literal (569, (Integer_Literal 7) )) )), (Literal (570, (Integer_Literal 7) ))))))))))))))))))))))))
-    ))
-  ),
-  (SeqDecl (571,
-  (ProcBodyDecl (572, 
-    mkprocBodyDecl (
-     573,
-      (* = = = Procedure Name = = = *)
-      ((*Do_First_Key_Injection*) 124),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [NullDecl],
-      (* = = = Procedure Body = = = *)
-      (Seq (574,
-      (Assign (575, (IndexedComponent (576, (Identifier (577, ((*X*) 119) )), (Literal (578, (Integer_Literal 0) )) )), (BinOp (579, Plus, (Name (580, (IndexedComponent (581, (Identifier (582, ((*W*) 120) )), (Literal (583, (Integer_Literal 0) )) )))), (Name (584, (IndexedComponent (585, (Identifier (586, ((*KS*) 118) )), (Literal (587, (Integer_Literal 0) )) )))) )))),
-      (Seq (588,
-      (Assign (589, (IndexedComponent (590, (Identifier (591, ((*X*) 119) )), (Literal (592, (Integer_Literal 1) )) )), (BinOp (593, Plus, (Name (594, (IndexedComponent (595, (Identifier (596, ((*W*) 120) )), (Literal (597, (Integer_Literal 1) )) )))), (Name (598, (IndexedComponent (599, (Identifier (600, ((*KS*) 118) )), (Literal (601, (Integer_Literal 1) )) )))) )))),
-      (Seq (602,
-      (Assign (603, (IndexedComponent (604, (Identifier (605, ((*X*) 119) )), (Literal (606, (Integer_Literal 2) )) )), (BinOp (607, Plus, (Name (608, (IndexedComponent (609, (Identifier (610, ((*W*) 120) )), (Literal (611, (Integer_Literal 2) )) )))), (Name (612, (IndexedComponent (613, (Identifier (614, ((*KS*) 118) )), (Literal (615, (Integer_Literal 2) )) )))) )))),
-      (Seq (616,
-      (Assign (617, (IndexedComponent (618, (Identifier (619, ((*X*) 119) )), (Literal (620, (Integer_Literal 3) )) )), (BinOp (621, Plus, (Name (622, (IndexedComponent (623, (Identifier (624, ((*W*) 120) )), (Literal (625, (Integer_Literal 3) )) )))), (Name (626, (IndexedComponent (627, (Identifier (628, ((*KS*) 118) )), (Literal (629, (Integer_Literal 3) )) )))) )))),
-      (Seq (630,
-      (Assign (631, (IndexedComponent (632, (Identifier (633, ((*X*) 119) )), (Literal (634, (Integer_Literal 4) )) )), (BinOp (635, Plus, (Name (636, (IndexedComponent (637, (Identifier (638, ((*W*) 120) )), (Literal (639, (Integer_Literal 4) )) )))), (Name (640, (IndexedComponent (641, (Identifier (642, ((*KS*) 118) )), (Literal (643, (Integer_Literal 4) )) )))) )))),
-      (Seq (644,
-      (Assign (645, (IndexedComponent (646, (Identifier (647, ((*X*) 119) )), (Literal (648, (Integer_Literal 5) )) )), (BinOp (649, Plus, (Name (650, (IndexedComponent (651, (Identifier (652, ((*W*) 120) )), (Literal (653, (Integer_Literal 5) )) )))), (Name (654, (IndexedComponent (655, (Identifier (656, ((*KS*) 118) )), (Literal (657, (Integer_Literal 5) )) )))) )))),
-      (Seq (658,
-      (Assign (659, (IndexedComponent (660, (Identifier (661, ((*X*) 119) )), (Literal (662, (Integer_Literal 6) )) )), (BinOp (663, Plus, (Name (664, (IndexedComponent (665, (Identifier (666, ((*W*) 120) )), (Literal (667, (Integer_Literal 6) )) )))), (Name (668, (IndexedComponent (669, (Identifier (670, ((*KS*) 118) )), (Literal (671, (Integer_Literal 6) )) )))) )))),
-      (Seq (672,
-      (Assign (673, (IndexedComponent (674, (Identifier (675, ((*X*) 119) )), (Literal (676, (Integer_Literal 7) )) )), (BinOp (677, Plus, (Name (678, (IndexedComponent (679, (Identifier (680, ((*W*) 120) )), (Literal (681, (Integer_Literal 7) )) )))), (Name (682, (IndexedComponent (683, (Identifier (684, ((*KS*) 118) )), (Literal (685, (Integer_Literal 7) )) )))) )))),
-      (Seq (686,
-      (Assign (687, (IndexedComponent (688, (Identifier (689, ((*X*) 119) )), (BinOp (690, Minus, (Literal (691, (Integer_Literal 8) )), (Literal (692, (Integer_Literal 3) )) )) )), (BinOp (693, Plus, (Name (694, (IndexedComponent (695, (Identifier (696, ((*X*) 119) )), (BinOp (697, Minus, (Literal (698, (Integer_Literal 8) )), (Literal (699, (Integer_Literal 3) )) )) )))), (Name (700, (IndexedComponent (701, (Identifier (702, ((*TS*) 117) )), (Literal (703, (Integer_Literal 0) )) )))) )))),
-      (Assign (704, (IndexedComponent (705, (Identifier (706, ((*X*) 119) )), (BinOp (707, Minus, (Literal (708, (Integer_Literal 8) )), (Literal (709, (Integer_Literal 2) )) )) )), (BinOp (710, Plus, (Name (711, (IndexedComponent (712, (Identifier (713, ((*X*) 119) )), (BinOp (714, Minus, (Literal (715, (Integer_Literal 8) )), (Literal (716, (Integer_Literal 2) )) )) )))), (Name (717, (IndexedComponent (718, (Identifier (719, ((*TS*) 117) )), (Literal (720, (Integer_Literal 1) )) )))) ))))))))))))))))))))))
-    ))
-  ),
-  (SeqDecl (721,
-  (ProcBodyDecl (722, 
-    mkprocBodyDecl (
-     723,
-      (* = = = Procedure Name = = = *)
-      ((*Threefish_Block*) 125),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [(SeqDecl (724,
-    (ProcBodyDecl (725, 
+    (SeqDecl (435,
+    (ObjDecl (436, { declaration_astnum = 437; object_name = ((*TS*) 117); object_nominal_subtype = (Array_Type ((*U64_Seq_3*) 23)); initialization_exp = None })),
+    (SeqDecl (438,
+    (ObjDecl (439, { declaration_astnum = 440; object_name = ((*KS*) 118); object_nominal_subtype = (Array_Type ((*U64_Seq_9*) 26)); initialization_exp = None })),
+    (SeqDecl (441,
+    (ObjDecl (442, { declaration_astnum = 443; object_name = ((*X*) 119); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
+    (SeqDecl (444,
+    (ObjDecl (445, { declaration_astnum = 446; object_name = ((*W*) 120); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
+    (SeqDecl (447,
+    (ProcBodyDecl (448, 
       mkprocBodyDecl (
-       726,
+       449,
         (* = = = Procedure Name = = = *)
-        ((*Inject_Key*) 126),
-        (* = = = Formal Parameters = = = *)
-        [{ parameter_astnum = 727; parameter_name = ((*R*) 127); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
-        (* = = = Object Declarations = = = *)
-        [(SeqDecl (728,
-      (TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
-      (ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None }))))],
-        (* = = = Procedure Body = = = *)
-        (Seq (733,
-        (Assign (734, (Identifier (735, ((*I*) 129) )), (Literal (736, (Integer_Literal 0) )))),
-        (Seq (737,
-        (While (738, (BinOp (739, Less_Than_Or_Equal, (Name (740, (Identifier (741, ((*I*) 129) )))), (Literal (742, (Integer_Literal 7) )) )),
-          (Seq (743,
-          (Assign (744, (IndexedComponent (745, (Identifier (746, ((*X*) 119) )), (Name (747, (Identifier (748, ((*I*) 129) )))) )), (BinOp (749, Plus, (Name (750, (IndexedComponent (751, (Identifier (752, ((*X*) 119) )), (Name (753, (Identifier (754, ((*I*) 129) )))) )))), (Name (755, (IndexedComponent (756, (Identifier (757, ((*KS*) 118) )), (BinOp (758, Modulus, (BinOp (759, Plus, (Name (760, (Identifier (761, ((*R*) 127) )))), (Name (762, (Identifier (763, ((*I*) 129) )))) )), (BinOp (764, Plus, (Literal (765, (Integer_Literal 8) )), (Literal (766, (Integer_Literal 1) )) )) )) )))) )))),
-          (Assign (767, (Identifier (768, ((*I*) 129) )), (BinOp (769, Plus, (Name (770, (Identifier (771, ((*I*) 129) )))), (Literal (772, (Integer_Literal 1) )) )))))))
-        ),
-        (Seq (773,
-        (Assign (774, (IndexedComponent (775, (Identifier (776, ((*X*) 119) )), (BinOp (777, Minus, (Literal (778, (Integer_Literal 8) )), (Literal (779, (Integer_Literal 3) )) )) )), (BinOp (780, Plus, (Name (781, (IndexedComponent (782, (Identifier (783, ((*X*) 119) )), (BinOp (784, Minus, (Literal (785, (Integer_Literal 8) )), (Literal (786, (Integer_Literal 3) )) )) )))), (Name (787, (IndexedComponent (788, (Identifier (789, ((*TS*) 117) )), (BinOp (790, Modulus, (Name (791, (Identifier (792, ((*R*) 127) )))), (Literal (793, (Integer_Literal 3) )) )) )))) )))),
-        (Seq (794,
-        (Assign (795, (IndexedComponent (796, (Identifier (797, ((*X*) 119) )), (BinOp (798, Minus, (Literal (799, (Integer_Literal 8) )), (Literal (800, (Integer_Literal 2) )) )) )), (BinOp (801, Plus, (Name (802, (IndexedComponent (803, (Identifier (804, ((*X*) 119) )), (BinOp (805, Minus, (Literal (806, (Integer_Literal 8) )), (Literal (807, (Integer_Literal 2) )) )) )))), (Name (808, (IndexedComponent (809, (Identifier (810, ((*TS*) 117) )), (BinOp (811, Modulus, (BinOp (812, Plus, (Name (813, (Identifier (814, ((*R*) 127) )))), (Literal (815, (Integer_Literal 1) )) )), (Literal (816, (Integer_Literal 3) )) )) )))) )))),
-        (Assign (817, (IndexedComponent (818, (Identifier (819, ((*X*) 119) )), (BinOp (820, Minus, (Literal (821, (Integer_Literal 8) )), (Literal (822, (Integer_Literal 1) )) )) )), (BinOp (823, Plus, (Name (824, (IndexedComponent (825, (Identifier (826, ((*X*) 119) )), (BinOp (827, Minus, (Literal (828, (Integer_Literal 8) )), (Literal (829, (Integer_Literal 1) )) )) )))), (Name (830, (Identifier (831, ((*R*) 127) )))) ))))))))))))
-      ))
-    ),
-    (SeqDecl (832,
-    (ProcBodyDecl (833, 
-      mkprocBodyDecl (
-       834,
-        (* = = = Procedure Name = = = *)
-        ((*Round_1*) 130),
+        ((*Initialize_Key_Schedule*) 121),
         (* = = = Formal Parameters = = = *)
         [],
         (* = = = Object Declarations = = = *)
-        [NullDecl],
+        (ObjDecl (450, { declaration_astnum = 451; object_name = ((*I*) 122); object_nominal_subtype = (Subtype ((*I8*) 9)); initialization_exp = None })),
         (* = = = Procedure Body = = = *)
-        (Seq (835,
-        (Assign (836, (IndexedComponent (837, (Identifier (838, ((*X*) 119) )), (Literal (839, (Integer_Literal 0) )) )), (BinOp (840, Plus, (Name (841, (IndexedComponent (842, (Identifier (843, ((*X*) 119) )), (Literal (844, (Integer_Literal 0) )) )))), (Name (845, (IndexedComponent (846, (Identifier (847, ((*X*) 119) )), (Literal (848, (Integer_Literal 1) )) )))) )))),
-        (Seq (849,
-        (Assign (850, (IndexedComponent (851, (Identifier (852, ((*X*) 119) )), (Literal (853, (Integer_Literal 2) )) )), (BinOp (854, Plus, (Name (855, (IndexedComponent (856, (Identifier (857, ((*X*) 119) )), (Literal (858, (Integer_Literal 2) )) )))), (Name (859, (IndexedComponent (860, (Identifier (861, ((*X*) 119) )), (Literal (862, (Integer_Literal 3) )) )))) )))),
-        (Seq (863,
-        (Assign (864, (IndexedComponent (865, (Identifier (866, ((*X*) 119) )), (Literal (867, (Integer_Literal 4) )) )), (BinOp (868, Plus, (Name (869, (IndexedComponent (870, (Identifier (871, ((*X*) 119) )), (Literal (872, (Integer_Literal 4) )) )))), (Name (873, (IndexedComponent (874, (Identifier (875, ((*X*) 119) )), (Literal (876, (Integer_Literal 5) )) )))) )))),
-        (Assign (877, (IndexedComponent (878, (Identifier (879, ((*X*) 119) )), (Literal (880, (Integer_Literal 6) )) )), (BinOp (881, Plus, (Name (882, (IndexedComponent (883, (Identifier (884, ((*X*) 119) )), (Literal (885, (Integer_Literal 6) )) )))), (Name (886, (IndexedComponent (887, (Identifier (888, ((*X*) 119) )), (Literal (889, (Integer_Literal 7) )) )))) ))))))))))
+        (Seq (452,
+        (Assign (453, (IndexedComponent (454, (Identifier (455, ((*KS*) 118) )), (Literal (456, (Integer_Literal 8) )) )), (Literal (457, (Integer_Literal 16) )))),
+        (Seq (458,
+        (Assign (459, (Identifier (460, ((*I*) 122) )), (Literal (461, (Integer_Literal 0) )))),
+        (While (462, (BinOp (463, Less_Than_Or_Equal, (Name (464, (Identifier (465, ((*I*) 122) )))), (Literal (466, (Integer_Literal 7) )) )),
+          (Seq (467,
+          (Assign (468, (IndexedComponent (469, (Identifier (470, ((*KS*) 118) )), (Name (471, (Identifier (472, ((*I*) 122) )))) )), (Name (473, (IndexedComponent (474, (SelectedComponent (475, (Identifier (476, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (478, (Identifier (479, ((*I*) 122) )))) )))))),
+          (Seq (480,
+          (Assign (481, (IndexedComponent (482, (Identifier (483, ((*KS*) 118) )), (Literal (484, (Integer_Literal 8) )) )), (BinOp (485, Plus, (Name (486, (IndexedComponent (487, (Identifier (488, ((*KS*) 118) )), (Literal (489, (Integer_Literal 8) )) )))), (Name (490, (IndexedComponent (491, (SelectedComponent (492, (Identifier (493, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (495, (Identifier (496, ((*I*) 122) )))) )))) )))),
+          (Assign (497, (Identifier (498, ((*I*) 122) )), (BinOp (499, Plus, (Name (500, (Identifier (501, ((*I*) 122) )))), (Literal (502, (Integer_Literal 1) )) )))))))))
+        )))))
       ))
     ),
-    (ObjDecl (890, { declaration_astnum = 891; object_name = ((*R*) 131); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))],
-      (* = = = Procedure Body = = = *)
-      (Seq (892,
-      (Assign (893, (Identifier (894, ((*R*) 131) )), (Literal (895, (Integer_Literal 1) )))),
-      (While (896, (BinOp (897, Less_Than_Or_Equal, (Name (898, (Identifier (899, ((*R*) 131) )))), (Literal (900, (Integer_Literal 9) )) )),
-        (Seq (901,
-        (Call (902, 903, ((*Round_1*) 130), 
-          [])
+    (SeqDecl (503,
+    (ProcBodyDecl (504, 
+      mkprocBodyDecl (
+       505,
+        (* = = = Procedure Name = = = *)
+        ((*Initialize_TS*) 123),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        NullDecl,
+        (* = = = Procedure Body = = = *)
+        (Seq (506,
+        (Assign (507, (IndexedComponent (508, (Identifier (509, ((*TS*) 117) )), (Literal (510, (Integer_Literal 0) )) )), (Literal (511, (Integer_Literal 0) )))),
+        (Seq (512,
+        (Assign (513, (IndexedComponent (514, (Identifier (515, ((*TS*) 117) )), (Literal (516, (Integer_Literal 1) )) )), (Literal (517, (Integer_Literal 1) )))),
+        (Seq (518,
+        (Assign (519, (IndexedComponent (520, (Identifier (521, ((*TS*) 117) )), (Literal (522, (Integer_Literal 2) )) )), (Literal (523, (Integer_Literal 2) )))),
+        (Seq (524,
+        (Assign (525, (IndexedComponent (526, (Identifier (527, ((*W*) 120) )), (Literal (528, (Integer_Literal 0) )) )), (Literal (529, (Integer_Literal 0) )))),
+        (Seq (530,
+        (Assign (531, (IndexedComponent (532, (Identifier (533, ((*W*) 120) )), (Literal (534, (Integer_Literal 1) )) )), (Literal (535, (Integer_Literal 1) )))),
+        (Seq (536,
+        (Assign (537, (IndexedComponent (538, (Identifier (539, ((*W*) 120) )), (Literal (540, (Integer_Literal 2) )) )), (Literal (541, (Integer_Literal 2) )))),
+        (Seq (542,
+        (Assign (543, (IndexedComponent (544, (Identifier (545, ((*W*) 120) )), (Literal (546, (Integer_Literal 3) )) )), (Literal (547, (Integer_Literal 3) )))),
+        (Seq (548,
+        (Assign (549, (IndexedComponent (550, (Identifier (551, ((*W*) 120) )), (Literal (552, (Integer_Literal 4) )) )), (Literal (553, (Integer_Literal 4) )))),
+        (Seq (554,
+        (Assign (555, (IndexedComponent (556, (Identifier (557, ((*W*) 120) )), (Literal (558, (Integer_Literal 5) )) )), (Literal (559, (Integer_Literal 5) )))),
+        (Seq (560,
+        (Assign (561, (IndexedComponent (562, (Identifier (563, ((*W*) 120) )), (Literal (564, (Integer_Literal 6) )) )), (Literal (565, (Integer_Literal 6) )))),
+        (Assign (566, (IndexedComponent (567, (Identifier (568, ((*W*) 120) )), (Literal (569, (Integer_Literal 7) )) )), (Literal (570, (Integer_Literal 7) ))))))))))))))))))))))))
+      ))
+    ),
+    (SeqDecl (571,
+    (ProcBodyDecl (572, 
+      mkprocBodyDecl (
+       573,
+        (* = = = Procedure Name = = = *)
+        ((*Do_First_Key_Injection*) 124),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        NullDecl,
+        (* = = = Procedure Body = = = *)
+        (Seq (574,
+        (Assign (575, (IndexedComponent (576, (Identifier (577, ((*X*) 119) )), (Literal (578, (Integer_Literal 0) )) )), (BinOp (579, Plus, (Name (580, (IndexedComponent (581, (Identifier (582, ((*W*) 120) )), (Literal (583, (Integer_Literal 0) )) )))), (Name (584, (IndexedComponent (585, (Identifier (586, ((*KS*) 118) )), (Literal (587, (Integer_Literal 0) )) )))) )))),
+        (Seq (588,
+        (Assign (589, (IndexedComponent (590, (Identifier (591, ((*X*) 119) )), (Literal (592, (Integer_Literal 1) )) )), (BinOp (593, Plus, (Name (594, (IndexedComponent (595, (Identifier (596, ((*W*) 120) )), (Literal (597, (Integer_Literal 1) )) )))), (Name (598, (IndexedComponent (599, (Identifier (600, ((*KS*) 118) )), (Literal (601, (Integer_Literal 1) )) )))) )))),
+        (Seq (602,
+        (Assign (603, (IndexedComponent (604, (Identifier (605, ((*X*) 119) )), (Literal (606, (Integer_Literal 2) )) )), (BinOp (607, Plus, (Name (608, (IndexedComponent (609, (Identifier (610, ((*W*) 120) )), (Literal (611, (Integer_Literal 2) )) )))), (Name (612, (IndexedComponent (613, (Identifier (614, ((*KS*) 118) )), (Literal (615, (Integer_Literal 2) )) )))) )))),
+        (Seq (616,
+        (Assign (617, (IndexedComponent (618, (Identifier (619, ((*X*) 119) )), (Literal (620, (Integer_Literal 3) )) )), (BinOp (621, Plus, (Name (622, (IndexedComponent (623, (Identifier (624, ((*W*) 120) )), (Literal (625, (Integer_Literal 3) )) )))), (Name (626, (IndexedComponent (627, (Identifier (628, ((*KS*) 118) )), (Literal (629, (Integer_Literal 3) )) )))) )))),
+        (Seq (630,
+        (Assign (631, (IndexedComponent (632, (Identifier (633, ((*X*) 119) )), (Literal (634, (Integer_Literal 4) )) )), (BinOp (635, Plus, (Name (636, (IndexedComponent (637, (Identifier (638, ((*W*) 120) )), (Literal (639, (Integer_Literal 4) )) )))), (Name (640, (IndexedComponent (641, (Identifier (642, ((*KS*) 118) )), (Literal (643, (Integer_Literal 4) )) )))) )))),
+        (Seq (644,
+        (Assign (645, (IndexedComponent (646, (Identifier (647, ((*X*) 119) )), (Literal (648, (Integer_Literal 5) )) )), (BinOp (649, Plus, (Name (650, (IndexedComponent (651, (Identifier (652, ((*W*) 120) )), (Literal (653, (Integer_Literal 5) )) )))), (Name (654, (IndexedComponent (655, (Identifier (656, ((*KS*) 118) )), (Literal (657, (Integer_Literal 5) )) )))) )))),
+        (Seq (658,
+        (Assign (659, (IndexedComponent (660, (Identifier (661, ((*X*) 119) )), (Literal (662, (Integer_Literal 6) )) )), (BinOp (663, Plus, (Name (664, (IndexedComponent (665, (Identifier (666, ((*W*) 120) )), (Literal (667, (Integer_Literal 6) )) )))), (Name (668, (IndexedComponent (669, (Identifier (670, ((*KS*) 118) )), (Literal (671, (Integer_Literal 6) )) )))) )))),
+        (Seq (672,
+        (Assign (673, (IndexedComponent (674, (Identifier (675, ((*X*) 119) )), (Literal (676, (Integer_Literal 7) )) )), (BinOp (677, Plus, (Name (678, (IndexedComponent (679, (Identifier (680, ((*W*) 120) )), (Literal (681, (Integer_Literal 7) )) )))), (Name (682, (IndexedComponent (683, (Identifier (684, ((*KS*) 118) )), (Literal (685, (Integer_Literal 7) )) )))) )))),
+        (Seq (686,
+        (Assign (687, (IndexedComponent (688, (Identifier (689, ((*X*) 119) )), (BinOp (690, Minus, (Literal (691, (Integer_Literal 8) )), (Literal (692, (Integer_Literal 3) )) )) )), (BinOp (693, Plus, (Name (694, (IndexedComponent (695, (Identifier (696, ((*X*) 119) )), (BinOp (697, Minus, (Literal (698, (Integer_Literal 8) )), (Literal (699, (Integer_Literal 3) )) )) )))), (Name (700, (IndexedComponent (701, (Identifier (702, ((*TS*) 117) )), (Literal (703, (Integer_Literal 0) )) )))) )))),
+        (Assign (704, (IndexedComponent (705, (Identifier (706, ((*X*) 119) )), (BinOp (707, Minus, (Literal (708, (Integer_Literal 8) )), (Literal (709, (Integer_Literal 2) )) )) )), (BinOp (710, Plus, (Name (711, (IndexedComponent (712, (Identifier (713, ((*X*) 119) )), (BinOp (714, Minus, (Literal (715, (Integer_Literal 8) )), (Literal (716, (Integer_Literal 2) )) )) )))), (Name (717, (IndexedComponent (718, (Identifier (719, ((*TS*) 117) )), (Literal (720, (Integer_Literal 1) )) )))) ))))))))))))))))))))))
+      ))
+    ),
+    (SeqDecl (721,
+    (ProcBodyDecl (722, 
+      mkprocBodyDecl (
+       723,
+        (* = = = Procedure Name = = = *)
+        ((*Threefish_Block*) 125),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        (SeqDecl (724,
+        (ProcBodyDecl (725, 
+          mkprocBodyDecl (
+           726,
+            (* = = = Procedure Name = = = *)
+            ((*Inject_Key*) 126),
+            (* = = = Formal Parameters = = = *)
+            [{ parameter_astnum = 727; parameter_name = ((*R*) 127); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
+            (* = = = Object Declarations = = = *)
+            (SeqDecl (728,
+            (TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
+            (ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None })))),
+            (* = = = Procedure Body = = = *)
+            (Seq (733,
+            (Assign (734, (Identifier (735, ((*I*) 129) )), (Literal (736, (Integer_Literal 0) )))),
+            (Seq (737,
+            (While (738, (BinOp (739, Less_Than_Or_Equal, (Name (740, (Identifier (741, ((*I*) 129) )))), (Literal (742, (Integer_Literal 7) )) )),
+              (Seq (743,
+              (Assign (744, (IndexedComponent (745, (Identifier (746, ((*X*) 119) )), (Name (747, (Identifier (748, ((*I*) 129) )))) )), (BinOp (749, Plus, (Name (750, (IndexedComponent (751, (Identifier (752, ((*X*) 119) )), (Name (753, (Identifier (754, ((*I*) 129) )))) )))), (Name (755, (IndexedComponent (756, (Identifier (757, ((*KS*) 118) )), (BinOp (758, Modulus, (BinOp (759, Plus, (Name (760, (Identifier (761, ((*R*) 127) )))), (Name (762, (Identifier (763, ((*I*) 129) )))) )), (BinOp (764, Plus, (Literal (765, (Integer_Literal 8) )), (Literal (766, (Integer_Literal 1) )) )) )) )))) )))),
+              (Assign (767, (Identifier (768, ((*I*) 129) )), (BinOp (769, Plus, (Name (770, (Identifier (771, ((*I*) 129) )))), (Literal (772, (Integer_Literal 1) )) )))))))
+            ),
+            (Seq (773,
+            (Assign (774, (IndexedComponent (775, (Identifier (776, ((*X*) 119) )), (BinOp (777, Minus, (Literal (778, (Integer_Literal 8) )), (Literal (779, (Integer_Literal 3) )) )) )), (BinOp (780, Plus, (Name (781, (IndexedComponent (782, (Identifier (783, ((*X*) 119) )), (BinOp (784, Minus, (Literal (785, (Integer_Literal 8) )), (Literal (786, (Integer_Literal 3) )) )) )))), (Name (787, (IndexedComponent (788, (Identifier (789, ((*TS*) 117) )), (BinOp (790, Modulus, (Name (791, (Identifier (792, ((*R*) 127) )))), (Literal (793, (Integer_Literal 3) )) )) )))) )))),
+            (Seq (794,
+            (Assign (795, (IndexedComponent (796, (Identifier (797, ((*X*) 119) )), (BinOp (798, Minus, (Literal (799, (Integer_Literal 8) )), (Literal (800, (Integer_Literal 2) )) )) )), (BinOp (801, Plus, (Name (802, (IndexedComponent (803, (Identifier (804, ((*X*) 119) )), (BinOp (805, Minus, (Literal (806, (Integer_Literal 8) )), (Literal (807, (Integer_Literal 2) )) )) )))), (Name (808, (IndexedComponent (809, (Identifier (810, ((*TS*) 117) )), (BinOp (811, Modulus, (BinOp (812, Plus, (Name (813, (Identifier (814, ((*R*) 127) )))), (Literal (815, (Integer_Literal 1) )) )), (Literal (816, (Integer_Literal 3) )) )) )))) )))),
+            (Assign (817, (IndexedComponent (818, (Identifier (819, ((*X*) 119) )), (BinOp (820, Minus, (Literal (821, (Integer_Literal 8) )), (Literal (822, (Integer_Literal 1) )) )) )), (BinOp (823, Plus, (Name (824, (IndexedComponent (825, (Identifier (826, ((*X*) 119) )), (BinOp (827, Minus, (Literal (828, (Integer_Literal 8) )), (Literal (829, (Integer_Literal 1) )) )) )))), (Name (830, (Identifier (831, ((*R*) 127) )))) ))))))))))))
+          ))
         ),
-        (Seq (904,
-        (Call (905, 906, ((*Inject_Key*) 126), 
-          [(BinOp (907, Multiply, (Name (908, (Identifier (909, ((*R*) 131) )))), (Literal (910, (Integer_Literal 2) )) ))])
+        (SeqDecl (832,
+        (ProcBodyDecl (833, 
+          mkprocBodyDecl (
+           834,
+            (* = = = Procedure Name = = = *)
+            ((*Round_1*) 130),
+            (* = = = Formal Parameters = = = *)
+            [],
+            (* = = = Object Declarations = = = *)
+            NullDecl,
+            (* = = = Procedure Body = = = *)
+            (Seq (835,
+            (Assign (836, (IndexedComponent (837, (Identifier (838, ((*X*) 119) )), (Literal (839, (Integer_Literal 0) )) )), (BinOp (840, Plus, (Name (841, (IndexedComponent (842, (Identifier (843, ((*X*) 119) )), (Literal (844, (Integer_Literal 0) )) )))), (Name (845, (IndexedComponent (846, (Identifier (847, ((*X*) 119) )), (Literal (848, (Integer_Literal 1) )) )))) )))),
+            (Seq (849,
+            (Assign (850, (IndexedComponent (851, (Identifier (852, ((*X*) 119) )), (Literal (853, (Integer_Literal 2) )) )), (BinOp (854, Plus, (Name (855, (IndexedComponent (856, (Identifier (857, ((*X*) 119) )), (Literal (858, (Integer_Literal 2) )) )))), (Name (859, (IndexedComponent (860, (Identifier (861, ((*X*) 119) )), (Literal (862, (Integer_Literal 3) )) )))) )))),
+            (Seq (863,
+            (Assign (864, (IndexedComponent (865, (Identifier (866, ((*X*) 119) )), (Literal (867, (Integer_Literal 4) )) )), (BinOp (868, Plus, (Name (869, (IndexedComponent (870, (Identifier (871, ((*X*) 119) )), (Literal (872, (Integer_Literal 4) )) )))), (Name (873, (IndexedComponent (874, (Identifier (875, ((*X*) 119) )), (Literal (876, (Integer_Literal 5) )) )))) )))),
+            (Assign (877, (IndexedComponent (878, (Identifier (879, ((*X*) 119) )), (Literal (880, (Integer_Literal 6) )) )), (BinOp (881, Plus, (Name (882, (IndexedComponent (883, (Identifier (884, ((*X*) 119) )), (Literal (885, (Integer_Literal 6) )) )))), (Name (886, (IndexedComponent (887, (Identifier (888, ((*X*) 119) )), (Literal (889, (Integer_Literal 7) )) )))) ))))))))))
+          ))
         ),
-        (Assign (911, (Identifier (912, ((*R*) 131) )), (BinOp (913, Plus, (Name (914, (Identifier (915, ((*R*) 131) )))), (Literal (916, (Integer_Literal 1) )) )))))))))
-      )))
-    ))
-  ),
-  (SeqDecl (917,
-  (ProcBodyDecl (918, 
-    mkprocBodyDecl (
-     919,
-      (* = = = Procedure Name = = = *)
-      ((*Update_Context*) 132),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [NullDecl],
-      (* = = = Procedure Body = = = *)
-      (Seq (920,
-      (Assign (921, (IndexedComponent (922, (SelectedComponent (923, (Identifier (924, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (926, (Integer_Literal 0) )) )), (BinOp (927, Plus, (Name (928, (IndexedComponent (929, (Identifier (930, ((*X*) 119) )), (Literal (931, (Integer_Literal 0) )) )))), (Name (932, (IndexedComponent (933, (Identifier (934, ((*W*) 120) )), (Literal (935, (Integer_Literal 0) )) )))) )))),
-      (Seq (936,
-      (Assign (937, (IndexedComponent (938, (SelectedComponent (939, (Identifier (940, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (942, (Integer_Literal 1) )) )), (BinOp (943, Plus, (Name (944, (IndexedComponent (945, (Identifier (946, ((*X*) 119) )), (Literal (947, (Integer_Literal 1) )) )))), (Name (948, (IndexedComponent (949, (Identifier (950, ((*W*) 120) )), (Literal (951, (Integer_Literal 1) )) )))) )))),
-      (Seq (952,
-      (Assign (953, (IndexedComponent (954, (SelectedComponent (955, (Identifier (956, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (958, (Integer_Literal 2) )) )), (BinOp (959, Plus, (Name (960, (IndexedComponent (961, (Identifier (962, ((*X*) 119) )), (Literal (963, (Integer_Literal 2) )) )))), (Name (964, (IndexedComponent (965, (Identifier (966, ((*W*) 120) )), (Literal (967, (Integer_Literal 2) )) )))) )))),
-      (Seq (968,
-      (Assign (969, (IndexedComponent (970, (SelectedComponent (971, (Identifier (972, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (974, (Integer_Literal 3) )) )), (BinOp (975, Plus, (Name (976, (IndexedComponent (977, (Identifier (978, ((*X*) 119) )), (Literal (979, (Integer_Literal 3) )) )))), (Name (980, (IndexedComponent (981, (Identifier (982, ((*W*) 120) )), (Literal (983, (Integer_Literal 3) )) )))) )))),
-      (Seq (984,
-      (Assign (985, (IndexedComponent (986, (SelectedComponent (987, (Identifier (988, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (990, (Integer_Literal 4) )) )), (BinOp (991, Plus, (Name (992, (IndexedComponent (993, (Identifier (994, ((*X*) 119) )), (Literal (995, (Integer_Literal 4) )) )))), (Name (996, (IndexedComponent (997, (Identifier (998, ((*W*) 120) )), (Literal (999, (Integer_Literal 4) )) )))) )))),
-      (Seq (1000,
-      (Assign (1001, (IndexedComponent (1002, (SelectedComponent (1003, (Identifier (1004, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1006, (Integer_Literal 5) )) )), (BinOp (1007, Plus, (Name (1008, (IndexedComponent (1009, (Identifier (1010, ((*X*) 119) )), (Literal (1011, (Integer_Literal 5) )) )))), (Name (1012, (IndexedComponent (1013, (Identifier (1014, ((*W*) 120) )), (Literal (1015, (Integer_Literal 5) )) )))) )))),
-      (Seq (1016,
-      (Assign (1017, (IndexedComponent (1018, (SelectedComponent (1019, (Identifier (1020, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1022, (Integer_Literal 6) )) )), (BinOp (1023, Plus, (Name (1024, (IndexedComponent (1025, (Identifier (1026, ((*X*) 119) )), (Literal (1027, (Integer_Literal 6) )) )))), (Name (1028, (IndexedComponent (1029, (Identifier (1030, ((*W*) 120) )), (Literal (1031, (Integer_Literal 6) )) )))) )))),
-      (Assign (1032, (IndexedComponent (1033, (SelectedComponent (1034, (Identifier (1035, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1037, (Integer_Literal 7) )) )), (BinOp (1038, Plus, (Name (1039, (IndexedComponent (1040, (Identifier (1041, ((*X*) 119) )), (Literal (1042, (Integer_Literal 7) )) )))), (Name (1043, (IndexedComponent (1044, (Identifier (1045, ((*W*) 120) )), (Literal (1046, (Integer_Literal 7) )) )))) ))))))))))))))))))
-    ))
-  ),
-  (SeqDecl (1047,
-  (ObjDecl (1048, { declaration_astnum = 1049; object_name = ((*J*) 133); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
-  (ObjDecl (1050, { declaration_astnum = 1051; object_name = ((*Src_Offset*) 134); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))))))))))))))))))],
+        (ObjDecl (890, { declaration_astnum = 891; object_name = ((*R*) 131); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))),
+        (* = = = Procedure Body = = = *)
+        (Seq (892,
+        (Assign (893, (Identifier (894, ((*R*) 131) )), (Literal (895, (Integer_Literal 1) )))),
+        (While (896, (BinOp (897, Less_Than_Or_Equal, (Name (898, (Identifier (899, ((*R*) 131) )))), (Literal (900, (Integer_Literal 9) )) )),
+          (Seq (901,
+          (Call (902, 903, ((*Round_1*) 130), 
+            [])
+          ),
+          (Seq (904,
+          (Call (905, 906, ((*Inject_Key*) 126), 
+            [(BinOp (907, Multiply, (Name (908, (Identifier (909, ((*R*) 131) )))), (Literal (910, (Integer_Literal 2) )) ))])
+          ),
+          (Assign (911, (Identifier (912, ((*R*) 131) )), (BinOp (913, Plus, (Name (914, (Identifier (915, ((*R*) 131) )))), (Literal (916, (Integer_Literal 1) )) )))))))))
+        )))
+      ))
+    ),
+    (SeqDecl (917,
+    (ProcBodyDecl (918, 
+      mkprocBodyDecl (
+       919,
+        (* = = = Procedure Name = = = *)
+        ((*Update_Context*) 132),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        NullDecl,
+        (* = = = Procedure Body = = = *)
+        (Seq (920,
+        (Assign (921, (IndexedComponent (922, (SelectedComponent (923, (Identifier (924, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (926, (Integer_Literal 0) )) )), (BinOp (927, Plus, (Name (928, (IndexedComponent (929, (Identifier (930, ((*X*) 119) )), (Literal (931, (Integer_Literal 0) )) )))), (Name (932, (IndexedComponent (933, (Identifier (934, ((*W*) 120) )), (Literal (935, (Integer_Literal 0) )) )))) )))),
+        (Seq (936,
+        (Assign (937, (IndexedComponent (938, (SelectedComponent (939, (Identifier (940, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (942, (Integer_Literal 1) )) )), (BinOp (943, Plus, (Name (944, (IndexedComponent (945, (Identifier (946, ((*X*) 119) )), (Literal (947, (Integer_Literal 1) )) )))), (Name (948, (IndexedComponent (949, (Identifier (950, ((*W*) 120) )), (Literal (951, (Integer_Literal 1) )) )))) )))),
+        (Seq (952,
+        (Assign (953, (IndexedComponent (954, (SelectedComponent (955, (Identifier (956, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (958, (Integer_Literal 2) )) )), (BinOp (959, Plus, (Name (960, (IndexedComponent (961, (Identifier (962, ((*X*) 119) )), (Literal (963, (Integer_Literal 2) )) )))), (Name (964, (IndexedComponent (965, (Identifier (966, ((*W*) 120) )), (Literal (967, (Integer_Literal 2) )) )))) )))),
+        (Seq (968,
+        (Assign (969, (IndexedComponent (970, (SelectedComponent (971, (Identifier (972, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (974, (Integer_Literal 3) )) )), (BinOp (975, Plus, (Name (976, (IndexedComponent (977, (Identifier (978, ((*X*) 119) )), (Literal (979, (Integer_Literal 3) )) )))), (Name (980, (IndexedComponent (981, (Identifier (982, ((*W*) 120) )), (Literal (983, (Integer_Literal 3) )) )))) )))),
+        (Seq (984,
+        (Assign (985, (IndexedComponent (986, (SelectedComponent (987, (Identifier (988, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (990, (Integer_Literal 4) )) )), (BinOp (991, Plus, (Name (992, (IndexedComponent (993, (Identifier (994, ((*X*) 119) )), (Literal (995, (Integer_Literal 4) )) )))), (Name (996, (IndexedComponent (997, (Identifier (998, ((*W*) 120) )), (Literal (999, (Integer_Literal 4) )) )))) )))),
+        (Seq (1000,
+        (Assign (1001, (IndexedComponent (1002, (SelectedComponent (1003, (Identifier (1004, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1006, (Integer_Literal 5) )) )), (BinOp (1007, Plus, (Name (1008, (IndexedComponent (1009, (Identifier (1010, ((*X*) 119) )), (Literal (1011, (Integer_Literal 5) )) )))), (Name (1012, (IndexedComponent (1013, (Identifier (1014, ((*W*) 120) )), (Literal (1015, (Integer_Literal 5) )) )))) )))),
+        (Seq (1016,
+        (Assign (1017, (IndexedComponent (1018, (SelectedComponent (1019, (Identifier (1020, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1022, (Integer_Literal 6) )) )), (BinOp (1023, Plus, (Name (1024, (IndexedComponent (1025, (Identifier (1026, ((*X*) 119) )), (Literal (1027, (Integer_Literal 6) )) )))), (Name (1028, (IndexedComponent (1029, (Identifier (1030, ((*W*) 120) )), (Literal (1031, (Integer_Literal 6) )) )))) )))),
+        (Assign (1032, (IndexedComponent (1033, (SelectedComponent (1034, (Identifier (1035, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1037, (Integer_Literal 7) )) )), (BinOp (1038, Plus, (Name (1039, (IndexedComponent (1040, (Identifier (1041, ((*X*) 119) )), (Literal (1042, (Integer_Literal 7) )) )))), (Name (1043, (IndexedComponent (1044, (Identifier (1045, ((*W*) 120) )), (Literal (1046, (Integer_Literal 7) )) )))) ))))))))))))))))))
+      ))
+    ),
+    (SeqDecl (1047,
+    (ObjDecl (1048, { declaration_astnum = 1049; object_name = ((*J*) 133); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
+    (ObjDecl (1050, { declaration_astnum = 1051; object_name = ((*Src_Offset*) 134); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))))))))))))))))))),
     (* = = = Procedure Body = = = *)
     (Seq (1052,
     (Assign (1053, (Identifier (1054, ((*J*) 133) )), (Literal (1055, (Integer_Literal 1) )))),
@@ -477,57 +477,57 @@ NullDecl (* Undefined Declarations ! *),
     [{ parameter_astnum = 1121; parameter_name = ((*Ctx*) 136); parameter_subtype_mark = (Record_Type ((*Skein_512_Context*) 61)); parameter_mode = In_Out }; 
   { parameter_astnum = 1122; parameter_name = ((*Msg*) 137); parameter_subtype_mark = (Array_Type ((*Byte_Seq*) 14)); parameter_mode = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDecl (1123,
-  (ObjDecl (1124, { declaration_astnum = 1125; object_name = ((*Msg_Byte_Count*) 138); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-  (SeqDecl (1126,
-  (ObjDecl (1127, { declaration_astnum = 1128; object_name = ((*N*) 139); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-  (SeqDecl (1129,
-  (ObjDecl (1130, { declaration_astnum = 1131; object_name = ((*Block_Count*) 140); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
-  (SeqDecl (1132,
-  (ObjDecl (1133, { declaration_astnum = 1134; object_name = ((*Current_Msg_Offset*) 141); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-  (SeqDecl (1135,
-  (ObjDecl (1136, { declaration_astnum = 1137; object_name = ((*Bytes_Hashed*) 142); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-  (SeqDecl (1138,
-  (ObjDecl (1139, { declaration_astnum = 1140; object_name = ((*Tmp_B*) 143); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
-  (ProcBodyDecl (1141, 
-    mkprocBodyDecl (
-     1142,
-      (* = = = Procedure Name = = = *)
-      ((*Copy_Msg_To_B*) 144),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnum = 1143; parameter_name = ((*Msg_Offset*) 145); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }; 
-    { parameter_astnum = 1144; parameter_name = ((*Num_Bytes*) 146); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
-      (* = = = Object Declarations = = = *)
-      [(SeqDecl (1145,
-    (ObjDecl (1146, { declaration_astnum = 1147; object_name = ((*Src*) 147); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-    (SeqDecl (1148,
-    (ObjDecl (1149, { declaration_astnum = 1150; object_name = ((*Dst*) 148); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-    (SeqDecl (1151,
-    (ObjDecl (1152, { declaration_astnum = 1153; object_name = ((*Final_Dst*) 149); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-    (ObjDecl (1154, { declaration_astnum = 1155; object_name = ((*Final_Src*) 150); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))))],
-      (* = = = Procedure Body = = = *)
-      (If (1156, (BinOp (1157, Greater_Than, (Name (1158, (Identifier (1159, ((*Num_Bytes*) 146) )))), (Literal (1160, (Integer_Literal 0) )) )),
-        (Seq (1161,
-        (Assign (1162, (Identifier (1163, ((*Src*) 147) )), (Name (1164, (Identifier (1165, ((*Msg_Offset*) 145) )))))),
-        (Seq (1166,
-        (Assign (1167, (Identifier (1168, ((*Dst*) 148) )), (Name (1169, (SelectedComponent (1170, (SelectedComponent (1171, (Identifier (1172, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
-        (Seq (1175,
-        (Assign (1176, (Identifier (1177, ((*Final_Dst*) 149) )), (BinOp (1178, Plus, (Name (1179, (Identifier (1180, ((*Dst*) 148) )))), (BinOp (1181, Minus, (Name (1182, (Identifier (1183, ((*Num_Bytes*) 146) )))), (Literal (1184, (Integer_Literal 1) )) )) )))),
-        (Seq (1185,
-        (Assign (1186, (Identifier (1187, ((*Final_Src*) 150) )), (BinOp (1188, Plus, (Name (1189, (Identifier (1190, ((*Src*) 147) )))), (BinOp (1191, Minus, (Name (1192, (Identifier (1193, ((*Num_Bytes*) 146) )))), (Literal (1194, (Integer_Literal 1) )) )) )))),
-        (Seq (1195,
-        (While (1196, (BinOp (1197, Or, (BinOp (1198, Greater_Than_Or_Equal, (Name (1199, (Identifier (1200, ((*Dst*) 148) )))), (Name (1201, (Identifier (1202, ((*Final_Dst*) 149) )))) )), (BinOp (1203, Greater_Than_Or_Equal, (Name (1204, (Identifier (1205, ((*Src*) 147) )))), (Name (1206, (Identifier (1207, ((*Final_Src*) 150) )))) )) )),
-          (Seq (1208,
-          (Assign (1209, (IndexedComponent (1210, (SelectedComponent (1211, (Identifier (1212, ((*Ctx*) 136) )), ((*B*) 64) )), (Name (1214, (Identifier (1215, ((*Dst*) 148) )))) )), (Name (1216, (IndexedComponent (1217, (Identifier (1218, ((*Msg*) 137) )), (Name (1219, (Identifier (1220, ((*Src*) 147) )))) )))))),
-          (Seq (1221,
-          (Assign (1222, (Identifier (1223, ((*Dst*) 148) )), (BinOp (1224, Plus, (Name (1225, (Identifier (1226, ((*Dst*) 148) )))), (Literal (1227, (Integer_Literal 1) )) )))),
-          (Assign (1228, (Identifier (1229, ((*Src*) 147) )), (BinOp (1230, Plus, (Name (1231, (Identifier (1232, ((*Src*) 147) )))), (Literal (1233, (Integer_Literal 1) )) )))))))))
-        ),
-        (Assign (1234, (SelectedComponent (1235, (SelectedComponent (1236, (Identifier (1237, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )), (BinOp (1240, Plus, (Name (1241, (SelectedComponent (1242, (SelectedComponent (1243, (Identifier (1244, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))), (Name (1247, (Identifier (1248, ((*Num_Bytes*) 146) )))) )))))))))))))),
-        Null)
-      )
-    ))
-  )))))))))))))],
+    (SeqDecl (1123,
+    (ObjDecl (1124, { declaration_astnum = 1125; object_name = ((*Msg_Byte_Count*) 138); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+    (SeqDecl (1126,
+    (ObjDecl (1127, { declaration_astnum = 1128; object_name = ((*N*) 139); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+    (SeqDecl (1129,
+    (ObjDecl (1130, { declaration_astnum = 1131; object_name = ((*Block_Count*) 140); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
+    (SeqDecl (1132,
+    (ObjDecl (1133, { declaration_astnum = 1134; object_name = ((*Current_Msg_Offset*) 141); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+    (SeqDecl (1135,
+    (ObjDecl (1136, { declaration_astnum = 1137; object_name = ((*Bytes_Hashed*) 142); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+    (SeqDecl (1138,
+    (ObjDecl (1139, { declaration_astnum = 1140; object_name = ((*Tmp_B*) 143); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
+    (ProcBodyDecl (1141, 
+      mkprocBodyDecl (
+       1142,
+        (* = = = Procedure Name = = = *)
+        ((*Copy_Msg_To_B*) 144),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnum = 1143; parameter_name = ((*Msg_Offset*) 145); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }; 
+      { parameter_astnum = 1144; parameter_name = ((*Num_Bytes*) 146); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
+        (* = = = Object Declarations = = = *)
+        (SeqDecl (1145,
+        (ObjDecl (1146, { declaration_astnum = 1147; object_name = ((*Src*) 147); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+        (SeqDecl (1148,
+        (ObjDecl (1149, { declaration_astnum = 1150; object_name = ((*Dst*) 148); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+        (SeqDecl (1151,
+        (ObjDecl (1152, { declaration_astnum = 1153; object_name = ((*Final_Dst*) 149); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+        (ObjDecl (1154, { declaration_astnum = 1155; object_name = ((*Final_Src*) 150); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))))),
+        (* = = = Procedure Body = = = *)
+        (If (1156, (BinOp (1157, Greater_Than, (Name (1158, (Identifier (1159, ((*Num_Bytes*) 146) )))), (Literal (1160, (Integer_Literal 0) )) )),
+          (Seq (1161,
+          (Assign (1162, (Identifier (1163, ((*Src*) 147) )), (Name (1164, (Identifier (1165, ((*Msg_Offset*) 145) )))))),
+          (Seq (1166,
+          (Assign (1167, (Identifier (1168, ((*Dst*) 148) )), (Name (1169, (SelectedComponent (1170, (SelectedComponent (1171, (Identifier (1172, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
+          (Seq (1175,
+          (Assign (1176, (Identifier (1177, ((*Final_Dst*) 149) )), (BinOp (1178, Plus, (Name (1179, (Identifier (1180, ((*Dst*) 148) )))), (BinOp (1181, Minus, (Name (1182, (Identifier (1183, ((*Num_Bytes*) 146) )))), (Literal (1184, (Integer_Literal 1) )) )) )))),
+          (Seq (1185,
+          (Assign (1186, (Identifier (1187, ((*Final_Src*) 150) )), (BinOp (1188, Plus, (Name (1189, (Identifier (1190, ((*Src*) 147) )))), (BinOp (1191, Minus, (Name (1192, (Identifier (1193, ((*Num_Bytes*) 146) )))), (Literal (1194, (Integer_Literal 1) )) )) )))),
+          (Seq (1195,
+          (While (1196, (BinOp (1197, Or, (BinOp (1198, Greater_Than_Or_Equal, (Name (1199, (Identifier (1200, ((*Dst*) 148) )))), (Name (1201, (Identifier (1202, ((*Final_Dst*) 149) )))) )), (BinOp (1203, Greater_Than_Or_Equal, (Name (1204, (Identifier (1205, ((*Src*) 147) )))), (Name (1206, (Identifier (1207, ((*Final_Src*) 150) )))) )) )),
+            (Seq (1208,
+            (Assign (1209, (IndexedComponent (1210, (SelectedComponent (1211, (Identifier (1212, ((*Ctx*) 136) )), ((*B*) 64) )), (Name (1214, (Identifier (1215, ((*Dst*) 148) )))) )), (Name (1216, (IndexedComponent (1217, (Identifier (1218, ((*Msg*) 137) )), (Name (1219, (Identifier (1220, ((*Src*) 147) )))) )))))),
+            (Seq (1221,
+            (Assign (1222, (Identifier (1223, ((*Dst*) 148) )), (BinOp (1224, Plus, (Name (1225, (Identifier (1226, ((*Dst*) 148) )))), (Literal (1227, (Integer_Literal 1) )) )))),
+            (Assign (1228, (Identifier (1229, ((*Src*) 147) )), (BinOp (1230, Plus, (Name (1231, (Identifier (1232, ((*Src*) 147) )))), (Literal (1233, (Integer_Literal 1) )) )))))))))
+          ),
+          (Assign (1234, (SelectedComponent (1235, (SelectedComponent (1236, (Identifier (1237, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )), (BinOp (1240, Plus, (Name (1241, (SelectedComponent (1242, (SelectedComponent (1243, (Identifier (1244, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))), (Name (1247, (Identifier (1248, ((*Num_Bytes*) 146) )))) )))))))))))))),
+          Null)
+        )
+      ))
+    ))))))))))))),
     (* = = = Procedure Body = = = *)
     (Seq (1249,
     (Assign (1250, (Identifier (1251, ((*Msg_Byte_Count*) 138) )), (Literal (1252, (Integer_Literal 2147483647) )))),
@@ -577,75 +577,75 @@ NullDecl (* Undefined Declarations ! *),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnum = 1372; parameter_name = ((*Ctx*) 152); parameter_subtype_mark = (Record_Type ((*Skein_512_Context*) 61)); parameter_mode = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDecl (1373,
-  (TypeDecl (1374, (SubtypeDecl (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (Range (1, 15)))))),
-  (SeqDecl (1376,
-  (TypeDecl (1377, (SubtypeDecl (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (Range (0, 2)))))),
-  (SeqDecl (1379,
-  (TypeDecl (1380, (SubtypeDecl (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (Range (1, 2)))))),
-  (SeqDecl (1382,
-  (ObjDecl (1383, { declaration_astnum = 1384; object_name = ((*Local_Ctx*) 156); object_nominal_subtype = (Record_Type ((*Skein_512_Context*) 61)); initialization_exp = None })),
-  (SeqDecl (1385,
-  (ObjDecl (1386, { declaration_astnum = 1387; object_name = ((*N*) 157); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-  (SeqDecl (1388,
-  (ObjDecl (1389, { declaration_astnum = 1390; object_name = ((*Blocks_Required*) 158); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None })),
-  (SeqDecl (1391,
-  (ObjDecl (1392, { declaration_astnum = 1393; object_name = ((*Byte_Count*) 159); object_nominal_subtype = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_exp = None })),
-  (SeqDecl (1394,
-  (ObjDecl (1395, { declaration_astnum = 1396; object_name = ((*X*) 160); object_nominal_subtype = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_exp = None })),
-  (SeqDecl (1397,
-  (ObjDecl (1398, { declaration_astnum = 1399; object_name = ((*Tmp_B*) 161); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
-  (SeqDecl (1400,
-  (ObjDecl (1401, { declaration_astnum = 1402; object_name = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-  (SeqDecl (1403,
-  (ProcBodyDecl (1404, 
-    mkprocBodyDecl (
-     1405,
-      (* = = = Procedure Name = = = *)
-      ((*Zero_Pad*) 163),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [(ObjDecl (1406, { declaration_astnum = 1407; object_name = ((*I*) 164); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None }))],
-      (* = = = Procedure Body = = = *)
-      (Seq (1408,
-      (Assign (1409, (Identifier (1410, ((*I*) 164) )), (Name (1411, (SelectedComponent (1412, (SelectedComponent (1413, (Identifier (1414, ((*Local_Ctx*) 156) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
-      (While (1417, (BinOp (1418, Less_Than_Or_Equal, (Name (1419, (Identifier (1420, ((*I*) 164) )))), (Literal (1421, (Integer_Literal 63) )) )),
-        (Seq (1422,
-        (Assign (1423, (IndexedComponent (1424, (SelectedComponent (1425, (Identifier (1426, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Name (1428, (Identifier (1429, ((*I*) 164) )))) )), (Literal (1430, (Integer_Literal 0) )))),
-        (Assign (1431, (Identifier (1432, ((*I*) 164) )), (BinOp (1433, Plus, (Name (1434, (Identifier (1435, ((*I*) 164) )))), (Literal (1436, (Integer_Literal 1) )) )))))))
-      )))
-    ))
-  ),
-  (SeqDecl (1437,
-  (ProcBodyDecl (1438, 
-    mkprocBodyDecl (
-     1439,
-      (* = = = Procedure Name = = = *)
-      ((*Set_Counter*) 165),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnum = 1440; parameter_name = ((*Counter*) 166); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
-      (* = = = Object Declarations = = = *)
-      [NullDecl],
-      (* = = = Procedure Body = = = *)
-      (Seq (1441,
-      (Assign (1442, (IndexedComponent (1443, (SelectedComponent (1444, (Identifier (1445, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1447, (Integer_Literal 0) )) )), (Name (1448, (Identifier (1449, ((*Counter*) 166) )))))),
-      (Seq (1450,
-      (Assign (1451, (IndexedComponent (1452, (SelectedComponent (1453, (Identifier (1454, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1456, (Integer_Literal 1) )) )), (Name (1457, (Identifier (1458, ((*Counter*) 166) )))))),
-      (Seq (1459,
-      (Assign (1460, (IndexedComponent (1461, (SelectedComponent (1462, (Identifier (1463, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1465, (Integer_Literal 2) )) )), (Name (1466, (Identifier (1467, ((*Counter*) 166) )))))),
-      (Seq (1468,
-      (Assign (1469, (IndexedComponent (1470, (SelectedComponent (1471, (Identifier (1472, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1474, (Integer_Literal 3) )) )), (Name (1475, (Identifier (1476, ((*Counter*) 166) )))))),
-      (Seq (1477,
-      (Assign (1478, (IndexedComponent (1479, (SelectedComponent (1480, (Identifier (1481, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1483, (Integer_Literal 4) )) )), (Name (1484, (Identifier (1485, ((*Counter*) 166) )))))),
-      (Seq (1486,
-      (Assign (1487, (IndexedComponent (1488, (SelectedComponent (1489, (Identifier (1490, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1492, (Integer_Literal 5) )) )), (Name (1493, (Identifier (1494, ((*Counter*) 166) )))))),
-      (Seq (1495,
-      (Assign (1496, (IndexedComponent (1497, (SelectedComponent (1498, (Identifier (1499, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1501, (Integer_Literal 6) )) )), (Name (1502, (Identifier (1503, ((*Counter*) 166) )))))),
-      (Assign (1504, (IndexedComponent (1505, (SelectedComponent (1506, (Identifier (1507, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1509, (Integer_Literal 7) )) )), (Name (1510, (Identifier (1511, ((*Counter*) 166) ))))))))))))))))))))
-    ))
-  ),
-  (ObjDecl (1512, { declaration_astnum = 1513; object_name = ((*Blocks_Done*) 167); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None }))))))))))))))))))))))))))],
+    (SeqDecl (1373,
+    (TypeDecl (1374, (SubtypeDecl (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (Range (1, 15)))))),
+    (SeqDecl (1376,
+    (TypeDecl (1377, (SubtypeDecl (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (Range (0, 2)))))),
+    (SeqDecl (1379,
+    (TypeDecl (1380, (SubtypeDecl (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (Range (1, 2)))))),
+    (SeqDecl (1382,
+    (ObjDecl (1383, { declaration_astnum = 1384; object_name = ((*Local_Ctx*) 156); object_nominal_subtype = (Record_Type ((*Skein_512_Context*) 61)); initialization_exp = None })),
+    (SeqDecl (1385,
+    (ObjDecl (1386, { declaration_astnum = 1387; object_name = ((*N*) 157); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+    (SeqDecl (1388,
+    (ObjDecl (1389, { declaration_astnum = 1390; object_name = ((*Blocks_Required*) 158); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None })),
+    (SeqDecl (1391,
+    (ObjDecl (1392, { declaration_astnum = 1393; object_name = ((*Byte_Count*) 159); object_nominal_subtype = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_exp = None })),
+    (SeqDecl (1394,
+    (ObjDecl (1395, { declaration_astnum = 1396; object_name = ((*X*) 160); object_nominal_subtype = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_exp = None })),
+    (SeqDecl (1397,
+    (ObjDecl (1398, { declaration_astnum = 1399; object_name = ((*Tmp_B*) 161); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
+    (SeqDecl (1400,
+    (ObjDecl (1401, { declaration_astnum = 1402; object_name = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+    (SeqDecl (1403,
+    (ProcBodyDecl (1404, 
+      mkprocBodyDecl (
+       1405,
+        (* = = = Procedure Name = = = *)
+        ((*Zero_Pad*) 163),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        (ObjDecl (1406, { declaration_astnum = 1407; object_name = ((*I*) 164); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+        (* = = = Procedure Body = = = *)
+        (Seq (1408,
+        (Assign (1409, (Identifier (1410, ((*I*) 164) )), (Name (1411, (SelectedComponent (1412, (SelectedComponent (1413, (Identifier (1414, ((*Local_Ctx*) 156) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
+        (While (1417, (BinOp (1418, Less_Than_Or_Equal, (Name (1419, (Identifier (1420, ((*I*) 164) )))), (Literal (1421, (Integer_Literal 63) )) )),
+          (Seq (1422,
+          (Assign (1423, (IndexedComponent (1424, (SelectedComponent (1425, (Identifier (1426, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Name (1428, (Identifier (1429, ((*I*) 164) )))) )), (Literal (1430, (Integer_Literal 0) )))),
+          (Assign (1431, (Identifier (1432, ((*I*) 164) )), (BinOp (1433, Plus, (Name (1434, (Identifier (1435, ((*I*) 164) )))), (Literal (1436, (Integer_Literal 1) )) )))))))
+        )))
+      ))
+    ),
+    (SeqDecl (1437,
+    (ProcBodyDecl (1438, 
+      mkprocBodyDecl (
+       1439,
+        (* = = = Procedure Name = = = *)
+        ((*Set_Counter*) 165),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnum = 1440; parameter_name = ((*Counter*) 166); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
+        (* = = = Object Declarations = = = *)
+        NullDecl,
+        (* = = = Procedure Body = = = *)
+        (Seq (1441,
+        (Assign (1442, (IndexedComponent (1443, (SelectedComponent (1444, (Identifier (1445, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1447, (Integer_Literal 0) )) )), (Name (1448, (Identifier (1449, ((*Counter*) 166) )))))),
+        (Seq (1450,
+        (Assign (1451, (IndexedComponent (1452, (SelectedComponent (1453, (Identifier (1454, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1456, (Integer_Literal 1) )) )), (Name (1457, (Identifier (1458, ((*Counter*) 166) )))))),
+        (Seq (1459,
+        (Assign (1460, (IndexedComponent (1461, (SelectedComponent (1462, (Identifier (1463, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1465, (Integer_Literal 2) )) )), (Name (1466, (Identifier (1467, ((*Counter*) 166) )))))),
+        (Seq (1468,
+        (Assign (1469, (IndexedComponent (1470, (SelectedComponent (1471, (Identifier (1472, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1474, (Integer_Literal 3) )) )), (Name (1475, (Identifier (1476, ((*Counter*) 166) )))))),
+        (Seq (1477,
+        (Assign (1478, (IndexedComponent (1479, (SelectedComponent (1480, (Identifier (1481, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1483, (Integer_Literal 4) )) )), (Name (1484, (Identifier (1485, ((*Counter*) 166) )))))),
+        (Seq (1486,
+        (Assign (1487, (IndexedComponent (1488, (SelectedComponent (1489, (Identifier (1490, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1492, (Integer_Literal 5) )) )), (Name (1493, (Identifier (1494, ((*Counter*) 166) )))))),
+        (Seq (1495,
+        (Assign (1496, (IndexedComponent (1497, (SelectedComponent (1498, (Identifier (1499, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1501, (Integer_Literal 6) )) )), (Name (1502, (Identifier (1503, ((*Counter*) 166) )))))),
+        (Assign (1504, (IndexedComponent (1505, (SelectedComponent (1506, (Identifier (1507, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1509, (Integer_Literal 7) )) )), (Name (1510, (Identifier (1511, ((*Counter*) 166) ))))))))))))))))))))
+      ))
+    ),
+    (ObjDecl (1512, { declaration_astnum = 1513; object_name = ((*Blocks_Done*) 167); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None })))))))))))))))))))))))))),
     (* = = = Procedure Body = = = *)
     (Seq (1514,
     (Assign (1515, (Identifier (1516, ((*Local_Ctx*) 156) )), (Name (1517, (Identifier (1518, ((*Ctx*) 152) )))))),
@@ -710,7 +710,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (506,
   (Assign (507, (IndexedComponent (508, (Identifier (509, ((*TS*) 117) )), (Literal (510, (Integer_Literal 0) )) )), (Literal (511, (Integer_Literal 0) )))),
@@ -740,7 +740,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(ObjDecl (1406, { declaration_astnum = 1407; object_name = ((*I*) 164); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None }))],
+  (ObjDecl (1406, { declaration_astnum = 1407; object_name = ((*I*) 164); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
   (* = = = Procedure Body = = = *)
   (Seq (1408,
   (Assign (1409, (Identifier (1410, ((*I*) 164) )), (Name (1411, (SelectedComponent (1412, (SelectedComponent (1413, (Identifier (1414, ((*Local_Ctx*) 156) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
@@ -757,13 +757,13 @@ let Symbol_Table = {
   [{ parameter_astnum = 1143; parameter_name = ((*Msg_Offset*) 145); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }; 
 { parameter_astnum = 1144; parameter_name = ((*Num_Bytes*) 146); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (1145,
-(ObjDecl (1146, { declaration_astnum = 1147; object_name = ((*Src*) 147); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-(SeqDecl (1148,
-(ObjDecl (1149, { declaration_astnum = 1150; object_name = ((*Dst*) 148); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-(SeqDecl (1151,
-(ObjDecl (1152, { declaration_astnum = 1153; object_name = ((*Final_Dst*) 149); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-(ObjDecl (1154, { declaration_astnum = 1155; object_name = ((*Final_Src*) 150); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))))],
+  (SeqDecl (1145,
+  (ObjDecl (1146, { declaration_astnum = 1147; object_name = ((*Src*) 147); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+  (SeqDecl (1148,
+  (ObjDecl (1149, { declaration_astnum = 1150; object_name = ((*Dst*) 148); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+  (SeqDecl (1151,
+  (ObjDecl (1152, { declaration_astnum = 1153; object_name = ((*Final_Dst*) 149); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+  (ObjDecl (1154, { declaration_astnum = 1155; object_name = ((*Final_Src*) 150); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))))),
   (* = = = Procedure Body = = = *)
   (If (1156, (BinOp (1157, Greater_Than, (Name (1158, (Identifier (1159, ((*Num_Bytes*) 146) )))), (Literal (1160, (Integer_Literal 0) )) )),
     (Seq (1161,
@@ -795,7 +795,7 @@ let Symbol_Table = {
 { parameter_astnum = 281; parameter_name = ((*Src*) 101); parameter_subtype_mark = (Array_Type ((*U64_Seq*) 22)); parameter_mode = In }; 
 { parameter_astnum = 282; parameter_name = ((*Byte_Count*) 102); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [(ObjDecl (283, { declaration_astnum = 284; object_name = ((*N*) 103); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))],
+  (ObjDecl (283, { declaration_astnum = 284; object_name = ((*N*) 103); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
   (* = = = Procedure Body = = = *)
   (If (285, (BinOp (286, Greater_Than_Or_Equal, (Name (287, (Identifier (288, ((*Byte_Count*) 102) )))), (Literal (289, (Integer_Literal 1) )) )),
     (Seq (290,
@@ -814,7 +814,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (574,
   (Assign (575, (IndexedComponent (576, (Identifier (577, ((*X*) 119) )), (Literal (578, (Integer_Literal 0) )) )), (BinOp (579, Plus, (Name (580, (IndexedComponent (581, (Identifier (582, ((*W*) 120) )), (Literal (583, (Integer_Literal 0) )) )))), (Name (584, (IndexedComponent (585, (Identifier (586, ((*KS*) 118) )), (Literal (587, (Integer_Literal 0) )) )))) )))),
@@ -844,9 +844,9 @@ let Symbol_Table = {
 { parameter_astnum = 328; parameter_name = ((*Src*) 107); parameter_subtype_mark = (Array_Type ((*Byte_Seq*) 14)); parameter_mode = In }; 
 { parameter_astnum = 329; parameter_name = ((*Src_Offset*) 108); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (330,
-(ObjDecl (331, { declaration_astnum = 332; object_name = ((*Dst_Index*) 109); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-(ObjDecl (333, { declaration_astnum = 334; object_name = ((*Src_Index*) 110); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))],
+  (SeqDecl (330,
+  (ObjDecl (331, { declaration_astnum = 332; object_name = ((*Dst_Index*) 109); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+  (ObjDecl (333, { declaration_astnum = 334; object_name = ((*Src_Index*) 110); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))),
   (* = = = Procedure Body = = = *)
   (Seq (335,
   (Assign (336, (Identifier (337, ((*Dst_Index*) 109) )), (Literal (338, (Integer_Literal 0) )))),
@@ -864,55 +864,55 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (724,
-(ProcBodyDecl (725, 
-  mkprocBodyDecl (
-   726,
-    (* = = = Procedure Name = = = *)
-    ((*Inject_Key*) 126),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnum = 727; parameter_name = ((*R*) 127); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
-    (* = = = Object Declarations = = = *)
-    [(SeqDecl (728,
-  (TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
-  (ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None }))))],
-    (* = = = Procedure Body = = = *)
-    (Seq (733,
-    (Assign (734, (Identifier (735, ((*I*) 129) )), (Literal (736, (Integer_Literal 0) )))),
-    (Seq (737,
-    (While (738, (BinOp (739, Less_Than_Or_Equal, (Name (740, (Identifier (741, ((*I*) 129) )))), (Literal (742, (Integer_Literal 7) )) )),
-      (Seq (743,
-      (Assign (744, (IndexedComponent (745, (Identifier (746, ((*X*) 119) )), (Name (747, (Identifier (748, ((*I*) 129) )))) )), (BinOp (749, Plus, (Name (750, (IndexedComponent (751, (Identifier (752, ((*X*) 119) )), (Name (753, (Identifier (754, ((*I*) 129) )))) )))), (Name (755, (IndexedComponent (756, (Identifier (757, ((*KS*) 118) )), (BinOp (758, Modulus, (BinOp (759, Plus, (Name (760, (Identifier (761, ((*R*) 127) )))), (Name (762, (Identifier (763, ((*I*) 129) )))) )), (BinOp (764, Plus, (Literal (765, (Integer_Literal 8) )), (Literal (766, (Integer_Literal 1) )) )) )) )))) )))),
-      (Assign (767, (Identifier (768, ((*I*) 129) )), (BinOp (769, Plus, (Name (770, (Identifier (771, ((*I*) 129) )))), (Literal (772, (Integer_Literal 1) )) )))))))
-    ),
-    (Seq (773,
-    (Assign (774, (IndexedComponent (775, (Identifier (776, ((*X*) 119) )), (BinOp (777, Minus, (Literal (778, (Integer_Literal 8) )), (Literal (779, (Integer_Literal 3) )) )) )), (BinOp (780, Plus, (Name (781, (IndexedComponent (782, (Identifier (783, ((*X*) 119) )), (BinOp (784, Minus, (Literal (785, (Integer_Literal 8) )), (Literal (786, (Integer_Literal 3) )) )) )))), (Name (787, (IndexedComponent (788, (Identifier (789, ((*TS*) 117) )), (BinOp (790, Modulus, (Name (791, (Identifier (792, ((*R*) 127) )))), (Literal (793, (Integer_Literal 3) )) )) )))) )))),
-    (Seq (794,
-    (Assign (795, (IndexedComponent (796, (Identifier (797, ((*X*) 119) )), (BinOp (798, Minus, (Literal (799, (Integer_Literal 8) )), (Literal (800, (Integer_Literal 2) )) )) )), (BinOp (801, Plus, (Name (802, (IndexedComponent (803, (Identifier (804, ((*X*) 119) )), (BinOp (805, Minus, (Literal (806, (Integer_Literal 8) )), (Literal (807, (Integer_Literal 2) )) )) )))), (Name (808, (IndexedComponent (809, (Identifier (810, ((*TS*) 117) )), (BinOp (811, Modulus, (BinOp (812, Plus, (Name (813, (Identifier (814, ((*R*) 127) )))), (Literal (815, (Integer_Literal 1) )) )), (Literal (816, (Integer_Literal 3) )) )) )))) )))),
-    (Assign (817, (IndexedComponent (818, (Identifier (819, ((*X*) 119) )), (BinOp (820, Minus, (Literal (821, (Integer_Literal 8) )), (Literal (822, (Integer_Literal 1) )) )) )), (BinOp (823, Plus, (Name (824, (IndexedComponent (825, (Identifier (826, ((*X*) 119) )), (BinOp (827, Minus, (Literal (828, (Integer_Literal 8) )), (Literal (829, (Integer_Literal 1) )) )) )))), (Name (830, (Identifier (831, ((*R*) 127) )))) ))))))))))))
-  ))
-),
-(SeqDecl (832,
-(ProcBodyDecl (833, 
-  mkprocBodyDecl (
-   834,
-    (* = = = Procedure Name = = = *)
-    ((*Round_1*) 130),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDecl],
-    (* = = = Procedure Body = = = *)
-    (Seq (835,
-    (Assign (836, (IndexedComponent (837, (Identifier (838, ((*X*) 119) )), (Literal (839, (Integer_Literal 0) )) )), (BinOp (840, Plus, (Name (841, (IndexedComponent (842, (Identifier (843, ((*X*) 119) )), (Literal (844, (Integer_Literal 0) )) )))), (Name (845, (IndexedComponent (846, (Identifier (847, ((*X*) 119) )), (Literal (848, (Integer_Literal 1) )) )))) )))),
-    (Seq (849,
-    (Assign (850, (IndexedComponent (851, (Identifier (852, ((*X*) 119) )), (Literal (853, (Integer_Literal 2) )) )), (BinOp (854, Plus, (Name (855, (IndexedComponent (856, (Identifier (857, ((*X*) 119) )), (Literal (858, (Integer_Literal 2) )) )))), (Name (859, (IndexedComponent (860, (Identifier (861, ((*X*) 119) )), (Literal (862, (Integer_Literal 3) )) )))) )))),
-    (Seq (863,
-    (Assign (864, (IndexedComponent (865, (Identifier (866, ((*X*) 119) )), (Literal (867, (Integer_Literal 4) )) )), (BinOp (868, Plus, (Name (869, (IndexedComponent (870, (Identifier (871, ((*X*) 119) )), (Literal (872, (Integer_Literal 4) )) )))), (Name (873, (IndexedComponent (874, (Identifier (875, ((*X*) 119) )), (Literal (876, (Integer_Literal 5) )) )))) )))),
-    (Assign (877, (IndexedComponent (878, (Identifier (879, ((*X*) 119) )), (Literal (880, (Integer_Literal 6) )) )), (BinOp (881, Plus, (Name (882, (IndexedComponent (883, (Identifier (884, ((*X*) 119) )), (Literal (885, (Integer_Literal 6) )) )))), (Name (886, (IndexedComponent (887, (Identifier (888, ((*X*) 119) )), (Literal (889, (Integer_Literal 7) )) )))) ))))))))))
-  ))
-),
-(ObjDecl (890, { declaration_astnum = 891; object_name = ((*R*) 131); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))],
+  (SeqDecl (724,
+  (ProcBodyDecl (725, 
+    mkprocBodyDecl (
+     726,
+      (* = = = Procedure Name = = = *)
+      ((*Inject_Key*) 126),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnum = 727; parameter_name = ((*R*) 127); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
+      (* = = = Object Declarations = = = *)
+      (SeqDecl (728,
+      (TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
+      (ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None })))),
+      (* = = = Procedure Body = = = *)
+      (Seq (733,
+      (Assign (734, (Identifier (735, ((*I*) 129) )), (Literal (736, (Integer_Literal 0) )))),
+      (Seq (737,
+      (While (738, (BinOp (739, Less_Than_Or_Equal, (Name (740, (Identifier (741, ((*I*) 129) )))), (Literal (742, (Integer_Literal 7) )) )),
+        (Seq (743,
+        (Assign (744, (IndexedComponent (745, (Identifier (746, ((*X*) 119) )), (Name (747, (Identifier (748, ((*I*) 129) )))) )), (BinOp (749, Plus, (Name (750, (IndexedComponent (751, (Identifier (752, ((*X*) 119) )), (Name (753, (Identifier (754, ((*I*) 129) )))) )))), (Name (755, (IndexedComponent (756, (Identifier (757, ((*KS*) 118) )), (BinOp (758, Modulus, (BinOp (759, Plus, (Name (760, (Identifier (761, ((*R*) 127) )))), (Name (762, (Identifier (763, ((*I*) 129) )))) )), (BinOp (764, Plus, (Literal (765, (Integer_Literal 8) )), (Literal (766, (Integer_Literal 1) )) )) )) )))) )))),
+        (Assign (767, (Identifier (768, ((*I*) 129) )), (BinOp (769, Plus, (Name (770, (Identifier (771, ((*I*) 129) )))), (Literal (772, (Integer_Literal 1) )) )))))))
+      ),
+      (Seq (773,
+      (Assign (774, (IndexedComponent (775, (Identifier (776, ((*X*) 119) )), (BinOp (777, Minus, (Literal (778, (Integer_Literal 8) )), (Literal (779, (Integer_Literal 3) )) )) )), (BinOp (780, Plus, (Name (781, (IndexedComponent (782, (Identifier (783, ((*X*) 119) )), (BinOp (784, Minus, (Literal (785, (Integer_Literal 8) )), (Literal (786, (Integer_Literal 3) )) )) )))), (Name (787, (IndexedComponent (788, (Identifier (789, ((*TS*) 117) )), (BinOp (790, Modulus, (Name (791, (Identifier (792, ((*R*) 127) )))), (Literal (793, (Integer_Literal 3) )) )) )))) )))),
+      (Seq (794,
+      (Assign (795, (IndexedComponent (796, (Identifier (797, ((*X*) 119) )), (BinOp (798, Minus, (Literal (799, (Integer_Literal 8) )), (Literal (800, (Integer_Literal 2) )) )) )), (BinOp (801, Plus, (Name (802, (IndexedComponent (803, (Identifier (804, ((*X*) 119) )), (BinOp (805, Minus, (Literal (806, (Integer_Literal 8) )), (Literal (807, (Integer_Literal 2) )) )) )))), (Name (808, (IndexedComponent (809, (Identifier (810, ((*TS*) 117) )), (BinOp (811, Modulus, (BinOp (812, Plus, (Name (813, (Identifier (814, ((*R*) 127) )))), (Literal (815, (Integer_Literal 1) )) )), (Literal (816, (Integer_Literal 3) )) )) )))) )))),
+      (Assign (817, (IndexedComponent (818, (Identifier (819, ((*X*) 119) )), (BinOp (820, Minus, (Literal (821, (Integer_Literal 8) )), (Literal (822, (Integer_Literal 1) )) )) )), (BinOp (823, Plus, (Name (824, (IndexedComponent (825, (Identifier (826, ((*X*) 119) )), (BinOp (827, Minus, (Literal (828, (Integer_Literal 8) )), (Literal (829, (Integer_Literal 1) )) )) )))), (Name (830, (Identifier (831, ((*R*) 127) )))) ))))))))))))
+    ))
+  ),
+  (SeqDecl (832,
+  (ProcBodyDecl (833, 
+    mkprocBodyDecl (
+     834,
+      (* = = = Procedure Name = = = *)
+      ((*Round_1*) 130),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDecl,
+      (* = = = Procedure Body = = = *)
+      (Seq (835,
+      (Assign (836, (IndexedComponent (837, (Identifier (838, ((*X*) 119) )), (Literal (839, (Integer_Literal 0) )) )), (BinOp (840, Plus, (Name (841, (IndexedComponent (842, (Identifier (843, ((*X*) 119) )), (Literal (844, (Integer_Literal 0) )) )))), (Name (845, (IndexedComponent (846, (Identifier (847, ((*X*) 119) )), (Literal (848, (Integer_Literal 1) )) )))) )))),
+      (Seq (849,
+      (Assign (850, (IndexedComponent (851, (Identifier (852, ((*X*) 119) )), (Literal (853, (Integer_Literal 2) )) )), (BinOp (854, Plus, (Name (855, (IndexedComponent (856, (Identifier (857, ((*X*) 119) )), (Literal (858, (Integer_Literal 2) )) )))), (Name (859, (IndexedComponent (860, (Identifier (861, ((*X*) 119) )), (Literal (862, (Integer_Literal 3) )) )))) )))),
+      (Seq (863,
+      (Assign (864, (IndexedComponent (865, (Identifier (866, ((*X*) 119) )), (Literal (867, (Integer_Literal 4) )) )), (BinOp (868, Plus, (Name (869, (IndexedComponent (870, (Identifier (871, ((*X*) 119) )), (Literal (872, (Integer_Literal 4) )) )))), (Name (873, (IndexedComponent (874, (Identifier (875, ((*X*) 119) )), (Literal (876, (Integer_Literal 5) )) )))) )))),
+      (Assign (877, (IndexedComponent (878, (Identifier (879, ((*X*) 119) )), (Literal (880, (Integer_Literal 6) )) )), (BinOp (881, Plus, (Name (882, (IndexedComponent (883, (Identifier (884, ((*X*) 119) )), (Literal (885, (Integer_Literal 6) )) )))), (Name (886, (IndexedComponent (887, (Identifier (888, ((*X*) 119) )), (Literal (889, (Integer_Literal 7) )) )))) ))))))))))
+    ))
+  ),
+  (ObjDecl (890, { declaration_astnum = 891; object_name = ((*R*) 131); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))),
   (* = = = Procedure Body = = = *)
   (Seq (892,
   (Assign (893, (Identifier (894, ((*R*) 131) )), (Literal (895, (Integer_Literal 1) )))),
@@ -934,7 +934,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (835,
   (Assign (836, (IndexedComponent (837, (Identifier (838, ((*X*) 119) )), (Literal (839, (Integer_Literal 0) )) )), (BinOp (840, Plus, (Name (841, (IndexedComponent (842, (Identifier (843, ((*X*) 119) )), (Literal (844, (Integer_Literal 0) )) )))), (Name (845, (IndexedComponent (846, (Identifier (847, ((*X*) 119) )), (Literal (848, (Integer_Literal 1) )) )))) )))),
@@ -950,7 +950,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (920,
   (Assign (921, (IndexedComponent (922, (SelectedComponent (923, (Identifier (924, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (926, (Integer_Literal 0) )) )), (BinOp (927, Plus, (Name (928, (IndexedComponent (929, (Identifier (930, ((*X*) 119) )), (Literal (931, (Integer_Literal 0) )) )))), (Name (932, (IndexedComponent (933, (Identifier (934, ((*W*) 120) )), (Literal (935, (Integer_Literal 0) )) )))) )))),
@@ -974,7 +974,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 1440; parameter_name = ((*Counter*) 166); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (1441,
   (Assign (1442, (IndexedComponent (1443, (SelectedComponent (1444, (Identifier (1445, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1447, (Integer_Literal 0) )) )), (Name (1448, (Identifier (1449, ((*Counter*) 166) )))))),
@@ -998,9 +998,9 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 727; parameter_name = ((*R*) 127); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (728,
-(TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
-(ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None }))))],
+  (SeqDecl (728,
+  (TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
+  (ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None })))),
   (* = = = Procedure Body = = = *)
   (Seq (733,
   (Assign (734, (Identifier (735, ((*I*) 129) )), (Literal (736, (Integer_Literal 0) )))),
@@ -1022,75 +1022,75 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 1372; parameter_name = ((*Ctx*) 152); parameter_subtype_mark = (Record_Type ((*Skein_512_Context*) 61)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (1373,
-(TypeDecl (1374, (SubtypeDecl (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (Range (1, 15)))))),
-(SeqDecl (1376,
-(TypeDecl (1377, (SubtypeDecl (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (Range (0, 2)))))),
-(SeqDecl (1379,
-(TypeDecl (1380, (SubtypeDecl (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (Range (1, 2)))))),
-(SeqDecl (1382,
-(ObjDecl (1383, { declaration_astnum = 1384; object_name = ((*Local_Ctx*) 156); object_nominal_subtype = (Record_Type ((*Skein_512_Context*) 61)); initialization_exp = None })),
-(SeqDecl (1385,
-(ObjDecl (1386, { declaration_astnum = 1387; object_name = ((*N*) 157); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-(SeqDecl (1388,
-(ObjDecl (1389, { declaration_astnum = 1390; object_name = ((*Blocks_Required*) 158); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None })),
-(SeqDecl (1391,
-(ObjDecl (1392, { declaration_astnum = 1393; object_name = ((*Byte_Count*) 159); object_nominal_subtype = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_exp = None })),
-(SeqDecl (1394,
-(ObjDecl (1395, { declaration_astnum = 1396; object_name = ((*X*) 160); object_nominal_subtype = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_exp = None })),
-(SeqDecl (1397,
-(ObjDecl (1398, { declaration_astnum = 1399; object_name = ((*Tmp_B*) 161); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
-(SeqDecl (1400,
-(ObjDecl (1401, { declaration_astnum = 1402; object_name = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-(SeqDecl (1403,
-(ProcBodyDecl (1404, 
-  mkprocBodyDecl (
-   1405,
-    (* = = = Procedure Name = = = *)
-    ((*Zero_Pad*) 163),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [(ObjDecl (1406, { declaration_astnum = 1407; object_name = ((*I*) 164); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None }))],
-    (* = = = Procedure Body = = = *)
-    (Seq (1408,
-    (Assign (1409, (Identifier (1410, ((*I*) 164) )), (Name (1411, (SelectedComponent (1412, (SelectedComponent (1413, (Identifier (1414, ((*Local_Ctx*) 156) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
-    (While (1417, (BinOp (1418, Less_Than_Or_Equal, (Name (1419, (Identifier (1420, ((*I*) 164) )))), (Literal (1421, (Integer_Literal 63) )) )),
-      (Seq (1422,
-      (Assign (1423, (IndexedComponent (1424, (SelectedComponent (1425, (Identifier (1426, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Name (1428, (Identifier (1429, ((*I*) 164) )))) )), (Literal (1430, (Integer_Literal 0) )))),
-      (Assign (1431, (Identifier (1432, ((*I*) 164) )), (BinOp (1433, Plus, (Name (1434, (Identifier (1435, ((*I*) 164) )))), (Literal (1436, (Integer_Literal 1) )) )))))))
-    )))
-  ))
-),
-(SeqDecl (1437,
-(ProcBodyDecl (1438, 
-  mkprocBodyDecl (
-   1439,
-    (* = = = Procedure Name = = = *)
-    ((*Set_Counter*) 165),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnum = 1440; parameter_name = ((*Counter*) 166); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
-    (* = = = Object Declarations = = = *)
-    [NullDecl],
-    (* = = = Procedure Body = = = *)
-    (Seq (1441,
-    (Assign (1442, (IndexedComponent (1443, (SelectedComponent (1444, (Identifier (1445, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1447, (Integer_Literal 0) )) )), (Name (1448, (Identifier (1449, ((*Counter*) 166) )))))),
-    (Seq (1450,
-    (Assign (1451, (IndexedComponent (1452, (SelectedComponent (1453, (Identifier (1454, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1456, (Integer_Literal 1) )) )), (Name (1457, (Identifier (1458, ((*Counter*) 166) )))))),
-    (Seq (1459,
-    (Assign (1460, (IndexedComponent (1461, (SelectedComponent (1462, (Identifier (1463, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1465, (Integer_Literal 2) )) )), (Name (1466, (Identifier (1467, ((*Counter*) 166) )))))),
-    (Seq (1468,
-    (Assign (1469, (IndexedComponent (1470, (SelectedComponent (1471, (Identifier (1472, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1474, (Integer_Literal 3) )) )), (Name (1475, (Identifier (1476, ((*Counter*) 166) )))))),
-    (Seq (1477,
-    (Assign (1478, (IndexedComponent (1479, (SelectedComponent (1480, (Identifier (1481, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1483, (Integer_Literal 4) )) )), (Name (1484, (Identifier (1485, ((*Counter*) 166) )))))),
-    (Seq (1486,
-    (Assign (1487, (IndexedComponent (1488, (SelectedComponent (1489, (Identifier (1490, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1492, (Integer_Literal 5) )) )), (Name (1493, (Identifier (1494, ((*Counter*) 166) )))))),
-    (Seq (1495,
-    (Assign (1496, (IndexedComponent (1497, (SelectedComponent (1498, (Identifier (1499, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1501, (Integer_Literal 6) )) )), (Name (1502, (Identifier (1503, ((*Counter*) 166) )))))),
-    (Assign (1504, (IndexedComponent (1505, (SelectedComponent (1506, (Identifier (1507, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1509, (Integer_Literal 7) )) )), (Name (1510, (Identifier (1511, ((*Counter*) 166) ))))))))))))))))))))
-  ))
-),
-(ObjDecl (1512, { declaration_astnum = 1513; object_name = ((*Blocks_Done*) 167); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None }))))))))))))))))))))))))))],
+  (SeqDecl (1373,
+  (TypeDecl (1374, (SubtypeDecl (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (Range (1, 15)))))),
+  (SeqDecl (1376,
+  (TypeDecl (1377, (SubtypeDecl (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (Range (0, 2)))))),
+  (SeqDecl (1379,
+  (TypeDecl (1380, (SubtypeDecl (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (Range (1, 2)))))),
+  (SeqDecl (1382,
+  (ObjDecl (1383, { declaration_astnum = 1384; object_name = ((*Local_Ctx*) 156); object_nominal_subtype = (Record_Type ((*Skein_512_Context*) 61)); initialization_exp = None })),
+  (SeqDecl (1385,
+  (ObjDecl (1386, { declaration_astnum = 1387; object_name = ((*N*) 157); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+  (SeqDecl (1388,
+  (ObjDecl (1389, { declaration_astnum = 1390; object_name = ((*Blocks_Required*) 158); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None })),
+  (SeqDecl (1391,
+  (ObjDecl (1392, { declaration_astnum = 1393; object_name = ((*Byte_Count*) 159); object_nominal_subtype = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_exp = None })),
+  (SeqDecl (1394,
+  (ObjDecl (1395, { declaration_astnum = 1396; object_name = ((*X*) 160); object_nominal_subtype = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_exp = None })),
+  (SeqDecl (1397,
+  (ObjDecl (1398, { declaration_astnum = 1399; object_name = ((*Tmp_B*) 161); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
+  (SeqDecl (1400,
+  (ObjDecl (1401, { declaration_astnum = 1402; object_name = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+  (SeqDecl (1403,
+  (ProcBodyDecl (1404, 
+    mkprocBodyDecl (
+     1405,
+      (* = = = Procedure Name = = = *)
+      ((*Zero_Pad*) 163),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      (ObjDecl (1406, { declaration_astnum = 1407; object_name = ((*I*) 164); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+      (* = = = Procedure Body = = = *)
+      (Seq (1408,
+      (Assign (1409, (Identifier (1410, ((*I*) 164) )), (Name (1411, (SelectedComponent (1412, (SelectedComponent (1413, (Identifier (1414, ((*Local_Ctx*) 156) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
+      (While (1417, (BinOp (1418, Less_Than_Or_Equal, (Name (1419, (Identifier (1420, ((*I*) 164) )))), (Literal (1421, (Integer_Literal 63) )) )),
+        (Seq (1422,
+        (Assign (1423, (IndexedComponent (1424, (SelectedComponent (1425, (Identifier (1426, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Name (1428, (Identifier (1429, ((*I*) 164) )))) )), (Literal (1430, (Integer_Literal 0) )))),
+        (Assign (1431, (Identifier (1432, ((*I*) 164) )), (BinOp (1433, Plus, (Name (1434, (Identifier (1435, ((*I*) 164) )))), (Literal (1436, (Integer_Literal 1) )) )))))))
+      )))
+    ))
+  ),
+  (SeqDecl (1437,
+  (ProcBodyDecl (1438, 
+    mkprocBodyDecl (
+     1439,
+      (* = = = Procedure Name = = = *)
+      ((*Set_Counter*) 165),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnum = 1440; parameter_name = ((*Counter*) 166); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
+      (* = = = Object Declarations = = = *)
+      NullDecl,
+      (* = = = Procedure Body = = = *)
+      (Seq (1441,
+      (Assign (1442, (IndexedComponent (1443, (SelectedComponent (1444, (Identifier (1445, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1447, (Integer_Literal 0) )) )), (Name (1448, (Identifier (1449, ((*Counter*) 166) )))))),
+      (Seq (1450,
+      (Assign (1451, (IndexedComponent (1452, (SelectedComponent (1453, (Identifier (1454, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1456, (Integer_Literal 1) )) )), (Name (1457, (Identifier (1458, ((*Counter*) 166) )))))),
+      (Seq (1459,
+      (Assign (1460, (IndexedComponent (1461, (SelectedComponent (1462, (Identifier (1463, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1465, (Integer_Literal 2) )) )), (Name (1466, (Identifier (1467, ((*Counter*) 166) )))))),
+      (Seq (1468,
+      (Assign (1469, (IndexedComponent (1470, (SelectedComponent (1471, (Identifier (1472, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1474, (Integer_Literal 3) )) )), (Name (1475, (Identifier (1476, ((*Counter*) 166) )))))),
+      (Seq (1477,
+      (Assign (1478, (IndexedComponent (1479, (SelectedComponent (1480, (Identifier (1481, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1483, (Integer_Literal 4) )) )), (Name (1484, (Identifier (1485, ((*Counter*) 166) )))))),
+      (Seq (1486,
+      (Assign (1487, (IndexedComponent (1488, (SelectedComponent (1489, (Identifier (1490, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1492, (Integer_Literal 5) )) )), (Name (1493, (Identifier (1494, ((*Counter*) 166) )))))),
+      (Seq (1495,
+      (Assign (1496, (IndexedComponent (1497, (SelectedComponent (1498, (Identifier (1499, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1501, (Integer_Literal 6) )) )), (Name (1502, (Identifier (1503, ((*Counter*) 166) )))))),
+      (Assign (1504, (IndexedComponent (1505, (SelectedComponent (1506, (Identifier (1507, ((*Local_Ctx*) 156) )), ((*B*) 64) )), (Literal (1509, (Integer_Literal 7) )) )), (Name (1510, (Identifier (1511, ((*Counter*) 166) ))))))))))))))))))))
+    ))
+  ),
+  (ObjDecl (1512, { declaration_astnum = 1513; object_name = ((*Blocks_Done*) 167); object_nominal_subtype = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_exp = None })))))))))))))))))))))))))),
   (* = = = Procedure Body = = = *)
   (Seq (1514,
   (Assign (1515, (Identifier (1516, ((*Local_Ctx*) 156) )), (Name (1517, (Identifier (1518, ((*Ctx*) 152) )))))),
@@ -1144,209 +1144,209 @@ let Symbol_Table = {
 { parameter_astnum = 433; parameter_name = ((*Block_Count*) 115); parameter_subtype_mark = (Subtype ((*Positive_Block_512_Count_T*) 38)); parameter_mode = In }; 
 { parameter_astnum = 434; parameter_name = ((*Byte_Count_Add*) 116); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (435,
-(ObjDecl (436, { declaration_astnum = 437; object_name = ((*TS*) 117); object_nominal_subtype = (Array_Type ((*U64_Seq_3*) 23)); initialization_exp = None })),
-(SeqDecl (438,
-(ObjDecl (439, { declaration_astnum = 440; object_name = ((*KS*) 118); object_nominal_subtype = (Array_Type ((*U64_Seq_9*) 26)); initialization_exp = None })),
-(SeqDecl (441,
-(ObjDecl (442, { declaration_astnum = 443; object_name = ((*X*) 119); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
-(SeqDecl (444,
-(ObjDecl (445, { declaration_astnum = 446; object_name = ((*W*) 120); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
-(SeqDecl (447,
-(ProcBodyDecl (448, 
-  mkprocBodyDecl (
-   449,
-    (* = = = Procedure Name = = = *)
-    ((*Initialize_Key_Schedule*) 121),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [(ObjDecl (450, { declaration_astnum = 451; object_name = ((*I*) 122); object_nominal_subtype = (Subtype ((*I8*) 9)); initialization_exp = None }))],
-    (* = = = Procedure Body = = = *)
-    (Seq (452,
-    (Assign (453, (IndexedComponent (454, (Identifier (455, ((*KS*) 118) )), (Literal (456, (Integer_Literal 8) )) )), (Literal (457, (Integer_Literal 16) )))),
-    (Seq (458,
-    (Assign (459, (Identifier (460, ((*I*) 122) )), (Literal (461, (Integer_Literal 0) )))),
-    (While (462, (BinOp (463, Less_Than_Or_Equal, (Name (464, (Identifier (465, ((*I*) 122) )))), (Literal (466, (Integer_Literal 7) )) )),
-      (Seq (467,
-      (Assign (468, (IndexedComponent (469, (Identifier (470, ((*KS*) 118) )), (Name (471, (Identifier (472, ((*I*) 122) )))) )), (Name (473, (IndexedComponent (474, (SelectedComponent (475, (Identifier (476, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (478, (Identifier (479, ((*I*) 122) )))) )))))),
-      (Seq (480,
-      (Assign (481, (IndexedComponent (482, (Identifier (483, ((*KS*) 118) )), (Literal (484, (Integer_Literal 8) )) )), (BinOp (485, Plus, (Name (486, (IndexedComponent (487, (Identifier (488, ((*KS*) 118) )), (Literal (489, (Integer_Literal 8) )) )))), (Name (490, (IndexedComponent (491, (SelectedComponent (492, (Identifier (493, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (495, (Identifier (496, ((*I*) 122) )))) )))) )))),
-      (Assign (497, (Identifier (498, ((*I*) 122) )), (BinOp (499, Plus, (Name (500, (Identifier (501, ((*I*) 122) )))), (Literal (502, (Integer_Literal 1) )) )))))))))
-    )))))
-  ))
-),
-(SeqDecl (503,
-(ProcBodyDecl (504, 
-  mkprocBodyDecl (
-   505,
-    (* = = = Procedure Name = = = *)
-    ((*Initialize_TS*) 123),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDecl],
-    (* = = = Procedure Body = = = *)
-    (Seq (506,
-    (Assign (507, (IndexedComponent (508, (Identifier (509, ((*TS*) 117) )), (Literal (510, (Integer_Literal 0) )) )), (Literal (511, (Integer_Literal 0) )))),
-    (Seq (512,
-    (Assign (513, (IndexedComponent (514, (Identifier (515, ((*TS*) 117) )), (Literal (516, (Integer_Literal 1) )) )), (Literal (517, (Integer_Literal 1) )))),
-    (Seq (518,
-    (Assign (519, (IndexedComponent (520, (Identifier (521, ((*TS*) 117) )), (Literal (522, (Integer_Literal 2) )) )), (Literal (523, (Integer_Literal 2) )))),
-    (Seq (524,
-    (Assign (525, (IndexedComponent (526, (Identifier (527, ((*W*) 120) )), (Literal (528, (Integer_Literal 0) )) )), (Literal (529, (Integer_Literal 0) )))),
-    (Seq (530,
-    (Assign (531, (IndexedComponent (532, (Identifier (533, ((*W*) 120) )), (Literal (534, (Integer_Literal 1) )) )), (Literal (535, (Integer_Literal 1) )))),
-    (Seq (536,
-    (Assign (537, (IndexedComponent (538, (Identifier (539, ((*W*) 120) )), (Literal (540, (Integer_Literal 2) )) )), (Literal (541, (Integer_Literal 2) )))),
-    (Seq (542,
-    (Assign (543, (IndexedComponent (544, (Identifier (545, ((*W*) 120) )), (Literal (546, (Integer_Literal 3) )) )), (Literal (547, (Integer_Literal 3) )))),
-    (Seq (548,
-    (Assign (549, (IndexedComponent (550, (Identifier (551, ((*W*) 120) )), (Literal (552, (Integer_Literal 4) )) )), (Literal (553, (Integer_Literal 4) )))),
-    (Seq (554,
-    (Assign (555, (IndexedComponent (556, (Identifier (557, ((*W*) 120) )), (Literal (558, (Integer_Literal 5) )) )), (Literal (559, (Integer_Literal 5) )))),
-    (Seq (560,
-    (Assign (561, (IndexedComponent (562, (Identifier (563, ((*W*) 120) )), (Literal (564, (Integer_Literal 6) )) )), (Literal (565, (Integer_Literal 6) )))),
-    (Assign (566, (IndexedComponent (567, (Identifier (568, ((*W*) 120) )), (Literal (569, (Integer_Literal 7) )) )), (Literal (570, (Integer_Literal 7) ))))))))))))))))))))))))
-  ))
-),
-(SeqDecl (571,
-(ProcBodyDecl (572, 
-  mkprocBodyDecl (
-   573,
-    (* = = = Procedure Name = = = *)
-    ((*Do_First_Key_Injection*) 124),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDecl],
-    (* = = = Procedure Body = = = *)
-    (Seq (574,
-    (Assign (575, (IndexedComponent (576, (Identifier (577, ((*X*) 119) )), (Literal (578, (Integer_Literal 0) )) )), (BinOp (579, Plus, (Name (580, (IndexedComponent (581, (Identifier (582, ((*W*) 120) )), (Literal (583, (Integer_Literal 0) )) )))), (Name (584, (IndexedComponent (585, (Identifier (586, ((*KS*) 118) )), (Literal (587, (Integer_Literal 0) )) )))) )))),
-    (Seq (588,
-    (Assign (589, (IndexedComponent (590, (Identifier (591, ((*X*) 119) )), (Literal (592, (Integer_Literal 1) )) )), (BinOp (593, Plus, (Name (594, (IndexedComponent (595, (Identifier (596, ((*W*) 120) )), (Literal (597, (Integer_Literal 1) )) )))), (Name (598, (IndexedComponent (599, (Identifier (600, ((*KS*) 118) )), (Literal (601, (Integer_Literal 1) )) )))) )))),
-    (Seq (602,
-    (Assign (603, (IndexedComponent (604, (Identifier (605, ((*X*) 119) )), (Literal (606, (Integer_Literal 2) )) )), (BinOp (607, Plus, (Name (608, (IndexedComponent (609, (Identifier (610, ((*W*) 120) )), (Literal (611, (Integer_Literal 2) )) )))), (Name (612, (IndexedComponent (613, (Identifier (614, ((*KS*) 118) )), (Literal (615, (Integer_Literal 2) )) )))) )))),
-    (Seq (616,
-    (Assign (617, (IndexedComponent (618, (Identifier (619, ((*X*) 119) )), (Literal (620, (Integer_Literal 3) )) )), (BinOp (621, Plus, (Name (622, (IndexedComponent (623, (Identifier (624, ((*W*) 120) )), (Literal (625, (Integer_Literal 3) )) )))), (Name (626, (IndexedComponent (627, (Identifier (628, ((*KS*) 118) )), (Literal (629, (Integer_Literal 3) )) )))) )))),
-    (Seq (630,
-    (Assign (631, (IndexedComponent (632, (Identifier (633, ((*X*) 119) )), (Literal (634, (Integer_Literal 4) )) )), (BinOp (635, Plus, (Name (636, (IndexedComponent (637, (Identifier (638, ((*W*) 120) )), (Literal (639, (Integer_Literal 4) )) )))), (Name (640, (IndexedComponent (641, (Identifier (642, ((*KS*) 118) )), (Literal (643, (Integer_Literal 4) )) )))) )))),
-    (Seq (644,
-    (Assign (645, (IndexedComponent (646, (Identifier (647, ((*X*) 119) )), (Literal (648, (Integer_Literal 5) )) )), (BinOp (649, Plus, (Name (650, (IndexedComponent (651, (Identifier (652, ((*W*) 120) )), (Literal (653, (Integer_Literal 5) )) )))), (Name (654, (IndexedComponent (655, (Identifier (656, ((*KS*) 118) )), (Literal (657, (Integer_Literal 5) )) )))) )))),
-    (Seq (658,
-    (Assign (659, (IndexedComponent (660, (Identifier (661, ((*X*) 119) )), (Literal (662, (Integer_Literal 6) )) )), (BinOp (663, Plus, (Name (664, (IndexedComponent (665, (Identifier (666, ((*W*) 120) )), (Literal (667, (Integer_Literal 6) )) )))), (Name (668, (IndexedComponent (669, (Identifier (670, ((*KS*) 118) )), (Literal (671, (Integer_Literal 6) )) )))) )))),
-    (Seq (672,
-    (Assign (673, (IndexedComponent (674, (Identifier (675, ((*X*) 119) )), (Literal (676, (Integer_Literal 7) )) )), (BinOp (677, Plus, (Name (678, (IndexedComponent (679, (Identifier (680, ((*W*) 120) )), (Literal (681, (Integer_Literal 7) )) )))), (Name (682, (IndexedComponent (683, (Identifier (684, ((*KS*) 118) )), (Literal (685, (Integer_Literal 7) )) )))) )))),
-    (Seq (686,
-    (Assign (687, (IndexedComponent (688, (Identifier (689, ((*X*) 119) )), (BinOp (690, Minus, (Literal (691, (Integer_Literal 8) )), (Literal (692, (Integer_Literal 3) )) )) )), (BinOp (693, Plus, (Name (694, (IndexedComponent (695, (Identifier (696, ((*X*) 119) )), (BinOp (697, Minus, (Literal (698, (Integer_Literal 8) )), (Literal (699, (Integer_Literal 3) )) )) )))), (Name (700, (IndexedComponent (701, (Identifier (702, ((*TS*) 117) )), (Literal (703, (Integer_Literal 0) )) )))) )))),
-    (Assign (704, (IndexedComponent (705, (Identifier (706, ((*X*) 119) )), (BinOp (707, Minus, (Literal (708, (Integer_Literal 8) )), (Literal (709, (Integer_Literal 2) )) )) )), (BinOp (710, Plus, (Name (711, (IndexedComponent (712, (Identifier (713, ((*X*) 119) )), (BinOp (714, Minus, (Literal (715, (Integer_Literal 8) )), (Literal (716, (Integer_Literal 2) )) )) )))), (Name (717, (IndexedComponent (718, (Identifier (719, ((*TS*) 117) )), (Literal (720, (Integer_Literal 1) )) )))) ))))))))))))))))))))))
-  ))
-),
-(SeqDecl (721,
-(ProcBodyDecl (722, 
-  mkprocBodyDecl (
-   723,
-    (* = = = Procedure Name = = = *)
-    ((*Threefish_Block*) 125),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [(SeqDecl (724,
-  (ProcBodyDecl (725, 
+  (SeqDecl (435,
+  (ObjDecl (436, { declaration_astnum = 437; object_name = ((*TS*) 117); object_nominal_subtype = (Array_Type ((*U64_Seq_3*) 23)); initialization_exp = None })),
+  (SeqDecl (438,
+  (ObjDecl (439, { declaration_astnum = 440; object_name = ((*KS*) 118); object_nominal_subtype = (Array_Type ((*U64_Seq_9*) 26)); initialization_exp = None })),
+  (SeqDecl (441,
+  (ObjDecl (442, { declaration_astnum = 443; object_name = ((*X*) 119); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
+  (SeqDecl (444,
+  (ObjDecl (445, { declaration_astnum = 446; object_name = ((*W*) 120); object_nominal_subtype = (Array_Type ((*U64_Seq_8*) 25)); initialization_exp = None })),
+  (SeqDecl (447,
+  (ProcBodyDecl (448, 
     mkprocBodyDecl (
-     726,
+     449,
       (* = = = Procedure Name = = = *)
-      ((*Inject_Key*) 126),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnum = 727; parameter_name = ((*R*) 127); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
-      (* = = = Object Declarations = = = *)
-      [(SeqDecl (728,
-    (TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
-    (ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None }))))],
-      (* = = = Procedure Body = = = *)
-      (Seq (733,
-      (Assign (734, (Identifier (735, ((*I*) 129) )), (Literal (736, (Integer_Literal 0) )))),
-      (Seq (737,
-      (While (738, (BinOp (739, Less_Than_Or_Equal, (Name (740, (Identifier (741, ((*I*) 129) )))), (Literal (742, (Integer_Literal 7) )) )),
-        (Seq (743,
-        (Assign (744, (IndexedComponent (745, (Identifier (746, ((*X*) 119) )), (Name (747, (Identifier (748, ((*I*) 129) )))) )), (BinOp (749, Plus, (Name (750, (IndexedComponent (751, (Identifier (752, ((*X*) 119) )), (Name (753, (Identifier (754, ((*I*) 129) )))) )))), (Name (755, (IndexedComponent (756, (Identifier (757, ((*KS*) 118) )), (BinOp (758, Modulus, (BinOp (759, Plus, (Name (760, (Identifier (761, ((*R*) 127) )))), (Name (762, (Identifier (763, ((*I*) 129) )))) )), (BinOp (764, Plus, (Literal (765, (Integer_Literal 8) )), (Literal (766, (Integer_Literal 1) )) )) )) )))) )))),
-        (Assign (767, (Identifier (768, ((*I*) 129) )), (BinOp (769, Plus, (Name (770, (Identifier (771, ((*I*) 129) )))), (Literal (772, (Integer_Literal 1) )) )))))))
-      ),
-      (Seq (773,
-      (Assign (774, (IndexedComponent (775, (Identifier (776, ((*X*) 119) )), (BinOp (777, Minus, (Literal (778, (Integer_Literal 8) )), (Literal (779, (Integer_Literal 3) )) )) )), (BinOp (780, Plus, (Name (781, (IndexedComponent (782, (Identifier (783, ((*X*) 119) )), (BinOp (784, Minus, (Literal (785, (Integer_Literal 8) )), (Literal (786, (Integer_Literal 3) )) )) )))), (Name (787, (IndexedComponent (788, (Identifier (789, ((*TS*) 117) )), (BinOp (790, Modulus, (Name (791, (Identifier (792, ((*R*) 127) )))), (Literal (793, (Integer_Literal 3) )) )) )))) )))),
-      (Seq (794,
-      (Assign (795, (IndexedComponent (796, (Identifier (797, ((*X*) 119) )), (BinOp (798, Minus, (Literal (799, (Integer_Literal 8) )), (Literal (800, (Integer_Literal 2) )) )) )), (BinOp (801, Plus, (Name (802, (IndexedComponent (803, (Identifier (804, ((*X*) 119) )), (BinOp (805, Minus, (Literal (806, (Integer_Literal 8) )), (Literal (807, (Integer_Literal 2) )) )) )))), (Name (808, (IndexedComponent (809, (Identifier (810, ((*TS*) 117) )), (BinOp (811, Modulus, (BinOp (812, Plus, (Name (813, (Identifier (814, ((*R*) 127) )))), (Literal (815, (Integer_Literal 1) )) )), (Literal (816, (Integer_Literal 3) )) )) )))) )))),
-      (Assign (817, (IndexedComponent (818, (Identifier (819, ((*X*) 119) )), (BinOp (820, Minus, (Literal (821, (Integer_Literal 8) )), (Literal (822, (Integer_Literal 1) )) )) )), (BinOp (823, Plus, (Name (824, (IndexedComponent (825, (Identifier (826, ((*X*) 119) )), (BinOp (827, Minus, (Literal (828, (Integer_Literal 8) )), (Literal (829, (Integer_Literal 1) )) )) )))), (Name (830, (Identifier (831, ((*R*) 127) )))) ))))))))))))
-    ))
-  ),
-  (SeqDecl (832,
-  (ProcBodyDecl (833, 
-    mkprocBodyDecl (
-     834,
-      (* = = = Procedure Name = = = *)
-      ((*Round_1*) 130),
+      ((*Initialize_Key_Schedule*) 121),
       (* = = = Formal Parameters = = = *)
       [],
       (* = = = Object Declarations = = = *)
-      [NullDecl],
+      (ObjDecl (450, { declaration_astnum = 451; object_name = ((*I*) 122); object_nominal_subtype = (Subtype ((*I8*) 9)); initialization_exp = None })),
       (* = = = Procedure Body = = = *)
-      (Seq (835,
-      (Assign (836, (IndexedComponent (837, (Identifier (838, ((*X*) 119) )), (Literal (839, (Integer_Literal 0) )) )), (BinOp (840, Plus, (Name (841, (IndexedComponent (842, (Identifier (843, ((*X*) 119) )), (Literal (844, (Integer_Literal 0) )) )))), (Name (845, (IndexedComponent (846, (Identifier (847, ((*X*) 119) )), (Literal (848, (Integer_Literal 1) )) )))) )))),
-      (Seq (849,
-      (Assign (850, (IndexedComponent (851, (Identifier (852, ((*X*) 119) )), (Literal (853, (Integer_Literal 2) )) )), (BinOp (854, Plus, (Name (855, (IndexedComponent (856, (Identifier (857, ((*X*) 119) )), (Literal (858, (Integer_Literal 2) )) )))), (Name (859, (IndexedComponent (860, (Identifier (861, ((*X*) 119) )), (Literal (862, (Integer_Literal 3) )) )))) )))),
-      (Seq (863,
-      (Assign (864, (IndexedComponent (865, (Identifier (866, ((*X*) 119) )), (Literal (867, (Integer_Literal 4) )) )), (BinOp (868, Plus, (Name (869, (IndexedComponent (870, (Identifier (871, ((*X*) 119) )), (Literal (872, (Integer_Literal 4) )) )))), (Name (873, (IndexedComponent (874, (Identifier (875, ((*X*) 119) )), (Literal (876, (Integer_Literal 5) )) )))) )))),
-      (Assign (877, (IndexedComponent (878, (Identifier (879, ((*X*) 119) )), (Literal (880, (Integer_Literal 6) )) )), (BinOp (881, Plus, (Name (882, (IndexedComponent (883, (Identifier (884, ((*X*) 119) )), (Literal (885, (Integer_Literal 6) )) )))), (Name (886, (IndexedComponent (887, (Identifier (888, ((*X*) 119) )), (Literal (889, (Integer_Literal 7) )) )))) ))))))))))
+      (Seq (452,
+      (Assign (453, (IndexedComponent (454, (Identifier (455, ((*KS*) 118) )), (Literal (456, (Integer_Literal 8) )) )), (Literal (457, (Integer_Literal 16) )))),
+      (Seq (458,
+      (Assign (459, (Identifier (460, ((*I*) 122) )), (Literal (461, (Integer_Literal 0) )))),
+      (While (462, (BinOp (463, Less_Than_Or_Equal, (Name (464, (Identifier (465, ((*I*) 122) )))), (Literal (466, (Integer_Literal 7) )) )),
+        (Seq (467,
+        (Assign (468, (IndexedComponent (469, (Identifier (470, ((*KS*) 118) )), (Name (471, (Identifier (472, ((*I*) 122) )))) )), (Name (473, (IndexedComponent (474, (SelectedComponent (475, (Identifier (476, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (478, (Identifier (479, ((*I*) 122) )))) )))))),
+        (Seq (480,
+        (Assign (481, (IndexedComponent (482, (Identifier (483, ((*KS*) 118) )), (Literal (484, (Integer_Literal 8) )) )), (BinOp (485, Plus, (Name (486, (IndexedComponent (487, (Identifier (488, ((*KS*) 118) )), (Literal (489, (Integer_Literal 8) )) )))), (Name (490, (IndexedComponent (491, (SelectedComponent (492, (Identifier (493, ((*Ctx*) 112) )), ((*X*) 63) )), (Name (495, (Identifier (496, ((*I*) 122) )))) )))) )))),
+        (Assign (497, (Identifier (498, ((*I*) 122) )), (BinOp (499, Plus, (Name (500, (Identifier (501, ((*I*) 122) )))), (Literal (502, (Integer_Literal 1) )) )))))))))
+      )))))
     ))
   ),
-  (ObjDecl (890, { declaration_astnum = 891; object_name = ((*R*) 131); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))],
-    (* = = = Procedure Body = = = *)
-    (Seq (892,
-    (Assign (893, (Identifier (894, ((*R*) 131) )), (Literal (895, (Integer_Literal 1) )))),
-    (While (896, (BinOp (897, Less_Than_Or_Equal, (Name (898, (Identifier (899, ((*R*) 131) )))), (Literal (900, (Integer_Literal 9) )) )),
-      (Seq (901,
-      (Call (902, 903, ((*Round_1*) 130), 
-        [])
+  (SeqDecl (503,
+  (ProcBodyDecl (504, 
+    mkprocBodyDecl (
+     505,
+      (* = = = Procedure Name = = = *)
+      ((*Initialize_TS*) 123),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDecl,
+      (* = = = Procedure Body = = = *)
+      (Seq (506,
+      (Assign (507, (IndexedComponent (508, (Identifier (509, ((*TS*) 117) )), (Literal (510, (Integer_Literal 0) )) )), (Literal (511, (Integer_Literal 0) )))),
+      (Seq (512,
+      (Assign (513, (IndexedComponent (514, (Identifier (515, ((*TS*) 117) )), (Literal (516, (Integer_Literal 1) )) )), (Literal (517, (Integer_Literal 1) )))),
+      (Seq (518,
+      (Assign (519, (IndexedComponent (520, (Identifier (521, ((*TS*) 117) )), (Literal (522, (Integer_Literal 2) )) )), (Literal (523, (Integer_Literal 2) )))),
+      (Seq (524,
+      (Assign (525, (IndexedComponent (526, (Identifier (527, ((*W*) 120) )), (Literal (528, (Integer_Literal 0) )) )), (Literal (529, (Integer_Literal 0) )))),
+      (Seq (530,
+      (Assign (531, (IndexedComponent (532, (Identifier (533, ((*W*) 120) )), (Literal (534, (Integer_Literal 1) )) )), (Literal (535, (Integer_Literal 1) )))),
+      (Seq (536,
+      (Assign (537, (IndexedComponent (538, (Identifier (539, ((*W*) 120) )), (Literal (540, (Integer_Literal 2) )) )), (Literal (541, (Integer_Literal 2) )))),
+      (Seq (542,
+      (Assign (543, (IndexedComponent (544, (Identifier (545, ((*W*) 120) )), (Literal (546, (Integer_Literal 3) )) )), (Literal (547, (Integer_Literal 3) )))),
+      (Seq (548,
+      (Assign (549, (IndexedComponent (550, (Identifier (551, ((*W*) 120) )), (Literal (552, (Integer_Literal 4) )) )), (Literal (553, (Integer_Literal 4) )))),
+      (Seq (554,
+      (Assign (555, (IndexedComponent (556, (Identifier (557, ((*W*) 120) )), (Literal (558, (Integer_Literal 5) )) )), (Literal (559, (Integer_Literal 5) )))),
+      (Seq (560,
+      (Assign (561, (IndexedComponent (562, (Identifier (563, ((*W*) 120) )), (Literal (564, (Integer_Literal 6) )) )), (Literal (565, (Integer_Literal 6) )))),
+      (Assign (566, (IndexedComponent (567, (Identifier (568, ((*W*) 120) )), (Literal (569, (Integer_Literal 7) )) )), (Literal (570, (Integer_Literal 7) ))))))))))))))))))))))))
+    ))
+  ),
+  (SeqDecl (571,
+  (ProcBodyDecl (572, 
+    mkprocBodyDecl (
+     573,
+      (* = = = Procedure Name = = = *)
+      ((*Do_First_Key_Injection*) 124),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDecl,
+      (* = = = Procedure Body = = = *)
+      (Seq (574,
+      (Assign (575, (IndexedComponent (576, (Identifier (577, ((*X*) 119) )), (Literal (578, (Integer_Literal 0) )) )), (BinOp (579, Plus, (Name (580, (IndexedComponent (581, (Identifier (582, ((*W*) 120) )), (Literal (583, (Integer_Literal 0) )) )))), (Name (584, (IndexedComponent (585, (Identifier (586, ((*KS*) 118) )), (Literal (587, (Integer_Literal 0) )) )))) )))),
+      (Seq (588,
+      (Assign (589, (IndexedComponent (590, (Identifier (591, ((*X*) 119) )), (Literal (592, (Integer_Literal 1) )) )), (BinOp (593, Plus, (Name (594, (IndexedComponent (595, (Identifier (596, ((*W*) 120) )), (Literal (597, (Integer_Literal 1) )) )))), (Name (598, (IndexedComponent (599, (Identifier (600, ((*KS*) 118) )), (Literal (601, (Integer_Literal 1) )) )))) )))),
+      (Seq (602,
+      (Assign (603, (IndexedComponent (604, (Identifier (605, ((*X*) 119) )), (Literal (606, (Integer_Literal 2) )) )), (BinOp (607, Plus, (Name (608, (IndexedComponent (609, (Identifier (610, ((*W*) 120) )), (Literal (611, (Integer_Literal 2) )) )))), (Name (612, (IndexedComponent (613, (Identifier (614, ((*KS*) 118) )), (Literal (615, (Integer_Literal 2) )) )))) )))),
+      (Seq (616,
+      (Assign (617, (IndexedComponent (618, (Identifier (619, ((*X*) 119) )), (Literal (620, (Integer_Literal 3) )) )), (BinOp (621, Plus, (Name (622, (IndexedComponent (623, (Identifier (624, ((*W*) 120) )), (Literal (625, (Integer_Literal 3) )) )))), (Name (626, (IndexedComponent (627, (Identifier (628, ((*KS*) 118) )), (Literal (629, (Integer_Literal 3) )) )))) )))),
+      (Seq (630,
+      (Assign (631, (IndexedComponent (632, (Identifier (633, ((*X*) 119) )), (Literal (634, (Integer_Literal 4) )) )), (BinOp (635, Plus, (Name (636, (IndexedComponent (637, (Identifier (638, ((*W*) 120) )), (Literal (639, (Integer_Literal 4) )) )))), (Name (640, (IndexedComponent (641, (Identifier (642, ((*KS*) 118) )), (Literal (643, (Integer_Literal 4) )) )))) )))),
+      (Seq (644,
+      (Assign (645, (IndexedComponent (646, (Identifier (647, ((*X*) 119) )), (Literal (648, (Integer_Literal 5) )) )), (BinOp (649, Plus, (Name (650, (IndexedComponent (651, (Identifier (652, ((*W*) 120) )), (Literal (653, (Integer_Literal 5) )) )))), (Name (654, (IndexedComponent (655, (Identifier (656, ((*KS*) 118) )), (Literal (657, (Integer_Literal 5) )) )))) )))),
+      (Seq (658,
+      (Assign (659, (IndexedComponent (660, (Identifier (661, ((*X*) 119) )), (Literal (662, (Integer_Literal 6) )) )), (BinOp (663, Plus, (Name (664, (IndexedComponent (665, (Identifier (666, ((*W*) 120) )), (Literal (667, (Integer_Literal 6) )) )))), (Name (668, (IndexedComponent (669, (Identifier (670, ((*KS*) 118) )), (Literal (671, (Integer_Literal 6) )) )))) )))),
+      (Seq (672,
+      (Assign (673, (IndexedComponent (674, (Identifier (675, ((*X*) 119) )), (Literal (676, (Integer_Literal 7) )) )), (BinOp (677, Plus, (Name (678, (IndexedComponent (679, (Identifier (680, ((*W*) 120) )), (Literal (681, (Integer_Literal 7) )) )))), (Name (682, (IndexedComponent (683, (Identifier (684, ((*KS*) 118) )), (Literal (685, (Integer_Literal 7) )) )))) )))),
+      (Seq (686,
+      (Assign (687, (IndexedComponent (688, (Identifier (689, ((*X*) 119) )), (BinOp (690, Minus, (Literal (691, (Integer_Literal 8) )), (Literal (692, (Integer_Literal 3) )) )) )), (BinOp (693, Plus, (Name (694, (IndexedComponent (695, (Identifier (696, ((*X*) 119) )), (BinOp (697, Minus, (Literal (698, (Integer_Literal 8) )), (Literal (699, (Integer_Literal 3) )) )) )))), (Name (700, (IndexedComponent (701, (Identifier (702, ((*TS*) 117) )), (Literal (703, (Integer_Literal 0) )) )))) )))),
+      (Assign (704, (IndexedComponent (705, (Identifier (706, ((*X*) 119) )), (BinOp (707, Minus, (Literal (708, (Integer_Literal 8) )), (Literal (709, (Integer_Literal 2) )) )) )), (BinOp (710, Plus, (Name (711, (IndexedComponent (712, (Identifier (713, ((*X*) 119) )), (BinOp (714, Minus, (Literal (715, (Integer_Literal 8) )), (Literal (716, (Integer_Literal 2) )) )) )))), (Name (717, (IndexedComponent (718, (Identifier (719, ((*TS*) 117) )), (Literal (720, (Integer_Literal 1) )) )))) ))))))))))))))))))))))
+    ))
+  ),
+  (SeqDecl (721,
+  (ProcBodyDecl (722, 
+    mkprocBodyDecl (
+     723,
+      (* = = = Procedure Name = = = *)
+      ((*Threefish_Block*) 125),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      (SeqDecl (724,
+      (ProcBodyDecl (725, 
+        mkprocBodyDecl (
+         726,
+          (* = = = Procedure Name = = = *)
+          ((*Inject_Key*) 126),
+          (* = = = Formal Parameters = = = *)
+          [{ parameter_astnum = 727; parameter_name = ((*R*) 127); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
+          (* = = = Object Declarations = = = *)
+          (SeqDecl (728,
+          (TypeDecl (729, (SubtypeDecl (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (Range (0, 7)))))),
+          (ObjDecl (731, { declaration_astnum = 732; object_name = ((*I*) 129); object_nominal_subtype = (Subtype ((*Injection_Range*) 128)); initialization_exp = None })))),
+          (* = = = Procedure Body = = = *)
+          (Seq (733,
+          (Assign (734, (Identifier (735, ((*I*) 129) )), (Literal (736, (Integer_Literal 0) )))),
+          (Seq (737,
+          (While (738, (BinOp (739, Less_Than_Or_Equal, (Name (740, (Identifier (741, ((*I*) 129) )))), (Literal (742, (Integer_Literal 7) )) )),
+            (Seq (743,
+            (Assign (744, (IndexedComponent (745, (Identifier (746, ((*X*) 119) )), (Name (747, (Identifier (748, ((*I*) 129) )))) )), (BinOp (749, Plus, (Name (750, (IndexedComponent (751, (Identifier (752, ((*X*) 119) )), (Name (753, (Identifier (754, ((*I*) 129) )))) )))), (Name (755, (IndexedComponent (756, (Identifier (757, ((*KS*) 118) )), (BinOp (758, Modulus, (BinOp (759, Plus, (Name (760, (Identifier (761, ((*R*) 127) )))), (Name (762, (Identifier (763, ((*I*) 129) )))) )), (BinOp (764, Plus, (Literal (765, (Integer_Literal 8) )), (Literal (766, (Integer_Literal 1) )) )) )) )))) )))),
+            (Assign (767, (Identifier (768, ((*I*) 129) )), (BinOp (769, Plus, (Name (770, (Identifier (771, ((*I*) 129) )))), (Literal (772, (Integer_Literal 1) )) )))))))
+          ),
+          (Seq (773,
+          (Assign (774, (IndexedComponent (775, (Identifier (776, ((*X*) 119) )), (BinOp (777, Minus, (Literal (778, (Integer_Literal 8) )), (Literal (779, (Integer_Literal 3) )) )) )), (BinOp (780, Plus, (Name (781, (IndexedComponent (782, (Identifier (783, ((*X*) 119) )), (BinOp (784, Minus, (Literal (785, (Integer_Literal 8) )), (Literal (786, (Integer_Literal 3) )) )) )))), (Name (787, (IndexedComponent (788, (Identifier (789, ((*TS*) 117) )), (BinOp (790, Modulus, (Name (791, (Identifier (792, ((*R*) 127) )))), (Literal (793, (Integer_Literal 3) )) )) )))) )))),
+          (Seq (794,
+          (Assign (795, (IndexedComponent (796, (Identifier (797, ((*X*) 119) )), (BinOp (798, Minus, (Literal (799, (Integer_Literal 8) )), (Literal (800, (Integer_Literal 2) )) )) )), (BinOp (801, Plus, (Name (802, (IndexedComponent (803, (Identifier (804, ((*X*) 119) )), (BinOp (805, Minus, (Literal (806, (Integer_Literal 8) )), (Literal (807, (Integer_Literal 2) )) )) )))), (Name (808, (IndexedComponent (809, (Identifier (810, ((*TS*) 117) )), (BinOp (811, Modulus, (BinOp (812, Plus, (Name (813, (Identifier (814, ((*R*) 127) )))), (Literal (815, (Integer_Literal 1) )) )), (Literal (816, (Integer_Literal 3) )) )) )))) )))),
+          (Assign (817, (IndexedComponent (818, (Identifier (819, ((*X*) 119) )), (BinOp (820, Minus, (Literal (821, (Integer_Literal 8) )), (Literal (822, (Integer_Literal 1) )) )) )), (BinOp (823, Plus, (Name (824, (IndexedComponent (825, (Identifier (826, ((*X*) 119) )), (BinOp (827, Minus, (Literal (828, (Integer_Literal 8) )), (Literal (829, (Integer_Literal 1) )) )) )))), (Name (830, (Identifier (831, ((*R*) 127) )))) ))))))))))))
+        ))
       ),
-      (Seq (904,
-      (Call (905, 906, ((*Inject_Key*) 126), 
-        [(BinOp (907, Multiply, (Name (908, (Identifier (909, ((*R*) 131) )))), (Literal (910, (Integer_Literal 2) )) ))])
+      (SeqDecl (832,
+      (ProcBodyDecl (833, 
+        mkprocBodyDecl (
+         834,
+          (* = = = Procedure Name = = = *)
+          ((*Round_1*) 130),
+          (* = = = Formal Parameters = = = *)
+          [],
+          (* = = = Object Declarations = = = *)
+          NullDecl,
+          (* = = = Procedure Body = = = *)
+          (Seq (835,
+          (Assign (836, (IndexedComponent (837, (Identifier (838, ((*X*) 119) )), (Literal (839, (Integer_Literal 0) )) )), (BinOp (840, Plus, (Name (841, (IndexedComponent (842, (Identifier (843, ((*X*) 119) )), (Literal (844, (Integer_Literal 0) )) )))), (Name (845, (IndexedComponent (846, (Identifier (847, ((*X*) 119) )), (Literal (848, (Integer_Literal 1) )) )))) )))),
+          (Seq (849,
+          (Assign (850, (IndexedComponent (851, (Identifier (852, ((*X*) 119) )), (Literal (853, (Integer_Literal 2) )) )), (BinOp (854, Plus, (Name (855, (IndexedComponent (856, (Identifier (857, ((*X*) 119) )), (Literal (858, (Integer_Literal 2) )) )))), (Name (859, (IndexedComponent (860, (Identifier (861, ((*X*) 119) )), (Literal (862, (Integer_Literal 3) )) )))) )))),
+          (Seq (863,
+          (Assign (864, (IndexedComponent (865, (Identifier (866, ((*X*) 119) )), (Literal (867, (Integer_Literal 4) )) )), (BinOp (868, Plus, (Name (869, (IndexedComponent (870, (Identifier (871, ((*X*) 119) )), (Literal (872, (Integer_Literal 4) )) )))), (Name (873, (IndexedComponent (874, (Identifier (875, ((*X*) 119) )), (Literal (876, (Integer_Literal 5) )) )))) )))),
+          (Assign (877, (IndexedComponent (878, (Identifier (879, ((*X*) 119) )), (Literal (880, (Integer_Literal 6) )) )), (BinOp (881, Plus, (Name (882, (IndexedComponent (883, (Identifier (884, ((*X*) 119) )), (Literal (885, (Integer_Literal 6) )) )))), (Name (886, (IndexedComponent (887, (Identifier (888, ((*X*) 119) )), (Literal (889, (Integer_Literal 7) )) )))) ))))))))))
+        ))
       ),
-      (Assign (911, (Identifier (912, ((*R*) 131) )), (BinOp (913, Plus, (Name (914, (Identifier (915, ((*R*) 131) )))), (Literal (916, (Integer_Literal 1) )) )))))))))
-    )))
-  ))
-),
-(SeqDecl (917,
-(ProcBodyDecl (918, 
-  mkprocBodyDecl (
-   919,
-    (* = = = Procedure Name = = = *)
-    ((*Update_Context*) 132),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDecl],
-    (* = = = Procedure Body = = = *)
-    (Seq (920,
-    (Assign (921, (IndexedComponent (922, (SelectedComponent (923, (Identifier (924, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (926, (Integer_Literal 0) )) )), (BinOp (927, Plus, (Name (928, (IndexedComponent (929, (Identifier (930, ((*X*) 119) )), (Literal (931, (Integer_Literal 0) )) )))), (Name (932, (IndexedComponent (933, (Identifier (934, ((*W*) 120) )), (Literal (935, (Integer_Literal 0) )) )))) )))),
-    (Seq (936,
-    (Assign (937, (IndexedComponent (938, (SelectedComponent (939, (Identifier (940, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (942, (Integer_Literal 1) )) )), (BinOp (943, Plus, (Name (944, (IndexedComponent (945, (Identifier (946, ((*X*) 119) )), (Literal (947, (Integer_Literal 1) )) )))), (Name (948, (IndexedComponent (949, (Identifier (950, ((*W*) 120) )), (Literal (951, (Integer_Literal 1) )) )))) )))),
-    (Seq (952,
-    (Assign (953, (IndexedComponent (954, (SelectedComponent (955, (Identifier (956, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (958, (Integer_Literal 2) )) )), (BinOp (959, Plus, (Name (960, (IndexedComponent (961, (Identifier (962, ((*X*) 119) )), (Literal (963, (Integer_Literal 2) )) )))), (Name (964, (IndexedComponent (965, (Identifier (966, ((*W*) 120) )), (Literal (967, (Integer_Literal 2) )) )))) )))),
-    (Seq (968,
-    (Assign (969, (IndexedComponent (970, (SelectedComponent (971, (Identifier (972, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (974, (Integer_Literal 3) )) )), (BinOp (975, Plus, (Name (976, (IndexedComponent (977, (Identifier (978, ((*X*) 119) )), (Literal (979, (Integer_Literal 3) )) )))), (Name (980, (IndexedComponent (981, (Identifier (982, ((*W*) 120) )), (Literal (983, (Integer_Literal 3) )) )))) )))),
-    (Seq (984,
-    (Assign (985, (IndexedComponent (986, (SelectedComponent (987, (Identifier (988, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (990, (Integer_Literal 4) )) )), (BinOp (991, Plus, (Name (992, (IndexedComponent (993, (Identifier (994, ((*X*) 119) )), (Literal (995, (Integer_Literal 4) )) )))), (Name (996, (IndexedComponent (997, (Identifier (998, ((*W*) 120) )), (Literal (999, (Integer_Literal 4) )) )))) )))),
-    (Seq (1000,
-    (Assign (1001, (IndexedComponent (1002, (SelectedComponent (1003, (Identifier (1004, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1006, (Integer_Literal 5) )) )), (BinOp (1007, Plus, (Name (1008, (IndexedComponent (1009, (Identifier (1010, ((*X*) 119) )), (Literal (1011, (Integer_Literal 5) )) )))), (Name (1012, (IndexedComponent (1013, (Identifier (1014, ((*W*) 120) )), (Literal (1015, (Integer_Literal 5) )) )))) )))),
-    (Seq (1016,
-    (Assign (1017, (IndexedComponent (1018, (SelectedComponent (1019, (Identifier (1020, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1022, (Integer_Literal 6) )) )), (BinOp (1023, Plus, (Name (1024, (IndexedComponent (1025, (Identifier (1026, ((*X*) 119) )), (Literal (1027, (Integer_Literal 6) )) )))), (Name (1028, (IndexedComponent (1029, (Identifier (1030, ((*W*) 120) )), (Literal (1031, (Integer_Literal 6) )) )))) )))),
-    (Assign (1032, (IndexedComponent (1033, (SelectedComponent (1034, (Identifier (1035, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1037, (Integer_Literal 7) )) )), (BinOp (1038, Plus, (Name (1039, (IndexedComponent (1040, (Identifier (1041, ((*X*) 119) )), (Literal (1042, (Integer_Literal 7) )) )))), (Name (1043, (IndexedComponent (1044, (Identifier (1045, ((*W*) 120) )), (Literal (1046, (Integer_Literal 7) )) )))) ))))))))))))))))))
-  ))
-),
-(SeqDecl (1047,
-(ObjDecl (1048, { declaration_astnum = 1049; object_name = ((*J*) 133); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
-(ObjDecl (1050, { declaration_astnum = 1051; object_name = ((*Src_Offset*) 134); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))))))))))))))))))],
+      (ObjDecl (890, { declaration_astnum = 891; object_name = ((*R*) 131); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))),
+      (* = = = Procedure Body = = = *)
+      (Seq (892,
+      (Assign (893, (Identifier (894, ((*R*) 131) )), (Literal (895, (Integer_Literal 1) )))),
+      (While (896, (BinOp (897, Less_Than_Or_Equal, (Name (898, (Identifier (899, ((*R*) 131) )))), (Literal (900, (Integer_Literal 9) )) )),
+        (Seq (901,
+        (Call (902, 903, ((*Round_1*) 130), 
+          [])
+        ),
+        (Seq (904,
+        (Call (905, 906, ((*Inject_Key*) 126), 
+          [(BinOp (907, Multiply, (Name (908, (Identifier (909, ((*R*) 131) )))), (Literal (910, (Integer_Literal 2) )) ))])
+        ),
+        (Assign (911, (Identifier (912, ((*R*) 131) )), (BinOp (913, Plus, (Name (914, (Identifier (915, ((*R*) 131) )))), (Literal (916, (Integer_Literal 1) )) )))))))))
+      )))
+    ))
+  ),
+  (SeqDecl (917,
+  (ProcBodyDecl (918, 
+    mkprocBodyDecl (
+     919,
+      (* = = = Procedure Name = = = *)
+      ((*Update_Context*) 132),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDecl,
+      (* = = = Procedure Body = = = *)
+      (Seq (920,
+      (Assign (921, (IndexedComponent (922, (SelectedComponent (923, (Identifier (924, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (926, (Integer_Literal 0) )) )), (BinOp (927, Plus, (Name (928, (IndexedComponent (929, (Identifier (930, ((*X*) 119) )), (Literal (931, (Integer_Literal 0) )) )))), (Name (932, (IndexedComponent (933, (Identifier (934, ((*W*) 120) )), (Literal (935, (Integer_Literal 0) )) )))) )))),
+      (Seq (936,
+      (Assign (937, (IndexedComponent (938, (SelectedComponent (939, (Identifier (940, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (942, (Integer_Literal 1) )) )), (BinOp (943, Plus, (Name (944, (IndexedComponent (945, (Identifier (946, ((*X*) 119) )), (Literal (947, (Integer_Literal 1) )) )))), (Name (948, (IndexedComponent (949, (Identifier (950, ((*W*) 120) )), (Literal (951, (Integer_Literal 1) )) )))) )))),
+      (Seq (952,
+      (Assign (953, (IndexedComponent (954, (SelectedComponent (955, (Identifier (956, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (958, (Integer_Literal 2) )) )), (BinOp (959, Plus, (Name (960, (IndexedComponent (961, (Identifier (962, ((*X*) 119) )), (Literal (963, (Integer_Literal 2) )) )))), (Name (964, (IndexedComponent (965, (Identifier (966, ((*W*) 120) )), (Literal (967, (Integer_Literal 2) )) )))) )))),
+      (Seq (968,
+      (Assign (969, (IndexedComponent (970, (SelectedComponent (971, (Identifier (972, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (974, (Integer_Literal 3) )) )), (BinOp (975, Plus, (Name (976, (IndexedComponent (977, (Identifier (978, ((*X*) 119) )), (Literal (979, (Integer_Literal 3) )) )))), (Name (980, (IndexedComponent (981, (Identifier (982, ((*W*) 120) )), (Literal (983, (Integer_Literal 3) )) )))) )))),
+      (Seq (984,
+      (Assign (985, (IndexedComponent (986, (SelectedComponent (987, (Identifier (988, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (990, (Integer_Literal 4) )) )), (BinOp (991, Plus, (Name (992, (IndexedComponent (993, (Identifier (994, ((*X*) 119) )), (Literal (995, (Integer_Literal 4) )) )))), (Name (996, (IndexedComponent (997, (Identifier (998, ((*W*) 120) )), (Literal (999, (Integer_Literal 4) )) )))) )))),
+      (Seq (1000,
+      (Assign (1001, (IndexedComponent (1002, (SelectedComponent (1003, (Identifier (1004, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1006, (Integer_Literal 5) )) )), (BinOp (1007, Plus, (Name (1008, (IndexedComponent (1009, (Identifier (1010, ((*X*) 119) )), (Literal (1011, (Integer_Literal 5) )) )))), (Name (1012, (IndexedComponent (1013, (Identifier (1014, ((*W*) 120) )), (Literal (1015, (Integer_Literal 5) )) )))) )))),
+      (Seq (1016,
+      (Assign (1017, (IndexedComponent (1018, (SelectedComponent (1019, (Identifier (1020, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1022, (Integer_Literal 6) )) )), (BinOp (1023, Plus, (Name (1024, (IndexedComponent (1025, (Identifier (1026, ((*X*) 119) )), (Literal (1027, (Integer_Literal 6) )) )))), (Name (1028, (IndexedComponent (1029, (Identifier (1030, ((*W*) 120) )), (Literal (1031, (Integer_Literal 6) )) )))) )))),
+      (Assign (1032, (IndexedComponent (1033, (SelectedComponent (1034, (Identifier (1035, ((*Ctx*) 112) )), ((*X*) 63) )), (Literal (1037, (Integer_Literal 7) )) )), (BinOp (1038, Plus, (Name (1039, (IndexedComponent (1040, (Identifier (1041, ((*X*) 119) )), (Literal (1042, (Integer_Literal 7) )) )))), (Name (1043, (IndexedComponent (1044, (Identifier (1045, ((*W*) 120) )), (Literal (1046, (Integer_Literal 7) )) )))) ))))))))))))))))))
+    ))
+  ),
+  (SeqDecl (1047,
+  (ObjDecl (1048, { declaration_astnum = 1049; object_name = ((*J*) 133); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
+  (ObjDecl (1050, { declaration_astnum = 1051; object_name = ((*Src_Offset*) 134); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))))))))))))))))))),
   (* = = = Procedure Body = = = *)
   (Seq (1052,
   (Assign (1053, (Identifier (1054, ((*J*) 133) )), (Literal (1055, (Integer_Literal 1) )))),
@@ -1384,7 +1384,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(ObjDecl (450, { declaration_astnum = 451; object_name = ((*I*) 122); object_nominal_subtype = (Subtype ((*I8*) 9)); initialization_exp = None }))],
+  (ObjDecl (450, { declaration_astnum = 451; object_name = ((*I*) 122); object_nominal_subtype = (Subtype ((*I8*) 9)); initialization_exp = None })),
   (* = = = Procedure Body = = = *)
   (Seq (452,
   (Assign (453, (IndexedComponent (454, (Identifier (455, ((*KS*) 118) )), (Literal (456, (Integer_Literal 8) )) )), (Literal (457, (Integer_Literal 16) )))),
@@ -1405,57 +1405,57 @@ let Symbol_Table = {
   [{ parameter_astnum = 1121; parameter_name = ((*Ctx*) 136); parameter_subtype_mark = (Record_Type ((*Skein_512_Context*) 61)); parameter_mode = In_Out }; 
 { parameter_astnum = 1122; parameter_name = ((*Msg*) 137); parameter_subtype_mark = (Array_Type ((*Byte_Seq*) 14)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDecl (1123,
-(ObjDecl (1124, { declaration_astnum = 1125; object_name = ((*Msg_Byte_Count*) 138); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-(SeqDecl (1126,
-(ObjDecl (1127, { declaration_astnum = 1128; object_name = ((*N*) 139); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-(SeqDecl (1129,
-(ObjDecl (1130, { declaration_astnum = 1131; object_name = ((*Block_Count*) 140); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
-(SeqDecl (1132,
-(ObjDecl (1133, { declaration_astnum = 1134; object_name = ((*Current_Msg_Offset*) 141); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-(SeqDecl (1135,
-(ObjDecl (1136, { declaration_astnum = 1137; object_name = ((*Bytes_Hashed*) 142); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-(SeqDecl (1138,
-(ObjDecl (1139, { declaration_astnum = 1140; object_name = ((*Tmp_B*) 143); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
-(ProcBodyDecl (1141, 
-  mkprocBodyDecl (
-   1142,
-    (* = = = Procedure Name = = = *)
-    ((*Copy_Msg_To_B*) 144),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnum = 1143; parameter_name = ((*Msg_Offset*) 145); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }; 
-  { parameter_astnum = 1144; parameter_name = ((*Num_Bytes*) 146); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
-    (* = = = Object Declarations = = = *)
-    [(SeqDecl (1145,
-  (ObjDecl (1146, { declaration_astnum = 1147; object_name = ((*Src*) 147); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
-  (SeqDecl (1148,
-  (ObjDecl (1149, { declaration_astnum = 1150; object_name = ((*Dst*) 148); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-  (SeqDecl (1151,
-  (ObjDecl (1152, { declaration_astnum = 1153; object_name = ((*Final_Dst*) 149); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
-  (ObjDecl (1154, { declaration_astnum = 1155; object_name = ((*Final_Src*) 150); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None }))))))))],
-    (* = = = Procedure Body = = = *)
-    (If (1156, (BinOp (1157, Greater_Than, (Name (1158, (Identifier (1159, ((*Num_Bytes*) 146) )))), (Literal (1160, (Integer_Literal 0) )) )),
-      (Seq (1161,
-      (Assign (1162, (Identifier (1163, ((*Src*) 147) )), (Name (1164, (Identifier (1165, ((*Msg_Offset*) 145) )))))),
-      (Seq (1166,
-      (Assign (1167, (Identifier (1168, ((*Dst*) 148) )), (Name (1169, (SelectedComponent (1170, (SelectedComponent (1171, (Identifier (1172, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
-      (Seq (1175,
-      (Assign (1176, (Identifier (1177, ((*Final_Dst*) 149) )), (BinOp (1178, Plus, (Name (1179, (Identifier (1180, ((*Dst*) 148) )))), (BinOp (1181, Minus, (Name (1182, (Identifier (1183, ((*Num_Bytes*) 146) )))), (Literal (1184, (Integer_Literal 1) )) )) )))),
-      (Seq (1185,
-      (Assign (1186, (Identifier (1187, ((*Final_Src*) 150) )), (BinOp (1188, Plus, (Name (1189, (Identifier (1190, ((*Src*) 147) )))), (BinOp (1191, Minus, (Name (1192, (Identifier (1193, ((*Num_Bytes*) 146) )))), (Literal (1194, (Integer_Literal 1) )) )) )))),
-      (Seq (1195,
-      (While (1196, (BinOp (1197, Or, (BinOp (1198, Greater_Than_Or_Equal, (Name (1199, (Identifier (1200, ((*Dst*) 148) )))), (Name (1201, (Identifier (1202, ((*Final_Dst*) 149) )))) )), (BinOp (1203, Greater_Than_Or_Equal, (Name (1204, (Identifier (1205, ((*Src*) 147) )))), (Name (1206, (Identifier (1207, ((*Final_Src*) 150) )))) )) )),
-        (Seq (1208,
-        (Assign (1209, (IndexedComponent (1210, (SelectedComponent (1211, (Identifier (1212, ((*Ctx*) 136) )), ((*B*) 64) )), (Name (1214, (Identifier (1215, ((*Dst*) 148) )))) )), (Name (1216, (IndexedComponent (1217, (Identifier (1218, ((*Msg*) 137) )), (Name (1219, (Identifier (1220, ((*Src*) 147) )))) )))))),
-        (Seq (1221,
-        (Assign (1222, (Identifier (1223, ((*Dst*) 148) )), (BinOp (1224, Plus, (Name (1225, (Identifier (1226, ((*Dst*) 148) )))), (Literal (1227, (Integer_Literal 1) )) )))),
-        (Assign (1228, (Identifier (1229, ((*Src*) 147) )), (BinOp (1230, Plus, (Name (1231, (Identifier (1232, ((*Src*) 147) )))), (Literal (1233, (Integer_Literal 1) )) )))))))))
-      ),
-      (Assign (1234, (SelectedComponent (1235, (SelectedComponent (1236, (Identifier (1237, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )), (BinOp (1240, Plus, (Name (1241, (SelectedComponent (1242, (SelectedComponent (1243, (Identifier (1244, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))), (Name (1247, (Identifier (1248, ((*Num_Bytes*) 146) )))) )))))))))))))),
-      Null)
-    )
-  ))
-)))))))))))))],
+  (SeqDecl (1123,
+  (ObjDecl (1124, { declaration_astnum = 1125; object_name = ((*Msg_Byte_Count*) 138); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+  (SeqDecl (1126,
+  (ObjDecl (1127, { declaration_astnum = 1128; object_name = ((*N*) 139); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+  (SeqDecl (1129,
+  (ObjDecl (1130, { declaration_astnum = 1131; object_name = ((*Block_Count*) 140); object_nominal_subtype = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_exp = None })),
+  (SeqDecl (1132,
+  (ObjDecl (1133, { declaration_astnum = 1134; object_name = ((*Current_Msg_Offset*) 141); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+  (SeqDecl (1135,
+  (ObjDecl (1136, { declaration_astnum = 1137; object_name = ((*Bytes_Hashed*) 142); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+  (SeqDecl (1138,
+  (ObjDecl (1139, { declaration_astnum = 1140; object_name = ((*Tmp_B*) 143); object_nominal_subtype = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_exp = None })),
+  (ProcBodyDecl (1141, 
+    mkprocBodyDecl (
+     1142,
+      (* = = = Procedure Name = = = *)
+      ((*Copy_Msg_To_B*) 144),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnum = 1143; parameter_name = ((*Msg_Offset*) 145); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }; 
+    { parameter_astnum = 1144; parameter_name = ((*Num_Bytes*) 146); parameter_subtype_mark = (Subtype ((*U64*) 4)); parameter_mode = In }],
+      (* = = = Object Declarations = = = *)
+      (SeqDecl (1145,
+      (ObjDecl (1146, { declaration_astnum = 1147; object_name = ((*Src*) 147); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })),
+      (SeqDecl (1148,
+      (ObjDecl (1149, { declaration_astnum = 1150; object_name = ((*Dst*) 148); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+      (SeqDecl (1151,
+      (ObjDecl (1152, { declaration_astnum = 1153; object_name = ((*Final_Dst*) 149); object_nominal_subtype = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_exp = None })),
+      (ObjDecl (1154, { declaration_astnum = 1155; object_name = ((*Final_Src*) 150); object_nominal_subtype = (Subtype ((*U64*) 4)); initialization_exp = None })))))))),
+      (* = = = Procedure Body = = = *)
+      (If (1156, (BinOp (1157, Greater_Than, (Name (1158, (Identifier (1159, ((*Num_Bytes*) 146) )))), (Literal (1160, (Integer_Literal 0) )) )),
+        (Seq (1161,
+        (Assign (1162, (Identifier (1163, ((*Src*) 147) )), (Name (1164, (Identifier (1165, ((*Msg_Offset*) 145) )))))),
+        (Seq (1166,
+        (Assign (1167, (Identifier (1168, ((*Dst*) 148) )), (Name (1169, (SelectedComponent (1170, (SelectedComponent (1171, (Identifier (1172, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))))),
+        (Seq (1175,
+        (Assign (1176, (Identifier (1177, ((*Final_Dst*) 149) )), (BinOp (1178, Plus, (Name (1179, (Identifier (1180, ((*Dst*) 148) )))), (BinOp (1181, Minus, (Name (1182, (Identifier (1183, ((*Num_Bytes*) 146) )))), (Literal (1184, (Integer_Literal 1) )) )) )))),
+        (Seq (1185,
+        (Assign (1186, (Identifier (1187, ((*Final_Src*) 150) )), (BinOp (1188, Plus, (Name (1189, (Identifier (1190, ((*Src*) 147) )))), (BinOp (1191, Minus, (Name (1192, (Identifier (1193, ((*Num_Bytes*) 146) )))), (Literal (1194, (Integer_Literal 1) )) )) )))),
+        (Seq (1195,
+        (While (1196, (BinOp (1197, Or, (BinOp (1198, Greater_Than_Or_Equal, (Name (1199, (Identifier (1200, ((*Dst*) 148) )))), (Name (1201, (Identifier (1202, ((*Final_Dst*) 149) )))) )), (BinOp (1203, Greater_Than_Or_Equal, (Name (1204, (Identifier (1205, ((*Src*) 147) )))), (Name (1206, (Identifier (1207, ((*Final_Src*) 150) )))) )) )),
+          (Seq (1208,
+          (Assign (1209, (IndexedComponent (1210, (SelectedComponent (1211, (Identifier (1212, ((*Ctx*) 136) )), ((*B*) 64) )), (Name (1214, (Identifier (1215, ((*Dst*) 148) )))) )), (Name (1216, (IndexedComponent (1217, (Identifier (1218, ((*Msg*) 137) )), (Name (1219, (Identifier (1220, ((*Src*) 147) )))) )))))),
+          (Seq (1221,
+          (Assign (1222, (Identifier (1223, ((*Dst*) 148) )), (BinOp (1224, Plus, (Name (1225, (Identifier (1226, ((*Dst*) 148) )))), (Literal (1227, (Integer_Literal 1) )) )))),
+          (Assign (1228, (Identifier (1229, ((*Src*) 147) )), (BinOp (1230, Plus, (Name (1231, (Identifier (1232, ((*Src*) 147) )))), (Literal (1233, (Integer_Literal 1) )) )))))))))
+        ),
+        (Assign (1234, (SelectedComponent (1235, (SelectedComponent (1236, (Identifier (1237, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )), (BinOp (1240, Plus, (Name (1241, (SelectedComponent (1242, (SelectedComponent (1243, (Identifier (1244, ((*Ctx*) 136) )), ((*H*) 62) )), ((*Byte_Count*) 60) )))), (Name (1247, (Identifier (1248, ((*Num_Bytes*) 146) )))) )))))))))))))),
+        Null)
+      )
+    ))
+  ))))))))))))),
   (* = = = Procedure Body = = = *)
   (Seq (1249,
   (Assign (1250, (Identifier (1251, ((*Msg_Byte_Count*) 138) )), (Literal (1252, (Integer_Literal 2147483647) )))),
@@ -1710,7 +1710,7 @@ NullDeclRT (* Undefined Declarations ! *),
   { parameter_astnumRT = 281; parameter_nameRT = ((*Src*) 101); parameter_subtype_markRT = (Array_Type ((*U64_Seq*) 22)); parameter_modeRT = In }; 
   { parameter_astnumRT = 282; parameter_nameRT = ((*Byte_Count*) 102); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
     (* = = = Object Declarations = = = *)
-    [(ObjDeclRT (283, { declaration_astnumRT = 284; object_nameRT = ((*N*) 103); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))],
+    (ObjDeclRT (283, { declaration_astnumRT = 284; object_nameRT = ((*N*) 103); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
     (* = = = Procedure Body = = = *)
     (IfRT (285, (BinOpRT (286, Greater_Than_Or_Equal, (NameRT (287, (IdentifierRT (288, ((*Byte_Count*) 102) , [])))), (LiteralRT (289, (Integer_Literal 1) , [], [])) , [], [])),
       (SeqRT (290,
@@ -1735,9 +1735,9 @@ NullDeclRT (* Undefined Declarations ! *),
   { parameter_astnumRT = 328; parameter_nameRT = ((*Src*) 107); parameter_subtype_markRT = (Array_Type ((*Byte_Seq*) 14)); parameter_modeRT = In }; 
   { parameter_astnumRT = 329; parameter_nameRT = ((*Src_Offset*) 108); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (330,
-  (ObjDeclRT (331, { declaration_astnumRT = 332; object_nameRT = ((*Dst_Index*) 109); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-  (ObjDeclRT (333, { declaration_astnumRT = 334; object_nameRT = ((*Src_Index*) 110); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))],
+    (SeqDeclRT (330,
+    (ObjDeclRT (331, { declaration_astnumRT = 332; object_nameRT = ((*Dst_Index*) 109); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+    (ObjDeclRT (333, { declaration_astnumRT = 334; object_nameRT = ((*Src_Index*) 110); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))),
     (* = = = Procedure Body = = = *)
     (SeqRT (335,
     (AssignRT (336, (IdentifierRT (337, ((*Dst_Index*) 109) , [])), (LiteralRT (338, (Integer_Literal 0) , [], [])))),
@@ -1763,209 +1763,209 @@ NullDeclRT (* Undefined Declarations ! *),
   { parameter_astnumRT = 433; parameter_nameRT = ((*Block_Count*) 115); parameter_subtype_markRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); parameter_modeRT = In }; 
   { parameter_astnumRT = 434; parameter_nameRT = ((*Byte_Count_Add*) 116); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (435,
-  (ObjDeclRT (436, { declaration_astnumRT = 437; object_nameRT = ((*TS*) 117); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_3*) 23)); initialization_expRT = None })),
-  (SeqDeclRT (438,
-  (ObjDeclRT (439, { declaration_astnumRT = 440; object_nameRT = ((*KS*) 118); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_9*) 26)); initialization_expRT = None })),
-  (SeqDeclRT (441,
-  (ObjDeclRT (442, { declaration_astnumRT = 443; object_nameRT = ((*X*) 119); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
-  (SeqDeclRT (444,
-  (ObjDeclRT (445, { declaration_astnumRT = 446; object_nameRT = ((*W*) 120); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
-  (SeqDeclRT (447,
-  (ProcBodyDeclRT (448, 
-    mkprocBodyDeclRT (
-     449,
-      (* = = = Procedure Name = = = *)
-      ((*Initialize_Key_Schedule*) 121),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [(ObjDeclRT (450, { declaration_astnumRT = 451; object_nameRT = ((*I*) 122); object_nominal_subtypeRT = (Subtype ((*I8*) 9)); initialization_expRT = None }))],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (452,
-      (AssignRT (453, (IndexedComponentRT (454, (IdentifierRT (455, ((*KS*) 118) , [])), (LiteralRT (456, (Integer_Literal 8) , [], [])) , [])), (LiteralRT (457, (Integer_Literal 16) , [], [])))),
-      (SeqRT (458,
-      (AssignRT (459, (IdentifierRT (460, ((*I*) 122) , [])), (LiteralRT (461, (Integer_Literal 0) , [], [])))),
-      (WhileRT (462, (BinOpRT (463, Less_Than_Or_Equal, (NameRT (464, (IdentifierRT (465, ((*I*) 122) , [])))), (LiteralRT (466, (Integer_Literal 7) , [], [])) , [], [])),
-        (SeqRT (467,
-        (AssignRT (468, (IndexedComponentRT (469, (IdentifierRT (470, ((*KS*) 118) , [])), (NameRT (471, (IdentifierRT (472, ((*I*) 122) , [])))) , [])), (NameRT (473, (IndexedComponentRT (474, (SelectedComponentRT (475, (IdentifierRT (476, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (478, (IdentifierRT (479, ((*I*) 122) , [])))) , [])))))),
-        (SeqRT (480,
-        (AssignRT (481, (IndexedComponentRT (482, (IdentifierRT (483, ((*KS*) 118) , [])), (LiteralRT (484, (Integer_Literal 8) , [], [])) , [])), (BinOpRT (485, Plus, (NameRT (486, (IndexedComponentRT (487, (IdentifierRT (488, ((*KS*) 118) , [])), (LiteralRT (489, (Integer_Literal 8) , [], [])) , [])))), (NameRT (490, (IndexedComponentRT (491, (SelectedComponentRT (492, (IdentifierRT (493, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (495, (IdentifierRT (496, ((*I*) 122) , [])))) , [])))) , [OverflowCheck], [])))),
-        (AssignRT (497, (IdentifierRT (498, ((*I*) 122) , [])), (BinOpRT (499, Plus, (NameRT (500, (IdentifierRT (501, ((*I*) 122) , [])))), (LiteralRT (502, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))))
-      )))))
-    ))
-  ),
-  (SeqDeclRT (503,
-  (ProcBodyDeclRT (504, 
-    mkprocBodyDeclRT (
-     505,
-      (* = = = Procedure Name = = = *)
-      ((*Initialize_TS*) 123),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [NullDeclRT],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (506,
-      (AssignRT (507, (IndexedComponentRT (508, (IdentifierRT (509, ((*TS*) 117) , [])), (LiteralRT (510, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (511, (Integer_Literal 0) , [], [])))),
-      (SeqRT (512,
-      (AssignRT (513, (IndexedComponentRT (514, (IdentifierRT (515, ((*TS*) 117) , [])), (LiteralRT (516, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (517, (Integer_Literal 1) , [], [])))),
-      (SeqRT (518,
-      (AssignRT (519, (IndexedComponentRT (520, (IdentifierRT (521, ((*TS*) 117) , [])), (LiteralRT (522, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (523, (Integer_Literal 2) , [], [])))),
-      (SeqRT (524,
-      (AssignRT (525, (IndexedComponentRT (526, (IdentifierRT (527, ((*W*) 120) , [])), (LiteralRT (528, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (529, (Integer_Literal 0) , [], [])))),
-      (SeqRT (530,
-      (AssignRT (531, (IndexedComponentRT (532, (IdentifierRT (533, ((*W*) 120) , [])), (LiteralRT (534, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (535, (Integer_Literal 1) , [], [])))),
-      (SeqRT (536,
-      (AssignRT (537, (IndexedComponentRT (538, (IdentifierRT (539, ((*W*) 120) , [])), (LiteralRT (540, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (541, (Integer_Literal 2) , [], [])))),
-      (SeqRT (542,
-      (AssignRT (543, (IndexedComponentRT (544, (IdentifierRT (545, ((*W*) 120) , [])), (LiteralRT (546, (Integer_Literal 3) , [], [])) , [])), (LiteralRT (547, (Integer_Literal 3) , [], [])))),
-      (SeqRT (548,
-      (AssignRT (549, (IndexedComponentRT (550, (IdentifierRT (551, ((*W*) 120) , [])), (LiteralRT (552, (Integer_Literal 4) , [], [])) , [])), (LiteralRT (553, (Integer_Literal 4) , [], [])))),
-      (SeqRT (554,
-      (AssignRT (555, (IndexedComponentRT (556, (IdentifierRT (557, ((*W*) 120) , [])), (LiteralRT (558, (Integer_Literal 5) , [], [])) , [])), (LiteralRT (559, (Integer_Literal 5) , [], [])))),
-      (SeqRT (560,
-      (AssignRT (561, (IndexedComponentRT (562, (IdentifierRT (563, ((*W*) 120) , [])), (LiteralRT (564, (Integer_Literal 6) , [], [])) , [])), (LiteralRT (565, (Integer_Literal 6) , [], [])))),
-      (AssignRT (566, (IndexedComponentRT (567, (IdentifierRT (568, ((*W*) 120) , [])), (LiteralRT (569, (Integer_Literal 7) , [], [])) , [])), (LiteralRT (570, (Integer_Literal 7) , [], []))))))))))))))))))))))))
-    ))
-  ),
-  (SeqDeclRT (571,
-  (ProcBodyDeclRT (572, 
-    mkprocBodyDeclRT (
-     573,
-      (* = = = Procedure Name = = = *)
-      ((*Do_First_Key_Injection*) 124),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [NullDeclRT],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (574,
-      (AssignRT (575, (IndexedComponentRT (576, (IdentifierRT (577, ((*X*) 119) , [])), (LiteralRT (578, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (579, Plus, (NameRT (580, (IndexedComponentRT (581, (IdentifierRT (582, ((*W*) 120) , [])), (LiteralRT (583, (Integer_Literal 0) , [], [])) , [])))), (NameRT (584, (IndexedComponentRT (585, (IdentifierRT (586, ((*KS*) 118) , [])), (LiteralRT (587, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (588,
-      (AssignRT (589, (IndexedComponentRT (590, (IdentifierRT (591, ((*X*) 119) , [])), (LiteralRT (592, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (593, Plus, (NameRT (594, (IndexedComponentRT (595, (IdentifierRT (596, ((*W*) 120) , [])), (LiteralRT (597, (Integer_Literal 1) , [], [])) , [])))), (NameRT (598, (IndexedComponentRT (599, (IdentifierRT (600, ((*KS*) 118) , [])), (LiteralRT (601, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (602,
-      (AssignRT (603, (IndexedComponentRT (604, (IdentifierRT (605, ((*X*) 119) , [])), (LiteralRT (606, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (607, Plus, (NameRT (608, (IndexedComponentRT (609, (IdentifierRT (610, ((*W*) 120) , [])), (LiteralRT (611, (Integer_Literal 2) , [], [])) , [])))), (NameRT (612, (IndexedComponentRT (613, (IdentifierRT (614, ((*KS*) 118) , [])), (LiteralRT (615, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (616,
-      (AssignRT (617, (IndexedComponentRT (618, (IdentifierRT (619, ((*X*) 119) , [])), (LiteralRT (620, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (621, Plus, (NameRT (622, (IndexedComponentRT (623, (IdentifierRT (624, ((*W*) 120) , [])), (LiteralRT (625, (Integer_Literal 3) , [], [])) , [])))), (NameRT (626, (IndexedComponentRT (627, (IdentifierRT (628, ((*KS*) 118) , [])), (LiteralRT (629, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (630,
-      (AssignRT (631, (IndexedComponentRT (632, (IdentifierRT (633, ((*X*) 119) , [])), (LiteralRT (634, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (635, Plus, (NameRT (636, (IndexedComponentRT (637, (IdentifierRT (638, ((*W*) 120) , [])), (LiteralRT (639, (Integer_Literal 4) , [], [])) , [])))), (NameRT (640, (IndexedComponentRT (641, (IdentifierRT (642, ((*KS*) 118) , [])), (LiteralRT (643, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (644,
-      (AssignRT (645, (IndexedComponentRT (646, (IdentifierRT (647, ((*X*) 119) , [])), (LiteralRT (648, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (649, Plus, (NameRT (650, (IndexedComponentRT (651, (IdentifierRT (652, ((*W*) 120) , [])), (LiteralRT (653, (Integer_Literal 5) , [], [])) , [])))), (NameRT (654, (IndexedComponentRT (655, (IdentifierRT (656, ((*KS*) 118) , [])), (LiteralRT (657, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (658,
-      (AssignRT (659, (IndexedComponentRT (660, (IdentifierRT (661, ((*X*) 119) , [])), (LiteralRT (662, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (663, Plus, (NameRT (664, (IndexedComponentRT (665, (IdentifierRT (666, ((*W*) 120) , [])), (LiteralRT (667, (Integer_Literal 6) , [], [])) , [])))), (NameRT (668, (IndexedComponentRT (669, (IdentifierRT (670, ((*KS*) 118) , [])), (LiteralRT (671, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (672,
-      (AssignRT (673, (IndexedComponentRT (674, (IdentifierRT (675, ((*X*) 119) , [])), (LiteralRT (676, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (677, Plus, (NameRT (678, (IndexedComponentRT (679, (IdentifierRT (680, ((*W*) 120) , [])), (LiteralRT (681, (Integer_Literal 7) , [], [])) , [])))), (NameRT (682, (IndexedComponentRT (683, (IdentifierRT (684, ((*KS*) 118) , [])), (LiteralRT (685, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (686,
-      (AssignRT (687, (IndexedComponentRT (688, (IdentifierRT (689, ((*X*) 119) , [])), (BinOpRT (690, Minus, (LiteralRT (691, (Integer_Literal 8) , [], [])), (LiteralRT (692, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (693, Plus, (NameRT (694, (IndexedComponentRT (695, (IdentifierRT (696, ((*X*) 119) , [])), (BinOpRT (697, Minus, (LiteralRT (698, (Integer_Literal 8) , [], [])), (LiteralRT (699, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (700, (IndexedComponentRT (701, (IdentifierRT (702, ((*TS*) 117) , [])), (LiteralRT (703, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (AssignRT (704, (IndexedComponentRT (705, (IdentifierRT (706, ((*X*) 119) , [])), (BinOpRT (707, Minus, (LiteralRT (708, (Integer_Literal 8) , [], [])), (LiteralRT (709, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (710, Plus, (NameRT (711, (IndexedComponentRT (712, (IdentifierRT (713, ((*X*) 119) , [])), (BinOpRT (714, Minus, (LiteralRT (715, (Integer_Literal 8) , [], [])), (LiteralRT (716, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (717, (IndexedComponentRT (718, (IdentifierRT (719, ((*TS*) 117) , [])), (LiteralRT (720, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))))))
-    ))
-  ),
-  (SeqDeclRT (721,
-  (ProcBodyDeclRT (722, 
-    mkprocBodyDeclRT (
-     723,
-      (* = = = Procedure Name = = = *)
-      ((*Threefish_Block*) 125),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [(SeqDeclRT (724,
-    (ProcBodyDeclRT (725, 
+    (SeqDeclRT (435,
+    (ObjDeclRT (436, { declaration_astnumRT = 437; object_nameRT = ((*TS*) 117); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_3*) 23)); initialization_expRT = None })),
+    (SeqDeclRT (438,
+    (ObjDeclRT (439, { declaration_astnumRT = 440; object_nameRT = ((*KS*) 118); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_9*) 26)); initialization_expRT = None })),
+    (SeqDeclRT (441,
+    (ObjDeclRT (442, { declaration_astnumRT = 443; object_nameRT = ((*X*) 119); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
+    (SeqDeclRT (444,
+    (ObjDeclRT (445, { declaration_astnumRT = 446; object_nameRT = ((*W*) 120); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
+    (SeqDeclRT (447,
+    (ProcBodyDeclRT (448, 
       mkprocBodyDeclRT (
-       726,
+       449,
         (* = = = Procedure Name = = = *)
-        ((*Inject_Key*) 126),
-        (* = = = Formal Parameters = = = *)
-        [{ parameter_astnumRT = 727; parameter_nameRT = ((*R*) 127); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
-        (* = = = Object Declarations = = = *)
-        [(SeqDeclRT (728,
-      (TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
-      (ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None }))))],
-        (* = = = Procedure Body = = = *)
-        (SeqRT (733,
-        (AssignRT (734, (IdentifierRT (735, ((*I*) 129) , [])), (LiteralRT (736, (Integer_Literal 0) , [], [])))),
-        (SeqRT (737,
-        (WhileRT (738, (BinOpRT (739, Less_Than_Or_Equal, (NameRT (740, (IdentifierRT (741, ((*I*) 129) , [])))), (LiteralRT (742, (Integer_Literal 7) , [], [])) , [], [])),
-          (SeqRT (743,
-          (AssignRT (744, (IndexedComponentRT (745, (IdentifierRT (746, ((*X*) 119) , [])), (NameRT (747, (IdentifierRT (748, ((*I*) 129) , [])))) , [])), (BinOpRT (749, Plus, (NameRT (750, (IndexedComponentRT (751, (IdentifierRT (752, ((*X*) 119) , [])), (NameRT (753, (IdentifierRT (754, ((*I*) 129) , [])))) , [])))), (NameRT (755, (IndexedComponentRT (756, (IdentifierRT (757, ((*KS*) 118) , [])), (BinOpRT (758, Modulus, (BinOpRT (759, Plus, (NameRT (760, (IdentifierRT (761, ((*R*) 127) , [])))), (NameRT (762, (IdentifierRT (763, ((*I*) 129) , [])))) , [OverflowCheck], [])), (BinOpRT (764, Plus, (LiteralRT (765, (Integer_Literal 8) , [], [])), (LiteralRT (766, (Integer_Literal 1) , [], [])) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-          (AssignRT (767, (IdentifierRT (768, ((*I*) 129) , [])), (BinOpRT (769, Plus, (NameRT (770, (IdentifierRT (771, ((*I*) 129) , [])))), (LiteralRT (772, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
-        ),
-        (SeqRT (773,
-        (AssignRT (774, (IndexedComponentRT (775, (IdentifierRT (776, ((*X*) 119) , [])), (BinOpRT (777, Minus, (LiteralRT (778, (Integer_Literal 8) , [], [])), (LiteralRT (779, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (780, Plus, (NameRT (781, (IndexedComponentRT (782, (IdentifierRT (783, ((*X*) 119) , [])), (BinOpRT (784, Minus, (LiteralRT (785, (Integer_Literal 8) , [], [])), (LiteralRT (786, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (787, (IndexedComponentRT (788, (IdentifierRT (789, ((*TS*) 117) , [])), (BinOpRT (790, Modulus, (NameRT (791, (IdentifierRT (792, ((*R*) 127) , [])))), (LiteralRT (793, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-        (SeqRT (794,
-        (AssignRT (795, (IndexedComponentRT (796, (IdentifierRT (797, ((*X*) 119) , [])), (BinOpRT (798, Minus, (LiteralRT (799, (Integer_Literal 8) , [], [])), (LiteralRT (800, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (801, Plus, (NameRT (802, (IndexedComponentRT (803, (IdentifierRT (804, ((*X*) 119) , [])), (BinOpRT (805, Minus, (LiteralRT (806, (Integer_Literal 8) , [], [])), (LiteralRT (807, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (808, (IndexedComponentRT (809, (IdentifierRT (810, ((*TS*) 117) , [])), (BinOpRT (811, Modulus, (BinOpRT (812, Plus, (NameRT (813, (IdentifierRT (814, ((*R*) 127) , [])))), (LiteralRT (815, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])), (LiteralRT (816, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-        (AssignRT (817, (IndexedComponentRT (818, (IdentifierRT (819, ((*X*) 119) , [])), (BinOpRT (820, Minus, (LiteralRT (821, (Integer_Literal 8) , [], [])), (LiteralRT (822, (Integer_Literal 1) , [], [])) , [], [])) , [])), (BinOpRT (823, Plus, (NameRT (824, (IndexedComponentRT (825, (IdentifierRT (826, ((*X*) 119) , [])), (BinOpRT (827, Minus, (LiteralRT (828, (Integer_Literal 8) , [], [])), (LiteralRT (829, (Integer_Literal 1) , [], [])) , [], [])) , [])))), (NameRT (830, (IdentifierRT (831, ((*R*) 127) , [])))) , [OverflowCheck], []))))))))))))
-      ))
-    ),
-    (SeqDeclRT (832,
-    (ProcBodyDeclRT (833, 
-      mkprocBodyDeclRT (
-       834,
-        (* = = = Procedure Name = = = *)
-        ((*Round_1*) 130),
+        ((*Initialize_Key_Schedule*) 121),
         (* = = = Formal Parameters = = = *)
         [],
         (* = = = Object Declarations = = = *)
-        [NullDeclRT],
+        (ObjDeclRT (450, { declaration_astnumRT = 451; object_nameRT = ((*I*) 122); object_nominal_subtypeRT = (Subtype ((*I8*) 9)); initialization_expRT = None })),
         (* = = = Procedure Body = = = *)
-        (SeqRT (835,
-        (AssignRT (836, (IndexedComponentRT (837, (IdentifierRT (838, ((*X*) 119) , [])), (LiteralRT (839, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (840, Plus, (NameRT (841, (IndexedComponentRT (842, (IdentifierRT (843, ((*X*) 119) , [])), (LiteralRT (844, (Integer_Literal 0) , [], [])) , [])))), (NameRT (845, (IndexedComponentRT (846, (IdentifierRT (847, ((*X*) 119) , [])), (LiteralRT (848, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
-        (SeqRT (849,
-        (AssignRT (850, (IndexedComponentRT (851, (IdentifierRT (852, ((*X*) 119) , [])), (LiteralRT (853, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (854, Plus, (NameRT (855, (IndexedComponentRT (856, (IdentifierRT (857, ((*X*) 119) , [])), (LiteralRT (858, (Integer_Literal 2) , [], [])) , [])))), (NameRT (859, (IndexedComponentRT (860, (IdentifierRT (861, ((*X*) 119) , [])), (LiteralRT (862, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
-        (SeqRT (863,
-        (AssignRT (864, (IndexedComponentRT (865, (IdentifierRT (866, ((*X*) 119) , [])), (LiteralRT (867, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (868, Plus, (NameRT (869, (IndexedComponentRT (870, (IdentifierRT (871, ((*X*) 119) , [])), (LiteralRT (872, (Integer_Literal 4) , [], [])) , [])))), (NameRT (873, (IndexedComponentRT (874, (IdentifierRT (875, ((*X*) 119) , [])), (LiteralRT (876, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
-        (AssignRT (877, (IndexedComponentRT (878, (IdentifierRT (879, ((*X*) 119) , [])), (LiteralRT (880, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (881, Plus, (NameRT (882, (IndexedComponentRT (883, (IdentifierRT (884, ((*X*) 119) , [])), (LiteralRT (885, (Integer_Literal 6) , [], [])) , [])))), (NameRT (886, (IndexedComponentRT (887, (IdentifierRT (888, ((*X*) 119) , [])), (LiteralRT (889, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))
+        (SeqRT (452,
+        (AssignRT (453, (IndexedComponentRT (454, (IdentifierRT (455, ((*KS*) 118) , [])), (LiteralRT (456, (Integer_Literal 8) , [], [])) , [])), (LiteralRT (457, (Integer_Literal 16) , [], [])))),
+        (SeqRT (458,
+        (AssignRT (459, (IdentifierRT (460, ((*I*) 122) , [])), (LiteralRT (461, (Integer_Literal 0) , [], [])))),
+        (WhileRT (462, (BinOpRT (463, Less_Than_Or_Equal, (NameRT (464, (IdentifierRT (465, ((*I*) 122) , [])))), (LiteralRT (466, (Integer_Literal 7) , [], [])) , [], [])),
+          (SeqRT (467,
+          (AssignRT (468, (IndexedComponentRT (469, (IdentifierRT (470, ((*KS*) 118) , [])), (NameRT (471, (IdentifierRT (472, ((*I*) 122) , [])))) , [])), (NameRT (473, (IndexedComponentRT (474, (SelectedComponentRT (475, (IdentifierRT (476, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (478, (IdentifierRT (479, ((*I*) 122) , [])))) , [])))))),
+          (SeqRT (480,
+          (AssignRT (481, (IndexedComponentRT (482, (IdentifierRT (483, ((*KS*) 118) , [])), (LiteralRT (484, (Integer_Literal 8) , [], [])) , [])), (BinOpRT (485, Plus, (NameRT (486, (IndexedComponentRT (487, (IdentifierRT (488, ((*KS*) 118) , [])), (LiteralRT (489, (Integer_Literal 8) , [], [])) , [])))), (NameRT (490, (IndexedComponentRT (491, (SelectedComponentRT (492, (IdentifierRT (493, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (495, (IdentifierRT (496, ((*I*) 122) , [])))) , [])))) , [OverflowCheck], [])))),
+          (AssignRT (497, (IdentifierRT (498, ((*I*) 122) , [])), (BinOpRT (499, Plus, (NameRT (500, (IdentifierRT (501, ((*I*) 122) , [])))), (LiteralRT (502, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))))
+        )))))
       ))
     ),
-    (ObjDeclRT (890, { declaration_astnumRT = 891; object_nameRT = ((*R*) 131); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (892,
-      (AssignRT (893, (IdentifierRT (894, ((*R*) 131) , [])), (LiteralRT (895, (Integer_Literal 1) , [], [])))),
-      (WhileRT (896, (BinOpRT (897, Less_Than_Or_Equal, (NameRT (898, (IdentifierRT (899, ((*R*) 131) , [])))), (LiteralRT (900, (Integer_Literal 9) , [], [])) , [], [])),
-        (SeqRT (901,
-        (CallRT (902, 903, ((*Round_1*) 130), 
-          [])
+    (SeqDeclRT (503,
+    (ProcBodyDeclRT (504, 
+      mkprocBodyDeclRT (
+       505,
+        (* = = = Procedure Name = = = *)
+        ((*Initialize_TS*) 123),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        NullDeclRT,
+        (* = = = Procedure Body = = = *)
+        (SeqRT (506,
+        (AssignRT (507, (IndexedComponentRT (508, (IdentifierRT (509, ((*TS*) 117) , [])), (LiteralRT (510, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (511, (Integer_Literal 0) , [], [])))),
+        (SeqRT (512,
+        (AssignRT (513, (IndexedComponentRT (514, (IdentifierRT (515, ((*TS*) 117) , [])), (LiteralRT (516, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (517, (Integer_Literal 1) , [], [])))),
+        (SeqRT (518,
+        (AssignRT (519, (IndexedComponentRT (520, (IdentifierRT (521, ((*TS*) 117) , [])), (LiteralRT (522, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (523, (Integer_Literal 2) , [], [])))),
+        (SeqRT (524,
+        (AssignRT (525, (IndexedComponentRT (526, (IdentifierRT (527, ((*W*) 120) , [])), (LiteralRT (528, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (529, (Integer_Literal 0) , [], [])))),
+        (SeqRT (530,
+        (AssignRT (531, (IndexedComponentRT (532, (IdentifierRT (533, ((*W*) 120) , [])), (LiteralRT (534, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (535, (Integer_Literal 1) , [], [])))),
+        (SeqRT (536,
+        (AssignRT (537, (IndexedComponentRT (538, (IdentifierRT (539, ((*W*) 120) , [])), (LiteralRT (540, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (541, (Integer_Literal 2) , [], [])))),
+        (SeqRT (542,
+        (AssignRT (543, (IndexedComponentRT (544, (IdentifierRT (545, ((*W*) 120) , [])), (LiteralRT (546, (Integer_Literal 3) , [], [])) , [])), (LiteralRT (547, (Integer_Literal 3) , [], [])))),
+        (SeqRT (548,
+        (AssignRT (549, (IndexedComponentRT (550, (IdentifierRT (551, ((*W*) 120) , [])), (LiteralRT (552, (Integer_Literal 4) , [], [])) , [])), (LiteralRT (553, (Integer_Literal 4) , [], [])))),
+        (SeqRT (554,
+        (AssignRT (555, (IndexedComponentRT (556, (IdentifierRT (557, ((*W*) 120) , [])), (LiteralRT (558, (Integer_Literal 5) , [], [])) , [])), (LiteralRT (559, (Integer_Literal 5) , [], [])))),
+        (SeqRT (560,
+        (AssignRT (561, (IndexedComponentRT (562, (IdentifierRT (563, ((*W*) 120) , [])), (LiteralRT (564, (Integer_Literal 6) , [], [])) , [])), (LiteralRT (565, (Integer_Literal 6) , [], [])))),
+        (AssignRT (566, (IndexedComponentRT (567, (IdentifierRT (568, ((*W*) 120) , [])), (LiteralRT (569, (Integer_Literal 7) , [], [])) , [])), (LiteralRT (570, (Integer_Literal 7) , [], []))))))))))))))))))))))))
+      ))
+    ),
+    (SeqDeclRT (571,
+    (ProcBodyDeclRT (572, 
+      mkprocBodyDeclRT (
+       573,
+        (* = = = Procedure Name = = = *)
+        ((*Do_First_Key_Injection*) 124),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        NullDeclRT,
+        (* = = = Procedure Body = = = *)
+        (SeqRT (574,
+        (AssignRT (575, (IndexedComponentRT (576, (IdentifierRT (577, ((*X*) 119) , [])), (LiteralRT (578, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (579, Plus, (NameRT (580, (IndexedComponentRT (581, (IdentifierRT (582, ((*W*) 120) , [])), (LiteralRT (583, (Integer_Literal 0) , [], [])) , [])))), (NameRT (584, (IndexedComponentRT (585, (IdentifierRT (586, ((*KS*) 118) , [])), (LiteralRT (587, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (588,
+        (AssignRT (589, (IndexedComponentRT (590, (IdentifierRT (591, ((*X*) 119) , [])), (LiteralRT (592, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (593, Plus, (NameRT (594, (IndexedComponentRT (595, (IdentifierRT (596, ((*W*) 120) , [])), (LiteralRT (597, (Integer_Literal 1) , [], [])) , [])))), (NameRT (598, (IndexedComponentRT (599, (IdentifierRT (600, ((*KS*) 118) , [])), (LiteralRT (601, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (602,
+        (AssignRT (603, (IndexedComponentRT (604, (IdentifierRT (605, ((*X*) 119) , [])), (LiteralRT (606, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (607, Plus, (NameRT (608, (IndexedComponentRT (609, (IdentifierRT (610, ((*W*) 120) , [])), (LiteralRT (611, (Integer_Literal 2) , [], [])) , [])))), (NameRT (612, (IndexedComponentRT (613, (IdentifierRT (614, ((*KS*) 118) , [])), (LiteralRT (615, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (616,
+        (AssignRT (617, (IndexedComponentRT (618, (IdentifierRT (619, ((*X*) 119) , [])), (LiteralRT (620, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (621, Plus, (NameRT (622, (IndexedComponentRT (623, (IdentifierRT (624, ((*W*) 120) , [])), (LiteralRT (625, (Integer_Literal 3) , [], [])) , [])))), (NameRT (626, (IndexedComponentRT (627, (IdentifierRT (628, ((*KS*) 118) , [])), (LiteralRT (629, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (630,
+        (AssignRT (631, (IndexedComponentRT (632, (IdentifierRT (633, ((*X*) 119) , [])), (LiteralRT (634, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (635, Plus, (NameRT (636, (IndexedComponentRT (637, (IdentifierRT (638, ((*W*) 120) , [])), (LiteralRT (639, (Integer_Literal 4) , [], [])) , [])))), (NameRT (640, (IndexedComponentRT (641, (IdentifierRT (642, ((*KS*) 118) , [])), (LiteralRT (643, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (644,
+        (AssignRT (645, (IndexedComponentRT (646, (IdentifierRT (647, ((*X*) 119) , [])), (LiteralRT (648, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (649, Plus, (NameRT (650, (IndexedComponentRT (651, (IdentifierRT (652, ((*W*) 120) , [])), (LiteralRT (653, (Integer_Literal 5) , [], [])) , [])))), (NameRT (654, (IndexedComponentRT (655, (IdentifierRT (656, ((*KS*) 118) , [])), (LiteralRT (657, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (658,
+        (AssignRT (659, (IndexedComponentRT (660, (IdentifierRT (661, ((*X*) 119) , [])), (LiteralRT (662, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (663, Plus, (NameRT (664, (IndexedComponentRT (665, (IdentifierRT (666, ((*W*) 120) , [])), (LiteralRT (667, (Integer_Literal 6) , [], [])) , [])))), (NameRT (668, (IndexedComponentRT (669, (IdentifierRT (670, ((*KS*) 118) , [])), (LiteralRT (671, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (672,
+        (AssignRT (673, (IndexedComponentRT (674, (IdentifierRT (675, ((*X*) 119) , [])), (LiteralRT (676, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (677, Plus, (NameRT (678, (IndexedComponentRT (679, (IdentifierRT (680, ((*W*) 120) , [])), (LiteralRT (681, (Integer_Literal 7) , [], [])) , [])))), (NameRT (682, (IndexedComponentRT (683, (IdentifierRT (684, ((*KS*) 118) , [])), (LiteralRT (685, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (686,
+        (AssignRT (687, (IndexedComponentRT (688, (IdentifierRT (689, ((*X*) 119) , [])), (BinOpRT (690, Minus, (LiteralRT (691, (Integer_Literal 8) , [], [])), (LiteralRT (692, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (693, Plus, (NameRT (694, (IndexedComponentRT (695, (IdentifierRT (696, ((*X*) 119) , [])), (BinOpRT (697, Minus, (LiteralRT (698, (Integer_Literal 8) , [], [])), (LiteralRT (699, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (700, (IndexedComponentRT (701, (IdentifierRT (702, ((*TS*) 117) , [])), (LiteralRT (703, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (AssignRT (704, (IndexedComponentRT (705, (IdentifierRT (706, ((*X*) 119) , [])), (BinOpRT (707, Minus, (LiteralRT (708, (Integer_Literal 8) , [], [])), (LiteralRT (709, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (710, Plus, (NameRT (711, (IndexedComponentRT (712, (IdentifierRT (713, ((*X*) 119) , [])), (BinOpRT (714, Minus, (LiteralRT (715, (Integer_Literal 8) , [], [])), (LiteralRT (716, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (717, (IndexedComponentRT (718, (IdentifierRT (719, ((*TS*) 117) , [])), (LiteralRT (720, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))))))
+      ))
+    ),
+    (SeqDeclRT (721,
+    (ProcBodyDeclRT (722, 
+      mkprocBodyDeclRT (
+       723,
+        (* = = = Procedure Name = = = *)
+        ((*Threefish_Block*) 125),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        (SeqDeclRT (724,
+        (ProcBodyDeclRT (725, 
+          mkprocBodyDeclRT (
+           726,
+            (* = = = Procedure Name = = = *)
+            ((*Inject_Key*) 126),
+            (* = = = Formal Parameters = = = *)
+            [{ parameter_astnumRT = 727; parameter_nameRT = ((*R*) 127); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
+            (* = = = Object Declarations = = = *)
+            (SeqDeclRT (728,
+            (TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
+            (ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None })))),
+            (* = = = Procedure Body = = = *)
+            (SeqRT (733,
+            (AssignRT (734, (IdentifierRT (735, ((*I*) 129) , [])), (LiteralRT (736, (Integer_Literal 0) , [], [])))),
+            (SeqRT (737,
+            (WhileRT (738, (BinOpRT (739, Less_Than_Or_Equal, (NameRT (740, (IdentifierRT (741, ((*I*) 129) , [])))), (LiteralRT (742, (Integer_Literal 7) , [], [])) , [], [])),
+              (SeqRT (743,
+              (AssignRT (744, (IndexedComponentRT (745, (IdentifierRT (746, ((*X*) 119) , [])), (NameRT (747, (IdentifierRT (748, ((*I*) 129) , [])))) , [])), (BinOpRT (749, Plus, (NameRT (750, (IndexedComponentRT (751, (IdentifierRT (752, ((*X*) 119) , [])), (NameRT (753, (IdentifierRT (754, ((*I*) 129) , [])))) , [])))), (NameRT (755, (IndexedComponentRT (756, (IdentifierRT (757, ((*KS*) 118) , [])), (BinOpRT (758, Modulus, (BinOpRT (759, Plus, (NameRT (760, (IdentifierRT (761, ((*R*) 127) , [])))), (NameRT (762, (IdentifierRT (763, ((*I*) 129) , [])))) , [OverflowCheck], [])), (BinOpRT (764, Plus, (LiteralRT (765, (Integer_Literal 8) , [], [])), (LiteralRT (766, (Integer_Literal 1) , [], [])) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+              (AssignRT (767, (IdentifierRT (768, ((*I*) 129) , [])), (BinOpRT (769, Plus, (NameRT (770, (IdentifierRT (771, ((*I*) 129) , [])))), (LiteralRT (772, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
+            ),
+            (SeqRT (773,
+            (AssignRT (774, (IndexedComponentRT (775, (IdentifierRT (776, ((*X*) 119) , [])), (BinOpRT (777, Minus, (LiteralRT (778, (Integer_Literal 8) , [], [])), (LiteralRT (779, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (780, Plus, (NameRT (781, (IndexedComponentRT (782, (IdentifierRT (783, ((*X*) 119) , [])), (BinOpRT (784, Minus, (LiteralRT (785, (Integer_Literal 8) , [], [])), (LiteralRT (786, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (787, (IndexedComponentRT (788, (IdentifierRT (789, ((*TS*) 117) , [])), (BinOpRT (790, Modulus, (NameRT (791, (IdentifierRT (792, ((*R*) 127) , [])))), (LiteralRT (793, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+            (SeqRT (794,
+            (AssignRT (795, (IndexedComponentRT (796, (IdentifierRT (797, ((*X*) 119) , [])), (BinOpRT (798, Minus, (LiteralRT (799, (Integer_Literal 8) , [], [])), (LiteralRT (800, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (801, Plus, (NameRT (802, (IndexedComponentRT (803, (IdentifierRT (804, ((*X*) 119) , [])), (BinOpRT (805, Minus, (LiteralRT (806, (Integer_Literal 8) , [], [])), (LiteralRT (807, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (808, (IndexedComponentRT (809, (IdentifierRT (810, ((*TS*) 117) , [])), (BinOpRT (811, Modulus, (BinOpRT (812, Plus, (NameRT (813, (IdentifierRT (814, ((*R*) 127) , [])))), (LiteralRT (815, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])), (LiteralRT (816, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+            (AssignRT (817, (IndexedComponentRT (818, (IdentifierRT (819, ((*X*) 119) , [])), (BinOpRT (820, Minus, (LiteralRT (821, (Integer_Literal 8) , [], [])), (LiteralRT (822, (Integer_Literal 1) , [], [])) , [], [])) , [])), (BinOpRT (823, Plus, (NameRT (824, (IndexedComponentRT (825, (IdentifierRT (826, ((*X*) 119) , [])), (BinOpRT (827, Minus, (LiteralRT (828, (Integer_Literal 8) , [], [])), (LiteralRT (829, (Integer_Literal 1) , [], [])) , [], [])) , [])))), (NameRT (830, (IdentifierRT (831, ((*R*) 127) , [])))) , [OverflowCheck], []))))))))))))
+          ))
         ),
-        (SeqRT (904,
-        (CallRT (905, 906, ((*Inject_Key*) 126), 
-          [(BinOpRT (907, Multiply, (NameRT (908, (IdentifierRT (909, ((*R*) 131) , [])))), (LiteralRT (910, (Integer_Literal 2) , [], [])) , [OverflowCheck; RangeCheck], []))])
+        (SeqDeclRT (832,
+        (ProcBodyDeclRT (833, 
+          mkprocBodyDeclRT (
+           834,
+            (* = = = Procedure Name = = = *)
+            ((*Round_1*) 130),
+            (* = = = Formal Parameters = = = *)
+            [],
+            (* = = = Object Declarations = = = *)
+            NullDeclRT,
+            (* = = = Procedure Body = = = *)
+            (SeqRT (835,
+            (AssignRT (836, (IndexedComponentRT (837, (IdentifierRT (838, ((*X*) 119) , [])), (LiteralRT (839, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (840, Plus, (NameRT (841, (IndexedComponentRT (842, (IdentifierRT (843, ((*X*) 119) , [])), (LiteralRT (844, (Integer_Literal 0) , [], [])) , [])))), (NameRT (845, (IndexedComponentRT (846, (IdentifierRT (847, ((*X*) 119) , [])), (LiteralRT (848, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
+            (SeqRT (849,
+            (AssignRT (850, (IndexedComponentRT (851, (IdentifierRT (852, ((*X*) 119) , [])), (LiteralRT (853, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (854, Plus, (NameRT (855, (IndexedComponentRT (856, (IdentifierRT (857, ((*X*) 119) , [])), (LiteralRT (858, (Integer_Literal 2) , [], [])) , [])))), (NameRT (859, (IndexedComponentRT (860, (IdentifierRT (861, ((*X*) 119) , [])), (LiteralRT (862, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
+            (SeqRT (863,
+            (AssignRT (864, (IndexedComponentRT (865, (IdentifierRT (866, ((*X*) 119) , [])), (LiteralRT (867, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (868, Plus, (NameRT (869, (IndexedComponentRT (870, (IdentifierRT (871, ((*X*) 119) , [])), (LiteralRT (872, (Integer_Literal 4) , [], [])) , [])))), (NameRT (873, (IndexedComponentRT (874, (IdentifierRT (875, ((*X*) 119) , [])), (LiteralRT (876, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
+            (AssignRT (877, (IndexedComponentRT (878, (IdentifierRT (879, ((*X*) 119) , [])), (LiteralRT (880, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (881, Plus, (NameRT (882, (IndexedComponentRT (883, (IdentifierRT (884, ((*X*) 119) , [])), (LiteralRT (885, (Integer_Literal 6) , [], [])) , [])))), (NameRT (886, (IndexedComponentRT (887, (IdentifierRT (888, ((*X*) 119) , [])), (LiteralRT (889, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))
+          ))
         ),
-        (AssignRT (911, (IdentifierRT (912, ((*R*) 131) , [])), (BinOpRT (913, Plus, (NameRT (914, (IdentifierRT (915, ((*R*) 131) , [])))), (LiteralRT (916, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
-      )))
-    ))
-  ),
-  (SeqDeclRT (917,
-  (ProcBodyDeclRT (918, 
-    mkprocBodyDeclRT (
-     919,
-      (* = = = Procedure Name = = = *)
-      ((*Update_Context*) 132),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [NullDeclRT],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (920,
-      (AssignRT (921, (IndexedComponentRT (922, (SelectedComponentRT (923, (IdentifierRT (924, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (926, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (927, Plus, (NameRT (928, (IndexedComponentRT (929, (IdentifierRT (930, ((*X*) 119) , [])), (LiteralRT (931, (Integer_Literal 0) , [], [])) , [])))), (NameRT (932, (IndexedComponentRT (933, (IdentifierRT (934, ((*W*) 120) , [])), (LiteralRT (935, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (936,
-      (AssignRT (937, (IndexedComponentRT (938, (SelectedComponentRT (939, (IdentifierRT (940, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (942, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (943, Plus, (NameRT (944, (IndexedComponentRT (945, (IdentifierRT (946, ((*X*) 119) , [])), (LiteralRT (947, (Integer_Literal 1) , [], [])) , [])))), (NameRT (948, (IndexedComponentRT (949, (IdentifierRT (950, ((*W*) 120) , [])), (LiteralRT (951, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (952,
-      (AssignRT (953, (IndexedComponentRT (954, (SelectedComponentRT (955, (IdentifierRT (956, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (958, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (959, Plus, (NameRT (960, (IndexedComponentRT (961, (IdentifierRT (962, ((*X*) 119) , [])), (LiteralRT (963, (Integer_Literal 2) , [], [])) , [])))), (NameRT (964, (IndexedComponentRT (965, (IdentifierRT (966, ((*W*) 120) , [])), (LiteralRT (967, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (968,
-      (AssignRT (969, (IndexedComponentRT (970, (SelectedComponentRT (971, (IdentifierRT (972, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (974, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (975, Plus, (NameRT (976, (IndexedComponentRT (977, (IdentifierRT (978, ((*X*) 119) , [])), (LiteralRT (979, (Integer_Literal 3) , [], [])) , [])))), (NameRT (980, (IndexedComponentRT (981, (IdentifierRT (982, ((*W*) 120) , [])), (LiteralRT (983, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (984,
-      (AssignRT (985, (IndexedComponentRT (986, (SelectedComponentRT (987, (IdentifierRT (988, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (990, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (991, Plus, (NameRT (992, (IndexedComponentRT (993, (IdentifierRT (994, ((*X*) 119) , [])), (LiteralRT (995, (Integer_Literal 4) , [], [])) , [])))), (NameRT (996, (IndexedComponentRT (997, (IdentifierRT (998, ((*W*) 120) , [])), (LiteralRT (999, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (1000,
-      (AssignRT (1001, (IndexedComponentRT (1002, (SelectedComponentRT (1003, (IdentifierRT (1004, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1006, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (1007, Plus, (NameRT (1008, (IndexedComponentRT (1009, (IdentifierRT (1010, ((*X*) 119) , [])), (LiteralRT (1011, (Integer_Literal 5) , [], [])) , [])))), (NameRT (1012, (IndexedComponentRT (1013, (IdentifierRT (1014, ((*W*) 120) , [])), (LiteralRT (1015, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (1016,
-      (AssignRT (1017, (IndexedComponentRT (1018, (SelectedComponentRT (1019, (IdentifierRT (1020, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1022, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (1023, Plus, (NameRT (1024, (IndexedComponentRT (1025, (IdentifierRT (1026, ((*X*) 119) , [])), (LiteralRT (1027, (Integer_Literal 6) , [], [])) , [])))), (NameRT (1028, (IndexedComponentRT (1029, (IdentifierRT (1030, ((*W*) 120) , [])), (LiteralRT (1031, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (AssignRT (1032, (IndexedComponentRT (1033, (SelectedComponentRT (1034, (IdentifierRT (1035, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1037, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (1038, Plus, (NameRT (1039, (IndexedComponentRT (1040, (IdentifierRT (1041, ((*X*) 119) , [])), (LiteralRT (1042, (Integer_Literal 7) , [], [])) , [])))), (NameRT (1043, (IndexedComponentRT (1044, (IdentifierRT (1045, ((*W*) 120) , [])), (LiteralRT (1046, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))
-    ))
-  ),
-  (SeqDeclRT (1047,
-  (ObjDeclRT (1048, { declaration_astnumRT = 1049; object_nameRT = ((*J*) 133); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
-  (ObjDeclRT (1050, { declaration_astnumRT = 1051; object_nameRT = ((*Src_Offset*) 134); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))))))))))))))))))],
+        (ObjDeclRT (890, { declaration_astnumRT = 891; object_nameRT = ((*R*) 131); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))),
+        (* = = = Procedure Body = = = *)
+        (SeqRT (892,
+        (AssignRT (893, (IdentifierRT (894, ((*R*) 131) , [])), (LiteralRT (895, (Integer_Literal 1) , [], [])))),
+        (WhileRT (896, (BinOpRT (897, Less_Than_Or_Equal, (NameRT (898, (IdentifierRT (899, ((*R*) 131) , [])))), (LiteralRT (900, (Integer_Literal 9) , [], [])) , [], [])),
+          (SeqRT (901,
+          (CallRT (902, 903, ((*Round_1*) 130), 
+            [])
+          ),
+          (SeqRT (904,
+          (CallRT (905, 906, ((*Inject_Key*) 126), 
+            [(BinOpRT (907, Multiply, (NameRT (908, (IdentifierRT (909, ((*R*) 131) , [])))), (LiteralRT (910, (Integer_Literal 2) , [], [])) , [OverflowCheck; RangeCheck], []))])
+          ),
+          (AssignRT (911, (IdentifierRT (912, ((*R*) 131) , [])), (BinOpRT (913, Plus, (NameRT (914, (IdentifierRT (915, ((*R*) 131) , [])))), (LiteralRT (916, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
+        )))
+      ))
+    ),
+    (SeqDeclRT (917,
+    (ProcBodyDeclRT (918, 
+      mkprocBodyDeclRT (
+       919,
+        (* = = = Procedure Name = = = *)
+        ((*Update_Context*) 132),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        NullDeclRT,
+        (* = = = Procedure Body = = = *)
+        (SeqRT (920,
+        (AssignRT (921, (IndexedComponentRT (922, (SelectedComponentRT (923, (IdentifierRT (924, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (926, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (927, Plus, (NameRT (928, (IndexedComponentRT (929, (IdentifierRT (930, ((*X*) 119) , [])), (LiteralRT (931, (Integer_Literal 0) , [], [])) , [])))), (NameRT (932, (IndexedComponentRT (933, (IdentifierRT (934, ((*W*) 120) , [])), (LiteralRT (935, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (936,
+        (AssignRT (937, (IndexedComponentRT (938, (SelectedComponentRT (939, (IdentifierRT (940, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (942, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (943, Plus, (NameRT (944, (IndexedComponentRT (945, (IdentifierRT (946, ((*X*) 119) , [])), (LiteralRT (947, (Integer_Literal 1) , [], [])) , [])))), (NameRT (948, (IndexedComponentRT (949, (IdentifierRT (950, ((*W*) 120) , [])), (LiteralRT (951, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (952,
+        (AssignRT (953, (IndexedComponentRT (954, (SelectedComponentRT (955, (IdentifierRT (956, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (958, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (959, Plus, (NameRT (960, (IndexedComponentRT (961, (IdentifierRT (962, ((*X*) 119) , [])), (LiteralRT (963, (Integer_Literal 2) , [], [])) , [])))), (NameRT (964, (IndexedComponentRT (965, (IdentifierRT (966, ((*W*) 120) , [])), (LiteralRT (967, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (968,
+        (AssignRT (969, (IndexedComponentRT (970, (SelectedComponentRT (971, (IdentifierRT (972, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (974, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (975, Plus, (NameRT (976, (IndexedComponentRT (977, (IdentifierRT (978, ((*X*) 119) , [])), (LiteralRT (979, (Integer_Literal 3) , [], [])) , [])))), (NameRT (980, (IndexedComponentRT (981, (IdentifierRT (982, ((*W*) 120) , [])), (LiteralRT (983, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (984,
+        (AssignRT (985, (IndexedComponentRT (986, (SelectedComponentRT (987, (IdentifierRT (988, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (990, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (991, Plus, (NameRT (992, (IndexedComponentRT (993, (IdentifierRT (994, ((*X*) 119) , [])), (LiteralRT (995, (Integer_Literal 4) , [], [])) , [])))), (NameRT (996, (IndexedComponentRT (997, (IdentifierRT (998, ((*W*) 120) , [])), (LiteralRT (999, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (1000,
+        (AssignRT (1001, (IndexedComponentRT (1002, (SelectedComponentRT (1003, (IdentifierRT (1004, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1006, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (1007, Plus, (NameRT (1008, (IndexedComponentRT (1009, (IdentifierRT (1010, ((*X*) 119) , [])), (LiteralRT (1011, (Integer_Literal 5) , [], [])) , [])))), (NameRT (1012, (IndexedComponentRT (1013, (IdentifierRT (1014, ((*W*) 120) , [])), (LiteralRT (1015, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (SeqRT (1016,
+        (AssignRT (1017, (IndexedComponentRT (1018, (SelectedComponentRT (1019, (IdentifierRT (1020, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1022, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (1023, Plus, (NameRT (1024, (IndexedComponentRT (1025, (IdentifierRT (1026, ((*X*) 119) , [])), (LiteralRT (1027, (Integer_Literal 6) , [], [])) , [])))), (NameRT (1028, (IndexedComponentRT (1029, (IdentifierRT (1030, ((*W*) 120) , [])), (LiteralRT (1031, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
+        (AssignRT (1032, (IndexedComponentRT (1033, (SelectedComponentRT (1034, (IdentifierRT (1035, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1037, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (1038, Plus, (NameRT (1039, (IndexedComponentRT (1040, (IdentifierRT (1041, ((*X*) 119) , [])), (LiteralRT (1042, (Integer_Literal 7) , [], [])) , [])))), (NameRT (1043, (IndexedComponentRT (1044, (IdentifierRT (1045, ((*W*) 120) , [])), (LiteralRT (1046, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))
+      ))
+    ),
+    (SeqDeclRT (1047,
+    (ObjDeclRT (1048, { declaration_astnumRT = 1049; object_nameRT = ((*J*) 133); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
+    (ObjDeclRT (1050, { declaration_astnumRT = 1051; object_nameRT = ((*Src_Offset*) 134); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))))))))))))))))))),
     (* = = = Procedure Body = = = *)
     (SeqRT (1052,
     (AssignRT (1053, (IdentifierRT (1054, ((*J*) 133) , [])), (LiteralRT (1055, (Integer_Literal 1) , [], [])))),
@@ -2008,57 +2008,57 @@ NullDeclRT (* Undefined Declarations ! *),
     [{ parameter_astnumRT = 1121; parameter_nameRT = ((*Ctx*) 136); parameter_subtype_markRT = (Record_Type ((*Skein_512_Context*) 61)); parameter_modeRT = In_Out }; 
   { parameter_astnumRT = 1122; parameter_nameRT = ((*Msg*) 137); parameter_subtype_markRT = (Array_Type ((*Byte_Seq*) 14)); parameter_modeRT = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (1123,
-  (ObjDeclRT (1124, { declaration_astnumRT = 1125; object_nameRT = ((*Msg_Byte_Count*) 138); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-  (SeqDeclRT (1126,
-  (ObjDeclRT (1127, { declaration_astnumRT = 1128; object_nameRT = ((*N*) 139); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-  (SeqDeclRT (1129,
-  (ObjDeclRT (1130, { declaration_astnumRT = 1131; object_nameRT = ((*Block_Count*) 140); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
-  (SeqDeclRT (1132,
-  (ObjDeclRT (1133, { declaration_astnumRT = 1134; object_nameRT = ((*Current_Msg_Offset*) 141); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-  (SeqDeclRT (1135,
-  (ObjDeclRT (1136, { declaration_astnumRT = 1137; object_nameRT = ((*Bytes_Hashed*) 142); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-  (SeqDeclRT (1138,
-  (ObjDeclRT (1139, { declaration_astnumRT = 1140; object_nameRT = ((*Tmp_B*) 143); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
-  (ProcBodyDeclRT (1141, 
-    mkprocBodyDeclRT (
-     1142,
-      (* = = = Procedure Name = = = *)
-      ((*Copy_Msg_To_B*) 144),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnumRT = 1143; parameter_nameRT = ((*Msg_Offset*) 145); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }; 
-    { parameter_astnumRT = 1144; parameter_nameRT = ((*Num_Bytes*) 146); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
-      (* = = = Object Declarations = = = *)
-      [(SeqDeclRT (1145,
-    (ObjDeclRT (1146, { declaration_astnumRT = 1147; object_nameRT = ((*Src*) 147); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-    (SeqDeclRT (1148,
-    (ObjDeclRT (1149, { declaration_astnumRT = 1150; object_nameRT = ((*Dst*) 148); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-    (SeqDeclRT (1151,
-    (ObjDeclRT (1152, { declaration_astnumRT = 1153; object_nameRT = ((*Final_Dst*) 149); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-    (ObjDeclRT (1154, { declaration_astnumRT = 1155; object_nameRT = ((*Final_Src*) 150); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))))],
-      (* = = = Procedure Body = = = *)
-      (IfRT (1156, (BinOpRT (1157, Greater_Than, (NameRT (1158, (IdentifierRT (1159, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1160, (Integer_Literal 0) , [], [])) , [], [])),
-        (SeqRT (1161,
-        (AssignRT (1162, (IdentifierRT (1163, ((*Src*) 147) , [])), (NameRT (1164, (IdentifierRT (1165, ((*Msg_Offset*) 145) , [])))))),
-        (SeqRT (1166,
-        (AssignRT (1167, (IdentifierRT (1168, ((*Dst*) 148) , [])), (NameRT (1169, (SelectedComponentRT (1170, (SelectedComponentRT (1171, (IdentifierRT (1172, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
-        (SeqRT (1175,
-        (AssignRT (1176, (IdentifierRT (1177, ((*Final_Dst*) 149) , [])), (BinOpRT (1178, Plus, (NameRT (1179, (IdentifierRT (1180, ((*Dst*) 148) , [])))), (BinOpRT (1181, Minus, (NameRT (1182, (IdentifierRT (1183, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1184, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
-        (SeqRT (1185,
-        (AssignRT (1186, (IdentifierRT (1187, ((*Final_Src*) 150) , [])), (BinOpRT (1188, Plus, (NameRT (1189, (IdentifierRT (1190, ((*Src*) 147) , [])))), (BinOpRT (1191, Minus, (NameRT (1192, (IdentifierRT (1193, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1194, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
-        (SeqRT (1195,
-        (WhileRT (1196, (BinOpRT (1197, Or, (BinOpRT (1198, Greater_Than_Or_Equal, (NameRT (1199, (IdentifierRT (1200, ((*Dst*) 148) , [])))), (NameRT (1201, (IdentifierRT (1202, ((*Final_Dst*) 149) , [])))) , [], [])), (BinOpRT (1203, Greater_Than_Or_Equal, (NameRT (1204, (IdentifierRT (1205, ((*Src*) 147) , [])))), (NameRT (1206, (IdentifierRT (1207, ((*Final_Src*) 150) , [])))) , [], [])) , [], [])),
-          (SeqRT (1208,
-          (AssignRT (1209, (IndexedComponentRT (1210, (SelectedComponentRT (1211, (IdentifierRT (1212, ((*Ctx*) 136) , [])), ((*B*) 64) , [])), (NameRT (1214, (IdentifierRT (1215, ((*Dst*) 148) , [])))) , [])), (NameRT (1216, (IndexedComponentRT (1217, (IdentifierRT (1218, ((*Msg*) 137) , [])), (NameRT (1219, (IdentifierRT (1220, ((*Src*) 147) , [])))) , [])))))),
-          (SeqRT (1221,
-          (AssignRT (1222, (IdentifierRT (1223, ((*Dst*) 148) , [])), (BinOpRT (1224, Plus, (NameRT (1225, (IdentifierRT (1226, ((*Dst*) 148) , [])))), (LiteralRT (1227, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))),
-          (AssignRT (1228, (IdentifierRT (1229, ((*Src*) 147) , [])), (BinOpRT (1230, Plus, (NameRT (1231, (IdentifierRT (1232, ((*Src*) 147) , [])))), (LiteralRT (1233, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
-        ),
-        (AssignRT (1234, (SelectedComponentRT (1235, (SelectedComponentRT (1236, (IdentifierRT (1237, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])), (BinOpRT (1240, Plus, (NameRT (1241, (SelectedComponentRT (1242, (SelectedComponentRT (1243, (IdentifierRT (1244, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])))), (NameRT (1247, (IdentifierRT (1248, ((*Num_Bytes*) 146) , [])))) , [OverflowCheck], [])))))))))))))),
-        NullRT)
-      )
-    ))
-  )))))))))))))],
+    (SeqDeclRT (1123,
+    (ObjDeclRT (1124, { declaration_astnumRT = 1125; object_nameRT = ((*Msg_Byte_Count*) 138); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+    (SeqDeclRT (1126,
+    (ObjDeclRT (1127, { declaration_astnumRT = 1128; object_nameRT = ((*N*) 139); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+    (SeqDeclRT (1129,
+    (ObjDeclRT (1130, { declaration_astnumRT = 1131; object_nameRT = ((*Block_Count*) 140); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
+    (SeqDeclRT (1132,
+    (ObjDeclRT (1133, { declaration_astnumRT = 1134; object_nameRT = ((*Current_Msg_Offset*) 141); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+    (SeqDeclRT (1135,
+    (ObjDeclRT (1136, { declaration_astnumRT = 1137; object_nameRT = ((*Bytes_Hashed*) 142); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+    (SeqDeclRT (1138,
+    (ObjDeclRT (1139, { declaration_astnumRT = 1140; object_nameRT = ((*Tmp_B*) 143); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
+    (ProcBodyDeclRT (1141, 
+      mkprocBodyDeclRT (
+       1142,
+        (* = = = Procedure Name = = = *)
+        ((*Copy_Msg_To_B*) 144),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnumRT = 1143; parameter_nameRT = ((*Msg_Offset*) 145); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }; 
+      { parameter_astnumRT = 1144; parameter_nameRT = ((*Num_Bytes*) 146); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
+        (* = = = Object Declarations = = = *)
+        (SeqDeclRT (1145,
+        (ObjDeclRT (1146, { declaration_astnumRT = 1147; object_nameRT = ((*Src*) 147); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+        (SeqDeclRT (1148,
+        (ObjDeclRT (1149, { declaration_astnumRT = 1150; object_nameRT = ((*Dst*) 148); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+        (SeqDeclRT (1151,
+        (ObjDeclRT (1152, { declaration_astnumRT = 1153; object_nameRT = ((*Final_Dst*) 149); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+        (ObjDeclRT (1154, { declaration_astnumRT = 1155; object_nameRT = ((*Final_Src*) 150); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))))),
+        (* = = = Procedure Body = = = *)
+        (IfRT (1156, (BinOpRT (1157, Greater_Than, (NameRT (1158, (IdentifierRT (1159, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1160, (Integer_Literal 0) , [], [])) , [], [])),
+          (SeqRT (1161,
+          (AssignRT (1162, (IdentifierRT (1163, ((*Src*) 147) , [])), (NameRT (1164, (IdentifierRT (1165, ((*Msg_Offset*) 145) , [])))))),
+          (SeqRT (1166,
+          (AssignRT (1167, (IdentifierRT (1168, ((*Dst*) 148) , [])), (NameRT (1169, (SelectedComponentRT (1170, (SelectedComponentRT (1171, (IdentifierRT (1172, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
+          (SeqRT (1175,
+          (AssignRT (1176, (IdentifierRT (1177, ((*Final_Dst*) 149) , [])), (BinOpRT (1178, Plus, (NameRT (1179, (IdentifierRT (1180, ((*Dst*) 148) , [])))), (BinOpRT (1181, Minus, (NameRT (1182, (IdentifierRT (1183, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1184, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
+          (SeqRT (1185,
+          (AssignRT (1186, (IdentifierRT (1187, ((*Final_Src*) 150) , [])), (BinOpRT (1188, Plus, (NameRT (1189, (IdentifierRT (1190, ((*Src*) 147) , [])))), (BinOpRT (1191, Minus, (NameRT (1192, (IdentifierRT (1193, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1194, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
+          (SeqRT (1195,
+          (WhileRT (1196, (BinOpRT (1197, Or, (BinOpRT (1198, Greater_Than_Or_Equal, (NameRT (1199, (IdentifierRT (1200, ((*Dst*) 148) , [])))), (NameRT (1201, (IdentifierRT (1202, ((*Final_Dst*) 149) , [])))) , [], [])), (BinOpRT (1203, Greater_Than_Or_Equal, (NameRT (1204, (IdentifierRT (1205, ((*Src*) 147) , [])))), (NameRT (1206, (IdentifierRT (1207, ((*Final_Src*) 150) , [])))) , [], [])) , [], [])),
+            (SeqRT (1208,
+            (AssignRT (1209, (IndexedComponentRT (1210, (SelectedComponentRT (1211, (IdentifierRT (1212, ((*Ctx*) 136) , [])), ((*B*) 64) , [])), (NameRT (1214, (IdentifierRT (1215, ((*Dst*) 148) , [])))) , [])), (NameRT (1216, (IndexedComponentRT (1217, (IdentifierRT (1218, ((*Msg*) 137) , [])), (NameRT (1219, (IdentifierRT (1220, ((*Src*) 147) , [])))) , [])))))),
+            (SeqRT (1221,
+            (AssignRT (1222, (IdentifierRT (1223, ((*Dst*) 148) , [])), (BinOpRT (1224, Plus, (NameRT (1225, (IdentifierRT (1226, ((*Dst*) 148) , [])))), (LiteralRT (1227, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))),
+            (AssignRT (1228, (IdentifierRT (1229, ((*Src*) 147) , [])), (BinOpRT (1230, Plus, (NameRT (1231, (IdentifierRT (1232, ((*Src*) 147) , [])))), (LiteralRT (1233, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
+          ),
+          (AssignRT (1234, (SelectedComponentRT (1235, (SelectedComponentRT (1236, (IdentifierRT (1237, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])), (BinOpRT (1240, Plus, (NameRT (1241, (SelectedComponentRT (1242, (SelectedComponentRT (1243, (IdentifierRT (1244, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])))), (NameRT (1247, (IdentifierRT (1248, ((*Num_Bytes*) 146) , [])))) , [OverflowCheck], [])))))))))))))),
+          NullRT)
+        )
+      ))
+    ))))))))))))),
     (* = = = Procedure Body = = = *)
     (SeqRT (1249,
     (AssignRT (1250, (IdentifierRT (1251, ((*Msg_Byte_Count*) 138) , [])), (LiteralRT (1252, (Integer_Literal 2147483647) , [], [])))),
@@ -2108,75 +2108,75 @@ NullDeclRT (* Undefined Declarations ! *),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnumRT = 1372; parameter_nameRT = ((*Ctx*) 152); parameter_subtype_markRT = (Record_Type ((*Skein_512_Context*) 61)); parameter_modeRT = In }],
     (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (1373,
-  (TypeDeclRT (1374, (SubtypeDeclRT (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (RangeRT (1, 15)))))),
-  (SeqDeclRT (1376,
-  (TypeDeclRT (1377, (SubtypeDeclRT (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (RangeRT (0, 2)))))),
-  (SeqDeclRT (1379,
-  (TypeDeclRT (1380, (SubtypeDeclRT (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (RangeRT (1, 2)))))),
-  (SeqDeclRT (1382,
-  (ObjDeclRT (1383, { declaration_astnumRT = 1384; object_nameRT = ((*Local_Ctx*) 156); object_nominal_subtypeRT = (Record_Type ((*Skein_512_Context*) 61)); initialization_expRT = None })),
-  (SeqDeclRT (1385,
-  (ObjDeclRT (1386, { declaration_astnumRT = 1387; object_nameRT = ((*N*) 157); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-  (SeqDeclRT (1388,
-  (ObjDeclRT (1389, { declaration_astnumRT = 1390; object_nameRT = ((*Blocks_Required*) 158); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None })),
-  (SeqDeclRT (1391,
-  (ObjDeclRT (1392, { declaration_astnumRT = 1393; object_nameRT = ((*Byte_Count*) 159); object_nominal_subtypeRT = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_expRT = None })),
-  (SeqDeclRT (1394,
-  (ObjDeclRT (1395, { declaration_astnumRT = 1396; object_nameRT = ((*X*) 160); object_nominal_subtypeRT = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_expRT = None })),
-  (SeqDeclRT (1397,
-  (ObjDeclRT (1398, { declaration_astnumRT = 1399; object_nameRT = ((*Tmp_B*) 161); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
-  (SeqDeclRT (1400,
-  (ObjDeclRT (1401, { declaration_astnumRT = 1402; object_nameRT = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-  (SeqDeclRT (1403,
-  (ProcBodyDeclRT (1404, 
-    mkprocBodyDeclRT (
-     1405,
-      (* = = = Procedure Name = = = *)
-      ((*Zero_Pad*) 163),
-      (* = = = Formal Parameters = = = *)
-      [],
-      (* = = = Object Declarations = = = *)
-      [(ObjDeclRT (1406, { declaration_astnumRT = 1407; object_nameRT = ((*I*) 164); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None }))],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (1408,
-      (AssignRT (1409, (IdentifierRT (1410, ((*I*) 164) , [])), (NameRT (1411, (SelectedComponentRT (1412, (SelectedComponentRT (1413, (IdentifierRT (1414, ((*Local_Ctx*) 156) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
-      (WhileRT (1417, (BinOpRT (1418, Less_Than_Or_Equal, (NameRT (1419, (IdentifierRT (1420, ((*I*) 164) , [])))), (LiteralRT (1421, (Integer_Literal 63) , [], [])) , [], [])),
-        (SeqRT (1422,
-        (AssignRT (1423, (IndexedComponentRT (1424, (SelectedComponentRT (1425, (IdentifierRT (1426, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (NameRT (1428, (IdentifierRT (1429, ((*I*) 164) , [])))) , [])), (LiteralRT (1430, (Integer_Literal 0) , [], [])))),
-        (AssignRT (1431, (IdentifierRT (1432, ((*I*) 164) , [])), (BinOpRT (1433, Plus, (NameRT (1434, (IdentifierRT (1435, ((*I*) 164) , [])))), (LiteralRT (1436, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
-      )))
-    ))
-  ),
-  (SeqDeclRT (1437,
-  (ProcBodyDeclRT (1438, 
-    mkprocBodyDeclRT (
-     1439,
-      (* = = = Procedure Name = = = *)
-      ((*Set_Counter*) 165),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnumRT = 1440; parameter_nameRT = ((*Counter*) 166); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
-      (* = = = Object Declarations = = = *)
-      [NullDeclRT],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (1441,
-      (AssignRT (1442, (IndexedComponentRT (1443, (SelectedComponentRT (1444, (IdentifierRT (1445, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1447, (Integer_Literal 0) , [], [])) , [])), (NameRT (1448, (IdentifierRT (1449, ((*Counter*) 166) , [RangeCheck])))))),
-      (SeqRT (1450,
-      (AssignRT (1451, (IndexedComponentRT (1452, (SelectedComponentRT (1453, (IdentifierRT (1454, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1456, (Integer_Literal 1) , [], [])) , [])), (NameRT (1457, (IdentifierRT (1458, ((*Counter*) 166) , [RangeCheck])))))),
-      (SeqRT (1459,
-      (AssignRT (1460, (IndexedComponentRT (1461, (SelectedComponentRT (1462, (IdentifierRT (1463, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1465, (Integer_Literal 2) , [], [])) , [])), (NameRT (1466, (IdentifierRT (1467, ((*Counter*) 166) , [RangeCheck])))))),
-      (SeqRT (1468,
-      (AssignRT (1469, (IndexedComponentRT (1470, (SelectedComponentRT (1471, (IdentifierRT (1472, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1474, (Integer_Literal 3) , [], [])) , [])), (NameRT (1475, (IdentifierRT (1476, ((*Counter*) 166) , [RangeCheck])))))),
-      (SeqRT (1477,
-      (AssignRT (1478, (IndexedComponentRT (1479, (SelectedComponentRT (1480, (IdentifierRT (1481, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1483, (Integer_Literal 4) , [], [])) , [])), (NameRT (1484, (IdentifierRT (1485, ((*Counter*) 166) , [RangeCheck])))))),
-      (SeqRT (1486,
-      (AssignRT (1487, (IndexedComponentRT (1488, (SelectedComponentRT (1489, (IdentifierRT (1490, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1492, (Integer_Literal 5) , [], [])) , [])), (NameRT (1493, (IdentifierRT (1494, ((*Counter*) 166) , [RangeCheck])))))),
-      (SeqRT (1495,
-      (AssignRT (1496, (IndexedComponentRT (1497, (SelectedComponentRT (1498, (IdentifierRT (1499, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1501, (Integer_Literal 6) , [], [])) , [])), (NameRT (1502, (IdentifierRT (1503, ((*Counter*) 166) , [RangeCheck])))))),
-      (AssignRT (1504, (IndexedComponentRT (1505, (SelectedComponentRT (1506, (IdentifierRT (1507, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1509, (Integer_Literal 7) , [], [])) , [])), (NameRT (1510, (IdentifierRT (1511, ((*Counter*) 166) , [RangeCheck]))))))))))))))))))))
-    ))
-  ),
-  (ObjDeclRT (1512, { declaration_astnumRT = 1513; object_nameRT = ((*Blocks_Done*) 167); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None }))))))))))))))))))))))))))],
+    (SeqDeclRT (1373,
+    (TypeDeclRT (1374, (SubtypeDeclRT (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (RangeRT (1, 15)))))),
+    (SeqDeclRT (1376,
+    (TypeDeclRT (1377, (SubtypeDeclRT (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (RangeRT (0, 2)))))),
+    (SeqDeclRT (1379,
+    (TypeDeclRT (1380, (SubtypeDeclRT (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (RangeRT (1, 2)))))),
+    (SeqDeclRT (1382,
+    (ObjDeclRT (1383, { declaration_astnumRT = 1384; object_nameRT = ((*Local_Ctx*) 156); object_nominal_subtypeRT = (Record_Type ((*Skein_512_Context*) 61)); initialization_expRT = None })),
+    (SeqDeclRT (1385,
+    (ObjDeclRT (1386, { declaration_astnumRT = 1387; object_nameRT = ((*N*) 157); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+    (SeqDeclRT (1388,
+    (ObjDeclRT (1389, { declaration_astnumRT = 1390; object_nameRT = ((*Blocks_Required*) 158); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None })),
+    (SeqDeclRT (1391,
+    (ObjDeclRT (1392, { declaration_astnumRT = 1393; object_nameRT = ((*Byte_Count*) 159); object_nominal_subtypeRT = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_expRT = None })),
+    (SeqDeclRT (1394,
+    (ObjDeclRT (1395, { declaration_astnumRT = 1396; object_nameRT = ((*X*) 160); object_nominal_subtypeRT = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_expRT = None })),
+    (SeqDeclRT (1397,
+    (ObjDeclRT (1398, { declaration_astnumRT = 1399; object_nameRT = ((*Tmp_B*) 161); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
+    (SeqDeclRT (1400,
+    (ObjDeclRT (1401, { declaration_astnumRT = 1402; object_nameRT = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+    (SeqDeclRT (1403,
+    (ProcBodyDeclRT (1404, 
+      mkprocBodyDeclRT (
+       1405,
+        (* = = = Procedure Name = = = *)
+        ((*Zero_Pad*) 163),
+        (* = = = Formal Parameters = = = *)
+        [],
+        (* = = = Object Declarations = = = *)
+        (ObjDeclRT (1406, { declaration_astnumRT = 1407; object_nameRT = ((*I*) 164); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+        (* = = = Procedure Body = = = *)
+        (SeqRT (1408,
+        (AssignRT (1409, (IdentifierRT (1410, ((*I*) 164) , [])), (NameRT (1411, (SelectedComponentRT (1412, (SelectedComponentRT (1413, (IdentifierRT (1414, ((*Local_Ctx*) 156) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
+        (WhileRT (1417, (BinOpRT (1418, Less_Than_Or_Equal, (NameRT (1419, (IdentifierRT (1420, ((*I*) 164) , [])))), (LiteralRT (1421, (Integer_Literal 63) , [], [])) , [], [])),
+          (SeqRT (1422,
+          (AssignRT (1423, (IndexedComponentRT (1424, (SelectedComponentRT (1425, (IdentifierRT (1426, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (NameRT (1428, (IdentifierRT (1429, ((*I*) 164) , [])))) , [])), (LiteralRT (1430, (Integer_Literal 0) , [], [])))),
+          (AssignRT (1431, (IdentifierRT (1432, ((*I*) 164) , [])), (BinOpRT (1433, Plus, (NameRT (1434, (IdentifierRT (1435, ((*I*) 164) , [])))), (LiteralRT (1436, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
+        )))
+      ))
+    ),
+    (SeqDeclRT (1437,
+    (ProcBodyDeclRT (1438, 
+      mkprocBodyDeclRT (
+       1439,
+        (* = = = Procedure Name = = = *)
+        ((*Set_Counter*) 165),
+        (* = = = Formal Parameters = = = *)
+        [{ parameter_astnumRT = 1440; parameter_nameRT = ((*Counter*) 166); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
+        (* = = = Object Declarations = = = *)
+        NullDeclRT,
+        (* = = = Procedure Body = = = *)
+        (SeqRT (1441,
+        (AssignRT (1442, (IndexedComponentRT (1443, (SelectedComponentRT (1444, (IdentifierRT (1445, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1447, (Integer_Literal 0) , [], [])) , [])), (NameRT (1448, (IdentifierRT (1449, ((*Counter*) 166) , [RangeCheck])))))),
+        (SeqRT (1450,
+        (AssignRT (1451, (IndexedComponentRT (1452, (SelectedComponentRT (1453, (IdentifierRT (1454, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1456, (Integer_Literal 1) , [], [])) , [])), (NameRT (1457, (IdentifierRT (1458, ((*Counter*) 166) , [RangeCheck])))))),
+        (SeqRT (1459,
+        (AssignRT (1460, (IndexedComponentRT (1461, (SelectedComponentRT (1462, (IdentifierRT (1463, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1465, (Integer_Literal 2) , [], [])) , [])), (NameRT (1466, (IdentifierRT (1467, ((*Counter*) 166) , [RangeCheck])))))),
+        (SeqRT (1468,
+        (AssignRT (1469, (IndexedComponentRT (1470, (SelectedComponentRT (1471, (IdentifierRT (1472, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1474, (Integer_Literal 3) , [], [])) , [])), (NameRT (1475, (IdentifierRT (1476, ((*Counter*) 166) , [RangeCheck])))))),
+        (SeqRT (1477,
+        (AssignRT (1478, (IndexedComponentRT (1479, (SelectedComponentRT (1480, (IdentifierRT (1481, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1483, (Integer_Literal 4) , [], [])) , [])), (NameRT (1484, (IdentifierRT (1485, ((*Counter*) 166) , [RangeCheck])))))),
+        (SeqRT (1486,
+        (AssignRT (1487, (IndexedComponentRT (1488, (SelectedComponentRT (1489, (IdentifierRT (1490, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1492, (Integer_Literal 5) , [], [])) , [])), (NameRT (1493, (IdentifierRT (1494, ((*Counter*) 166) , [RangeCheck])))))),
+        (SeqRT (1495,
+        (AssignRT (1496, (IndexedComponentRT (1497, (SelectedComponentRT (1498, (IdentifierRT (1499, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1501, (Integer_Literal 6) , [], [])) , [])), (NameRT (1502, (IdentifierRT (1503, ((*Counter*) 166) , [RangeCheck])))))),
+        (AssignRT (1504, (IndexedComponentRT (1505, (SelectedComponentRT (1506, (IdentifierRT (1507, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1509, (Integer_Literal 7) , [], [])) , [])), (NameRT (1510, (IdentifierRT (1511, ((*Counter*) 166) , [RangeCheck]))))))))))))))))))))
+      ))
+    ),
+    (ObjDeclRT (1512, { declaration_astnumRT = 1513; object_nameRT = ((*Blocks_Done*) 167); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None })))))))))))))))))))))))))),
     (* = = = Procedure Body = = = *)
     (SeqRT (1514,
     (AssignRT (1515, (IdentifierRT (1516, ((*Local_Ctx*) 156) , [])), (NameRT (1517, (IdentifierRT (1518, ((*Ctx*) 152) , [])))))),
@@ -2241,7 +2241,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (506,
   (AssignRT (507, (IndexedComponentRT (508, (IdentifierRT (509, ((*TS*) 117) , [])), (LiteralRT (510, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (511, (Integer_Literal 0) , [], [])))),
@@ -2271,7 +2271,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(ObjDeclRT (1406, { declaration_astnumRT = 1407; object_nameRT = ((*I*) 164); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None }))],
+  (ObjDeclRT (1406, { declaration_astnumRT = 1407; object_nameRT = ((*I*) 164); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
   (* = = = Procedure Body = = = *)
   (SeqRT (1408,
   (AssignRT (1409, (IdentifierRT (1410, ((*I*) 164) , [])), (NameRT (1411, (SelectedComponentRT (1412, (SelectedComponentRT (1413, (IdentifierRT (1414, ((*Local_Ctx*) 156) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
@@ -2288,13 +2288,13 @@ let Symbol_TableRT = {
   [{ parameter_astnumRT = 1143; parameter_nameRT = ((*Msg_Offset*) 145); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }; 
 { parameter_astnumRT = 1144; parameter_nameRT = ((*Num_Bytes*) 146); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (1145,
-(ObjDeclRT (1146, { declaration_astnumRT = 1147; object_nameRT = ((*Src*) 147); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-(SeqDeclRT (1148,
-(ObjDeclRT (1149, { declaration_astnumRT = 1150; object_nameRT = ((*Dst*) 148); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-(SeqDeclRT (1151,
-(ObjDeclRT (1152, { declaration_astnumRT = 1153; object_nameRT = ((*Final_Dst*) 149); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-(ObjDeclRT (1154, { declaration_astnumRT = 1155; object_nameRT = ((*Final_Src*) 150); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))))],
+  (SeqDeclRT (1145,
+  (ObjDeclRT (1146, { declaration_astnumRT = 1147; object_nameRT = ((*Src*) 147); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+  (SeqDeclRT (1148,
+  (ObjDeclRT (1149, { declaration_astnumRT = 1150; object_nameRT = ((*Dst*) 148); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+  (SeqDeclRT (1151,
+  (ObjDeclRT (1152, { declaration_astnumRT = 1153; object_nameRT = ((*Final_Dst*) 149); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+  (ObjDeclRT (1154, { declaration_astnumRT = 1155; object_nameRT = ((*Final_Src*) 150); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))))),
   (* = = = Procedure Body = = = *)
   (IfRT (1156, (BinOpRT (1157, Greater_Than, (NameRT (1158, (IdentifierRT (1159, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1160, (Integer_Literal 0) , [], [])) , [], [])),
     (SeqRT (1161,
@@ -2326,7 +2326,7 @@ let Symbol_TableRT = {
 { parameter_astnumRT = 281; parameter_nameRT = ((*Src*) 101); parameter_subtype_markRT = (Array_Type ((*U64_Seq*) 22)); parameter_modeRT = In }; 
 { parameter_astnumRT = 282; parameter_nameRT = ((*Byte_Count*) 102); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [(ObjDeclRT (283, { declaration_astnumRT = 284; object_nameRT = ((*N*) 103); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))],
+  (ObjDeclRT (283, { declaration_astnumRT = 284; object_nameRT = ((*N*) 103); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
   (* = = = Procedure Body = = = *)
   (IfRT (285, (BinOpRT (286, Greater_Than_Or_Equal, (NameRT (287, (IdentifierRT (288, ((*Byte_Count*) 102) , [])))), (LiteralRT (289, (Integer_Literal 1) , [], [])) , [], [])),
     (SeqRT (290,
@@ -2345,7 +2345,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (574,
   (AssignRT (575, (IndexedComponentRT (576, (IdentifierRT (577, ((*X*) 119) , [])), (LiteralRT (578, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (579, Plus, (NameRT (580, (IndexedComponentRT (581, (IdentifierRT (582, ((*W*) 120) , [])), (LiteralRT (583, (Integer_Literal 0) , [], [])) , [])))), (NameRT (584, (IndexedComponentRT (585, (IdentifierRT (586, ((*KS*) 118) , [])), (LiteralRT (587, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
@@ -2375,9 +2375,9 @@ let Symbol_TableRT = {
 { parameter_astnumRT = 328; parameter_nameRT = ((*Src*) 107); parameter_subtype_markRT = (Array_Type ((*Byte_Seq*) 14)); parameter_modeRT = In }; 
 { parameter_astnumRT = 329; parameter_nameRT = ((*Src_Offset*) 108); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (330,
-(ObjDeclRT (331, { declaration_astnumRT = 332; object_nameRT = ((*Dst_Index*) 109); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-(ObjDeclRT (333, { declaration_astnumRT = 334; object_nameRT = ((*Src_Index*) 110); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))],
+  (SeqDeclRT (330,
+  (ObjDeclRT (331, { declaration_astnumRT = 332; object_nameRT = ((*Dst_Index*) 109); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+  (ObjDeclRT (333, { declaration_astnumRT = 334; object_nameRT = ((*Src_Index*) 110); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))),
   (* = = = Procedure Body = = = *)
   (SeqRT (335,
   (AssignRT (336, (IdentifierRT (337, ((*Dst_Index*) 109) , [])), (LiteralRT (338, (Integer_Literal 0) , [], [])))),
@@ -2395,55 +2395,55 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (724,
-(ProcBodyDeclRT (725, 
-  mkprocBodyDeclRT (
-   726,
-    (* = = = Procedure Name = = = *)
-    ((*Inject_Key*) 126),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnumRT = 727; parameter_nameRT = ((*R*) 127); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
-    (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (728,
-  (TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
-  (ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None }))))],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (733,
-    (AssignRT (734, (IdentifierRT (735, ((*I*) 129) , [])), (LiteralRT (736, (Integer_Literal 0) , [], [])))),
-    (SeqRT (737,
-    (WhileRT (738, (BinOpRT (739, Less_Than_Or_Equal, (NameRT (740, (IdentifierRT (741, ((*I*) 129) , [])))), (LiteralRT (742, (Integer_Literal 7) , [], [])) , [], [])),
-      (SeqRT (743,
-      (AssignRT (744, (IndexedComponentRT (745, (IdentifierRT (746, ((*X*) 119) , [])), (NameRT (747, (IdentifierRT (748, ((*I*) 129) , [])))) , [])), (BinOpRT (749, Plus, (NameRT (750, (IndexedComponentRT (751, (IdentifierRT (752, ((*X*) 119) , [])), (NameRT (753, (IdentifierRT (754, ((*I*) 129) , [])))) , [])))), (NameRT (755, (IndexedComponentRT (756, (IdentifierRT (757, ((*KS*) 118) , [])), (BinOpRT (758, Modulus, (BinOpRT (759, Plus, (NameRT (760, (IdentifierRT (761, ((*R*) 127) , [])))), (NameRT (762, (IdentifierRT (763, ((*I*) 129) , [])))) , [OverflowCheck], [])), (BinOpRT (764, Plus, (LiteralRT (765, (Integer_Literal 8) , [], [])), (LiteralRT (766, (Integer_Literal 1) , [], [])) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-      (AssignRT (767, (IdentifierRT (768, ((*I*) 129) , [])), (BinOpRT (769, Plus, (NameRT (770, (IdentifierRT (771, ((*I*) 129) , [])))), (LiteralRT (772, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
-    ),
-    (SeqRT (773,
-    (AssignRT (774, (IndexedComponentRT (775, (IdentifierRT (776, ((*X*) 119) , [])), (BinOpRT (777, Minus, (LiteralRT (778, (Integer_Literal 8) , [], [])), (LiteralRT (779, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (780, Plus, (NameRT (781, (IndexedComponentRT (782, (IdentifierRT (783, ((*X*) 119) , [])), (BinOpRT (784, Minus, (LiteralRT (785, (Integer_Literal 8) , [], [])), (LiteralRT (786, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (787, (IndexedComponentRT (788, (IdentifierRT (789, ((*TS*) 117) , [])), (BinOpRT (790, Modulus, (NameRT (791, (IdentifierRT (792, ((*R*) 127) , [])))), (LiteralRT (793, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (794,
-    (AssignRT (795, (IndexedComponentRT (796, (IdentifierRT (797, ((*X*) 119) , [])), (BinOpRT (798, Minus, (LiteralRT (799, (Integer_Literal 8) , [], [])), (LiteralRT (800, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (801, Plus, (NameRT (802, (IndexedComponentRT (803, (IdentifierRT (804, ((*X*) 119) , [])), (BinOpRT (805, Minus, (LiteralRT (806, (Integer_Literal 8) , [], [])), (LiteralRT (807, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (808, (IndexedComponentRT (809, (IdentifierRT (810, ((*TS*) 117) , [])), (BinOpRT (811, Modulus, (BinOpRT (812, Plus, (NameRT (813, (IdentifierRT (814, ((*R*) 127) , [])))), (LiteralRT (815, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])), (LiteralRT (816, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-    (AssignRT (817, (IndexedComponentRT (818, (IdentifierRT (819, ((*X*) 119) , [])), (BinOpRT (820, Minus, (LiteralRT (821, (Integer_Literal 8) , [], [])), (LiteralRT (822, (Integer_Literal 1) , [], [])) , [], [])) , [])), (BinOpRT (823, Plus, (NameRT (824, (IndexedComponentRT (825, (IdentifierRT (826, ((*X*) 119) , [])), (BinOpRT (827, Minus, (LiteralRT (828, (Integer_Literal 8) , [], [])), (LiteralRT (829, (Integer_Literal 1) , [], [])) , [], [])) , [])))), (NameRT (830, (IdentifierRT (831, ((*R*) 127) , [])))) , [OverflowCheck], []))))))))))))
-  ))
-),
-(SeqDeclRT (832,
-(ProcBodyDeclRT (833, 
-  mkprocBodyDeclRT (
-   834,
-    (* = = = Procedure Name = = = *)
-    ((*Round_1*) 130),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDeclRT],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (835,
-    (AssignRT (836, (IndexedComponentRT (837, (IdentifierRT (838, ((*X*) 119) , [])), (LiteralRT (839, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (840, Plus, (NameRT (841, (IndexedComponentRT (842, (IdentifierRT (843, ((*X*) 119) , [])), (LiteralRT (844, (Integer_Literal 0) , [], [])) , [])))), (NameRT (845, (IndexedComponentRT (846, (IdentifierRT (847, ((*X*) 119) , [])), (LiteralRT (848, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (849,
-    (AssignRT (850, (IndexedComponentRT (851, (IdentifierRT (852, ((*X*) 119) , [])), (LiteralRT (853, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (854, Plus, (NameRT (855, (IndexedComponentRT (856, (IdentifierRT (857, ((*X*) 119) , [])), (LiteralRT (858, (Integer_Literal 2) , [], [])) , [])))), (NameRT (859, (IndexedComponentRT (860, (IdentifierRT (861, ((*X*) 119) , [])), (LiteralRT (862, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (863,
-    (AssignRT (864, (IndexedComponentRT (865, (IdentifierRT (866, ((*X*) 119) , [])), (LiteralRT (867, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (868, Plus, (NameRT (869, (IndexedComponentRT (870, (IdentifierRT (871, ((*X*) 119) , [])), (LiteralRT (872, (Integer_Literal 4) , [], [])) , [])))), (NameRT (873, (IndexedComponentRT (874, (IdentifierRT (875, ((*X*) 119) , [])), (LiteralRT (876, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (AssignRT (877, (IndexedComponentRT (878, (IdentifierRT (879, ((*X*) 119) , [])), (LiteralRT (880, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (881, Plus, (NameRT (882, (IndexedComponentRT (883, (IdentifierRT (884, ((*X*) 119) , [])), (LiteralRT (885, (Integer_Literal 6) , [], [])) , [])))), (NameRT (886, (IndexedComponentRT (887, (IdentifierRT (888, ((*X*) 119) , [])), (LiteralRT (889, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))
-  ))
-),
-(ObjDeclRT (890, { declaration_astnumRT = 891; object_nameRT = ((*R*) 131); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))],
+  (SeqDeclRT (724,
+  (ProcBodyDeclRT (725, 
+    mkprocBodyDeclRT (
+     726,
+      (* = = = Procedure Name = = = *)
+      ((*Inject_Key*) 126),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnumRT = 727; parameter_nameRT = ((*R*) 127); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
+      (* = = = Object Declarations = = = *)
+      (SeqDeclRT (728,
+      (TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
+      (ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None })))),
+      (* = = = Procedure Body = = = *)
+      (SeqRT (733,
+      (AssignRT (734, (IdentifierRT (735, ((*I*) 129) , [])), (LiteralRT (736, (Integer_Literal 0) , [], [])))),
+      (SeqRT (737,
+      (WhileRT (738, (BinOpRT (739, Less_Than_Or_Equal, (NameRT (740, (IdentifierRT (741, ((*I*) 129) , [])))), (LiteralRT (742, (Integer_Literal 7) , [], [])) , [], [])),
+        (SeqRT (743,
+        (AssignRT (744, (IndexedComponentRT (745, (IdentifierRT (746, ((*X*) 119) , [])), (NameRT (747, (IdentifierRT (748, ((*I*) 129) , [])))) , [])), (BinOpRT (749, Plus, (NameRT (750, (IndexedComponentRT (751, (IdentifierRT (752, ((*X*) 119) , [])), (NameRT (753, (IdentifierRT (754, ((*I*) 129) , [])))) , [])))), (NameRT (755, (IndexedComponentRT (756, (IdentifierRT (757, ((*KS*) 118) , [])), (BinOpRT (758, Modulus, (BinOpRT (759, Plus, (NameRT (760, (IdentifierRT (761, ((*R*) 127) , [])))), (NameRT (762, (IdentifierRT (763, ((*I*) 129) , [])))) , [OverflowCheck], [])), (BinOpRT (764, Plus, (LiteralRT (765, (Integer_Literal 8) , [], [])), (LiteralRT (766, (Integer_Literal 1) , [], [])) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+        (AssignRT (767, (IdentifierRT (768, ((*I*) 129) , [])), (BinOpRT (769, Plus, (NameRT (770, (IdentifierRT (771, ((*I*) 129) , [])))), (LiteralRT (772, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
+      ),
+      (SeqRT (773,
+      (AssignRT (774, (IndexedComponentRT (775, (IdentifierRT (776, ((*X*) 119) , [])), (BinOpRT (777, Minus, (LiteralRT (778, (Integer_Literal 8) , [], [])), (LiteralRT (779, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (780, Plus, (NameRT (781, (IndexedComponentRT (782, (IdentifierRT (783, ((*X*) 119) , [])), (BinOpRT (784, Minus, (LiteralRT (785, (Integer_Literal 8) , [], [])), (LiteralRT (786, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (787, (IndexedComponentRT (788, (IdentifierRT (789, ((*TS*) 117) , [])), (BinOpRT (790, Modulus, (NameRT (791, (IdentifierRT (792, ((*R*) 127) , [])))), (LiteralRT (793, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (794,
+      (AssignRT (795, (IndexedComponentRT (796, (IdentifierRT (797, ((*X*) 119) , [])), (BinOpRT (798, Minus, (LiteralRT (799, (Integer_Literal 8) , [], [])), (LiteralRT (800, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (801, Plus, (NameRT (802, (IndexedComponentRT (803, (IdentifierRT (804, ((*X*) 119) , [])), (BinOpRT (805, Minus, (LiteralRT (806, (Integer_Literal 8) , [], [])), (LiteralRT (807, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (808, (IndexedComponentRT (809, (IdentifierRT (810, ((*TS*) 117) , [])), (BinOpRT (811, Modulus, (BinOpRT (812, Plus, (NameRT (813, (IdentifierRT (814, ((*R*) 127) , [])))), (LiteralRT (815, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])), (LiteralRT (816, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+      (AssignRT (817, (IndexedComponentRT (818, (IdentifierRT (819, ((*X*) 119) , [])), (BinOpRT (820, Minus, (LiteralRT (821, (Integer_Literal 8) , [], [])), (LiteralRT (822, (Integer_Literal 1) , [], [])) , [], [])) , [])), (BinOpRT (823, Plus, (NameRT (824, (IndexedComponentRT (825, (IdentifierRT (826, ((*X*) 119) , [])), (BinOpRT (827, Minus, (LiteralRT (828, (Integer_Literal 8) , [], [])), (LiteralRT (829, (Integer_Literal 1) , [], [])) , [], [])) , [])))), (NameRT (830, (IdentifierRT (831, ((*R*) 127) , [])))) , [OverflowCheck], []))))))))))))
+    ))
+  ),
+  (SeqDeclRT (832,
+  (ProcBodyDeclRT (833, 
+    mkprocBodyDeclRT (
+     834,
+      (* = = = Procedure Name = = = *)
+      ((*Round_1*) 130),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDeclRT,
+      (* = = = Procedure Body = = = *)
+      (SeqRT (835,
+      (AssignRT (836, (IndexedComponentRT (837, (IdentifierRT (838, ((*X*) 119) , [])), (LiteralRT (839, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (840, Plus, (NameRT (841, (IndexedComponentRT (842, (IdentifierRT (843, ((*X*) 119) , [])), (LiteralRT (844, (Integer_Literal 0) , [], [])) , [])))), (NameRT (845, (IndexedComponentRT (846, (IdentifierRT (847, ((*X*) 119) , [])), (LiteralRT (848, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (849,
+      (AssignRT (850, (IndexedComponentRT (851, (IdentifierRT (852, ((*X*) 119) , [])), (LiteralRT (853, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (854, Plus, (NameRT (855, (IndexedComponentRT (856, (IdentifierRT (857, ((*X*) 119) , [])), (LiteralRT (858, (Integer_Literal 2) , [], [])) , [])))), (NameRT (859, (IndexedComponentRT (860, (IdentifierRT (861, ((*X*) 119) , [])), (LiteralRT (862, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (863,
+      (AssignRT (864, (IndexedComponentRT (865, (IdentifierRT (866, ((*X*) 119) , [])), (LiteralRT (867, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (868, Plus, (NameRT (869, (IndexedComponentRT (870, (IdentifierRT (871, ((*X*) 119) , [])), (LiteralRT (872, (Integer_Literal 4) , [], [])) , [])))), (NameRT (873, (IndexedComponentRT (874, (IdentifierRT (875, ((*X*) 119) , [])), (LiteralRT (876, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (AssignRT (877, (IndexedComponentRT (878, (IdentifierRT (879, ((*X*) 119) , [])), (LiteralRT (880, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (881, Plus, (NameRT (882, (IndexedComponentRT (883, (IdentifierRT (884, ((*X*) 119) , [])), (LiteralRT (885, (Integer_Literal 6) , [], [])) , [])))), (NameRT (886, (IndexedComponentRT (887, (IdentifierRT (888, ((*X*) 119) , [])), (LiteralRT (889, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))
+    ))
+  ),
+  (ObjDeclRT (890, { declaration_astnumRT = 891; object_nameRT = ((*R*) 131); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))),
   (* = = = Procedure Body = = = *)
   (SeqRT (892,
   (AssignRT (893, (IdentifierRT (894, ((*R*) 131) , [])), (LiteralRT (895, (Integer_Literal 1) , [], [])))),
@@ -2465,7 +2465,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (835,
   (AssignRT (836, (IndexedComponentRT (837, (IdentifierRT (838, ((*X*) 119) , [])), (LiteralRT (839, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (840, Plus, (NameRT (841, (IndexedComponentRT (842, (IdentifierRT (843, ((*X*) 119) , [])), (LiteralRT (844, (Integer_Literal 0) , [], [])) , [])))), (NameRT (845, (IndexedComponentRT (846, (IdentifierRT (847, ((*X*) 119) , [])), (LiteralRT (848, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
@@ -2481,7 +2481,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (920,
   (AssignRT (921, (IndexedComponentRT (922, (SelectedComponentRT (923, (IdentifierRT (924, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (926, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (927, Plus, (NameRT (928, (IndexedComponentRT (929, (IdentifierRT (930, ((*X*) 119) , [])), (LiteralRT (931, (Integer_Literal 0) , [], [])) , [])))), (NameRT (932, (IndexedComponentRT (933, (IdentifierRT (934, ((*W*) 120) , [])), (LiteralRT (935, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
@@ -2505,7 +2505,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 1440; parameter_nameRT = ((*Counter*) 166); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (1441,
   (AssignRT (1442, (IndexedComponentRT (1443, (SelectedComponentRT (1444, (IdentifierRT (1445, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1447, (Integer_Literal 0) , [], [])) , [])), (NameRT (1448, (IdentifierRT (1449, ((*Counter*) 166) , [RangeCheck])))))),
@@ -2529,9 +2529,9 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 727; parameter_nameRT = ((*R*) 127); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (728,
-(TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
-(ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None }))))],
+  (SeqDeclRT (728,
+  (TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
+  (ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None })))),
   (* = = = Procedure Body = = = *)
   (SeqRT (733,
   (AssignRT (734, (IdentifierRT (735, ((*I*) 129) , [])), (LiteralRT (736, (Integer_Literal 0) , [], [])))),
@@ -2553,75 +2553,75 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 1372; parameter_nameRT = ((*Ctx*) 152); parameter_subtype_markRT = (Record_Type ((*Skein_512_Context*) 61)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (1373,
-(TypeDeclRT (1374, (SubtypeDeclRT (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (RangeRT (1, 15)))))),
-(SeqDeclRT (1376,
-(TypeDeclRT (1377, (SubtypeDeclRT (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (RangeRT (0, 2)))))),
-(SeqDeclRT (1379,
-(TypeDeclRT (1380, (SubtypeDeclRT (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (RangeRT (1, 2)))))),
-(SeqDeclRT (1382,
-(ObjDeclRT (1383, { declaration_astnumRT = 1384; object_nameRT = ((*Local_Ctx*) 156); object_nominal_subtypeRT = (Record_Type ((*Skein_512_Context*) 61)); initialization_expRT = None })),
-(SeqDeclRT (1385,
-(ObjDeclRT (1386, { declaration_astnumRT = 1387; object_nameRT = ((*N*) 157); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-(SeqDeclRT (1388,
-(ObjDeclRT (1389, { declaration_astnumRT = 1390; object_nameRT = ((*Blocks_Required*) 158); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None })),
-(SeqDeclRT (1391,
-(ObjDeclRT (1392, { declaration_astnumRT = 1393; object_nameRT = ((*Byte_Count*) 159); object_nominal_subtypeRT = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_expRT = None })),
-(SeqDeclRT (1394,
-(ObjDeclRT (1395, { declaration_astnumRT = 1396; object_nameRT = ((*X*) 160); object_nominal_subtypeRT = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_expRT = None })),
-(SeqDeclRT (1397,
-(ObjDeclRT (1398, { declaration_astnumRT = 1399; object_nameRT = ((*Tmp_B*) 161); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
-(SeqDeclRT (1400,
-(ObjDeclRT (1401, { declaration_astnumRT = 1402; object_nameRT = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-(SeqDeclRT (1403,
-(ProcBodyDeclRT (1404, 
-  mkprocBodyDeclRT (
-   1405,
-    (* = = = Procedure Name = = = *)
-    ((*Zero_Pad*) 163),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [(ObjDeclRT (1406, { declaration_astnumRT = 1407; object_nameRT = ((*I*) 164); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None }))],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (1408,
-    (AssignRT (1409, (IdentifierRT (1410, ((*I*) 164) , [])), (NameRT (1411, (SelectedComponentRT (1412, (SelectedComponentRT (1413, (IdentifierRT (1414, ((*Local_Ctx*) 156) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
-    (WhileRT (1417, (BinOpRT (1418, Less_Than_Or_Equal, (NameRT (1419, (IdentifierRT (1420, ((*I*) 164) , [])))), (LiteralRT (1421, (Integer_Literal 63) , [], [])) , [], [])),
-      (SeqRT (1422,
-      (AssignRT (1423, (IndexedComponentRT (1424, (SelectedComponentRT (1425, (IdentifierRT (1426, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (NameRT (1428, (IdentifierRT (1429, ((*I*) 164) , [])))) , [])), (LiteralRT (1430, (Integer_Literal 0) , [], [])))),
-      (AssignRT (1431, (IdentifierRT (1432, ((*I*) 164) , [])), (BinOpRT (1433, Plus, (NameRT (1434, (IdentifierRT (1435, ((*I*) 164) , [])))), (LiteralRT (1436, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
-    )))
-  ))
-),
-(SeqDeclRT (1437,
-(ProcBodyDeclRT (1438, 
-  mkprocBodyDeclRT (
-   1439,
-    (* = = = Procedure Name = = = *)
-    ((*Set_Counter*) 165),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnumRT = 1440; parameter_nameRT = ((*Counter*) 166); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
-    (* = = = Object Declarations = = = *)
-    [NullDeclRT],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (1441,
-    (AssignRT (1442, (IndexedComponentRT (1443, (SelectedComponentRT (1444, (IdentifierRT (1445, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1447, (Integer_Literal 0) , [], [])) , [])), (NameRT (1448, (IdentifierRT (1449, ((*Counter*) 166) , [RangeCheck])))))),
-    (SeqRT (1450,
-    (AssignRT (1451, (IndexedComponentRT (1452, (SelectedComponentRT (1453, (IdentifierRT (1454, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1456, (Integer_Literal 1) , [], [])) , [])), (NameRT (1457, (IdentifierRT (1458, ((*Counter*) 166) , [RangeCheck])))))),
-    (SeqRT (1459,
-    (AssignRT (1460, (IndexedComponentRT (1461, (SelectedComponentRT (1462, (IdentifierRT (1463, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1465, (Integer_Literal 2) , [], [])) , [])), (NameRT (1466, (IdentifierRT (1467, ((*Counter*) 166) , [RangeCheck])))))),
-    (SeqRT (1468,
-    (AssignRT (1469, (IndexedComponentRT (1470, (SelectedComponentRT (1471, (IdentifierRT (1472, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1474, (Integer_Literal 3) , [], [])) , [])), (NameRT (1475, (IdentifierRT (1476, ((*Counter*) 166) , [RangeCheck])))))),
-    (SeqRT (1477,
-    (AssignRT (1478, (IndexedComponentRT (1479, (SelectedComponentRT (1480, (IdentifierRT (1481, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1483, (Integer_Literal 4) , [], [])) , [])), (NameRT (1484, (IdentifierRT (1485, ((*Counter*) 166) , [RangeCheck])))))),
-    (SeqRT (1486,
-    (AssignRT (1487, (IndexedComponentRT (1488, (SelectedComponentRT (1489, (IdentifierRT (1490, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1492, (Integer_Literal 5) , [], [])) , [])), (NameRT (1493, (IdentifierRT (1494, ((*Counter*) 166) , [RangeCheck])))))),
-    (SeqRT (1495,
-    (AssignRT (1496, (IndexedComponentRT (1497, (SelectedComponentRT (1498, (IdentifierRT (1499, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1501, (Integer_Literal 6) , [], [])) , [])), (NameRT (1502, (IdentifierRT (1503, ((*Counter*) 166) , [RangeCheck])))))),
-    (AssignRT (1504, (IndexedComponentRT (1505, (SelectedComponentRT (1506, (IdentifierRT (1507, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1509, (Integer_Literal 7) , [], [])) , [])), (NameRT (1510, (IdentifierRT (1511, ((*Counter*) 166) , [RangeCheck]))))))))))))))))))))
-  ))
-),
-(ObjDeclRT (1512, { declaration_astnumRT = 1513; object_nameRT = ((*Blocks_Done*) 167); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None }))))))))))))))))))))))))))],
+  (SeqDeclRT (1373,
+  (TypeDeclRT (1374, (SubtypeDeclRT (1375, ((*Output_Byte_Count_T*) 153), (Subtype ((*U64*) 4)), (RangeRT (1, 15)))))),
+  (SeqDeclRT (1376,
+  (TypeDeclRT (1377, (SubtypeDeclRT (1378, ((*Output_Block_Count_T*) 154), (Subtype ((*U64*) 4)), (RangeRT (0, 2)))))),
+  (SeqDeclRT (1379,
+  (TypeDeclRT (1380, (SubtypeDeclRT (1381, ((*Positive_Output_Block_Count_T*) 155), (Subtype ((*Output_Block_Count_T*) 154)), (RangeRT (1, 2)))))),
+  (SeqDeclRT (1382,
+  (ObjDeclRT (1383, { declaration_astnumRT = 1384; object_nameRT = ((*Local_Ctx*) 156); object_nominal_subtypeRT = (Record_Type ((*Skein_512_Context*) 61)); initialization_expRT = None })),
+  (SeqDeclRT (1385,
+  (ObjDeclRT (1386, { declaration_astnumRT = 1387; object_nameRT = ((*N*) 157); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+  (SeqDeclRT (1388,
+  (ObjDeclRT (1389, { declaration_astnumRT = 1390; object_nameRT = ((*Blocks_Required*) 158); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None })),
+  (SeqDeclRT (1391,
+  (ObjDeclRT (1392, { declaration_astnumRT = 1393; object_nameRT = ((*Byte_Count*) 159); object_nominal_subtypeRT = (Subtype ((*Output_Byte_Count_T*) 153)); initialization_expRT = None })),
+  (SeqDeclRT (1394,
+  (ObjDeclRT (1395, { declaration_astnumRT = 1396; object_nameRT = ((*X*) 160); object_nominal_subtypeRT = (Array_Type ((*Skein_512_State_Words*) 31)); initialization_expRT = None })),
+  (SeqDeclRT (1397,
+  (ObjDeclRT (1398, { declaration_astnumRT = 1399; object_nameRT = ((*Tmp_B*) 161); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
+  (SeqDeclRT (1400,
+  (ObjDeclRT (1401, { declaration_astnumRT = 1402; object_nameRT = ((*Tmp_Byte_Count_Add*) 162); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+  (SeqDeclRT (1403,
+  (ProcBodyDeclRT (1404, 
+    mkprocBodyDeclRT (
+     1405,
+      (* = = = Procedure Name = = = *)
+      ((*Zero_Pad*) 163),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      (ObjDeclRT (1406, { declaration_astnumRT = 1407; object_nameRT = ((*I*) 164); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+      (* = = = Procedure Body = = = *)
+      (SeqRT (1408,
+      (AssignRT (1409, (IdentifierRT (1410, ((*I*) 164) , [])), (NameRT (1411, (SelectedComponentRT (1412, (SelectedComponentRT (1413, (IdentifierRT (1414, ((*Local_Ctx*) 156) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
+      (WhileRT (1417, (BinOpRT (1418, Less_Than_Or_Equal, (NameRT (1419, (IdentifierRT (1420, ((*I*) 164) , [])))), (LiteralRT (1421, (Integer_Literal 63) , [], [])) , [], [])),
+        (SeqRT (1422,
+        (AssignRT (1423, (IndexedComponentRT (1424, (SelectedComponentRT (1425, (IdentifierRT (1426, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (NameRT (1428, (IdentifierRT (1429, ((*I*) 164) , [])))) , [])), (LiteralRT (1430, (Integer_Literal 0) , [], [])))),
+        (AssignRT (1431, (IdentifierRT (1432, ((*I*) 164) , [])), (BinOpRT (1433, Plus, (NameRT (1434, (IdentifierRT (1435, ((*I*) 164) , [])))), (LiteralRT (1436, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
+      )))
+    ))
+  ),
+  (SeqDeclRT (1437,
+  (ProcBodyDeclRT (1438, 
+    mkprocBodyDeclRT (
+     1439,
+      (* = = = Procedure Name = = = *)
+      ((*Set_Counter*) 165),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnumRT = 1440; parameter_nameRT = ((*Counter*) 166); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
+      (* = = = Object Declarations = = = *)
+      NullDeclRT,
+      (* = = = Procedure Body = = = *)
+      (SeqRT (1441,
+      (AssignRT (1442, (IndexedComponentRT (1443, (SelectedComponentRT (1444, (IdentifierRT (1445, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1447, (Integer_Literal 0) , [], [])) , [])), (NameRT (1448, (IdentifierRT (1449, ((*Counter*) 166) , [RangeCheck])))))),
+      (SeqRT (1450,
+      (AssignRT (1451, (IndexedComponentRT (1452, (SelectedComponentRT (1453, (IdentifierRT (1454, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1456, (Integer_Literal 1) , [], [])) , [])), (NameRT (1457, (IdentifierRT (1458, ((*Counter*) 166) , [RangeCheck])))))),
+      (SeqRT (1459,
+      (AssignRT (1460, (IndexedComponentRT (1461, (SelectedComponentRT (1462, (IdentifierRT (1463, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1465, (Integer_Literal 2) , [], [])) , [])), (NameRT (1466, (IdentifierRT (1467, ((*Counter*) 166) , [RangeCheck])))))),
+      (SeqRT (1468,
+      (AssignRT (1469, (IndexedComponentRT (1470, (SelectedComponentRT (1471, (IdentifierRT (1472, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1474, (Integer_Literal 3) , [], [])) , [])), (NameRT (1475, (IdentifierRT (1476, ((*Counter*) 166) , [RangeCheck])))))),
+      (SeqRT (1477,
+      (AssignRT (1478, (IndexedComponentRT (1479, (SelectedComponentRT (1480, (IdentifierRT (1481, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1483, (Integer_Literal 4) , [], [])) , [])), (NameRT (1484, (IdentifierRT (1485, ((*Counter*) 166) , [RangeCheck])))))),
+      (SeqRT (1486,
+      (AssignRT (1487, (IndexedComponentRT (1488, (SelectedComponentRT (1489, (IdentifierRT (1490, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1492, (Integer_Literal 5) , [], [])) , [])), (NameRT (1493, (IdentifierRT (1494, ((*Counter*) 166) , [RangeCheck])))))),
+      (SeqRT (1495,
+      (AssignRT (1496, (IndexedComponentRT (1497, (SelectedComponentRT (1498, (IdentifierRT (1499, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1501, (Integer_Literal 6) , [], [])) , [])), (NameRT (1502, (IdentifierRT (1503, ((*Counter*) 166) , [RangeCheck])))))),
+      (AssignRT (1504, (IndexedComponentRT (1505, (SelectedComponentRT (1506, (IdentifierRT (1507, ((*Local_Ctx*) 156) , [])), ((*B*) 64) , [])), (LiteralRT (1509, (Integer_Literal 7) , [], [])) , [])), (NameRT (1510, (IdentifierRT (1511, ((*Counter*) 166) , [RangeCheck]))))))))))))))))))))
+    ))
+  ),
+  (ObjDeclRT (1512, { declaration_astnumRT = 1513; object_nameRT = ((*Blocks_Done*) 167); object_nominal_subtypeRT = (Subtype ((*Positive_Output_Block_Count_T*) 155)); initialization_expRT = None })))))))))))))))))))))))))),
   (* = = = Procedure Body = = = *)
   (SeqRT (1514,
   (AssignRT (1515, (IdentifierRT (1516, ((*Local_Ctx*) 156) , [])), (NameRT (1517, (IdentifierRT (1518, ((*Ctx*) 152) , [])))))),
@@ -2675,209 +2675,209 @@ let Symbol_TableRT = {
 { parameter_astnumRT = 433; parameter_nameRT = ((*Block_Count*) 115); parameter_subtype_markRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); parameter_modeRT = In }; 
 { parameter_astnumRT = 434; parameter_nameRT = ((*Byte_Count_Add*) 116); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (435,
-(ObjDeclRT (436, { declaration_astnumRT = 437; object_nameRT = ((*TS*) 117); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_3*) 23)); initialization_expRT = None })),
-(SeqDeclRT (438,
-(ObjDeclRT (439, { declaration_astnumRT = 440; object_nameRT = ((*KS*) 118); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_9*) 26)); initialization_expRT = None })),
-(SeqDeclRT (441,
-(ObjDeclRT (442, { declaration_astnumRT = 443; object_nameRT = ((*X*) 119); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
-(SeqDeclRT (444,
-(ObjDeclRT (445, { declaration_astnumRT = 446; object_nameRT = ((*W*) 120); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
-(SeqDeclRT (447,
-(ProcBodyDeclRT (448, 
-  mkprocBodyDeclRT (
-   449,
-    (* = = = Procedure Name = = = *)
-    ((*Initialize_Key_Schedule*) 121),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [(ObjDeclRT (450, { declaration_astnumRT = 451; object_nameRT = ((*I*) 122); object_nominal_subtypeRT = (Subtype ((*I8*) 9)); initialization_expRT = None }))],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (452,
-    (AssignRT (453, (IndexedComponentRT (454, (IdentifierRT (455, ((*KS*) 118) , [])), (LiteralRT (456, (Integer_Literal 8) , [], [])) , [])), (LiteralRT (457, (Integer_Literal 16) , [], [])))),
-    (SeqRT (458,
-    (AssignRT (459, (IdentifierRT (460, ((*I*) 122) , [])), (LiteralRT (461, (Integer_Literal 0) , [], [])))),
-    (WhileRT (462, (BinOpRT (463, Less_Than_Or_Equal, (NameRT (464, (IdentifierRT (465, ((*I*) 122) , [])))), (LiteralRT (466, (Integer_Literal 7) , [], [])) , [], [])),
-      (SeqRT (467,
-      (AssignRT (468, (IndexedComponentRT (469, (IdentifierRT (470, ((*KS*) 118) , [])), (NameRT (471, (IdentifierRT (472, ((*I*) 122) , [])))) , [])), (NameRT (473, (IndexedComponentRT (474, (SelectedComponentRT (475, (IdentifierRT (476, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (478, (IdentifierRT (479, ((*I*) 122) , [])))) , [])))))),
-      (SeqRT (480,
-      (AssignRT (481, (IndexedComponentRT (482, (IdentifierRT (483, ((*KS*) 118) , [])), (LiteralRT (484, (Integer_Literal 8) , [], [])) , [])), (BinOpRT (485, Plus, (NameRT (486, (IndexedComponentRT (487, (IdentifierRT (488, ((*KS*) 118) , [])), (LiteralRT (489, (Integer_Literal 8) , [], [])) , [])))), (NameRT (490, (IndexedComponentRT (491, (SelectedComponentRT (492, (IdentifierRT (493, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (495, (IdentifierRT (496, ((*I*) 122) , [])))) , [])))) , [OverflowCheck], [])))),
-      (AssignRT (497, (IdentifierRT (498, ((*I*) 122) , [])), (BinOpRT (499, Plus, (NameRT (500, (IdentifierRT (501, ((*I*) 122) , [])))), (LiteralRT (502, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))))
-    )))))
-  ))
-),
-(SeqDeclRT (503,
-(ProcBodyDeclRT (504, 
-  mkprocBodyDeclRT (
-   505,
-    (* = = = Procedure Name = = = *)
-    ((*Initialize_TS*) 123),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDeclRT],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (506,
-    (AssignRT (507, (IndexedComponentRT (508, (IdentifierRT (509, ((*TS*) 117) , [])), (LiteralRT (510, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (511, (Integer_Literal 0) , [], [])))),
-    (SeqRT (512,
-    (AssignRT (513, (IndexedComponentRT (514, (IdentifierRT (515, ((*TS*) 117) , [])), (LiteralRT (516, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (517, (Integer_Literal 1) , [], [])))),
-    (SeqRT (518,
-    (AssignRT (519, (IndexedComponentRT (520, (IdentifierRT (521, ((*TS*) 117) , [])), (LiteralRT (522, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (523, (Integer_Literal 2) , [], [])))),
-    (SeqRT (524,
-    (AssignRT (525, (IndexedComponentRT (526, (IdentifierRT (527, ((*W*) 120) , [])), (LiteralRT (528, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (529, (Integer_Literal 0) , [], [])))),
-    (SeqRT (530,
-    (AssignRT (531, (IndexedComponentRT (532, (IdentifierRT (533, ((*W*) 120) , [])), (LiteralRT (534, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (535, (Integer_Literal 1) , [], [])))),
-    (SeqRT (536,
-    (AssignRT (537, (IndexedComponentRT (538, (IdentifierRT (539, ((*W*) 120) , [])), (LiteralRT (540, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (541, (Integer_Literal 2) , [], [])))),
-    (SeqRT (542,
-    (AssignRT (543, (IndexedComponentRT (544, (IdentifierRT (545, ((*W*) 120) , [])), (LiteralRT (546, (Integer_Literal 3) , [], [])) , [])), (LiteralRT (547, (Integer_Literal 3) , [], [])))),
-    (SeqRT (548,
-    (AssignRT (549, (IndexedComponentRT (550, (IdentifierRT (551, ((*W*) 120) , [])), (LiteralRT (552, (Integer_Literal 4) , [], [])) , [])), (LiteralRT (553, (Integer_Literal 4) , [], [])))),
-    (SeqRT (554,
-    (AssignRT (555, (IndexedComponentRT (556, (IdentifierRT (557, ((*W*) 120) , [])), (LiteralRT (558, (Integer_Literal 5) , [], [])) , [])), (LiteralRT (559, (Integer_Literal 5) , [], [])))),
-    (SeqRT (560,
-    (AssignRT (561, (IndexedComponentRT (562, (IdentifierRT (563, ((*W*) 120) , [])), (LiteralRT (564, (Integer_Literal 6) , [], [])) , [])), (LiteralRT (565, (Integer_Literal 6) , [], [])))),
-    (AssignRT (566, (IndexedComponentRT (567, (IdentifierRT (568, ((*W*) 120) , [])), (LiteralRT (569, (Integer_Literal 7) , [], [])) , [])), (LiteralRT (570, (Integer_Literal 7) , [], []))))))))))))))))))))))))
-  ))
-),
-(SeqDeclRT (571,
-(ProcBodyDeclRT (572, 
-  mkprocBodyDeclRT (
-   573,
-    (* = = = Procedure Name = = = *)
-    ((*Do_First_Key_Injection*) 124),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDeclRT],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (574,
-    (AssignRT (575, (IndexedComponentRT (576, (IdentifierRT (577, ((*X*) 119) , [])), (LiteralRT (578, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (579, Plus, (NameRT (580, (IndexedComponentRT (581, (IdentifierRT (582, ((*W*) 120) , [])), (LiteralRT (583, (Integer_Literal 0) , [], [])) , [])))), (NameRT (584, (IndexedComponentRT (585, (IdentifierRT (586, ((*KS*) 118) , [])), (LiteralRT (587, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (588,
-    (AssignRT (589, (IndexedComponentRT (590, (IdentifierRT (591, ((*X*) 119) , [])), (LiteralRT (592, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (593, Plus, (NameRT (594, (IndexedComponentRT (595, (IdentifierRT (596, ((*W*) 120) , [])), (LiteralRT (597, (Integer_Literal 1) , [], [])) , [])))), (NameRT (598, (IndexedComponentRT (599, (IdentifierRT (600, ((*KS*) 118) , [])), (LiteralRT (601, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (602,
-    (AssignRT (603, (IndexedComponentRT (604, (IdentifierRT (605, ((*X*) 119) , [])), (LiteralRT (606, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (607, Plus, (NameRT (608, (IndexedComponentRT (609, (IdentifierRT (610, ((*W*) 120) , [])), (LiteralRT (611, (Integer_Literal 2) , [], [])) , [])))), (NameRT (612, (IndexedComponentRT (613, (IdentifierRT (614, ((*KS*) 118) , [])), (LiteralRT (615, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (616,
-    (AssignRT (617, (IndexedComponentRT (618, (IdentifierRT (619, ((*X*) 119) , [])), (LiteralRT (620, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (621, Plus, (NameRT (622, (IndexedComponentRT (623, (IdentifierRT (624, ((*W*) 120) , [])), (LiteralRT (625, (Integer_Literal 3) , [], [])) , [])))), (NameRT (626, (IndexedComponentRT (627, (IdentifierRT (628, ((*KS*) 118) , [])), (LiteralRT (629, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (630,
-    (AssignRT (631, (IndexedComponentRT (632, (IdentifierRT (633, ((*X*) 119) , [])), (LiteralRT (634, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (635, Plus, (NameRT (636, (IndexedComponentRT (637, (IdentifierRT (638, ((*W*) 120) , [])), (LiteralRT (639, (Integer_Literal 4) , [], [])) , [])))), (NameRT (640, (IndexedComponentRT (641, (IdentifierRT (642, ((*KS*) 118) , [])), (LiteralRT (643, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (644,
-    (AssignRT (645, (IndexedComponentRT (646, (IdentifierRT (647, ((*X*) 119) , [])), (LiteralRT (648, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (649, Plus, (NameRT (650, (IndexedComponentRT (651, (IdentifierRT (652, ((*W*) 120) , [])), (LiteralRT (653, (Integer_Literal 5) , [], [])) , [])))), (NameRT (654, (IndexedComponentRT (655, (IdentifierRT (656, ((*KS*) 118) , [])), (LiteralRT (657, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (658,
-    (AssignRT (659, (IndexedComponentRT (660, (IdentifierRT (661, ((*X*) 119) , [])), (LiteralRT (662, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (663, Plus, (NameRT (664, (IndexedComponentRT (665, (IdentifierRT (666, ((*W*) 120) , [])), (LiteralRT (667, (Integer_Literal 6) , [], [])) , [])))), (NameRT (668, (IndexedComponentRT (669, (IdentifierRT (670, ((*KS*) 118) , [])), (LiteralRT (671, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (672,
-    (AssignRT (673, (IndexedComponentRT (674, (IdentifierRT (675, ((*X*) 119) , [])), (LiteralRT (676, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (677, Plus, (NameRT (678, (IndexedComponentRT (679, (IdentifierRT (680, ((*W*) 120) , [])), (LiteralRT (681, (Integer_Literal 7) , [], [])) , [])))), (NameRT (682, (IndexedComponentRT (683, (IdentifierRT (684, ((*KS*) 118) , [])), (LiteralRT (685, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (686,
-    (AssignRT (687, (IndexedComponentRT (688, (IdentifierRT (689, ((*X*) 119) , [])), (BinOpRT (690, Minus, (LiteralRT (691, (Integer_Literal 8) , [], [])), (LiteralRT (692, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (693, Plus, (NameRT (694, (IndexedComponentRT (695, (IdentifierRT (696, ((*X*) 119) , [])), (BinOpRT (697, Minus, (LiteralRT (698, (Integer_Literal 8) , [], [])), (LiteralRT (699, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (700, (IndexedComponentRT (701, (IdentifierRT (702, ((*TS*) 117) , [])), (LiteralRT (703, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (AssignRT (704, (IndexedComponentRT (705, (IdentifierRT (706, ((*X*) 119) , [])), (BinOpRT (707, Minus, (LiteralRT (708, (Integer_Literal 8) , [], [])), (LiteralRT (709, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (710, Plus, (NameRT (711, (IndexedComponentRT (712, (IdentifierRT (713, ((*X*) 119) , [])), (BinOpRT (714, Minus, (LiteralRT (715, (Integer_Literal 8) , [], [])), (LiteralRT (716, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (717, (IndexedComponentRT (718, (IdentifierRT (719, ((*TS*) 117) , [])), (LiteralRT (720, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))))))
-  ))
-),
-(SeqDeclRT (721,
-(ProcBodyDeclRT (722, 
-  mkprocBodyDeclRT (
-   723,
-    (* = = = Procedure Name = = = *)
-    ((*Threefish_Block*) 125),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (724,
-  (ProcBodyDeclRT (725, 
+  (SeqDeclRT (435,
+  (ObjDeclRT (436, { declaration_astnumRT = 437; object_nameRT = ((*TS*) 117); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_3*) 23)); initialization_expRT = None })),
+  (SeqDeclRT (438,
+  (ObjDeclRT (439, { declaration_astnumRT = 440; object_nameRT = ((*KS*) 118); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_9*) 26)); initialization_expRT = None })),
+  (SeqDeclRT (441,
+  (ObjDeclRT (442, { declaration_astnumRT = 443; object_nameRT = ((*X*) 119); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
+  (SeqDeclRT (444,
+  (ObjDeclRT (445, { declaration_astnumRT = 446; object_nameRT = ((*W*) 120); object_nominal_subtypeRT = (Array_Type ((*U64_Seq_8*) 25)); initialization_expRT = None })),
+  (SeqDeclRT (447,
+  (ProcBodyDeclRT (448, 
     mkprocBodyDeclRT (
-     726,
+     449,
       (* = = = Procedure Name = = = *)
-      ((*Inject_Key*) 126),
-      (* = = = Formal Parameters = = = *)
-      [{ parameter_astnumRT = 727; parameter_nameRT = ((*R*) 127); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
-      (* = = = Object Declarations = = = *)
-      [(SeqDeclRT (728,
-    (TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
-    (ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None }))))],
-      (* = = = Procedure Body = = = *)
-      (SeqRT (733,
-      (AssignRT (734, (IdentifierRT (735, ((*I*) 129) , [])), (LiteralRT (736, (Integer_Literal 0) , [], [])))),
-      (SeqRT (737,
-      (WhileRT (738, (BinOpRT (739, Less_Than_Or_Equal, (NameRT (740, (IdentifierRT (741, ((*I*) 129) , [])))), (LiteralRT (742, (Integer_Literal 7) , [], [])) , [], [])),
-        (SeqRT (743,
-        (AssignRT (744, (IndexedComponentRT (745, (IdentifierRT (746, ((*X*) 119) , [])), (NameRT (747, (IdentifierRT (748, ((*I*) 129) , [])))) , [])), (BinOpRT (749, Plus, (NameRT (750, (IndexedComponentRT (751, (IdentifierRT (752, ((*X*) 119) , [])), (NameRT (753, (IdentifierRT (754, ((*I*) 129) , [])))) , [])))), (NameRT (755, (IndexedComponentRT (756, (IdentifierRT (757, ((*KS*) 118) , [])), (BinOpRT (758, Modulus, (BinOpRT (759, Plus, (NameRT (760, (IdentifierRT (761, ((*R*) 127) , [])))), (NameRT (762, (IdentifierRT (763, ((*I*) 129) , [])))) , [OverflowCheck], [])), (BinOpRT (764, Plus, (LiteralRT (765, (Integer_Literal 8) , [], [])), (LiteralRT (766, (Integer_Literal 1) , [], [])) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-        (AssignRT (767, (IdentifierRT (768, ((*I*) 129) , [])), (BinOpRT (769, Plus, (NameRT (770, (IdentifierRT (771, ((*I*) 129) , [])))), (LiteralRT (772, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
-      ),
-      (SeqRT (773,
-      (AssignRT (774, (IndexedComponentRT (775, (IdentifierRT (776, ((*X*) 119) , [])), (BinOpRT (777, Minus, (LiteralRT (778, (Integer_Literal 8) , [], [])), (LiteralRT (779, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (780, Plus, (NameRT (781, (IndexedComponentRT (782, (IdentifierRT (783, ((*X*) 119) , [])), (BinOpRT (784, Minus, (LiteralRT (785, (Integer_Literal 8) , [], [])), (LiteralRT (786, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (787, (IndexedComponentRT (788, (IdentifierRT (789, ((*TS*) 117) , [])), (BinOpRT (790, Modulus, (NameRT (791, (IdentifierRT (792, ((*R*) 127) , [])))), (LiteralRT (793, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (794,
-      (AssignRT (795, (IndexedComponentRT (796, (IdentifierRT (797, ((*X*) 119) , [])), (BinOpRT (798, Minus, (LiteralRT (799, (Integer_Literal 8) , [], [])), (LiteralRT (800, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (801, Plus, (NameRT (802, (IndexedComponentRT (803, (IdentifierRT (804, ((*X*) 119) , [])), (BinOpRT (805, Minus, (LiteralRT (806, (Integer_Literal 8) , [], [])), (LiteralRT (807, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (808, (IndexedComponentRT (809, (IdentifierRT (810, ((*TS*) 117) , [])), (BinOpRT (811, Modulus, (BinOpRT (812, Plus, (NameRT (813, (IdentifierRT (814, ((*R*) 127) , [])))), (LiteralRT (815, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])), (LiteralRT (816, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
-      (AssignRT (817, (IndexedComponentRT (818, (IdentifierRT (819, ((*X*) 119) , [])), (BinOpRT (820, Minus, (LiteralRT (821, (Integer_Literal 8) , [], [])), (LiteralRT (822, (Integer_Literal 1) , [], [])) , [], [])) , [])), (BinOpRT (823, Plus, (NameRT (824, (IndexedComponentRT (825, (IdentifierRT (826, ((*X*) 119) , [])), (BinOpRT (827, Minus, (LiteralRT (828, (Integer_Literal 8) , [], [])), (LiteralRT (829, (Integer_Literal 1) , [], [])) , [], [])) , [])))), (NameRT (830, (IdentifierRT (831, ((*R*) 127) , [])))) , [OverflowCheck], []))))))))))))
-    ))
-  ),
-  (SeqDeclRT (832,
-  (ProcBodyDeclRT (833, 
-    mkprocBodyDeclRT (
-     834,
-      (* = = = Procedure Name = = = *)
-      ((*Round_1*) 130),
+      ((*Initialize_Key_Schedule*) 121),
       (* = = = Formal Parameters = = = *)
       [],
       (* = = = Object Declarations = = = *)
-      [NullDeclRT],
+      (ObjDeclRT (450, { declaration_astnumRT = 451; object_nameRT = ((*I*) 122); object_nominal_subtypeRT = (Subtype ((*I8*) 9)); initialization_expRT = None })),
       (* = = = Procedure Body = = = *)
-      (SeqRT (835,
-      (AssignRT (836, (IndexedComponentRT (837, (IdentifierRT (838, ((*X*) 119) , [])), (LiteralRT (839, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (840, Plus, (NameRT (841, (IndexedComponentRT (842, (IdentifierRT (843, ((*X*) 119) , [])), (LiteralRT (844, (Integer_Literal 0) , [], [])) , [])))), (NameRT (845, (IndexedComponentRT (846, (IdentifierRT (847, ((*X*) 119) , [])), (LiteralRT (848, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (849,
-      (AssignRT (850, (IndexedComponentRT (851, (IdentifierRT (852, ((*X*) 119) , [])), (LiteralRT (853, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (854, Plus, (NameRT (855, (IndexedComponentRT (856, (IdentifierRT (857, ((*X*) 119) , [])), (LiteralRT (858, (Integer_Literal 2) , [], [])) , [])))), (NameRT (859, (IndexedComponentRT (860, (IdentifierRT (861, ((*X*) 119) , [])), (LiteralRT (862, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (SeqRT (863,
-      (AssignRT (864, (IndexedComponentRT (865, (IdentifierRT (866, ((*X*) 119) , [])), (LiteralRT (867, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (868, Plus, (NameRT (869, (IndexedComponentRT (870, (IdentifierRT (871, ((*X*) 119) , [])), (LiteralRT (872, (Integer_Literal 4) , [], [])) , [])))), (NameRT (873, (IndexedComponentRT (874, (IdentifierRT (875, ((*X*) 119) , [])), (LiteralRT (876, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
-      (AssignRT (877, (IndexedComponentRT (878, (IdentifierRT (879, ((*X*) 119) , [])), (LiteralRT (880, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (881, Plus, (NameRT (882, (IndexedComponentRT (883, (IdentifierRT (884, ((*X*) 119) , [])), (LiteralRT (885, (Integer_Literal 6) , [], [])) , [])))), (NameRT (886, (IndexedComponentRT (887, (IdentifierRT (888, ((*X*) 119) , [])), (LiteralRT (889, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))
+      (SeqRT (452,
+      (AssignRT (453, (IndexedComponentRT (454, (IdentifierRT (455, ((*KS*) 118) , [])), (LiteralRT (456, (Integer_Literal 8) , [], [])) , [])), (LiteralRT (457, (Integer_Literal 16) , [], [])))),
+      (SeqRT (458,
+      (AssignRT (459, (IdentifierRT (460, ((*I*) 122) , [])), (LiteralRT (461, (Integer_Literal 0) , [], [])))),
+      (WhileRT (462, (BinOpRT (463, Less_Than_Or_Equal, (NameRT (464, (IdentifierRT (465, ((*I*) 122) , [])))), (LiteralRT (466, (Integer_Literal 7) , [], [])) , [], [])),
+        (SeqRT (467,
+        (AssignRT (468, (IndexedComponentRT (469, (IdentifierRT (470, ((*KS*) 118) , [])), (NameRT (471, (IdentifierRT (472, ((*I*) 122) , [])))) , [])), (NameRT (473, (IndexedComponentRT (474, (SelectedComponentRT (475, (IdentifierRT (476, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (478, (IdentifierRT (479, ((*I*) 122) , [])))) , [])))))),
+        (SeqRT (480,
+        (AssignRT (481, (IndexedComponentRT (482, (IdentifierRT (483, ((*KS*) 118) , [])), (LiteralRT (484, (Integer_Literal 8) , [], [])) , [])), (BinOpRT (485, Plus, (NameRT (486, (IndexedComponentRT (487, (IdentifierRT (488, ((*KS*) 118) , [])), (LiteralRT (489, (Integer_Literal 8) , [], [])) , [])))), (NameRT (490, (IndexedComponentRT (491, (SelectedComponentRT (492, (IdentifierRT (493, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (NameRT (495, (IdentifierRT (496, ((*I*) 122) , [])))) , [])))) , [OverflowCheck], [])))),
+        (AssignRT (497, (IdentifierRT (498, ((*I*) 122) , [])), (BinOpRT (499, Plus, (NameRT (500, (IdentifierRT (501, ((*I*) 122) , [])))), (LiteralRT (502, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))))
+      )))))
     ))
   ),
-  (ObjDeclRT (890, { declaration_astnumRT = 891; object_nameRT = ((*R*) 131); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (892,
-    (AssignRT (893, (IdentifierRT (894, ((*R*) 131) , [])), (LiteralRT (895, (Integer_Literal 1) , [], [])))),
-    (WhileRT (896, (BinOpRT (897, Less_Than_Or_Equal, (NameRT (898, (IdentifierRT (899, ((*R*) 131) , [])))), (LiteralRT (900, (Integer_Literal 9) , [], [])) , [], [])),
-      (SeqRT (901,
-      (CallRT (902, 903, ((*Round_1*) 130), 
-        [])
+  (SeqDeclRT (503,
+  (ProcBodyDeclRT (504, 
+    mkprocBodyDeclRT (
+     505,
+      (* = = = Procedure Name = = = *)
+      ((*Initialize_TS*) 123),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDeclRT,
+      (* = = = Procedure Body = = = *)
+      (SeqRT (506,
+      (AssignRT (507, (IndexedComponentRT (508, (IdentifierRT (509, ((*TS*) 117) , [])), (LiteralRT (510, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (511, (Integer_Literal 0) , [], [])))),
+      (SeqRT (512,
+      (AssignRT (513, (IndexedComponentRT (514, (IdentifierRT (515, ((*TS*) 117) , [])), (LiteralRT (516, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (517, (Integer_Literal 1) , [], [])))),
+      (SeqRT (518,
+      (AssignRT (519, (IndexedComponentRT (520, (IdentifierRT (521, ((*TS*) 117) , [])), (LiteralRT (522, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (523, (Integer_Literal 2) , [], [])))),
+      (SeqRT (524,
+      (AssignRT (525, (IndexedComponentRT (526, (IdentifierRT (527, ((*W*) 120) , [])), (LiteralRT (528, (Integer_Literal 0) , [], [])) , [])), (LiteralRT (529, (Integer_Literal 0) , [], [])))),
+      (SeqRT (530,
+      (AssignRT (531, (IndexedComponentRT (532, (IdentifierRT (533, ((*W*) 120) , [])), (LiteralRT (534, (Integer_Literal 1) , [], [])) , [])), (LiteralRT (535, (Integer_Literal 1) , [], [])))),
+      (SeqRT (536,
+      (AssignRT (537, (IndexedComponentRT (538, (IdentifierRT (539, ((*W*) 120) , [])), (LiteralRT (540, (Integer_Literal 2) , [], [])) , [])), (LiteralRT (541, (Integer_Literal 2) , [], [])))),
+      (SeqRT (542,
+      (AssignRT (543, (IndexedComponentRT (544, (IdentifierRT (545, ((*W*) 120) , [])), (LiteralRT (546, (Integer_Literal 3) , [], [])) , [])), (LiteralRT (547, (Integer_Literal 3) , [], [])))),
+      (SeqRT (548,
+      (AssignRT (549, (IndexedComponentRT (550, (IdentifierRT (551, ((*W*) 120) , [])), (LiteralRT (552, (Integer_Literal 4) , [], [])) , [])), (LiteralRT (553, (Integer_Literal 4) , [], [])))),
+      (SeqRT (554,
+      (AssignRT (555, (IndexedComponentRT (556, (IdentifierRT (557, ((*W*) 120) , [])), (LiteralRT (558, (Integer_Literal 5) , [], [])) , [])), (LiteralRT (559, (Integer_Literal 5) , [], [])))),
+      (SeqRT (560,
+      (AssignRT (561, (IndexedComponentRT (562, (IdentifierRT (563, ((*W*) 120) , [])), (LiteralRT (564, (Integer_Literal 6) , [], [])) , [])), (LiteralRT (565, (Integer_Literal 6) , [], [])))),
+      (AssignRT (566, (IndexedComponentRT (567, (IdentifierRT (568, ((*W*) 120) , [])), (LiteralRT (569, (Integer_Literal 7) , [], [])) , [])), (LiteralRT (570, (Integer_Literal 7) , [], []))))))))))))))))))))))))
+    ))
+  ),
+  (SeqDeclRT (571,
+  (ProcBodyDeclRT (572, 
+    mkprocBodyDeclRT (
+     573,
+      (* = = = Procedure Name = = = *)
+      ((*Do_First_Key_Injection*) 124),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDeclRT,
+      (* = = = Procedure Body = = = *)
+      (SeqRT (574,
+      (AssignRT (575, (IndexedComponentRT (576, (IdentifierRT (577, ((*X*) 119) , [])), (LiteralRT (578, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (579, Plus, (NameRT (580, (IndexedComponentRT (581, (IdentifierRT (582, ((*W*) 120) , [])), (LiteralRT (583, (Integer_Literal 0) , [], [])) , [])))), (NameRT (584, (IndexedComponentRT (585, (IdentifierRT (586, ((*KS*) 118) , [])), (LiteralRT (587, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (588,
+      (AssignRT (589, (IndexedComponentRT (590, (IdentifierRT (591, ((*X*) 119) , [])), (LiteralRT (592, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (593, Plus, (NameRT (594, (IndexedComponentRT (595, (IdentifierRT (596, ((*W*) 120) , [])), (LiteralRT (597, (Integer_Literal 1) , [], [])) , [])))), (NameRT (598, (IndexedComponentRT (599, (IdentifierRT (600, ((*KS*) 118) , [])), (LiteralRT (601, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (602,
+      (AssignRT (603, (IndexedComponentRT (604, (IdentifierRT (605, ((*X*) 119) , [])), (LiteralRT (606, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (607, Plus, (NameRT (608, (IndexedComponentRT (609, (IdentifierRT (610, ((*W*) 120) , [])), (LiteralRT (611, (Integer_Literal 2) , [], [])) , [])))), (NameRT (612, (IndexedComponentRT (613, (IdentifierRT (614, ((*KS*) 118) , [])), (LiteralRT (615, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (616,
+      (AssignRT (617, (IndexedComponentRT (618, (IdentifierRT (619, ((*X*) 119) , [])), (LiteralRT (620, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (621, Plus, (NameRT (622, (IndexedComponentRT (623, (IdentifierRT (624, ((*W*) 120) , [])), (LiteralRT (625, (Integer_Literal 3) , [], [])) , [])))), (NameRT (626, (IndexedComponentRT (627, (IdentifierRT (628, ((*KS*) 118) , [])), (LiteralRT (629, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (630,
+      (AssignRT (631, (IndexedComponentRT (632, (IdentifierRT (633, ((*X*) 119) , [])), (LiteralRT (634, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (635, Plus, (NameRT (636, (IndexedComponentRT (637, (IdentifierRT (638, ((*W*) 120) , [])), (LiteralRT (639, (Integer_Literal 4) , [], [])) , [])))), (NameRT (640, (IndexedComponentRT (641, (IdentifierRT (642, ((*KS*) 118) , [])), (LiteralRT (643, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (644,
+      (AssignRT (645, (IndexedComponentRT (646, (IdentifierRT (647, ((*X*) 119) , [])), (LiteralRT (648, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (649, Plus, (NameRT (650, (IndexedComponentRT (651, (IdentifierRT (652, ((*W*) 120) , [])), (LiteralRT (653, (Integer_Literal 5) , [], [])) , [])))), (NameRT (654, (IndexedComponentRT (655, (IdentifierRT (656, ((*KS*) 118) , [])), (LiteralRT (657, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (658,
+      (AssignRT (659, (IndexedComponentRT (660, (IdentifierRT (661, ((*X*) 119) , [])), (LiteralRT (662, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (663, Plus, (NameRT (664, (IndexedComponentRT (665, (IdentifierRT (666, ((*W*) 120) , [])), (LiteralRT (667, (Integer_Literal 6) , [], [])) , [])))), (NameRT (668, (IndexedComponentRT (669, (IdentifierRT (670, ((*KS*) 118) , [])), (LiteralRT (671, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (672,
+      (AssignRT (673, (IndexedComponentRT (674, (IdentifierRT (675, ((*X*) 119) , [])), (LiteralRT (676, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (677, Plus, (NameRT (678, (IndexedComponentRT (679, (IdentifierRT (680, ((*W*) 120) , [])), (LiteralRT (681, (Integer_Literal 7) , [], [])) , [])))), (NameRT (682, (IndexedComponentRT (683, (IdentifierRT (684, ((*KS*) 118) , [])), (LiteralRT (685, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (686,
+      (AssignRT (687, (IndexedComponentRT (688, (IdentifierRT (689, ((*X*) 119) , [])), (BinOpRT (690, Minus, (LiteralRT (691, (Integer_Literal 8) , [], [])), (LiteralRT (692, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (693, Plus, (NameRT (694, (IndexedComponentRT (695, (IdentifierRT (696, ((*X*) 119) , [])), (BinOpRT (697, Minus, (LiteralRT (698, (Integer_Literal 8) , [], [])), (LiteralRT (699, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (700, (IndexedComponentRT (701, (IdentifierRT (702, ((*TS*) 117) , [])), (LiteralRT (703, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (AssignRT (704, (IndexedComponentRT (705, (IdentifierRT (706, ((*X*) 119) , [])), (BinOpRT (707, Minus, (LiteralRT (708, (Integer_Literal 8) , [], [])), (LiteralRT (709, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (710, Plus, (NameRT (711, (IndexedComponentRT (712, (IdentifierRT (713, ((*X*) 119) , [])), (BinOpRT (714, Minus, (LiteralRT (715, (Integer_Literal 8) , [], [])), (LiteralRT (716, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (717, (IndexedComponentRT (718, (IdentifierRT (719, ((*TS*) 117) , [])), (LiteralRT (720, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))))))
+    ))
+  ),
+  (SeqDeclRT (721,
+  (ProcBodyDeclRT (722, 
+    mkprocBodyDeclRT (
+     723,
+      (* = = = Procedure Name = = = *)
+      ((*Threefish_Block*) 125),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      (SeqDeclRT (724,
+      (ProcBodyDeclRT (725, 
+        mkprocBodyDeclRT (
+         726,
+          (* = = = Procedure Name = = = *)
+          ((*Inject_Key*) 126),
+          (* = = = Formal Parameters = = = *)
+          [{ parameter_astnumRT = 727; parameter_nameRT = ((*R*) 127); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
+          (* = = = Object Declarations = = = *)
+          (SeqDeclRT (728,
+          (TypeDeclRT (729, (SubtypeDeclRT (730, ((*Injection_Range*) 128), (Subtype ((*U64*) 4)), (RangeRT (0, 7)))))),
+          (ObjDeclRT (731, { declaration_astnumRT = 732; object_nameRT = ((*I*) 129); object_nominal_subtypeRT = (Subtype ((*Injection_Range*) 128)); initialization_expRT = None })))),
+          (* = = = Procedure Body = = = *)
+          (SeqRT (733,
+          (AssignRT (734, (IdentifierRT (735, ((*I*) 129) , [])), (LiteralRT (736, (Integer_Literal 0) , [], [])))),
+          (SeqRT (737,
+          (WhileRT (738, (BinOpRT (739, Less_Than_Or_Equal, (NameRT (740, (IdentifierRT (741, ((*I*) 129) , [])))), (LiteralRT (742, (Integer_Literal 7) , [], [])) , [], [])),
+            (SeqRT (743,
+            (AssignRT (744, (IndexedComponentRT (745, (IdentifierRT (746, ((*X*) 119) , [])), (NameRT (747, (IdentifierRT (748, ((*I*) 129) , [])))) , [])), (BinOpRT (749, Plus, (NameRT (750, (IndexedComponentRT (751, (IdentifierRT (752, ((*X*) 119) , [])), (NameRT (753, (IdentifierRT (754, ((*I*) 129) , [])))) , [])))), (NameRT (755, (IndexedComponentRT (756, (IdentifierRT (757, ((*KS*) 118) , [])), (BinOpRT (758, Modulus, (BinOpRT (759, Plus, (NameRT (760, (IdentifierRT (761, ((*R*) 127) , [])))), (NameRT (762, (IdentifierRT (763, ((*I*) 129) , [])))) , [OverflowCheck], [])), (BinOpRT (764, Plus, (LiteralRT (765, (Integer_Literal 8) , [], [])), (LiteralRT (766, (Integer_Literal 1) , [], [])) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+            (AssignRT (767, (IdentifierRT (768, ((*I*) 129) , [])), (BinOpRT (769, Plus, (NameRT (770, (IdentifierRT (771, ((*I*) 129) , [])))), (LiteralRT (772, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))))))
+          ),
+          (SeqRT (773,
+          (AssignRT (774, (IndexedComponentRT (775, (IdentifierRT (776, ((*X*) 119) , [])), (BinOpRT (777, Minus, (LiteralRT (778, (Integer_Literal 8) , [], [])), (LiteralRT (779, (Integer_Literal 3) , [], [])) , [], [])) , [])), (BinOpRT (780, Plus, (NameRT (781, (IndexedComponentRT (782, (IdentifierRT (783, ((*X*) 119) , [])), (BinOpRT (784, Minus, (LiteralRT (785, (Integer_Literal 8) , [], [])), (LiteralRT (786, (Integer_Literal 3) , [], [])) , [], [])) , [])))), (NameRT (787, (IndexedComponentRT (788, (IdentifierRT (789, ((*TS*) 117) , [])), (BinOpRT (790, Modulus, (NameRT (791, (IdentifierRT (792, ((*R*) 127) , [])))), (LiteralRT (793, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+          (SeqRT (794,
+          (AssignRT (795, (IndexedComponentRT (796, (IdentifierRT (797, ((*X*) 119) , [])), (BinOpRT (798, Minus, (LiteralRT (799, (Integer_Literal 8) , [], [])), (LiteralRT (800, (Integer_Literal 2) , [], [])) , [], [])) , [])), (BinOpRT (801, Plus, (NameRT (802, (IndexedComponentRT (803, (IdentifierRT (804, ((*X*) 119) , [])), (BinOpRT (805, Minus, (LiteralRT (806, (Integer_Literal 8) , [], [])), (LiteralRT (807, (Integer_Literal 2) , [], [])) , [], [])) , [])))), (NameRT (808, (IndexedComponentRT (809, (IdentifierRT (810, ((*TS*) 117) , [])), (BinOpRT (811, Modulus, (BinOpRT (812, Plus, (NameRT (813, (IdentifierRT (814, ((*R*) 127) , [])))), (LiteralRT (815, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])), (LiteralRT (816, (Integer_Literal 3) , [], [])) , [DivCheck], [])) , [])))) , [OverflowCheck], [])))),
+          (AssignRT (817, (IndexedComponentRT (818, (IdentifierRT (819, ((*X*) 119) , [])), (BinOpRT (820, Minus, (LiteralRT (821, (Integer_Literal 8) , [], [])), (LiteralRT (822, (Integer_Literal 1) , [], [])) , [], [])) , [])), (BinOpRT (823, Plus, (NameRT (824, (IndexedComponentRT (825, (IdentifierRT (826, ((*X*) 119) , [])), (BinOpRT (827, Minus, (LiteralRT (828, (Integer_Literal 8) , [], [])), (LiteralRT (829, (Integer_Literal 1) , [], [])) , [], [])) , [])))), (NameRT (830, (IdentifierRT (831, ((*R*) 127) , [])))) , [OverflowCheck], []))))))))))))
+        ))
       ),
-      (SeqRT (904,
-      (CallRT (905, 906, ((*Inject_Key*) 126), 
-        [(BinOpRT (907, Multiply, (NameRT (908, (IdentifierRT (909, ((*R*) 131) , [])))), (LiteralRT (910, (Integer_Literal 2) , [], [])) , [OverflowCheck; RangeCheck], []))])
+      (SeqDeclRT (832,
+      (ProcBodyDeclRT (833, 
+        mkprocBodyDeclRT (
+         834,
+          (* = = = Procedure Name = = = *)
+          ((*Round_1*) 130),
+          (* = = = Formal Parameters = = = *)
+          [],
+          (* = = = Object Declarations = = = *)
+          NullDeclRT,
+          (* = = = Procedure Body = = = *)
+          (SeqRT (835,
+          (AssignRT (836, (IndexedComponentRT (837, (IdentifierRT (838, ((*X*) 119) , [])), (LiteralRT (839, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (840, Plus, (NameRT (841, (IndexedComponentRT (842, (IdentifierRT (843, ((*X*) 119) , [])), (LiteralRT (844, (Integer_Literal 0) , [], [])) , [])))), (NameRT (845, (IndexedComponentRT (846, (IdentifierRT (847, ((*X*) 119) , [])), (LiteralRT (848, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
+          (SeqRT (849,
+          (AssignRT (850, (IndexedComponentRT (851, (IdentifierRT (852, ((*X*) 119) , [])), (LiteralRT (853, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (854, Plus, (NameRT (855, (IndexedComponentRT (856, (IdentifierRT (857, ((*X*) 119) , [])), (LiteralRT (858, (Integer_Literal 2) , [], [])) , [])))), (NameRT (859, (IndexedComponentRT (860, (IdentifierRT (861, ((*X*) 119) , [])), (LiteralRT (862, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
+          (SeqRT (863,
+          (AssignRT (864, (IndexedComponentRT (865, (IdentifierRT (866, ((*X*) 119) , [])), (LiteralRT (867, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (868, Plus, (NameRT (869, (IndexedComponentRT (870, (IdentifierRT (871, ((*X*) 119) , [])), (LiteralRT (872, (Integer_Literal 4) , [], [])) , [])))), (NameRT (873, (IndexedComponentRT (874, (IdentifierRT (875, ((*X*) 119) , [])), (LiteralRT (876, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
+          (AssignRT (877, (IndexedComponentRT (878, (IdentifierRT (879, ((*X*) 119) , [])), (LiteralRT (880, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (881, Plus, (NameRT (882, (IndexedComponentRT (883, (IdentifierRT (884, ((*X*) 119) , [])), (LiteralRT (885, (Integer_Literal 6) , [], [])) , [])))), (NameRT (886, (IndexedComponentRT (887, (IdentifierRT (888, ((*X*) 119) , [])), (LiteralRT (889, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))
+        ))
       ),
-      (AssignRT (911, (IdentifierRT (912, ((*R*) 131) , [])), (BinOpRT (913, Plus, (NameRT (914, (IdentifierRT (915, ((*R*) 131) , [])))), (LiteralRT (916, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
-    )))
-  ))
-),
-(SeqDeclRT (917,
-(ProcBodyDeclRT (918, 
-  mkprocBodyDeclRT (
-   919,
-    (* = = = Procedure Name = = = *)
-    ((*Update_Context*) 132),
-    (* = = = Formal Parameters = = = *)
-    [],
-    (* = = = Object Declarations = = = *)
-    [NullDeclRT],
-    (* = = = Procedure Body = = = *)
-    (SeqRT (920,
-    (AssignRT (921, (IndexedComponentRT (922, (SelectedComponentRT (923, (IdentifierRT (924, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (926, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (927, Plus, (NameRT (928, (IndexedComponentRT (929, (IdentifierRT (930, ((*X*) 119) , [])), (LiteralRT (931, (Integer_Literal 0) , [], [])) , [])))), (NameRT (932, (IndexedComponentRT (933, (IdentifierRT (934, ((*W*) 120) , [])), (LiteralRT (935, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (936,
-    (AssignRT (937, (IndexedComponentRT (938, (SelectedComponentRT (939, (IdentifierRT (940, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (942, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (943, Plus, (NameRT (944, (IndexedComponentRT (945, (IdentifierRT (946, ((*X*) 119) , [])), (LiteralRT (947, (Integer_Literal 1) , [], [])) , [])))), (NameRT (948, (IndexedComponentRT (949, (IdentifierRT (950, ((*W*) 120) , [])), (LiteralRT (951, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (952,
-    (AssignRT (953, (IndexedComponentRT (954, (SelectedComponentRT (955, (IdentifierRT (956, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (958, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (959, Plus, (NameRT (960, (IndexedComponentRT (961, (IdentifierRT (962, ((*X*) 119) , [])), (LiteralRT (963, (Integer_Literal 2) , [], [])) , [])))), (NameRT (964, (IndexedComponentRT (965, (IdentifierRT (966, ((*W*) 120) , [])), (LiteralRT (967, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (968,
-    (AssignRT (969, (IndexedComponentRT (970, (SelectedComponentRT (971, (IdentifierRT (972, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (974, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (975, Plus, (NameRT (976, (IndexedComponentRT (977, (IdentifierRT (978, ((*X*) 119) , [])), (LiteralRT (979, (Integer_Literal 3) , [], [])) , [])))), (NameRT (980, (IndexedComponentRT (981, (IdentifierRT (982, ((*W*) 120) , [])), (LiteralRT (983, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (984,
-    (AssignRT (985, (IndexedComponentRT (986, (SelectedComponentRT (987, (IdentifierRT (988, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (990, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (991, Plus, (NameRT (992, (IndexedComponentRT (993, (IdentifierRT (994, ((*X*) 119) , [])), (LiteralRT (995, (Integer_Literal 4) , [], [])) , [])))), (NameRT (996, (IndexedComponentRT (997, (IdentifierRT (998, ((*W*) 120) , [])), (LiteralRT (999, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (1000,
-    (AssignRT (1001, (IndexedComponentRT (1002, (SelectedComponentRT (1003, (IdentifierRT (1004, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1006, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (1007, Plus, (NameRT (1008, (IndexedComponentRT (1009, (IdentifierRT (1010, ((*X*) 119) , [])), (LiteralRT (1011, (Integer_Literal 5) , [], [])) , [])))), (NameRT (1012, (IndexedComponentRT (1013, (IdentifierRT (1014, ((*W*) 120) , [])), (LiteralRT (1015, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (SeqRT (1016,
-    (AssignRT (1017, (IndexedComponentRT (1018, (SelectedComponentRT (1019, (IdentifierRT (1020, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1022, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (1023, Plus, (NameRT (1024, (IndexedComponentRT (1025, (IdentifierRT (1026, ((*X*) 119) , [])), (LiteralRT (1027, (Integer_Literal 6) , [], [])) , [])))), (NameRT (1028, (IndexedComponentRT (1029, (IdentifierRT (1030, ((*W*) 120) , [])), (LiteralRT (1031, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
-    (AssignRT (1032, (IndexedComponentRT (1033, (SelectedComponentRT (1034, (IdentifierRT (1035, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1037, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (1038, Plus, (NameRT (1039, (IndexedComponentRT (1040, (IdentifierRT (1041, ((*X*) 119) , [])), (LiteralRT (1042, (Integer_Literal 7) , [], [])) , [])))), (NameRT (1043, (IndexedComponentRT (1044, (IdentifierRT (1045, ((*W*) 120) , [])), (LiteralRT (1046, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))
-  ))
-),
-(SeqDeclRT (1047,
-(ObjDeclRT (1048, { declaration_astnumRT = 1049; object_nameRT = ((*J*) 133); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
-(ObjDeclRT (1050, { declaration_astnumRT = 1051; object_nameRT = ((*Src_Offset*) 134); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))))))))))))))))))],
+      (ObjDeclRT (890, { declaration_astnumRT = 891; object_nameRT = ((*R*) 131); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))),
+      (* = = = Procedure Body = = = *)
+      (SeqRT (892,
+      (AssignRT (893, (IdentifierRT (894, ((*R*) 131) , [])), (LiteralRT (895, (Integer_Literal 1) , [], [])))),
+      (WhileRT (896, (BinOpRT (897, Less_Than_Or_Equal, (NameRT (898, (IdentifierRT (899, ((*R*) 131) , [])))), (LiteralRT (900, (Integer_Literal 9) , [], [])) , [], [])),
+        (SeqRT (901,
+        (CallRT (902, 903, ((*Round_1*) 130), 
+          [])
+        ),
+        (SeqRT (904,
+        (CallRT (905, 906, ((*Inject_Key*) 126), 
+          [(BinOpRT (907, Multiply, (NameRT (908, (IdentifierRT (909, ((*R*) 131) , [])))), (LiteralRT (910, (Integer_Literal 2) , [], [])) , [OverflowCheck; RangeCheck], []))])
+        ),
+        (AssignRT (911, (IdentifierRT (912, ((*R*) 131) , [])), (BinOpRT (913, Plus, (NameRT (914, (IdentifierRT (915, ((*R*) 131) , [])))), (LiteralRT (916, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
+      )))
+    ))
+  ),
+  (SeqDeclRT (917,
+  (ProcBodyDeclRT (918, 
+    mkprocBodyDeclRT (
+     919,
+      (* = = = Procedure Name = = = *)
+      ((*Update_Context*) 132),
+      (* = = = Formal Parameters = = = *)
+      [],
+      (* = = = Object Declarations = = = *)
+      NullDeclRT,
+      (* = = = Procedure Body = = = *)
+      (SeqRT (920,
+      (AssignRT (921, (IndexedComponentRT (922, (SelectedComponentRT (923, (IdentifierRT (924, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (926, (Integer_Literal 0) , [], [])) , [])), (BinOpRT (927, Plus, (NameRT (928, (IndexedComponentRT (929, (IdentifierRT (930, ((*X*) 119) , [])), (LiteralRT (931, (Integer_Literal 0) , [], [])) , [])))), (NameRT (932, (IndexedComponentRT (933, (IdentifierRT (934, ((*W*) 120) , [])), (LiteralRT (935, (Integer_Literal 0) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (936,
+      (AssignRT (937, (IndexedComponentRT (938, (SelectedComponentRT (939, (IdentifierRT (940, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (942, (Integer_Literal 1) , [], [])) , [])), (BinOpRT (943, Plus, (NameRT (944, (IndexedComponentRT (945, (IdentifierRT (946, ((*X*) 119) , [])), (LiteralRT (947, (Integer_Literal 1) , [], [])) , [])))), (NameRT (948, (IndexedComponentRT (949, (IdentifierRT (950, ((*W*) 120) , [])), (LiteralRT (951, (Integer_Literal 1) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (952,
+      (AssignRT (953, (IndexedComponentRT (954, (SelectedComponentRT (955, (IdentifierRT (956, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (958, (Integer_Literal 2) , [], [])) , [])), (BinOpRT (959, Plus, (NameRT (960, (IndexedComponentRT (961, (IdentifierRT (962, ((*X*) 119) , [])), (LiteralRT (963, (Integer_Literal 2) , [], [])) , [])))), (NameRT (964, (IndexedComponentRT (965, (IdentifierRT (966, ((*W*) 120) , [])), (LiteralRT (967, (Integer_Literal 2) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (968,
+      (AssignRT (969, (IndexedComponentRT (970, (SelectedComponentRT (971, (IdentifierRT (972, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (974, (Integer_Literal 3) , [], [])) , [])), (BinOpRT (975, Plus, (NameRT (976, (IndexedComponentRT (977, (IdentifierRT (978, ((*X*) 119) , [])), (LiteralRT (979, (Integer_Literal 3) , [], [])) , [])))), (NameRT (980, (IndexedComponentRT (981, (IdentifierRT (982, ((*W*) 120) , [])), (LiteralRT (983, (Integer_Literal 3) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (984,
+      (AssignRT (985, (IndexedComponentRT (986, (SelectedComponentRT (987, (IdentifierRT (988, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (990, (Integer_Literal 4) , [], [])) , [])), (BinOpRT (991, Plus, (NameRT (992, (IndexedComponentRT (993, (IdentifierRT (994, ((*X*) 119) , [])), (LiteralRT (995, (Integer_Literal 4) , [], [])) , [])))), (NameRT (996, (IndexedComponentRT (997, (IdentifierRT (998, ((*W*) 120) , [])), (LiteralRT (999, (Integer_Literal 4) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (1000,
+      (AssignRT (1001, (IndexedComponentRT (1002, (SelectedComponentRT (1003, (IdentifierRT (1004, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1006, (Integer_Literal 5) , [], [])) , [])), (BinOpRT (1007, Plus, (NameRT (1008, (IndexedComponentRT (1009, (IdentifierRT (1010, ((*X*) 119) , [])), (LiteralRT (1011, (Integer_Literal 5) , [], [])) , [])))), (NameRT (1012, (IndexedComponentRT (1013, (IdentifierRT (1014, ((*W*) 120) , [])), (LiteralRT (1015, (Integer_Literal 5) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (SeqRT (1016,
+      (AssignRT (1017, (IndexedComponentRT (1018, (SelectedComponentRT (1019, (IdentifierRT (1020, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1022, (Integer_Literal 6) , [], [])) , [])), (BinOpRT (1023, Plus, (NameRT (1024, (IndexedComponentRT (1025, (IdentifierRT (1026, ((*X*) 119) , [])), (LiteralRT (1027, (Integer_Literal 6) , [], [])) , [])))), (NameRT (1028, (IndexedComponentRT (1029, (IdentifierRT (1030, ((*W*) 120) , [])), (LiteralRT (1031, (Integer_Literal 6) , [], [])) , [])))) , [OverflowCheck], [])))),
+      (AssignRT (1032, (IndexedComponentRT (1033, (SelectedComponentRT (1034, (IdentifierRT (1035, ((*Ctx*) 112) , [])), ((*X*) 63) , [])), (LiteralRT (1037, (Integer_Literal 7) , [], [])) , [])), (BinOpRT (1038, Plus, (NameRT (1039, (IndexedComponentRT (1040, (IdentifierRT (1041, ((*X*) 119) , [])), (LiteralRT (1042, (Integer_Literal 7) , [], [])) , [])))), (NameRT (1043, (IndexedComponentRT (1044, (IdentifierRT (1045, ((*W*) 120) , [])), (LiteralRT (1046, (Integer_Literal 7) , [], [])) , [])))) , [OverflowCheck], []))))))))))))))))))
+    ))
+  ),
+  (SeqDeclRT (1047,
+  (ObjDeclRT (1048, { declaration_astnumRT = 1049; object_nameRT = ((*J*) 133); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
+  (ObjDeclRT (1050, { declaration_astnumRT = 1051; object_nameRT = ((*Src_Offset*) 134); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))))))))))))))))))),
   (* = = = Procedure Body = = = *)
   (SeqRT (1052,
   (AssignRT (1053, (IdentifierRT (1054, ((*J*) 133) , [])), (LiteralRT (1055, (Integer_Literal 1) , [], [])))),
@@ -2915,7 +2915,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [],
   (* = = = Object Declarations = = = *)
-  [(ObjDeclRT (450, { declaration_astnumRT = 451; object_nameRT = ((*I*) 122); object_nominal_subtypeRT = (Subtype ((*I8*) 9)); initialization_expRT = None }))],
+  (ObjDeclRT (450, { declaration_astnumRT = 451; object_nameRT = ((*I*) 122); object_nominal_subtypeRT = (Subtype ((*I8*) 9)); initialization_expRT = None })),
   (* = = = Procedure Body = = = *)
   (SeqRT (452,
   (AssignRT (453, (IndexedComponentRT (454, (IdentifierRT (455, ((*KS*) 118) , [])), (LiteralRT (456, (Integer_Literal 8) , [], [])) , [])), (LiteralRT (457, (Integer_Literal 16) , [], [])))),
@@ -2936,57 +2936,57 @@ let Symbol_TableRT = {
   [{ parameter_astnumRT = 1121; parameter_nameRT = ((*Ctx*) 136); parameter_subtype_markRT = (Record_Type ((*Skein_512_Context*) 61)); parameter_modeRT = In_Out }; 
 { parameter_astnumRT = 1122; parameter_nameRT = ((*Msg*) 137); parameter_subtype_markRT = (Array_Type ((*Byte_Seq*) 14)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [(SeqDeclRT (1123,
-(ObjDeclRT (1124, { declaration_astnumRT = 1125; object_nameRT = ((*Msg_Byte_Count*) 138); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-(SeqDeclRT (1126,
-(ObjDeclRT (1127, { declaration_astnumRT = 1128; object_nameRT = ((*N*) 139); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-(SeqDeclRT (1129,
-(ObjDeclRT (1130, { declaration_astnumRT = 1131; object_nameRT = ((*Block_Count*) 140); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
-(SeqDeclRT (1132,
-(ObjDeclRT (1133, { declaration_astnumRT = 1134; object_nameRT = ((*Current_Msg_Offset*) 141); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-(SeqDeclRT (1135,
-(ObjDeclRT (1136, { declaration_astnumRT = 1137; object_nameRT = ((*Bytes_Hashed*) 142); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-(SeqDeclRT (1138,
-(ObjDeclRT (1139, { declaration_astnumRT = 1140; object_nameRT = ((*Tmp_B*) 143); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
-(ProcBodyDeclRT (1141, 
-  mkprocBodyDeclRT (
-   1142,
-    (* = = = Procedure Name = = = *)
-    ((*Copy_Msg_To_B*) 144),
-    (* = = = Formal Parameters = = = *)
-    [{ parameter_astnumRT = 1143; parameter_nameRT = ((*Msg_Offset*) 145); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }; 
-  { parameter_astnumRT = 1144; parameter_nameRT = ((*Num_Bytes*) 146); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
-    (* = = = Object Declarations = = = *)
-    [(SeqDeclRT (1145,
-  (ObjDeclRT (1146, { declaration_astnumRT = 1147; object_nameRT = ((*Src*) 147); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
-  (SeqDeclRT (1148,
-  (ObjDeclRT (1149, { declaration_astnumRT = 1150; object_nameRT = ((*Dst*) 148); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-  (SeqDeclRT (1151,
-  (ObjDeclRT (1152, { declaration_astnumRT = 1153; object_nameRT = ((*Final_Dst*) 149); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
-  (ObjDeclRT (1154, { declaration_astnumRT = 1155; object_nameRT = ((*Final_Src*) 150); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None }))))))))],
-    (* = = = Procedure Body = = = *)
-    (IfRT (1156, (BinOpRT (1157, Greater_Than, (NameRT (1158, (IdentifierRT (1159, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1160, (Integer_Literal 0) , [], [])) , [], [])),
-      (SeqRT (1161,
-      (AssignRT (1162, (IdentifierRT (1163, ((*Src*) 147) , [])), (NameRT (1164, (IdentifierRT (1165, ((*Msg_Offset*) 145) , [])))))),
-      (SeqRT (1166,
-      (AssignRT (1167, (IdentifierRT (1168, ((*Dst*) 148) , [])), (NameRT (1169, (SelectedComponentRT (1170, (SelectedComponentRT (1171, (IdentifierRT (1172, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
-      (SeqRT (1175,
-      (AssignRT (1176, (IdentifierRT (1177, ((*Final_Dst*) 149) , [])), (BinOpRT (1178, Plus, (NameRT (1179, (IdentifierRT (1180, ((*Dst*) 148) , [])))), (BinOpRT (1181, Minus, (NameRT (1182, (IdentifierRT (1183, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1184, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
-      (SeqRT (1185,
-      (AssignRT (1186, (IdentifierRT (1187, ((*Final_Src*) 150) , [])), (BinOpRT (1188, Plus, (NameRT (1189, (IdentifierRT (1190, ((*Src*) 147) , [])))), (BinOpRT (1191, Minus, (NameRT (1192, (IdentifierRT (1193, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1194, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
-      (SeqRT (1195,
-      (WhileRT (1196, (BinOpRT (1197, Or, (BinOpRT (1198, Greater_Than_Or_Equal, (NameRT (1199, (IdentifierRT (1200, ((*Dst*) 148) , [])))), (NameRT (1201, (IdentifierRT (1202, ((*Final_Dst*) 149) , [])))) , [], [])), (BinOpRT (1203, Greater_Than_Or_Equal, (NameRT (1204, (IdentifierRT (1205, ((*Src*) 147) , [])))), (NameRT (1206, (IdentifierRT (1207, ((*Final_Src*) 150) , [])))) , [], [])) , [], [])),
-        (SeqRT (1208,
-        (AssignRT (1209, (IndexedComponentRT (1210, (SelectedComponentRT (1211, (IdentifierRT (1212, ((*Ctx*) 136) , [])), ((*B*) 64) , [])), (NameRT (1214, (IdentifierRT (1215, ((*Dst*) 148) , [])))) , [])), (NameRT (1216, (IndexedComponentRT (1217, (IdentifierRT (1218, ((*Msg*) 137) , [])), (NameRT (1219, (IdentifierRT (1220, ((*Src*) 147) , [])))) , [])))))),
-        (SeqRT (1221,
-        (AssignRT (1222, (IdentifierRT (1223, ((*Dst*) 148) , [])), (BinOpRT (1224, Plus, (NameRT (1225, (IdentifierRT (1226, ((*Dst*) 148) , [])))), (LiteralRT (1227, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))),
-        (AssignRT (1228, (IdentifierRT (1229, ((*Src*) 147) , [])), (BinOpRT (1230, Plus, (NameRT (1231, (IdentifierRT (1232, ((*Src*) 147) , [])))), (LiteralRT (1233, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
-      ),
-      (AssignRT (1234, (SelectedComponentRT (1235, (SelectedComponentRT (1236, (IdentifierRT (1237, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])), (BinOpRT (1240, Plus, (NameRT (1241, (SelectedComponentRT (1242, (SelectedComponentRT (1243, (IdentifierRT (1244, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])))), (NameRT (1247, (IdentifierRT (1248, ((*Num_Bytes*) 146) , [])))) , [OverflowCheck], [])))))))))))))),
-      NullRT)
-    )
-  ))
-)))))))))))))],
+  (SeqDeclRT (1123,
+  (ObjDeclRT (1124, { declaration_astnumRT = 1125; object_nameRT = ((*Msg_Byte_Count*) 138); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+  (SeqDeclRT (1126,
+  (ObjDeclRT (1127, { declaration_astnumRT = 1128; object_nameRT = ((*N*) 139); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+  (SeqDeclRT (1129,
+  (ObjDeclRT (1130, { declaration_astnumRT = 1131; object_nameRT = ((*Block_Count*) 140); object_nominal_subtypeRT = (Subtype ((*Positive_Block_512_Count_T*) 38)); initialization_expRT = None })),
+  (SeqDeclRT (1132,
+  (ObjDeclRT (1133, { declaration_astnumRT = 1134; object_nameRT = ((*Current_Msg_Offset*) 141); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+  (SeqDeclRT (1135,
+  (ObjDeclRT (1136, { declaration_astnumRT = 1137; object_nameRT = ((*Bytes_Hashed*) 142); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+  (SeqDeclRT (1138,
+  (ObjDeclRT (1139, { declaration_astnumRT = 1140; object_nameRT = ((*Tmp_B*) 143); object_nominal_subtypeRT = (Array_Type ((*Skein_512_Block_Bytes*) 34)); initialization_expRT = None })),
+  (ProcBodyDeclRT (1141, 
+    mkprocBodyDeclRT (
+     1142,
+      (* = = = Procedure Name = = = *)
+      ((*Copy_Msg_To_B*) 144),
+      (* = = = Formal Parameters = = = *)
+      [{ parameter_astnumRT = 1143; parameter_nameRT = ((*Msg_Offset*) 145); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }; 
+    { parameter_astnumRT = 1144; parameter_nameRT = ((*Num_Bytes*) 146); parameter_subtype_markRT = (Subtype ((*U64*) 4)); parameter_modeRT = In }],
+      (* = = = Object Declarations = = = *)
+      (SeqDeclRT (1145,
+      (ObjDeclRT (1146, { declaration_astnumRT = 1147; object_nameRT = ((*Src*) 147); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })),
+      (SeqDeclRT (1148,
+      (ObjDeclRT (1149, { declaration_astnumRT = 1150; object_nameRT = ((*Dst*) 148); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+      (SeqDeclRT (1151,
+      (ObjDeclRT (1152, { declaration_astnumRT = 1153; object_nameRT = ((*Final_Dst*) 149); object_nominal_subtypeRT = (Subtype ((*Skein_512_Block_Bytes_Index*) 33)); initialization_expRT = None })),
+      (ObjDeclRT (1154, { declaration_astnumRT = 1155; object_nameRT = ((*Final_Src*) 150); object_nominal_subtypeRT = (Subtype ((*U64*) 4)); initialization_expRT = None })))))))),
+      (* = = = Procedure Body = = = *)
+      (IfRT (1156, (BinOpRT (1157, Greater_Than, (NameRT (1158, (IdentifierRT (1159, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1160, (Integer_Literal 0) , [], [])) , [], [])),
+        (SeqRT (1161,
+        (AssignRT (1162, (IdentifierRT (1163, ((*Src*) 147) , [])), (NameRT (1164, (IdentifierRT (1165, ((*Msg_Offset*) 145) , [])))))),
+        (SeqRT (1166,
+        (AssignRT (1167, (IdentifierRT (1168, ((*Dst*) 148) , [])), (NameRT (1169, (SelectedComponentRT (1170, (SelectedComponentRT (1171, (IdentifierRT (1172, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [RangeCheck])))))),
+        (SeqRT (1175,
+        (AssignRT (1176, (IdentifierRT (1177, ((*Final_Dst*) 149) , [])), (BinOpRT (1178, Plus, (NameRT (1179, (IdentifierRT (1180, ((*Dst*) 148) , [])))), (BinOpRT (1181, Minus, (NameRT (1182, (IdentifierRT (1183, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1184, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
+        (SeqRT (1185,
+        (AssignRT (1186, (IdentifierRT (1187, ((*Final_Src*) 150) , [])), (BinOpRT (1188, Plus, (NameRT (1189, (IdentifierRT (1190, ((*Src*) 147) , [])))), (BinOpRT (1191, Minus, (NameRT (1192, (IdentifierRT (1193, ((*Num_Bytes*) 146) , [])))), (LiteralRT (1194, (Integer_Literal 1) , [], [])) , [], [])) , [OverflowCheck; RangeCheck], [])))),
+        (SeqRT (1195,
+        (WhileRT (1196, (BinOpRT (1197, Or, (BinOpRT (1198, Greater_Than_Or_Equal, (NameRT (1199, (IdentifierRT (1200, ((*Dst*) 148) , [])))), (NameRT (1201, (IdentifierRT (1202, ((*Final_Dst*) 149) , [])))) , [], [])), (BinOpRT (1203, Greater_Than_Or_Equal, (NameRT (1204, (IdentifierRT (1205, ((*Src*) 147) , [])))), (NameRT (1206, (IdentifierRT (1207, ((*Final_Src*) 150) , [])))) , [], [])) , [], [])),
+          (SeqRT (1208,
+          (AssignRT (1209, (IndexedComponentRT (1210, (SelectedComponentRT (1211, (IdentifierRT (1212, ((*Ctx*) 136) , [])), ((*B*) 64) , [])), (NameRT (1214, (IdentifierRT (1215, ((*Dst*) 148) , [])))) , [])), (NameRT (1216, (IndexedComponentRT (1217, (IdentifierRT (1218, ((*Msg*) 137) , [])), (NameRT (1219, (IdentifierRT (1220, ((*Src*) 147) , [])))) , [])))))),
+          (SeqRT (1221,
+          (AssignRT (1222, (IdentifierRT (1223, ((*Dst*) 148) , [])), (BinOpRT (1224, Plus, (NameRT (1225, (IdentifierRT (1226, ((*Dst*) 148) , [])))), (LiteralRT (1227, (Integer_Literal 1) , [], [])) , [RangeCheck], [])))),
+          (AssignRT (1228, (IdentifierRT (1229, ((*Src*) 147) , [])), (BinOpRT (1230, Plus, (NameRT (1231, (IdentifierRT (1232, ((*Src*) 147) , [])))), (LiteralRT (1233, (Integer_Literal 1) , [], [])) , [OverflowCheck], [])))))))))
+        ),
+        (AssignRT (1234, (SelectedComponentRT (1235, (SelectedComponentRT (1236, (IdentifierRT (1237, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])), (BinOpRT (1240, Plus, (NameRT (1241, (SelectedComponentRT (1242, (SelectedComponentRT (1243, (IdentifierRT (1244, ((*Ctx*) 136) , [])), ((*H*) 62) , [])), ((*Byte_Count*) 60) , [])))), (NameRT (1247, (IdentifierRT (1248, ((*Num_Bytes*) 146) , [])))) , [OverflowCheck], [])))))))))))))),
+        NullRT)
+      )
+    ))
+  ))))))))))))),
   (* = = = Procedure Body = = = *)
   (SeqRT (1249,
   (AssignRT (1250, (IdentifierRT (1251, ((*Msg_Byte_Count*) 138) , [])), (LiteralRT (1252, (Integer_Literal 2147483647) , [], [])))),

@@ -19,7 +19,7 @@ NullDecl (* Undefined Declarations ! *))))))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnum = 13; parameter_name = ((*I*) 6); parameter_subtype_mark = (Integer_Type ((*Index*) 1)); parameter_mode = In }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Assign (14, (IndexedComponent (15, (Identifier (16, ((*V*) 3) )), (Name (17, (Identifier (18, ((*I*) 6) )))) )), (BinOp (19, Plus, (Name (20, (IndexedComponent (21, (Identifier (22, ((*V*) 3) )), (Name (23, (Identifier (24, ((*I*) 6) )))) )))), (Literal (25, (Integer_Literal 3) )) ))))
   ))
@@ -44,7 +44,7 @@ let Symbol_Table = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnum = 13; parameter_name = ((*I*) 6); parameter_subtype_mark = (Integer_Type ((*Index*) 1)); parameter_mode = In }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Assign (14, (IndexedComponent (15, (Identifier (16, ((*V*) 3) )), (Name (17, (Identifier (18, ((*I*) 6) )))) )), (BinOp (19, Plus, (Name (20, (IndexedComponent (21, (Identifier (22, ((*V*) 3) )), (Name (23, (Identifier (24, ((*I*) 6) )))) )))), (Literal (25, (Integer_Literal 3) )) ))))
 )))];
@@ -102,7 +102,7 @@ NullDeclRT (* Undefined Declarations ! *))))))),
     (* = = = Formal Parameters = = = *)
     [{ parameter_astnumRT = 13; parameter_nameRT = ((*I*) 6); parameter_subtype_markRT = (Integer_Type ((*Index*) 1)); parameter_modeRT = In }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (AssignRT (14, (IndexedComponentRT (15, (IdentifierRT (16, ((*V*) 3) , [])), (NameRT (17, (IdentifierRT (18, ((*I*) 6) , [])))) , [])), (BinOpRT (19, Plus, (NameRT (20, (IndexedComponentRT (21, (IdentifierRT (22, ((*V*) 3) , [])), (NameRT (23, (IdentifierRT (24, ((*I*) 6) , [])))) , [])))), (LiteralRT (25, (Integer_Literal 3) , [], [])) , [OverflowCheck], []))))
   ))
@@ -127,7 +127,7 @@ let Symbol_TableRT = {
   (* = = = Formal Parameters = = = *)
   [{ parameter_astnumRT = 13; parameter_nameRT = ((*I*) 6); parameter_subtype_markRT = (Integer_Type ((*Index*) 1)); parameter_modeRT = In }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (AssignRT (14, (IndexedComponentRT (15, (IdentifierRT (16, ((*V*) 3) , [])), (NameRT (17, (IdentifierRT (18, ((*I*) 6) , [])))) , [])), (BinOpRT (19, Plus, (NameRT (20, (IndexedComponentRT (21, (IdentifierRT (22, ((*V*) 3) , [])), (NameRT (23, (IdentifierRT (24, ((*I*) 6) , [])))) , [])))), (LiteralRT (25, (Integer_Literal 3) , [], [])) , [OverflowCheck], []))))
 )))];

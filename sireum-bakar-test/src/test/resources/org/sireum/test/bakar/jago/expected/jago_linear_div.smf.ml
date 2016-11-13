@@ -14,7 +14,7 @@ decls = (ProcBodyDecl (1,
   { parameter_astnum = 5; parameter_name = ((*Quotient*) 4); parameter_subtype_mark = Integer; parameter_mode = Out }; 
   { parameter_astnum = 6; parameter_name = ((*Remainder*) 5); parameter_subtype_mark = Integer; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Seq (7,
     (Assign (8, (Identifier (9, ((*Quotient*) 4) )), (Literal (10, (Integer_Literal 0) )))),
@@ -52,7 +52,7 @@ let Symbol_Table = {
 { parameter_astnum = 5; parameter_name = ((*Quotient*) 4); parameter_subtype_mark = Integer; parameter_mode = Out }; 
 { parameter_astnum = 6; parameter_name = ((*Remainder*) 5); parameter_subtype_mark = Integer; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (7,
   (Assign (8, (Identifier (9, ((*Quotient*) 4) )), (Literal (10, (Integer_Literal 0) )))),
@@ -115,7 +115,7 @@ declsRT = (ProcBodyDeclRT (1,
   { parameter_astnumRT = 5; parameter_nameRT = ((*Quotient*) 4); parameter_subtype_markRT = Integer; parameter_modeRT = Out }; 
   { parameter_astnumRT = 6; parameter_nameRT = ((*Remainder*) 5); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (SeqRT (7,
     (AssignRT (8, (IdentifierRT (9, ((*Quotient*) 4) , [])), (LiteralRT (10, (Integer_Literal 0) , [], [])))),
@@ -153,7 +153,7 @@ let Symbol_TableRT = {
 { parameter_astnumRT = 5; parameter_nameRT = ((*Quotient*) 4); parameter_subtype_markRT = Integer; parameter_modeRT = Out }; 
 { parameter_astnumRT = 6; parameter_nameRT = ((*Remainder*) 5); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (7,
   (AssignRT (8, (IdentifierRT (9, ((*Quotient*) 4) , [])), (LiteralRT (10, (Integer_Literal 0) , [], [])))),

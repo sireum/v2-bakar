@@ -14,7 +14,7 @@ NullDecl (* Undefined Declarations ! *),
     [{ parameter_astnum = 4; parameter_name = ((*X*) 3); parameter_subtype_mark = Integer; parameter_mode = In }; 
   { parameter_astnum = 5; parameter_name = ((*Z*) 4); parameter_subtype_mark = Integer; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Assign (6, (Identifier (7, ((*Z*) 4) )), (BinOp (8, Plus, (Name (9, (Identifier (10, ((*X*) 3) )))), (Literal (11, (Integer_Literal 2) )) ))))
   ))
@@ -40,7 +40,7 @@ let Symbol_Table = {
   [{ parameter_astnum = 4; parameter_name = ((*X*) 3); parameter_subtype_mark = Integer; parameter_mode = In }; 
 { parameter_astnum = 5; parameter_name = ((*Z*) 4); parameter_subtype_mark = Integer; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Assign (6, (Identifier (7, ((*Z*) 4) )), (BinOp (8, Plus, (Name (9, (Identifier (10, ((*X*) 3) )))), (Literal (11, (Integer_Literal 2) )) ))))
 )))];
@@ -93,7 +93,7 @@ NullDeclRT (* Undefined Declarations ! *),
     [{ parameter_astnumRT = 4; parameter_nameRT = ((*X*) 3); parameter_subtype_markRT = Integer; parameter_modeRT = In }; 
   { parameter_astnumRT = 5; parameter_nameRT = ((*Z*) 4); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (AssignRT (6, (IdentifierRT (7, ((*Z*) 4) , [])), (BinOpRT (8, Plus, (NameRT (9, (IdentifierRT (10, ((*X*) 3) , [])))), (LiteralRT (11, (Integer_Literal 2) , [], [])) , [OverflowCheck], []))))
   ))
@@ -119,7 +119,7 @@ let Symbol_TableRT = {
   [{ parameter_astnumRT = 4; parameter_nameRT = ((*X*) 3); parameter_subtype_markRT = Integer; parameter_modeRT = In }; 
 { parameter_astnumRT = 5; parameter_nameRT = ((*Z*) 4); parameter_subtype_markRT = Integer; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (AssignRT (6, (IdentifierRT (7, ((*Z*) 4) , [])), (BinOpRT (8, Plus, (NameRT (9, (IdentifierRT (10, ((*X*) 3) , [])))), (LiteralRT (11, (Integer_Literal 2) , [], [])) , [OverflowCheck], []))))
 )))];

@@ -270,6 +270,7 @@ type_conversion.adb
                           <refName>Y</refName>
                           <ref>ada://parameter/Type_Conversion-1:9/Convert-3:14/Y-3:22</ref>
                           <type>ada://ordinary_type/Standard-1:1/Float-1:1</type>
+                          <checks>do_range_check</checks>
                         </expression>
                       </convertedOrQualifiedExpressionQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>

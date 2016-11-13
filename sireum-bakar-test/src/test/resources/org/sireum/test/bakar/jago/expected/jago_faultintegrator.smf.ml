@@ -17,7 +17,7 @@ NullDecl (* Undefined Declarations ! *))),
   { parameter_astnum = 9; parameter_name = ((*CurrentEvent*) 8); parameter_subtype_mark = Boolean; parameter_mode = In }; 
   { parameter_astnum = 10; parameter_name = ((*IntegratedEvent*) 9); parameter_subtype_mark = Boolean; parameter_mode = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDecl],
+    NullDecl,
     (* = = = Procedure Body = = = *)
     (Seq (11,
     (If (12, (Name (13, (Identifier (14, ((*CurrentEvent*) 8) )))),
@@ -55,7 +55,7 @@ let Symbol_Table = {
 { parameter_astnum = 9; parameter_name = ((*CurrentEvent*) 8); parameter_subtype_mark = Boolean; parameter_mode = In }; 
 { parameter_astnum = 10; parameter_name = ((*IntegratedEvent*) 9); parameter_subtype_mark = Boolean; parameter_mode = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDecl],
+  NullDecl,
   (* = = = Procedure Body = = = *)
   (Seq (11,
   (If (12, (Name (13, (Identifier (14, ((*CurrentEvent*) 8) )))),
@@ -122,7 +122,7 @@ NullDeclRT (* Undefined Declarations ! *))),
   { parameter_astnumRT = 9; parameter_nameRT = ((*CurrentEvent*) 8); parameter_subtype_markRT = Boolean; parameter_modeRT = In }; 
   { parameter_astnumRT = 10; parameter_nameRT = ((*IntegratedEvent*) 9); parameter_subtype_markRT = Boolean; parameter_modeRT = Out }],
     (* = = = Object Declarations = = = *)
-    [NullDeclRT],
+    NullDeclRT,
     (* = = = Procedure Body = = = *)
     (SeqRT (11,
     (IfRT (12, (NameRT (13, (IdentifierRT (14, ((*CurrentEvent*) 8) , [])))),
@@ -160,7 +160,7 @@ let Symbol_TableRT = {
 { parameter_astnumRT = 9; parameter_nameRT = ((*CurrentEvent*) 8); parameter_subtype_markRT = Boolean; parameter_modeRT = In }; 
 { parameter_astnumRT = 10; parameter_nameRT = ((*IntegratedEvent*) 9); parameter_subtype_markRT = Boolean; parameter_modeRT = Out }],
   (* = = = Object Declarations = = = *)
-  [NullDeclRT],
+  NullDeclRT,
   (* = = = Procedure Body = = = *)
   (SeqRT (11,
   (IfRT (12, (NameRT (13, (IdentifierRT (14, ((*CurrentEvent*) 8) , [])))),

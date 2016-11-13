@@ -1327,11 +1327,13 @@ p_complex.adb
                                                   </isPrefixNotation>
                                                 </isPrefixNotationQ>
                                                 <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                <checks>do_overflow_check</checks>
                                               </expression>
                                             </expressionParenthesizedQ>
                                             <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
                                           </expression>
                                         </actualParameterQ>
+                                        <checks>do_overflow_check</checks>
                                       </org.sireum.bakar.xml.ParameterAssociation>
                                       <org.sireum.bakar.xml.ParameterAssociation>
                                         <sloc>
@@ -1411,6 +1413,7 @@ p_complex.adb
                                     </isPrefixNotation>
                                   </isPrefixNotationQ>
                                   <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                  <checks>do_overflow_check</checks>
                                 </expression>
                               </assignmentExpressionQ>
                             </org.sireum.bakar.xml.AssignmentStatement>
@@ -1898,11 +1901,13 @@ p_complex.adb
                                                                         </isPrefixNotation>
                                                                       </isPrefixNotationQ>
                                                                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                                      <checks>do_overflow_check</checks>
                                                                     </expression>
                                                                   </expressionParenthesizedQ>
                                                                   <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
                                                                 </expression>
                                                               </actualParameterQ>
+                                                              <checks>do_overflow_check</checks>
                                                             </org.sireum.bakar.xml.ParameterAssociation>
                                                             <org.sireum.bakar.xml.ParameterAssociation>
                                                               <sloc>
@@ -1982,11 +1987,13 @@ p_complex.adb
                                                           </isPrefixNotation>
                                                         </isPrefixNotationQ>
                                                         <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                                        <checks>do_overflow_check</checks>
                                                       </expression>
                                                     </expressionParenthesizedQ>
                                                     <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
                                                   </expression>
                                                 </actualParameterQ>
+                                                <checks>do_overflow_check</checks>
                                               </org.sireum.bakar.xml.ParameterAssociation>
                                               <org.sireum.bakar.xml.ParameterAssociation>
                                                 <sloc>
@@ -2042,11 +2049,13 @@ p_complex.adb
                                             </isPrefixNotation>
                                           </isPrefixNotationQ>
                                           <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                                          <checks>do_overflow_check</checks>
                                         </expression>
                                       </expressionParenthesizedQ>
                                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
                                     </expression>
                                   </actualParameterQ>
+                                  <checks>do_overflow_check</checks>
                                 </org.sireum.bakar.xml.ParameterAssociation>
                                 <org.sireum.bakar.xml.ParameterAssociation>
                                   <sloc>
@@ -2126,6 +2135,7 @@ p_complex.adb
                               </isPrefixNotation>
                             </isPrefixNotationQ>
                             <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                            <checks>do_overflow_check</checks>
                           </expression>
                         </assignmentExpressionQ>
                       </org.sireum.bakar.xml.AssignmentStatement>
@@ -2488,6 +2498,7 @@ p_complex.adb
                         </isPrefixNotation>
                       </isPrefixNotationQ>
                       <type>ada://ordinary_type/Standard-1:1/Integer-1:1</type>
+                      <checks>do_overflow_check</checks>
                     </expression>
                   </assignmentExpressionQ>
                 </org.sireum.bakar.xml.AssignmentStatement>
