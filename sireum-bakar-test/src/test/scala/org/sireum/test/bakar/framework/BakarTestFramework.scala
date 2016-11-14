@@ -8,6 +8,7 @@ import java.net.URI
 
 import scala.util.matching.Regex
 
+import org.junit.Assert
 import org.scalatest.junit.JUnitTestFailedError
 import org.sireum.pipeline.PipelineConfiguration
 import org.sireum.pipeline.PipelineJob
@@ -100,7 +101,7 @@ trait BakarTestFileFramework[P <: ProjectFile] extends BakarTestFramework[P] {
       }
 
       val c = Configuration(p, edir, rdir, PipelineJob())
-      assert(pre(c))
+      Assert.assertTrue(pre(c))
 
       pipeline.compute(c.job)
 
@@ -126,10 +127,10 @@ trait BakarTestFileFramework[P <: ProjectFile] extends BakarTestFramework[P] {
             fw.close
             if (efile.exists) {
               val (expected, _) = FileUtil.readFileLines(efile.toURI.toString)
-              val result = StringUtil.readLines(results)
-              result should equal(expected)
+              val result = StringUtil.readLines(results).mkString("\n")
+              Assert.assertTrue(compare(expected.mkString("\n"), result))
 
-              assert(post(c))
+              Assert.assertTrue(post(c))
             } else {
               fail("Couldn't locate expected results")
             }
@@ -138,11 +139,14 @@ trait BakarTestFileFramework[P <: ProjectFile] extends BakarTestFramework[P] {
           case t: JUnitTestFailedError => throw (t)
           case e: Throwable =>
             e.printStackTrace
-            assert(false)
+            Assert.assertTrue(false)
         }
       }
     }
 
+    // override to change how comparisons are done
+    def compare(expected: String, results: String) = expected == results
+    
     def createGitIgnore(dir: File) {
       try {
         val fw = new FileWriter(new File(dir, ".gitignore"))
